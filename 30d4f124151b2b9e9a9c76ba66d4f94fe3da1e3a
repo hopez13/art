@@ -1,0 +1,751 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f34c9be_a7465276",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "This is already in mips64 name space. Change the enums to kLoadConst64Path*.",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 7
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_f34f3f36",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "We\u0027re not really interested in testing paths through LoadConst32() as it is simple and we test it with a few simple hard-coded tests. Just have two Dinsu paths here (kLoadConst64PathDinsu1 and kLoadConst64PathDinsu2) as there are two paths where it\u0027s used.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_532bb3e5",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Large bit masks are not comprehensible in decimal. Change to hex.",
+      "range": {
+        "startLine": 62,
+        "startChar": 28,
+        "endLine": 62,
+        "endChar": 36
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_deaf9794",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 49
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_335c6783",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "We don\u0027t need arbitrary types Rtype and Vtype. Use GpuRegister and int32_t as in the original implementation.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 57
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_d318832d",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "We\u0027re not really interested in testing paths through LoadConst32(). Remove all of these in this function.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_f34adfaf",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Make it a non-templated static inline function with int64_t in place of Vtype.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 53
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_33838735",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_c1c5f6a4",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Revert to the original code. See the comments at the very end of the function.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_b36e9798",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Get rid of the macro and hide the |\u003d inside LoadConst64Tester::RecordLoadConst64Path(path_mask), invoke it here as a-\u003eRecordLoadConst64Path(path_mask).\n\nMake an empty private Mips64Assembler::RecordLoadConst64Path(path_mask ATTRIBUTE_UNUSED) and add a comment saying it\u0027s a function for testing purposes.\n\nI think this should be the simplest and the most readable way of doing it. The compiler should be able to get rid of the dummy call in the context of class Mips64Assembler.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 6
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_732b4f2d",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "a-\u003eLoadConst32(a, rd, value);\na-\u003eDinsu(rd, rd, 32, 32);\na-\u003eRecordLoadConst64Path(kLoadConst64PathDinsu1);",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 42
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_d3e6c319",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "a-\u003eLoadConst32(a, rd, value);\na-\u003eDinsu(rd, rd, 32, 32);\na-\u003eRecordLoadConst64Path(kLoadConst64PathDinsu2);",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 44
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_a12c829c",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Revert this to how it was implemented originally and count it as a single kMipsPathCatchAll. This is a simple part (similar to LoadConst32()) and I think making sure we hit it and the loaded value is correct is sufficient here.",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_4108262f",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove. Too much complexity, poorly readable.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 34
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_0198eec1",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 50
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_beabc382",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "LoadConst64Tester",
+      "range": {
+        "startLine": 1690,
+        "startChar": 7,
+        "endLine": 1690,
+        "endChar": 22
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_47667628",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove empty line.",
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_87706edc",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "src_mask",
+      "range": {
+        "startLine": 1716,
+        "startChar": 13,
+        "endLine": 1716,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_a76d7200",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1717,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "dst_mask",
+      "range": {
+        "startLine": 1717,
+        "startChar": 13,
+        "endLine": 1717,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_67637a17",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_e17d9a18",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Do the check first, remove the empty line.",
+      "range": {
+        "startLine": 1740,
+        "startChar": 0,
+        "endLine": 1742,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_a19c825a",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1746,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_e1e03a29",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "regs_",
+      "range": {
+        "startLine": 1751,
+        "startChar": 11,
+        "endLine": 1751,
+        "endChar": 15
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_81e93e17",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "loadconst64_paths_",
+      "range": {
+        "startLine": 1753,
+        "startChar": 6,
+        "endLine": 1753,
+        "endChar": 21
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5ea487b6",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1754,
+        "startChar": 0,
+        "endLine": 1754,
+        "endChar": 22
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5e8d672c",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "GetPathsCovered",
+      "range": {
+        "startLine": 1757,
+        "startChar": 6,
+        "endLine": 1757,
+        "endChar": 18
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_7e8a2b17",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1757,
+        "startChar": 19,
+        "endLine": 1757,
+        "endChar": 23
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_e7568a37",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "const uint16_t",
+      "range": {
+        "startLine": 1764,
+        "startChar": 2,
+        "endLine": 1764,
+        "endChar": 10
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_27618210",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "imms",
+      "range": {
+        "startLine": 1764,
+        "startChar": 11,
+        "endLine": 1764,
+        "endChar": 15
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_c7518642",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Move the numbers:\n\n  const uint16_t aimm[] \u003d {\n      0, 1, 2, ...,\n      ...\n  };",
+      "range": {
+        "startLine": 1764,
+        "startChar": 22,
+        "endLine": 1766,
+        "endChar": 60
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_de987776",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "tester",
+      "range": {
+        "startLine": 1768,
+        "startChar": 18,
+        "endLine": 1768,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_474f568e",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Move outside the first for.",
+      "range": {
+        "startLine": 1771,
+        "startChar": 0,
+        "endLine": 1775,
+        "endChar": 0
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_273a62ee",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-02T06:14:21Z",
+      "side": 1,
+      "message": "Remove. On inequality both will be printed anyway.",
+      "range": {
+        "startLine": 1793,
+        "startChar": 61,
+        "endLine": 1793,
+        "endChar": 82
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
