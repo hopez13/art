@@ -1052,6 +1052,14 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
         frame_size - GetCoreSpillSize());
     GetAssembler()->SpillRegisters(GetFramePreservedFPRegisters(),
         frame_size - FrameEntrySpillSize());
+
+    if (GetGraph()->HasShouldDeoptimizeFlag()) {
+      // Initialize should_deoptimize flag to 0.
+      UseScratchRegisterScope temps(masm);
+      Register temp = temps.AcquireW();
+      __ Mov(temp, 0);
+      __ Str(temp, MemOperand(sp, frame_size - FrameEntrySpillSize() - kShouldDeoptimizeFlagSize));
+    }
   }
 }
 
@@ -3008,6 +3016,18 @@ void InstructionCodeGeneratorARM64::VisitDeoptimize(HDeoptimize* deoptimize) {
                         /* condition_input_index */ 0,
                         slow_path->GetEntryLabel(),
                         /* false_target */ nullptr);
+}
+
+void LocationsBuilderARM64::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  LocationSummary* locations = new (GetGraph()->GetArena())
+      LocationSummary(flag, LocationSummary::kNoCall);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorARM64::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  int offset = codegen_->GetFrameSize() - codegen_->FrameEntrySpillSize()
+      - kShouldDeoptimizeFlagSize;
+  __ Ldr(OutputRegister(flag), MemOperand(sp, offset));
 }
 
 static inline bool IsConditionOnFloatingPointValues(HInstruction* condition) {

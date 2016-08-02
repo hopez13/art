@@ -895,6 +895,11 @@ void CodeGeneratorX86::GenerateFrameEntry() {
     }
   }
 
+  if (GetGraph()->HasShouldDeoptimizeFlag()) {
+    // Initialize should_deoptimize flag to 0.
+    __ movl(Address(ESP, -kShouldDeoptimizeFlagSize), Immediate(0));
+  }
+
   int adjust = GetFrameSize() - FrameEntrySpillSize();
   __ subl(ESP, Immediate(adjust));
   __ cfi().AdjustCFAOffset(adjust);
@@ -1505,6 +1510,18 @@ void InstructionCodeGeneratorX86::VisitDeoptimize(HDeoptimize* deoptimize) {
                                /* condition_input_index */ 0,
                                slow_path->GetEntryLabel(),
                                /* false_target */ nullptr);
+}
+
+void LocationsBuilderX86::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  LocationSummary* locations = new (GetGraph()->GetArena())
+      LocationSummary(flag, LocationSummary::kNoCall);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorX86::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  int offset = codegen_->GetFrameSize() - codegen_->FrameEntrySpillSize()
+      - kShouldDeoptimizeFlagSize;
+  __ movl(flag->GetLocations()->Out().AsRegister<Register>(), Address(ESP, offset));
 }
 
 static bool SelectCanUseCMOV(HSelect* select) {

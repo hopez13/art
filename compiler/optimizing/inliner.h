@@ -62,8 +62,12 @@ class HInliner : public HOptimization {
 
   // Try to inline `resolved_method` in place of `invoke_instruction`. `do_rtp` is whether
   // reference type propagation can run after the inlining. If the inlining is successful, this
-  // method will replace and remove the `invoke_instruction`.
-  bool TryInlineAndReplace(HInvoke* invoke_instruction, ArtMethod* resolved_method, bool do_rtp)
+  // method will replace and remove the `invoke_instruction`. If `cha_devirtualize` is true,
+  // a CHA guard needs to be added for the inlining.
+  bool TryInlineAndReplace(HInvoke* invoke_instruction,
+                           ArtMethod* resolved_method,
+                           bool do_rtp,
+                           bool cha_devirtualize)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool TryBuildAndInline(HInvoke* invoke_instruction,
@@ -118,6 +122,22 @@ class HInliner : public HOptimization {
                                             const InlineCache& ic)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns whether we need a CHA guard for `invoke_instruction` if it's
+  // devirtualized based on CHA analysis.
+  bool IsCHAGuardNecessary(HInstruction* invoke_instruction);
+
+  // Try CHA-based devirtulization to change virtual method calls into
+  // direct calls.
+  // Returns the actual method that resolved_method can be devirtualized to.
+  ArtMethod* TryCHADevirtualization(const ScopedObjectAccess& soa,
+                                    ArtMethod* resolved_method,
+                                    uint32_t dex_pc)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void AddCHAGuard(HInstruction* invoke_instruction,
+                   uint32_t dex_pc,
+                   HInstruction* cursor,
+                   HBasicBlock* bb_cursor);
 
   HInstanceFieldGet* BuildGetReceiverClass(ClassLinker* class_linker,
                                            HInstruction* receiver,

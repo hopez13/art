@@ -1126,6 +1126,13 @@ void CodeGeneratorARM::GenerateFrameEntry() {
     __ cfi().AdjustCFAOffset(kArmWordSize * POPCOUNT(fpu_spill_mask_));
     __ cfi().RelOffsetForMany(DWARFReg(S0), 0, fpu_spill_mask_, kArmWordSize);
   }
+
+  if (GetGraph()->HasShouldDeoptimizeFlag()) {
+    // Initialize should_deoptimize flag to 0.
+    __ mov(IP, ShifterOperand(0));
+    __ StoreToOffset(kStoreWord, IP, SP, -kShouldDeoptimizeFlagSize);
+  }
+
   int adjust = GetFrameSize() - FrameEntrySpillSize();
   __ AddConstant(SP, -adjust);
   __ cfi().AdjustCFAOffset(adjust);
@@ -1733,6 +1740,18 @@ void InstructionCodeGeneratorARM::VisitDeoptimize(HDeoptimize* deoptimize) {
                         /* condition_input_index */ 0,
                         slow_path->GetEntryLabel(),
                         /* false_target */ nullptr);
+}
+
+void LocationsBuilderARM::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  LocationSummary* locations = new (GetGraph()->GetArena())
+      LocationSummary(flag, LocationSummary::kNoCall);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorARM::VisitDeoptimizationFlag(HDeoptimizationFlag* flag) {
+  int offset = codegen_->GetFrameSize() - codegen_->FrameEntrySpillSize()
+      - kShouldDeoptimizeFlagSize;
+  __ LoadFromOffset(kLoadWord, flag->GetLocations()->Out().AsRegister<Register>(), SP, offset);
 }
 
 void LocationsBuilderARM::VisitSelect(HSelect* select) {

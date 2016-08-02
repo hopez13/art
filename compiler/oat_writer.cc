@@ -770,7 +770,7 @@ class OatWriter::InitCodeMethodVisitor : public OatDexMethodVisitor {
       // Update quick method header.
       DCHECK_LT(method_offsets_index_, oat_class->method_headers_.size());
       OatQuickMethodHeader* method_header = &oat_class->method_headers_[method_offsets_index_];
-      uint32_t vmap_table_offset = method_header->vmap_table_offset_;
+      uint32_t vmap_table_offset = method_header->GetVmapTableOffset();
       // If we don't have quick code, then we must have a vmap, as that is how the dex2dex
       // compiler records its transformations.
       DCHECK(!quick_code.empty() || vmap_table_offset != 0);
@@ -893,7 +893,7 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
 
     if (compiled_method != nullptr) {
       DCHECK_LT(method_offsets_index_, oat_class->method_offsets_.size());
-      DCHECK_EQ(oat_class->method_headers_[method_offsets_index_].vmap_table_offset_, 0u);
+      DCHECK_EQ(oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset(), 0u);
 
       ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
       uint32_t map_size = map.size() * sizeof(map[0]);
@@ -907,7 +907,7 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
             });
         // Code offset is not initialized yet, so set the map offset to 0u-offset.
         DCHECK_EQ(oat_class->method_offsets_[method_offsets_index_].code_offset_, 0u);
-        oat_class->method_headers_[method_offsets_index_].vmap_table_offset_ = 0u - offset;
+        oat_class->method_headers_[method_offsets_index_].SetVmapTableOffset(0u - offset);
       }
       ++method_offsets_index_;
     }
@@ -1363,7 +1363,7 @@ class OatWriter::WriteMapMethodVisitor : public OatDexMethodVisitor {
       size_t file_offset = file_offset_;
       OutputStream* out = out_;
 
-      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].vmap_table_offset_;
+      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset();
       uint32_t code_offset = oat_class->method_offsets_[method_offsets_index_].code_offset_;
       ++method_offsets_index_;
 
