@@ -104,6 +104,30 @@
       "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_229ecd5f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T18:15:57Z",
+      "side": 1,
+      "message": "ah good point; I was trying to be too compact here",
+      "parentUuid": "8f1add55_861fac73",
+      "range": {
+        "startLine": 803,
+        "startChar": 11,
+        "endLine": 803,
+        "endChar": 13
+      },
+      "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
