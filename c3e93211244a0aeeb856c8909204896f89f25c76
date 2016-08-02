@@ -622,6 +622,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_c14190f7",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-02T00:00:50Z",
+      "side": 1,
+      "message": "I noticed it happens quite frequently in art_method and any other parameters that take a pointer_size to get offsets.",
+      "parentUuid": "af44013b_80b226e1",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_a4f73ef8",
         "filename": "runtime/arch/arm/fault_handler_arm.cc",
         "patchSetId": 2
@@ -896,6 +914,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_b37db719",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-02T00:00:50Z",
+      "side": 1,
+      "message": "-inl would be good",
+      "parentUuid": "af44013b_a019e2e1",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_84287a30",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -925,6 +961,24 @@
       "side": 1,
       "message": "What exactly do you mean? The test overall? Yeah, it will tell you you can\u0027t run with a 32-bit boot.oat when running 64-bit dalvikvm.",
       "parentUuid": "6f34c9be_84287a30",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c1e6f019",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-02T00:00:50Z",
+      "side": 1,
+      "message": "The StringPrintf.. it takes va_args so the enum has the same exact size as size_t and is bit-for-bit identical. So unless printf is warning here (it might not be smart enough) then it\u0027s not strictly necessary to have this cast.",
+      "parentUuid": "af44013b_202ed2f6",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1065,6 +1119,24 @@
       "side": 1,
       "message": "This was guaranteed compile-time evaluated for the save frames, so it seemed OK to use conditionals instead of lookup table, whereas the version in instruction_set is known to have to work on parameters unknown at runtime. That\u0027s the original reason not to merge.\n\nAs mentioned, once we do move to C++14, this can be deleted.",
       "parentUuid": "6f34c9be_ff8c632c",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_6100dc9d",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-02T00:00:50Z",
+      "side": 1,
+      "message": "I thought I saw c++14 flags somewhere, maybe not.",
+      "parentUuid": "af44013b_800ea685",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1362,6 +1434,30 @@
       "side": 1,
       "message": "No. It means there are four new virtual methods in Reference. Should this be a constexpr? Probably.\n\n(Not related to this CL.)",
       "parentUuid": "6f34c9be_5f9baf0a",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_01bf18c6",
+        "filename": "runtime/mirror/reference-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-02T00:00:50Z",
+      "side": 1,
+      "message": "Well I mean shouldn\u0027t it at least be a kReferenceVtableCount \u003d 4 ?",
+      "parentUuid": "af44013b_c0b18e95",
       "range": {
         "startLine": 26,
         "startChar": 52,
