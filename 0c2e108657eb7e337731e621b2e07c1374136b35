@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1add55_c6bfe474",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-08-02T13:31:14Z",
+      "side": 1,
+      "message": "This should be changed to kMips64PointerSize like in https://android-review.googlesource.com/#/c/251065/4/compiler/optimizing/intrinsics_mips64.cc",
+      "range": {
+        "startLine": 1943,
+        "startChar": 44,
+        "endLine": 1943,
+        "endChar": 65
+      },
+      "revId": "0c2e108657eb7e337731e621b2e07c1374136b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
