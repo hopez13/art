@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_58b5d594",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T20:49:32Z",
+      "side": 1,
+      "message": "I thought about that too to avoid branching on and around NaN, but if we do the unordered check at this point (on the diff), pos Infinity (with bits 7f800000) is mapped to 0, even though it should map to maxint. Likewise, -Infinity (with bits ff800000) is then 0 and not -2147483648",
+      "parentUuid": "8f1add55_461e9473",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f1add55_c629a4a1",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-02T18:36:40Z",
       "side": 1,
       "message": "What about large negative numbers?",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_15215659",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T20:49:32Z",
+      "side": 1,
+      "message": "cvtsi2ss already sets values that are too large or too small to 0x80000000. For maxint, that needs correction, for minint, that is correct rightaway (for once, an intel instruction at least does a bit what you want :-) :-)",
+      "parentUuid": "8f1add55_c629a4a1",
       "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
