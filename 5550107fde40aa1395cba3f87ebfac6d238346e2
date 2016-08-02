@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_22740d6b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T18:08:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f1add55_264c3898",
+      "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f1add55_064f3c8f",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-08-02T18:06:29Z",
       "side": 1,
       "message": "This seems to be for the non-SSE4.1 case. Can you check that it works correctly?",
+      "range": {
+        "startLine": 785,
+        "startChar": 32,
+        "endLine": 785,
+        "endChar": 59
+      },
+      "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_026f0997",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T18:08:40Z",
+      "side": 1,
+      "message": "For the non-SSE4.1 case, we do the \"fall back\" in locations visitor, after which we never seem to come back here again (since not kIntrinsified is set)? I was just wondering why this fall back was here.",
+      "parentUuid": "8f1add55_064f3c8f",
       "range": {
         "startLine": 785,
         "startChar": 32,
