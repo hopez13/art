@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3456aa15_6b90dd99",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T10:47:30Z",
+      "side": 1,
+      "message": "Math.max(float/double) does not currently produce HCompare.\n\nThere are tests in libcore/harmony-tests/src/test/java/org/apache/harmony/tests/java/lang/MathTest.java .\n\n(Note: This whole comment is copy-pasted from arm64, https://android-review.googlesource.com/#/c/207968/3/compiler/optimizing/code_generator_arm64.cc@2390 with substitution FCMP-\u003eVCMP.)",
+      "parentUuid": "f4533225_09c4cd0b",
+      "range": {
+        "startLine": 1305,
+        "startChar": 4,
+        "endLine": 1311,
+        "endChar": 17
+      },
+      "revId": "d2b080842140c95ded3f6134cdf1f61f50fd2688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3456aa15_6ba9fde3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
