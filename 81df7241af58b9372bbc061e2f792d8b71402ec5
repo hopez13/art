@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74d3c2eb_0c494b8b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-02T23:28:12Z",
+      "side": 1,
+      "message": "Line too long",
+      "revId": "81df7241af58b9372bbc061e2f792d8b71402ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_e7e980b1",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-02T23:28:12Z",
+      "side": 1,
+      "message": "Can you put this only around the waits? That would avoid overhead in case there is no suspend request.",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 31
+      },
+      "revId": "81df7241af58b9372bbc061e2f792d8b71402ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_0cbaab22",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-02T23:28:12Z",
+      "side": 1,
+      "message": "This will probably slow down ScopedObjectAccess for non CC, do we want to only do it if kUseReadBarrier is true?",
+      "range": {
+        "startLine": 1591,
+        "startChar": 11,
+        "endLine": 1591,
+        "endChar": 39
+      },
+      "revId": "81df7241af58b9372bbc061e2f792d8b71402ec5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
