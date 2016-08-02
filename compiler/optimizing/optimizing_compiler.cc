@@ -1186,7 +1186,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
       codegen->GetFpuSpillMask(),
       code_allocator.GetMemory().data(),
       code_allocator.GetSize(),
-      osr);
+      osr,
+      codegen->GetGraph()->HasShouldDeoptimizeFlag(),
+      codegen->GetGraph()->GetCHASingleImplementationList());
 
   if (code == nullptr) {
     code_cache->ClearData(self, stack_map_data);
