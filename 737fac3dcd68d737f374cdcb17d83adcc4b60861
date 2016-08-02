@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "942d9696_aef817e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-02T10:42:51Z",
+      "side": 1,
+      "message": "I think the commit message is a bit misleading: you\u0027re still technically allocating space for a VIXL macro assembler from/within the ART ARM64 assembler.  Maybe say something like \"Make the VIXL macro assembler allocation part of ART\u0027s ARM64 assembler\u0027s\"?",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "746022e5_d0bf74a1",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-02T10:42:51Z",
+      "side": 1,
+      "message": "This feels odd that the code generator has access to one of the assembler\u0027s internal fields.  Could we turn `art::arm64::Arm64Assembler::vixl_masm_` into a private member and add an accessor?",
+      "range": {
+        "startLine": 246,
+        "startChar": 78,
+        "endLine": 246,
+        "endChar": 88
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b430dae9_0f54c9c9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-02T10:42:51Z",
+      "side": 1,
+      "message": "Thanks for the refactoring!",
+      "range": {
+        "startLine": 65,
+        "startChar": 19,
+        "endLine": 65,
+        "endChar": 35
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_06e9fcad",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-02T10:42:51Z",
+      "side": 1,
+      "message": "So I assume it is fine to have the VIXL macro assembler being default constructed?",
+      "range": {
+        "startLine": 287,
+        "startChar": 32,
+        "endLine": 287,
+        "endChar": 42
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
