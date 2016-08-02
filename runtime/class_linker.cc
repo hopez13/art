@@ -93,6 +93,7 @@
 #include "ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
+#include "thread_list.h"
 #include "trace.h"
 #include "utils.h"
 #include "utils/dex_cache_arrays_layout-inl.h"
@@ -328,7 +329,8 @@ ClassLinker::ClassLinker(InternTable* intern_table)
       quick_imt_conflict_trampoline_(nullptr),
       quick_generic_jni_trampoline_(nullptr),
       quick_to_interpreter_bridge_trampoline_(nullptr),
-      image_pointer_size_(kRuntimePointerSize) {
+      image_pointer_size_(kRuntimePointerSize),
+      cha_() {
   CHECK(intern_table_ != nullptr);
   static_assert(kFindArrayCacheSize == arraysize(find_array_class_cache_),
                 "Array cache size wrong.");
@@ -5179,6 +5181,12 @@ bool ClassLinker::LinkClass(Thread* self,
     if (klass->ShouldHaveImt()) {
       klass->SetImt(imt, image_pointer_size_);
     }
+
+    // Update CHA info based on whether we override methods.
+    // Have to do this before setting the class as resolved which allows
+    // instantiation of klass.
+    cha_.Update(klass);
+
     // This will notify waiters on klass that saw the not yet resolved
     // class in the class_table_ during EnsureResolved.
     mirror::Class::SetStatus(klass, mirror::Class::kStatusResolved, self);
@@ -5229,6 +5237,11 @@ bool ClassLinker::LinkClass(Thread* self,
         new_class_roots_.push_back(GcRoot<mirror::Class>(h_new_class.Get()));
       }
     }
+
+    // Update CHA info based on whether we override methods.
+    // Have to do this before setting the class as resolved which allows
+    // instantiation of klass.
+    cha_.Update(h_new_class);
 
     // This will notify waiters on temp class that saw the not yet resolved class in the
     // class_table_ during EnsureResolved.

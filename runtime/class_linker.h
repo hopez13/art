@@ -29,6 +29,7 @@
 #include "base/hash_set.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "cha.h"
 #include "class_table.h"
 #include "dex_cache_resolved_classes.h"
 #include "dex_file.h"
@@ -670,6 +671,10 @@ class ClassLinker {
   mirror::Class* GetHoldingClassOfCopiedMethod(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ClassHierarchyAnalysis& GetClassHierarchyAnalysis() {
+    return cha_;
+  }
+
   struct DexCacheData {
     // Weak root to the DexCache. Note: Do not decode this unnecessarily or else class unloading may
     // not work properly.
@@ -1180,6 +1185,12 @@ class ClassLinker {
 
   InternTable* intern_table_;
 
+  // A map that maps a method to a set of compiled code that assumes that method has a
+  // single implementation, which is used to do CHA-based devirtualization.
+  std::unordered_map<ArtMethod*,
+      std::vector<std::pair<ArtMethod*, OatQuickMethodHeader*>>*> cha_dependency_map_
+          GUARDED_BY(Locks::cha_lock_);
+
   // Trampolines within the image the bounce to runtime entrypoints. Done so that there is a single
   // patch point within the image. TODO: make these proper relocations.
   const void* quick_resolution_trampoline_;
@@ -1189,6 +1200,8 @@ class ClassLinker {
 
   // Image pointer size.
   PointerSize image_pointer_size_;
+
+  ClassHierarchyAnalysis cha_;
 
   class FindVirtualMethodHolderVisitor;
   friend struct CompilationHelper;  // For Compile in ImageTest.

@@ -45,6 +45,7 @@ cc_defaults {
         "base/timing_logger.cc",
         "base/unix_file/fd_file.cc",
         "base/unix_file/random_access_file_utils.cc",
+        "cha.cc",
         "check_jni.cc",
         "class_linker.cc",
         "class_table.cc",

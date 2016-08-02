@@ -67,6 +67,11 @@ static constexpr uint32_t kAccCompileDontBother =     0x01000000;  // method (ru
 
 // Set by the verifier for a method that could not be verified to follow structured locking.
 static constexpr uint32_t kAccMustCountLocks =        0x02000000;  // method (runtime)
+
+// Set by the class linker for a method that has only one implementation for a
+// virtual call.
+static constexpr uint32_t kAccSingleImplementation =  0x04000000;  // method (runtime)
+
 static constexpr uint32_t kAccIntrinsic  =            0x80000000;  // method (runtime)
 
 // Special runtime-only flags.
@@ -88,7 +93,7 @@ static constexpr uint32_t kAccValidFieldFlags = kAccPublic | kAccPrivate | kAccP
 static constexpr uint32_t kAccValidMethodFlags = kAccPublic | kAccPrivate | kAccProtected |
     kAccStatic | kAccFinal | kAccSynchronized | kAccBridge | kAccVarargs | kAccNative |
     kAccAbstract | kAccStrict | kAccSynthetic | kAccMiranda | kAccConstructor |
-    kAccDeclaredSynchronized;
+    kAccDeclaredSynchronized | kAccSingleImplementation;
 
 // Valid (meaningful) bits for a class (not interface).
 // Note 1. These are positive bits. Other bits may have to be zero.
@@ -102,6 +107,8 @@ static constexpr uint32_t kAccValidClassFlags = kAccPublic | kAccFinal | kAccSup
 // Note 3. Inner classes can expose more access flags to Java programs. That is handled by libcore.
 static constexpr uint32_t kAccValidInterfaceFlags = kAccPublic | kAccInterface |
     kAccAbstract | kAccSynthetic | kAccAnnotation;
+
+static_assert(kAccSingleImplementation != kAccIntrinsic, "conflicting flags");
 
 }  // namespace art
 

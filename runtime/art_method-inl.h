@@ -104,7 +104,7 @@ inline uint32_t ArtMethod::GetAccessFlags() {
       DoGetAccessFlagsHelper<kReadBarrierOption>(this);
     }
   }
-  return access_flags_;
+  return access_flags_.load(std::memory_order_relaxed);
 }
 
 inline uint16_t ArtMethod::GetMethodIndex() {
@@ -472,7 +472,7 @@ void ArtMethod::VisitRoots(RootVisitorType& visitor, PointerSize pointer_size) {
       // Runtime methods and native methods use the same field as the profiling info for
       // storing their own data (jni entrypoint for native methods, and ImtConflictTable for
       // some runtime methods).
-      if (!IsNative<kReadBarrierOption>() && !IsRuntimeMethod()) {
+      if (!IsNative<kReadBarrierOption>() && !IsRuntimeMethod() && !IsAbstract()) {
         ProfilingInfo* profiling_info = GetProfilingInfo(pointer_size);
         if (profiling_info != nullptr) {
           profiling_info->VisitRoots(visitor);

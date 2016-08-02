@@ -203,7 +203,9 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   size_t fp_spill_mask,
                                   const uint8_t* code,
                                   size_t code_size,
-                                  bool osr) {
+                                  bool osr,
+                                  bool has_should_deoptimize_flag,
+                                  const ArenaSet<ArtMethod*>& cha_single_implementation_list) {
   uint8_t* result = CommitCodeInternal(self,
                                        method,
                                        vmap_table,
@@ -212,7 +214,9 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                        fp_spill_mask,
                                        code,
                                        code_size,
-                                       osr);
+                                       osr,
+                                       has_should_deoptimize_flag,
+                                       cha_single_implementation_list);
   if (result == nullptr) {
     // Retry.
     GarbageCollectCache(self);
@@ -224,7 +228,9 @@ uint8_t* JitCodeCache::CommitCode(Thread* self,
                                 fp_spill_mask,
                                 code,
                                 code_size,
-                                osr);
+                                osr,
+                                has_should_deoptimize_flag,
+                                cha_single_implementation_list);
   }
   return result;
 }
@@ -253,8 +259,8 @@ void JitCodeCache::FreeCode(const void* code_ptr, ArtMethod* method ATTRIBUTE_UN
   // Use the offset directly to prevent sanity check that the method is
   // compiled with optimizing.
   // TODO(ngeoffray): Clean up.
-  if (method_header->vmap_table_offset_ != 0) {
-    const uint8_t* data = method_header->code_ - method_header->vmap_table_offset_;
+  if (method_header->GetVmapTableOffset() != 0) {
+    const uint8_t* data = method_header->GetCode() - method_header->GetVmapTableOffset();
     FreeData(const_cast<uint8_t*>(data));
   }
   FreeCode(reinterpret_cast<uint8_t*>(allocation));
@@ -314,7 +320,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           size_t fp_spill_mask,
                                           const uint8_t* code,
                                           size_t code_size,
-                                          bool osr) {
+                                          bool osr,
+                                          bool has_should_deoptimize_flag,
+                                          const ArenaSet<ArtMethod*>&
+                                              cha_single_implementation_list) {
   size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
   // Ensure the header ends up at expected instruction alignment.
   size_t header_size = RoundUp(sizeof(OatQuickMethodHeader), alignment);
@@ -343,6 +352,10 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
           core_spill_mask,
           fp_spill_mask,
           code_size);
+      DCHECK(!Runtime::Current()->IsAotCompiler());
+      if (has_should_deoptimize_flag) {
+        method_header->SetHasShouldDeoptimizeFlag();
+      }
     }
 
     FlushInstructionCache(reinterpret_cast<char*>(code_ptr),
@@ -351,6 +364,33 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   }
   // We need to update the entry point in the runnable state for the instrumentation.
   {
+    // Need cha_lock_ for checking all single-implementation flags and register
+    // dependencies.
+    MutexLock cha_mu(self, *Locks::cha_lock_);
+    bool single_impl_still_valid = true;
+    for (ArtMethod* single_impl : cha_single_implementation_list) {
+      if (!single_impl->HasSingleImplementation()) {
+        // We simply discard the compiled code. Clear the
+        // counter so that it may be recompiled later. Hopefully the
+        // class hierarchy will be more stable when compilation is retried.
+        single_impl_still_valid = false;
+        method->ClearCounter();
+        break;
+      }
+    }
+    if (!single_impl_still_valid) {
+      VLOG(jit) << "JIT discarded jitted code due to single-implementation assumptions "
+                << "are invalidated during compilation.";
+      return nullptr;
+    }
+    for (ArtMethod* single_impl : cha_single_implementation_list) {
+      Runtime::Current()->GetClassLinker()->GetClassHierarchyAnalysis().AddDependency(
+          single_impl, method, method_header);
+    }
+
+    // The following needs to be guarded by cha_lock_ also. Otherwise it's
+    // possible that the compiled code is considered invalidated by some class linking,
+    // but below we still make the compiled code valid for the method.
     MutexLock mu(self, lock_);
     method_code_map_.Put(code_ptr, method);
     if (osr) {
@@ -360,6 +400,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
           method, method_header->GetEntryPoint());
     }
+
     if (collection_in_progress_) {
       // We need to update the live bitmap if there is a GC to ensure it sees this new
       // code.
@@ -372,7 +413,8 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
         << " ccache_size=" << PrettySize(CodeCacheSizeLocked()) << ": "
         << " dcache_size=" << PrettySize(DataCacheSizeLocked()) << ": "
         << reinterpret_cast<const void*>(method_header->GetEntryPoint()) << ","
-        << reinterpret_cast<const void*>(method_header->GetEntryPoint() + method_header->code_size_);
+        << reinterpret_cast<const void*>(method_header->GetEntryPoint() +
+                                         method_header->GetCodeSize());
     histogram_code_memory_use_.AddValue(code_size);
     if (code_size > kCodeSizeLogThreshold) {
       LOG(INFO) << "JIT allocated "

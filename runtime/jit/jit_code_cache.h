@@ -20,6 +20,7 @@
 #include "instrumentation.h"
 
 #include "atomic.h"
+#include "base/arena_containers.h"
 #include "base/histogram-inl.h"
 #include "base/macros.h"
 #include "base/mutex.h"
@@ -90,6 +91,11 @@ class JitCodeCache {
       REQUIRES(!lock_);
 
   // Allocate and write code and its metadata to the code cache.
+  // `cha_single_implementation_list` needs to be registered via CHA (if it's
+  // still valid), since the compiled code still needs to be invalidated if the
+  // single-implementation assumptions are violated later. This needs to be done
+  // even if `has_should_deoptimize_flag` is false, which can happen due to CHA
+  // guard elimination.
   uint8_t* CommitCode(Thread* self,
                       ArtMethod* method,
                       const uint8_t* vmap_table,
@@ -98,7 +104,9 @@ class JitCodeCache {
                       size_t fp_spill_mask,
                       const uint8_t* code,
                       size_t code_size,
-                      bool osr)
+                      bool osr,
+                      bool has_should_deoptimize_flag,
+                      const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!lock_);
 
@@ -207,7 +215,9 @@ class JitCodeCache {
                               size_t fp_spill_mask,
                               const uint8_t* code,
                               size_t code_size,
-                              bool osr)
+                              bool osr,
+                              bool has_should_deoptimize_flag,
+                              const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
