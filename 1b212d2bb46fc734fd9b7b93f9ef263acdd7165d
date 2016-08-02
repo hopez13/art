@@ -46,6 +46,30 @@
       "revId": "1b212d2bb46fc734fd9b7b93f9ef263acdd7165d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_3b324b0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-02T21:39:16Z",
+      "side": 1,
+      "message": "Because the code cannot be interrupted between the creation of the profiling info and the compilation.",
+      "parentUuid": "74d3c2eb_78b3f999",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "1b212d2bb46fc734fd9b7b93f9ef263acdd7165d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
