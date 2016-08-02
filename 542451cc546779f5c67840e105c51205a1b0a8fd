@@ -22,6 +22,30 @@
       "revId": "542451cc546779f5c67840e105c51205a1b0a8fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_323622eb",
+        "filename": "runtime/arch/mips/thread_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-02T14:48:01Z",
+      "side": 1,
+      "message": "Huh, doesn\u0027t look like it is.",
+      "parentUuid": "6f34c9be_e773ea82",
+      "range": {
+        "startLine": 28,
+        "startChar": 66,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "542451cc546779f5c67840e105c51205a1b0a8fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
