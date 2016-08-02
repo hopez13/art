@@ -1177,7 +1177,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
   }
   MaybeRecordStat(MethodCompilationStat::kCompiled);
   codegen->BuildStackMaps(MemoryRegion(stack_map_data, stack_map_size), *code_item);
-  const void* code = code_cache->CommitCode(
+
+  void* code = code_cache->CommitCode(
       self,
       method,
       stack_map_data,
@@ -1186,7 +1187,9 @@ bool OptimizingCompiler::JitCompile(Thread* self,
       codegen->GetFpuSpillMask(),
       code_allocator.GetMemory().data(),
       code_allocator.GetSize(),
-      osr);
+      osr,
+      codegen->GetGraph()->HasShouldDeoptimizeFlag(),
+      codegen->GetGraph()->GetCHASingleImplementationList());
 
   if (code == nullptr) {
     code_cache->ClearData(self, stack_map_data);
