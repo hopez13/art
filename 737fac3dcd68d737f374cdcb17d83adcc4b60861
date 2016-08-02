@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f1add55_66355041",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-02T12:25:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "942d9696_aef817e1",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "746022e5_d0bf74a1",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-02T10:42:51Z",
       "side": 1,
       "message": "This feels odd that the code generator has access to one of the assembler\u0027s internal fields.  Could we turn `art::arm64::Arm64Assembler::vixl_masm_` into a private member and add an accessor?",
+      "range": {
+        "startLine": 246,
+        "startChar": 78,
+        "endLine": 246,
+        "endChar": 88
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_a6074871",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-02T12:25:48Z",
+      "side": 1,
+      "message": "Ok, done.",
+      "parentUuid": "746022e5_d0bf74a1",
       "range": {
         "startLine": 246,
         "startChar": 78,
@@ -106,6 +154,30 @@
       "side": 1,
       "message": "The vixl::aarch64::Assembler\u0027s default capacity is \"4 * KBytes\" which is the same as kArm64BaseBufferSize.\n\nBut if kArm64BaseBufferSize becomes unused, the file constants_arm64.h will be unnecessary and should be removed.",
       "parentUuid": "8f1add55_06e9fcad",
+      "range": {
+        "startLine": 287,
+        "startChar": 32,
+        "endLine": 287,
+        "endChar": 42
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_c6fc4464",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-02T12:25:48Z",
+      "side": 1,
+      "message": "Yes it is perfectly fine. We should really have had that earlier.\n\nRemoved `constants_arm64.h`.",
+      "parentUuid": "746022e5_10f50c83",
       "range": {
         "startLine": 287,
         "startChar": 32,
