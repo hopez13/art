@@ -81,6 +81,29 @@
       "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_861fac73",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T18:12:17Z",
+      "side": 1,
+      "message": "We must not clobber the input if it\u0027s subsequently used by another instruction. Please add a test where the input is used again later.",
+      "range": {
+        "startLine": 803,
+        "startChar": 11,
+        "endLine": 803,
+        "endChar": 13
+      },
+      "revId": "5550107fde40aa1395cba3f87ebfac6d238346e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
