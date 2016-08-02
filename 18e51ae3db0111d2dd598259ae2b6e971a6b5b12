@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f34c9be_cd3c477e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "too all -\u003e to all?\n\nmore importantly, why was this flag here? can we just remove it?",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_6d051bbd",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "I usually like to match par name with field name, but I noticed the others don\u0027t do that either",
+      "range": {
+        "startLine": 100,
+        "startChar": 43,
+        "endLine": 100,
+        "endChar": 53
+      },
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_8d640fbe",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "you warn on this at a few points, but why not be a bit more clear. what is incorrect, and be more specific what will happen? giving a non-existing pass name? giving the wrong set of passes? etc.",
+      "range": {
+        "startLine": 684,
+        "startChar": 49,
+        "endLine": 684,
+        "endChar": 60
+      },
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_adfd53a2",
+        "filename": "compiler/optimizing/constant_folding.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "this is a bit odd, perhaps better to have one pass name, but later concatenate that with a suffix for cases that run more than once?",
+      "range": {
+        "startLine": 48,
+        "startChar": 25,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_4123c660",
         "filename": "compiler/optimizing/optimization_factory.cc",
         "patchSetId": 1
@@ -31,6 +123,46 @@
       "side": 1,
       "message": "+1\n\nAlso sounds like a good idea to have a standardized way of naming the passes which has two parts: one common to all instances (like a class name) and one that is unique.\n\nSo e.g \"instruction_simplifier::after_bce\" would split the name and instantiate HInstructionSimplifier.",
       "parentUuid": "6f34c9be_4123c660",
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9f57d6cf",
+        "filename": "compiler/optimizing/optimization_factory.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "as discussed offline, I was originally under the impression we would just filter the already existing array of optimizations, but this idea is much neater. We can construct new arrays and experiment with whole new phase orderings.",
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_ff7d3218",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T17:36:50Z",
+      "side": 1,
+      "message": "instead of two new switches, why don\u0027t we restrict it to one, and allow for some syntax that interprets it differently, like \n\nfoo,bar,etc\n@methodfile.zip\n\n(and does it really need to be a zip file, will it be that large)",
+      "range": {
+        "startLine": 1100,
+        "startChar": 43,
+        "endLine": 1100,
+        "endChar": 49
+      },
       "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
