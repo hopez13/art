@@ -670,6 +670,20 @@ class ClassLinker {
   mirror::Class* GetHoldingClassOfCopiedMethod(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns compiled code that assumes that `method` has single-implementation.
+  std::vector<std::pair<ArtMethod*, OatQuickMethodHeader*>>* GetCHADependents(ArtMethod* method)
+      REQUIRES(Locks::cha_lock_);
+
+  // Add a CHA dependency that compiled code with `dependent_header` for `dependent_method`
+  // assumes that virtual `method` has single-implementation.
+  void AddCHADependency(ArtMethod* method,
+                        ArtMethod* dependent_method,
+                        OatQuickMethodHeader* dependent_header) REQUIRES(Locks::cha_lock_);
+
+  // Remove CHA dependency tracking for compiled code that assumes that
+  // `method` has single-implementation.
+  void RemoveCHADependencyFor(ArtMethod* method) REQUIRES(Locks::cha_lock_);
+
   struct DexCacheData {
     // Weak root to the DexCache. Note: Do not decode this unnecessarily or else class unloading may
     // not work properly.
@@ -1138,6 +1152,24 @@ class ClassLinker {
                              bool* new_conflict,
                              ArtMethod** imt) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void InitSingleImplementationFlag(Handle<mirror::Class> klass, ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // `virtual_method` in `klass` overrides `method_in_super`.
+  // This will invalidate some assumptions on single-implementation.
+  // Append methods that should have their single-implementation flag invalidated
+  // to `invalidated_single_impl_methods`.
+  void CheckSingleImplementationInfo(
+      Handle<mirror::Class> klass,
+      ArtMethod* virtual_method,
+      ArtMethod* method_in_super,
+      std::unordered_set<ArtMethod*>& invalidated_single_impl_methods)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Update CHA info for methods that `klass` overrides.
+  void UpdateCHAInfo(Handle<mirror::Class> klass)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   std::vector<const DexFile*> boot_class_path_;
   std::vector<std::unique_ptr<const DexFile>> boot_dex_files_;
 
@@ -1179,6 +1211,12 @@ class ClassLinker {
   bool log_new_class_table_roots_ GUARDED_BY(Locks::classlinker_classes_lock_);
 
   InternTable* intern_table_;
+
+  // A map that maps a method to a set of compiled code that assumes that method has a
+  // single implementation, which is used to do CHA-based devirtualization.
+  std::unordered_map<ArtMethod*,
+      std::vector<std::pair<ArtMethod*, OatQuickMethodHeader*>>*> cha_dependency_map_
+          GUARDED_BY(Locks::cha_lock_);
 
   // Trampolines within the image the bounce to runtime entrypoints. Done so that there is a single
   // patch point within the image. TODO: make these proper relocations.

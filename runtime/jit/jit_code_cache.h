@@ -20,6 +20,7 @@
 #include "instrumentation.h"
 
 #include "atomic.h"
+#include "base/arena_containers.h"
 #include "base/histogram-inl.h"
 #include "base/macros.h"
 #include "base/mutex.h"
@@ -98,7 +99,9 @@ class JitCodeCache {
                       size_t fp_spill_mask,
                       const uint8_t* code,
                       size_t code_size,
-                      bool osr)
+                      bool osr,
+                      bool has_should_deoptimize_flag,
+                      const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!lock_);
 
@@ -207,7 +210,9 @@ class JitCodeCache {
                               size_t fp_spill_mask,
                               const uint8_t* code,
                               size_t code_size,
-                              bool osr)
+                              bool osr,
+                              bool has_should_deoptimize_flag,
+                              const ArenaSet<ArtMethod*>& cha_single_implementation_list)
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

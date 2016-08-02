@@ -3759,6 +3759,16 @@ void InstructionCodeGeneratorMIPS::VisitDeoptimize(HDeoptimize* deoptimize) {
                         /* false_target */ nullptr);
 }
 
+void LocationsBuilderMIPS::VisitShouldDeoptimizeFlag(
+    HShouldDeoptimizeFlag* flag ATTRIBUTE_UNUSED) {
+  // TODO: to be implemented.
+}
+
+void InstructionCodeGeneratorMIPS::VisitShouldDeoptimizeFlag(
+    HShouldDeoptimizeFlag* flag ATTRIBUTE_UNUSED) {
+  // TODO: to be implemented.
+}
+
 void LocationsBuilderMIPS::VisitSelect(HSelect* select) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(select);
   if (Primitive::IsFloatingPointType(select->GetType())) {
