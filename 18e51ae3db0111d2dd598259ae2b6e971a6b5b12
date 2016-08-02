@@ -16,6 +16,24 @@
       "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4029af5_bf79735e",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-02T10:09:32Z",
+      "side": 1,
+      "message": "+1\n\nAlso sounds like a good idea to have a standardized way of naming the passes which has two parts: one common to all instances (like a class name) and one that is unique.\n\nSo e.g \"instruction_simplifier::after_bce\" would split the name and instantiate HInstructionSimplifier.",
+      "parentUuid": "6f34c9be_4123c660",
+      "revId": "18e51ae3db0111d2dd598259ae2b6e971a6b5b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
