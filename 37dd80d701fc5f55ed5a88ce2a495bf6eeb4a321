@@ -16,6 +16,24 @@
       "revId": "37dd80d701fc5f55ed5a88ce2a495bf6eeb4a321",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_660e3089",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4025,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T12:30:58Z",
+      "side": 1,
+      "message": "This is more in line with IsFloatingPointZeroConstant() in code_generator_arm64.cc .",
+      "parentUuid": "8f1add55_06173ca2",
+      "revId": "37dd80d701fc5f55ed5a88ce2a495bf6eeb4a321",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
