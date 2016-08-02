@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74d3c2eb_41e15c27",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-02T22:52:52Z",
+      "side": 1,
+      "message": "Linear scan has extra invariants to maintain in this function, such as that live intervals are sorted.",
+      "range": {
+        "startLine": 356,
+        "startChar": 1,
+        "endLine": 356,
+        "endChar": 81
+      },
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_c1422c65",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-02T22:52:52Z",
+      "side": 1,
+      "message": "BlockRegister is implementation-dependent.\nOne option is to have a virtual function for it, but it\u0027s not clear that all register allocators would want one.",
+      "range": {
+        "startLine": 429,
+        "startChar": 6,
+        "endLine": 429,
+        "endChar": 19
+      },
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_e179708f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-02T22:52:52Z",
+      "side": 1,
+      "message": "This is implementation-dependent. Linear scan blocks the output register and shifts the live interval, but graph coloring simply splits the live interval.",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 82
+      },
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_a1412843",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-02T22:52:52Z",
+      "side": 1,
+      "message": "This is partially implementation-dependent; linear scan has similar code, but also has to maintain the unhandled_{core,fp}_intervals_, making code sharing not ideal.",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 88
+      },
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
