@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1add55_461e9473",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T18:36:40Z",
+      "side": 1,
+      "message": "I assume we can do the j(kUnordered,.) check here. And we can move the \"XOR out, out\" before this COMISS, so that we don\u0027t have to jump over it later.",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f1add55_c629a4a1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T18:36:40Z",
+      "side": 1,
+      "message": "What about large negative numbers?",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
