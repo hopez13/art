@@ -91,6 +91,30 @@
       "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "746022e5_10f50c83",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-02T10:54:12Z",
+      "side": 1,
+      "message": "The vixl::aarch64::Assembler\u0027s default capacity is \"4 * KBytes\" which is the same as kArm64BaseBufferSize.\n\nBut if kArm64BaseBufferSize becomes unused, the file constants_arm64.h will be unnecessary and should be removed.",
+      "parentUuid": "8f1add55_06e9fcad",
+      "range": {
+        "startLine": 287,
+        "startChar": 32,
+        "endLine": 287,
+        "endChar": 42
+      },
+      "revId": "737fac3dcd68d737f374cdcb17d83adcc4b60861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
