@@ -91,6 +91,91 @@
       "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_ec7f2742",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T23:27:20Z",
+      "side": 1,
+      "message": "although graph coloring is of course well known, this would be the right place to document your algorithm a bit at very high level, and give credit to references you may have used",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_6ce25732",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T23:27:20Z",
+      "side": 1,
+      "message": "super nit: you are using two forms of the verb in your methods: e.g. ensure vs. ensures\nI would use one style consistently",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_4c8f537b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T23:27:20Z",
+      "side": 1,
+      "message": "nit: typically nouns are better for fields than verbs, which are better for methods",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_6284456c",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T23:27:20Z",
+      "side": 1,
+      "message": "is this a \"note to self\" for later? without actionable code (like a check or test), this won\u0027t do much more?",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_82793992",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-02T23:27:20Z",
+      "side": 1,
+      "message": "same",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
