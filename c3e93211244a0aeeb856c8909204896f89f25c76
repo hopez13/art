@@ -640,6 +640,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_f35bbf5c",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-02T00:15:51Z",
+      "side": 1,
+      "message": "I don\u0027t see more of this grepping for this...",
+      "parentUuid": "af44013b_c14190f7",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_a4f73ef8",
         "filename": "runtime/arch/arm/fault_handler_arm.cc",
         "patchSetId": 2
@@ -932,6 +950,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_d33fa3dd",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-02T00:15:51Z",
+      "side": 1,
+      "message": "I will do this in a follow-up, if that\u0027s OK. I\u0027d like to keep this a \"straightforward\" transition, and then clean up separately. I\u0027ll look into what makes most sense to put together (and where).",
+      "parentUuid": "af44013b_b37db719",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_84287a30",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -979,6 +1015,24 @@
       "side": 1,
       "message": "The StringPrintf.. it takes va_args so the enum has the same exact size as size_t and is bit-for-bit identical. So unless printf is warning here (it might not be smart enough) then it\u0027s not strictly necessary to have this cast.",
       "parentUuid": "af44013b_202ed2f6",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_133a0bee",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-02T00:15:51Z",
+      "side": 1,
+      "message": "Ah, I see. I guess I wanted to be defensive and type-safe. :-)",
+      "parentUuid": "af44013b_c1e6f019",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1137,6 +1191,24 @@
       "side": 1,
       "message": "I thought I saw c++14 flags somewhere, maybe not.",
       "parentUuid": "af44013b_800ea685",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_334f0790",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-02T00:15:51Z",
+      "side": 1,
+      "message": "We don\u0027t, yet, some frameworks stuff is.",
+      "parentUuid": "af44013b_6100dc9d",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1458,6 +1530,30 @@
       "side": 1,
       "message": "Well I mean shouldn\u0027t it at least be a kReferenceVtableCount \u003d 4 ?",
       "parentUuid": "af44013b_c0b18e95",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_73498f87",
+        "filename": "runtime/mirror/reference-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-02T00:15:51Z",
+      "side": 1,
+      "message": "Yes, see the comment about \"probably...\" But that\u0027s unrelated to the pointer-size enum...",
+      "parentUuid": "af44013b_01bf18c6",
       "range": {
         "startLine": 26,
         "startChar": 52,
