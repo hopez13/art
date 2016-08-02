@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f4533225_09c4cd0b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-02T10:26:37Z",
+      "side": 1,
+      "message": "I am not sure I fully understand this.\n\nSo if Math.max generates HCompare (which I think will do...) this won\u0027t produce the right result?\n\nDo we have Math.* tests in libcore? (hope so)",
+      "range": {
+        "startLine": 1305,
+        "startChar": 4,
+        "endLine": 1311,
+        "endChar": 17
+      },
+      "revId": "d2b080842140c95ded3f6134cdf1f61f50fd2688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3456aa15_6ba9fde3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
