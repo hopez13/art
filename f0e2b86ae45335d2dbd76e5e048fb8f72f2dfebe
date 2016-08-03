@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4f252a6_ee36df4b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T11:12:23Z",
+      "side": 1,
+      "message": "Due to the limited precision, this _shall_ be rounded \"according to the rounding control bits in the MXCSR register\". Are we sure it will round up? Otherwise, the highest single-precision FP number below 2^31 would incorrectly yield INT_MAX due to the \"Equal\" in the \"kAboveEqual\" below.\n\nShould we instead compare directly to a 2.0f^31? Preferably as a literal? Then we could also skip the jump over the NaN:\n\n  __ xorl(out, out);\n  __ comiss(t1, codegen_-\u003eLiteralInt32Address(bit_cast\u003cint32_t, float\u003e(2147483648.0f), constant_area);\n  __ j(kUnordered, \u0026done);\n  __ movl(out, Immediate(kPrimIntMax));  // Flags affected: none.\n  __ j(kAboveEqual, \u0026done);\n  __ cvttss2si(out, t1);\n  __ Bind(\u0026done);",
+      "range": {
+        "startLine": 817,
+        "startChar": 2,
+        "endLine": 817,
+        "endChar": 23
+      },
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f252a6_ce33235a",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T11:12:23Z",
+      "side": 1,
+      "message": "Please add a test for the highest float below 2^31 and for its negative counterpart.",
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f252a6_0e052b6b",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T11:12:23Z",
+      "side": 1,
+      "message": "Add highest double below 2^63 and its negative counterpart.",
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
