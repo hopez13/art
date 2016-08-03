@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "14a446ca_7fb80fc3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T17:48:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e3d6ef_fe979d31",
+      "range": {
+        "startLine": 194,
+        "startChar": 60,
+        "endLine": 194,
+        "endChar": 89
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e3d6ef_9e90593f",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-03T16:31:37Z",
       "side": 1,
       "message": "Note: we should probably remove that macro all code under that macro now.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1273,
+        "endChar": 26
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_5fb54bc7",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T17:48:55Z",
+      "side": 1,
+      "message": "Not in this CL.",
+      "parentUuid": "94e3d6ef_9e90593f",
       "range": {
         "startLine": 1273,
         "startChar": 0,
@@ -82,6 +130,30 @@
       "writtenOn": "2016-08-03T16:31:37Z",
       "side": 1,
       "message": "Could we rename this to kSaveAllCalleeSaves ?",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 12
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f252a6_ae2057a4",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T17:48:55Z",
+      "side": 1,
+      "message": "If I start renaming this, I will do a thorough job and it will be an epic rename. I\u0027ll do that in a separate CL.",
+      "parentUuid": "94e3d6ef_bebfd5a1",
       "range": {
         "startLine": 390,
         "startChar": 4,
