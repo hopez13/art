@@ -111,6 +111,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_198e6c25",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-03T00:19:19Z",
+      "side": 1,
+      "message": "Good idea; I\u0027ve extended the comment here.",
+      "parentUuid": "74d3c2eb_ec7f2742",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_6ce25732",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 24
@@ -122,6 +140,24 @@
       "writtenOn": "2016-08-02T23:27:20Z",
       "side": 1,
       "message": "super nit: you are using two forms of the verb in your methods: e.g. ensure vs. ensures\nI would use one style consistently",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_f95e087b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-03T00:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_6ce25732",
       "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -145,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_195c2c81",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-03T00:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_4c8f537b",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_6284456c",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 24
@@ -162,6 +216,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_f9c84822",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-03T00:19:19Z",
+      "side": 1,
+      "message": "It\u0027s pointing out that this test instantiates a linear scan allocator (it tests invariants specific to linear scan) rather than the default register allocator. No code changed in this test, because it has always referenced linear scan directly.",
+      "parentUuid": "6f34c9be_6284456c",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_82793992",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 24
@@ -173,6 +245,24 @@
       "writtenOn": "2016-08-02T23:27:20Z",
       "side": 1,
       "message": "same",
+      "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_b9d2c0ca",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-03T00:19:19Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "6f34c9be_82793992",
       "revId": "f1945e13ee717887de77c30ca70c8aa8d438b994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
