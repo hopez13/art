@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4f252a6_ae169758",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-08-03T15:53:03Z",
+      "side": 1,
+      "message": "Use \" instead of (",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f252a6_8e13db68",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-08-03T15:53:03Z",
+      "side": 1,
+      "message": "Why are you using this? Why not just $DEPS?",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4f252a6_ee209fb3",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-08-03T15:53:03Z",
+      "side": 1,
+      "message": "Use $(...) instead of `...`, it\u0027s better in general as it nests properly even though you don\u0027t need it here.",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
