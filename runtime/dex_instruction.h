@@ -188,6 +188,7 @@ class Instruction {
     kVerifyVarArgRangeNonZero = 0x100000,
     kVerifyRuntimeOnly        = 0x200000,
     kVerifyError              = 0x400000,
+    kVerifyRegHProto          = 0x800000
   };
 
   static constexpr uint32_t kMaxVarArgRegs = 5;
