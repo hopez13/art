@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "94e3d6ef_e441d042",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T18:22:54Z",
+      "side": 1,
+      "message": "Tested on twice the number of compilations (10) and got times:\n\nWithout this CL:\n4814.69user 584.75system 5:05.99elapsed\nWithout this CL but with flag set to false:\n4820.86user 559.29system 5:01.45elapsed\nWith this CL:\n4834.38user 560.16system 5:04.16elapsed\n\nWhen I rerun I got:\nWithout this CL:\n4827.10user 570.68system 5:03.98elapsed\nWithout this CL but with flag set to false:\n4820.70user 561.31system 5:02.36elapsed \nWith this CL:\n4811.59user 560.94system 5:03.14elapsed\n\nIt seems that there is no significant impact on performance when setting this flag to false or applying this CL.",
+      "parentUuid": "74d3c2eb_3c055ee2",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 56
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_6cf6d794",
         "filename": "compiler/optimizing/constant_folding.h",
         "patchSetId": 2
