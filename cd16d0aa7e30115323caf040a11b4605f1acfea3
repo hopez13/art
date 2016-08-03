@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f4f252a6_ae90573e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-03T08:41:04Z",
+      "side": 1,
+      "message": "nit (for the future): wrap long lines in commit messages.",
+      "range": {
+        "startLine": 9,
+        "startChar": 72,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "cd16d0aa7e30115323caf040a11b4605f1acfea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_a69a9e5b",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 6
