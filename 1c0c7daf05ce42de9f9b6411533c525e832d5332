@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "94e3d6ef_c1d20655",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-03T18:16:14Z",
+      "side": 1,
+      "message": "Yes, Inf is an interesting individual :-)\nHere are some properties.\n\nInfinity - Infinity \u003d NaN\nInfinity - -Infinity \u003d Infinity\nInfinity - NaN \u003d NaN\nInfinity - 1.0 \u003d Infinity\n-Infinity - -Infinity \u003d NaN\n-Infinity - NaN \u003d NaN",
+      "parentUuid": "f4f252a6_8eb47bce",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f1add55_c629a4a1",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
