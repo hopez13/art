@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "94e3d6ef_84c48c0e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-03T18:16:14Z",
+      "side": 1,
+      "message": "FWIW, I have rolled through the full 2^32 SP space to make sure every float maps to exactly the same value as the reference implementation (and we implement float-to-int similarly in the codegen). For DP, this is infeasible, but I let it run overnight with random bit patterns.\n\nBut I have added more tests around large values as requested just to make sure.",
+      "parentUuid": "f4f252a6_ee36df4b",
+      "range": {
+        "startLine": 817,
+        "startChar": 2,
+        "endLine": 817,
+        "endChar": 23
+      },
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4f252a6_ce33235a",
         "filename": "test/580-checker-round/src/Main.java",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "94e3d6ef_21456a1c",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-03T18:16:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_ce33235a",
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4f252a6_0e052b6b",
         "filename": "test/580-checker-round/src/Main.java",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2016-08-03T11:12:23Z",
       "side": 1,
       "message": "Add highest double below 2^63 and its negative counterpart.",
+      "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_81547ecc",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-03T18:16:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_0e052b6b",
       "revId": "f0e2b86ae45335d2dbd76e5e048fb8f72f2dfebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
