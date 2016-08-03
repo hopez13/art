@@ -51,6 +51,7 @@ namespace mirror {
   class DexCachePointerArray;
   class DexCacheTest_Open_Test;
   class IfTable;
+  class MethodType;
   template<class T> class ObjectArray;
   class StackTraceElement;
 }  // namespace mirror
@@ -99,6 +100,8 @@ class ClassLinker {
     kJavaLangReflectConstructorArrayClass,
     kJavaLangReflectFieldArrayClass,
     kJavaLangReflectMethodArrayClass,
+    kJavaLangInvokeMethodHandleImpl,
+    kJavaLangInvokeMethodType,
     kJavaLangClassLoader,
     kJavaLangThrowable,
     kJavaLangClassNotFoundException,
@@ -356,6 +359,15 @@ class ClassLinker {
                             uint32_t field_idx,
                             Handle<mirror::DexCache> dex_cache,
                             Handle<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!dex_lock_, !Roles::uninterruptible_);
+
+  // Resolve a method type with a given ID from the DexFile, storing
+  // the result in the DexCache.
+  mirror::MethodType* ResolveMethodType(const DexFile& dex_file,
+                                        uint32_t proto_idx,
+                                        Handle<mirror::DexCache> dex_cache,
+                                        Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!dex_lock_, !Roles::uninterruptible_);
 

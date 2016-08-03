@@ -33,6 +33,7 @@ union JValue;
 
 namespace mirror {
 
+class MethodType;
 class String;
 
 struct PACKED(8) StringDexCachePair {
@@ -118,6 +119,8 @@ class MANAGED DexCache FINAL : public Object {
             uint32_t num_resolved_methods,
             ArtField** resolved_fields,
             uint32_t num_resolved_fields,
+            GcRoot<MethodType>* resolved_methodtypes,
+            uint32_t num_resolved_methodtypes,
             PointerSize pointer_size) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void Fixup(ArtMethod* trampoline, PointerSize pointer_size)
@@ -155,6 +158,10 @@ class MANAGED DexCache FINAL : public Object {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_methods_);
   }
 
+  static MemberOffset ResolvedMethodtypesOffset() {
+    return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_methodtypes_);
+  }
+
   static MemberOffset NumStringsOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_strings_);
   }
@@ -169,6 +176,10 @@ class MANAGED DexCache FINAL : public Object {
 
   static MemberOffset NumResolvedMethodsOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_methods_);
+  }
+
+  static MemberOffset NumResolvedMethodtypesOffset() {
+    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_methodtypes_);
   }
 
   mirror::String* GetResolvedString(uint32_t string_idx) ALWAYS_INLINE
@@ -200,6 +211,10 @@ class MANAGED DexCache FINAL : public Object {
   // Pointer sized variant, used for patching.
   ALWAYS_INLINE void SetResolvedField(uint32_t idx, ArtField* field, PointerSize ptr_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  MethodType* GetResolvedMethodtype(uint32_t proto_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SetResolvedMethodtype(uint32_t proto_idx, MethodType* resolved) REQUIRES_SHARED(Locks::mutator_lock_);
 
   StringDexCacheType* GetStrings() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetFieldPtr64<StringDexCacheType*>(StringsOffset());
@@ -239,6 +254,16 @@ class MANAGED DexCache FINAL : public Object {
     SetFieldPtr<false>(ResolvedFieldsOffset(), resolved_fields);
   }
 
+  GcRoot<MethodType>* GetResolvedMethodtypes() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldPtr<GcRoot<MethodType>*>(ResolvedMethodtypesOffset());
+  }
+
+  void SetResolvedMethodtypes(GcRoot<MethodType>* resolved_methodtypes)
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    SetFieldPtr<false>(ResolvedMethodtypesOffset(), resolved_methodtypes);
+  }
+
   size_t NumStrings() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetField32(NumStringsOffset());
   }
@@ -253,6 +278,10 @@ class MANAGED DexCache FINAL : public Object {
 
   size_t NumResolvedFields() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetField32(NumResolvedFieldsOffset());
+  }
+
+  size_t NumResolvedMethodtypes() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetField32(NumResolvedMethodtypesOffset());
   }
 
   const DexFile* GetDexFile() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -286,16 +315,19 @@ class MANAGED DexCache FINAL : public Object {
 
   HeapReference<Object> dex_;
   HeapReference<String> location_;
-  uint64_t dex_file_;           // const DexFile*
-  uint64_t resolved_fields_;    // ArtField*, array with num_resolved_fields_ elements.
-  uint64_t resolved_methods_;   // ArtMethod*, array with num_resolved_methods_ elements.
-  uint64_t resolved_types_;     // GcRoot<Class>*, array with num_resolved_types_ elements.
-  uint64_t strings_;            // std::atomic<StringDexCachePair>*,
-                                // array with num_strings_ elements.
-  uint32_t num_resolved_fields_;    // Number of elements in the resolved_fields_ array.
-  uint32_t num_resolved_methods_;   // Number of elements in the resolved_methods_ array.
-  uint32_t num_resolved_types_;     // Number of elements in the resolved_types_ array.
-  uint32_t num_strings_;            // Number of elements in the strings_ array.
+  uint64_t dex_file_;              // const DexFile*
+  uint64_t resolved_fields_;       // ArtField*, array with num_resolved_fields_ elements.
+  uint64_t resolved_methods_;      // ArtMethod*, array with num_resolved_methods_ elements.
+  uint64_t resolved_types_;        // GcRoot<Class>*, array with num_resolved_types_ elements.
+  uint64_t strings_;               // std::atomic<StringDexCachePair>*,
+                                   // array with num_strings_ elements.
+  uint64_t resolved_methodtypes_;  // GcRoot<MethodType>* array with num_resolved_methodtypes_ elements.
+
+  uint32_t num_resolved_fields_;       // Number of elements in the resolved_fields_ array.
+  uint32_t num_resolved_methods_;      // Number of elements in the resolved_methods_ array.
+  uint32_t num_resolved_types_;        // Number of elements in the resolved_types_ array.
+  uint32_t num_strings_;               // Number of elements in the strings_ array.
+  uint32_t num_resolved_methodtypes_;  // Number of elements in the resolved_methodtypes_ array.
 
   friend struct art::DexCacheOffsets;  // for verifying offset information
   friend class Object;  // For VisitReferences

@@ -40,9 +40,12 @@
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
 #include "mirror/method.h"
+#include "mirror/method_type-inl.h"
+#include "mirror/method_handle_impl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/string-inl.h"
+#include "reflection-inl.h"
 #include "stack.h"
 #include "thread.h"
 #include "well_known_classes.h"
@@ -123,7 +126,7 @@ template<bool is_range, bool do_assignability_check>
 bool DoCall(ArtMethod* called_method, Thread* self, ShadowFrame& shadow_frame,
             const Instruction* inst, uint16_t inst_data, JValue* result);
 
-// Handles invoke-XXX/range instructions.
+// Handles all invoke-XXX/range instructions except for invoke-polymorphic[/range].
 // Returns true on success, otherwise throws an exception and returns false.
 template<InvokeType type, bool is_range, bool do_access_check>
 static inline bool DoInvoke(Thread* self, ShadowFrame& shadow_frame, const Instruction* inst,
@@ -162,6 +165,113 @@ static inline bool DoInvoke(Thread* self, ShadowFrame& shadow_frame, const Instr
     return DoCall<is_range, do_access_check>(called_method, self, shadow_frame, inst, inst_data,
                                              result);
   }
+}
+
+// TODO(narayan): Refactor.
+template<bool is_range, bool do_assignability_check, size_t kVarArgsMax>
+bool DoCallCommon(ArtMethod* called_method, Thread* self, ShadowFrame& shadow_frame,
+        JValue* result, uint16_t number_of_inputs, uint32_t (&arg)[kVarArgsMax],
+        uint32_t vregC);
+
+// TODO(narayan): Even uglier refactor.
+template<bool is_range, bool do_assignability_check, size_t kVarArgsMax>
+bool DoCallPolymorphic(ArtMethod* called_method, mirror::MethodType* callsite_type,
+        mirror::MethodType* target_type, Thread* self, ShadowFrame& shadow_frame,
+        JValue* result, uint16_t number_of_inputs, uint32_t (&arg)[kVarArgsMax],
+        uint32_t vregC);
+
+template<bool is_range, bool do_access_check, size_t kVarArgsMax>
+    REQUIRES_SHARED(Locks::mutator_lock_)
+static inline bool DoInvokePolymorphic(Thread* self, ShadowFrame& shadow_frame,
+                                       const Instruction* inst, uint16_t inst_data_1,
+                                       uint16_t inst_data_2,
+                                       JValue* result) {
+  UNUSED(inst_data_2);
+  // Invoke-polymorphic instructions always take a receiver. i.e, they are never static.
+  const uint32_t vRegC = (is_range) ? inst->VRegC_4rcc() : inst->VRegC_45cc();
+
+  // The method_idx here is the name of the signature polymorphic method that
+  // was symbolically invoked in bytecode (say MethodHandle.invoke or MethodHandle.invokeExact)
+  // and not the method that we'll dispatch to in the end.
+  //
+  // TODO(narayan) We'll have to check that this is in fact a signature polymorphic method so
+  // that we disallow calls via invoke-polymorphic to non sig-poly methods.
+  //
+  // const uint32_t method_idx = (is_range) ? inst->VRegB_4rcc() : inst->VRegB_45cc();
+  mirror::MethodHandleImpl* const method_handle =
+      reinterpret_cast<mirror::MethodHandleImpl*>(shadow_frame.GetVRegReference(vRegC));
+  if (UNLIKELY(method_handle == nullptr)) {
+    // TODO: Throw an exception if that's the caise.
+    result->SetJ(0);
+    return false;
+  }
+
+  ArtMethod* sf_method = shadow_frame.GetMethod();
+
+  // The vRegH value gives the index of the proto ID associated with this
+  // signature polymorphic callsite.
+  const uint32_t proto_id_idx = (is_range) ? inst->VRegH_4rcc() : inst->VRegH_45cc();
+
+  StackHandleScope<2> hs(self);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  mirror::Class* caller_class = sf_method->GetDeclaringClass();
+  mirror::MethodType* callsite_type = class_linker->ResolveMethodType(
+      caller_class->GetDexFile(), proto_id_idx,
+      hs.NewHandle<mirror::DexCache>(caller_class->GetDexCache()),
+      hs.NewHandle<mirror::ClassLoader>(caller_class->GetClassLoader()));
+
+  // This implies we couldn't resolve one or more types in this method handle.
+  if (UNLIKELY(callsite_type == nullptr)) {
+    CHECK(self->IsExceptionPending());
+    result->SetJ(0);
+    return false;
+  }
+
+  ArtMethod* called_method = method_handle->GetTargetMethod();
+  CHECK(called_method != nullptr);
+
+  if (UNLIKELY(called_method == nullptr)) {
+    // TODO(narayan): Should this be a check This should never happen.
+    result->SetJ(0);
+    return false;
+  } else {
+    // No need to do access checks because those checks will have been performed
+    // at the point of creation of the method handle.
+    //
+    // Argument word count.
+    const uint16_t number_of_inputs =
+        ((is_range) ? inst->VRegA_4rcc(inst_data_1) : inst->VRegA_45cc(inst_data_1)) - 1;
+
+    uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+    uint32_t receiver_vregC = 0;
+    if (is_range) {
+      receiver_vregC = (inst->VRegC_4rcc() + 1);
+    } else {
+      inst->GetVarArgs(arg, inst_data_1);
+      arg[0] = arg[1];
+      arg[1] = arg[2];
+      arg[2] = arg[3];
+      arg[3] = arg[4];
+      arg[4] = 0;
+      receiver_vregC = arg[0];
+    }
+
+    mirror::Object* receiver = shadow_frame.GetVRegReference(receiver_vregC);
+    mirror::Class*  declaring_class = called_method->GetDeclaringClass();
+    // Verify that _vRegC is an object reference and of the type expected by
+    // the receiver.
+    called_method = receiver->GetClass()->FindVirtualMethodForVirtualOrInterface(
+        called_method, kRuntimePointerSize);
+    if (!VerifyObjectIsClass(receiver, declaring_class)) {
+      return false;
+    }
+
+    return DoCallPolymorphic<is_range, do_access_check, kVarArgsMax>(
+        called_method, callsite_type, method_handle->GetMethodType(),
+        self, shadow_frame, result, number_of_inputs, arg, receiver_vregC);
+  }
+
+  return false;
 }
 
 // Handles invoke-virtual-quick and invoke-virtual-quick-range instructions.

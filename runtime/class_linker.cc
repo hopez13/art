@@ -71,6 +71,8 @@
 #include "mirror/field.h"
 #include "mirror/iftable-inl.h"
 #include "mirror/method.h"
+#include "mirror/method_type.h"
+#include "mirror/method_handle_impl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/proxy.h"
@@ -634,6 +636,18 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
   SetClassRoot(kJavaLangReflectMethodArrayClass, class_root);
   mirror::Method::SetArrayClass(class_root);
 
+  // Create java.lang.invoke.MethodType.class root
+  class_root = FindSystemClass(self, "Ljava/lang/invoke/MethodType;");
+  CHECK(class_root != nullptr);
+  SetClassRoot(kJavaLangInvokeMethodType, class_root);
+  mirror::MethodType::SetClass(class_root);
+
+  // Create java.lang.invoke.MethodHandleImpl.class root
+  class_root = FindSystemClass(self, "Ljava/lang/invoke/MethodHandleImpl;");
+  CHECK(class_root != nullptr);
+  SetClassRoot(kJavaLangInvokeMethodHandleImpl, class_root);
+  mirror::MethodHandleImpl::SetClass(class_root);
+
   // java.lang.ref classes need to be specially flagged, but otherwise are normal classes
   // finish initializing Reference class
   mirror::Class::SetStatus(java_lang_ref_Reference, mirror::Class::kStatusNotReady, self);
@@ -1030,6 +1044,8 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   mirror::Constructor::SetArrayClass(GetClassRoot(kJavaLangReflectConstructorArrayClass));
   mirror::Method::SetClass(GetClassRoot(kJavaLangReflectMethod));
   mirror::Method::SetArrayClass(GetClassRoot(kJavaLangReflectMethodArrayClass));
+  mirror::MethodType::SetClass(GetClassRoot(kJavaLangInvokeMethodType));
+  mirror::MethodHandleImpl::SetClass(GetClassRoot(kJavaLangInvokeMethodHandleImpl));
   mirror::Reference::SetClass(GetClassRoot(kJavaLangRefReference));
   mirror::BooleanArray::SetArrayClass(GetClassRoot(kBooleanArrayClass));
   mirror::ByteArray::SetArrayClass(GetClassRoot(kByteArrayClass));
@@ -2092,6 +2108,8 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
       reinterpret_cast<ArtMethod**>(raw_arrays + layout.MethodsOffset());
   ArtField** fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
       reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+  GcRoot<mirror::MethodType>* methodtypes = (dex_file.NumProtoIds() == 0u) ? nullptr :
+      reinterpret_cast<GcRoot<mirror::MethodType>*>(raw_arrays + layout.MethodtypesOffset());
   size_t num_strings = mirror::DexCache::kDexCacheStringCacheSize;
   if (dex_file.NumStringIds() < num_strings) {
     num_strings = dex_file.NumStringIds();
@@ -2119,6 +2137,9 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
     for (size_t i = 0; i < dex_file.NumFieldIds(); ++i) {
       CHECK(mirror::DexCache::GetElementPtrSize(fields, i, image_pointer_size_) == nullptr);
     }
+    for (size_t i = 0; i < dex_file.NumProtoIds(); ++i) {
+      CHECK(methodtypes[i].Read<kWithoutReadBarrier>() == nullptr);
+    }
   }
   if (strings != nullptr) {
     mirror::StringDexCachePair::Initialize(strings);
@@ -2133,6 +2154,8 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
                   dex_file.NumMethodIds(),
                   fields,
                   dex_file.NumFieldIds(),
+                  methodtypes,
+                  dex_file.NumProtoIds(),
                   image_pointer_size_);
   return dex_cache.Get();
 }
@@ -7905,6 +7928,68 @@ ArtField* ClassLinker::ResolveFieldJLS(const DexFile& dex_file,
   return resolved;
 }
 
+mirror::MethodType* ClassLinker::ResolveMethodType(const DexFile& dex_file,
+                                                   uint32_t proto_idx,
+                                                   Handle<mirror::DexCache> dex_cache,
+                                                   Handle<mirror::ClassLoader> class_loader) {
+  DCHECK(dex_cache.Get() != nullptr);
+  mirror::MethodType* resolved = dex_cache->GetResolvedMethodtype(proto_idx);
+  if (resolved != nullptr) {
+    return resolved;
+  }
+
+  Thread* const self = Thread::Current();
+  StackHandleScope<3> hs(self);
+
+  // First resolve the return type.
+  const DexFile::ProtoId& proto_id = dex_file.GetProtoId(proto_idx);
+  Handle<mirror::Class> return_type(hs.NewHandle(
+      ResolveType(dex_file, proto_id.return_type_idx_, dex_cache, class_loader)));
+  if (return_type.Get() == nullptr) {
+    DCHECK(self->IsExceptionPending());
+    return nullptr;
+  }
+
+  // Then resolve the argument types.
+  //
+  // TODO: Is there a better way to figure out the number of method arguments
+  // other than by looking at the shorty ?
+  const size_t num_method_args = strlen(dex_file.StringDataByIdx(proto_id.shorty_idx_)) - 1;
+
+  mirror::Class* class_type = mirror::Class::GetJavaLangClass();
+  mirror::Class* array_of_class = FindArrayClass(self, &class_type);
+  Handle<mirror::ObjectArray<mirror::Class>> method_params(hs.NewHandle(
+      mirror::ObjectArray<mirror::Class>::Alloc(self, array_of_class, num_method_args)));
+  if (method_params.Get() == nullptr) {
+    DCHECK(self->IsExceptionPending());
+    return nullptr;
+  }
+
+  DexFileParameterIterator it(dex_file, proto_id);
+  int32_t i = 0;
+  for (; it.HasNext(); it.Next()) {
+    const uint16_t type_idx = it.GetTypeIdx();
+
+    StackHandleScope<1> hs2(self);
+    Handle<mirror::Class> param_class(
+        hs2.NewHandle(ResolveType(dex_file, type_idx, dex_cache, class_loader)));
+    if (param_class.Get() == nullptr) {
+      DCHECK(self->IsExceptionPending());
+      return nullptr;
+    }
+
+    method_params->Set(i++, param_class.Get());
+  }
+
+  DCHECK(!it.HasNext());
+
+  Handle<mirror::MethodType> type = hs.NewHandle(
+      mirror::MethodType::Create(self, return_type, method_params));
+  dex_cache->SetResolvedMethodtype(proto_idx, type.Get());
+
+  return type.Get();
+}
+
 const char* ClassLinker::MethodShorty(uint32_t method_idx,
                                       ArtMethod* referrer,
                                       uint32_t* length) {
@@ -8061,6 +8146,8 @@ const char* ClassLinker::GetClassRootDescriptor(ClassRoot class_root) {
     "[Ljava/lang/reflect/Constructor;",
     "[Ljava/lang/reflect/Field;",
     "[Ljava/lang/reflect/Method;",
+    "Ljava/lang/invoke/MethodHandleImpl;",
+    "Ljava/lang/invoke/MethodType;",
     "Ljava/lang/ClassLoader;",
     "Ljava/lang/Throwable;",
     "Ljava/lang/ClassNotFoundException;",

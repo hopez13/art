@@ -38,8 +38,10 @@ inline DexCacheArraysLayout::DexCacheArraysLayout(PointerSize pointer_size,
           RoundUp(methods_offset_ + MethodsSize(header.method_ids_size_), StringsAlignment())),
       fields_offset_(
           RoundUp(strings_offset_ + StringsSize(header.string_ids_size_), FieldsAlignment())),
+      methodtypes_offset_(
+          RoundUp(fields_offset_ + FieldsSize(header.field_ids_size_), Alignment())),
       size_(
-          RoundUp(fields_offset_ + FieldsSize(header.field_ids_size_), Alignment())) {
+          RoundUp(methodtypes_offset_ + FieldsSize(header.proto_ids_size_), Alignment())) {
 }
 
 inline DexCacheArraysLayout::DexCacheArraysLayout(PointerSize pointer_size, const DexFile* dex_file)
@@ -116,6 +118,22 @@ inline size_t DexCacheArraysLayout::FieldsSize(size_t num_elements) const {
 
 inline size_t DexCacheArraysLayout::FieldsAlignment() const {
   return static_cast<size_t>(pointer_size_);
+}
+
+inline size_t DexCacheArraysLayout::MethodtypeOffset(uint32_t proto_idx) const {
+  return methodtypes_offset_ +
+      ElementOffset(GcRootAsPointerSize<mirror::MethodType>(), proto_idx);
+}
+
+inline size_t DexCacheArraysLayout::MethodtypesSize(size_t num_elements) const {
+  // This assumes that we need to have enough room for a forwarding pointer
+  // for patching. Is this necessary for MethodTypes ?
+  return std::max(ArraySize(GcRootAsPointerSize<mirror::MethodType>(), num_elements),
+                  static_cast<size_t>(pointer_size_));
+}
+
+inline size_t DexCacheArraysLayout::MethodtypesAlignment() const {
+  return alignof(GcRoot<mirror::MethodType>);
 }
 
 inline size_t DexCacheArraysLayout::ElementOffset(PointerSize element_size, uint32_t idx) {
