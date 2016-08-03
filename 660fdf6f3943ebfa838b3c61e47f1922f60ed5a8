@@ -39,6 +39,30 @@
       "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_fff53f86",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-03T18:36:34Z",
+      "side": 1,
+      "message": "The point is that I don\u0027t think they\u0027re different issues.\n\nWhen testRedirectInherit failed, it was a native crash, unlike the previous issue we had where it failed with an ENOENT stacktrace. We only blamed it on a kernel bug because that previous issue was a kernel bug. But since nullStreams now fails with a native crash, and since it doesn\u0027t access /proc/, I no longer think that the testRedirectInherit crash is a separate issue.\n\nWDYT?",
+      "parentUuid": "14a446ca_3fcde75e",
+      "range": {
+        "startLine": 265,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 83
+      },
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
