@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14a446ca_5fc0ab26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-03T18:32:55Z",
+      "side": 1,
+      "message": "Bug: 27464570",
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_3fcde75e",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-03T18:32:55Z",
+      "side": 1,
+      "message": "These two descriptions seem to cover two different issues (the first one in \"libcore.java.lang.ProcessBuilderTest#testRedirectInherit\", the second one in \"libcore.java.lang.ProcessBuilderTest#testRedirect_nullStreams\").  I would split this entry to track them separately (even if they share the same bug number).",
+      "range": {
+        "startLine": 265,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 83
+      },
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
