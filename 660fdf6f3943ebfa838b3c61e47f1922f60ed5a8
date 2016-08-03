@@ -87,6 +87,30 @@
       "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_1fe103c5",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-03T18:43:07Z",
+      "side": 1,
+      "message": "Thanks for the explanation.  I think I missed the bit about the issue with testRedirectInherit failing for two different reasons.  The current description is fine with me.",
+      "parentUuid": "14a446ca_bfefb7b6",
+      "range": {
+        "startLine": 265,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 83
+      },
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
