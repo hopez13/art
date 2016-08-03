@@ -451,6 +451,14 @@ class ClassLinkerTest : public CommonRuntimeTest {
   };
 };
 
+class ClassLinkerMethodHandlesTest : public ClassLinkerTest {
+ protected:
+  virtual void SetUpRuntimeOptions(RuntimeOptions* options) OVERRIDE {
+    CommonRuntimeTest::SetUpRuntimeOptions(options);
+    options->push_back(std::make_pair("--experimental", "method-handles"));
+  }
+}
+
 struct CheckOffset {
   size_t cpp_offset;
   const char* java_name;
@@ -1292,6 +1300,9 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
     // Check that inserting with a UTF16 name works.
     class_linker->RegisterDexFileLocked(*dex_file, dex_cache);
   }
+}
+
+TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
 }
 
 }  // namespace art

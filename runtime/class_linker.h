@@ -362,6 +362,15 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!dex_lock_, !Roles::uninterruptible_);
 
+  // Resolve a method type with a given ID from the DexFile, storing
+  // the result in the DexCache.
+  mirror::MethodType* ResolveMethodType(const DexFile& dex_file,
+                                        uint32_t proto_idx,
+                                        Handle<mirror::DexCache> dex_cache,
+                                        Handle<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!dex_lock_, !Roles::uninterruptible_);
+
   // Get shorty from method index without resolution. Used to do handlerization.
   const char* MethodShorty(uint32_t method_idx, ArtMethod* referrer, uint32_t* length)
       REQUIRES_SHARED(Locks::mutator_lock_);
