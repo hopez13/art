@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_5cb8622b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_c19a2cb4",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_e10ad0d0",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_3c055ee2",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "So, I\u0027ve tested on the large known app compiling 5 times and I got:\n\nWithout this CL:\nreal\t2m35.032s\nuser\t40m6.319s\nsys\t4m47.595s\n\nWith this CL:\nreal\t2m35.434s\nuser\t40m15.946s\nsys\t4m51.845s\n\nI will try doing more compilations and see what happens.",
+      "parentUuid": "74d3c2eb_19d98c49",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 56
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_6cf6d794",
         "filename": "compiler/optimizing/constant_folding.h",
         "patchSetId": 2
@@ -83,6 +131,30 @@
       "writtenOn": "2016-08-02T23:12:41Z",
       "side": 1,
       "message": "see my comment in optimizing_compiler on why I would prefer to have just a base name per pass",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_79e21832",
+        "filename": "compiler/optimizing/constant_folding.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_6cf6d794",
       "range": {
         "startLine": 50,
         "startChar": 19,
@@ -112,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_59f5d481",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_ac0d9f90",
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_4c519361",
         "filename": "compiler/optimizing/optimization_factory.cc",
         "patchSetId": 2
@@ -123,6 +213,30 @@
       "writtenOn": "2016-08-02T23:12:41Z",
       "side": 1,
       "message": "if -else if chain instead?\nsafes some vertical space, since else if may appear at same line as }",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_b9e3a0cd",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_4c519361",
       "range": {
         "startLine": 76,
         "startChar": 4,
@@ -158,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_592874ed",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_0c5ceb80",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 8
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_2c752ffc",
         "filename": "compiler/optimizing/optimization_factory.cc",
         "patchSetId": 2
@@ -169,6 +307,30 @@
       "writtenOn": "2016-08-02T23:12:41Z",
       "side": 1,
       "message": "yes, this is a good way to deal with such dependences\n\nwe could later extend this with warnings when too many phases appear in between, or when they are never consumed (although that may of course happen during bisection)",
+      "range": {
+        "startLine": 155,
+        "startChar": 45,
+        "endLine": 155,
+        "endChar": 51
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_192aece4",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_2c752ffc",
       "range": {
         "startLine": 155,
         "startChar": 45,
@@ -198,6 +360,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_d933045a",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_cc3ca316",
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_8c053b6d",
         "filename": "compiler/optimizing/optimization_factory.h",
         "patchSetId": 2
@@ -209,6 +389,30 @@
       "writtenOn": "2016-08-02T23:12:41Z",
       "side": 1,
       "message": "we don\u0027t indent inside namespace",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 2
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_a779385e",
+        "filename": "compiler/optimizing/optimization_factory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_8c053b6d",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -244,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_39f01093",
+        "filename": "compiler/optimizing/optimization_factory.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_4c28b3ed",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 28
+      },
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_6cdc97df",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -261,6 +489,24 @@
     },
     {
       "key": {
+        "uuid": "74d3c2eb_f91368b0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d3c2eb_6cdc97df",
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_ccaee37e",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -272,6 +518,24 @@
       "writtenOn": "2016-08-02T23:12:41Z",
       "side": 1,
       "message": "I still find it less pretty that we need to define several pass names in the optimization pass class itself now; I would like it much better if we could simply concatenate base name with suffix here.\n\nupdate: Wojciech just told me that such an approach would always generate runtime code. Any way to force this to be done at compile time? Or, worst case, only concatenate in cases checker is active (since for other situations, including factory, base name suffices).",
+      "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d3c2eb_d9f544e8",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-03T01:25:45Z",
+      "side": 1,
+      "message": "It was a mistake to move pass names into optimization passes. There is no need to do so if we have the standardized pass naming, I\u0027ve reverted it.",
+      "parentUuid": "74d3c2eb_ccaee37e",
       "revId": "23ea08f9675f2d6b5b9fe60617c92d9efa9530d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
