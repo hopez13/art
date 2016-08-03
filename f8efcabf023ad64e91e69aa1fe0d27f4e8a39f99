@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "74d3c2eb_cf65724a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-03T02:14:40Z",
+      "side": 1,
+      "message": "I thought this flag is unrelated to the mark bit idea. Remove this or add a separate flag?",
+      "range": {
+        "startLine": 1827,
+        "startChar": 64,
+        "endLine": 1827,
+        "endChar": 87
+      },
+      "revId": "f8efcabf023ad64e91e69aa1fe0d27f4e8a39f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_fc64b621",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 2
