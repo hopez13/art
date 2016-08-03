@@ -454,7 +454,7 @@ void UnexpectedOpcode(const Instruction* inst, const ShadowFrame& shadow_frame) 
 }
 
 // Assign register 'src_reg' from shadow_frame to register 'dest_reg' into new_shadow_frame.
-static inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
+inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
                                   size_t dest_reg, size_t src_reg)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Uint required, so that sign extension does not make this wrong on 64b systems
@@ -492,7 +492,7 @@ template <bool is_range,
           bool do_assignability_check,
           size_t kVarArgMax>
     REQUIRES_SHARED(Locks::mutator_lock_)
-static inline bool DoCallCommon(ArtMethod* called_method,
+bool DoCallCommon(ArtMethod* called_method,
                                 Thread* self,
                                 ShadowFrame& shadow_frame,
                                 JValue* result,
@@ -565,7 +565,7 @@ void SetStringInitValueToAllAliases(ShadowFrame* shadow_frame,
 template <bool is_range,
           bool do_assignability_check,
           size_t kVarArgMax>
-static inline bool DoCallCommon(ArtMethod* called_method,
+bool DoCallCommon(ArtMethod* called_method,
                                 Thread* self,
                                 ShadowFrame& shadow_frame,
                                 JValue* result,
@@ -914,6 +914,18 @@ EXPLICIT_DO_CALL_TEMPLATE_DECL(false, true);
 EXPLICIT_DO_CALL_TEMPLATE_DECL(true, false);
 EXPLICIT_DO_CALL_TEMPLATE_DECL(true, true);
 #undef EXPLICIT_DO_CALL_TEMPLATE_DECL
+
+#define EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(_is_range, _do_assignability_check, _var_args)               \
+  template REQUIRES_SHARED(Locks::mutator_lock_)                                                \
+  bool DoCallCommon<_is_range, _do_assignability_check, _var_args>(ArtMethod* method, Thread* self,     \
+                                                           ShadowFrame& shadow_frame,           \
+                                                           JValue* result, uint16_t number_of_inputs, \
+                                                           uint32_t (&arg)[_var_args], uint32_t vregC);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(false, false, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(false, true, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(true, false, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(true, true, 5);
+#undef EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL
 
 // Explicit DoFilledNewArray template function declarations.
 #define EXPLICIT_DO_FILLED_NEW_ARRAY_TEMPLATE_DECL(_is_range_, _check, _transaction_active)       \
