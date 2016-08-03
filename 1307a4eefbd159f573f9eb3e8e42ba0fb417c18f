@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94e3d6ef_6f8af96c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "We use GetXXX for getters.",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 24
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_8f8f457a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "GetAdjacentNodes?",
+      "range": {
+        "startLine": 147,
+        "startChar": 56,
+        "endLine": 147,
+        "endChar": 59
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_afa321f7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 151,
+        "startChar": 9,
+        "endLine": 151,
+        "endChar": 15
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_cfa06ded",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 155,
+        "startChar": 9,
+        "endLine": 155,
+        "endChar": 11
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f9bad7_24429247",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "This is more of the outgoing degree, right? Due to the asymmetric edges of the graphic. If that\u0027s the case, please document that.",
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f9bad7_27cdf45e",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "linear?",
+      "range": {
+        "startLine": 683,
+        "startChar": 29,
+        "endLine": 683,
+        "endChar": 33
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f9bad7_c73ce0eb",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "Chose... seems to suggest it returns some node. It\u0027s returning a boolean though.",
+      "range": {
+        "startLine": 762,
+        "startChar": 12,
+        "endLine": 762,
+        "endChar": 32
+      },
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f9bad7_a768c4c7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-03T22:44:00Z",
+      "side": 1,
+      "message": "Should we break here? I assume the interference graph is already not accurate after the split.\n\nWe can continue to split more intervals, but keep coloring doesn\u0027t seem to be useful.",
+      "revId": "1307a4eefbd159f573f9eb3e8e42ba0fb417c18f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
