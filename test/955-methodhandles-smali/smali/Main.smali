@@ -113,5 +113,17 @@
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
     invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+    # Test case 3: Exercise String.concat(String, String) with an inexact invoke.
+    # Note that the callsite type here is String type(Object, Object); so the runtime
+    # will generate dynamic type checks for the input arguments.
+    invoke-static {}, LMain;->getStringConcatHandle()Ljava/lang/invoke/MethodHandle;
+    move-result-object v0
+    const-string v1, "[String1]"
+    const-string v2, "+[String2]"
+    invoke-polymorphic {v0, v1, v2}, Ljava/lang/invoke/MethodHandle;->invoke([Ljava/lang/Object;)Ljava/lang/Object;, (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
     return-void
 .end method

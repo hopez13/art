@@ -24,6 +24,7 @@
 #include "jit/jit.h"
 #include "jvalue.h"
 #include "method_handles.h"
+#include "method_handles-inl.h"
 #include "mirror/array-inl.h"
 #include "mirror/class.h"
 #include "mirror/method_handle_impl.h"
@@ -474,24 +475,6 @@ void UnexpectedOpcode(const Instruction* inst, const ShadowFrame& shadow_frame) 
   UNREACHABLE();
 }
 
-// Assign register 'src_reg' from shadow_frame to register 'dest_reg' into new_shadow_frame.
-static inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
-                                  size_t dest_reg, size_t src_reg)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  // Uint required, so that sign extension does not make this wrong on 64b systems
-  uint32_t src_value = shadow_frame.GetVReg(src_reg);
-  mirror::Object* o = shadow_frame.GetVRegReference<kVerifyNone>(src_reg);
-
-  // If both register locations contains the same value, the register probably holds a reference.
-  // Note: As an optimization, non-moving collectors leave a stale reference value
-  // in the references array even after the original vreg was overwritten to a non-reference.
-  if (src_value == reinterpret_cast<uintptr_t>(o)) {
-    new_shadow_frame->SetVRegReference(dest_reg, o);
-  } else {
-    new_shadow_frame->SetVReg(dest_reg, src_value);
-  }
-}
-
 void AbortTransactionF(Thread* self, const char* fmt, ...) {
   va_list args;
   va_start(args, fmt);
@@ -518,6 +501,18 @@ static inline bool DoCallCommon(ArtMethod* called_method,
                                 uint16_t number_of_inputs,
                                 uint32_t (&arg)[Instruction::kMaxVarArgRegs],
                                 uint32_t vregC) ALWAYS_INLINE;
+
+// Separate declaration is required solely for the attributes.
+template <bool is_range> REQUIRES_SHARED(Locks::mutator_lock_)
+static inline bool DoCallPolymorphic(ArtMethod* called_method,
+                                     mirror::MethodType* callsite_type,
+                                     mirror::MethodType* target_type,
+                                     Thread* self,
+                                     ShadowFrame& shadow_frame,
+                                     JValue* result,
+                                     uint16_t number_of_inputs,
+                                     uint32_t (&arg)[Instruction::kMaxVarArgRegs],
+                                     uint32_t vregC) ALWAYS_INLINE;
 
 void ArtInterpreterToCompiledCodeBridge(Thread* self,
                                         ArtMethod* caller,
@@ -687,22 +682,87 @@ inline bool DoInvokePolymorphic(Thread* self, ShadowFrame& shadow_frame,
     // NOTE: handle_kind == kInvokeStatic needs no special treatment here. We
     // can directly make the call. handle_kind == kInvokeSuper doesn't have any
     // particular use and can probably be dropped.
+    self->EndAssertNoThreadSuspension(old_cause);
+
     if (callsite_type->IsExactMatch(handle_type)) {
-      self->EndAssertNoThreadSuspension(old_cause);
       return DoCallCommon<is_range, do_access_check>(
           called_method, self, shadow_frame, result, number_of_inputs,
           arg, receiver_vregC);
+    } else {
+      return DoCallPolymorphic<is_range>(
+          called_method, callsite_type, handle_type, self, shadow_frame,
+          result, number_of_inputs, arg, receiver_vregC);
     }
-
-    self->EndAssertNoThreadSuspension(old_cause);
-    UNIMPLEMENTED(FATAL) << "Non exact invokes are not implemented yet.";
-    return false;
   } else {
     // TODO(narayan): Implement field getters and setters.
     self->EndAssertNoThreadSuspension(old_cause);
     UNIMPLEMENTED(FATAL) << "Field references in method handles are not implemented yet.";
     return false;
   }
+}
+
+template <bool is_range>
+static inline bool DoCallPolymorphic(ArtMethod* called_method,
+                                     mirror::MethodType* callsite_type,
+                                     mirror::MethodType* target_type,
+                                     Thread* self,
+                                     ShadowFrame& shadow_frame,
+                                     JValue* result,
+                                     uint16_t number_of_inputs,
+                                     uint32_t (&arg)[Instruction::kMaxVarArgRegs],
+                                     uint32_t vregC) {
+  // TODO(narayan): Wire in the String.init hacks.
+
+  // Compute method information.
+  const DexFile::CodeItem* code_item = called_method->GetCodeItem();
+
+  // Number of registers for the callee's call frame.
+  uint16_t num_regs;
+  if (LIKELY(code_item != nullptr)) {
+    num_regs = code_item->registers_size_;
+  } else {
+    DCHECK(called_method->IsNative() || called_method->IsProxyMethod());
+    num_regs = number_of_inputs;
+  }
+
+  // Parameter registers go at the end of the shadow frame.
+  DCHECK_GE(num_regs, number_of_inputs);
+  size_t first_dest_reg = num_regs - number_of_inputs;
+  DCHECK_NE(first_dest_reg, (size_t)-1);
+
+  // Allocate shadow frame on the stack.
+  // TODO(fix this)
+  const char* old_cause = self->StartAssertNoThreadSuspension("DoCallPolymorphic");
+  ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
+      CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, /* dex pc */ 0);
+  ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
+  self->EndAssertNoThreadSuspension(old_cause);
+
+  if (!PerformArgumentConversions<is_range>(self, callsite_type, target_type,
+                                            shadow_frame, vregC, first_dest_reg,
+                                            arg, new_shadow_frame, result)) {
+    DCHECK(self->IsExceptionPending());
+    result->SetL(0);
+    return false;
+  }
+
+    // Do the call now.
+  if (LIKELY(Runtime::Current()->IsStarted())) {
+    ArtMethod* target = new_shadow_frame->GetMethod();
+    if (ClassLinker::ShouldUseInterpreterEntrypoint(
+        target,
+        target->GetEntryPointFromQuickCompiledCode())) {
+      ArtInterpreterToInterpreterBridge(self, code_item, new_shadow_frame, result);
+    } else {
+      ArtInterpreterToCompiledCodeBridge(
+          self, shadow_frame.GetMethod(), code_item, new_shadow_frame, result);
+    }
+  } else {
+    UnstartedRuntime::Invoke(self, code_item, new_shadow_frame, result, first_dest_reg);
+  }
+
+
+  return !self->IsExceptionPending();
 }
 
 template <bool is_range,
