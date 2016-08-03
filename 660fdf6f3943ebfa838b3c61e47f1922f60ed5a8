@@ -63,6 +63,30 @@
       "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_bfefb7b6",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-03T18:38:07Z",
+      "side": 1,
+      "message": "In other words, the two lines that are here now are supposed to describe the same failure. That description changed from the previous one because I changed my mind about likely cause based on the new information. Do you have a suggestion on how to phrase better?",
+      "parentUuid": "14a446ca_fff53f86",
+      "range": {
+        "startLine": 265,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 83
+      },
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
