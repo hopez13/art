@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14a446ca_7f912f41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-03T17:23:40Z",
+      "side": 1,
+      "message": "Add this to commit message:\n\nThe aim of the patch is:\n - decreasing code size\n - avoiding hazards on Cortex-A57, when a pair of S\n   registers for an actual live D register is restored\n   and then used in regular non SlowPath code as D\n   register.",
+      "revId": "0871783e63e30d4a0289ddff431d09578338b5bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
