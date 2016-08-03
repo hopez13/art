@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94e3d6ef_fe979d31",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T16:31:37Z",
+      "side": 1,
+      "message": "add that top word is for alignment.",
+      "range": {
+        "startLine": 194,
+        "startChar": 60,
+        "endLine": 194,
+        "endChar": 89
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_9e90593f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T16:31:37Z",
+      "side": 1,
+      "message": "Note: we should probably remove that macro all code under that macro now.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1273,
+        "endChar": 26
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_7ede2d0e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T16:31:37Z",
+      "side": 1,
+      "message": "Very confusing gerrit thinks this changed :(",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 9
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_bebfd5a1",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T16:31:37Z",
+      "side": 1,
+      "message": "Could we rename this to kSaveAllCalleeSaves ?",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 12
+      },
+      "revId": "5a6430dfc2513868ebb375c5d524d9a4026fdfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
