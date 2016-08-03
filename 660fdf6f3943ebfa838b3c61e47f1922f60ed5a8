@@ -111,6 +111,30 @@
       "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_df1ddbca",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-03T18:45:55Z",
+      "side": 1,
+      "message": "Okay cool. FYI testRedirectInherit used to fail 100% of the time on user builds when accessing /proc/ due to a kernel bug in an earlier version of the test, but the test\u0027s implementation has changed since then to work around the kernel bug.\n\nWhen it started failing as a flake, we suspect it was the same issue. I now think it\u0027s a separate issue, and that that same separate issue is also affecting nullStreams().",
+      "parentUuid": "14a446ca_1fe103c5",
+      "range": {
+        "startLine": 265,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 83
+      },
+      "revId": "660fdf6f3943ebfa838b3c61e47f1922f60ed5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
