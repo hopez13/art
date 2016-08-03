@@ -26,6 +26,7 @@
 #include "base/logging.h"
 #include "mirror/class.h"
 #include "oat_file.h"
+#include "mirror/method_type.h"
 #include "runtime.h"
 
 #include <atomic>
@@ -79,6 +80,24 @@ inline void DexCache::SetResolvedType(uint32_t type_idx, Class* resolved) {
   DCHECK_LT(type_idx, NumResolvedTypes());  // NOTE: Unchecked, i.e. not throwing AIOOB.
   // TODO default transaction support.
   GetResolvedTypes()[type_idx] = GcRoot<Class>(resolved);
+  // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
+  Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
+}
+
+inline MethodType* DexCache::GetResolvedMethodType(uint32_t proto_idx) {
+  DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+  DCHECK_LT(proto_idx, GetDexFile()->NumProtoIds());
+  return MethodTypeDexCachePair::Lookup(
+      GetResolvedMethodTypes(), proto_idx, NumResolvedMethodTypes()).Read();
+}
+
+inline void DexCache::SetResolvedMethodType(uint32_t proto_idx, MethodType* resolved) {
+  DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+  DCHECK_LT(proto_idx, NumResolvedMethodTypes());  // NOTE: Unchecked, i.e. not throwing AIOOB.
+
+  GetResolvedMethodTypes()[proto_idx % NumResolvedMethodTypes()].store(
+      MethodTypeDexCachePair(resolved, proto_idx), std::memory_order_relaxed);
+
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
 }
