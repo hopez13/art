@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94e3d6ef_55822cfc",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T20:22:34Z",
+      "side": 1,
+      "message": "really nit picking but \u0027#\u0027 to avoid any confusion with c++?",
+      "range": {
+        "startLine": 42,
+        "startChar": 63,
+        "endLine": 42,
+        "endChar": 65
+      },
+      "revId": "acaa7091f100c4344411d7cfd2ee709af1b54818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_f59a585c",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T20:22:34Z",
+      "side": 1,
+      "message": "cool method :)",
+      "range": {
+        "startLine": 69,
+        "startChar": 37,
+        "endLine": 69,
+        "endChar": 54
+      },
+      "revId": "acaa7091f100c4344411d7cfd2ee709af1b54818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_1598a462",
+        "filename": "compiler/optimizing/optimization_factory.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T20:22:34Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "acaa7091f100c4344411d7cfd2ee709af1b54818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_958cb42f",
+        "filename": "compiler/optimizing/optimization_factory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T20:22:34Z",
+      "side": 1,
+      "message": "Remove. I\u0027d only put a helper method in optimizing_compiler.cc.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "acaa7091f100c4344411d7cfd2ee709af1b54818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_b5b7f0d1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T20:22:34Z",
+      "side": 1,
+      "message": "ReadPassesFile.",
+      "range": {
+        "startLine": 2134,
+        "startChar": 7,
+        "endLine": 2134,
+        "endChar": 23
+      },
+      "revId": "acaa7091f100c4344411d7cfd2ee709af1b54818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
