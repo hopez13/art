@@ -25,6 +25,7 @@
 #include "base/enums.h"
 #include "base/logging.h"
 #include "mirror/class.h"
+#include "mirror/method_type.h"
 #include "runtime.h"
 
 #include <atomic>
@@ -78,6 +79,19 @@ inline void DexCache::SetResolvedType(uint32_t type_idx, Class* resolved) {
   DCHECK_LT(type_idx, NumResolvedTypes());  // NOTE: Unchecked, i.e. not throwing AIOOB.
   // TODO default transaction support.
   GetResolvedTypes()[type_idx] = GcRoot<Class>(resolved);
+  // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
+  Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
+}
+
+inline MethodType* DexCache::GetResolvedMethodtype(uint32_t proto_idx) {
+  DCHECK_LT(proto_idx, NumResolvedMethodtypes());
+  return GetResolvedMethodtypes()[proto_idx].Read();
+}
+
+inline void DexCache::SetResolvedMethodtype(uint32_t proto_idx, MethodType* resolved) {
+  DCHECK_LT(proto_idx, NumResolvedMethodtypes());  // NOTE: Unchecked, i.e. not throwing AIOOB.
+  // TODO default transaction support.
+  GetResolvedMethodtypes()[proto_idx] = GcRoot<MethodType>(resolved);
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
 }

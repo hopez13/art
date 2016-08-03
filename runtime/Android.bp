@@ -126,6 +126,8 @@ cc_defaults {
         "mirror/dex_cache.cc",
         "mirror/field.cc",
         "mirror/method.cc",
+        "mirror/method_handle_impl.cc",
+        "mirror/method_type.cc",
         "mirror/object.cc",
         "mirror/reference.cc",
         "mirror/stack_trace_element.cc",

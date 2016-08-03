@@ -22,7 +22,10 @@
 #include "debugger.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "jit/jit.h"
+#include "jvalue.h"
 #include "mirror/array-inl.h"
+#include "mirror/class.h"
+#include "reflection.h"
 #include "stack.h"
 #include "unstarted_runtime.h"
 #include "verifier/method_verifier.h"
@@ -454,7 +457,7 @@ void UnexpectedOpcode(const Instruction* inst, const ShadowFrame& shadow_frame) 
 }
 
 // Assign register 'src_reg' from shadow_frame to register 'dest_reg' into new_shadow_frame.
-static inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
+inline void AssignRegister(ShadowFrame* new_shadow_frame, const ShadowFrame& shadow_frame,
                                   size_t dest_reg, size_t src_reg)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Uint required, so that sign extension does not make this wrong on 64b systems
@@ -492,13 +495,27 @@ template <bool is_range,
           bool do_assignability_check,
           size_t kVarArgMax>
     REQUIRES_SHARED(Locks::mutator_lock_)
-static inline bool DoCallCommon(ArtMethod* called_method,
-                                Thread* self,
-                                ShadowFrame& shadow_frame,
-                                JValue* result,
-                                uint16_t number_of_inputs,
-                                uint32_t (&arg)[kVarArgMax],
-                                uint32_t vregC) ALWAYS_INLINE;
+bool DoCallCommon(ArtMethod* called_method,
+                  Thread* self,
+                  ShadowFrame& shadow_frame,
+                  JValue* result,
+                  uint16_t number_of_inputs,
+                  uint32_t (&arg)[kVarArgMax],
+                  uint32_t vregC) ALWAYS_INLINE;
+
+template <bool is_range,
+          bool do_assignability_check,
+          size_t kVarArgMax>
+    REQUIRES_SHARED(Locks::mutator_lock_)
+bool DoCallPolymorphic(ArtMethod* called_method,
+                       mirror::MethodType* callsite_type,
+                       mirror::MethodType* target_type,
+                       Thread* self,
+                       ShadowFrame& shadow_frame,
+                       JValue* result,
+                       uint16_t number_of_inputs,
+                       uint32_t (&arg)[kVarArgMax],
+                       uint32_t vregC) ALWAYS_INLINE;
 
 void ArtInterpreterToCompiledCodeBridge(Thread* self,
                                         ArtMethod* caller,
@@ -565,13 +582,185 @@ void SetStringInitValueToAllAliases(ShadowFrame* shadow_frame,
 template <bool is_range,
           bool do_assignability_check,
           size_t kVarArgMax>
-static inline bool DoCallCommon(ArtMethod* called_method,
-                                Thread* self,
-                                ShadowFrame& shadow_frame,
-                                JValue* result,
-                                uint16_t number_of_inputs,
-                                uint32_t (&arg)[kVarArgMax],
-                                uint32_t vregC) {
+bool DoCallPolymorphic(ArtMethod* called_method,
+                       mirror::MethodType* callsite_type,
+                       mirror::MethodType* target_type,
+                       Thread* self,
+                       ShadowFrame& shadow_frame,
+                       JValue* result,
+                       uint16_t number_of_inputs,
+                       uint32_t (&arg)[kVarArgMax],
+                       uint32_t vregC) {
+  // Exact invokes, nothing left to do here.
+  if (callsite_type->IsExactMatch(target_type)) {
+    return DoCallCommon<is_range, do_assignability_check, kVarArgMax>(
+        called_method, self, shadow_frame, result, number_of_inputs,
+        arg, vregC);
+  }
+
+  // TODO: Wire in the String.init hacks.
+
+  // Compute method information.
+  const DexFile::CodeItem* code_item = called_method->GetCodeItem();
+
+  // Number of registers for the callee's call frame.
+  uint16_t num_regs;
+  if (LIKELY(code_item != nullptr)) {
+    num_regs = code_item->registers_size_;
+  } else {
+    DCHECK(called_method->IsNative() || called_method->IsProxyMethod());
+    num_regs = number_of_inputs;
+  }
+
+  // Parameter registers go at the end of the shadow frame.
+  DCHECK_GE(num_regs, number_of_inputs);
+  size_t first_dest_reg = num_regs - number_of_inputs;
+  DCHECK_NE(first_dest_reg, (size_t)-1);
+
+  // Allocate shadow frame on the stack.
+  // TODO(fix this)
+  // const char* old_cause = self->StartAssertNoThreadSuspension("DoCallPolymorphic");
+  ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
+      CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, /* dex pc */ 0);
+  ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
+
+  mirror::ObjectArray<mirror::Class>* const from_types = callsite_type->GetPTypes();
+  mirror::ObjectArray<mirror::Class>* const to_types = target_type->GetPTypes();
+  const int32_t num_method_params = from_types->GetLength();
+
+  if (to_types->GetLength() != num_method_params) {
+    // TODO(narayan): Throw an exception when this happens.
+    result->SetJ(0);
+    return false;
+  }
+
+    uint16_t first_src_reg = vregC;
+    DCHECK_LE(number_of_inputs, arraysize(arg));
+
+    size_t from_arg_index = 0;
+    size_t to_arg_index = 0;
+    for (int32_t i = 0; i < num_method_params; ++i) {
+      mirror::Class* from = from_types->GetWithoutChecks(i);
+      mirror::Class* to = to_types->GetWithoutChecks(i);
+
+      // Easy case - the types are identical. Nothing left to do except to pass
+      // the arguments along verbatim.
+      if (from == to) {
+        AssignRegister(new_shadow_frame, shadow_frame, first_dest_reg + to_arg_index,
+                       (is_range ? first_src_reg + from_arg_index : arg[from_arg_index]));
+        ++from_arg_index;
+        ++to_arg_index;
+
+        // This is a wide argument, we must use the second half of the register
+        // pair as well.
+        if (Primitive::Is64BitType(from->GetPrimitiveType())) {
+          AssignRegister(new_shadow_frame, shadow_frame, first_dest_reg + to_arg_index,
+                         (is_range ? first_src_reg + from_arg_index : arg[from_arg_index]));
+          ++from_arg_index;
+          ++to_arg_index;
+        }
+
+        continue;
+      }
+
+      const Primitive::Type from_type = from->GetPrimitiveType();
+      const Primitive::Type to_type = to->GetPrimitiveType();
+
+      if ((from_type != Primitive::kPrimNot) && (to_type != Primitive::kPrimNot)) {
+        // They are both primitive types - we should perform any widening or
+        // narrowing conversions as applicable.
+        JValue from_value;
+        JValue to_value;
+
+        if (Primitive::Is64BitType(from_type)) {
+          from_value.SetJ(shadow_frame.GetVRegLong(
+              (is_range ? first_src_reg + from_arg_index : arg[from_arg_index])));
+          from_arg_index += 2;
+        } else {
+          from_value.SetI(shadow_frame.GetVReg(
+              (is_range ? first_src_reg + from_arg_index : arg[from_arg_index])));
+          ++from_arg_index;
+        }
+
+        // Throw a ClassCastException if we're unable to convert a primitive
+        // value.
+        if (!ConvertPrimitiveValue(false /* unbox_for_result */,
+                                   from->GetPrimitiveType(),
+                                   to->GetPrimitiveType(),
+                                   from_value,
+                                   &to_value)) {
+          DCHECK(self->IsExceptionPending());
+          result->SetL(0);
+          return false;
+        }
+
+        if (Primitive::Is64BitType(to_type)) {
+          new_shadow_frame->SetVRegLong(first_dest_reg + to_arg_index, to_value.GetJ());
+          to_arg_index +=2;
+        } else {
+          new_shadow_frame->SetVReg(first_dest_reg + to_arg_index, to_value.GetI());
+          ++to_arg_index;
+        }
+      } else if ((from_type == Primitive::kPrimNot) && (to_type == Primitive::kPrimNot)) {
+        // They're both reference types. If "from" is null, we can pass it
+        // through unmolested. If not, we must generate a cast exception if
+        // something awful has occurred.
+        if (to->IsAssignableFrom(from)) {
+          AssignRegister(new_shadow_frame, shadow_frame, first_dest_reg + to_arg_index,
+              (is_range ? first_src_reg + from_arg_index : arg[from_arg_index]));
+          ++to_arg_index;
+          ++from_arg_index;
+        } else {
+          // The types are not assignable. However, null is a special case.
+          Object* o = shadow_frame.GetVRegReference(
+              (is_range ? first_src_reg + from_arg_index : arg[from_arg_index]));
+          ++from_arg_index;
+          ++to_arg_index;
+          if (o == nullptr) {
+            new_shadow_frame->SetVRegReference(first_dest_reg + to_arg_index, nullptr);
+          } else {
+            // TODO(narayan): Throw a sensible ClassCastException here.
+            result->SetL(0);
+            return false;
+          }
+        }
+      } else {
+        // Precisely one of the source or the destination are reference types.
+        // We must box or unbox.
+      }
+    }
+
+  // self->EndAssertNoThreadSuspension(old_cause);
+
+    // Do the call now.
+  if (LIKELY(Runtime::Current()->IsStarted())) {
+    ArtMethod* target = new_shadow_frame->GetMethod();
+    if (ClassLinker::ShouldUseInterpreterEntrypoint(
+        target,
+        target->GetEntryPointFromQuickCompiledCode())) {
+      ArtInterpreterToInterpreterBridge(self, code_item, new_shadow_frame, result);
+    } else {
+      ArtInterpreterToCompiledCodeBridge(
+          self, shadow_frame.GetMethod(), code_item, new_shadow_frame, result);
+    }
+  } else {
+    UnstartedRuntime::Invoke(self, code_item, new_shadow_frame, result, first_dest_reg);
+  }
+
+
+  return !self->IsExceptionPending();
+}
+
+template <bool is_range,
+          bool do_assignability_check,
+          size_t kVarArgMax>
+bool DoCallCommon(ArtMethod* called_method,
+                  Thread* self,
+                  ShadowFrame& shadow_frame,
+                  JValue* result,
+                  uint16_t number_of_inputs,
+                  uint32_t (&arg)[kVarArgMax],
+                  uint32_t vregC) {
   bool string_init = false;
   // Replace calls to String.<init> with equivalent StringFactory call.
   if (UNLIKELY(called_method->GetDeclaringClass()->IsStringClass()
@@ -914,6 +1103,33 @@ EXPLICIT_DO_CALL_TEMPLATE_DECL(false, true);
 EXPLICIT_DO_CALL_TEMPLATE_DECL(true, false);
 EXPLICIT_DO_CALL_TEMPLATE_DECL(true, true);
 #undef EXPLICIT_DO_CALL_TEMPLATE_DECL
+
+#define EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(_is_range, _do_assignability_check, _var_args)               \
+  template REQUIRES_SHARED(Locks::mutator_lock_)                                                \
+  bool DoCallCommon<_is_range, _do_assignability_check, _var_args>(ArtMethod* method, Thread* self,     \
+                                                           ShadowFrame& shadow_frame,           \
+                                                           JValue* result, uint16_t number_of_inputs, \
+                                                           uint32_t (&arg)[_var_args], uint32_t vregC);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(false, false, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(false, true, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(true, false, 5);
+EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL(true, true, 5);
+#undef EXPLICIT_DO_CALL_COMMON_TEMPLATE_DECL
+
+#define EXPLICIT_DO_CALL_POLYMORPHIC_TEMPLATE_DECL(_is_range, _do_assignability_check, _var_args)               \
+  template REQUIRES_SHARED(Locks::mutator_lock_)                                                \
+  bool DoCallPolymorphic<_is_range, _do_assignability_check, _var_args>(ArtMethod* method,    \
+                                                           mirror::MethodType* src_type, \
+                                                           mirror::MethodType* target_type, \
+                                                           Thread* self, \
+                                                           ShadowFrame& shadow_frame,           \
+                                                           JValue* result, uint16_t number_of_inputs, \
+                                                           uint32_t (&arg)[_var_args], uint32_t vregC);
+EXPLICIT_DO_CALL_POLYMORPHIC_TEMPLATE_DECL(false, false, 5);
+EXPLICIT_DO_CALL_POLYMORPHIC_TEMPLATE_DECL(false, true, 5);
+EXPLICIT_DO_CALL_POLYMORPHIC_TEMPLATE_DECL(true, false, 5);
+EXPLICIT_DO_CALL_POLYMORPHIC_TEMPLATE_DECL(true, true, 5);
+#undef EXPLICIT_DO_POLYMORPHIC_TEMPLATE_DECL
 
 // Explicit DoFilledNewArray template function declarations.
 #define EXPLICIT_DO_FILLED_NEW_ARRAY_TEMPLATE_DECL(_is_range_, _check, _transaction_active)       \

@@ -35,6 +35,7 @@ class DexCacheArraysLayout {
         methods_offset_(0u),
         strings_offset_(0u),
         fields_offset_(0u),
+        methodtypes_offset_(0u),
         size_(0u) {
   }
 
@@ -94,12 +95,23 @@ class DexCacheArraysLayout {
 
   size_t FieldsAlignment() const;
 
+  size_t MethodtypesOffset() const {
+    return methodtypes_offset_;
+  }
+
+  size_t MethodtypeOffset(uint32_t methodtype_idx) const;
+
+  size_t MethodtypesSize(size_t num_elements) const;
+
+  size_t MethodtypesAlignment() const;
+
  private:
   static constexpr size_t types_offset_ = 0u;
   const PointerSize pointer_size_;  // Must be first for construction initialization order.
   const size_t methods_offset_;
   const size_t strings_offset_;
   const size_t fields_offset_;
+  const size_t methodtypes_offset_;
   const size_t size_;
 
   static size_t Alignment(PointerSize pointer_size);

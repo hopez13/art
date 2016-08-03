@@ -1542,6 +1542,22 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
         POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
         break;
       }
+      case Instruction::INVOKE_POLYMORPHIC: {
+        PREAMBLE();
+        // TODO: Fill in inst_data - contains the method_type
+        bool success = DoInvokePolymorphic<false, do_access_check, 5>(
+            self, shadow_frame, inst, inst_data, 0, &result_register);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_4xx);
+        break;
+      }
+      case Instruction::INVOKE_POLYMORPHIC_RANGE: {
+        PREAMBLE();
+        bool success = DoInvokePolymorphic<true, do_access_check, 5>(
+            self, shadow_frame, inst, inst_data, 0,  &result_register);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_4xx);
+        break;
+        break;
+      }
       case Instruction::NEG_INT:
         PREAMBLE();
         shadow_frame.SetVReg(
@@ -2323,8 +2339,6 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
       case Instruction::UNUSED_FC ... Instruction::UNUSED_FF:
       case Instruction::UNUSED_79:
       case Instruction::UNUSED_7A:
-      case Instruction::INVOKE_POLYMORPHIC:
-      case Instruction::INVOKE_POLYMORPHIC_RANGE:
         UnexpectedOpcode(inst, shadow_frame);
     }
   } while (!interpret_one_instruction);
