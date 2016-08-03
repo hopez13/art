@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f4f252a6_8eb47bce",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-03T11:12:23Z",
+      "side": 1,
+      "message": "Are Inf subtractions yielding NaN?\n\n  Inf-Inf\u003dNaN\n  (-Inf)-(-Inf)\u003dNaN",
+      "parentUuid": "74d3c2eb_58b5d594",
+      "revId": "1c0c7daf05ce42de9f9b6411533c525e832d5332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f1add55_c629a4a1",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
