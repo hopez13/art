@@ -66,8 +66,8 @@
     return-object v0
 .end method
 
-# Returns a method handle to static String java.lang.String.valueOf(String);
-.method public static getStringValueOfHandle()Ljava/lang/invoke/MethodHandle;
+# Returns a method handle to static String java.lang.String.valueOf(Object);
+.method public static getStringValueOfObjectHandle()Ljava/lang/invoke/MethodHandle;
 .registers 4
     # set v0 to java.lang.Object.class
     new-instance v0, Ljava/lang/Object;
@@ -90,6 +90,26 @@
     return-object v0
 .end method
 
+# Returns a method handle to static String java.lang.String.valueOf(String);
+.method public static getStringValueOfLongHandle()Ljava/lang/invoke/MethodHandle;
+.registers 4
+    # set v0 to Long.TYPE aka. long.class
+    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    # set v1 to the name of the method ("valueOf") and v2 to java.lang.String.class;
+    const-string v1, "valueOf"
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    move-result-object v2
+
+    # Call MethodType.methodType(rtype=String.class, ptype[0]=Long.class)
+    invoke-static {v2, v0}, Ljava/lang/invoke/MethodType;->methodType(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;
+    move-result-object v3
+
+    # Call Main.getHandleForStatic(String.class, "valueOf", methodType);
+    invoke-static {v2, v1, v3}, LMain;->getHandleForStatic(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;
+    move-result-object v0
+    return-object v0
+.end method
 
 .method public static main([Ljava/lang/String;)V
 .registers 5
@@ -105,13 +125,48 @@
     invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     # Test case 2: Exercise String.valueOf(Object);
-    invoke-static {}, LMain;->getStringValueOfHandle()Ljava/lang/invoke/MethodHandle;
+    invoke-static {}, LMain;->getStringValueOfObjectHandle()Ljava/lang/invoke/MethodHandle;
     move-result-object v0
     const-string v1, "[String1]"
     invoke-polymorphic {v0, v1}, Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;, (Ljava/lang/Object;)Ljava/lang/String;
     move-result-object v3
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
     invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    # Test case 3: Exercise String.concat(String, String) with an inexact invoke.
+    # Note that the callsite type here is String type(Object, Object); so the runtime
+    # will generate dynamic type checks for the input arguments.
+    invoke-static {}, LMain;->getStringConcatHandle()Ljava/lang/invoke/MethodHandle;
+    move-result-object v0
+    const-string v1, "[String1]"
+    const-string v2, "+[String2]"
+    invoke-polymorphic {v0, v1, v2}, Ljava/lang/invoke/MethodHandle;->invoke([Ljava/lang/Object;)Ljava/lang/Object;, (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    # Test case 4: Exercise String.valueOf(long);
+    invoke-static {}, LMain;->getStringValueOfLongHandle()Ljava/lang/invoke/MethodHandle;
+    move-result-object v0
+
+    # First use a long.
+    const-wide v1, 42
+    invoke-polymorphic {v0, v1, v2}, Ljava/lang/invoke/MethodHandle;->invokeExact([Ljava/lang/Object;)Ljava/lang/Object;, (J)Ljava/lang/String;
+    move-result-object v3
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    # Then use an int.
+    const v1, 40
+    invoke-polymorphic {v0, v1}, Ljava/lang/invoke/MethodHandle;->invoke([Ljava/lang/Object;)Ljava/lang/Object;, (I)Ljava/lang/String;
+    move-result-object v3
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    # Then use a java/lang/Long;
+    const v1, 1
+
+    # Then use a java/lang/Integer;
 
     return-void
 .end method
