@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "94e3d6ef_9bc86b22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T15:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_6ed94f24",
+      "range": {
+        "startLine": 11,
+        "startChar": 59,
+        "endLine": 11,
+        "endChar": 68
+      },
+      "revId": "d55f4ab2e119395bbae92488707929b8075c126b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4f252a6_8ebf5ba2",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-03T09:58:15Z",
       "side": 1,
       "message": "Maybe save the result of `Thread::Current()` into a variable to avoid repeated calls to this method?",
+      "range": {
+        "startLine": 135,
+        "startChar": 27,
+        "endLine": 135,
+        "endChar": 44
+      },
+      "revId": "d55f4ab2e119395bbae92488707929b8075c126b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94e3d6ef_3b8cb7df",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-03T15:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_8ebf5ba2",
       "range": {
         "startLine": 135,
         "startChar": 27,
