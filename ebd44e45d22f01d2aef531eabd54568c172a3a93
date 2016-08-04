@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540f9ee2_f99d9751",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:12:02Z",
+      "side": 1,
+      "message": "With this ordering, you should add a comment that JAE does not jump for UNORDERED (JAE jumps for CF\u003d0 and COMISS sets CF\u003d1 for UNORDERED).",
+      "range": {
+        "startLine": 819,
+        "startChar": 0,
+        "endLine": 821,
+        "endChar": 26
+      },
+      "revId": "ebd44e45d22f01d2aef531eabd54568c172a3a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_39b8afc2",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:12:02Z",
+      "side": 1,
+      "message": "Please use 2147483648.0f here and below. The 2147483647.0f cannot be precisely represented by a float. We should avoid tests that force rounding during Java-\u003ebytecode translation where we can provide the exact number explicitly.",
+      "range": {
+        "startLine": 57,
+        "startChar": 54,
+        "endLine": 57,
+        "endChar": 67
+      },
+      "revId": "ebd44e45d22f01d2aef531eabd54568c172a3a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_b9ce7f5f",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:12:02Z",
+      "side": 1,
+      "message": "minlong?",
+      "range": {
+        "startLine": 130,
+        "startChar": 12,
+        "endLine": 130,
+        "endChar": 18
+      },
+      "revId": "ebd44e45d22f01d2aef531eabd54568c172a3a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_59af637a",
+        "filename": "test/580-checker-round/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:12:02Z",
+      "side": 1,
+      "message": "9223372036854775808.0",
+      "range": {
+        "startLine": 139,
+        "startChar": 31,
+        "endLine": 139,
+        "endChar": 52
+      },
+      "revId": "ebd44e45d22f01d2aef531eabd54568c172a3a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
