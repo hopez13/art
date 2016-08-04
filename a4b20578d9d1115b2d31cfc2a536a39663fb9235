@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540f9ee2_99b9fb94",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-04T12:04:03Z",
+      "side": 1,
+      "message": "Is this OK to use STP (and LDP) with a non 16-byte aligned address?",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_f9be3778",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-04T12:04:03Z",
+      "side": 1,
+      "message": "Nit: extra space?",
+      "range": {
+        "startLine": 417,
+        "startChar": 47,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_19c68b13",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-04T12:04:03Z",
+      "side": 1,
+      "message": "So we\u0027re unconditionally calling `artTestSuspendFromCode` now; could you add a comment why?",
+      "range": {
+        "startLine": 2024,
+        "startChar": 4,
+        "endLine": 2024,
+        "endChar": 33
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
