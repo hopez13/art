@@ -326,6 +326,24 @@
       "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_4ff94de4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T21:19:22Z",
+      "side": 1,
+      "message": "I found the name \"Prepare\" confusing, but after looking at other code in that file, I agree it\u0027s consistent :(",
+      "parentUuid": "34894a78_707b85d0",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
