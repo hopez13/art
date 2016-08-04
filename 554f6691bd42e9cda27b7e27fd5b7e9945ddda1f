@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34830a89_6040d28e",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T11:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540f9ee2_39142f99",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "554f6691bd42e9cda27b7e27fd5b7e9945ddda1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_195ccb80",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_19432b9d",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T11:20:19Z",
+      "side": 1,
+      "message": "Done. Needed to use printf -- \"--classpath ...\" to avoid printf thinking that \"--classpath\" was an option rather than something to print.\n\nI\u0027ve kept the printf argument as a single string with interpolation rather than using %s which I assume would have worked too, in bash.",
+      "parentUuid": "540f9ee2_195ccb80",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 11
+      },
+      "revId": "554f6691bd42e9cda27b7e27fd5b7e9945ddda1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9747701",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-04T11:07:40Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 141,
+        "startChar": 47,
+        "endLine": 141,
+        "endChar": 56
+      },
+      "revId": "554f6691bd42e9cda27b7e27fd5b7e9945ddda1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d48d4eb7_9da3839c",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T11:20:19Z",
+      "side": 1,
+      "message": "Done. Good catch, thanks!",
+      "parentUuid": "540f9ee2_f9747701",
       "range": {
         "startLine": 141,
         "startChar": 47,
