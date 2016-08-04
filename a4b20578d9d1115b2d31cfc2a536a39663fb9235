@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_39feef07",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-04T15:31:02Z",
+      "side": 1,
+      "message": "Actually a patch is already in place which fix this.\n\"  // Since we are operating on register pairs, we would like to align on\n  // double the standard size; on the other hand, we don\u0027t want to insert\n  // an extra store, which will happen if the number of registers is even.\"",
+      "parentUuid": "540f9ee2_99b29b94",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_199fabf7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-04T15:31:02Z",
+      "side": 1,
+      "message": "Store operations that cross a 16-byte boundary ... reduce bandwidth or incur additional latency (from Cortex-A57 software optimization manual).",
+      "parentUuid": "540f9ee2_99b9fb94",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9be3778",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
