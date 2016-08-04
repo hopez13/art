@@ -368,6 +368,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_0d39c6d9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_85c03028",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_45ca4848",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 28
@@ -391,6 +409,30 @@
     },
     {
       "key": {
+        "uuid": "34894a78_ad2d1a98",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_45ca4848",
+      "range": {
+        "startLine": 161,
+        "startChar": 29,
+        "endLine": 161,
+        "endChar": 53
+      },
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_8a8b5f1c",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 28
@@ -402,6 +444,24 @@
       "writtenOn": "2016-08-04T17:29:04Z",
       "side": 1,
       "message": "reads ambiguous at first; several rounds or allocators? Also, I am not 100% what having several implies? Can you make this a bit more clear?",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_cd6dfed6",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_8a8b5f1c",
       "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
