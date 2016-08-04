@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34894a78_0570c00b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "this is a minor nit that you can ignore, but I would have a slight preference for putting helper methods and helper classes at the top, followed by all class methods defined in the public header (and then following decl order strictly, see below)",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_058c40de",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "rather than marking stuff with TUNING, maybe use the more common TODO (our team is more used to searching for those)",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_051e80c6",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "our readability prefers that methods in the cc file follow the declaration order found in the h file. So validate should come after AllocateRegisters",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_e5ad7c39",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "when a loop is this long, I would recommend closing this with a comment such as\n\n}  // for processing_core_regs",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_65a2ec46",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "same suggestion, mark the while and the for loop",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_a52c54b3",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "add some vertical space here, and a comment, you are sorting here!",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_65174c57",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "this will be important yes!",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_8ad91f4c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "nice detailed comment!",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_6aa71bbd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "overall this is a very clean written and documented header file, kudos!",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_85c03028",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "I am not sure if we have a strict rule for this, but I have a slight preference for one field per line",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_45ca4848",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 161,
+        "startChar": 29,
+        "endLine": 161,
+        "endChar": 53
+      },
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_8a8b5f1c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:29:04Z",
+      "side": 1,
+      "message": "reads ambiguous at first; several rounds or allocators? Also, I am not 100% what having several implies? Can you make this a bit more clear?",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
