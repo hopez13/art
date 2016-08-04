@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34894a78_ad743a00",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T19:41:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540f9ee2_99ad7bf2",
+      "range": {
+        "startLine": 679,
+        "startChar": 22,
+        "endLine": 679,
+        "endChar": 23
+      },
+      "revId": "c2598bdafbe90d0ff26b815546f014c8aac9dc36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9b2b74b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-04T19:03:01Z",
       "side": 1,
       "message": "MOVL clears the high word as well and it is shorter.",
+      "range": {
+        "startLine": 682,
+        "startChar": 5,
+        "endLine": 682,
+        "endChar": 9
+      },
+      "revId": "c2598bdafbe90d0ff26b815546f014c8aac9dc36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_6d5f3278",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T19:41:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540f9ee2_f9b2b74b",
       "range": {
         "startLine": 682,
         "startChar": 5,
