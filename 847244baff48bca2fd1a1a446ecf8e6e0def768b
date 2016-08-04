@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_d0c35104",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T20:28:20Z",
+      "side": 1,
+      "message": "It would be 104.",
+      "parentUuid": "34894a78_0543e000",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_a520d456",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_b04b2db7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T20:28:20Z",
+      "side": 1,
+      "message": "Right now ReadCommentedInputStream only considers lines starting with # as comments, but you are right, another symbol might be better. What about \u0027|\u0027 or \u0027$\u0027?",
+      "parentUuid": "34894a78_25b144f4",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_85ba7021",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 5
@@ -64,6 +100,24 @@
       "writtenOn": "2016-08-04T17:53:05Z",
       "side": 1,
       "message": "perhaps PreparePassesToRun() would be a more consistent way with all the others",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_10ba3987",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T20:28:20Z",
+      "side": 1,
+      "message": "Nicolas suggested this name but I would also lean towards PreparePassesToRun.",
+      "parentUuid": "34894a78_85ba7021",
       "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
