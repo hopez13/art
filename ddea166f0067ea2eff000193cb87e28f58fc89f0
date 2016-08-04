@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_39c38f36",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Entrypoint(s) using this macro do not care how the caller uses registers,  so we save really everything. The only exception is K0/K1 - we don\u0027t want to mess with registers \"reserved for trap handler.\"",
+      "parentUuid": "94e3d6ef_ef6289b1",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 27
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e3d6ef_a41348b1",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2016-08-03T21:25:01Z",
       "side": 1,
       "message": "LDu/SDu is for unaligned (or, rather, 4-byte-aligned) memory locations and expands into 2 or 3 instructions. But if the locations are 8-byte-aligned (as seems to be the case here), a single ldc1/sdc1 should do.",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 31
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_79cd075e",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "All other entrypoints use LDu/SDu, even for aligned load/store. Feel free to clean this up in a follow-up CL.",
+      "parentUuid": "94e3d6ef_44fb647a",
       "range": {
         "startLine": 354,
         "startChar": 0,
@@ -163,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_f9ef57b5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Oh, I thought I was fixing bad CFI but now I see I just messed with something I didn\u0027t understand.",
+      "parentUuid": "3406aa9f_48b59fc7",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 96
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e3d6ef_0aafa37b",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 4
@@ -186,6 +258,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_19e7abdc",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Done. Saved anyway.",
+      "parentUuid": "94e3d6ef_0aafa37b",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 27
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4e0da13_0c6c5704",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 4
@@ -197,6 +293,30 @@
       "writtenOn": "2016-08-03T21:25:01Z",
       "side": 1,
       "message": "424 in both places",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 27
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_39ea6fa6",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4e0da13_0c6c5704",
       "range": {
         "startLine": 348,
         "startChar": 0,
@@ -255,6 +375,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_79e4e7d5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e3d6ef_8a2813ef",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 19
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94e3d6ef_4a052b6a",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 4
@@ -289,6 +433,30 @@
       "writtenOn": "2016-08-03T21:25:01Z",
       "side": 1,
       "message": "I can\u0027t seem to find the definition of this macro. Where is it?",
+      "range": {
+        "startLine": 1899,
+        "startChar": 4,
+        "endLine": 1899,
+        "endChar": 56
+      },
+      "revId": "ddea166f0067ea2eff000193cb87e28f58fc89f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_59e123c4",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T09:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e3d6ef_d5771ce0",
       "range": {
         "startLine": 1899,
         "startChar": 4,
