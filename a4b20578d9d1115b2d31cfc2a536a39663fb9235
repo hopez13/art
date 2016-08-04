@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_99b29b94",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T13:37:06Z",
+      "side": 1,
+      "message": "Yes, see Arm64Assembler::Spill/UnspillRegisters() where we allow non-16B-aligned STP/LDP when spilling/unspilling an even number of registers.",
+      "parentUuid": "540f9ee2_99b9fb94",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9be3778",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_5982c3a6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T13:37:06Z",
+      "side": 1,
+      "message": "Copy-pasted code. May address in a follow-up.",
+      "parentUuid": "540f9ee2_f9be3778",
+      "range": {
+        "startLine": 417,
+        "startChar": 47,
+        "endLine": 417,
+        "endChar": 48
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_19c68b13",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-04T12:04:03Z",
       "side": 1,
       "message": "So we\u0027re unconditionally calling `artTestSuspendFromCode` now; could you add a comment why?",
+      "range": {
+        "startLine": 2024,
+        "startChar": 4,
+        "endLine": 2024,
+        "endChar": 33
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_b9503f3b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T13:37:06Z",
+      "side": 1,
+      "message": "The generated code calls this entrypoint only after checking the flags, so the extra check is useless. This this brings the arm64 in line with other architectures.\n\nNote that mips, mips64 and arm with ARM_R4_SUSPEND_FLAG have code to use the SUSPEND_CHECK_INTERVAL, so they do need to check the flags. However, that\u0027s obsolete and should be removed in another CL.",
+      "parentUuid": "540f9ee2_19c68b13",
       "range": {
         "startLine": 2024,
         "startChar": 4,
