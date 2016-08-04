@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_9963bbeb",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-04T16:13:13Z",
+      "side": 1,
+      "message": "There are some others things that can be improved in this patch related to ARM and ARM64 (vpush d instead of s, scratch register) (I was not on time before the patch was merged). Would you like us to continue the review or you prefer to let us tackle them by ourselves in a separate CL?",
+      "parentUuid": "540f9ee2_9938dbd7",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9be3778",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
