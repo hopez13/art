@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "145606ee_f8dd6510",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:57:19Z",
+      "side": 1,
+      "message": "I suggest a typedef StringDexCacheType or an abstraction on that type.",
+      "range": {
+        "startLine": 2031,
+        "startChar": 2,
+        "endLine": 2031,
+        "endChar": 23
+      },
+      "revId": "67f359e4464eb2888d7d7421ca08eb4b7ead96cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_75850004",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:57:19Z",
+      "side": 1,
+      "message": "Since this is not in, I\u0027d suggest doing it in another CL.",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 3
+      },
+      "revId": "67f359e4464eb2888d7d7421ca08eb4b7ead96cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_f88ba514",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:57:19Z",
+      "side": 1,
+      "message": "sizeof(...)",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "67f359e4464eb2888d7d7421ca08eb4b7ead96cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
