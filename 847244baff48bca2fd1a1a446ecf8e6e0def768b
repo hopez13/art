@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_f2dd8610",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_704ce59c",
+      "range": {
+        "startLine": 684,
+        "startChar": 73,
+        "endLine": 684,
+        "endChar": 77
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_30465d7b",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-04T21:13:54Z",
       "side": 1,
       "message": "list",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 685,
+        "endChar": 8
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_12c3ea35",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_30465d7b",
       "range": {
         "startLine": 685,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_32c0ee26",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_b02c8db3",
+      "range": {
+        "startLine": 687,
+        "startChar": 77,
+        "endLine": 687,
+        "endChar": 88
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_30217db6",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-04T21:13:54Z",
       "side": 1,
       "message": "Why is this not in CompilerOptions?",
+      "range": {
+        "startLine": 688,
+        "startChar": 2,
+        "endLine": 688,
+        "endChar": 64
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_92f51a88",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Moved to CompilerOptions.",
+      "parentUuid": "34894a78_30217db6",
       "range": {
         "startLine": 688,
         "startChar": 2,
@@ -182,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "145606ee_95ffc456",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Yep :) Done",
+      "parentUuid": "34894a78_10b3199b",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_25b144f4",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -253,6 +367,24 @@
     },
     {
       "key": {
+        "uuid": "145606ee_157bd4d0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Unless anyone objects I\u0027ll go with $.",
+      "parentUuid": "34894a78_b0b24d4b",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_2f45e94e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 5
@@ -264,6 +396,30 @@
       "writtenOn": "2016-08-04T21:13:54Z",
       "side": 1,
       "message": "Put into a separate CL, this is unrelated to passes.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 37,
+        "endLine": 1570,
+        "endChar": 65
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_55855cac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-04T22:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_2f45e94e",
       "range": {
         "startLine": 1570,
         "startChar": 37,
