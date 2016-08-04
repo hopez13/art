@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "145606ee_b5d3e804",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:33:22Z",
+      "side": 1,
+      "message": "move that to the end of the sentence?",
+      "range": {
+        "startLine": 1589,
+        "startChar": 47,
+        "endLine": 1589,
+        "endChar": 51
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_1514b498",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:33:22Z",
+      "side": 1,
+      "message": "TODO: inline the bit check Mathieu added? (here and other archs)",
+      "range": {
+        "startLine": 1802,
+        "startChar": 1,
+        "endLine": 1803,
+        "endChar": 55
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_9537c405",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:33:22Z",
+      "side": 1,
+      "message": "Is that really src_array?",
+      "range": {
+        "startLine": 3108,
+        "startChar": 32,
+        "endLine": 3108,
+        "endChar": 37
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
