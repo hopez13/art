@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540f9ee2_b9095f3b",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-04T15:18:41Z",
+      "side": 1,
+      "message": "If \".w\" is removed test still pass.",
+      "range": {
+        "startLine": 418,
+        "startChar": 10,
+        "endLine": 418,
+        "endChar": 13
+      },
+      "revId": "db50e268506ec98d2f95e32e0a78300202750780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540f9ee2_99273bcf",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-04T15:18:41Z",
+      "side": 1,
+      "message": "Pc",
+      "range": {
+        "startLine": 421,
+        "startChar": 35,
+        "endLine": 421,
+        "endChar": 37
+      },
+      "revId": "db50e268506ec98d2f95e32e0a78300202750780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
