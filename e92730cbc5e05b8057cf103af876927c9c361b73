@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34894a78_30f89d18",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 0,
+      "message": "I\u0027d somewhat prefer to put this into a separate, smaller CL. This isn\u0027t really related to compiler passes.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 64
+      },
+      "revId": "e92730cbc5e05b8057cf103af876927c9c361b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

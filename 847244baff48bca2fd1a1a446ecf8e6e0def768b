@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "34894a78_704ce59c",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 684,
+        "startChar": 73,
+        "endLine": 684,
+        "endChar": 77
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_30465d7b",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "list",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 685,
+        "endChar": 8
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_b02c8db3",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "Compiler-dependent behavior?",
+      "range": {
+        "startLine": 687,
+        "startChar": 77,
+        "endLine": 687,
+        "endChar": 88
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_30217db6",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "Why is this not in CompilerOptions?",
+      "range": {
+        "startLine": 688,
+        "startChar": 2,
+        "endLine": 688,
+        "endChar": 64
+      },
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_0543e000",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -137,6 +229,47 @@
       "side": 1,
       "message": "I would vote for $",
       "parentUuid": "34894a78_b04b2db7",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_b0b24d4b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "What\u0027s the resolution here?",
+      "parentUuid": "34894a78_b0a7ad55",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_2f45e94e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-04T21:13:54Z",
+      "side": 1,
+      "message": "Put into a separate CL, this is unrelated to passes.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 37,
+        "endLine": 1570,
+        "endChar": 65
+      },
       "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
