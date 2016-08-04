@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "145606ee_52d3b2d0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "Used",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 8
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_72e7d6a9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "So why don\u0027t you cache it, given that compile times are high? Does it have an impact?",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 58
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_9286fabe",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "\u0026",
+      "range": {
+        "startLine": 141,
+        "startChar": 63,
+        "endLine": 141,
+        "endChar": 64
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_92227abf",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "/* log_fatal_on_failure */",
+      "range": {
+        "startLine": 282,
+        "startChar": 13,
+        "endLine": 282,
+        "endChar": 17
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_723fd6b8",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "Add a comment.\n\nDid you check all the places where the search cache is being used? Because you\u0027re not linear scan, this optimization won\u0027t work for you.",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 31
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_b2adbef1",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "Revisit?",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 23
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_32a1ceef",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 732,
+        "startChar": 52,
+        "endLine": 732,
+        "endChar": 56
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_f2e02627",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "else if ?",
+      "range": {
+        "startLine": 921,
+        "startChar": 2,
+        "endLine": 922,
+        "endChar": 8
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_92443a21",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:01:27Z",
+      "side": 1,
+      "message": "No, is that what we\u0027re doing in linear scan?",
+      "range": {
+        "startLine": 950,
+        "startChar": 0,
+        "endLine": 951,
+        "endChar": 40
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
