@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_4d0b4e7b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Good point; I\u0027ll move helper classes to the top. Some helper methods I\u0027ll try to keep close to their use points, though.",
+      "parentUuid": "34894a78_0570c00b",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_058c40de",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 28
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-04T17:29:04Z",
       "side": 1,
       "message": "rather than marking stuff with TUNING, maybe use the more common TODO (our team is more used to searching for those)",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_b7ea47de",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_058c40de",
       "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_3a9b9e63",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_051e80c6",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_e5ad7c39",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 28
@@ -64,6 +118,24 @@
       "writtenOn": "2016-08-04T17:29:04Z",
       "side": 1,
       "message": "when a loop is this long, I would recommend closing this with a comment such as\n\n}  // for processing_core_regs",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_daa29295",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_e5ad7c39",
       "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_5aaf827a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_65a2ec46",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_a52c54b3",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 28
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_daddb210",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34894a78_a52c54b3",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_65174c57",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 28
@@ -132,6 +240,24 @@
       "writtenOn": "2016-08-04T17:29:04Z",
       "side": 1,
       "message": "this will be important yes!",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_9ac08a28",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:36:59Z",
+      "side": 1,
+      "message": "This is used in my iterative move coalescing CL :)",
+      "parentUuid": "34894a78_65174c57",
       "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
