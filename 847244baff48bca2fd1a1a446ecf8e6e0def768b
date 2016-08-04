@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34894a78_0543e000",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:53:05Z",
+      "side": 1,
+      "message": "does this fit on one line (we allow 100)",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_a520d456",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:53:05Z",
+      "side": 1,
+      "message": "one line?",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_25b144f4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:53:05Z",
+      "side": 1,
+      "message": "not to nit again, but won\u0027t # conflict with the symbol for comments used in ReadCommentedInputStream(). Incidentally, it may work well, since it will strip the remaining part of us already, but perhaps another symbol is better?",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_85ba7021",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-04T17:53:05Z",
+      "side": 1,
+      "message": "perhaps PreparePassesToRun() would be a more consistent way with all the others",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
