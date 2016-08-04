@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_18c94925",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_52d3b2d0",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 8
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_72e7d6a9",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-04T22:01:27Z",
       "side": 1,
       "message": "So why don\u0027t you cache it, given that compile times are high? Does it have an impact?",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 58
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_78d095c3",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "I\u0027ve done this in the upcoming CL (which I may have to split up into several CLs...). It did give a small bump in compile speed, along with a couple other adjustments. I\u0027ll leave this CL without the tweak, if that\u0027s alright.",
+      "parentUuid": "145606ee_72e7d6a9",
       "range": {
         "startLine": 129,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_b8e03d98",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_9286fabe",
+      "range": {
+        "startLine": 141,
+        "startChar": 63,
+        "endLine": 141,
+        "endChar": 64
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_92227abf",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-04T22:01:27Z",
       "side": 1,
       "message": "/* log_fatal_on_failure */",
+      "range": {
+        "startLine": 282,
+        "startChar": 13,
+        "endLine": 282,
+        "endChar": 17
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_38ed2d8c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_92227abf",
       "range": {
         "startLine": 282,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_f89565df",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Yeah, this is the only place that interval-\u003eCovers() is used.\nI\u0027ll remove the cache reset, since not necessary here.",
+      "parentUuid": "145606ee_723fd6b8",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 31
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_b2adbef1",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
@@ -128,6 +248,30 @@
       "writtenOn": "2016-08-04T22:01:27Z",
       "side": 1,
       "message": "Revisit?",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 23
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_f8364506",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Yeah, I was hoping to get some input on this. This works in all test cases, but I thought that perhaps it might be good if the register allocation resolver could handle this case (a split at the end of a block, that is). Thoughts?",
+      "parentUuid": "145606ee_b2adbef1",
       "range": {
         "startLine": 597,
         "startChar": 17,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_184ce99b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_32a1ceef",
+      "range": {
+        "startLine": 732,
+        "startChar": 52,
+        "endLine": 732,
+        "endChar": 56
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_f2e02627",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_18178957",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_f2e02627",
+      "range": {
+        "startLine": 921,
+        "startChar": 2,
+        "endLine": 922,
+        "endChar": 8
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_92443a21",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
@@ -197,6 +389,30 @@
       "writtenOn": "2016-08-04T22:01:27Z",
       "side": 1,
       "message": "No, is that what we\u0027re doing in linear scan?",
+      "range": {
+        "startLine": 950,
+        "startChar": 0,
+        "endLine": 951,
+        "endChar": 40
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_b863ddea",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T23:49:14Z",
+      "side": 1,
+      "message": "Looking into more, I don\u0027t think linear scan does this.\n(Graph coloring does, because globally blocked registers are represented with long fixed live intervals, for simplicity.)\nI\u0027ve updated the code for this to exclude globally blocked registers.",
+      "parentUuid": "145606ee_92443a21",
       "range": {
         "startLine": 950,
         "startChar": 0,
