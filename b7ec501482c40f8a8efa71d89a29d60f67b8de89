@@ -159,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "34894a78_6d7bb2d0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:47:07Z",
+      "side": 1,
+      "message": "That\u0027s a really good point. Things may get trickier in my next CL where I start coalescing nodes that can be pruned trivially, but I believe what you suggest is still possible then. (One complication is that if the nodes interfering with a trivially prunable nodes are split, then it might actually open up a more preferable register for the trivially prunable node.)\n\nI\u0027ll definitely look into this, but perhaps it\u0027s best for a future CL? The current implementation is safer/simpler for now.",
+      "parentUuid": "34894a78_1a0fba3d",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34894a78_65a2ec46",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 28
@@ -275,6 +293,24 @@
       "writtenOn": "2016-08-04T19:25:00Z",
       "side": 1,
       "message": "Some idea here, if I understand your algorithm right. I\u0027d consider the option of incrementally rebuilding the interference graph since the intervals from the split can only interfere with its neighbors (a subset of remaining nodes). With my previous comment, you can start to prune away the trivially prunable nodes after the split. And then proceed from there, dealing with a smaller and smaller interference graph. So the algorithm is more like a loop of split-prune of remaining graph, instead of attempting again with all intervals.",
+      "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34894a78_8d629612",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-04T19:47:07Z",
+      "side": 1,
+      "message": "I definitely like the idea of using the current interference graph to help build the next interference graph. (See my other reply as well.) Perhaps this is also best left for a future CL, since the present implementation is simpler.",
+      "parentUuid": "34894a78_9a772a99",
       "revId": "b7ec501482c40f8a8efa71d89a29d60f67b8de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
