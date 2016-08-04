@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "540f9ee2_9938dbd7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-04T16:04:23Z",
+      "side": 1,
+      "message": "This is exactly the case where we would have to add an extra store. But maybe it\u0027s worth it in this particular case where we have exceedingly many stores. Should I do that in a follow-up CL?",
+      "parentUuid": "540f9ee2_39feef07",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9be3778",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
