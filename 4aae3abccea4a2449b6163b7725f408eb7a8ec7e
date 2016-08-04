@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "14a446ca_7fea4fa7",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T09:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_ae169758",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4f252a6_8e13db68",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "14a446ca_5fe78bdb",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T09:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4f252a6_8e13db68",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4f252a6_ee209fb3",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-08-03T15:53:03Z",
       "side": 1,
       "message": "Use $(...) instead of `...`, it\u0027s better in general as it nests properly even though you don\u0027t need it here.",
+      "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a446ca_3fe4c7d4",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-08-04T09:47:39Z",
+      "side": 1,
+      "message": "Done.\n\nI assume there is a better way to do this by letting cparg just return the string rather than \"echo\"ing it, but my bash skills are too poor.",
+      "parentUuid": "f4f252a6_ee209fb3",
       "revId": "4aae3abccea4a2449b6163b7725f408eb7a8ec7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
