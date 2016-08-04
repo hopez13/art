@@ -403,6 +403,24 @@
     },
     {
       "key": {
+        "uuid": "145606ee_d565ccb6",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-04T22:44:35Z",
+      "side": 1,
+      "message": "Actually, please make sure IRHydra and C1Visualizer don\u0027t get confused by it.",
+      "parentUuid": "145606ee_15a4b4fe",
+      "revId": "847244baff48bca2fd1a1a446ecf8e6e0def768b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_2f45e94e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 5
