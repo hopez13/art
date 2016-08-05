@@ -33,6 +33,24 @@
       "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_3e90e6ef",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T22:56:04Z",
+      "side": 1,
+      "message": "There are cases where a pre-colored interval is not \"fixed\". For example,  I split an interval just after a fixed register def and assign the parent interval a register, but the interval itself is not marked as fixed.\nPerhaps I can clear this up in my next CL by changing adjacent-\u003eGetInterval()-\u003eHasRegister() to adjacent-\u003eIsPrecolored().",
+      "parentUuid": "b977f3bf_5edda20d",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
