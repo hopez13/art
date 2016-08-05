@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_6ea8f3df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T21:05:34Z",
+      "side": 1,
+      "message": "The name is actually quite similar to --compiled-methods\u003d which also accepts filename. Let\u0027s keep this for now and I will implement accepting explicit passes list in a followup CL.",
+      "parentUuid": "b977f3bf_23ea14df",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_83a0c8a0",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 9
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_ee488369",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T21:05:34Z",
+      "side": 1,
+      "message": "I changed passes_to_run to be a const pointer (owned by someone else e.g. dex2oat), similar to verbose_methods.",
+      "parentUuid": "b977f3bf_83a0c8a0",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_ee8f231f",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
         "patchSetId": 9
@@ -53,6 +95,24 @@
       "writtenOn": "2016-08-05T20:32:21Z",
       "side": 1,
       "message": "4 space indent",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_8e06af77",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T21:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_ee8f231f",
       "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -135,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_6e531370",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T21:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_6ea553a0",
+      "range": {
+        "startLine": 507,
+        "startChar": 33,
+        "endLine": 507,
+        "endChar": 34
+      },
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_1d397787",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 9
@@ -182,6 +266,24 @@
       "side": 1,
       "message": "Ok, just making sure I understand all ongoing changes :-)",
       "parentUuid": "b977f3bf_c899ff0f",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_ce9b47b6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T21:05:34Z",
+      "side": 1,
+      "message": "Sure.:)",
+      "parentUuid": "b977f3bf_685eab20",
       "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
