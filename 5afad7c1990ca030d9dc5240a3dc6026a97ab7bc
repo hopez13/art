@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_6440f08e",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "The names are pretty self-descriptive. ;-)\n\nWill do.",
+      "parentUuid": "145606ee_442a0ce6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 11
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_242d08fd",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-05T02:24:20Z",
       "side": 1,
       "message": "log or abort?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 53
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_a4b4989a",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "I\u0027d rather not, as this is logging in a timeout situation.",
+      "parentUuid": "145606ee_242d08fd",
       "range": {
         "startLine": 154,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_c4b99c93",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "145606ee_042804ed",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_c41d1ccb",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-05T02:24:20Z",
       "side": 1,
       "message": "How about dropping the if?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_e4bea078",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "Makes sense.",
+      "parentUuid": "145606ee_c41d1ccb",
       "range": {
         "startLine": 164,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_04c4840b",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "145606ee_e422200e",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 22
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_c4043c71",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_24c98825",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "145606ee_c4043c71",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 11
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_e4f94072",
         "filename": "runtime/native_stack_dump.cc",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2016-08-05T02:24:20Z",
       "side": 1,
       "message": "log or abort?",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 17
+      },
+      "revId": "5afad7c1990ca030d9dc5240a3dc6026a97ab7bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145606ee_44c68c14",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-05T02:46:48Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "145606ee_e4f94072",
       "range": {
         "startLine": 249,
         "startChar": 0,
