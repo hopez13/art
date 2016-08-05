@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_88e54712",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-05T19:15:28Z",
+      "side": 1,
+      "message": "Can you comment that this is picking the lowest register number if available?",
+      "revId": "f8ef58356a28b7ae6d4526137dc009ce12f1b02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_5db28f00",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 33
