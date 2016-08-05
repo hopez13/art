@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_f754dacb",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T17:29:51Z",
+      "side": 1,
+      "message": "Right, makes sense.",
+      "parentUuid": "145606ee_047ac4ec",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 23
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_32a1ceef",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
