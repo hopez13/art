@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_639b2c6f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T20:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_5dc92f7e",
+      "range": {
+        "startLine": 605,
+        "startChar": 8,
+        "endLine": 605,
+        "endChar": 29
+      },
+      "revId": "f8ef58356a28b7ae6d4526137dc009ce12f1b02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_88e54712",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 33
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_63b24c01",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T20:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_88e54712",
+      "revId": "f8ef58356a28b7ae6d4526137dc009ce12f1b02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_5db28f00",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 33
@@ -53,6 +95,30 @@
       "writtenOn": "2016-08-05T18:27:11Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 956,
+        "startChar": 4,
+        "endLine": 957,
+        "endChar": 40
+      },
+      "revId": "f8ef58356a28b7ae6d4526137dc009ce12f1b02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_a3af0492",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 33
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T20:26:52Z",
+      "side": 1,
+      "message": "Sorry, it appears that PS 33 reverted the changes in PS 32 since I uploaded another CL before rebasing it again on this one... should be fixed now.",
+      "parentUuid": "b977f3bf_5db28f00",
       "range": {
         "startLine": 956,
         "startChar": 4,
