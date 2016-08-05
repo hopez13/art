@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_bdfac3a5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-05T18:26:57Z",
+      "side": 1,
+      "message": "This could use a comment: strip suffix before looking up optimization pass by (base) name",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_1d397787",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-05T18:26:57Z",
+      "side": 1,
+      "message": "okay, so now you moved this back here, not in own prepare method? why the change?",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
