@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_376c92a0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 31
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T17:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_a451f867",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 957,
+        "endChar": 40
+      },
+      "revId": "c75dbf62226ef380083ef1fe5ee3e8791cb1419c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_c456fc5c",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 31
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-05T02:40:13Z",
       "side": 1,
       "message": "number_of_...",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 13
+      },
+      "revId": "c75dbf62226ef380083ef1fe5ee3e8791cb1419c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_b7774268",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 31
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-05T17:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145606ee_c456fc5c",
       "range": {
         "startLine": 180,
         "startChar": 8,
