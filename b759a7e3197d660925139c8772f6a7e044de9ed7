@@ -1,0 +1,302 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_1eb64ad7",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Use mirror::DexCacheArraysLayout::Alignment()?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 43,
+        "endLine": 1422,
+        "endChar": 45
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_9e1d7acb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Column should only be same indent if it is two args to the same function, in this case it should be 4 spaces indentation compared to previous line.",
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_beeab670",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5564,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "What does the \"AL\" here mean?",
+      "range": {
+        "startLine": 5564,
+        "startChar": 35,
+        "endLine": 5564,
+        "endChar": 37
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_be8396aa",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Includes are supposed to be sorted alphebetically",
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_3ea9c629",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "If this is constant, why do we have to go through the dex cache?",
+      "range": {
+        "startLine": 70,
+        "startChar": 52,
+        "endLine": 70,
+        "endChar": 62
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_fea26e44",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Use reinterpret_cast instead of c style cast here.",
+      "range": {
+        "startLine": 72,
+        "startChar": 27,
+        "endLine": 72,
+        "endChar": 44
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_de99b20f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Missing end to comment? Add that we wont be reading until after the function is finished?",
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_fe634e17",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Remove C style cast",
+      "range": {
+        "startLine": 763,
+        "startChar": 31,
+        "endLine": 763,
+        "endChar": 48
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_9e3edae0",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "These magic numbers are in a few places, consider putting them in a constant?",
+      "range": {
+        "startLine": 43,
+        "startChar": 31,
+        "endLine": 43,
+        "endChar": 52
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_fe4cae9d",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "reinterpret_cast",
+      "range": {
+        "startLine": 44,
+        "startChar": 24,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_5e3842f2",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "static_cast",
+      "range": {
+        "startLine": 54,
+        "startChar": 26,
+        "endLine": 54,
+        "endChar": 36
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_7e22dec2",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Add () to clarify operator order and chagne to static_casts",
+      "range": {
+        "startLine": 55,
+        "startChar": 21,
+        "endLine": 55,
+        "endChar": 48
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_7e35fedd",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Put this constant in DexCache and rename it to be clearer? I.e.\nstatic constexpr size_t kDexCacheStringCacheSize \u003d 1024;\n\nAlso I think it needs to be a power of 2, not only multiple.",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 34
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_5e0922fb",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-05T23:08:44Z",
+      "side": 1,
+      "message": "Line too long",
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
