@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_1ef16acd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5564,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-05T23:45:10Z",
+      "side": 1,
+      "message": "\"always executed\" i can remove it and see if nothing changes",
+      "parentUuid": "b977f3bf_beeab670",
+      "range": {
+        "startLine": 5564,
+        "startChar": 35,
+        "endLine": 5564,
+        "endChar": 37
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_be8396aa",
         "filename": "runtime/asm_support.h",
         "patchSetId": 8
@@ -93,6 +117,30 @@
       "writtenOn": "2016-08-05T23:08:44Z",
       "side": 1,
       "message": "If this is constant, why do we have to go through the dex cache?",
+      "range": {
+        "startLine": 70,
+        "startChar": 52,
+        "endLine": 70,
+        "endChar": 62
+      },
+      "revId": "b759a7e3197d660925139c8772f6a7e044de9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_91aa4b6e",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-05T23:45:10Z",
+      "side": 1,
+      "message": "We don\u0027t. I will fix this. I had that in from when I was experimenting with varying sizes.",
+      "parentUuid": "b977f3bf_3ea9c629",
       "range": {
         "startLine": 70,
         "startChar": 52,
