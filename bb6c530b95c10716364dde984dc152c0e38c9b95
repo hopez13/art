@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "145606ee_047ac4ec",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-05T02:38:21Z",
+      "side": 1,
+      "message": "Why should it? The HIf/HGoto will do the branching, so doing moves after it doesn\u0027t work. Doing moves before doesn\u0027t work either, as the HIf uses instructions. So I don\u0027t think we can/should support it.",
+      "parentUuid": "145606ee_f8364506",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 23
+      },
+      "revId": "bb6c530b95c10716364dde984dc152c0e38c9b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_32a1ceef",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 30
