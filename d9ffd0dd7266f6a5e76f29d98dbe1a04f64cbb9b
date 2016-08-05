@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_fb57e0cd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-05T22:46:45Z",
+      "side": 1,
+      "message": "Maybe a question for Nicolas. If it\u0027s not a slow path only safepoint, do we need to add to safepoints_ here? I thought live registers are only meaningful for slow path only safepoint.",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_5edda20d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-05T22:46:45Z",
+      "side": 1,
+      "message": "Can you assert here that adjacent-\u003eGetInterval()-\u003eIsFixed()?",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
