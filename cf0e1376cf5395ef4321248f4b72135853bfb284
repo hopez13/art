@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "b977f3bf_23ea14df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-05T20:32:21Z",
+      "side": 1,
+      "message": "Perhaps this should be --run-passes-file\u003d ?\n\nAlso I would say this is contrary to most of our existing options which don\u0027t take files.\n\nSo perhaps there can also be a simple --run-passes\u003dname1,name2,name3 type of string list?",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_83a0c8a0",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-05T20:32:21Z",
+      "side": 1,
+      "message": "This needs to be an std::unique_ptr or just remove the pointer altogether and pass the whole vector.\n\nRight now the cpp file takes ownership over the pointer and this isn\u0027t stated anywhere.",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_ee8f231f",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-05T20:32:21Z",
+      "side": 1,
+      "message": "4 space indent",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_bdfac3a5",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 9
@@ -49,6 +106,29 @@
       "side": 1,
       "message": "did you upload?",
       "parentUuid": "b977f3bf_285af358",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_6ea553a0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-05T20:32:21Z",
+      "side": 1,
+      "message": "nit: consider a constant name such as kPassNamePrefix",
+      "range": {
+        "startLine": 507,
+        "startChar": 33,
+        "endLine": 507,
+        "endChar": 34
+      },
       "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
