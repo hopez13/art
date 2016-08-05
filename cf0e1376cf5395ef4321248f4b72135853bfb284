@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_285af358",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T18:44:32Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "b977f3bf_bdfac3a5",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_1d397787",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-05T18:26:57Z",
       "side": 1,
       "message": "okay, so now you moved this back here, not in own prepare method? why the change?",
+      "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_c899ff0f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-05T18:44:32Z",
+      "side": 1,
+      "message": "I moved passes_to_run_ to compiler_options (as per Andreas suggestion) so moving this initialization here seemed appropriate. PrepareX methods are used for initializing dex2oat fields in Setup() which are then passed to CompilerDriver constructor in Compile().\n\nI could\u0027ve kept this in a separate function but the logic is really short and it didn\u0027t seem worth it anymore without incentive to follow PrepareX convention.",
+      "parentUuid": "b977f3bf_1d397787",
       "revId": "cf0e1376cf5395ef4321248f4b72135853bfb284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
