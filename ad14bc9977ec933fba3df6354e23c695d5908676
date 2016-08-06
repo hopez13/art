@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_74c99d7e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-06T01:17:50Z",
+      "side": 1,
+      "message": "You\u0027re not stopping here. What\u0027s different between the boot classloader and other classloaders?\n\nIn general, why is this special-cased, and not using VisitClasses()?",
+      "range": {
+        "startLine": 8283,
+        "startChar": 2,
+        "endLine": 8283,
+        "endChar": 35
+      },
+      "revId": "ad14bc9977ec933fba3df6354e23c695d5908676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
