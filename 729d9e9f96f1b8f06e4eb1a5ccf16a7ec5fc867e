@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_4f740e01",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-06T01:34:59Z",
+      "side": 1,
+      "message": "Maybe you want to adjust the base cost? kFixedOutputSibling and kFixedInput can end up zero.",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 15
+      },
+      "revId": "729d9e9f96f1b8f06e4eb1a5ccf16a7ec5fc867e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_2f5bd28a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-06T01:34:59Z",
+      "side": 1,
+      "message": "You should probably not somewhere that this is a magic value. Why not min or something else negative?",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 13
+      },
+      "revId": "729d9e9f96f1b8f06e4eb1a5ccf16a7ec5fc867e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
