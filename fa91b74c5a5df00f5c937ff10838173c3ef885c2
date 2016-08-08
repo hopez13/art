@@ -71,6 +71,23 @@
     },
     {
       "key": {
+        "uuid": "b94a9396_bc3261a1",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-08T15:08:44Z",
+      "side": 1,
+      "message": "TODO: Make the whole loop a slow-path. It\u0027s bad to jump there and back on each iteration.",
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_9537c405",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -88,6 +105,23 @@
         "endLine": 3108,
         "endChar": 37
       },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19239fed_4a1b9373",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-08T15:08:44Z",
+      "side": 1,
+      "message": "Note: We should shift by kReadBarrierStateShift+1 and branch on CF\u003d1 (as we do on ARM) instead of the SHR+AND+CMP+JEQ.",
       "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
