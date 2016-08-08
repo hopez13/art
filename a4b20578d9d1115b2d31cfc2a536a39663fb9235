@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "b94a9396_bcdc213b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-08T15:08:25Z",
+      "side": 1,
+      "message": "Vladimir told us he was working on a follow-up CL; maybe we should continue the discussion on that CL when it is uploaded?",
+      "parentUuid": "540f9ee2_9963bbeb",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 26
+      },
+      "revId": "a4b20578d9d1115b2d31cfc2a536a39663fb9235",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "540f9ee2_f9be3778",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
