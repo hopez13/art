@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_6f33031a",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-08T18:41:13Z",
+      "side": 1,
+      "message": "Only changes for forwarding.",
+      "parentUuid": "b977f3bf_6ca9d128",
+      "revId": "6668ba8d32ca99079b7ab5d08ac814c7678994f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_0c813da1",
         "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
         "patchSetId": 1
@@ -76,6 +94,30 @@
       "writtenOn": "2016-08-08T17:59:33Z",
       "side": 1,
       "message": "nit: I\u0027m not a big fan of these OVERRIDEs and FINALs, they\u0027re just too easy to miss. These are keywords in C++11, can you not make a separate refactoring to lowercase them?",
+      "range": {
+        "startLine": 49,
+        "startChar": 66,
+        "endLine": 49,
+        "endChar": 74
+      },
+      "revId": "6668ba8d32ca99079b7ab5d08ac814c7678994f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_af391bfb",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-08T18:41:13Z",
+      "side": 1,
+      "message": "That\u0027s the common case in all of art/. If you prefer to change them, you should write a cleanup CL removing support from base/macros.h. Until then this is the ART style...",
+      "parentUuid": "b977f3bf_8c522d67",
       "range": {
         "startLine": 49,
         "startChar": 66,
