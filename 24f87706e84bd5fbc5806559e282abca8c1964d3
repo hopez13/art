@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_7b0ae12a",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T21:59:27Z",
+      "side": 1,
+      "message": "To clarify (for me), a copied method is a default method copied to a class that implements the default method. The declaring class is the interface and the holding class is the class that implements the interface.\n\nThis iterates over all classes when we create a ProfilingInfo for a \u0027copied\u0027 method. I wonder if it could be a problem in practice, or if there\u0027s a faster way to do this (no existing map from default methods to their copies?).",
+      "range": {
+        "startLine": 40,
+        "startChar": 59,
+        "endLine": 40,
+        "endChar": 88
+      },
+      "revId": "24f87706e84bd5fbc5806559e282abca8c1964d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_bb495938",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T21:59:27Z",
+      "side": 1,
+      "message": "Use an explicit GcRoot constructor (and add explicit to it)?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "24f87706e84bd5fbc5806559e282abca8c1964d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
