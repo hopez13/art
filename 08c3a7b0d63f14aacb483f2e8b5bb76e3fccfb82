@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_f0636bea",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "\"finalizable or uninitialized\"?",
+      "range": {
+        "startLine": 1921,
+        "startChar": 24,
+        "endLine": 1921,
+        "endChar": 35
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_90bc77d1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "Just to double-check, the negative array size check is already handled by this, correct?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 89,
+        "endLine": 1936,
+        "endChar": 86
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_f0e5ab10",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "Talked to Hans. It may be that we can lighten this to a \"dmb ishst\" because we don\u0027t need to check the class status for array classes.",
+      "range": {
+        "startLine": 1957,
+        "startChar": 72,
+        "endLine": 1957,
+        "endChar": 97
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_2d9c30ae",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2057,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "\"The common code for art_quick_alloc_object_*region_tlab\"?",
+      "range": {
+        "startLine": 2057,
+        "startChar": 0,
+        "endLine": 2057,
+        "endChar": 96
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_2df510e8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2061,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "Update this to say x0 contains the class if is_resolved is true?",
+      "range": {
+        "startLine": 2061,
+        "startChar": 11,
+        "endLine": 2061,
+        "endChar": 32
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_0d893421",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "\"The common code for art_quick_alloc_array_*region_tlab\"?",
+      "range": {
+        "startLine": 2111,
+        "startChar": 3,
+        "endLine": 2111,
+        "endChar": 96
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_708d1b26",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "x4-x7?",
+      "range": {
+        "startLine": 2119,
+        "startChar": 7,
+        "endLine": 2119,
+        "endChar": 9
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_10e5c7d2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "I am not sure I understand this instruction, which we don\u0027t have in the object version. Why not call the slow path artReadBarrierMark below (and why make the following code dead)?",
+      "range": {
+        "startLine": 2145,
+        "startChar": 4,
+        "endLine": 2145,
+        "endChar": 22
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_4dff2c03",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "REGION -\u003e REGION_TLAB.\n\nThere are *_region_* (non-tlab region) and *_region_tlab_* (tlab region).",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 94,
+        "endChar": 44
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_0df9341b",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-08T23:13:23Z",
+      "side": 1,
+      "message": "Likewise, REGION -\u003e REGION_TLAB.",
+      "range": {
+        "startLine": 110,
+        "startChar": 42,
+        "endLine": 110,
+        "endChar": 48
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
