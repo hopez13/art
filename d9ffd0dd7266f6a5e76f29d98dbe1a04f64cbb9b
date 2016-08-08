@@ -2,6 +2,138 @@
   "comments": [
     {
       "key": {
+        "uuid": "79bc9b97_0aa93b29",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "Might be worth a short comment inside the branch that this means it was inserted so people don\u0027t have to open c++ reference.",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99478f8f_bbf0a763",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "find(other) !\u003d adjacent_nodes_.end()",
+      "range": {
+        "startLine": 85,
+        "startChar": 27,
+        "endLine": 85,
+        "endChar": 39
+      },
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19239fed_a7dc0a3b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "!Primitive::IsFloatingPointType(interval-\u003eGetType())",
+      "range": {
+        "startLine": 137,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 55
+      },
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_0833871a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "So how exactly do you guarantee that this won\u0027t loop indefinitely in production? Should we have linear scan as a fallback?",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bc9b97_ea49478b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "This seems expensive. Do you have to build it from scratch in each iteration? In how many iterations does this thing typically finish?",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 28
+      },
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "990eaf7b_c332d657",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-08T12:04:00Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 361,
+        "startChar": 100,
+        "endLine": 361,
+        "endChar": 107
+      },
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_fb57e0cd",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 34
