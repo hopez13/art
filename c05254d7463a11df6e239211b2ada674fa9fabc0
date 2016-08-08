@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b977f3bf_15529c0f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "Can this be replaced with the actual type or a name of a variable?\n\nIf this a pointer size then you want PointerSize::k64 here.\n\nIs the DexCache no longer a mirror object after this change?",
+      "range": {
+        "startLine": 1422,
+        "startChar": 50,
+        "endLine": 1422,
+        "endChar": 58
+      },
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_00e25cca",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -13,6 +36,200 @@
       "writtenOn": "2016-08-08T20:52:28Z",
       "side": 1,
       "message": "Any reason why on MIPS you decided to always take the slow path irrespective of the load kind and undid the improvements I\u0027d put in place recently? Unlike ARM and x86?\n\nAlso, what about the register input prepared by LocationsBuilderMIPS::VisitLoadString() and in dex_cache_array_fixups_mips.cc and pc_relative_fixups_mips.cc? Did you forget to adjust that?",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_602c70b2",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "High32Bits(index_string)",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 64
+      },
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_4013746a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "Low32Bits(index_string)",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_800aec27",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "High32Bits / Low32Bits",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_e029608e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "Passing it around as a 64-bit int is a bit too low level. Any trivially-copyable type can be atomic.\n\nI recommend something more like this:\n\n  struct StringDexCachePair {\n    uint32_t string_index;\n    uint32_t string_pointer;\n\n    mirror::String* getStringPointer() {\n      return reinterpret_cast\u003cmirror::String*\u003e(string_pointer);\n    }\n  };\n\n  using StringDexCacheType \u003d std::atomic\u003cStringDexCachePair\u003e;",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_80342ce1",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "C-style cast breaks lint",
+      "range": {
+        "startLine": 55,
+        "startChar": 50,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_a05e081d",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "Wasn\u0027t this copied and pasted from another file?",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_e05ba026",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "static_assert(IsPowerOfTwo(kDexCacheStringCacheSize));",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_80866c75",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "Why aren\u0027t the loads and stores in this place also relaxed if the loads elsewhere are relaxed?",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_80b74c3c",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "PointerSize::k64",
+      "range": {
+        "startLine": 90,
+        "startChar": 62,
+        "endLine": 90,
+        "endChar": 78
+      },
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_40b9342b",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T21:10:51Z",
+      "side": 1,
+      "message": "PointerSize::k64",
+      "range": {
+        "startLine": 95,
+        "startChar": 40,
+        "endLine": 95,
+        "endChar": 56
+      },
       "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
