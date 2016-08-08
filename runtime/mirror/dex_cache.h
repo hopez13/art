@@ -35,11 +35,26 @@ namespace mirror {
 
 class String;
 
+struct StringDexCachePair {
+    uint32_t string_index;
+    uint32_t string_pointer;
+    mirror::String* getStringPointer() {
+      return reinterpret_cast<mirror::String*>(string_pointer);
+    }
+};
+using StringDexCacheType = std::atomic<StringDexCachePair>;
+
+
 // C++ mirror of java.lang.DexCache.
 class MANAGED DexCache FINAL : public Object {
  public:
   // Size of java.lang.DexCache.class.
   static uint32_t ClassSize(PointerSize pointer_size);
+
+  // Size of string dex cache. Needs to be a power of 2 for entrypoint assumptions to hold.
+  static constexpr size_t kDexCacheStringCacheSize = 1024;
+  static_assert(IsPowerOfTwo(kDexCacheStringCacheSize),
+                "String dex cache size is not a power of 2.");
 
   // Size of an instance of java.lang.DexCache not including referenced values.
   static constexpr uint32_t InstanceSize() {
@@ -48,7 +63,7 @@ class MANAGED DexCache FINAL : public Object {
 
   void Init(const DexFile* dex_file,
             String* location,
-            GcRoot<String>* strings,
+            StringDexCacheType* strings,
             uint32_t num_strings,
             GcRoot<Class>* resolved_types,
             uint32_t num_resolved_types,
@@ -62,7 +77,7 @@ class MANAGED DexCache FINAL : public Object {
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier, typename Visitor>
-  void FixupStrings(GcRoot<mirror::String>* dest, const Visitor& visitor)
+  void FixupStrings(StringDexCacheType* dest, const Visitor& visitor)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier, typename Visitor>
@@ -109,10 +124,10 @@ class MANAGED DexCache FINAL : public Object {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_methods_);
   }
 
-  String* GetResolvedString(uint32_t string_idx) ALWAYS_INLINE
+  mirror::String * GetResolvedString(uint32_t string_idx) ALWAYS_INLINE
       SHARED_REQUIRES(Locks::mutator_lock_);
 
-  void SetResolvedString(uint32_t string_idx, String* resolved) ALWAYS_INLINE
+  void SetResolvedString(uint32_t string_idx, mirror::String * resolved) ALWAYS_INLINE
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   Class* GetResolvedType(uint32_t type_idx) SHARED_REQUIRES(Locks::mutator_lock_);
@@ -135,11 +150,20 @@ class MANAGED DexCache FINAL : public Object {
   ALWAYS_INLINE void SetResolvedField(uint32_t idx, ArtField* field, PointerSize ptr_size)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
-  GcRoot<String>* GetStrings() ALWAYS_INLINE SHARED_REQUIRES(Locks::mutator_lock_) {
-    return GetFieldPtr<GcRoot<String>*>(StringsOffset());
+  StringDexCacheType* GetStrings() ALWAYS_INLINE SHARED_REQUIRES(Locks::mutator_lock_) {
+    return reinterpret_cast<StringDexCacheType*>(GetFieldPtr64<uint64_t*>(StringsOffset()));
   }
 
-  void SetStrings(GcRoot<String>* strings) ALWAYS_INLINE SHARED_REQUIRES(Locks::mutator_lock_) {
+  void SetStrings(StringDexCacheType* strings) ALWAYS_INLINE SHARED_REQUIRES(Locks::mutator_lock_) {
+    // Below added to avoid an extra check in the compiler and in the runtime.
+    // If the index is 0, it only matches the index in the cache if something
+    // has been loaded.
+    if (strings[0].load(std::memory_order_relaxed).string_index == 0u) {
+      StringDexCachePair first_elem;
+      first_elem.string_pointer = 0;
+      first_elem.string_index = 1;
+      strings[0].store(first_elem, std::memory_order_relaxed);
+    }
     SetFieldPtr<false>(StringsOffset(), strings);
   }
 
@@ -224,7 +248,7 @@ class MANAGED DexCache FINAL : public Object {
   uint64_t resolved_fields_;    // ArtField*, array with num_resolved_fields_ elements.
   uint64_t resolved_methods_;   // ArtMethod*, array with num_resolved_methods_ elements.
   uint64_t resolved_types_;     // GcRoot<Class>*, array with num_resolved_types_ elements.
-  uint64_t strings_;            // GcRoot<String>*, array with num_strings_ elements.
+  uint64_t strings_;            // std::atomic<uint64_t>*, array with num_strings_ elements.
   uint32_t num_resolved_fields_;    // Number of elements in the resolved_fields_ array.
   uint32_t num_resolved_methods_;   // Number of elements in the resolved_methods_ array.
   uint32_t num_resolved_types_;     // Number of elements in the resolved_types_ array.

@@ -27,6 +27,8 @@
 #include "mirror/class.h"
 #include "runtime.h"
 
+#include <atomic>
+
 namespace art {
 namespace mirror {
 
@@ -35,15 +37,26 @@ inline uint32_t DexCache::ClassSize(PointerSize pointer_size) {
   return Class::ComputeClassSize(true, vtable_entries, 0, 0, 0, 0, 0, pointer_size);
 }
 
-inline String* DexCache::GetResolvedString(uint32_t string_idx) {
-  DCHECK_LT(string_idx, NumStrings());
-  return GetStrings()[string_idx].Read();
+inline mirror::String * DexCache::GetResolvedString(uint32_t string_idx) {
+  DCHECK_LT(string_idx, GetDexFile()->NumStringIds());
+  StringDexCachePair resolved = GetStrings()
+      [(string_idx % NumStrings())].load(std::memory_order_relaxed);
+  uint32_t index = resolved.string_index;
+  mirror::String* ptr = resolved.getStringPointer();
+  if (index == string_idx && ptr != nullptr) {
+    return ptr;
+  }
+  return nullptr;
 }
 
-inline void DexCache::SetResolvedString(uint32_t string_idx, String* resolved) {
-  DCHECK_LT(string_idx, NumStrings());
+inline void DexCache::SetResolvedString(uint32_t string_idx, mirror::String * resolved) {
+  DCHECK_LT(string_idx % NumStrings(), NumStrings());
   // TODO default transaction support.
-  GetStrings()[string_idx] = GcRoot<String>(resolved);
+  uint64_t temp_pointer = reinterpret_cast<uint64_t>(resolved);
+  StringDexCachePair idx_ptr;
+  idx_ptr.string_index = string_idx;
+  idx_ptr.string_pointer = static_cast<uint32_t>(temp_pointer);
+  GetStrings()[string_idx % NumStrings()].store(idx_ptr, std::memory_order_relaxed);
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
 }
@@ -131,9 +144,17 @@ inline void DexCache::VisitReferences(mirror::Class* klass, const Visitor& visit
   VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
   // Visit arrays after.
   if (kVisitNativeRoots) {
-    GcRoot<mirror::String>* strings = GetStrings();
+    mirror::StringDexCacheType* strings = GetStrings();
     for (size_t i = 0, num_strings = NumStrings(); i != num_strings; ++i) {
-      visitor.VisitRootIfNonNull(strings[i].AddressWithoutBarrier());
+      StringDexCachePair source = strings[i].load(std::memory_order_relaxed);
+      mirror::String* before = source.getStringPointer();
+      GcRoot<mirror::String> root(before);
+      visitor.VisitRootIfNonNull(root.AddressWithoutBarrier());
+      if (root.Read() != before) {
+        uint64_t temp_pointer = reinterpret_cast<uint64_t>(root.Read());
+        source.string_pointer = static_cast<uint32_t>(temp_pointer);
+        strings[i].store(source,std::memory_order_relaxed);
+      }
     }
     GcRoot<mirror::Class>* resolved_types = GetResolvedTypes();
     for (size_t i = 0, num_types = NumResolvedTypes(); i != num_types; ++i) {
@@ -143,12 +164,15 @@ inline void DexCache::VisitReferences(mirror::Class* klass, const Visitor& visit
 }
 
 template <ReadBarrierOption kReadBarrierOption, typename Visitor>
-inline void DexCache::FixupStrings(GcRoot<mirror::String>* dest, const Visitor& visitor) {
-  GcRoot<mirror::String>* src = GetStrings();
+inline void DexCache::FixupStrings(mirror::StringDexCacheType* dest, const Visitor& visitor) {
+  mirror::StringDexCacheType* src = GetStrings();
   for (size_t i = 0, count = NumStrings(); i < count; ++i) {
-    mirror::String* source = src[i].Read<kReadBarrierOption>();
-    mirror::String* new_source = visitor(source);
-    dest[i] = GcRoot<mirror::String>(new_source);
+    StringDexCachePair source = src[i].load(std::memory_order_relaxed);
+    mirror::String* ptr = source.getStringPointer();
+    mirror::String* new_source = visitor(ptr);
+    uint64_t temp_pointer = reinterpret_cast<uint64_t>(new_source);
+    source.string_pointer = static_cast<uint32_t>(temp_pointer);
+    dest[i].store(source, std::memory_order_relaxed);
   }
 }
 
