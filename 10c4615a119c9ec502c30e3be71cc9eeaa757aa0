@@ -216,6 +216,46 @@
     },
     {
       "key": {
+        "uuid": "5936f710_e1c2869d",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-08T13:22:24Z",
+      "side": 1,
+      "message": "You want to rely on the method being already in the dex cache?",
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9afab5f_8629aa8f",
+        "filename": "compiler/optimizing/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-08T13:22:24Z",
+      "side": 1,
+      "message": "Bulk find\u0026replace?",
+      "range": {
+        "startLine": 2,
+        "startChar": 15,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_bdc49375",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
