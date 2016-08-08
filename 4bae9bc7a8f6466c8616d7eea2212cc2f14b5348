@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_8fdc5fdc",
+        "filename": "compiler/utils/x86/jni_macro_assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-08T18:37:45Z",
+      "side": 1,
+      "message": "Changes for forwarding, but the meat of the code is the same.",
+      "parentUuid": "b977f3bf_ac50493b",
+      "revId": "4bae9bc7a8f6466c8616d7eea2212cc2f14b5348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_0c9a9d03",
         "filename": "compiler/utils/x86/jni_macro_assembler_x86.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-08-08T18:00:23Z",
       "side": 1,
       "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "4bae9bc7a8f6466c8616d7eea2212cc2f14b5348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_af86fbbf",
+        "filename": "compiler/utils/x86/jni_macro_assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-08T18:37:45Z",
+      "side": 1,
+      "message": "Was for the above, but I\u0027ll change to 2016.",
+      "parentUuid": "b977f3bf_0c9a9d03",
       "range": {
         "startLine": 2,
         "startChar": 17,
