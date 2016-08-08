@@ -16,6 +16,24 @@
       "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_6cbeb17a",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-08T17:56:14Z",
+      "side": 1,
+      "message": "A helper for implementations, but the scheme doesn\u0027t work for all of them.",
+      "parentUuid": "b977f3bf_cc1d85ca",
+      "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
