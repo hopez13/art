@@ -19,12 +19,15 @@
 
 #if defined(__cplusplus)
 #include "art_method.h"
+#include "base/bit_utils.h"
 #include "gc/allocator/rosalloc.h"
 #include "gc/heap.h"
 #include "jit/jit.h"
 #include "lock_word.h"
 #include "mirror/class.h"
+#include "mirror/dex_cache.h"
 #include "mirror/string.h"
+#include "utils/dex_cache_arrays_layout.h"
 #include "runtime.h"
 #include "thread.h"
 #endif
@@ -233,8 +236,6 @@ ADD_TEST_EQ(MIRROR_STRING_COUNT_OFFSET, art::mirror::String::CountOffset().Int32
 
 #define MIRROR_STRING_VALUE_OFFSET (8 + MIRROR_OBJECT_HEADER_SIZE)
 ADD_TEST_EQ(MIRROR_STRING_VALUE_OFFSET, art::mirror::String::ValueOffset().Int32Value())
-
-
 
 #if defined(__cplusplus)
 }  // End of CheckAsmSupportOffsets.
