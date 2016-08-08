@@ -16,6 +16,40 @@
       "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_8cef8ded",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T18:24:22Z",
+      "side": 1,
+      "message": "?",
+      "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_6cdd5167",
+        "filename": "runtime/lambda/shorty_field_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T18:24:22Z",
+      "side": 1,
+      "message": "This has nothing to do with lambdas, I\u0027m not sure it should be reverted because it\u0027s a useful abstraction.",
+      "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

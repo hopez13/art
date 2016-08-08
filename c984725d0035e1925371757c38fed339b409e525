@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b977f3bf_ac6da9a1",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T18:24:22Z",
+      "side": 0,
+      "message": "These test helpers are useful even if they aren\u0027t being used [currently], they aren\u0027t exactly trivial to write.",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_6c4eb140",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T18:24:22Z",
+      "side": 0,
+      "message": "Why? You\u0027re adding new experimental features right now, and Nicolas wanted them to be guarded behind a flag in the first place.",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_2cdd1936",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-08T18:24:22Z",
+      "side": 0,
+      "message": "You may not want to remove this, it was put in here for a reason, and that\u0027s to make development a lot simpler because you can implement the new bytecodes into the interpreter without also implementing full verifier support for it.\n\nAt the same time the instructions would be completely usable from run-test, dalvikvm etc.\n\nDepending on how complicated it is to correctly verify the new bytecodes, it may not be trivial to do it within the same CL.",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
