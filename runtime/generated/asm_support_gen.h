@@ -110,6 +110,10 @@ DEFINE_CHECK_EQ(static_cast<size_t>(OBJECT_ALIGNMENT_MASK), (static_cast<size_t>
 DEFINE_CHECK_EQ(static_cast<uint32_t>(OBJECT_ALIGNMENT_MASK_TOGGLED), (static_cast<uint32_t>(~static_cast<uint32_t>(art::kObjectAlignment - 1))))
 #define OBJECT_ALIGNMENT_MASK_TOGGLED64 0xfffffffffffffff8
 DEFINE_CHECK_EQ(static_cast<uint64_t>(OBJECT_ALIGNMENT_MASK_TOGGLED64), (static_cast<uint64_t>(~static_cast<uint64_t>(art::kObjectAlignment - 1))))
+#define CONST_INT_NUM_BITS 0x20
+DEFINE_CHECK_EQ(static_cast<uint32_t>(CONST_INT_NUM_BITS), (static_cast<uint32_t>(32)))
+#define CONST_ZERO 0
+DEFINE_CHECK_EQ(static_cast<uint32_t>(CONST_ZERO), (static_cast<uint32_t>(0)))
 #define ROSALLOC_MAX_THREAD_LOCAL_BRACKET_SIZE 128
 DEFINE_CHECK_EQ(static_cast<int32_t>(ROSALLOC_MAX_THREAD_LOCAL_BRACKET_SIZE), (static_cast<int32_t>((art::gc::allocator::RosAlloc::kMaxThreadLocalBracketSize))))
 #define ROSALLOC_BRACKET_QUANTUM_SIZE_SHIFT 3
