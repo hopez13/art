@@ -16,6 +16,7 @@
 
 #include "register_allocation_resolver.h"
 
+#include "base/bit_utils.h"
 #include "code_generator.h"
 #include "ssa_liveness_analysis.h"
 
@@ -28,8 +29,8 @@ RegisterAllocationResolver::RegisterAllocationResolver(ArenaAllocator* allocator
         codegen_(codegen),
         liveness_(liveness) {}
 
-void RegisterAllocationResolver::Resolve(size_t max_safepoint_live_core_regs,
-                                         size_t max_safepoint_live_fp_regs,
+void RegisterAllocationResolver::Resolve(size_t max_safepoint_spilled_core_regs,
+                                         size_t max_safepoint_spilled_fp_regs,
                                          size_t reserved_out_slots,
                                          size_t int_spill_slots,
                                          size_t long_spill_slots,
@@ -45,8 +46,8 @@ void RegisterAllocationResolver::Resolve(size_t max_safepoint_live_core_regs,
 
   // Computes frame size and spill mask.
   codegen_->InitializeCodeGeneration(spill_slots,
-                                     max_safepoint_live_core_regs,
-                                     max_safepoint_live_fp_regs,
+                                     max_safepoint_spilled_core_regs,
+                                     max_safepoint_spilled_fp_regs,
                                      reserved_out_slots,  // Includes slot(s) for the art method.
                                      codegen_->GetGraph()->GetLinearOrder());
 
@@ -136,7 +137,8 @@ void RegisterAllocationResolver::Resolve(size_t max_safepoint_live_core_regs,
   for (size_t i = 0, e = liveness_.GetNumberOfSsaValues(); i < e; ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
     ConnectSiblings(instruction->GetLiveInterval(),
-                    max_safepoint_live_core_regs + max_safepoint_live_fp_regs);
+                    max_safepoint_spilled_core_regs,
+                    max_safepoint_spilled_fp_regs);
   }
 
   // Resolve non-linear control flow across branches. Order does not matter.
@@ -223,7 +225,8 @@ void RegisterAllocationResolver::Resolve(size_t max_safepoint_live_core_regs,
 }
 
 void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval,
-                                                 size_t max_safepoint_live_regs) {
+                                                 size_t max_safepoint_spilled_core_regs,
+                                                 size_t max_safepoint_spilled_fp_regs) {
   LiveInterval* current = interval;
   if (current->HasSpillSlot()
       && current->HasRegister()
@@ -318,8 +321,11 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval,
         case Location::kRegister: {
           locations->AddLiveRegister(source);
           if (kIsDebugBuild && locations->OnlyCallsOnSlowPath()) {
-            DCHECK_LE(locations->GetNumberOfLiveRegisters(),
-                      max_safepoint_live_regs);
+            uint32_t number_of_spills = codegen_->GetNumberOfSlowPathSpills(
+                locations,
+                locations->GetLiveRegisters()->GetCoreRegisters(),
+                /* core_registers */ true);
+            CHECK_LE(number_of_spills, max_safepoint_spilled_core_regs);
           }
           if (current->GetType() == Primitive::kPrimNot) {
             DCHECK(interval->GetDefinedBy()->IsActualObject())
@@ -331,6 +337,13 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval,
         }
         case Location::kFpuRegister: {
           locations->AddLiveRegister(source);
+          if (kIsDebugBuild && locations->OnlyCallsOnSlowPath()) {
+            size_t number_of_spills = codegen_->GetNumberOfSlowPathSpills(
+                locations,
+                locations->GetLiveRegisters()->GetFloatingPointRegisters(),
+                /* core_registers */ false);
+            CHECK_LE(number_of_spills, max_safepoint_spilled_fp_regs);
+          }
           break;
         }
 

@@ -22,6 +22,7 @@
 #include "base/arena_containers.h"
 #include "base/arena_object.h"
 #include "base/bit_field.h"
+#include "base/bit_utils.h"
 #include "base/enums.h"
 #include "compiled_method.h"
 #include "driver/compiler_options.h"
@@ -277,6 +278,16 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   bool IsFloatingPointCalleeSaveRegister(int reg) const {
     return (fpu_callee_save_mask_ & (1 << reg)) != 0;
+  }
+
+  uint32_t GetSlowPathSpills(LocationSummary* locations,
+                             uint32_t live_registers,
+                             bool core_registers) const;
+
+  size_t GetNumberOfSlowPathSpills(LocationSummary* locations,
+                                   uint32_t live_registers,
+                                   bool core_registers) const {
+    return POPCOUNT(GetSlowPathSpills(locations, live_registers, core_registers));
   }
 
   // Record native to dex mapping for a suspend point.  Required by runtime.

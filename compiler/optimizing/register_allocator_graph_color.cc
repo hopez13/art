@@ -16,6 +16,7 @@
 
 #include "register_allocator_graph_color.h"
 
+#include "base/casts.h"
 #include "code_generator.h"
 #include "register_allocation_resolver.h"
 #include "ssa_liveness_analysis.h"
@@ -159,10 +160,6 @@ RegisterAllocatorGraphColor::RegisterAllocatorGraphColor(ArenaAllocator* allocat
         catch_phi_spill_slot_counter_(0),
         reserved_art_method_slots_(ComputeReservedArtMethodSlots(*codegen)),
         reserved_out_slots_(codegen->GetGraph()->GetMaximumNumberOfOutVRegs()),
-        number_of_globally_blocked_core_regs_(0),
-        number_of_globally_blocked_fp_regs_(0),
-        max_safepoint_live_core_regs_(0),
-        max_safepoint_live_fp_regs_(0),
         coloring_attempt_allocator_(nullptr) {
   // Before we ask for blocked registers, set them up in the code generator.
   codegen->SetupBlockedRegisters();
@@ -175,7 +172,6 @@ RegisterAllocatorGraphColor::RegisterAllocatorGraphColor(ArenaAllocator* allocat
     physical_core_intervals_[i] = interval;
     core_intervals_.push_back(interval);
     if (codegen_->IsBlockedCoreRegister(i)) {
-      ++number_of_globally_blocked_core_regs_;
       interval->AddRange(0, liveness.GetMaxLifetimePosition());
     }
   }
@@ -186,7 +182,6 @@ RegisterAllocatorGraphColor::RegisterAllocatorGraphColor(ArenaAllocator* allocat
     physical_fp_intervals_[i] = interval;
     fp_intervals_.push_back(interval);
     if (codegen_->IsBlockedFloatingPointRegister(i)) {
-      ++number_of_globally_blocked_fp_regs_;
       interval->AddRange(0, liveness.GetMaxLifetimePosition());
     }
   }
@@ -195,6 +190,10 @@ RegisterAllocatorGraphColor::RegisterAllocatorGraphColor(ArenaAllocator* allocat
 void RegisterAllocatorGraphColor::AllocateRegisters() {
   // (1) Collect and prepare live intervals.
   ProcessInstructions();
+
+  // The maximum number of registers spilled at slow path safe points. Needed by the code generator.
+  size_t max_safepoint_spilled_core_regs = 0u;
+  size_t max_safepoint_spilled_fp_regs = 0u;
 
   for (bool processing_core_regs : {true, false}) {
     ArenaVector<LiveInterval*>& intervals = processing_core_regs
@@ -236,13 +235,12 @@ void RegisterAllocatorGraphColor::AllocateRegisters() {
         // Compute the maximum number of live registers across safepoints.
         // Notice that we do not count globally blocked registers, such as the stack pointer.
         if (safepoints.size() > 0) {
-          size_t max_safepoint_live_regs = ComputeMaxSafepointLiveRegisters(safepoints);
+          size_t max_safepoint_spilled_regs =
+              ComputeMaxSafepointSpilledRegisters(safepoints, processing_core_regs);
           if (processing_core_regs) {
-            max_safepoint_live_core_regs_ =
-                max_safepoint_live_regs - number_of_globally_blocked_core_regs_;
+            max_safepoint_spilled_core_regs = max_safepoint_spilled_regs;
           } else {
-            max_safepoint_live_fp_regs_=
-                max_safepoint_live_regs - number_of_globally_blocked_fp_regs_;
+            max_safepoint_spilled_fp_regs = max_safepoint_spilled_regs;
           }
         }
 
@@ -277,8 +275,8 @@ void RegisterAllocatorGraphColor::AllocateRegisters() {
 
   // (5) Resolve locations and deconstruct SSA form.
   RegisterAllocationResolver(allocator_, codegen_, liveness_)
-      .Resolve(max_safepoint_live_core_regs_,
-               max_safepoint_live_fp_regs_,
+      .Resolve(max_safepoint_spilled_core_regs,
+               max_safepoint_spilled_fp_regs,
                reserved_art_method_slots_ + reserved_out_slots_,
                int_spill_slot_counter_,
                long_spill_slot_counter_,
@@ -949,16 +947,21 @@ bool RegisterAllocatorGraphColor::ColorInterferenceGraph(
   return successful;
 }
 
-size_t RegisterAllocatorGraphColor::ComputeMaxSafepointLiveRegisters(
-    const ArenaVector<InterferenceNode*>& safepoints) {
-  size_t max_safepoint_live_regs = 0;
+size_t RegisterAllocatorGraphColor::ComputeMaxSafepointSpilledRegisters(
+    const ArenaVector<InterferenceNode*>& safepoints,
+    bool core_registers) {
+  size_t max_safepoint_spills = 0;
   for (InterferenceNode* safepoint : safepoints) {
     DCHECK(safepoint->GetInterval()->IsSlowPathSafepoint());
     std::bitset<kMaxNumRegs> conflict_mask = BuildConflictMask(safepoint->GetAdjacentNodes());
-    size_t live_regs = conflict_mask.count();
-    max_safepoint_live_regs = std::max(max_safepoint_live_regs, live_regs);
+    uint32_t live_registers = dchecked_integral_cast<uint32_t>(conflict_mask.to_ulong());
+    size_t number_of_spills = codegen_->GetNumberOfSlowPathSpills(
+        safepoint->GetInterval()->GetDefinedBy()->GetLocations(),
+        live_registers,
+        core_registers);
+    max_safepoint_spills = std::max(max_safepoint_spills, number_of_spills);
   }
-  return max_safepoint_live_regs;
+  return max_safepoint_spills;
 }
 
 void RegisterAllocatorGraphColor::AllocateSpillSlotFor(LiveInterval* interval) {
