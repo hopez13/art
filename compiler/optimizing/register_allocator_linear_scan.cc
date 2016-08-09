@@ -64,8 +64,8 @@ RegisterAllocatorLinearScan::RegisterAllocatorLinearScan(ArenaAllocator* allocat
         blocked_core_registers_(codegen->GetBlockedCoreRegisters()),
         blocked_fp_registers_(codegen->GetBlockedFloatingPointRegisters()),
         reserved_out_slots_(0),
-        maximum_number_of_live_core_registers_(0),
-        maximum_number_of_live_fp_registers_(0) {
+        maximum_number_of_spilled_core_registers_(0),
+        maximum_number_of_spilled_fp_registers_(0) {
   temp_intervals_.reserve(4);
   int_spill_slots_.reserve(kDefaultNumberOfSpillSlots);
   long_spill_slots_.reserve(kDefaultNumberOfSpillSlots);
@@ -92,8 +92,8 @@ static bool ShouldProcess(bool processing_core_registers, LiveInterval* interval
 void RegisterAllocatorLinearScan::AllocateRegisters() {
   AllocateRegistersInternal();
   RegisterAllocationResolver(allocator_, codegen_, liveness_)
-      .Resolve(maximum_number_of_live_core_registers_,
-               maximum_number_of_live_fp_registers_,
+      .Resolve(maximum_number_of_spilled_core_registers_,
+               maximum_number_of_spilled_fp_registers_,
                reserved_out_slots_,
                int_spill_slots_.size(),
                long_spill_slots_.size(),
@@ -572,12 +572,20 @@ void RegisterAllocatorLinearScan::LinearScan() {
     if (current->IsSlowPathSafepoint()) {
       // Synthesized interval to record the maximum number of live registers
       // at safepoints. No need to allocate a register for it.
+      size_t live_registers = 0u;
+      for (const LiveInterval* interval : active_) {
+        live_registers |= 1u << interval->GetRegister();
+      }
+      size_t number_of_spills = codegen_->GetNumberOfSlowPathSpills(
+          current->GetDefinedBy()->GetLocations(),
+          live_registers,
+          processing_core_registers_);
       if (processing_core_registers_) {
-        maximum_number_of_live_core_registers_ =
-          std::max(maximum_number_of_live_core_registers_, active_.size());
+        maximum_number_of_spilled_core_registers_ =
+          std::max(maximum_number_of_spilled_core_registers_, number_of_spills);
       } else {
-        maximum_number_of_live_fp_registers_ =
-          std::max(maximum_number_of_live_fp_registers_, active_.size());
+        maximum_number_of_spilled_fp_registers_ =
+          std::max(maximum_number_of_spilled_fp_registers_, number_of_spills);
       }
       DCHECK(unhandled_->empty() || unhandled_->back()->GetStart() > current->GetStart());
       continue;

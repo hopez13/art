@@ -4775,7 +4775,9 @@ void InstructionCodeGeneratorARM64::VisitUnresolvedStaticFieldSet(
 }
 
 void LocationsBuilderARM64::VisitSuspendCheck(HSuspendCheck* instruction) {
-  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
 }
 
 void InstructionCodeGeneratorARM64::VisitSuspendCheck(HSuspendCheck* instruction) {
