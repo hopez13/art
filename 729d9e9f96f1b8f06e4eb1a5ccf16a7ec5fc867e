@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_4089ee20",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-09T17:32:53Z",
+      "side": 1,
+      "message": "Good point.\nI\u0027ve updated this function a bit, so this should no longer be an issue.",
+      "parentUuid": "b977f3bf_4f740e01",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 15
+      },
+      "revId": "729d9e9f96f1b8f06e4eb1a5ccf16a7ec5fc867e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_2f5bd28a",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-06T01:34:59Z",
       "side": 1,
       "message": "You should probably not somewhere that this is a magic value. Why not min or something else negative?",
+      "range": {
+        "startLine": 156,
+        "startChar": 11,
+        "endLine": 156,
+        "endChar": 13
+      },
+      "revId": "729d9e9f96f1b8f06e4eb1a5ccf16a7ec5fc867e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_009be66f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-09T17:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_2f5bd28a",
       "range": {
         "startLine": 156,
         "startChar": 11,
