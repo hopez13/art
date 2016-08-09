@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_82c05928",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a7465276",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 7
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_f34f3f36",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "We\u0027re not really interested in testing paths through LoadConst32() as it is simple and we test it with a few simple hard-coded tests. Just have two Dinsu paths here (kLoadConst64PathDinsu1 and kLoadConst64PathDinsu2) as there are two paths where it\u0027s used.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_4343384c",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_f34f3f36",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_035e501e",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_532bb3e5",
+      "range": {
+        "startLine": 62,
+        "startChar": 28,
+        "endLine": 62,
+        "endChar": 36
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_deaf9794",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 49
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_e3624ce8",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_deaf9794",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_c245f14d",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_335c6783",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 57
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_d318832d",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "We\u0027re not really interested in testing paths through LoadConst32(). Remove all of these in this function.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_435c581f",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_d318832d",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_e242f543",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_f34adfaf",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 53
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_33838735",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_23fb94ad",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_33838735",
       "range": {
         "startLine": 109,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_23d4b40e",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "There were missing cases which should have prevented the catch-all case from being reached. I\u0027ve added these extra cases. These values are used in more than one place (in part to help detect these new cases) so it\u0027s beneficial to have to calculate them only once.",
+      "parentUuid": "6f34c9be_c1c5f6a4",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_b36e9798",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -220,6 +436,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Get rid of the macro and hide the |\u003d inside LoadConst64Tester::RecordLoadConst64Path(path_mask), invoke it here as a-\u003eRecordLoadConst64Path(path_mask).\n\nMake an empty private Mips64Assembler::RecordLoadConst64Path(path_mask ATTRIBUTE_UNUSED) and add a comment saying it\u0027s a function for testing purposes.\n\nI think this should be the simplest and the most readable way of doing it. The compiler should be able to get rid of the dummy call in the context of class Mips64Assembler.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 6
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_a399e474",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_b36e9798",
       "range": {
         "startLine": 163,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_838f0028",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_732b4f2d",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 42
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_d3e6c319",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -266,6 +530,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "a-\u003eLoadConst32(a, rd, value);\na-\u003eDinsu(rd, rd, 32, 32);\na-\u003eRecordLoadConst64Path(kLoadConst64PathDinsu2);",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 44
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_638cfc32",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44013b_d3e6c319",
       "range": {
         "startLine": 295,
         "startChar": 0,
@@ -325,6 +613,54 @@
     },
     {
       "key": {
+        "uuid": "399f837b_06ce5e60",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a12c829c",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_e6d25a02",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_47fd960a",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_4108262f",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 4
@@ -336,6 +672,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Remove. Too much complexity, poorly readable.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 34
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_c6d756f0",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_4108262f",
       "range": {
         "startLine": 338,
         "startChar": 0,
@@ -371,6 +731,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_226ded34",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_0198eec1",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 50
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_beabc382",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -382,6 +766,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "LoadConst64Tester",
+      "range": {
+        "startLine": 1690,
+        "startChar": 7,
+        "endLine": 1690,
+        "endChar": 22
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_a6dc5213",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_beabc382",
       "range": {
         "startLine": 1690,
         "startChar": 7,
@@ -411,6 +819,24 @@
     },
     {
       "key": {
+        "uuid": "399f837b_86c26e30",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1715,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_47667628",
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_87706edc",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -422,6 +848,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "src_mask",
+      "range": {
+        "startLine": 1716,
+        "startChar": 13,
+        "endLine": 1716,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_66bf6aa2",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_87706edc",
       "range": {
         "startLine": 1716,
         "startChar": 13,
@@ -457,6 +907,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_46cc6661",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1717,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a76d7200",
+      "range": {
+        "startLine": 1717,
+        "startChar": 13,
+        "endLine": 1717,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_67637a17",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -474,6 +948,24 @@
     },
     {
       "key": {
+        "uuid": "399f837b_26c96251",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_67637a17",
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_e17d9a18",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -485,6 +977,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Do the check first, remove the empty line.",
+      "range": {
+        "startLine": 1740,
+        "startChar": 0,
+        "endLine": 1742,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_06f77e90",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_e17d9a18",
       "range": {
         "startLine": 1740,
         "startChar": 0,
@@ -520,6 +1036,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_e6fb7a78",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a19c825a",
+      "range": {
+        "startLine": 1746,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_e1e03a29",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -531,6 +1071,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "regs_",
+      "range": {
+        "startLine": 1751,
+        "startChar": 11,
+        "endLine": 1751,
+        "endChar": 15
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_c6f07697",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_e1e03a29",
       "range": {
         "startLine": 1751,
         "startChar": 11,
@@ -566,6 +1130,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_86eb8ea8",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_81e93e17",
+      "range": {
+        "startLine": 1753,
+        "startChar": 6,
+        "endLine": 1753,
+        "endChar": 21
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_5ea487b6",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -577,6 +1165,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1754,
+        "startChar": 0,
+        "endLine": 1754,
+        "endChar": 22
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_a6f57285",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_5ea487b6",
       "range": {
         "startLine": 1754,
         "startChar": 0,
@@ -635,6 +1247,54 @@
     },
     {
       "key": {
+        "uuid": "399f837b_26e282cb",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_5e8d672c",
+      "range": {
+        "startLine": 1757,
+        "startChar": 6,
+        "endLine": 1757,
+        "endChar": 18
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_06189ed8",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_7e8a2b17",
+      "range": {
+        "startLine": 1757,
+        "startChar": 19,
+        "endLine": 1757,
+        "endChar": 23
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_e7568a37",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -681,6 +1341,54 @@
     },
     {
       "key": {
+        "uuid": "399f837b_a6269220",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_e7568a37",
+      "range": {
+        "startLine": 1764,
+        "startChar": 2,
+        "endLine": 1764,
+        "endChar": 10
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_c621960c",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_27618210",
+      "range": {
+        "startLine": 1764,
+        "startChar": 11,
+        "endLine": 1764,
+        "endChar": 15
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_c7518642",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -692,6 +1400,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Move the numbers:\n\n  const uint16_t aimm[] \u003d {\n      0, 1, 2, ...,\n      ...\n  };",
+      "range": {
+        "startLine": 1764,
+        "startChar": 22,
+        "endLine": 1766,
+        "endChar": 60
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_6629aaee",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_c7518642",
       "range": {
         "startLine": 1764,
         "startChar": 22,
@@ -727,6 +1459,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_0601be60",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_de987776",
+      "range": {
+        "startLine": 1768,
+        "startChar": 18,
+        "endLine": 1768,
+        "endChar": 20
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_474f568e",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -750,6 +1506,30 @@
     },
     {
       "key": {
+        "uuid": "399f837b_4636a64e",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_474f568e",
+      "range": {
+        "startLine": 1771,
+        "startChar": 0,
+        "endLine": 1775,
+        "endChar": 0
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_273a62ee",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 4
@@ -761,6 +1541,30 @@
       "writtenOn": "2016-08-02T06:14:21Z",
       "side": 1,
       "message": "Remove. On inequality both will be printed anyway.",
+      "range": {
+        "startLine": 1793,
+        "startChar": 61,
+        "endLine": 1793,
+        "endChar": 82
+      },
+      "revId": "30d4f124151b2b9e9a9c76ba66d4f94fe3da1e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_e605ba6c",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-09T23:01:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_273a62ee",
       "range": {
         "startLine": 1793,
         "startChar": 61,
