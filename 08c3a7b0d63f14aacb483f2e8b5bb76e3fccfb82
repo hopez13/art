@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_2333df5d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_f0636bea",
+      "range": {
+        "startLine": 1921,
+        "startChar": 24,
+        "endLine": 1921,
+        "endChar": 35
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_90bc77d1",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-08T23:13:23Z",
       "side": 1,
       "message": "Just to double-check, the negative array size check is already handled by this, correct?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 89,
+        "endLine": 1936,
+        "endChar": 86
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_e31de7c9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "There is an implied assumption that a negative size will be greater unsigned compared to TLAB size.",
+      "parentUuid": "b977f3bf_90bc77d1",
       "range": {
         "startLine": 1935,
         "startChar": 89,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_432cdbff",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_f0e5ab10",
+      "range": {
+        "startLine": 1957,
+        "startChar": 72,
+        "endLine": 1957,
+        "endChar": 97
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_2d9c30ae",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-08T23:13:23Z",
       "side": 1,
       "message": "\"The common code for art_quick_alloc_object_*region_tlab\"?",
+      "range": {
+        "startLine": 2057,
+        "startChar": 0,
+        "endLine": 2057,
+        "endChar": 96
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_030fc387",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2057,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_2d9c30ae",
       "range": {
         "startLine": 2057,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_a3004f5a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2061,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_2df510e8",
+      "range": {
+        "startLine": 2061,
+        "startChar": 11,
+        "endLine": 2061,
+        "endChar": 32
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_0d893421",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-08-08T23:13:23Z",
       "side": 1,
       "message": "\"The common code for art_quick_alloc_array_*region_tlab\"?",
+      "range": {
+        "startLine": 2111,
+        "startChar": 3,
+        "endLine": 2111,
+        "endChar": 96
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_230c3f90",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_0d893421",
       "range": {
         "startLine": 2111,
         "startChar": 3,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_e36f272e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_708d1b26",
+      "range": {
+        "startLine": 2119,
+        "startChar": 7,
+        "endLine": 2119,
+        "endChar": 9
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_10e5c7d2",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2016-08-08T23:13:23Z",
       "side": 1,
       "message": "I am not sure I understand this instruction, which we don\u0027t have in the object version. Why not call the slow path artReadBarrierMark below (and why make the following code dead)?",
+      "range": {
+        "startLine": 2145,
+        "startChar": 4,
+        "endLine": 2145,
+        "endChar": 22
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_635b178a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "That was debugging leftover.",
+      "parentUuid": "b977f3bf_10e5c7d2",
       "range": {
         "startLine": 2145,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_41fff302",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_4dff2c03",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 94,
+        "endChar": 44
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_0df9341b",
         "filename": "runtime/arch/quick_alloc_entrypoints.S",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2016-08-08T23:13:23Z",
       "side": 1,
       "message": "Likewise, REGION -\u003e REGION_TLAB.",
+      "range": {
+        "startLine": 110,
+        "startChar": 42,
+        "endLine": 110,
+        "endChar": 48
+      },
+      "revId": "08c3a7b0d63f14aacb483f2e8b5bb76e3fccfb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_61fc6f0d",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T00:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_0df9341b",
       "range": {
         "startLine": 110,
         "startChar": 42,
