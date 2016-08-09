@@ -45,6 +45,54 @@
       "revId": "24f87706e84bd5fbc5806559e282abca8c1964d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b977f3bf_c386abc1",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T17:45:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_bb495938",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "24f87706e84bd5fbc5806559e282abca8c1964d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399f837b_63bf5ca2",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-09T17:45:41Z",
+      "side": 1,
+      "message": "Yes, I added some logging and creating a ProfilingInfo for a copied method appears to happen very rarely in practice.",
+      "parentUuid": "b977f3bf_7b0ae12a",
+      "range": {
+        "startLine": 40,
+        "startChar": 59,
+        "endLine": 40,
+        "endChar": 88
+      },
+      "revId": "24f87706e84bd5fbc5806559e282abca8c1964d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
