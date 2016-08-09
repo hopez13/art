@@ -22,6 +22,30 @@
       "revId": "34596d5a6dba2d3c6d18904ffa049bffcb69d4bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_cb2b29e7",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-09T11:23:34Z",
+      "side": 1,
+      "message": "nvm, I just seen the comment. Hush, That\u0027s interesting... I\u0027m curious now how O_NONBLOCK | O_RDONLY actualy works.",
+      "parentUuid": "39b223c6_4b1899d9",
+      "range": {
+        "startLine": 137,
+        "startChar": 30,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "34596d5a6dba2d3c6d18904ffa049bffcb69d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
