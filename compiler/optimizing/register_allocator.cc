@@ -195,7 +195,7 @@ bool RegisterAllocator::ValidateIntervals(const ArenaVector<LiveInterval*>& inte
 
 LiveInterval* RegisterAllocator::Split(LiveInterval* interval, size_t position) {
   DCHECK_GE(position, interval->GetStart());
-  DCHECK(!interval->IsDeadAt(position));
+  DCHECK(!interval->IsDeadAt(position) || interval->IsDeadAt(interval->GetEnd()));
   if (position == interval->GetStart()) {
     // Spill slot will be allocated when handling `interval` again.
     interval->ClearRegister();
@@ -272,6 +272,17 @@ LiveInterval* RegisterAllocator::SplitBetween(LiveInterval* interval, size_t fro
       break;
     }
     block_to = header;
+  }
+
+  // If we haven't changed block_to which is loop exit block, we can split interval
+  // outside the loop to let ConnectSibling spill in exit block instead of spilling
+  // in loop body.
+  const auto& predecessors = block_to->GetPredecessors();
+  if (liveness_.GetBlockFromPosition(to / 2) == block_to
+      && liveness_.GetInstructionFromPosition(to / 2) != nullptr
+      && predecessors.size() == 1u
+      && predecessors[0]->GetLoopInformation() != block_to->GetLoopInformation()) {
+    return Split(interval, to);
   }
 
   // Split at the start of the found block, to piggy back on existing moves
