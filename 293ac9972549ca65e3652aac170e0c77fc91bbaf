@@ -68,6 +68,30 @@
       "revId": "293ac9972549ca65e3652aac170e0c77fc91bbaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_3aadd998",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-09T23:24:35Z",
+      "side": 1,
+      "message": "It hasn\u0027t been loaded yet so the handle is nullptr.",
+      "parentUuid": "b927f349_7a07d1c8",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 30
+      },
+      "revId": "293ac9972549ca65e3652aac170e0c77fc91bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
