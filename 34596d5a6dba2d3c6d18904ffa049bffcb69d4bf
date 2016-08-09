@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39b223c6_4b1899d9",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-09T11:21:28Z",
+      "side": 1,
+      "message": "why? O_RDONLY is not supposed to be exclusive, there are other flags which make sense here even if we don\u0027t use them.",
+      "range": {
+        "startLine": 137,
+        "startChar": 30,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "34596d5a6dba2d3c6d18904ffa049bffcb69d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
