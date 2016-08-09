@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f98ecb40_778bc215",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-09T20:27:55Z",
+      "side": 1,
+      "message": "Thank you! will delete.",
+      "parentUuid": "39b223c6_e8d95349",
+      "range": {
+        "startLine": 1791,
+        "startChar": 18,
+        "endLine": 1791,
+        "endChar": 21
+      },
+      "revId": "68b2ee9157111ffd3a4bdfc8f40760c476545e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b223c6_88d69718",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-09T08:57:31Z",
       "side": 1,
       "message": "this instruction is not needed. \n\nldr w2, [ ] will load the value in the lower 32bit and 0 extend the rest (upper 32bits will be 0).",
+      "range": {
+        "startLine": 1792,
+        "startChar": 4,
+        "endLine": 1792,
+        "endChar": 18
+      },
+      "revId": "68b2ee9157111ffd3a4bdfc8f40760c476545e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_978f4e20",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-09T20:27:55Z",
+      "side": 1,
+      "message": "Same as above. :)",
+      "parentUuid": "39b223c6_88d69718",
       "range": {
         "startLine": 1792,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f98ecb40_b7be0aa4",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-09T20:27:55Z",
+      "side": 1,
+      "message": "It is. It\u0027s stored as a uint64_t actually in class.h, and it\u0027s set depending on the pointer size (SetFieldPtr-\u003eSetFieldPtrWithSize), so it\u0027s safer to load it with the full 64 bits here.",
+      "parentUuid": "39b223c6_a8d35b27",
+      "range": {
+        "startLine": 1794,
+        "startChar": 10,
+        "endLine": 1794,
+        "endChar": 12
+      },
+      "revId": "68b2ee9157111ffd3a4bdfc8f40760c476545e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b223c6_48b2df00",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-09T08:57:31Z",
       "side": 1,
       "message": "is this meant to be a load exclusive pair?",
+      "range": {
+        "startLine": 1799,
+        "startChar": 4,
+        "endLine": 1799,
+        "endChar": 8
+      },
+      "revId": "68b2ee9157111ffd3a4bdfc8f40760c476545e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_5786c610",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-09T20:27:55Z",
+      "side": 1,
+      "message": "Yes, it needs to be atomic and is just as fast as loading a 64 bit int and extracting lower/upper.",
+      "parentUuid": "39b223c6_48b2df00",
       "range": {
         "startLine": 1799,
         "startChar": 4,
