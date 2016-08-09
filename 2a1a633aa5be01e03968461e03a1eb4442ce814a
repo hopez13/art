@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_7de82bab",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-09T23:29:34Z",
+      "side": 1,
+      "message": "Possibly. Though this way we kinda support devices without thumb mode.",
+      "parentUuid": "b927f349_5733cea7",
+      "revId": "2a1a633aa5be01e03968461e03a1eb4442ce814a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "399f837b_230cb48f",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm.cc",
         "patchSetId": 1
