@@ -68,6 +68,30 @@
       "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_ab64b54e",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-09T12:10:26Z",
+      "side": 1,
+      "message": "Do you suggest just to improve test coverage (it can be easily done) or introduce totally new type of tests?",
+      "parentUuid": "b977f3bf_142f1490",
+      "range": {
+        "startLine": 1473,
+        "startChar": 2,
+        "endLine": 1483,
+        "endChar": 24
+      },
+      "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
