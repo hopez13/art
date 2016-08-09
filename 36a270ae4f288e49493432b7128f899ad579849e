@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f98ecb40_91bbde25",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T21:10:50Z",
+      "side": 1,
+      "message": "The arm version wasn\u0027t implemented? Add a TODO?",
+      "revId": "36a270ae4f288e49493432b7128f899ad579849e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_91fe7e05",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T21:10:50Z",
+      "side": 1,
+      "message": "Should move this code in the straight-line position like the arm64 version?",
+      "range": {
+        "startLine": 1039,
+        "startChar": 4,
+        "endLine": 1039,
+        "endChar": 31
+      },
+      "revId": "36a270ae4f288e49493432b7128f899ad579849e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_31630aee",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T21:10:50Z",
+      "side": 1,
+      "message": "Likewise, move this to the straightline position?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 4,
+        "endLine": 1000,
+        "endChar": 31
+      },
+      "revId": "36a270ae4f288e49493432b7128f899ad579849e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
