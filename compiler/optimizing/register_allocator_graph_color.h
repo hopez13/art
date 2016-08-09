@@ -139,7 +139,8 @@ class RegisterAllocatorGraphColor : public RegisterAllocator {
 
   // Return the maximum number of registers live at safepoints,
   // based on the outgoing interference edges of safepoint nodes.
-  size_t ComputeMaxSafepointLiveRegisters(const ArenaVector<InterferenceNode*>& safepoints);
+  size_t ComputeMaxSafepointSpilledRegisters(const ArenaVector<InterferenceNode*>& safepoints,
+                                             bool core_registers);
 
   // If necessary, add the given interval to the list of spilled intervals,
   // and make sure it's ready to be spilled to the stack.
@@ -175,14 +176,6 @@ class RegisterAllocatorGraphColor : public RegisterAllocator {
 
   // Number of stack slots needed for outgoing arguments.
   const size_t reserved_out_slots_;
-
-  // The number of globally blocked core and floating point registers, such as the stack pointer.
-  size_t number_of_globally_blocked_core_regs_;
-  size_t number_of_globally_blocked_fp_regs_;
-
-  // The maximum number of registers live at safe points. Needed by the code generator.
-  size_t max_safepoint_live_core_regs_;
-  size_t max_safepoint_live_fp_regs_;
 
   // An arena allocator used for a single graph coloring attempt.
   // Many data structures are cleared between graph coloring attempts, so we reduce
