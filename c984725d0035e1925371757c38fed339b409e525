@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "399f837b_43b338e6",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-09T17:37:48Z",
+      "side": 0,
+      "message": "Nicolas can fill in with more details here since it was his original rationale.\n\nThe problem AFAIK is not whether or not we\u0027ve committed to shipping them (we did it with default methods, and they were \"Experimental\" up until feature complete). It\u0027s that if any vendors ever ship out of AOSP master then they\u0027d have some weird partially complete implementation of extra bytecodes.",
+      "parentUuid": "39b223c6_6bd31d07",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_2cdd1936",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
