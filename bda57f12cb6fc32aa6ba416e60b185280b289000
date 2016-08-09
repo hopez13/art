@@ -92,6 +92,30 @@
       "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9afab5f_498665c3",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-09T12:50:53Z",
+      "side": 1,
+      "message": "We cannot simply use the RepearRRR() or RepeatRRIb() functions from assembler_test.h to run exhaustive tests because most functions in Thumb2Assembler have the default parameters \"Condition cond \u003d AL, SetCc set_cc \u003d kCcDontCare\". We would need to define specialized versions.",
+      "parentUuid": "39b223c6_ab64b54e",
+      "range": {
+        "startLine": 1473,
+        "startChar": 2,
+        "endLine": 1483,
+        "endChar": 24
+      },
+      "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
