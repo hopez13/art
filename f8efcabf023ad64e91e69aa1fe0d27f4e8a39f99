@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f98ecb40_57d8861f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T21:10:50Z",
+      "side": 1,
+      "message": "Correction: No need to have a mark bitmap.\n\nClarified ideas in b/29516968 #17.",
+      "parentUuid": "94e3d6ef_de9bc107",
+      "range": {
+        "startLine": 1830,
+        "startChar": 15,
+        "endLine": 1830,
+        "endChar": 31
+      },
+      "revId": "f8efcabf023ad64e91e69aa1fe0d27f4e8a39f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d3c2eb_bc84eeb2",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
