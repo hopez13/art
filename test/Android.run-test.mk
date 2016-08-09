@@ -122,6 +122,9 @@ endif
 ifeq ($(ART_TEST_OPTIMIZING),true)
   COMPILER_TYPES += optimizing
 endif
+ifeq ($(ART_TEST_OPTIMIZING_GRAPH_COLOR),true)
+  COMPILER_TYPES += regalloc_gc
+endif
 RELOCATE_TYPES := relocate
 ifeq ($(ART_TEST_RUN_TEST_NO_RELOCATE),true)
   RELOCATE_TYPES += no-relocate
@@ -476,14 +479,21 @@ endif
 
 TEST_ART_BROKEN_JIT_RUN_TESTS :=
 
+# Known broken tests for the graph coloring register allocator.
+# These tests were based on the linear scan allocator, which makes different decisions than
+# the graph coloring allocator. (These test for code quality, not correctness.)
+TEST_ART_BROKEN_OPTIMIZING_GRAPH_COLOR := \
+  570-checker-select \
+  484-checker-register-hints
+
 # Known broken tests for the mips32 optimizing compiler backend.
 TEST_ART_BROKEN_OPTIMIZING_MIPS_RUN_TESTS := \
     510-checker-try-catch \
 
 ifeq (mips,$(TARGET_ARCH))
-  ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+  ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
     ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,target,$(RUN_TYPES),$(PREBUILD_TYPES), \
-        optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
+        $(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
         $(IMAGE_TYPES),$(PICTEST_TYPES),$(DEBUGGABLE_TYPES), \
         $(TEST_ART_BROKEN_OPTIMIZING_MIPS_RUN_TESTS),$(ALL_ADDRESS_SIZES))
   endif
@@ -495,9 +505,9 @@ TEST_ART_BROKEN_OPTIMIZING_MIPS_RUN_TESTS :=
 TEST_ART_BROKEN_OPTIMIZING_MIPS64_RUN_TESTS := \
 
 ifeq (mips64,$(TARGET_ARCH))
-  ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+  ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
     ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,target,$(RUN_TYPES),$(PREBUILD_TYPES), \
-        optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
+        $(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
         $(IMAGE_TYPES),$(PICTEST_TYPES),$(DEBUGGABLE_TYPES), \
         $(TEST_ART_BROKEN_OPTIMIZING_MIPS64_RUN_TESTS),$(ALL_ADDRESS_SIZES))
   endif
@@ -510,9 +520,9 @@ TEST_ART_BROKEN_OPTIMIZING_NONDEBUGGABLE_RUN_TESTS := \
   454-get-vreg \
   457-regs \
 
-ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
   ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES),$(PREBUILD_TYPES), \
-      optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
+      $(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
       $(IMAGE_TYPES),$(PICTEST_TYPES),ndebuggable,$(TEST_ART_BROKEN_OPTIMIZING_NONDEBUGGABLE_RUN_TESTS),$(ALL_ADDRESS_SIZES))
 endif
 
@@ -521,9 +531,9 @@ TEST_ART_BROKEN_OPTIMIZING_NONDEBUGGABLE_RUN_TESTS :=
 # Tests that should fail when the optimizing compiler compiles them debuggable.
 TEST_ART_BROKEN_OPTIMIZING_DEBUGGABLE_RUN_TESTS := \
 
-ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
   ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES),$(PREBUILD_TYPES), \
-      optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
+      $(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
       $(IMAGE_TYPES),$(PICTEST_TYPES),debuggable,$(TEST_ART_BROKEN_OPTIMIZING_DEBUGGABLE_RUN_TESTS),$(ALL_ADDRESS_SIZES))
 endif
 
@@ -552,9 +562,9 @@ ifeq ($(ART_USE_READ_BARRIER),true)
         $(TEST_ART_BROKEN_INTERPRETER_READ_BARRIER_RUN_TESTS),$(ALL_ADDRESS_SIZES))
   endif
 
-  ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+  ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
     ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES), \
-        $(PREBUILD_TYPES),optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES), \
+        $(PREBUILD_TYPES),$(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES), \
         $(JNI_TYPES),$(IMAGE_TYPES),$(PICTEST_TYPES),$(DEBUGGABLE_TYPES), \
         $(TEST_ART_BROKEN_OPTIMIZING_READ_BARRIER_RUN_TESTS),$(ALL_ADDRESS_SIZES))
   endif
@@ -583,9 +593,9 @@ TEST_ART_BROKEN_OPTIMIZING_HEAP_POISONING_RUN_TESTS := \
   055-enum-performance
 
 ifeq ($(ART_HEAP_POISONING),true)
-  ifneq (,$(filter optimizing,$(COMPILER_TYPES)))
+  ifneq (,$(filter optimizing regalloc_gc,$(COMPILER_TYPES)))
     ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES), \
-        $(PREBUILD_TYPES),optimizing,$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
+        $(PREBUILD_TYPES),$(COMPILER_TYPES),$(RELOCATE_TYPES),$(TRACE_TYPES),$(GC_TYPES),$(JNI_TYPES), \
         $(IMAGE_TYPES),$(PICTEST_TYPES),$(DEBUGGABLE_TYPES), \
         $(TEST_ART_BROKEN_OPTIMIZING_HEAP_POISONING_RUN_TESTS),$(ALL_ADDRESS_SIZES))
   endif
@@ -732,6 +742,9 @@ define define-test-art-run-test
   ifeq ($(4),optimizing)
     test_groups += ART_RUN_TEST_$$(uc_host_or_target)_OPTIMIZING_RULES
     run_test_options += --optimizing
+  else ifeq ($(4),regalloc_gc)
+    test_groups += ART_RUN_TEST_$$(uc_host_or_target)_OPTIMIZING_GRAPH_COLOR_RULES
+    run_test_options += --optimizing -Xcompiler-option --register-allocation-strategy=graph-color
   else
     ifeq ($(4),interpreter)
       test_groups += ART_RUN_TEST_$$(uc_host_or_target)_INTERPRETER_RULES
