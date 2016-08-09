@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@
 #include <sstream>
 #include <vector>
 
+#include "dex_ir.h"
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
 #include "utils.h"
