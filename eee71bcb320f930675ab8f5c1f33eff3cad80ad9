@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b927f349_3a44f970",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-09T22:56:18Z",
+      "side": 1,
+      "message": "This is broken.\n\nYou either have to use optimizing here, or introduce another option in build/Android.oat.mk...\n\nYou can force the breakage by cleaning the core files before running - as the dependency is missing, make will start tests before the images are generated.",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 840,
+        "endChar": 22
+      },
+      "revId": "eee71bcb320f930675ab8f5c1f33eff3cad80ad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
