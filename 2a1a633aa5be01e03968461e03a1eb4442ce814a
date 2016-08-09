@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_1d6257b4",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-09T23:59:10Z",
+      "side": 1,
+      "message": "How are we supporting it if it\u0027s untested?",
+      "parentUuid": "b927f349_7de82bab",
+      "revId": "2a1a633aa5be01e03968461e03a1eb4442ce814a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "399f837b_230cb48f",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm.cc",
         "patchSetId": 1
