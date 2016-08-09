@@ -711,6 +711,24 @@ void CodeGenerator::BuildStackMaps(MemoryRegion region, const DexFile::CodeItem&
   }
 }
 
+uint32_t CodeGenerator::GetSlowPathSpills(LocationSummary* locations,
+                                          uint32_t live_registers,
+                                          bool core_registers) const {
+  DCHECK(locations->OnlyCallsOnSlowPath() ||
+         (locations->Intrinsified() && locations->CallsOnMainAndSlowPath() &&
+             !locations->HasCustomSlowPathCallingConvention()));
+  if (locations->HasCustomSlowPathCallingConvention()) {
+    uint32_t caller_saves = core_registers
+        ? locations->GetCustomSlowPathCallerSaves().GetCoreRegisters()
+        : locations->GetCustomSlowPathCallerSaves().GetFloatingPointRegisters();
+    return live_registers & caller_saves;
+  } else {
+    // Default ABI, we need to spill non-callee-save live registers.
+    uint32_t callee_saves = core_registers ? core_callee_save_mask_ : fpu_callee_save_mask_;
+    return live_registers & ~callee_saves;
+  }
+}
+
 void CodeGenerator::RecordPcInfo(HInstruction* instruction,
                                  uint32_t dex_pc,
                                  SlowPathCode* slow_path) {
@@ -765,21 +783,18 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
   LocationSummary* locations = instruction->GetLocations();
 
   uint32_t register_mask = locations->GetRegisterMask();
-  if (instruction->IsSuspendCheck()) {
-    // Suspend check has special ABI that saves the caller-save registers in callee,
-    // so we want to emit stack maps containing the registers.
-    // TODO: Register allocator still reserves space for the caller-save registers.
-    // We should add slow-path-specific caller-save information into LocationSummary
-    // and refactor the code here as well as in the register allocator to use it.
+  DCHECK_EQ(register_mask & ~locations->GetLiveRegisters()->GetCoreRegisters(), 0u);
+  if (locations->OnlyCallsOnSlowPath()) {
+    // In case of slow path, we currently set the location of caller-save registers
+    // to register (instead of their stack location when pushed before the slow-path
+    // call). Therefore register_mask contains both callee-save and caller-save
+    // registers that hold objects. We must remove the spilled caller-save from the
+    // mask, since they will be overwritten by the callee.
+    uint32_t spills = GetSlowPathSpills(locations,
+                                        locations->GetLiveRegisters()->GetCoreRegisters(),
+                                        /* core_registers */ true);
+    register_mask &= ~spills;
   } else {
-    if (locations->OnlyCallsOnSlowPath()) {
-      // In case of slow path, we currently set the location of caller-save registers
-      // to register (instead of their stack location when pushed before the slow-path
-      // call). Therefore register_mask contains both callee-save and caller-save
-      // registers that hold objects. We must remove the caller-save from the mask, since
-      // they will be overwritten by the callee.
-      register_mask &= core_callee_save_mask_;
-    }
     // The register mask must be a subset of callee-save registers.
     DCHECK_EQ(register_mask & core_callee_save_mask_, register_mask);
   }
@@ -1237,30 +1252,28 @@ void SlowPathCode::SaveLiveRegisters(CodeGenerator* codegen, LocationSummary* lo
   RegisterSet* live_registers = locations->GetLiveRegisters();
   size_t stack_offset = codegen->GetFirstRegisterSlotInSlowPath();
 
-  for (size_t i = 0, e = codegen->GetNumberOfCoreRegisters(); i < e; ++i) {
-    if (!codegen->IsCoreCalleeSaveRegister(i)) {
-      if (live_registers->ContainsCoreRegister(i)) {
-        // If the register holds an object, update the stack mask.
-        if (locations->RegisterContainsObject(i)) {
-          locations->SetStackBit(stack_offset / kVRegSize);
-        }
-        DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-        DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-        saved_core_stack_offsets_[i] = stack_offset;
-        stack_offset += codegen->SaveCoreRegister(stack_offset, i);
-      }
+  uint32_t core_spills = codegen->GetSlowPathSpills(locations,
+                                                    live_registers->GetCoreRegisters(),
+                                                    /* core_registers */ true);
+  for (uint32_t i : LowToHighBits(core_spills)) {
+    // If the register holds an object, update the stack mask.
+    if (locations->RegisterContainsObject(i)) {
+      locations->SetStackBit(stack_offset / kVRegSize);
     }
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    saved_core_stack_offsets_[i] = stack_offset;
+    stack_offset += codegen->SaveCoreRegister(stack_offset, i);
   }
 
-  for (size_t i = 0, e = codegen->GetNumberOfFloatingPointRegisters(); i < e; ++i) {
-    if (!codegen->IsFloatingPointCalleeSaveRegister(i)) {
-      if (live_registers->ContainsFloatingPointRegister(i)) {
-        DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-        DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-        saved_fpu_stack_offsets_[i] = stack_offset;
-        stack_offset += codegen->SaveFloatingPointRegister(stack_offset, i);
-      }
-    }
+  uint32_t fp_spills = codegen->GetSlowPathSpills(locations,
+                                                  live_registers->GetFloatingPointRegisters(),
+                                                  /* core_registers */ false);
+  for (size_t i : LowToHighBits(fp_spills)) {
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    saved_fpu_stack_offsets_[i] = stack_offset;
+    stack_offset += codegen->SaveFloatingPointRegister(stack_offset, i);
   }
 }
 
@@ -1268,24 +1281,22 @@ void SlowPathCode::RestoreLiveRegisters(CodeGenerator* codegen, LocationSummary*
   RegisterSet* live_registers = locations->GetLiveRegisters();
   size_t stack_offset = codegen->GetFirstRegisterSlotInSlowPath();
 
-  for (size_t i = 0, e = codegen->GetNumberOfCoreRegisters(); i < e; ++i) {
-    if (!codegen->IsCoreCalleeSaveRegister(i)) {
-      if (live_registers->ContainsCoreRegister(i)) {
-        DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-        DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-        stack_offset += codegen->RestoreCoreRegister(stack_offset, i);
-      }
-    }
+  uint32_t core_spills = codegen->GetSlowPathSpills(locations,
+                                                    live_registers->GetCoreRegisters(),
+                                                    /* core_registers */ true);
+  for (uint32_t i : LowToHighBits(core_spills)) {
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    stack_offset += codegen->RestoreCoreRegister(stack_offset, i);
   }
 
-  for (size_t i = 0, e = codegen->GetNumberOfFloatingPointRegisters(); i < e; ++i) {
-    if (!codegen->IsFloatingPointCalleeSaveRegister(i)) {
-      if (live_registers->ContainsFloatingPointRegister(i)) {
-        DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-        DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-        stack_offset += codegen->RestoreFloatingPointRegister(stack_offset, i);
-      }
-    }
+  uint32_t fp_spills = codegen->GetSlowPathSpills(locations,
+                                                  live_registers->GetFloatingPointRegisters(),
+                                                  /* core_registers */ false);
+  for (size_t i : LowToHighBits(fp_spills)) {
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    stack_offset += codegen->RestoreFloatingPointRegister(stack_offset, i);
   }
 }
 

@@ -5135,7 +5135,9 @@ void InstructionCodeGeneratorX86_64::VisitParallelMove(HParallelMove* instructio
 }
 
 void LocationsBuilderX86_64::VisitSuspendCheck(HSuspendCheck* instruction) {
-  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
 }
 
 void InstructionCodeGeneratorX86_64::VisitSuspendCheck(HSuspendCheck* instruction) {
