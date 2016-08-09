@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_4bce5962",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 0,
+      "message": "I\u0027d rather not keep unused code lying around in the codebase. Note that there were no new usages outside of the lambda code in the year since they were introduced.\n\nThat said, this is back now, because I brought back support for ExperimentalFlags (and the associated test).",
+      "parentUuid": "b977f3bf_ac6da9a1",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_6c4eb140",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_6bd31d07",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 0,
+      "message": "Well, I wouldn\u0027t call them experimental since we\u0027ve committed to shipping them (though the design might change over time).\n\nI did intend on guarding them with their own flag until work was complete, but It\u0027s probably better to reuse what you\u0027ve done.\n\nResurrected.",
+      "parentUuid": "b977f3bf_6c4eb140",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_2cdd1936",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-08-08T18:24:22Z",
       "side": 0,
       "message": "You may not want to remove this, it was put in here for a reason, and that\u0027s to make development a lot simpler because you can implement the new bytecodes into the interpreter without also implementing full verifier support for it.\n\nAt the same time the instructions would be completely usable from run-test, dalvikvm etc.\n\nDepending on how complicated it is to correctly verify the new bytecodes, it may not be trivial to do it within the same CL.",
+      "revId": "c984725d0035e1925371757c38fed339b409e525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_0bbe2179",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 0,
+      "message": "Sure - might come in handy.",
+      "parentUuid": "b977f3bf_2cdd1936",
       "revId": "c984725d0035e1925371757c38fed339b409e525",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

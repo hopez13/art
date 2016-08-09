@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_eb438d9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b977f3bf_29a66bc2",
+      "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_8cef8ded",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_ebb5cdca",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 1,
+      "message": "IWYU. Build breaks without this include because the set of transitive includes changes as a result of the other deltas in this change.",
+      "parentUuid": "b977f3bf_8cef8ded",
+      "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_6cdd5167",
         "filename": "runtime/lambda/shorty_field_type.h",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-08-08T18:24:22Z",
       "side": 1,
       "message": "This has nothing to do with lambdas, I\u0027m not sure it should be reverted because it\u0027s a useful abstraction.",
+      "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_cbb809c4",
+        "filename": "runtime/lambda/shorty_field_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-08-09T12:47:35Z",
+      "side": 1,
+      "message": "I\u0027m reverting it because it\u0027s unused outside of lambdas. It can always be reintroduced if we decide to use it.",
+      "parentUuid": "b977f3bf_6cdd5167",
       "revId": "9492aceac890d7b62758572b11b80085c2f894e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
