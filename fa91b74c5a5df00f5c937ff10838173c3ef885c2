@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "b927f349_149a345d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1607,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T22:16:26Z",
+      "side": 1,
+      "message": "How about just \"Non-read barrier code\" so that this isn\u0027t interpreted as *Non-Baker* read barrier code.",
+      "range": {
+        "startLine": 1607,
+        "startChar": 6,
+        "endLine": 1607,
+        "endChar": 39
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_f454582f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T22:16:26Z",
+      "side": 1,
+      "message": "2 -\u003e art::WhichPowerOf2(sizeof(art::mirror::CompressedReference\u003cart::mirror::Object\u003e)) ?",
+      "range": {
+        "startLine": 1770,
+        "startChar": 79,
+        "endLine": 1770,
+        "endChar": 80
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145606ee_1514b498",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -82,6 +128,29 @@
       "writtenOn": "2016-08-08T15:08:44Z",
       "side": 1,
       "message": "TODO: Make the whole loop a slow-path. It\u0027s bad to jump there and back on each iteration.",
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_d4691c2d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-09T22:16:26Z",
+      "side": 1,
+      "message": "Similar comment.",
+      "range": {
+        "startLine": 1812,
+        "startChar": 7,
+        "endLine": 1812,
+        "endChar": 10
+      },
       "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
