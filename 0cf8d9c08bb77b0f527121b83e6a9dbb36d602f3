@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9c827e9_c5853a6b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T21:15:59Z",
+      "side": 1,
+      "message": "This does not win a beauty contest, but it is just a fall back in case the test near line 763 fails. This seems to only happen on fugu for x86 when in JIT (perhaps more). You will find similar fall back code here and there in this file.",
+      "revId": "0cf8d9c08bb77b0f527121b83e6a9dbb36d602f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
