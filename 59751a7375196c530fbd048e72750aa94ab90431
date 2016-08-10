@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99a5cf1d_eb593165",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-10T13:38:07Z",
+      "side": 1,
+      "message": "Minor_comment: \u0027adds rN, rM, #1\u0027 can be used instead of \u0027adds rN, rM, rK\u0027. This will remove a dependency of \u0027adds\u0027 on register rK.\n\nmov r0, #1\nmov r1, #FFFF\nadds r2, r2, r0\nadc r3, r3, r1\n\nmov r0, #1\nmov r1, #FFFF\nadds r2, r2, #1\nadc r3, r3, r1",
+      "range": {
+        "startLine": 564,
+        "startChar": 25,
+        "endLine": 564,
+        "endChar": 33
+      },
+      "revId": "59751a7375196c530fbd048e72750aa94ab90431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
