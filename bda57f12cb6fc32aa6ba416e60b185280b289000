@@ -140,6 +140,30 @@
       "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a5cf1d_ab0a892a",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-10T14:48:23Z",
+      "side": 1,
+      "message": "Currently we are working on a new ARM VIXL based assembler which will hopefully substitute the current one. VIXL itself has tests that exhaustively check everything. So do you consider an effort of improving a current thumb2 assembler tests worthwhile?",
+      "parentUuid": "399f837b_80901640",
+      "range": {
+        "startLine": 1473,
+        "startChar": 2,
+        "endLine": 1483,
+        "endChar": 24
+      },
+      "revId": "bda57f12cb6fc32aa6ba416e60b185280b289000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
