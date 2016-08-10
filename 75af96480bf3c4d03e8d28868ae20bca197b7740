@@ -1,0 +1,233 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b927f349_5add3534",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "Interference sounds conflicting with preventing moves.",
+      "range": {
+        "startLine": 52,
+        "startChar": 45,
+        "endLine": 52,
+        "endChar": 85
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_dab145fc",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 53,
+        "startChar": 45,
+        "endLine": 53,
+        "endChar": 85
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_7d4a6b81",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "strange naming.",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 42
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_f758922c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "This is for spill at definition cost? Can you add a comment?",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_3dc393a4",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "DCHECK it\u0027s not in adjacent_nodes_ yet.",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_fa0f6139",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "other is a little misleading since it\u0027s not interference node.",
+      "range": {
+        "startLine": 270,
+        "startChar": 51,
+        "endLine": 270,
+        "endChar": 56
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_c29f52f4",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "Not accurate description of the real computed weight.",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_f7d21a02",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "Seems to me even if the next sibling starts later, it still can\u0027t be clobbered.",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_ce46a37b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "plus the weight factor?",
+      "range": {
+        "startLine": 1324,
+        "startChar": 50,
+        "endLine": 1324,
+        "endChar": 76
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98ecb40_8e4c9b9d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "HasGreaterNodePriority?",
+      "range": {
+        "startLine": 1331,
+        "startChar": 34,
+        "endLine": 1331,
+        "endChar": 53
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3914e3d3_98faf563",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T00:00:34Z",
+      "side": 1,
+      "message": "Seems not true since they become empty.",
+      "range": {
+        "startLine": 1379,
+        "startChar": 5,
+        "endLine": 1379,
+        "endChar": 52
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
