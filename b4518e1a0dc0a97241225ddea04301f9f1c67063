@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_f421adbd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_14b9c990",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_74491d6b",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-10T18:29:29Z",
       "side": 1,
       "message": "same feedback, if possible describe field before giving intended use",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_8f7aa6c9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_74491d6b",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_2fb4b280",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_3443a54d",
+      "range": {
+        "startLine": 362,
+        "startChar": 11,
+        "endLine": 362,
+        "endChar": 15
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_b48fb5d1",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -70,6 +130,24 @@
       "writtenOn": "2016-08-10T18:17:19Z",
       "side": 1,
       "message": "I\u0027m a little worried about coalescing may prevent forward progress (if we get some heuristics wrong). Does it make sense to set this to false once some attempt threshold is reached? Then we only do splitting from that point on.",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_aa1d1066",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Good idea, just to be extra safe. I\u0027ll update this.",
+      "parentUuid": "b927f349_b48fb5d1",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_8564c521",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Right, good catch.\nI\u0027ve updated \"inputs[i]-\u003eGetLiveInterval()\"\nto \"inputs[i]-\u003eGetLiveInterval()-\u003eGetSiblingAt(def_position)\"",
+      "parentUuid": "b927f349_fbae8033",
+      "range": {
+        "startLine": 1036,
+        "startChar": 40,
+        "endLine": 1036,
+        "endChar": 54
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_f4868d78",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -110,6 +212,24 @@
       "writtenOn": "2016-08-10T18:29:29Z",
       "side": 1,
       "message": "helper function to do that?",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_ef30fa05",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_f4868d78",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_efa31a99",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_744d9d96",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_541d0171",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 15
@@ -144,6 +282,24 @@
       "writtenOn": "2016-08-10T18:29:29Z",
       "side": 1,
       "message": "one comment for two functions is dangerous. Either state that this is given for both heuristics, or give each their own!",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_afb682d4",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_541d0171",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -173,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_6f3e2a0d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_74ffdd02",
+      "range": {
+        "startLine": 273,
+        "startChar": 25,
+        "endLine": 273,
+        "endChar": 26
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_94fcf90d",
         "filename": "compiler/optimizing/register_allocator_graph_color.h",
         "patchSetId": 15
@@ -184,6 +364,24 @@
       "writtenOn": "2016-08-10T18:29:29Z",
       "side": 1,
       "message": "Queue that contains...",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_6fcf0a26",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_94fcf90d",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -207,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_0fdd36d9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_34f9651c",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_54c3c1a2",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 15
@@ -218,6 +434,30 @@
       "writtenOn": "2016-08-10T18:29:29Z",
       "side": 1,
       "message": "How about\n!HasRegister() \u0026\u0026 FirstRegisterUse() !\u003d kNoLifetime;",
+      "range": {
+        "startLine": 521,
+        "startChar": 16,
+        "endLine": 522,
+        "endChar": 5
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_6a8138a1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T21:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_54c3c1a2",
       "range": {
         "startLine": 521,
         "startChar": 16,
