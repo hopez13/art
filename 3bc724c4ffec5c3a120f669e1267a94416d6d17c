@@ -46,6 +46,30 @@
       "revId": "3bc724c4ffec5c3a120f669e1267a94416d6d17c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_71336fa8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T17:46:03Z",
+      "side": 1,
+      "message": "Yes, that\u0027s on my TODO-list for ways to make graph coloring a bit faster. (Wanted to do the simple implementation first.)",
+      "parentUuid": "79af3bf6_32ff3004",
+      "range": {
+        "startLine": 728,
+        "startChar": 28,
+        "endLine": 728,
+        "endChar": 41
+      },
+      "revId": "3bc724c4ffec5c3a120f669e1267a94416d6d17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
