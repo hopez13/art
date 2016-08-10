@@ -19,6 +19,46 @@
     },
     {
       "key": {
+        "uuid": "b927f349_74491d6b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "same feedback, if possible describe field before giving intended use",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_3443a54d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 362,
+        "startChar": 11,
+        "endLine": 362,
+        "endChar": 15
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_b48fb5d1",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -52,6 +92,137 @@
         "startChar": 40,
         "endLine": 1036,
         "endChar": 54
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_f4868d78",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "helper function to do that?",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_744d9d96",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "probably also say what true/false means here.",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_541d0171",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "one comment for two functions is dangerous. Either state that this is given for both heuristics, or give each their own!",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_74ffdd02",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "First describe the field, that give some background information like this (noun vs. verb)",
+      "range": {
+        "startLine": 273,
+        "startChar": 25,
+        "endLine": 273,
+        "endChar": 26
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_94fcf90d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "Queue that contains...",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_34f9651c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "same",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_54c3c1a2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T18:29:29Z",
+      "side": 1,
+      "message": "How about\n!HasRegister() \u0026\u0026 FirstRegisterUse() !\u003d kNoLifetime;",
+      "range": {
+        "startLine": 521,
+        "startChar": 16,
+        "endLine": 522,
+        "endChar": 5
       },
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
