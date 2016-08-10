@@ -22,6 +22,30 @@
       "revId": "59751a7375196c530fbd048e72750aa94ab90431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d81bb0_0ac59b07",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T14:12:50Z",
+      "side": 1,
+      "message": "This CL focused on the cases where we can fully embed the constant in the instruction.\nThe partial embedding would also benefit from not loading the #1 into a register at all but that would be a more complicated change.",
+      "parentUuid": "99a5cf1d_eb593165",
+      "range": {
+        "startLine": 564,
+        "startChar": 25,
+        "endLine": 564,
+        "endChar": 33
+      },
+      "revId": "59751a7375196c530fbd048e72750aa94ab90431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
