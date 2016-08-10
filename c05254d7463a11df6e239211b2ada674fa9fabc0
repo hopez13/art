@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_d1c0434c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4570,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-10T17:51:02Z",
+      "side": 1,
+      "message": "Ok, I can add these cases, but I don\u0027t have any way to test that what I\u0027ve included isn\u0027t breaking everything and is working other than host tests. Is that ok?",
+      "parentUuid": "99a5cf1d_4b44c571",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_602c70b2",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 1
