@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5936f710_8120da57",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Yes, that sounds better.  Done in PS2, here and elsewhere.",
+      "parentUuid": "145606ee_b5d3e804",
+      "range": {
+        "startLine": 1589,
+        "startChar": 47,
+        "endLine": 1589,
+        "endChar": 51
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b223c6_a8711ba5",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-08T14:07:32Z",
       "side": 1,
       "message": "I realized a bit late that we do not need a read barrier here, as `temp1` is compared against 0 and not used afterwards.  I\u0027ll update similar cases in other back ends too.",
+      "range": {
+        "startLine": 1599,
+        "startChar": 0,
+        "endLine": 1601,
+        "endChar": 82
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d81bb0_cadb83e2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1601,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Addressed in PS2.",
+      "parentUuid": "39b223c6_a8711ba5",
       "range": {
         "startLine": 1599,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "59b43747_11eb0c11",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1607,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_149a345d",
+      "range": {
+        "startLine": 1607,
+        "startChar": 6,
+        "endLine": 1607,
+        "endChar": 39
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_f454582f",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -87,6 +159,53 @@
         "startChar": 79,
         "endLine": 1770,
         "endChar": 80
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99106f07_13130c6c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "For symmetry with\n\n  int32_t element_size \u003d Primitive::ComponentSize(Primitive::kPrimNot);\n\n(line 1693), I introduced\n\n  uint32_t element_size_shift \u003d Primitive::ComponentSizeShift(Primitive::kPrimNot);\n\nThis is also more uniform with GenSystemArrayCopyAddresses in compiler/optimizing/intrinsics_arm64.cc.",
+      "parentUuid": "b927f349_f454582f",
+      "range": {
+        "startLine": 1770,
+        "startChar": 79,
+        "endLine": 1770,
+        "endChar": 80
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_4baf3931",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "This label should have been place before line 1785; this is fixed in the slow path code in PS2.",
+      "range": {
+        "startLine": 1794,
+        "startChar": 4,
+        "endLine": 1794,
+        "endChar": 24
       },
       "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -117,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_eb114daa",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Added TODO in PS2.  I think we should implement that idea in another CL and see how it affects code size and benchmarks.",
+      "parentUuid": "145606ee_1514b498",
+      "range": {
+        "startLine": 1802,
+        "startChar": 1,
+        "endLine": 1803,
+        "endChar": 55
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b94a9396_bc3261a1",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -134,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_cb1fa95d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Good point. I\u0027ve introduced a slow path for that case, for ARM and other architectures.",
+      "parentUuid": "b94a9396_bc3261a1",
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_d4691c2d",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -145,6 +306,30 @@
       "writtenOn": "2016-08-09T22:16:26Z",
       "side": 1,
       "message": "Similar comment.",
+      "range": {
+        "startLine": 1812,
+        "startChar": 7,
+        "endLine": 1812,
+        "endChar": 10
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79af3bf6_d2998474",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_d4691c2d",
       "range": {
         "startLine": 1812,
         "startChar": 7,
@@ -180,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "39b223c6_cb5d697f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3108,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "`temp2` contains `src_index` here.\n\n`src_array` was meant to represent `src + offset`.  Accessing `src_array[src_index]` thus requires loading from `src + src_index * 4 + offset`.\n\nI\u0027ve added some more comments about this.",
+      "parentUuid": "145606ee_9537c405",
+      "range": {
+        "startLine": 3108,
+        "startChar": 32,
+        "endLine": 3108,
+        "endChar": 37
+      },
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19239fed_4a1b9373",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -191,6 +400,24 @@
       "writtenOn": "2016-08-08T15:08:44Z",
       "side": 1,
       "message": "Note: We should shift by kReadBarrierStateShift+1 and branch on CF\u003d1 (as we do on ARM) instead of the SHR+AND+CMP+JEQ.",
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b223c6_eb1ced6a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-10T15:03:34Z",
+      "side": 1,
+      "message": "Thanks for the suggestion!  I added a TODO.  I would like to do that, both here and in the CodeGenerator{X86,X86_64}::GenerateReferenceLoadWithBakerReadBarrier in another CL.",
+      "parentUuid": "19239fed_4a1b9373",
       "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
