@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79665bd2_bd104b53",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "nit: missing .",
+      "range": {
+        "startLine": 44,
+        "startChar": 75,
+        "endLine": 44,
+        "endChar": 78
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_9d3467e4",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "no trailing ,",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 12
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_bd8beb7e",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "maybe put a \"!\" in?",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 44
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_3deb5b11",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "This idiom seems hard to maintain.  I think you\u0027ve pretty well covered the list of operators here and elsewhere, but how about something like:\n\nstatic const char* operators[] \u003d { \" \u0026\u0026 \", \" || \", ... };\nfputs(operators[random1(array_size(operators))], out_);\n\nThen adding an operator just involves adding it to the list.",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 42
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_bd484b34",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "an array of structs would be required to do my idiom replacement.",
+      "range": {
+        "startLine": 270,
+        "startChar": 8,
+        "endLine": 270,
+        "endChar": 51
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_bd9f6b58",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "Use RAII to manage your indent levels by scoping in the source?",
+      "range": {
+        "startLine": 675,
+        "startChar": 4,
+        "endLine": 675,
+        "endChar": 21
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79665bd2_a07bbe21",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-08-10T22:43:18Z",
+      "side": 1,
+      "message": "Don\u0027t our coding conventions prefer prefix inc/dec?  Here and elsewhere.",
+      "range": {
+        "startLine": 749,
+        "startChar": 4,
+        "endLine": 749,
+        "endChar": 14
+      },
+      "revId": "53664992ebe461cd0eb847926e619402582f2035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
