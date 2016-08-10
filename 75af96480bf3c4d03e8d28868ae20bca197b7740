@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_882947f1",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "The idea is that if you coalesce a fixed output with a sibling, then the neighbors of the sibling will now have interferences with a fixed node (which may block future coalesce opportunities more than a normal merge).\nThere\u0027s not enough evidence yet to say that these coalesce kinds should have lower priority, though, so I\u0027ll remove the distinction for now.",
+      "parentUuid": "b927f349_5add3534",
+      "range": {
+        "startLine": 52,
+        "startChar": 45,
+        "endLine": 52,
+        "endChar": 85
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_dab145fc",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-10T00:00:34Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 53,
+        "startChar": 45,
+        "endLine": 53,
+        "endChar": 85
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_e800fb5e",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "b927f349_dab145fc",
       "range": {
         "startLine": 53,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_c8ff3f52",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Couldn\u0027t name it \u0027a\u0027, since it conflicts with the member variable \u0027a\u0027. What is the preferred style here?",
+      "parentUuid": "b927f349_7d4a6b81",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 42
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98ecb40_f758922c",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_e869db2c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98ecb40_f758922c",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_3dc393a4",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -99,6 +189,24 @@
       "writtenOn": "2016-08-10T00:00:34Z",
       "side": 1,
       "message": "DCHECK it\u0027s not in adjacent_nodes_ yet.",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_a84c43ce",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Right, good idea! Done.",
+      "parentUuid": "b927f349_3dc393a4",
       "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_68470baa",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b927f349_fa0f6139",
+      "range": {
+        "startLine": 270,
+        "startChar": 51,
+        "endLine": 270,
+        "endChar": 56
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98ecb40_c29f52f4",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -139,6 +271,24 @@
       "writtenOn": "2016-08-10T00:00:34Z",
       "side": 1,
       "message": "Not accurate description of the real computed weight.",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_c8941fe6",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98ecb40_c29f52f4",
       "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -162,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_48780f57",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "(Is the \"can\u0027t\" supposed to be \"can\"?)\nIf there\u0027s a gap between the current sibling and the next sibling, then the value really is dead there, and can be clobbered. E.g., suppose an interval is defined above a branch, but used in only one path of the branch, and there is a lifetime hole for the other branch (because of the linear block ordering). Once the dead branch is entered, there\u0027s no path back to a place where the interval is live again, and so the value can be clobbered.",
+      "parentUuid": "b927f349_f7d21a02",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98ecb40_ce46a37b",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -173,6 +341,30 @@
       "writtenOn": "2016-08-10T00:00:34Z",
       "side": 1,
       "message": "plus the weight factor?",
+      "range": {
+        "startLine": 1324,
+        "startChar": 50,
+        "endLine": 1324,
+        "endChar": 76
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_c8c73f69",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Right; I\u0027ve clarified this comment a bit.",
+      "parentUuid": "f98ecb40_ce46a37b",
       "range": {
         "startLine": 1324,
         "startChar": 50,
@@ -208,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_08b777ef",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98ecb40_8e4c9b9d",
+      "range": {
+        "startLine": 1331,
+        "startChar": 34,
+        "endLine": 1331,
+        "endChar": 53
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3914e3d3_98faf563",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -219,6 +435,30 @@
       "writtenOn": "2016-08-10T00:00:34Z",
       "side": 1,
       "message": "Seems not true since they become empty.",
+      "range": {
+        "startLine": 1379,
+        "startChar": 5,
+        "endLine": 1379,
+        "endChar": 52
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_c3a3a099",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-10T01:38:52Z",
+      "side": 1,
+      "message": "Right; clarified this. (Nodes are not removed when *transitioning* from one worklist to another.)",
+      "parentUuid": "3914e3d3_98faf563",
       "range": {
         "startLine": 1379,
         "startChar": 5,
