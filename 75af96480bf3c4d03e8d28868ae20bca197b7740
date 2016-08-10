@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "b927f349_34e5e5d2",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T18:17:19Z",
+      "side": 1,
+      "message": "just call it node_a and node_b? or better call the member variable node_a and node_b.",
+      "parentUuid": "b927f349_c8ff3f52",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 42
+      },
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f98ecb40_f758922c",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 13
@@ -324,6 +348,24 @@
       "side": 1,
       "message": "(Is the \"can\u0027t\" supposed to be \"can\"?)\nIf there\u0027s a gap between the current sibling and the next sibling, then the value really is dead there, and can be clobbered. E.g., suppose an interval is defined above a branch, but used in only one path of the branch, and there is a lifetime hole for the other branch (because of the linear block ordering). Once the dead branch is entered, there\u0027s no path back to a place where the interval is live again, and so the value can be clobbered.",
       "parentUuid": "b927f349_f7d21a02",
+      "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_948dd928",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T18:17:19Z",
+      "side": 1,
+      "message": "My understanding is this if block plus the following if block will make sure that input isn\u0027t live at (defined_by-\u003eGetLifetimePosition() + 1). Then we can do two range tests on input_interval-\u003eGetLastRange() and next_sibling-\u003eGetFirstRange(). Is that equivalent?",
+      "parentUuid": "b927f349_48780f57",
       "revId": "75af96480bf3c4d03e8d28868ae20bca197b7740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
