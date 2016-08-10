@@ -22,6 +22,63 @@
       "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99106f07_7341a092",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T12:10:14Z",
+      "side": 1,
+      "message": "Use ANDQ; ANDL breaks the overflow reasoning above. And we need to specify the literal as full 64 bits, so we\u0027d be better served by \"-OBJECT_ALIGNMENT_MASK\" than OBJECT_ALIGNMENT_MASK_TOGGLED.",
+      "range": {
+        "startLine": 1055,
+        "startChar": 4,
+        "endLine": 1055,
+        "endChar": 8
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f78f09_9b6e0b32",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T12:10:14Z",
+      "side": 1,
+      "message": "Do we need 16-byte stack alignment on x86-64? (At this point we don\u0027t have it because of the return address.)\n\nIf we do, fix also the art_quick_alloc_object_region_tlab where this is copied from.",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59dd179f_499a0105",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T12:10:14Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
