@@ -22,6 +22,30 @@
       "revId": "9066e5330cca2923b2b3c4e0194d0c759e4ea88c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_3ec626b4",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-10T16:33:11Z",
+      "side": 1,
+      "message": "Ok, for the purist I changed this into std::uniform_int_distribution. Also, I move it into the class to get a bit better encapsulation of our randomness.",
+      "parentUuid": "99794f41_abad0936",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "9066e5330cca2923b2b3c4e0194d0c759e4ea88c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
