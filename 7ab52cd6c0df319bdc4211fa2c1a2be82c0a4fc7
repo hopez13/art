@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f78f09_1b1ddb64",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T14:20:43Z",
+      "side": 0,
+      "message": "The reason for this scope was to limit the lifetime of the ScopedObjectAccess. Please, put it back in.",
+      "range": {
+        "startLine": 285,
+        "startChar": 2,
+        "endLine": 285,
+        "endChar": 3
+      },
+      "revId": "7ab52cd6c0df319bdc4211fa2c1a2be82c0a4fc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
