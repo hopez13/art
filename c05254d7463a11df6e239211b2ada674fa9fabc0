@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "39cea3f0_28f4ebbd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4570,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T18:15:10Z",
+      "side": 1,
+      "message": "If you\u0027re afraid you may break mips build, please try to build aosp_mips-eng.\nYou don\u0027t need to run target tests on mips, or check that the emulator boots.",
+      "parentUuid": "b927f349_d1c0434c",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_602c70b2",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 1
