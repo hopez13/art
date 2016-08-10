@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "99a5cf1d_4b44c571",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4570,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T14:20:43Z",
+      "side": 1,
+      "message": "I agree with Alexey that the kBootImage* code should still be preserved. It does not use the dex cache at all.",
+      "parentUuid": "399f837b_2365d449",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_602c70b2",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 1
