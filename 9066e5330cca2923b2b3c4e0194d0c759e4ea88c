@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99794f41_abad0936",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-10T06:04:11Z",
+      "side": 1,
+      "message": "Should probably use unbiased range reduction.",
+      "range": {
+        "startLine": 40,
+        "startChar": 17,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "9066e5330cca2923b2b3c4e0194d0c759e4ea88c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
