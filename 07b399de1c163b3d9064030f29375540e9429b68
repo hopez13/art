@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9a8d3f4_8c54072f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T16:59:43Z",
+      "side": 1,
+      "message": "Add a second space even if NOLINT. This is copy-pasted, so maybe do it everywhere in a cleanup CL. What is the warning we\u0027re trying to avoid?",
+      "range": {
+        "startLine": 45,
+        "startChar": 62,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b43747_d1eea4f0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T16:59:43Z",
+      "side": 1,
+      "message": "Remove the extra line. (Doesn\u0027t lint complain?)",
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b5c344_b090389c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T16:59:43Z",
+      "side": 1,
+      "message": "For constant src_pos, fold it into offset. For non-constant src_pos, merge the movl and addl to leal.\n\n    // value \u003d src_array[i + src_pos]\n    if (src_pos.IsConstant()) {\n      int32_t constant \u003d src_pos.GetConstant()-\u003eAsIntConstant()-\u003eGetValue();\n      int32_t adjusted_offset \u003d offset + constant * element_size;\n      __ movl(temp2, Address(src, temp1, ScaleFactor::TIMES_4, adjusted_offset));\n    } else {\n      __ leal(temp3, Address(src_pos.AsRegister\u003cRegister\u003e(), temp1, ScaleFactor::TIMES_1, 0));\n      __ movl(temp2, Address(src, temp3, ScaleFactor::TIMES_4, offset));\n    }",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39cea3f0_280a2bd1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T16:59:43Z",
+      "side": 1,
+      "message": "ditto; Maybe we should have a helper function that may or may not emit leal and returns the Address for the load/store.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 71
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a8d3f4_cc5e0f4b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T16:59:43Z",
+      "side": 1,
+      "message": "x86_codegen-\u003eGenerateIntCompare(temp1_loc, length);",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 5
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
