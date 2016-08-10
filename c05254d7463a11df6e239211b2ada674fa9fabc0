@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "b927f349_548181a0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4570,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-10T18:17:32Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll add the kBootImage cases and use that to make sure it\u0027s not broken.",
+      "parentUuid": "39cea3f0_28f4ebbd",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_602c70b2",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 1
