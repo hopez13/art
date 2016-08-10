@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b927f349_14b9c990",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T18:17:19Z",
+      "side": 1,
+      "message": "can you add some comment that is either already coalesced or not allowed to coalesce.",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_b48fb5d1",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T18:17:19Z",
+      "side": 1,
+      "message": "I\u0027m a little worried about coalescing may prevent forward progress (if we get some heuristics wrong). Does it make sense to set this to false once some attempt threshold is reached? Then we only do splitting from that point on.",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b927f349_fbae8033",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-10T18:17:19Z",
+      "side": 1,
+      "message": "input_interval-\u003eGetParent() ?",
+      "range": {
+        "startLine": 1036,
+        "startChar": 40,
+        "endLine": 1036,
+        "endChar": 54
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
