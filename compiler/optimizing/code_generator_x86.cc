@@ -464,7 +464,8 @@ class ReadBarrierMarkSlowPathX86 : public SlowPathCode {
            instruction_->IsLoadString() ||
            instruction_->IsInstanceOf() ||
            instruction_->IsCheckCast() ||
-           (instruction_->IsInvokeVirtual()) && instruction_->GetLocations()->Intrinsified())
+           (instruction_->IsInvokeVirtual() && instruction_->GetLocations()->Intrinsified()) ||
+           (instruction_->IsInvokeStaticOrDirect() && instruction_->GetLocations()->Intrinsified()))
         << "Unexpected instruction in read barrier marking slow path: "
         << instruction_->DebugName();
 
@@ -7099,6 +7100,10 @@ void CodeGeneratorX86::GenerateReferenceLoadWithBakerReadBarrier(HInstruction* i
   // /* LockWord */ lock_word = LockWord(monitor)
   static_assert(sizeof(LockWord) == sizeof(int32_t),
                 "art::LockWord and int32_t have different sizes.");
+  // TODO: Instead of emitting the SHR+AND+CMP+JEQ sequence to check
+  // the read barrier state, we should shift the lockword by
+  // kReadBarrierStateShift+1 and branch on CF=1 (as we do on ARM).
+  // (b/29966877).
   // /* uint32_t */ rb_state = lock_word.ReadBarrierState()
   __ shrl(temp_reg, Immediate(LockWord::kReadBarrierStateShift));
   __ andl(temp_reg, Immediate(LockWord::kReadBarrierStateMask));
