@@ -22,6 +22,30 @@
       "revId": "3bc724c4ffec5c3a120f669e1267a94416d6d17c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79af3bf6_32ff3004",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-10T11:21:20Z",
+      "side": 1,
+      "message": "I addressed that in PS3 by excluding blocked registers from the live_registers.\n\nI didn\u0027t look at the graph coloring in detail but the handling of blocked registers seems to waste a lot of memory (and presumably time) by constructing interference edges. It would be better to pretend that those registers simply don\u0027t exist.",
+      "parentUuid": "f98ecb40_f7f5f220",
+      "range": {
+        "startLine": 728,
+        "startChar": 28,
+        "endLine": 728,
+        "endChar": 41
+      },
+      "revId": "3bc724c4ffec5c3a120f669e1267a94416d6d17c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
