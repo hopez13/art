@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7ee9e168_e82f47ed",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "Line 913 is a dup of 912. Remove one?",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 913,
+        "endChar": 58
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_68245715",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "x86_64",
+      "range": {
+        "startLine": 915,
+        "startChar": 36,
+        "endLine": 915,
+        "endChar": 41
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_4e27b7ba",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -48,6 +94,69 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_8859db3e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "Consider using a macro (GENERATE_ALLOC_OBJECT_REGION_TLAB) to avoid code dup between the three versions like the arm64 version?",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_280bef31",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "Reorder these so that ALLOC_OBJECT_TLAB_FAST_PATH will be in the straightline position (gc_marking \u003d false is the most common) like the arm64 version?",
+      "range": {
+        "startLine": 1117,
+        "startChar": 0,
+        "endLine": 1121,
+        "endChar": 78
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_08002b08",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1150,
+        "startChar": 0,
+        "endLine": 1154,
+        "endChar": 96
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f78f09_9b6e0b32",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -59,6 +168,47 @@
       "writtenOn": "2016-08-10T12:10:14Z",
       "side": 1,
       "message": "Do we need 16-byte stack alignment on x86-64? (At this point we don\u0027t have it because of the return address.)\n\nIf we do, fix also the art_quick_alloc_object_region_tlab where this is copied from.",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_281acf76",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "We need 16-byte stack alignment for x86-64.",
+      "parentUuid": "99f78f09_9b6e0b32",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_081f0b67",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T01:12:14Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1183,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 102
+      },
       "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
