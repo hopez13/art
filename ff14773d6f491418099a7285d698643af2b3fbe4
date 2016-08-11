@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_e9a3c6ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T19:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_49d992f0",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "ff14773d6f491418099a7285d698643af2b3fbe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fefcf12c_5ee9550c",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_892afa90",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T19:52:10Z",
+      "side": 1,
+      "message": "Its not needed in slow path I think, the main issue is that\nmovl %r8, MIRROR_OBJECT_CLASS_OFFSET(%rax)\nis not valid",
+      "parentUuid": "fefcf12c_5ee9550c",
+      "range": {
+        "startLine": 1087,
+        "startChar": 66,
+        "endLine": 1087,
+        "endChar": 83
+      },
+      "revId": "ff14773d6f491418099a7285d698643af2b3fbe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_49d87225",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-11T18:06:48Z",
       "side": 1,
       "message": "Remove this?",
+      "range": {
+        "startLine": 1097,
+        "startChar": 4,
+        "endLine": 1097,
+        "endChar": 35
+      },
+      "revId": "ff14773d6f491418099a7285d698643af2b3fbe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_4934f2f4",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T19:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_49d87225",
       "range": {
         "startLine": 1097,
         "startChar": 4,
