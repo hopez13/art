@@ -201,6 +201,224 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_e2152654",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1394,
+        "startChar": 6,
+        "endLine": 1394,
+        "endChar": 12
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_02000a08",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 1450,
+        "startChar": 2,
+        "endLine": 1450,
+        "endChar": 8
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a2f6fe27",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 1458,
+        "startChar": 4,
+        "endLine": 1458,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_82e41a37",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "A helper (like IsTriviallyColorable()) should be nice. Easy to make mistakes of \u003e/\u003e\u003d.",
+      "range": {
+        "startLine": 1464,
+        "startChar": 29,
+        "endLine": 1464,
+        "endChar": 60
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_e27086a0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "Why this?",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_2268aebe",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1476,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1476,
+        "startChar": 8,
+        "endLine": 1476,
+        "endChar": 14
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_62d35634",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "Can we just call CheckTransitionFromFreezeWorklist() here?",
+      "range": {
+        "startLine": 1500,
+        "startChar": 25,
+        "endLine": 1502,
+        "endChar": 42
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a5c3a832",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "Can we skip the opportunity between from and into here?",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_851f84c9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1617,
+        "startChar": 4,
+        "endLine": 1617,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_650b6083",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T00:09:12Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1623,
+        "startChar": 4,
+        "endLine": 1623,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b927f349_f4868d78",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
