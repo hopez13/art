@@ -93,6 +93,30 @@
       "revId": "2888cafa68774be809e939aa226f90914d1929ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "def9ed3d_fd7dc749",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T18:11:36Z",
+      "side": 1,
+      "message": "We can use r8-r15 as 32-bit registers. But we really need the Class* to be in ecx for the slow path as you\u0027ve done in PS5.",
+      "parentUuid": "7ee9e168_dc89e525",
+      "range": {
+        "startLine": 1078,
+        "startChar": 4,
+        "endLine": 1078,
+        "endChar": 20
+      },
+      "revId": "2888cafa68774be809e939aa226f90914d1929ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
