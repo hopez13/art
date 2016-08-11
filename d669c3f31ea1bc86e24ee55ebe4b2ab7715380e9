@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fefcf12c_1ee3cd2c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T18:34:16Z",
+      "side": 1,
+      "message": "Where do we make such assumptions? I\u0027d expect everything to be fine if we use the min() because for\n\n    index \u003c dex_file-\u003eNumStringIds()\n\nwe would access entry at\n\n    index % 1024 \u003c min(1024, dex_file-\u003eNumStringIds())",
+      "parentUuid": "b927f349_b12b479a",
+      "range": {
+        "startLine": 1275,
+        "startChar": 35,
+        "endLine": 1275,
+        "endChar": 77
+      },
+      "revId": "d669c3f31ea1bc86e24ee55ebe4b2ab7715380e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a8d3f4_acb3c3b2",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
