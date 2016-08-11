@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "fefcf12c_5ee9550c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T18:11:36Z",
+      "side": 1,
+      "message": "\"the slow path\"\n\nOtherwise, we could keep the Class* in r8 and replace all uses of r8 below with rcx and vice versa.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 66,
+        "endLine": 1087,
+        "endChar": 83
+      },
+      "revId": "ff14773d6f491418099a7285d698643af2b3fbe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_49d87225",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 5
