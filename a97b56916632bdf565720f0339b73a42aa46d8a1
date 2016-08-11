@@ -77,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_297e4e46",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:24:27Z",
+      "side": 1,
+      "message": "What are the valid/invalid bit states?",
+      "parentUuid": "7ee9e168_e974e6cb",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_e9af4674",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 4
