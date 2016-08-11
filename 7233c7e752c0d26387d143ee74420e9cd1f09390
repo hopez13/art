@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ede25f7_0f4e25ca",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 10
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T21:00:35Z",
+      "side": 1,
+      "message": "This may not work for the chrome build bot. Can you check what the /data layout is there? I think there should also be a variable for this, potentially.",
+      "range": {
+        "startLine": 479,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 39
+      },
+      "revId": "7233c7e752c0d26387d143ee74420e9cd1f09390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
