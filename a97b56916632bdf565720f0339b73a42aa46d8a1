@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee9e168_d789be25",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "nit: 1 parameter per line if it overflows",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a97b7e20",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "Can we replace this with decltype(field name) ?",
+      "range": {
+        "startLine": 906,
+        "startChar": 61,
+        "endLine": 906,
+        "endChar": 69
+      },
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_e998666c",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "What does the magic combination of 0/1 mean?",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_e9af4674",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be alignof(StringDexCachePair) or something like that instead?",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a9c93e5c",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_09170aa5",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "alignof(field name?)",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_2961ae39",
+        "filename": "runtime/utils/dex_cache_arrays_layout.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T18:03:57Z",
+      "side": 1,
+      "message": "constexpr?",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
