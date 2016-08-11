@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_228f8325",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_ac594c3e",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_eca3d4ee",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 18
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_5fbf04c4",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_eca3d4ee",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_6cf104cd",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 18
@@ -47,6 +83,24 @@
       "writtenOn": "2016-08-11T19:31:57Z",
       "side": 1,
       "message": "Can we assert we only call this before ColorInterferenceGraph() phase? Or at least add a comment.",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_ffded837",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_6cf104cd",
       "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_7f488835",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "I wouldn\u0027t want to use a lower threshold, because we want the DCHECK associated with kMaxGraphColoringAttemptsDebug to fail before we give up on coalescing. (Otherwise, we might not catch changes to the coalesce heuristics that compromise forward progress.)",
+      "parentUuid": "7ee9e168_9fb34cb0",
+      "range": {
+        "startLine": 518,
+        "startChar": 51,
+        "endLine": 518,
+        "endChar": 81
+      },
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_3fc20004",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 18
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_9f6a2c82",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_3fc20004",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_3fd9e0f1",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 18
@@ -104,6 +200,24 @@
       "writtenOn": "2016-08-11T19:31:57Z",
       "side": 1,
       "message": "Do prunable_nodes_ and pruned_nodes_ have the same size here? Can we assert?",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_ff7a584f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T20:17:22Z",
+      "side": 1,
+      "message": "Yes, I assert this a couple lines below.",
+      "parentUuid": "7ee9e168_3fd9e0f1",
       "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
