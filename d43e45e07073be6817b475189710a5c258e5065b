@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_1c618d39",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T16:29:22Z",
+      "side": 1,
+      "message": "Which testing? You can add the -verbose option to the run-test run script...",
+      "parentUuid": "7ee9e168_9111060e",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_82389a85",
         "filename": "runtime/ti/agent.h",
         "patchSetId": 6
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "How do I make that get run?",
       "parentUuid": "7ee9e168_82389a85",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_5c4ef5ca",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T16:29:22Z",
+      "side": 1,
+      "message": "You need to add the header in the runtime/Android.mk to the list of files being processed.",
+      "parentUuid": "7ee9e168_11aa96c7",
       "range": {
         "startLine": 37,
         "startChar": 4,
@@ -413,6 +461,30 @@
       "side": 1,
       "message": "Want me to change it to cout?",
       "parentUuid": "7ee9e168_ab6a59aa",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_dc6a0515",
+        "filename": "test/900-hello-plugin/load_unload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T16:29:22Z",
+      "side": 1,
+      "message": "Up to you, but it seems the recent additions have used cout.",
+      "parentUuid": "7ee9e168_51325ea3",
       "range": {
         "startLine": 34,
         "startChar": 2,
