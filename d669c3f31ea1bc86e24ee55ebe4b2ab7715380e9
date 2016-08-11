@@ -312,6 +312,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_ec251455",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-11T19:05:34Z",
+      "side": 1,
+      "message": "Yes upon further reflection, I realize that you literally just have 1024-N empty spaces and that we don\u0027t lose anything by doing this. I\u0027m going to start implementing it because it will save us space without any type of runtime hit. First I\u0027m going to upload my current patch though, because it has all current comments fixed except this one. LMK if anyone thinks it\u0027s a bad idea to change.",
+      "parentUuid": "7ee9e168_8ce9e80f",
+      "range": {
+        "startLine": 1275,
+        "startChar": 35,
+        "endLine": 1275,
+        "endChar": 77
+      },
+      "revId": "d669c3f31ea1bc86e24ee55ebe4b2ab7715380e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a8d3f4_acb3c3b2",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
