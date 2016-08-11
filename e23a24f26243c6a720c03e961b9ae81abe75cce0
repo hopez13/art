@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_abf6d927",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_e82f47ed",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 913,
+        "endChar": 58
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_68245715",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-11T01:12:14Z",
       "side": 1,
       "message": "x86_64",
+      "range": {
+        "startLine": 915,
+        "startChar": 36,
+        "endLine": 915,
+        "endChar": 41
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_8b0b152b",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_68245715",
       "range": {
         "startLine": 915,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_48d4f3b9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "? That is a macro? Why do I need fallthrough?",
+      "parentUuid": "b927f349_4e27b7ba",
+      "range": {
+        "startLine": 1020,
+        "startChar": 4,
+        "endLine": 1020,
+        "endChar": 64
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99106f07_7341a092",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-10T12:10:14Z",
       "side": 1,
       "message": "Use ANDQ; ANDL breaks the overflow reasoning above. And we need to specify the literal as full 64 bits, so we\u0027d be better served by \"-OBJECT_ALIGNMENT_MASK\" than OBJECT_ALIGNMENT_MASK_TOGGLED.",
+      "range": {
+        "startLine": 1055,
+        "startChar": 4,
+        "endLine": 1055,
+        "endChar": 8
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_28d9aff1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99106f07_7341a092",
       "range": {
         "startLine": 1055,
         "startChar": 4,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_4b150d45",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Not sure if it is as easy to generate labels on mac builds, I\u0027ll try to clean this up later though.",
+      "parentUuid": "7ee9e168_8859db3e",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_280bef31",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_6b10d156",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_280bef31",
+      "range": {
+        "startLine": 1117,
+        "startChar": 0,
+        "endLine": 1121,
+        "endChar": 78
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_08002b08",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -145,6 +283,30 @@
       "writtenOn": "2016-08-11T01:12:14Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 1150,
+        "startChar": 0,
+        "endLine": 1154,
+        "endChar": 96
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_2b1ac976",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_08002b08",
       "range": {
         "startLine": 1150,
         "startChar": 0,
@@ -192,6 +354,42 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_0b1f0567",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_281acf76",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_08eeeb83",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f78f09_9b6e0b32",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_081f0b67",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -215,6 +413,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_eb1bc176",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_081f0b67",
+      "range": {
+        "startLine": 1183,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 102
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59dd179f_499a0105",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -226,6 +448,24 @@
       "writtenOn": "2016-08-10T12:10:14Z",
       "side": 1,
       "message": "ditto",
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c8e7e3a3",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-11T03:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59dd179f_499a0105",
       "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
