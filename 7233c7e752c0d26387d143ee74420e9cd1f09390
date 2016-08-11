@@ -22,6 +22,30 @@
       "revId": "7233c7e752c0d26387d143ee74420e9cd1f09390",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e74d5be_d6bc42af",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 10
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T21:09:25Z",
+      "side": 1,
+      "message": "I think it should all be fine. This is the same place that we look for libarttest.so, which doesn\u0027t seem to be adjusted.",
+      "parentUuid": "1ede25f7_0f4e25ca",
+      "range": {
+        "startLine": 479,
+        "startChar": 20,
+        "endLine": 479,
+        "endChar": 39
+      },
+      "revId": "7233c7e752c0d26387d143ee74420e9cd1f09390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
