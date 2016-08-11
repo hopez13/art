@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e3721db_d2e0a4be",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T09:53:30Z",
+      "side": 1,
+      "message": "ANDQ",
+      "range": {
+        "startLine": 1054,
+        "startChar": 4,
+        "endLine": 1054,
+        "endChar": 8
+      },
+      "revId": "2888cafa68774be809e939aa226f90914d1929ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e3721db_32ea50a2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T09:53:30Z",
+      "side": 1,
+      "message": "Can we just \"movq %rcx, %r8\" at the beginning and load the component size shift straight to %rcx?\n\nBased on previous information from Intel, XCHG is slow even when operating on registers. They didn\u0027t want to use it in parallel move resolver.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 4,
+        "endLine": 1078,
+        "endChar": 20
+      },
+      "revId": "2888cafa68774be809e939aa226f90914d1929ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
