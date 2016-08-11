@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_1c574dd6",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T16:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_1c618d39",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_82389a85",
         "filename": "runtime/ti/agent.h",
         "patchSetId": 6
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "You need to add the header in the runtime/Android.mk to the list of files being processed.",
       "parentUuid": "7ee9e168_11aa96c7",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_3c5211e6",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T16:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_5c4ef5ca",
       "range": {
         "startLine": 37,
         "startChar": 4,
