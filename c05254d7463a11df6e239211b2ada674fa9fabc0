@@ -230,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "b977f3bf_303ec30c",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:36:31Z",
+      "side": 1,
+      "message": "Well, the string_pointer should be a HeapReference\u003cString\u003e, really.",
+      "parentUuid": "b977f3bf_e029608e",
+      "revId": "c05254d7463a11df6e239211b2ada674fa9fabc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_80342ce1",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 1
