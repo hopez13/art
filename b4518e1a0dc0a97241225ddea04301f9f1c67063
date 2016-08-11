@@ -224,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_889c3b6e",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_e2152654",
+      "range": {
+        "startLine": 1394,
+        "startChar": 6,
+        "endLine": 1394,
+        "endChar": 12
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_02000a08",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -235,6 +259,30 @@
       "writtenOn": "2016-08-11T00:09:12Z",
       "side": 1,
       "message": "DCHECK_NE",
+      "range": {
+        "startLine": 1450,
+        "startChar": 2,
+        "endLine": 1450,
+        "endChar": 8
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a8afff8b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_02000a08",
       "range": {
         "startLine": 1450,
         "startChar": 2,
@@ -270,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_087eeb45",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_a2f6fe27",
+      "range": {
+        "startLine": 1458,
+        "startChar": 4,
+        "endLine": 1458,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_82e41a37",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -281,6 +353,30 @@
       "writtenOn": "2016-08-11T00:09:12Z",
       "side": 1,
       "message": "A helper (like IsTriviallyColorable()) should be nice. Easy to make mistakes of \u003e/\u003e\u003d.",
+      "range": {
+        "startLine": 1464,
+        "startChar": 29,
+        "endLine": 1464,
+        "endChar": 60
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c8b243f6",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Good idea; done.",
+      "parentUuid": "7ee9e168_82e41a37",
       "range": {
         "startLine": 1464,
         "startChar": 29,
@@ -310,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_4b9ced5a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "The coalescing heuristics count the number of high-degree neighbors of a node. So, if `adj` is no longer high-degree, then coalesce attempts for its *neighbors* may now succeed, as their high-degree neighbor count just went down by 1.",
+      "parentUuid": "7ee9e168_e27086a0",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_2268aebe",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -321,6 +435,30 @@
       "writtenOn": "2016-08-11T00:09:12Z",
       "side": 1,
       "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1476,
+        "startChar": 8,
+        "endLine": 1476,
+        "endChar": 14
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_4864f3b3",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1476,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_2268aebe",
       "range": {
         "startLine": 1476,
         "startChar": 8,
@@ -356,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_8b7b1521",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_62d35634",
+      "range": {
+        "startLine": 1500,
+        "startChar": 25,
+        "endLine": 1502,
+        "endChar": 42
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_a5c3a832",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -367,6 +529,24 @@
       "writtenOn": "2016-08-11T00:09:12Z",
       "side": 1,
       "message": "Can we skip the opportunity between from and into here?",
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_a85dbff3",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "We could, but I think it\u0027s cheaper/simpler to let its stage transition naturally to kDefunct next time it\u0027s considered.",
+      "parentUuid": "7ee9e168_a5c3a832",
       "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -396,6 +576,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_886afb81",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_851f84c9",
+      "range": {
+        "startLine": 1617,
+        "startChar": 4,
+        "endLine": 1617,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_650b6083",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 15
@@ -407,6 +611,30 @@
       "writtenOn": "2016-08-11T00:09:12Z",
       "side": 1,
       "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 1623,
+        "startChar": 4,
+        "endLine": 1623,
+        "endChar": 10
+      },
+      "revId": "b4518e1a0dc0a97241225ddea04301f9f1c67063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_686fb793",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-11T01:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_650b6083",
       "range": {
         "startLine": 1623,
         "startChar": 4,
