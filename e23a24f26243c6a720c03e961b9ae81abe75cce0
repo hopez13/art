@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_9738d685",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T18:06:48Z",
+      "side": 1,
+      "message": "I see it in the array versions. But I don\u0027t see a change here.",
+      "parentUuid": "7ee9e168_6b10d156",
+      "range": {
+        "startLine": 1117,
+        "startChar": 0,
+        "endLine": 1121,
+        "endChar": 78
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_08002b08",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -307,6 +331,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7ee9e168_08002b08",
+      "range": {
+        "startLine": 1150,
+        "startChar": 0,
+        "endLine": 1154,
+        "endChar": 96
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_97ce968a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T18:06:48Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7ee9e168_2b1ac976",
       "range": {
         "startLine": 1150,
         "startChar": 0,
@@ -425,6 +473,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7ee9e168_081f0b67",
+      "range": {
+        "startLine": 1183,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 102
+      },
+      "revId": "e23a24f26243c6a720c03e961b9ae81abe75cce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_17e286f6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-11T18:06:48Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7ee9e168_eb1bc176",
       "range": {
         "startLine": 1183,
         "startChar": 0,
