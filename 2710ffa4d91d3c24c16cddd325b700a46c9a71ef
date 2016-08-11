@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee9e168_d7609ea5",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "nit: remove whitespace",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_37690a8c",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Where does it use ArtMethod?",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_57648eb3",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Where does it use PointerSize?",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_177e0646",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Which file above #includes StringDexCachePair ?",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_9711f60d",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "nit: Remove whitespace here and below",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_57324ea3",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Minor preference, it would probably be better to rename above to DEFINE_ART_METHOD_OFFSET_SIZED and call this one simply DEFINE_ART_METHOD_OFFSET",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_d7253e55",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Same as 29? Don\u0027t need this twice.",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_77ec32f6",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Same as 32? Don\u0027t need this twice.",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_57f12ecc",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-11T17:52:39Z",
+      "side": 1,
+      "message": "Merge conflicts? This will break the build",
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
