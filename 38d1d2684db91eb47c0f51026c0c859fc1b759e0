@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee9e168_ac594c3e",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "already coalesced also?",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_eca3d4ee",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "Can this claim be DCHECK\u0027ed?",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_6cf104cd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "Can we assert we only call this before ColorInterferenceGraph() phase? Or at least add a comment.",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_9fb34cb0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "Do you want to use a different threshold?",
+      "range": {
+        "startLine": 518,
+        "startChar": 51,
+        "endLine": 518,
+        "endChar": 81
+      },
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_3fc20004",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "extra empty line.",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_3fd9e0f1",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-11T19:31:57Z",
+      "side": 1,
+      "message": "Do prunable_nodes_ and pruned_nodes_ have the same size here? Can we assert?",
+      "revId": "38d1d2684db91eb47c0f51026c0c859fc1b759e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
