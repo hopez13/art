@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_490cf20f",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:20:56Z",
+      "side": 1,
+      "message": "Well, the thing is we *do* have control over this function, as it\u0027s ours.\n\nI\u0027ll leave it up to you, but you should expect comments from others as you\u0027re violating style guide...",
+      "parentUuid": "7ee9e168_8910ba57",
+      "range": {
+        "startLine": 41,
+        "startChar": 43,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_e9418694",
         "filename": "runtime/java_vm_ext.h",
         "patchSetId": 1
