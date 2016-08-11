@@ -16,6 +16,24 @@
       "revId": "0cf8d9c08bb77b0f527121b83e6a9dbb36d602f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe531125_e6e3dec8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T09:15:51Z",
+      "side": 1,
+      "message": "This happens for irreducible loops and OSR.\nSee also TODOs in CodeGeneratorX86 about creating multiple X86ComputeBaseMethodAddress.",
+      "parentUuid": "d9c827e9_c5853a6b",
+      "revId": "0cf8d9c08bb77b0f527121b83e6a9dbb36d602f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
