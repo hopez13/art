@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee9e168_cba35def",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 774,
+        "startChar": 26,
+        "endLine": 774,
+        "endChar": 41
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_6b0211df",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 455,
+        "startChar": 21,
+        "endLine": 455,
+        "endChar": 23
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_02fb6aae",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "DCHECKs that they are not null...",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c2db4246",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "Why not do this now?",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_82389a85",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "Naming style: we seem to often prefer to name them like constants with k...  (That\u0027s also what the automatic operator\u003c\u003c generator has code for)",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c20ea2e5",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "Comment style - periods...",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 89
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_e2f766be",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "Some DISALLOW stuff here?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 2
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_42bf32c4",
+        "filename": "test/900-hello-plugin/info.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1,
+        "startChar": 11,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_ab6a59aa",
+        "filename": "test/900-hello-plugin/load_unload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "printf, yuck.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c53c6c2d",
+        "filename": "test/900-hello-plugin/load_unload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "We prefer ATTRIBUTE_UNUSED now. Same below...",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_8baf95e3",
+        "filename": "test/900-hello-plugin/load_unload.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "AGENT",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_ebbf410f",
+        "filename": "test/Android.libartagent.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T03:55:37Z",
+      "side": 1,
+      "message": "There are separate versions for DEBUG and NDEBUG, and I think some of iam\u0027s stuff failed on the build bot for not following that (though I think that was a bit different from testing, you might be protected by this stuff not being included in the build unless there\u0027s a \"test\" in the make target).",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 31
+      },
+      "revId": "d43e45e07073be6817b475189710a5c258e5065b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
