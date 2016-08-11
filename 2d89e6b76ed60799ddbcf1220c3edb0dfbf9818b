@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_8910ba57",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:16:21Z",
+      "side": 1,
+      "message": "Ordering it this way to match the signature of GetEnv.\n\nI can change it if you want but I figure we might as well be consistent with the one thing we cannot change.",
+      "parentUuid": "7ee9e168_8959da95",
+      "range": {
+        "startLine": 41,
+        "startChar": 43,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_e9418694",
         "filename": "runtime/java_vm_ext.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_291f6e67",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:16:21Z",
+      "side": 1,
+      "message": "See Above",
+      "parentUuid": "7ee9e168_e9418694",
+      "range": {
+        "startLine": 178,
+        "startChar": 20,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_c9cda231",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-11T18:13:59Z",
       "side": 1,
       "message": "Out params last.",
+      "range": {
+        "startLine": 57,
+        "startChar": 43,
+        "endLine": 57,
+        "endChar": 60
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_89379ae3",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:16:21Z",
+      "side": 1,
+      "message": "See comment in other file.",
+      "parentUuid": "7ee9e168_c9cda231",
       "range": {
         "startLine": 57,
         "startChar": 43,
