@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_2ce41cd1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:36:31Z",
+      "side": 1,
+      "message": "That would require an additional load in the fast-path, wouldn\u0027t it?\n\nI think it would be easiest to show statistics. I\u0027d imagine that for most cases the size of the string table is simply larger than 1024, anyways.",
+      "parentUuid": "fefcf12c_1ee3cd2c",
+      "range": {
+        "startLine": 1275,
+        "startChar": 35,
+        "endLine": 1275,
+        "endChar": 77
+      },
+      "revId": "d669c3f31ea1bc86e24ee55ebe4b2ab7715380e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a8d3f4_acb3c3b2",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
