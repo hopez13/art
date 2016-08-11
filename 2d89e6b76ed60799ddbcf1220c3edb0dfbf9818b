@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee9e168_8959da95",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:13:59Z",
+      "side": 1,
+      "message": "Out parameters go last.",
+      "range": {
+        "startLine": 41,
+        "startChar": 43,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_e9418694",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:13:59Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 178,
+        "startChar": 20,
+        "endLine": 178,
+        "endChar": 37
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_c9cda231",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-11T18:13:59Z",
+      "side": 1,
+      "message": "Out params last.",
+      "range": {
+        "startLine": 57,
+        "startChar": 43,
+        "endLine": 57,
+        "endChar": 60
+      },
+      "revId": "2d89e6b76ed60799ddbcf1220c3edb0dfbf9818b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
