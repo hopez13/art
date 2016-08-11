@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "fe531125_a62286b2",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T19:04:17Z",
+      "side": 1,
+      "message": "The name is misleading because this is one less. Anyway, it\u0027s better to use UBFX instead of MOVW+AND.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 16,
+        "endLine": 1042,
+        "endChar": 46
+      },
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e42a54c_2f4d4945",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T19:04:17Z",
+      "side": 1,
+      "message": "add r1, r1, r2, lsl #STRING_DEX_CACHE_ELEMENT_SHIFT",
+      "range": {
+        "startLine": 1044,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 21
+      },
+      "revId": "2710ffa4d91d3c24c16cddd325b700a46c9a71ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_d7609ea5",
         "filename": "tools/cpp-define-generator/constant_dexcache.def",
         "patchSetId": 8
