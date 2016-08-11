@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_69bfb6c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:31:01Z",
+      "side": 1,
+      "message": "Yeah. I\u0027m not going to push until I do that.",
+      "parentUuid": "7ee9e168_490bd230",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "aca4aadfe8f7152d41311d8980e45b9e18a3aa7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_69157645",
         "filename": "test/900-hello-plugin/build",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_29e2cef6",
+        "filename": "test/900-hello-plugin/build",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:31:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_69157645",
+      "range": {
+        "startLine": 3,
+        "startChar": 15,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "aca4aadfe8f7152d41311d8980e45b9e18a3aa7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_493192eb",
         "filename": "test/Android.libartagent.mk",
         "patchSetId": 9
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-11T18:19:47Z",
       "side": 1,
       "message": "What is this for?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "aca4aadfe8f7152d41311d8980e45b9e18a3aa7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_49f632c7",
+        "filename": "test/Android.libartagent.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-11T18:31:01Z",
+      "side": 1,
+      "message": "Not sure. It doesn\u0027t seem to do anything in libarttest.mk either. Removed.",
+      "parentUuid": "7ee9e168_493192eb",
       "range": {
         "startLine": 25,
         "startChar": 0,
