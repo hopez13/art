@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_4920724e",
+        "filename": "tools/javafuzz/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-11T19:12:33Z",
+      "side": 1,
+      "message": "All the others make files in tools seems to use this",
+      "parentUuid": "7ee9e168_d7565e06",
+      "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_7785526c",
         "filename": "tools/javafuzz/README",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-11T17:48:09Z",
       "side": 1,
       "message": "Consider making it a README.md ?",
+      "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_ccd8104c",
+        "filename": "tools/javafuzz/README",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-11T19:12:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_7785526c",
       "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7ee9e168_8cba08d3",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-11T19:12:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_17aa86c7",
+      "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_f7a60201",
         "filename": "tools/javafuzz/javafuzz.cc",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2016-08-11T17:48:09Z",
       "side": 1,
       "message": "static?",
+      "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ee9e168_4cc4005f",
+        "filename": "tools/javafuzz/javafuzz.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-11T19:12:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9e168_f7a60201",
       "revId": "70e2cfc4d3c7ce53f11bb67d8ed3cc8486ab2b65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
