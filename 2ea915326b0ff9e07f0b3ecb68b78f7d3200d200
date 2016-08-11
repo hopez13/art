@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e69c5e4_f715c053",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-11T16:22:57Z",
+      "side": 1,
+      "message": "So this is the actual fix. Before https://android-review.googlesource.com/207387 , we would have had the non-debug version here.",
+      "range": {
+        "startLine": 92,
+        "startChar": 101,
+        "endLine": 92,
+        "endChar": 115
+      },
+      "revId": "2ea915326b0ff9e07f0b3ecb68b78f7d3200d200",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
