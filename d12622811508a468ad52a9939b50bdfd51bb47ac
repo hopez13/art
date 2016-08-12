@@ -22,6 +22,30 @@
       "revId": "d12622811508a468ad52a9939b50bdfd51bb47ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_c6de9838",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T15:52:46Z",
+      "side": 1,
+      "message": "We try not to do that for important values. What\u0027s a good reason for having this configurable at the command line?",
+      "parentUuid": "dedd6d2d_e6fab4d6",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 5
+      },
+      "revId": "d12622811508a468ad52a9939b50bdfd51bb47ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
