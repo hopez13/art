@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_978afc12",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T17:58:20Z",
+      "side": 1,
+      "message": "Read barrier required on result if USE_READ_BARRIER is defined.",
+      "range": {
+        "startLine": 1119,
+        "startChar": 4,
+        "endLine": 1119,
+        "endChar": 7
+      },
+      "revId": "00504125dce59f6353973b5bb968fc7697a7afde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
