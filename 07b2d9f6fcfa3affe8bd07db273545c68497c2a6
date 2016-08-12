@@ -1,0 +1,220 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_f1db5045",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "nit: 1 arg per line",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_f1b270f5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5598,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "So string lookup always go to the entrypoint now instead of having inline code made by the compiler?\n\nAnd it\u0027s faster than having the fast path be inlined here?\n\nAt the very least calling it \"LoadStringSlowPath\" seems inaccurate since it\u0027s still a fast path.",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_6c2923ec",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s repeated elsewhere but this can probably be moved to a helper inside of the struct\n\n  struct StringDexCache... {\n     static mirror::String* lookupString(StringDexCachePair* dex_cache, uint32_t string_idx) {\n       StringDexCachePair index_string \u003d dex_cache[string_idx % ....].load(memory_order_relaxed);\n       if (index !\u003d index_string.string_idx) return nullptr;\n       return index_string.getStringPointer();\n      }\n  }",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_2c063b7b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "Consider also moving this to a static helper inside of StringDexCache array, e..g\n\n\n   static void initialize(StringDexCachePair* array, uint32_t size) {\n      ...\n   }",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_6c06832a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "Personally I found this comment a bit confusing, something with examples might be more clear\n\n   // The array is initially [ {0,0}, {0,0}, {0,0} ... ]\n\n   // We maintain the invariant that once a dex cache entry is populated, the pointer is always non-0\n   // Any given entry would thus be:\n   // {non-0, non-0} OR {0,0}\n   // (i.e. a {0, non-0} state is an indeterminate value)\n   //\n   // It\u0027s generally sufficiently enough then to check if the\n   // lookup string index matches the stored string index (for a \u003e0 string index) because if it\u0027s true the pointer is also non-null.\n   \n   // For the 0th entry which is a special case, the value is either\n   // {0,0} (initial state) or {NON_NULL, 0} which indicates\n   // that a valid string is stored at that index for a dex string id of 0.\n   //\n   // As an optimization, we want to avoid branching on the string pointer since it\u0027s always non-null if the string id branch succeeds (except for the 0th string id).\n   // Set the initial state for the 0th entry to be {0,1} which is guaranteed to fail the lookup string id \u003d\u003d stored id branch.\n\nThis also doubles as documentation for what the valid values are in the dex cache array. This also means putting in DCHECK(string is not null) is a good idea to enforce the invariant.",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_0c3dffbd",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "This can also use the lookup helper.",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_cc495767",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "? Why?\n\n  return GetFieldPtr64\u003cStringDexCacheType*\u003e(DexCacheStringsOffset()) seems like it should be enough.",
+      "range": {
+        "startLine": 906,
+        "startChar": 61,
+        "endLine": 906,
+        "endChar": 69
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_ccbf970f",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "This can also use the lookup dex cache helper.",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_8cbe6f15",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "nit: redundant check\n\n  if (index !\u003d string_idx) { return nullptr; }\n  return ptr;",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_0cca5fb8",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "? Why?",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_8ce3cf2a",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "I don\u0027t think it was ever addressed where this requirement came from.\n\nI can think of a few possibilities but it would be good to know for certain which it was.\n\nIt should probably be alignof(StringDexCachePair) \u003d\u003d 8 here as well?",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_ccd4f749",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T17:49:25Z",
+      "side": 1,
+      "message": "return alignof(StringDexCachePair) ?",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
