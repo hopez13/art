@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eeda907_d0cdbc66",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-12T09:38:11Z",
+      "side": 1,
+      "message": "What about STRING_DEX_CACHE_HASH_BITS? (Calling \"index % 1024\" a hash of the index.)",
+      "range": {
+        "startLine": 1043,
+        "startChar": 24,
+        "endLine": 1043,
+        "endChar": 64
+      },
+      "revId": "1299433ccd6f94dcd1230d9c9d136fcdbcb8f6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eeda907_10ad847b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-12T09:38:11Z",
+      "side": 1,
+      "message": "Actually, for consistency with POINTER_SIZE_SHIFT and COMPRESSED_REFERENCE_SIZE_SHIFT, this should be STRING_DEX_CACHE_ELEMENT_SIZE_SHIFT",
+      "range": {
+        "startLine": 1044,
+        "startChar": 28,
+        "endLine": 1044,
+        "endChar": 58
+      },
+      "revId": "1299433ccd6f94dcd1230d9c9d136fcdbcb8f6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eeda907_50baecb1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-12T09:38:11Z",
+      "side": 1,
+      "message": "Align comments.",
+      "range": {
+        "startLine": 1052,
+        "startChar": 35,
+        "endLine": 1052,
+        "endChar": 36
+      },
+      "revId": "1299433ccd6f94dcd1230d9c9d136fcdbcb8f6ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
