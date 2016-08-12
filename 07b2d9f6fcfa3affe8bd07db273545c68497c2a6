@@ -189,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_5ca7b4a1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-12T23:54:24Z",
+      "side": 1,
+      "message": "Would this be fixed by adding a DCHECK below to make sure that the alignment is 8? Or by changing the Alignment check to be a DCHECK? The alignment check makes sure that the entire cache is 8b aligned, which is enough.",
+      "parentUuid": "dedd6d2d_a9c23801",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_2c063b7b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
