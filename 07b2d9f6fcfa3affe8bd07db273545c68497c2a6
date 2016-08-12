@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_0c75ff5c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4594,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T18:02:28Z",
+      "side": 1,
+      "message": "Extra spaces",
+      "range": {
+        "startLine": 4594,
+        "startChar": 65,
+        "endLine": 4594,
+        "endChar": 67
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_6c2923ec",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 7
@@ -155,6 +178,52 @@
       "writtenOn": "2016-08-12T17:49:25Z",
       "side": 1,
       "message": "nit: redundant check\n\n  if (index !\u003d string_idx) { return nullptr; }\n  return ptr;",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_37c9285b",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T18:02:28Z",
+      "side": 1,
+      "message": "Can you use a GcRoot\u003cmirror::String\u003e here so that it is compatible with concurrent copying GC.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_77d3b00a",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T18:02:28Z",
+      "side": 1,
+      "message": "Change to two spaces from 4.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 4
+      },
       "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
