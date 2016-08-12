@@ -22,6 +22,30 @@
       "revId": "9b8dc0d953b91347245d639fd422d40c13aa37fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_c65693d8",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-12T20:02:50Z",
+      "side": 1,
+      "message": "Right, good idea. Updated.",
+      "parentUuid": "dedd6d2d_e6ed4f1f",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 7
+      },
+      "revId": "9b8dc0d953b91347245d639fd422d40c13aa37fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
