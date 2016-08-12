@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ed9290e_705eb026",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "add a period",
+      "range": {
+        "startLine": 1039,
+        "startChar": 49,
+        "endLine": 1039,
+        "endChar": 50
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e8a5ddc_c1a002e5",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "static inline",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ea129ab_70e3d02b",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "Move Daddiu+Dahi/Daddiu+Dati up to just after Lui+Dahi/Lui+Dati and implement them similarly.\n\nThe only practical differences between the two pairs should be:\n\n1. the beginning of the condition:\n\n    if ((value \u0026 0xFFFF) \u003d\u003d 0 \u0026\u0026\n\nchanges to\n\n    if (IsInt\u003c16\u003e(static_cast\u003cint32_t\u003e(value)) \u0026\u0026\n\n2. Lui(rd, value \u003e\u003e 16) changes to Daddiu(rd, ZERO, value)\n\n3. different path constants\n\ntmp2_int32 and tmp3 go away.\n\ntmp2 goes back to where it was, to the catch-all path at the end.\n\nWhat this gives us: the conditions include only the original value and just one value derived from it (bit31), both clearly named, there are no cryptic temporary variables defined far away from where they are used and calculated in non-obvious ways when taken out of the context at the place of definition. No extra comments needed either.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 24
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_c04e8096",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "a-\u003eLoadConst32(rd, value);",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 9
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ede25f7_4f574d39",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "add a period",
+      "range": {
+        "startLine": 528,
+        "startChar": 51,
+        "endLine": 528,
+        "endChar": 52
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe44f189_3ec9295b",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "Just one space.",
+      "range": {
+        "startLine": 1754,
+        "startChar": 0,
+        "endLine": 1754,
+        "endChar": 2
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe44f189_1eceed62",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "Still not loadconst64_paths_",
+      "range": {
+        "startLine": 1755,
+        "startChar": 6,
+        "endLine": 1755,
+        "endChar": 22
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ebc8197_705c685c",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-12T22:19:46Z",
+      "side": 1,
+      "message": "While this is not consistent throughout the code base, it is preferred to indent array initializers with 4 spaces under the declaration, as I asked (0 under t of const and so on).",
+      "range": {
+        "startLine": 1760,
+        "startChar": 2,
+        "endLine": 1760,
+        "endChar": 4
+      },
+      "revId": "9e64e8e7af8a094a72a4c78753a3e0ea291ddda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
