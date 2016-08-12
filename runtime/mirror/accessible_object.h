@@ -49,7 +49,7 @@ class MANAGED AccessibleObject : public Object {
   uint8_t flag_;
   // Padding required for now since "packed" will cause reflect.Field fields to not be aligned
   // otherwise.
-  uint8_t padding_[3];
+  uint8_t padding_[1];
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(AccessibleObject);
 };

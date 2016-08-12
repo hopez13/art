@@ -32,6 +32,7 @@
 #include "mirror/accessible_object.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
+#include "mirror/executable.h"
 #include "mirror/field.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
@@ -703,6 +704,14 @@ struct AbstractMethodOffsets : public CheckOffsets<mirror::AbstractMethod> {
   };
 };
 
+struct ExecutableOffsets : public CheckOffsets<mirror::Executable> {
+  ExecutableOffsets() : CheckOffsets<mirror::Executable>(
+      false, "Ljava/lang/reflect/Executable;") {
+    addOffset(OFFSETOF_MEMBER(mirror::Executable, has_real_parameter_data_), "hasRealParameterData");
+    addOffset(OFFSETOF_MEMBER(mirror::Executable, parameters_), "parameters");
+  };
+};
+
 // C++ fields must exactly match the fields in the Java classes. If this fails,
 // reorder the fields in the C++ class. Managed class fields are ordered by
 // ClassLinker::LinkFields.
@@ -721,6 +730,7 @@ TEST_F(ClassLinkerTest, ValidateFieldOrderOfJavaCppUnionClasses) {
   EXPECT_TRUE(AccessibleObjectOffsets().Check());
   EXPECT_TRUE(FieldOffsets().Check());
   EXPECT_TRUE(AbstractMethodOffsets().Check());
+  EXPECT_TRUE(ExecutableOffsets().Check());
 }
 
 TEST_F(ClassLinkerTest, FindClassNonexistent) {
