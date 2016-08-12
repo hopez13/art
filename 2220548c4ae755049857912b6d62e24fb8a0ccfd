@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea129ab_b028d82e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-12T22:32:30Z",
+      "side": 1,
+      "message": "ecx -\u003e r8d?",
+      "range": {
+        "startLine": 1101,
+        "startChar": 20,
+        "endLine": 1101,
+        "endChar": 23
+      },
+      "revId": "2220548c4ae755049857912b6d62e24fb8a0ccfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
