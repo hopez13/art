@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1e7f05e8_ea7b47c8",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T22:48:20Z",
+      "side": 1,
+      "message": "I mean its redundant in ALLOC_OBJECT_TLAB_FAST_PATH since it checks for null there too. I want to add ALLOC_OBJECT_TLAB_FAST_PATH_RESOLVED and call that instead.",
+      "parentUuid": "3ea129ab_d3af2674",
+      "range": {
+        "startLine": 1247,
+        "startChar": 4,
+        "endLine": 1247,
+        "endChar": 7
+      },
+      "revId": "c91d5498e9fbc26b9a5533bfda28cbcf9eb9c5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_dcb904bd",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
