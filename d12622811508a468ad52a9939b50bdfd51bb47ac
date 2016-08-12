@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_e6fab4d6",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1079886
+      },
+      "writtenOn": "2016-08-12T15:11:52Z",
+      "side": 1,
+      "message": "Could this be wrapped in a ifndef ART_TARGET_FRAME_SIZE_LIMIT to allow for configuration via cmd line? i.e. export ART_TARGET_FRAME_SIZE_LIMIT\u003d10624",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 5
+      },
+      "revId": "d12622811508a468ad52a9939b50bdfd51bb47ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
