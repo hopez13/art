@@ -70,6 +70,30 @@
       "revId": "d12622811508a468ad52a9939b50bdfd51bb47ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_51ba44d5",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T17:10:52Z",
+      "side": 1,
+      "message": "But that way the necessary changes aren\u0027t written down/codified if you forget, and the next person has to derive them again. (Wouldn\u0027t be an issue if we had enough builds for all the configs, so that the build bot would tell you you forgot to do this...)\n\nI\u0027ll merge as-is, to keep it a simple refactor without real behavioral changes. Feel free to upload a CL changing the :\u003d to a ?\u003d above, and we can discuss on that CL...:-)",
+      "parentUuid": "dedd6d2d_d1b9f4bc",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 5
+      },
+      "revId": "d12622811508a468ad52a9939b50bdfd51bb47ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
