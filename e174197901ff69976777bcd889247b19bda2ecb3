@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_1c960c3e",
+        "filename": "tools/javafuzz/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T20:54:16Z",
+      "side": 1,
+      "message": "This section just gets garbled when it goes through markdown rendering\n\nhttp://markdownlivepreview.com/\n\nProbably just need to add some block spaces to each place you want to be monospace\n\ni.e.\n\n\u003cspace\u003e\u003cspace\u003ejavafuzz\n\u003cspace\u003e\u003cspace\u003e\u003cspace\u003e\u003cspace\u003e[-s seed]\n\n(and replace \u003cspace\u003e with an actual space)",
+      "revId": "e174197901ff69976777bcd889247b19bda2ecb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
