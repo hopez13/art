@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_e6ed4f1f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T19:56:05Z",
+      "side": 1,
+      "message": "Maybe do this at the end of the iteration? It\u0027s more logically consistent and safe/conservative there...",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 630,
+        "endChar": 7
+      },
+      "revId": "9b8dc0d953b91347245d639fd422d40c13aa37fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
