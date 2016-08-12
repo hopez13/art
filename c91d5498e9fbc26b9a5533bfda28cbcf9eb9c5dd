@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3ea129ab_d3af2674",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-12T22:45:27Z",
+      "side": 1,
+      "message": "Is it redundant? Don\u0027t we still need this check right before checking the mark bit?",
+      "parentUuid": "3ea129ab_f0742063",
+      "range": {
+        "startLine": 1247,
+        "startChar": 4,
+        "endLine": 1247,
+        "endChar": 7
+      },
+      "revId": "c91d5498e9fbc26b9a5533bfda28cbcf9eb9c5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_dcb904bd",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 2
