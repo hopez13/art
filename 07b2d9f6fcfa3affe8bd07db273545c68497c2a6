@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_f7c6e043",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5598,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-12T20:18:21Z",
+      "side": 1,
+      "message": "String lookup always goes to the entrypoint now instead of having inline code made by the compiler, yes.\n\nVmarko is adding the compiler code because it is being handled differently.\n\nNo, it is not faster, but it is good enough for now (looked at regression with Nicolas/etc.) until vmarko adds his code here.\n\nIt is somewhat of a medium path, and I think calling it a slow path in here is still accurate.",
+      "parentUuid": "dedd6d2d_f1b270f5",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_0c75ff5c",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 7
@@ -47,6 +65,30 @@
       "writtenOn": "2016-08-12T18:02:28Z",
       "side": 1,
       "message": "Extra spaces",
+      "range": {
+        "startLine": 4594,
+        "startChar": 65,
+        "endLine": 4594,
+        "endChar": 67
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_771bb02b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4594,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-12T20:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dedd6d2d_0c75ff5c",
       "range": {
         "startLine": 4594,
         "startChar": 65,
@@ -93,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_09c7ac41",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-12T20:18:21Z",
+      "side": 1,
+      "message": "The allocation for raw_arrays happens on line 2091 of this file, using layout-\u003eSize(), which is guaranteed to be aligned correctly (to 8). That check is done in dex_cache_arrays-inl.h, Alignment().\n\n(Also, it\u0027s definitely aligned correctly because the asm code would be failing (a few of the instructions depend on it being 8b aligned or else they SEGFAULT), and they are succeeding. Not to mention that the Alignment() check is passing.)",
+      "parentUuid": "dedd6d2d_d7f724be",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_2c063b7b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -121,6 +181,24 @@
       "writtenOn": "2016-08-12T17:49:25Z",
       "side": 1,
       "message": "Personally I found this comment a bit confusing, something with examples might be more clear\n\n   // The array is initially [ {0,0}, {0,0}, {0,0} ... ]\n\n   // We maintain the invariant that once a dex cache entry is populated, the pointer is always non-0\n   // Any given entry would thus be:\n   // {non-0, non-0} OR {0,0}\n   // (i.e. a {0, non-0} state is an indeterminate value)\n   //\n   // It\u0027s generally sufficiently enough then to check if the\n   // lookup string index matches the stored string index (for a \u003e0 string index) because if it\u0027s true the pointer is also non-null.\n   \n   // For the 0th entry which is a special case, the value is either\n   // {0,0} (initial state) or {NON_NULL, 0} which indicates\n   // that a valid string is stored at that index for a dex string id of 0.\n   //\n   // As an optimization, we want to avoid branching on the string pointer since it\u0027s always non-null if the string id branch succeeds (except for the 0th string id).\n   // Set the initial state for the 0th entry to be {0,1} which is guaranteed to fail the lookup string id \u003d\u003d stored id branch.\n\nThis also doubles as documentation for what the valid values are in the dex cache array. This also means putting in DCHECK(string is not null) is a good idea to enforce the invariant.",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_b719b8da",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-12T20:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dedd6d2d_6c06832a",
       "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
