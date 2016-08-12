@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "dedd6d2d_376da833",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "I think most people know what all the incoming input registers are but it wouldn\u0027t hurt to document it in a comment regardless.",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_97a75c4f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "This 0 should be STRING_DEX_CACHE_LEAST_SIG_BIT_MINUS_ONE\n\nor you can just leave it as 0 and remove the constant, I don\u0027t know if it buys us anything because it\u0027s not like the index will ever be not at the 0th spot unless you change the hashing algorithm (which wouldn\u0027t make sense since the IDs are contiguous so % is already pretty close to optimal without taking into account which strings are actually loaded, but then you\u0027d probably not want to use % either).",
+      "range": {
+        "startLine": 1043,
+        "startChar": 18,
+        "endLine": 1043,
+        "endChar": 21
+      },
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_f777c064",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "Sidenote: Too bad arm32 doesn\u0027t have 64-bit load atomicity...",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_ecb293f5",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 12
@@ -19,6 +76,159 @@
         "endLine": 1048,
         "endChar": 17
       },
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_3780485d",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "Ok I think the point of this is that instead of\n\n\n  ptr_address \u003d array + index * sizeof(...)\n\nit does a \n \n  ptr_address \u003d array + index \u003c\u003c shift;\n\nright (in assembly)?\n\nThat should probably be documented here as a comment.\n\nAlso do we really have this convention elsewhere (vmarko?), it\u0027s a bit confusing because it\u0027s useless as a shift by itself unless followed by a ST/LD. Something like PTR_SHIFT or SIZE_SHIFT might be a superior suffix.",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_f7d0a0cb",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "STRING_DEX_CACHE_INDEX_MASK\n\n\"MASK\" because it\u0027s a bit mask (needs to be \u0026d or |d)\n\nINDEX because applies this mask (i.e. foo \u0026 mask) returns the array index into the dex cache.\n\n(or possibly ELEMENT_MASK if the ELEMENT above is referring to the same thing)",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_d7c3a403",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_d771e4eb",
+        "filename": "tools/cpp-define-generator/constant_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "Why is this even necessary, it\u0027s not shifted so it\u0027s just 0.\n\nIt would just be the STRING_DEX_CACHE_INDEX_MASK_SHIFT at any rate if I remember our undocumented asm naming conventions correctly.",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_b747f8a9",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_b7fff800",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "This should probably go into offset_class.def but I don\u0027t feel that strongly about it.\n\nI\u0027m surprised nobody caught me earlier, this whole file should\u0027ve been offset_art_method.def because it doesn\u0027t have offsets into DexCache but into ArtMethod instead.",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_57b8748b",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_d74484a7",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "check whitespace alignment",
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_f7418094",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:31:04Z",
+      "side": 1,
+      "message": "check whitespace alignment",
       "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
