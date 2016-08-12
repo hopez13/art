@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_72d49eba",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:48:45Z",
+      "side": 1,
+      "message": "This seems like it\u0027s too strong because cmpxchg has an implicit LOCK so it could just slow down this path unnecessarily.\n\nAccording to Intel Architectures Software Developer\u0027s Manual documentation Vol3A, 8.1.1:\n\n\u003e The Pentium processor (and newer processors since) guarantees that the following additional memory operations\nwill always be carried out atomically:\n\u003e • Reading or writing a quadword aligned on a 64-bit boundary\n\nConsider MOVLPS/MOVHPS here instead.",
+      "revId": "9730659051ce1130c2222873efc374a73ea1c926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_328136aa",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:48:45Z",
+      "side": 1,
+      "message": "nit: align comments whitespace if possible",
+      "revId": "9730659051ce1130c2222873efc374a73ea1c926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
