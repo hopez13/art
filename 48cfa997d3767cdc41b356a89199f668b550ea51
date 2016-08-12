@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_ecb293f5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-12T17:56:54Z",
+      "side": 1,
+      "message": "Need read barrier on result if USE_READ_BARRIER is defined, recommend calling artReadBarrierMark for now.",
+      "range": {
+        "startLine": 1048,
+        "startChar": 15,
+        "endLine": 1048,
+        "endChar": 17
+      },
+      "revId": "48cfa997d3767cdc41b356a89199f668b550ea51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
