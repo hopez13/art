@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "dedd6d2d_72a2de41",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:50:38Z",
+      "side": 1,
+      "message": "See x86 comment about atomicity.\n\nMOV r64,r/m64 should suffice here.\n\nThat means you can also get rid some of the instructions above since r/m64 lets you encode the indexes.",
+      "revId": "00504125dce59f6353973b5bb968fc7697a7afde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_978afc12",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 12
