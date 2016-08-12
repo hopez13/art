@@ -76,6 +76,23 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_d7f724be",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T18:34:53Z",
+      "side": 1,
+      "message": "When it\u0027s allocating the raw_arrays how is it doing the alignment? I think asm code relies on this to be aligned properly, do you already have a DCHECK_ALIGNED somewhere?\n\n  DCHECK_ALIGNED(strings, alignof(StringDexCacheType))\n\nMaybe it\u0027s unnecessary but since it\u0027s being allocated in a \"chunk\" I am a bit wary of this.\n\n(just put it into the initialize helper if you end up making one)",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_2c063b7b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
