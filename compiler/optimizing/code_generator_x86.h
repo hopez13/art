@@ -254,8 +254,7 @@ class InstructionCodeGeneratorX86 : public InstructionCodeGenerator {
   void GenerateReferenceLoadTwoRegisters(HInstruction* instruction,
                                          Location out,
                                          Location obj,
-                                         uint32_t offset,
-                                         Location maybe_temp);
+                                         uint32_t offset);
   // Generate a GC root reference load:
   //
   //   root <- *address
@@ -486,7 +485,6 @@ class CodeGeneratorX86 : public CodeGenerator {
                                              Location ref,
                                              Register obj,
                                              uint32_t offset,
-                                             Location temp,
                                              bool needs_null_check);
   // Fast path implementation of ReadBarrier::Barrier for a heap
   // reference array load when Baker's read barriers are used.
@@ -495,7 +493,6 @@ class CodeGeneratorX86 : public CodeGenerator {
                                              Register obj,
                                              uint32_t data_offset,
                                              Location index,
-                                             Location temp,
                                              bool needs_null_check);
   // Factored implementation used by GenerateFieldLoadWithBakerReadBarrier
   // and GenerateArrayLoadWithBakerReadBarrier.
@@ -503,7 +500,6 @@ class CodeGeneratorX86 : public CodeGenerator {
                                                  Location ref,
                                                  Register obj,
                                                  const Address& src,
-                                                 Location temp,
                                                  bool needs_null_check);
 
   // Generate a read barrier for a heap reference within `instruction`
