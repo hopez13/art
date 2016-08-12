@@ -421,6 +421,24 @@
       "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eeda907_10c46439",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "I\u0027ve applied your change from https://android-review.googlesource.com/#/c/255712 in PS5, here and in the x86 back end.",
+      "parentUuid": "39b223c6_eb1ced6a",
+      "revId": "fa91b74c5a5df00f5c937ff10838173c3ef885c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
