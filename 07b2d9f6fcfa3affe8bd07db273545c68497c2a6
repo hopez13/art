@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_a9531870",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5598,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T20:28:17Z",
+      "side": 1,
+      "message": "Thanks for explanation. \n\nPerhaps a // TODO: Re-add the compiler code to do string dex cache lookup again. \n\nwould be in-order.",
+      "parentUuid": "dedd6d2d_f7c6e043",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_0c75ff5c",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 7
@@ -147,6 +165,24 @@
       "side": 1,
       "message": "The allocation for raw_arrays happens on line 2091 of this file, using layout-\u003eSize(), which is guaranteed to be aligned correctly (to 8). That check is done in dex_cache_arrays-inl.h, Alignment().\n\n(Also, it\u0027s definitely aligned correctly because the asm code would be failing (a few of the instructions depend on it being 8b aligned or else they SEGFAULT), and they are succeeding. Not to mention that the Alignment() check is passing.)",
       "parentUuid": "dedd6d2d_d7f724be",
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_a9c23801",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-12T20:28:17Z",
+      "side": 1,
+      "message": "I definitely saw the DexCacheArraysLayout::Alignment checks and they are static asserts, not DCHECKs.\n\nThe problem is because the allocation is done from the heap we have to be extra careful that it\u0027s aligned (usually malloc is aligned to max_align_t but I mean we actually use a custom allocator which theoretically could align less). *Plus* since the string is offset off of raw arrays it could still get throw off the alignment by accident if we introduce a new field at some point.",
+      "parentUuid": "dedd6d2d_09c7ac41",
       "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
