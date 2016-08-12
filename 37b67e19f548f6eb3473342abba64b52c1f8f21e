@@ -22,6 +22,52 @@
       "revId": "37b67e19f548f6eb3473342abba64b52c1f8f21e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ec2c172_7a1a59cf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6309,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T13:27:27Z",
+      "side": 1,
+      "message": "Nit: Shouldn\u0027t we move this to its own line per the style used in ART?",
+      "range": {
+        "startLine": 6309,
+        "startChar": 36,
+        "endLine": 6309,
+        "endChar": 61
+      },
+      "revId": "37b67e19f548f6eb3473342abba64b52c1f8f21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eaf75ac_1b3a3b2f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T13:27:27Z",
+      "side": 1,
+      "message": "Could you also change this to \"marking\" (here and elsewhere)?  I think the current phrasing is a bit ambiguous (my bad), as it can be interpreted as \"the slow path that is generated/taken to mark the object `ref`\" (correct interpretation) or \"the slow path was doing the marking, but not anymore\" (wrong interpretation).",
+      "range": {
+        "startLine": 7102,
+        "startChar": 15,
+        "endLine": 7102,
+        "endChar": 27
+      },
+      "revId": "37b67e19f548f6eb3473342abba64b52c1f8f21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
