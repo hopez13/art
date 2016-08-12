@@ -247,6 +247,29 @@
     },
     {
       "key": {
+        "uuid": "dedd6d2d_d77004a1",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T18:21:22Z",
+      "side": 1,
+      "message": "No spaces in such situations. Also below and in other files.",
+      "range": {
+        "startLine": 131,
+        "startChar": 16,
+        "endLine": 131,
+        "endChar": 17
+      },
+      "revId": "07b2d9f6fcfa3affe8bd07db273545c68497c2a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_8ce3cf2a",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 7
