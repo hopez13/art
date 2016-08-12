@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e0d452c_177cd4e4",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "This was copied from compiler/optimizing/code_generator_arm.cc, where it was introduced by https://android-review.googlesource.com/#/c/224428/. From the bug referenced in the CL (b/28705665), this was to avoid spurious misc-macro-parentheses warnings.\n\nRemoving the NOLINT tag and building with clang-tidy enabled indeed shows this warning:\n\n  warning: macro replacement list should be enclosed in parentheses [misc-macro-parentheses]\n  /ssd2/aosp-art/art/compiler/optimizing/code_generator_arm.cc:63:34: warning: macro replacement list should be enclosed in parentheses [misc-macro-parentheses]\n  #define __ down_cast\u003cArmAssembler*\u003e(codegen-\u003eGetAssembler())-\u003e\n                                   ^\n             (                                                  )\n\nI have another CL in the works to address the issue in others files.",
+      "parentUuid": "b9a8d3f4_8c54072f",
+      "range": {
+        "startLine": 45,
+        "startChar": 62,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59b43747_d1eea4f0",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1e69c5e4_7785306c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "Ah, missed this one. Yeah, the linter does complain. Done.",
+      "parentUuid": "59b43747_d1eea4f0",
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b5c344_b090389c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2016-08-10T16:59:43Z",
       "side": 1,
       "message": "For constant src_pos, fold it into offset. For non-constant src_pos, merge the movl and addl to leal.\n\n    // value \u003d src_array[i + src_pos]\n    if (src_pos.IsConstant()) {\n      int32_t constant \u003d src_pos.GetConstant()-\u003eAsIntConstant()-\u003eGetValue();\n      int32_t adjusted_offset \u003d offset + constant * element_size;\n      __ movl(temp2, Address(src, temp1, ScaleFactor::TIMES_4, adjusted_offset));\n    } else {\n      __ leal(temp3, Address(src_pos.AsRegister\u003cRegister\u003e(), temp1, ScaleFactor::TIMES_1, 0));\n      __ movl(temp2, Address(src, temp3, ScaleFactor::TIMES_4, offset));\n    }",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eeda907_d0f49c88",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39b5c344_b090389c",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "3eeda907_b0e918af",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39cea3f0_280a2bd1",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 71
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a8d3f4_cc5e0f4b",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -99,6 +189,30 @@
       "writtenOn": "2016-08-10T16:59:43Z",
       "side": 1,
       "message": "x86_codegen-\u003eGenerateIntCompare(temp1_loc, length);",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 5
+      },
+      "revId": "07b399de1c163b3d9064030f29375540e9429b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eeda907_90ee14b3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-12T11:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a8d3f4_cc5e0f4b",
       "range": {
         "startLine": 160,
         "startChar": 0,
