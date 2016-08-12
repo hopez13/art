@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedd6d2d_51ade430",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T16:38:40Z",
+      "side": 1,
+      "message": "Mind adding a comment that it\u0027s OK to pass \"\" to DeleteDirectoryContents?\n\n(I think we call this very indiscriminantly, there\u0027s a chance the directory doesn\u0027t exist)",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 60
+      },
+      "revId": "f69bda5b86e8144cb8f3474f3ff78c04f2bd556b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_b19b8810",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T16:38:40Z",
+      "side": 1,
+      "message": "Mind adding a CHECK or warning that at this point isa_subdir isn\u0027t empty? (I think that should hold)",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 78
+      },
+      "revId": "f69bda5b86e8144cb8f3474f3ff78c04f2bd556b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_f17430cc",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T16:38:40Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 1096,
+        "startChar": 59,
+        "endLine": 1096,
+        "endChar": 62
+      },
+      "revId": "f69bda5b86e8144cb8f3474f3ff78c04f2bd556b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_11e51c9b",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-12T16:38:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 253,
+        "startChar": 100,
+        "endLine": 253,
+        "endChar": 117
+      },
+      "revId": "f69bda5b86e8144cb8f3474f3ff78c04f2bd556b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
