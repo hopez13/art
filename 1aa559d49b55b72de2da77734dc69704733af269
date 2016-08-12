@@ -22,6 +22,30 @@
       "revId": "1aa559d49b55b72de2da77734dc69704733af269",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dedd6d2d_31da18ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-12T16:31:26Z",
+      "side": 1,
+      "message": "Yes, the graph coloring register allocator assigned EBX in one of the test cases (in an attempt to keep a pair interval in caller-save registers).",
+      "parentUuid": "5ec7bd81_39faaf10",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "1aa559d49b55b72de2da77734dc69704733af269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
