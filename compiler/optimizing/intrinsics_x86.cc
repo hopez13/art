@@ -1835,10 +1835,9 @@ static void GenUnsafeGet(HInvoke* invoke,
       Register output = output_loc.AsRegister<Register>();
       if (kEmitCompilerReadBarrier) {
         if (kUseBakerReadBarrier) {
-          Location temp = locations->GetTemp(0);
           Address src(base, offset, ScaleFactor::TIMES_1, 0);
           codegen->GenerateReferenceLoadWithBakerReadBarrier(
-              invoke, output_loc, base, src, temp, /* needs_null_check */ false);
+              invoke, output_loc, base, src, /* needs_null_check */ false);
         } else {
           __ movl(output, Address(base, offset, ScaleFactor::TIMES_1, 0));
           codegen->GenerateReadBarrierSlow(
@@ -1900,11 +1899,6 @@ static void CreateIntIntIntToIntLocations(ArenaAllocator* arena,
   } else {
     locations->SetOut(Location::RequiresRegister(),
                       can_call ? Location::kOutputOverlap : Location::kNoOutputOverlap);
-  }
-  if (type == Primitive::kPrimNot && kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-    // We need a temporary register for the read barrier marking slow
-    // path in InstructionCodeGeneratorX86::GenerateReferenceLoadWithBakerReadBarrier.
-    locations->AddTemp(Location::RequiresRegister());
   }
 }
 
