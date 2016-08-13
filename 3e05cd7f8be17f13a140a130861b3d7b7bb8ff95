@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e356161_a59b0863",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T01:21:58Z",
+      "side": 1,
+      "message": "Rename header to something more descriptive since it contains holds all the members live?",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 12
+      },
+      "revId": "3e05cd7f8be17f13a140a130861b3d7b7bb8ff95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e356161_e5c83059",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T01:21:58Z",
+      "side": 1,
+      "message": "vector of unique_ptr to specify ownership?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 43
+      },
+      "revId": "3e05cd7f8be17f13a140a130861b3d7b7bb8ff95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e356161_65e420d2",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T01:21:58Z",
+      "side": 1,
+      "message": "I think it might be cleaner to have the caller do the insert instead of having an out arg.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 39
+      },
+      "revId": "3e05cd7f8be17f13a140a130861b3d7b7bb8ff95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
