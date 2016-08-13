@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1e19c50e_770290bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T00:36:08Z",
+      "side": 1,
+      "message": "Add bug number in commit message?\n\nI.e.\n\nBug: 123456",
+      "revId": "a97b56916632bdf565720f0339b73a42aa46d8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ee9e168_d789be25",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
