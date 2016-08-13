@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e19c50e_ba9a4d6d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "That\u0027s redundant to the if condition.",
+      "range": {
+        "startLine": 624,
+        "startChar": 8,
+        "endLine": 624,
+        "endChar": 34
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_3ab07dec",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "4-space indent.",
+      "range": {
+        "startLine": 629,
+        "startChar": 6,
+        "endLine": 629,
+        "endChar": 8
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_faa0c59a",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "You don\u0027t like a nested ternary?",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 265,
+        "endChar": 3
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_da9b8174",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 426,
+        "endChar": 5
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_5a90d14b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3184,
+        "startChar": 0,
+        "endLine": 3184,
+        "endChar": 0
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_1a8a591a",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-13T03:28:47Z",
+      "side": 1,
+      "message": "Yup. :-)",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 77
+      },
+      "revId": "4aee29e579d347c5d9238d3b36700287336f1c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
