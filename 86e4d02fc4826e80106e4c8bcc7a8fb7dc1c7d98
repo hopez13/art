@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e19c50e_1aded907",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T00:36:08Z",
+      "side": 1,
+      "message": "I think it should be better to just do \nvisitor.VisitRootIfNonNull(source.string_pointer.AddressWithoutBarrier());",
+      "range": {
+        "startLine": 142,
+        "startChar": 6,
+        "endLine": 143,
+        "endChar": 42
+      },
+      "revId": "86e4d02fc4826e80106e4c8bcc7a8fb7dc1c7d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_bad7adf4",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T00:36:08Z",
+      "side": 1,
+      "message": "initialize -\u003e Initialize",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 24
+      },
+      "revId": "86e4d02fc4826e80106e4c8bcc7a8fb7dc1c7d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_3aaddd7b",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T00:36:08Z",
+      "side": 1,
+      "message": "lookupString -\u003e LookupString",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 36
+      },
+      "revId": "86e4d02fc4826e80106e4c8bcc7a8fb7dc1c7d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_daef01b2",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T00:36:08Z",
+      "side": 1,
+      "message": "Is there a check somewhere to make sure its a lock free atomic?",
+      "range": {
+        "startLine": 72,
+        "startChar": 6,
+        "endLine": 72,
+        "endChar": 24
+      },
+      "revId": "86e4d02fc4826e80106e4c8bcc7a8fb7dc1c7d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
