@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e19c50e_5a7531d6",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T01:21:58Z",
+      "side": 1,
+      "message": "Is there a way to avoid these const casts?",
+      "range": {
+        "startLine": 231,
+        "startChar": 6,
+        "endLine": 231,
+        "endChar": 26
+      },
+      "revId": "299a3dec685189e61f040349d7d08b2a1a94aa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_1a7fb9b8",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-13T01:21:58Z",
+      "side": 1,
+      "message": "Can we reuse the art stuff for this?\n\nruntime/utils.h:std::string DescriptorToDot(const char* descriptor);",
+      "range": {
+        "startLine": 110,
+        "startChar": 31,
+        "endLine": 110,
+        "endChar": 46
+      },
+      "revId": "299a3dec685189e61f040349d7d08b2a1a94aa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
