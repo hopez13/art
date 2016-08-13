@@ -22,6 +22,30 @@
       "revId": "6947f42d3ab3e9d916eb9c935125137c7df67cae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e19c50e_3ddb9718",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-13T04:16:43Z",
+      "side": 1,
+      "message": "Done. Tests passed. Hopefully, just a single change of CodeSize() to CodePosition() in CodeGenerator::RecordPcInfo() is sufficient.",
+      "parentUuid": "3eeda907_d0713c10",
+      "range": {
+        "startLine": 183,
+        "startChar": 6,
+        "endLine": 183,
+        "endChar": 63
+      },
+      "revId": "6947f42d3ab3e9d916eb9c935125137c7df67cae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
