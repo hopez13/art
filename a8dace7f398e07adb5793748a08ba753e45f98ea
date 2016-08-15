@@ -16,6 +16,24 @@
       "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe9071cc_3e17c9a4",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-15T15:27:57Z",
+      "side": 1,
+      "message": "I am not sure if we\u0027re even supporting anything older than ARMv7, is it ever the case it\u0027s not atomic then (the architecture document seemed to imply it was single-copy atomic always on v7+)?\n\nWe already use LDRD/STRD elsewhere in this file assuming it is atomic.",
+      "parentUuid": "fe1dd11b_5611f4ab",
+      "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
