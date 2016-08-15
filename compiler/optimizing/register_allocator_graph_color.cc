@@ -1830,8 +1830,10 @@ bool ColoringIteration::ColorInterferenceGraph() {
       }
 
       // Last-chance coalescing.
+      size_t best_priority = 0;
       for (CoalesceOpportunity* opportunity : node->GetCoalesceOpportunities()) {
-        if (opportunity->stage == CoalesceStage::kDefunct) {
+        if (opportunity->stage == CoalesceStage::kDefunct ||
+            opportunity->priority < best_priority) {
           continue;
         }
         LiveInterval* other_interval = opportunity->node_a->GetAlias() == node
@@ -1844,11 +1846,11 @@ bool ColoringIteration::ColorInterferenceGraph() {
                 !conflict_mask[coalesce_register + 1] &&
                 RegisterIsAligned(coalesce_register)) {
               reg = coalesce_register;
-              break;
+              best_priority = opportunity->priority;
             }
           } else if (!conflict_mask[coalesce_register]) {
             reg = coalesce_register;
-            break;
+            best_priority = opportunity->priority;
           }
         }
       }
