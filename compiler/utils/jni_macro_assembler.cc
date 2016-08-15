@@ -57,6 +57,8 @@ MacroAsm32UniquePtr JNIMacroAssembler<PointerSize::k32>::Create(
   switch (instruction_set) {
 #ifdef ART_ENABLE_CODEGEN_arm
     case kArm:
+      LOG(FATAL) << "Arm32Assembler based JniMacroAssembler is deprecated";
+      UNREACHABLE();
     case kThumb2:
       return MacroAsm32UniquePtr(new (arena) arm::ArmJNIMacroAssembler(arena, instruction_set));
 #endif
