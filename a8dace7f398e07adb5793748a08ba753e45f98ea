@@ -88,6 +88,24 @@
       "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e6cd5b9_f9ee4fb3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-15T19:59:19Z",
+      "side": 1,
+      "message": "Is it even correct even if we do assume they all have LPAE? I looked up the quote Christiana talked about (A3.5.3 in the ARM Architecture Reference Manual ARMv7-A and ARMv7-R Edition)\n\nand it seemed to imply that even if you have LPAE extension it still doesn\u0027t mean 64-bit memory accesses outside of the translation table are guaranteed to be atomic.\n\n\u003e The Large Physical Address Extension adds this requirement to avoid the need for complex measures to avoid atomicity issues when changing translation table entries, *without  creating a requirement that all locations in the memory system are 64-bit single-copy atomic*.\n\nIs there some undocumented quirk here that all systems with LPAE have 64-bit LDRD/STRD atomicity for any memory access?\n\nI haven\u0027t looked at the other uses of these instructions in this file but maybe it\u0027s just a shorthand for 2 exclusive loads to 32-byte locations with 1 instruction instead of 2.",
+      "parentUuid": "9e6cd5b9_b36eb894",
+      "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
