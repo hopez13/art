@@ -363,7 +363,9 @@ static bool ChecksumsMatch(const char* image_a, const char* image_b, std::string
   return true;
 }
 
-static bool ImageCreationAllowed(bool is_global_cache, std::string* error_msg) {
+static bool ImageCreationAllowed(bool is_global_cache,
+                                 const char* image_location,
+                                 std::string* error_msg) {
   // Anyone can write into a "local" cache.
   if (!is_global_cache) {
     return true;
@@ -371,7 +373,15 @@ static bool ImageCreationAllowed(bool is_global_cache, std::string* error_msg) {
 
   // Only the zygote is allowed to create the global boot image.
   if (Runtime::Current()->IsZygote()) {
-    return true;
+    if (access(image_location, O_RDWR) == 0) {
+      return true;
+    } else {
+      *error_msg = StringPrintf("Cannot write to image location %s: %d (%s)",
+                                image_location,
+                                errno,
+                                strerror(errno));
+      return false;
+    }
   }
 
   *error_msg = "Only the zygote can create the global boot image.";
@@ -1525,7 +1535,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       local_error_msg = "Patching disabled.";
     } else if (secondary_image) {
       local_error_msg = "Cannot patch a secondary image.";
-    } else if (ImageCreationAllowed(is_global_cache, &local_error_msg)) {
+    } else if (ImageCreationAllowed(is_global_cache, dalvik_cache.c_str(), &local_error_msg)) {
       bool patch_success =
           RelocateImage(image_location, cache_filename.c_str(), image_isa, &local_error_msg);
       if (patch_success) {
@@ -1555,7 +1565,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       local_error_msg = "Image compilation disabled.";
     } else if (secondary_image) {
       local_error_msg = "Cannot compile a secondary image.";
-    } else if (ImageCreationAllowed(is_global_cache, &local_error_msg)) {
+    } else if (ImageCreationAllowed(is_global_cache, dalvik_cache.c_str(), &local_error_msg)) {
       bool compilation_success = GenerateImage(cache_filename, image_isa, &local_error_msg);
       if (compilation_success) {
         std::unique_ptr<ImageSpace> compiled_space =
