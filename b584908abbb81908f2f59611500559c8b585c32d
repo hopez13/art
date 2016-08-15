@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "fb2a4379_2e9d4756",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-15T20:19:34Z",
+      "side": 1,
+      "message": "That\u0027s strange, Load-Exclusive should update both local and global monitor to exclusive state which sounds strictly slower than *just* accessing memory.\n\nPerhaps someone else has more insight? (and hopefully you\u0027re not testing on volantis which is free for any exclusive operation)",
+      "parentUuid": "9e6cd5b9_3343884f",
+      "revId": "b584908abbb81908f2f59611500559c8b585c32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dedd6d2d_1296fa3d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 12
