@@ -281,6 +281,8 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-Xzygote-max-boot-retry=_")
           .WithType<unsigned int>()
           .IntoKey(M::ZygoteMaxFailedBoots)
+      .Define("-Xunprivileged-zygote")
+          .IntoKey(M::UnprivilegedZygote)
       .Define("-Xno-dex-file-fallback")
           .IntoKey(M::NoDexFileFallback)
       .Define("-Xno-sig-chain")
@@ -706,6 +708,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -XX:LowMemoryMode\n");
   UsageMessage(stream, "  -Xprofile:{threadcpuclock,wallclock,dualclock}\n");
   UsageMessage(stream, "  -Xjitthreshold:integervalue\n");
+  UsageMessage(stream, "  -Xunprivileged-zygote\n");
   UsageMessage(stream, "\n");
 
   UsageMessage(stream, "The following unique to ART options are supported:\n");

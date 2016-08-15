@@ -228,6 +228,7 @@ Runtime::Runtime()
       is_native_bridge_loaded_(false),
       is_native_debuggable_(false),
       zygote_max_failed_boots_(0),
+      is_unprivileged_zygote_(false),
       experimental_flags_(ExperimentalFlags::kNone),
       oat_file_manager_(nullptr),
       is_low_memory_mode_(false),
@@ -686,6 +687,9 @@ bool Runtime::InitZygote() {
   // zygote goes into its own process group
   setpgid(0, 0);
 
+  if (is_unprivileged_zygote_)
+    return true;
+
   // See storage config details at http://source.android.com/tech/storage/
   // Create private mount namespace shared by all children
   if (unshare(CLONE_NEWNS) == -1) {
@@ -1006,6 +1010,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   }
 
   zygote_max_failed_boots_ = runtime_options.GetOrDefault(Opt::ZygoteMaxFailedBoots);
+  is_unprivileged_zygote_ = runtime_options.Exists(Opt::UnprivilegedZygote);
   experimental_flags_ = runtime_options.GetOrDefault(Opt::Experimental);
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
 

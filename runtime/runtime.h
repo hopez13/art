@@ -169,6 +169,14 @@ class Runtime {
     return is_zygote_;
   }
 
+  bool IsPrivilegedZygote() const {
+    return is_zygote_ && !is_unprivileged_zygote_;
+  }
+
+  bool IsUnprivilegedZygote() const {
+    return is_zygote_ && is_unprivileged_zygote_;
+  }
+
   bool IsExplicitGcDisabled() const {
     return is_explicit_gc_disabled_;
   }
@@ -842,6 +850,10 @@ class Runtime {
   // and trying again. This option is only inspected when we're running as a
   // zygote.
   uint32_t zygote_max_failed_boots_;
+
+  // Whether the zygote is unprivileged. It does not have write access to the Dalvik cache
+  // and only creates isolated_app children.
+  bool is_unprivileged_zygote_;
 
   // Enable experimental opcodes that aren't fully specified yet. The intent is to
   // eventually publish them as public-usable opcodes, but they aren't ready yet.
