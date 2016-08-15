@@ -153,6 +153,13 @@ class UsePosition : public ArenaObject<kArenaAllocSsaLiveness> {
     return location.IsUnallocated() && location.RequiresRegisterKind();
   }
 
+  bool IsFixedInputRegisterUse() const {
+    if (GetIsEnvironment()) return false;
+    if (IsSynthesized()) return false;
+    Location location = GetUser()->GetLocations()->InAt(GetInputIndex());
+    return location.IsRegisterKind();
+  }
+
  private:
   HInstruction* const user_;
   HEnvironment* const environment_;
