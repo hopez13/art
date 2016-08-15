@@ -816,9 +816,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* arena,
 
   // Always use the Thumb-2 assembler: some runtime functionality
   // (like implicit stack overflow checks) assume Thumb-2.
-  if (instruction_set == kArm) {
-    instruction_set = kThumb2;
-  }
+  DCHECK(instruction_set != kArm);
 
   // Do not attempt to compile on architectures we do not support.
   if (!IsInstructionSetSupported(instruction_set)) {
