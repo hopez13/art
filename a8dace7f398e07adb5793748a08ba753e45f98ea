@@ -70,6 +70,24 @@
       "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e6cd5b9_b36eb894",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-15T17:55:50Z",
+      "side": 1,
+      "message": "Ok, so ldrd sounds ok to use here. If someone else will confirm for me that ldrd is ok to use here since it is a relatively important change (@igor?), I would love to switch to that (will save us time yay!).",
+      "parentUuid": "9e6cd5b9_d305f41c",
+      "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
