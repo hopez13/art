@@ -184,8 +184,9 @@ Runtime::Runtime()
       imt_conflict_method_(nullptr),
       imt_unimplemented_method_(nullptr),
       instruction_set_(kNone),
+      is_privileged_zygote_(false),
+      is_unprivileged_zygote_(false),
       compiler_callbacks_(nullptr),
-      is_zygote_(false),
       must_relocate_(false),
       is_concurrent_gc_enabled_(true),
       is_explicit_gc_disabled_(false),
@@ -639,7 +640,7 @@ bool Runtime::Start() {
 
   system_class_loader_ = CreateSystemClassLoader(this);
 
-  if (!is_zygote_) {
+  if (!IsZygote()) {
     if (is_native_bridge_loaded_) {
       PreInitializeNativeBridge(".");
     }
@@ -686,7 +687,7 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
 
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env, bool is_system_server, NativeBridgeAction action, const char* isa) {
-  is_zygote_ = false;
+  is_privileged_zygote_ = is_unprivileged_zygote_ = false;
 
   if (is_native_bridge_loaded_) {
     switch (action) {
@@ -725,7 +726,7 @@ void Runtime::InitNonZygoteOrPostFork(
 }
 
 void Runtime::StartSignalCatcher() {
-  if (!is_zygote_) {
+  if (!IsZygote()) {
     signal_catcher_ = new SignalCatcher(stack_trace_file_);
   }
 }
@@ -927,10 +928,12 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   class_path_string_ = runtime_options.ReleaseOrDefault(Opt::ClassPath);
   properties_ = runtime_options.ReleaseOrDefault(Opt::PropertiesList);
 
+  is_privileged_zygote_ = runtime_options.Exists(Opt::ZygotePrivileged);
+  is_unprivileged_zygote_ = runtime_options.Exists(Opt::ZygoteUnprivileged);
+
   compiler_callbacks_ = runtime_options.GetOrDefault(Opt::CompilerCallbacksPtr);
   patchoat_executable_ = runtime_options.ReleaseOrDefault(Opt::PatchOat);
   must_relocate_ = runtime_options.GetOrDefault(Opt::Relocate);
-  is_zygote_ = runtime_options.Exists(Opt::Zygote);
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
   dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::Dex2Oat);
   image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);

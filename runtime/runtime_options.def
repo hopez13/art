@@ -34,7 +34,8 @@
 //
 
 // Parse-able keys from the command line.
-RUNTIME_OPTIONS_KEY (Unit,                Zygote)
+RUNTIME_OPTIONS_KEY (Unit,                ZygotePrivileged)
+RUNTIME_OPTIONS_KEY (Unit,                ZygoteUnprivileged)
 RUNTIME_OPTIONS_KEY (Unit,                Help)
 RUNTIME_OPTIONS_KEY (Unit,                ShowVersion)
 RUNTIME_OPTIONS_KEY (std::string,         BootClassPath)

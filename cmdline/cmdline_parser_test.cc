@@ -211,7 +211,7 @@ TEST_F(CmdlineParserTest, TestSimpleSuccesses) {
     EXPECT_EQ(0u, args.Size());
   }
 
-  EXPECT_SINGLE_PARSE_EXISTS("-Xzygote", M::Zygote);
+  EXPECT_SINGLE_PARSE_EXISTS("-Xzygote-privileged", M::ZygotePrivileged);
   EXPECT_SINGLE_PARSE_VALUE_STR("/hello/world", "-Xbootclasspath:/hello/world", M::BootClassPath);
   EXPECT_SINGLE_PARSE_VALUE("/hello/world", "-Xbootclasspath:/hello/world", M::BootClassPath);
   EXPECT_SINGLE_PARSE_VALUE(Memory<1>(234), "-Xss234", M::StackSize);

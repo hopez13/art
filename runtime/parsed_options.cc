@@ -66,8 +66,10 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       std::unique_ptr<RuntimeParser::Builder>(new RuntimeParser::Builder());
 
   parser_builder->
-       Define("-Xzygote")
-          .IntoKey(M::Zygote)
+       Define("-Xzygote-privileged")
+          .IntoKey(M::ZygotePrivileged)
+      .Define("-Xzygote-unprivileged")
+          .IntoKey(M::ZygoteUnprivileged)
       .Define("-help")
           .IntoKey(M::Help)
       .Define("-showversion")
@@ -434,7 +436,8 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
                             bool ignore_unrecognized,
                             RuntimeArgumentMap* runtime_options) {
   for (size_t i = 0; i < options.size(); ++i) {
-    if (true && options[0].first == "-Xzygote") {
+    if (true && (options[0].first == "-Xzygote-privileged" ||
+                 options[0].first == "-Xzygote-unprivileged")) {
       LOG(INFO) << "option[" << i << "]=" << options[i].first;
     }
   }
@@ -477,6 +480,11 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
     Exit(0);
   } else if (args.Exists(M::BootClassPath)) {
     LOG(INFO) << "setting boot class path to " << *args.Get(M::BootClassPath);
+  }
+
+  if (args.Exists(M::ZygotePrivileged) && args.Exists(M::ZygoteUnprivileged)) {
+    Usage("-Xzygote-privileged and -Xzygote-unprivileged cannot be specified together");
+    Exit(0);
   }
 
   if (args.GetOrDefault(M::UseJitCompilation) && args.GetOrDefault(M::Interpret)) {
@@ -692,7 +700,8 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "\n");
 
   UsageMessage(stream, "The following Dalvik options are supported:\n");
-  UsageMessage(stream, "  -Xzygote\n");
+  UsageMessage(stream, "  -Xzygote-privileged\n");
+  UsageMessage(stream, "  -Xzygote-unprivileged\n");
   UsageMessage(stream, "  -Xjnitrace:substring (eg NativeClass or nativeMethod)\n");
   UsageMessage(stream, "  -Xstacktracefile:<filename>\n");
   UsageMessage(stream, "  -Xgc:[no]preverify\n");

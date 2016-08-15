@@ -164,7 +164,7 @@ while true; do
         GDB_ARGS="${GDB_ARGS} $gdb_arg"
         shift
     elif [ "x$1" = "x--zygote" ]; then
-        ZYGOTE="-Xzygote"
+        ZYGOTE="-Xzygote-privileged"
         msg "Spawning from zygote"
         shift
     elif [ "x$1" = "x--dev" ]; then

@@ -370,7 +370,7 @@ static bool ImageCreationAllowed(bool is_global_cache, std::string* error_msg) {
   }
 
   // Only the zygote is allowed to create the global boot image.
-  if (Runtime::Current()->IsZygote()) {
+  if (Runtime::Current()->IsPrivilegedZygote()) {
     return true;
   }
 
@@ -1410,7 +1410,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
 
   // Step 0.a: If we're the zygote, mark boot.
   const bool is_zygote = Runtime::Current()->IsZygote();
-  if (is_zygote && !secondary_image) {
+  if (is_zygote && !secondary_image && Runtime::Current()->IsPrivilegedZygote()) {
     MarkZygoteStart(image_isa, Runtime::Current()->GetZygoteMaxFailedBoots());
   }
 

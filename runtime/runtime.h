@@ -167,7 +167,15 @@ class Runtime {
   }
 
   bool IsZygote() const {
-    return is_zygote_;
+    return is_privileged_zygote_ || is_unprivileged_zygote_;
+  }
+
+  bool IsPrivilegedZygote() const {
+    return is_privileged_zygote_;
+  }
+
+  bool IsUnprivilegedZygote() const {
+    return is_unprivileged_zygote_;
   }
 
   bool IsExplicitGcDisabled() const {
@@ -696,8 +704,17 @@ class Runtime {
   InstructionSet instruction_set_;
   QuickMethodFrameInfo callee_save_method_frame_infos_[kLastCalleeSaveType];
 
+  // The runtime supports running a zygote process in one of two modes: privileged or
+  // unprivileged. Running in either mode restricts thread creation, so that it is safe to
+  // create child processes. When running in privileged mode, the runtime is assumed to be
+  // running in a process that has capabilities to perform privileged system operations, such
+  // as writing out the boot image and Dalvik cache. When running in unprivileged mode, the
+  // zygote assumes no special capabilities and is only used to spawn child processes. If either
+  // flag is true, the process is a zygote.
+  bool is_privileged_zygote_;
+  bool is_unprivileged_zygote_;
+
   CompilerCallbacks* compiler_callbacks_;
-  bool is_zygote_;
   bool must_relocate_;
   bool is_concurrent_gc_enabled_;
   bool is_explicit_gc_disabled_;
