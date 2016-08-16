@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dbdd7f2d_bd4fdf90",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-16T20:52:32Z",
+      "side": 1,
+      "message": "This should not be necessary. Is that a rebase artifact, anyways? If not, it should have nothing to do with this CL...",
+      "range": {
+        "startLine": 416,
+        "startChar": 85,
+        "endLine": 416,
+        "endChar": 94
+      },
+      "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b1e9ba6_eecb7bba",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
