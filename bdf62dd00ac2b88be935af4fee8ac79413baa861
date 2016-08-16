@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fb8163c9_f9b373e2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-16T17:57:08Z",
+      "side": 1,
+      "message": "Also, this ARM slow path is broken since https://android-review.googlesource.com/#/c/256174, which disables the ReadBarrierMarkReg12 on ARM (to make IP free for internal computations).  Will fix in an upcoming patch set.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 93
+      },
+      "revId": "bdf62dd00ac2b88be935af4fee8ac79413baa861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b69d7e4_97cb24bc",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 7
