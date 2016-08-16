@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_06f7a0ef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-16T23:36:19Z",
+      "side": 1,
+      "message": "Would it make sense to clear the card table / mod union for the boot image at the same time in case there\u0027s a zygote large object pointed to from the boot image?",
+      "range": {
+        "startLine": 2561,
+        "startChar": 22,
+        "endLine": 2561,
+        "endChar": 52
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_66d5c4b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
