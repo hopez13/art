@@ -106,6 +106,24 @@
       "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b8573c7_82a8ba71",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-16T06:38:47Z",
+      "side": 1,
+      "message": "AFAIK, the implication is that 64-bit aligned LDRD/STRD are atomic. I will double check with the local expert when he comes in today. And this will likely deserve a comment in the code!",
+      "parentUuid": "9e6cd5b9_f9ee4fb3",
+      "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
