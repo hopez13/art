@@ -124,6 +124,24 @@
       "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b8573c7_42f07291",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-16T08:47:18Z",
+      "side": 1,
+      "message": "Confirmed with our Linux Kernel memory expert: with LPAE, if the access is 64-bit aligned, it will be atomic.\n\nIn the ARM ARM, this is described by the note under what you found in section 3.5.3:\n\n\"The system designer must ensure that all writable memory locations that might be used to hold translations,\nsuch as bulk SDRAM, can be accessed with 64-bit single-copy atomicity.\"",
+      "parentUuid": "7b8573c7_82a8ba71",
+      "revId": "a8dace7f398e07adb5793748a08ba753e45f98ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
