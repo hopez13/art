@@ -22,6 +22,30 @@
       "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b1e9ba6_88d59746",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-16T18:32:23Z",
+      "side": 1,
+      "message": "I think it\u0027s reasonable to be a static_assert because it does make the assumption it\u0027s 8 byte aligned in the asm code",
+      "parentUuid": "3bd93b0e_b7c5e73a",
+      "range": {
+        "startLine": 2100,
+        "startChar": 2,
+        "endLine": 2100,
+        "endChar": 12
+      },
+      "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
