@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3bd93b0e_a5b134f4",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-16T17:28:14Z",
+      "side": 1,
+      "message": "Should this go into ColoringIteration, then?",
+      "range": {
+        "startLine": 668,
+        "startChar": 8,
+        "endLine": 668,
+        "endChar": 57
+      },
+      "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
