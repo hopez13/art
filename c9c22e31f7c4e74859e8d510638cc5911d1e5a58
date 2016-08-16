@@ -16,6 +16,24 @@
       "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_5d609b08",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-16T20:50:23Z",
+      "side": 1,
+      "message": "Filling holes when layouting a Java object, I assume. I think we do references first, then 8B, then 4B, 2B, 1B. But the 4B may fill earlier holes caused by alignment padding.",
+      "parentUuid": "3b1e9ba6_eecb7bba",
+      "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
