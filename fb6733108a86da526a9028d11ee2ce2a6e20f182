@@ -22,6 +22,23 @@
       "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b1e9ba6_ae4863ba",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-08-16T19:33:46Z",
+      "side": 1,
+      "message": "Can you use a set in AllocateSpillSlot() so you don\u0027t push if it\u0027s already in the set? Then you don\u0027t need this method.",
+      "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
