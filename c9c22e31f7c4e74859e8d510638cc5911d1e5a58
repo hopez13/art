@@ -57,6 +57,24 @@
       "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_0095c831",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-16T21:11:56Z",
+      "side": 1,
+      "message": "Oh ok that.. wonderful.\n\nCould probably turn the layouting into a constexpr and reuse it..hmm..",
+      "parentUuid": "dbdd7f2d_5d609b08",
+      "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
