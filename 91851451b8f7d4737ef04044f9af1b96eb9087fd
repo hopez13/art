@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_a6a7ccb6",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T00:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_867bb0ec",
+      "range": {
+        "startLine": 392,
+        "startChar": 8,
+        "endLine": 392,
+        "endChar": 14
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_c6993818",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-16T23:23:54Z",
       "side": 1,
       "message": "non immune object -\u003e non immune, non zygote large object?",
+      "range": {
+        "startLine": 394,
+        "startChar": 43,
+        "endLine": 394,
+        "endChar": 53
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_e6b1d4f3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T00:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_c6993818",
       "range": {
         "startLine": 394,
         "startChar": 43,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_0688801d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T00:04:45Z",
+      "side": 1,
+      "message": "True, this used to be during GC marking phase so I had it atomic to deal with read barriers possibly also marking.",
+      "parentUuid": "dbdd7f2d_86065077",
+      "range": {
+        "startLine": 1468,
+        "startChar": 19,
+        "endLine": 1468,
+        "endChar": 35
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_06f7a0ef",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_266bbc87",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T00:04:45Z",
+      "side": 1,
+      "message": "Good idea, this could also help if there are large objects being held live from image space.",
+      "parentUuid": "dbdd7f2d_06f7a0ef",
+      "range": {
+        "startLine": 2561,
+        "startChar": 22,
+        "endLine": 2561,
+        "endChar": 52
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_66d5c4b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-08-16T23:23:54Z",
       "side": 1,
       "message": "Should we keep this FilterCards() call here for non-CC cases? Update the comment because this code is not for CC any more?",
+      "range": {
+        "startLine": 2566,
+        "startChar": 49,
+        "endLine": 2566,
+        "endChar": 80
+      },
+      "revId": "91851451b8f7d4737ef04044f9af1b96eb9087fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_065de0f0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2566,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T00:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_66d5c4b6",
       "range": {
         "startLine": 2566,
         "startChar": 49,
