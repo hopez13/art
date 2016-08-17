@@ -11,7 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License.
+5B * limitations under the License.
  */
 
 #include "dex_file.h"
@@ -231,6 +231,18 @@ std::unique_ptr<const DexFile> DexFile::Open(const uint8_t* base, size_t size,
     return nullptr;
   }
 
+  return dex_file;
+}
+
+std::unique_ptr<const DexFile> DexFile::Open(const std::string& location,
+                                             uint32_t location_checksum,
+                                             MemMap* mem_map,
+                                             std::string* error_msg) {
+  std::unique_ptr<const DexFile> dex_file = OpenMemory(location,
+                                                       location_checksum,
+                                                       mem_map,
+                                                       error_msg);
+  // TODO(oth): review location, location_checksum, & verification.
   return dex_file;
 }
 
