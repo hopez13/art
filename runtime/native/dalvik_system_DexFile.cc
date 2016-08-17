@@ -26,6 +26,7 @@
 #include "compiler_filter.h"
 #include "dex_file-inl.h"
 #include "jni_internal.h"
+#include "mem_map.h"
 #include "mirror/class_loader.h"
 #include "mirror/object-inl.h"
 #include "mirror/string.h"
@@ -151,6 +152,63 @@ class NullableScopedUtfChars {
   NullableScopedUtfChars(const NullableScopedUtfChars&);
   void operator=(const NullableScopedUtfChars&);
 };
+
+static jobject DexFile_openDexFileBuffer(JNIEnv* env,
+                                         jclass,
+                                         jobject dexFileBuffer,
+                                         jint start,
+                                         jint end,
+                                         jint flags ATTRIBUTE_UNUSED,
+                                         jobject class_loader ATTRIBUTE_UNUSED) {
+  // TODO: decide on location handling and figure out implications of location checksum.
+  static const char* LOCATION_NAME = "dummy-location";
+
+  // Acquire mutator lock
+  ScopedObjectAccess soa(env);
+
+  uint8_t* directAddress = reinterpret_cast<uint8_t*>(env->GetDirectBufferAddress(dexFileBuffer));
+  if (directAddress == nullptr) {
+    ThrowWrappedIOException("dexFileBuffer not direct");
+    return nullptr;
+  }
+
+  if (end <= start) {
+    ThrowWrappedIOException("dexFileBuffer bad range");
+    return nullptr;
+  }
+
+  // Make a private copy of the data to mitigate risks of tampering with the data and
+  // ensure appropriate alignment.
+  std::string error_message;
+  MemMap* allocated_map = MemMap::MapAnonymous(LOCATION_NAME,
+                                               nullptr,
+                                               end - start,
+                                               PROT_READ | PROT_WRITE,
+                                               false,
+                                               false,
+                                               &error_message);
+  if (allocated_map == nullptr) {
+    ThrowWrappedIOException("%s", error_message.c_str());
+    return nullptr;
+  }
+  memcpy(allocated_map->Begin(), directAddress + start, end - start);
+
+  std::unique_ptr<const DexFile> dex_file(DexFile::Open(
+      LOCATION_NAME, 0, allocated_map, &error_message));
+  if (dex_file.get() == nullptr) {
+    ThrowWrappedIOException("%s", error_message.c_str());
+    return nullptr;
+  }
+
+  if (!dex_file->DisableWrite()) {
+    ThrowWrappedIOException("Failed to make image read-only");
+    return nullptr;
+  }
+
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  dex_files.push_back(std::move(dex_file));
+  return ConvertDexFilesToJavaArray(env, nullptr, dex_files);
+}
 
 static jobject DexFile_openDexFileNative(JNIEnv* env,
                                          jclass,
@@ -600,6 +658,11 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(DexFile, isDexOptNeeded, "(Ljava/lang/String;)Z"),
   NATIVE_METHOD(DexFile, getDexOptNeeded,
                 "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I"),
+  NATIVE_METHOD(DexFile, openDexFileBuffer,
+                "(Ljava/nio/ByteBuffer;"
+                "III"
+                "Ljava/lang/ClassLoader;"
+                ")Ljava/lang/Object;"),
   NATIVE_METHOD(DexFile, openDexFileNative,
                 "(Ljava/lang/String;"
                 "Ljava/lang/String;"
