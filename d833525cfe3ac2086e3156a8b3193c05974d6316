@@ -117,6 +117,30 @@
       "revId": "d833525cfe3ac2086e3156a8b3193c05974d6316",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_52cde263",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-17T15:48:12Z",
+      "side": 1,
+      "message": "Yes, I saw this before. And yes, it could be INTERNAL_FATAL, which at least on the host has some special handling to print early (because we had breakage in the middle of evaluation and didn\u0027t see anything). Maybe file a bug, and assign to mathieuc. :-)",
+      "parentUuid": "3bacdb9a_58141d4b",
+      "range": {
+        "startLine": 450,
+        "startChar": 10,
+        "endLine": 450,
+        "endChar": 24
+      },
+      "revId": "d833525cfe3ac2086e3156a8b3193c05974d6316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
