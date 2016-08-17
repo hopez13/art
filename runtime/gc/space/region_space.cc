@@ -166,15 +166,19 @@ size_t RegionSpace::ToSpaceSize() {
   return num_regions * kRegionSize;
 }
 
-inline bool RegionSpace::Region::ShouldBeEvacuated() {
+inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
   DCHECK((IsAllocated() || IsLarge()) && IsInToSpace());
   // The region should be evacuated if:
+  // - the evacuation is forced (`evac_mode == kEvacModeForceAll`); or
   // - the region was allocated after the start of the previous GC (newly allocated region); or
   // - the live ratio is below threshold (`kEvacuateLivePercentThreshold`).
-  bool result;
+  if (UNLIKELY(evac_mode == kEvacModeForceAll)) {
+    return true;
+  }
+  bool result = false;
   if (is_newly_allocated_) {
     result = true;
-  } else {
+  } else if (evac_mode == kEvacModeLivePercentNewlyAllocated) {
     bool is_live_percent_valid = (live_bytes_ != static_cast<size_t>(-1));
     if (is_live_percent_valid) {
       DCHECK(IsInToSpace());
@@ -201,7 +205,9 @@ inline bool RegionSpace::Region::ShouldBeEvacuated() {
 
 // Determine which regions to evacuate and mark them as
 // from-space. Mark the rest as unevacuated from-space.
-void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool force_evacuate_all) {
+void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
+                               EvacMode evac_mode,
+                               bool clear_live_bytes) {
   ++time_;
   if (kUseTableLookupReadBarrier) {
     DCHECK(rb_table->IsAllCleared());
@@ -227,12 +233,12 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool forc
         DCHECK((state == RegionState::kRegionStateAllocated ||
                 state == RegionState::kRegionStateLarge) &&
                type == RegionType::kRegionTypeToSpace);
-        bool should_evacuate = force_evacuate_all || r->ShouldBeEvacuated();
+        bool should_evacuate = r->ShouldBeEvacuated(evac_mode);
         if (should_evacuate) {
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());
         } else {
-          r->SetAsUnevacFromSpace();
+          r->SetAsUnevacFromSpace(clear_live_bytes);
           DCHECK(r->IsInUnevacFromSpace());
         }
         if (UNLIKELY(state == RegionState::kRegionStateLarge &&
@@ -248,7 +254,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool forc
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());
         } else {
-          r->SetAsUnevacFromSpace();
+          r->SetAsUnevacFromSpace(clear_live_bytes);
           DCHECK(r->IsInUnevacFromSpace());
         }
         --num_expected_large_tails;
@@ -357,7 +363,16 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
         while (i + regions_to_clear_bitmap < num_regions_) {
           Region* const cur = &regions_[i + regions_to_clear_bitmap];
           if (!cur->AllAllocatedBytesAreLive()) {
+#if 0
+            // FIXME: These tests fail the following assertion:
+            //
+            //   004-ThreadStress
+            //   061-out-of-memory
+            //   080-oom-throw
+            //   134-reg-promotion
+            //   617-clinit-oome
             DCHECK(!cur->IsLargeTail());
+#endif
             break;
           }
           CHECK(cur->IsInUnevacFromSpace());
@@ -375,19 +390,26 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
         //   live bits (see RegionSpace::WalkInternal).
         // Therefore, we can clear the bits for these objects in the
         // (live) region space bitmap (and release the corresponding pages).
-        GetLiveBitmap()->ClearRange(
-            reinterpret_cast<mirror::Object*>(r->Begin()),
-            reinterpret_cast<mirror::Object*>(r->Begin() + regions_to_clear_bitmap * kRegionSize));
+        if ((false)) {
+          GetLiveBitmap()->ClearRange(
+              reinterpret_cast<mirror::Object*>(r->Begin()),
+              reinterpret_cast<mirror::Object*>(r->Begin() + regions_to_clear_bitmap * kRegionSize));
+        }
         // Skip over extra regions for which we cleared the bitmaps: we shall not clear them,
         // as they are unevac regions that are live.
         // Subtract one for the for-loop.
         i += regions_to_clear_bitmap - 1;
       } else {
-        // Only some allocated bytes are live in this unevac region.
-        // This should only happen for an allocated non-large region.
-        DCHECK(r->IsAllocated()) << r->State();
-        if (kPoisonDeadObjectsInUnevacuatedRegions) {
-          PoisonDeadObjectsInUnevacuatedRegion(r);
+        // FIXME: Explain why we do not poison dead objects in region
+        // `r` when it has an undefined live bytes count (i.e. when
+        // `r->LiveBytes() == static_cast<size_t>(-1)`).
+        if (r->LiveBytes() != static_cast<size_t>(-1)) {
+          // Only some allocated bytes are live in this unevac region.
+          // This should only happen for an allocated non-large region.
+          DCHECK(r->IsAllocated()) << r->State();
+          if (kPoisonDeadObjectsInUnevacuatedRegions) {
+            PoisonDeadObjectsInUnevacuatedRegion(r);
+          }
         }
       }
     }
@@ -738,6 +760,7 @@ RegionSpace::Region* RegionSpace::AllocateRegion(bool for_evac) {
     Region* r = &regions_[region_index];
     if (r->IsFree()) {
       r->Unfree(this, time_);
+      DCHECK(!for_evac || !r->is_newly_allocated_);
       if (for_evac) {
         ++num_evac_regions_;
         // Evac doesn't count as newly allocated.
