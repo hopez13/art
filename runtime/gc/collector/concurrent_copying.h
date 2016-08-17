@@ -66,6 +66,7 @@ class ConcurrentCopying : public GarbageCollector {
   static constexpr bool kGrayDirtyImmuneObjects = true;
 
   explicit ConcurrentCopying(Heap* heap,
+                             bool young_gen,
                              const std::string& name_prefix = "",
                              bool measure_read_barrier_slow_path = false);
   ~ConcurrentCopying();
@@ -87,7 +88,7 @@ class ConcurrentCopying : public GarbageCollector {
   void BindBitmaps() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   virtual GcType GetGcType() const OVERRIDE {
-    return kGcTypePartial;
+    return young_gen_ ? kGcTypeSticky : kGcTypePartial;
   }
   virtual CollectorType GetCollectorType() const OVERRIDE {
     return kCollectorTypeCC;
@@ -108,7 +109,7 @@ class ConcurrentCopying : public GarbageCollector {
     DCHECK(ref != nullptr);
     return IsMarked(ref) == ref;
   }
-  template<bool kGrayImmuneObject = true, bool kFromGCThread = false>
+  template<bool kGrayImmuneObject = true, bool kNoUnEvac = false, bool kFromGCThread = false>
   ALWAYS_INLINE mirror::Object* Mark(mirror::Object* from_ref,
                                      mirror::Object* holder = nullptr,
                                      MemberOffset offset = MemberOffset(0))
@@ -148,8 +149,10 @@ class ConcurrentCopying : public GarbageCollector {
                        MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);
+  template <bool kNoUnEvac>
   void Scan(mirror::Object* to_ref) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
+  template <bool kNoUnEvac>
   void Process(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_ , !skipped_blocks_lock_, !immune_gray_stack_lock_);
@@ -308,6 +311,10 @@ class ConcurrentCopying : public GarbageCollector {
   Atomic<uint64_t> cumulative_bytes_moved_;
   Atomic<uint64_t> cumulative_objects_moved_;
 
+  // Generational "sticky", only trace through dirty objects in region space.
+  const bool young_gen_;
+  Atomic<bool> done_scanning_;
+
   // The skipped blocks are memory blocks/chucks that were copies of
   // objects that were unused due to lost races (cas failures) at
   // object copy/forward pointer install. They are reused.
@@ -355,7 +362,7 @@ class ConcurrentCopying : public GarbageCollector {
   template <bool kConcurrent> class GrayImmuneObjectVisitor;
   class ImmuneSpaceScanObjVisitor;
   class LostCopyVisitor;
-  class RefFieldsVisitor;
+  template <bool kNoUnEvac> class RefFieldsVisitor;
   class RevokeThreadLocalMarkStackCheckpoint;
   class ScopedGcGraysImmuneObjects;
   class ThreadFlipVisitor;
