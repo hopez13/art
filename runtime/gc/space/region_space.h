@@ -31,6 +31,12 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
  public:
   typedef void(*WalkCallback)(void *start, void *end, size_t num_bytes, void* callback_arg);
 
+  enum EvacMode {
+    kEvacModeNewlyAllocated,
+    kEvacModeLivePercentNewlyAllocated,
+    kEvacModeForceAll,
+  };
+
   SpaceType GetType() const OVERRIDE {
     return kSpaceTypeRegionSpace;
   }
@@ -77,18 +83,17 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
     return 0;
   }
   accounting::ContinuousSpaceBitmap* GetLiveBitmap() const OVERRIDE {
-    // No live bitmap.
-    return nullptr;
+    return mark_bitmap_.get();
   }
   accounting::ContinuousSpaceBitmap* GetMarkBitmap() const OVERRIDE {
-    // No mark bitmap.
-    return nullptr;
+    return mark_bitmap_.get();
   }
 
   void Clear() OVERRIDE REQUIRES(!region_lock_);
 
   void Dump(std::ostream& os) const;
   void DumpRegions(std::ostream& os) REQUIRES(!region_lock_);
+  void DumpRegionForObject(std::ostream& os, mirror::Object* obj) REQUIRES(!region_lock_);
   void DumpNonFreeRegions(std::ostream& os) REQUIRES(!region_lock_);
 
   size_t RevokeThreadLocalBuffers(Thread* thread) REQUIRES(!region_lock_);
@@ -186,6 +191,14 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
     return false;
   }
 
+  bool IsLargeObject(mirror::Object* ref) {
+    if (HasAddress(ref)) {
+      Region* r = RefToRegionUnlocked(ref);
+      return r->IsLarge();
+    }
+    return false;
+  }
+
   bool IsInToSpace(mirror::Object* ref) {
     if (HasAddress(ref)) {
       Region* r = RefToRegionUnlocked(ref);
@@ -202,7 +215,24 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
     return RegionType::kRegionTypeNone;
   }
 
-  void SetFromSpace(accounting::ReadBarrierTable* rb_table, bool force_evacuate_all)
+  bool IsInNewlyAllocatedRegion(mirror::Object* ref) {
+    if (HasAddress(ref)) {
+      Region* r = RefToRegionUnlocked(ref);
+      return r->IsNewlyAllocated();
+    }
+    return false;
+  }
+
+  // Zero live bytes for a large object, used by young gen CC for marking newly allocated large
+  // objects.
+  void ZeroLiveBytesForLargeObject(mirror::Object* ref) {
+    DCHECK(IsLargeObject(ref));
+    RefToRegionUnlocked(ref)->ZeroLiveBytes();
+  }
+
+  void SetFromSpace(accounting::ReadBarrierTable* rb_table,
+                    EvacMode evac_mode,
+                    bool clear_live_bytes)
       REQUIRES(!region_lock_);
 
   size_t FromSpaceSize() REQUIRES(!region_lock_);
@@ -335,6 +365,10 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
       return is_large;
     }
 
+    void ZeroLiveBytes() {
+      live_bytes_ = 0;
+    }
+
     // Large-tail allocated.
     bool IsLargeTail() const {
       bool is_large_tail = state_ == RegionState::kRegionStateLargeTail;
@@ -364,24 +398,31 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
       return type_ == RegionType::kRegionTypeNone;
     }
 
+    bool IsNewlyAllocated() const {
+      return is_newly_allocated_;
+    }
+
     void SetAsFromSpace() {
       DCHECK(!IsFree() && IsInToSpace());
       type_ = RegionType::kRegionTypeFromSpace;
       live_bytes_ = static_cast<size_t>(-1);
     }
 
-    void SetAsUnevacFromSpace() {
+    void SetAsUnevacFromSpace(bool clear_live_bytes) {
       DCHECK(!IsFree() && IsInToSpace());
       type_ = RegionType::kRegionTypeUnevacFromSpace;
-      live_bytes_ = 0U;
+      if (clear_live_bytes) {
+        live_bytes_ = 0;
+      }
     }
 
     void SetUnevacFromSpaceAsToSpace() {
       DCHECK(!IsFree() && IsInUnevacFromSpace());
       type_ = RegionType::kRegionTypeToSpace;
+      is_newly_allocated_ = false;
     }
 
-    ALWAYS_INLINE bool ShouldBeEvacuated();
+    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode);
 
     void AddLiveBytes(size_t live_bytes) {
       DCHECK(IsInUnevacFromSpace());
@@ -515,7 +556,8 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
   Region* current_region_;         // The region that's being allocated currently.
   Region* evac_region_;            // The region that's being evacuated to currently.
   Region full_region_;             // The dummy/sentinel region that looks full.
-
+  // Mark bitmap used by the GC.
+  std::unique_ptr<accounting::ContinuousSpaceBitmap> mark_bitmap_;
   DISALLOW_COPY_AND_ASSIGN(RegionSpace);
 };
 

@@ -1527,6 +1527,12 @@ void Thread::DumpJavaStack(std::ostream& os) const {
   }
 }
 
+void Thread::DumpNativeStack(std::ostream& os, BacktraceMap* backtrace_map) const {
+  bool dump_for_abort = (gAborting > 0);
+  ArtMethod* method = GetCurrentMethod(nullptr, !dump_for_abort);
+  art::DumpNativeStack(os, GetTid(), backtrace_map, "  native: ", method);
+}
+
 void Thread::DumpStack(std::ostream& os,
                        bool dump_native_stack,
                        BacktraceMap* backtrace_map) const {
@@ -1544,8 +1550,7 @@ void Thread::DumpStack(std::ostream& os,
     // If we're currently in native code, dump that stack before dumping the managed stack.
     if (dump_native_stack && (dump_for_abort || ShouldShowNativeStack(this))) {
       DumpKernelStack(os, GetTid(), "  kernel: ", false);
-      ArtMethod* method = GetCurrentMethod(nullptr, !dump_for_abort);
-      DumpNativeStack(os, GetTid(), backtrace_map, "  native: ", method);
+      DumpNativeStack(os, backtrace_map);
     }
     DumpJavaStack(os);
   } else {

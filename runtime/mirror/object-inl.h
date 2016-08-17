@@ -910,6 +910,9 @@ inline void Object::SetFieldObjectWithoutWriteBarrier(MemberOffset field_offset,
   if (kVerifyFlags & kVerifyThis) {
     VerifyObject(this);
   }
+  if (kIsDebugBuild) {
+    ReadBarrier::AssertToSpaceInvariant(new_value);
+  }
   if (kVerifyFlags & kVerifyWrites) {
     VerifyObject(new_value);
   }

@@ -232,6 +232,8 @@ Heap::Heap(size_t initial_size,
       disable_moving_gc_count_(0),
       semi_space_collector_(nullptr),
       mark_compact_collector_(nullptr),
+      active_concurrent_copying_collector_(nullptr),
+      young_concurrent_copying_collector_(nullptr),
       concurrent_copying_collector_(nullptr),
       is_running_on_memory_tool_(Runtime::Current()->IsRunningOnMemoryTool()),
       use_tlab_(use_tlab),
@@ -606,9 +608,17 @@ Heap::Heap(size_t initial_size,
     }
     if (MayUseCollector(kCollectorTypeCC)) {
       concurrent_copying_collector_ = new collector::ConcurrentCopying(this,
+                                                                       /*young_gen*/false,
                                                                        "",
                                                                        measure_gc_performance);
+      young_concurrent_copying_collector_ = new collector::ConcurrentCopying(
+          this,
+          /*young_gen*/true,
+          "young",
+          measure_gc_performance);
+      active_concurrent_copying_collector_ = concurrent_copying_collector_;
       garbage_collectors_.push_back(concurrent_copying_collector_);
+      garbage_collectors_.push_back(young_concurrent_copying_collector_);
     }
     if (MayUseCollector(kCollectorTypeMC)) {
       mark_compact_collector_ = new collector::MarkCompact(this);
@@ -1088,7 +1098,7 @@ void Heap::AddSpace(space::Space* space) {
     // Continuous spaces don't necessarily have bitmaps.
     accounting::ContinuousSpaceBitmap* live_bitmap = continuous_space->GetLiveBitmap();
     accounting::ContinuousSpaceBitmap* mark_bitmap = continuous_space->GetMarkBitmap();
-    if (live_bitmap != nullptr) {
+    if (live_bitmap != nullptr && !space->IsRegionSpace()) {
       CHECK(mark_bitmap != nullptr);
       live_bitmap_->AddContinuousSpaceBitmap(live_bitmap);
       mark_bitmap_->AddContinuousSpaceBitmap(mark_bitmap);
@@ -1129,7 +1139,7 @@ void Heap::RemoveSpace(space::Space* space) {
     // Continuous spaces don't necessarily have bitmaps.
     accounting::ContinuousSpaceBitmap* live_bitmap = continuous_space->GetLiveBitmap();
     accounting::ContinuousSpaceBitmap* mark_bitmap = continuous_space->GetMarkBitmap();
-    if (live_bitmap != nullptr) {
+    if (live_bitmap != nullptr && !space->IsRegionSpace()) {
       DCHECK(mark_bitmap != nullptr);
       live_bitmap_->RemoveContinuousSpaceBitmap(live_bitmap);
       mark_bitmap_->RemoveContinuousSpaceBitmap(mark_bitmap);
@@ -2291,6 +2301,7 @@ void Heap::ChangeCollector(CollectorType collector_type) {
     gc_plan_.clear();
     switch (collector_type_) {
       case kCollectorTypeCC: {
+        gc_plan_.push_back(collector::kGcTypeSticky);
         gc_plan_.push_back(collector::kGcTypeFull);
         if (use_tlab_) {
           ChangeAllocator(kAllocatorTypeRegionTLAB);
@@ -2331,7 +2342,8 @@ void Heap::ChangeCollector(CollectorType collector_type) {
     }
     if (IsGcConcurrent()) {
       concurrent_start_bytes_ =
-          std::max(max_allowed_footprint_, kMinConcurrentRemainingBytes) - kMinConcurrentRemainingBytes;
+          std::max(max_allowed_footprint_, kMinConcurrentRemainingBytes) -
+          kMinConcurrentRemainingBytes;
     } else {
       concurrent_start_bytes_ = std::numeric_limits<size_t>::max();
     }
@@ -2519,6 +2531,9 @@ void Heap::PreZygoteFork() {
     } else {
       if (collector_type_ == kCollectorTypeCC) {
         region_space_->GetMemMap()->Protect(PROT_READ | PROT_WRITE);
+        // Evacuated everything out of the region space, clear the mark bitmap in case the next GC
+        // is young gen.
+        region_space_->GetMarkBitmap()->Clear();
       } else {
         bump_pointer_space_->GetMemMap()->Protect(PROT_READ | PROT_WRITE);
       }
@@ -2734,8 +2749,12 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
         collector = semi_space_collector_;
         break;
       case kCollectorTypeCC:
-        concurrent_copying_collector_->SetRegionSpace(region_space_);
-        collector = concurrent_copying_collector_;
+        // TODO: Other threads must do the flip checkpoint before they start poking at
+        // active_concurrent_copying_collector_. So we should not concurrency here.
+        active_concurrent_copying_collector_ = (gc_type == collector::kGcTypeSticky) ?
+            young_concurrent_copying_collector_ : concurrent_copying_collector_;
+        active_concurrent_copying_collector_->SetRegionSpace(region_space_);
+        collector = active_concurrent_copying_collector_;
         break;
       case kCollectorTypeMC:
         mark_compact_collector_->SetSpace(bump_pointer_space_);
@@ -2744,7 +2763,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
       default:
         LOG(FATAL) << "Invalid collector type " << static_cast<size_t>(collector_type_);
     }
-    if (collector != mark_compact_collector_ && collector != concurrent_copying_collector_) {
+    if (collector != mark_compact_collector_ && collector != active_concurrent_copying_collector_) {
       temp_space_->GetMemMap()->Protect(PROT_READ | PROT_WRITE);
       if (kIsDebugBuild) {
         // Try to read each page of the memory map in case mprotect didn't work properly b/19894268.
@@ -3631,6 +3650,10 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
         HasZygoteSpace() ? collector::kGcTypePartial : collector::kGcTypeFull;
     // Find what the next non sticky collector will be.
     collector::GarbageCollector* non_sticky_collector = FindCollectorByGcType(non_sticky_gc_type);
+    if (non_sticky_collector == nullptr) {
+      non_sticky_collector = FindCollectorByGcType(collector::kGcTypePartial);
+    }
+    CHECK(non_sticky_collector != nullptr);
     // If the throughput of the current sticky GC >= throughput of the non sticky collector, then
     // do another sticky collection next.
     // We also check that the bytes allocated aren't over the footprint limit in order to prevent a

@@ -193,6 +193,15 @@ class Thread {
       REQUIRES(!Locks::thread_suspend_count_lock_)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
+  void DumpNativeStack(std::ostream& os, BacktraceMap* backtrace_map) const
+      SHARED_REQUIRES(Locks::mutator_lock_);
+
+  void DumpStack(std::ostream& os,
+                 bool dump_native_stack = true,
+                 BacktraceMap* backtrace_map = nullptr) const
+      REQUIRES(!Locks::thread_suspend_count_lock_)
+      SHARED_REQUIRES(Locks::mutator_lock_);
+
   void DumpJavaStack(std::ostream& os) const
       REQUIRES(!Locks::thread_suspend_count_lock_)
       SHARED_REQUIRES(Locks::mutator_lock_);
@@ -1151,11 +1160,6 @@ class Thread {
   void VerifyStackImpl() SHARED_REQUIRES(Locks::mutator_lock_);
 
   void DumpState(std::ostream& os) const SHARED_REQUIRES(Locks::mutator_lock_);
-  void DumpStack(std::ostream& os,
-                 bool dump_native_stack = true,
-                 BacktraceMap* backtrace_map = nullptr) const
-      REQUIRES(!Locks::thread_suspend_count_lock_)
-      SHARED_REQUIRES(Locks::mutator_lock_);
 
   // Out-of-line conveniences for debugging in gdb.
   static Thread* CurrentFromGdb();  // Like Thread::Current.

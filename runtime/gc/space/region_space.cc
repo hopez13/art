@@ -59,6 +59,8 @@ RegionSpace::RegionSpace(const std::string& name, MemMap* mem_map)
   for (size_t i = 0; i < num_regions_; ++i, region_addr += kRegionSize) {
     regions_[i] = Region(i, region_addr, region_addr + kRegionSize);
   }
+  mark_bitmap_.reset(
+      accounting::ContinuousSpaceBitmap::Create("cc region space bitmap", Begin(), Capacity()));
   if (kIsDebugBuild) {
     CHECK_EQ(regions_[0].Begin(), Begin());
     for (size_t i = 0; i < num_regions_; ++i) {
@@ -115,15 +117,18 @@ size_t RegionSpace::ToSpaceSize() {
   return num_regions * kRegionSize;
 }
 
-inline bool RegionSpace::Region::ShouldBeEvacuated() {
+inline bool RegionSpace::Region::ShouldBeEvacuated(EvacMode evac_mode) {
   DCHECK((IsAllocated() || IsLarge()) && IsInToSpace());
   // if the region was allocated after the start of the
   // previous GC or the live ratio is below threshold, evacuate
   // it.
-  bool result;
+  if (UNLIKELY(evac_mode == kEvacModeForceAll)) {
+    return true;
+  }
+  bool result = false;
   if (is_newly_allocated_) {
     result = true;
-  } else {
+  } else if (evac_mode == kEvacModeLivePercentNewlyAllocated) {
     bool is_live_percent_valid = live_bytes_ != static_cast<size_t>(-1);
     if (is_live_percent_valid) {
       DCHECK(IsInToSpace());
@@ -150,7 +155,9 @@ inline bool RegionSpace::Region::ShouldBeEvacuated() {
 
 // Determine which regions to evacuate and mark them as
 // from-space. Mark the rest as unevacuated from-space.
-void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool force_evacuate_all) {
+void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
+                               EvacMode evac_mode,
+                               bool clear_live_bytes) {
   ++time_;
   if (kUseTableLookupReadBarrier) {
     DCHECK(rb_table->IsAllCleared());
@@ -169,12 +176,12 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool forc
         DCHECK((state == RegionState::kRegionStateAllocated ||
                 state == RegionState::kRegionStateLarge) &&
                type == RegionType::kRegionTypeToSpace);
-        bool should_evacuate = force_evacuate_all || r->ShouldBeEvacuated();
+        bool should_evacuate = r->ShouldBeEvacuated(evac_mode);
         if (should_evacuate) {
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());
         } else {
-          r->SetAsUnevacFromSpace();
+          r->SetAsUnevacFromSpace(clear_live_bytes);
           DCHECK(r->IsInUnevacFromSpace());
         }
         if (UNLIKELY(state == RegionState::kRegionStateLarge &&
@@ -190,7 +197,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool forc
           r->SetAsFromSpace();
           DCHECK(r->IsInFromSpace());
         } else {
-          r->SetAsUnevacFromSpace();
+          r->SetAsUnevacFromSpace(clear_live_bytes);
           DCHECK(r->IsInUnevacFromSpace());
         }
         --num_expected_large_tails;
@@ -303,6 +310,12 @@ void RegionSpace::FreeLarge(mirror::Object* large_obj, size_t bytes_allocated) {
   }
 }
 
+void RegionSpace::DumpRegionForObject(std::ostream& os, mirror::Object* obj) {
+  CHECK(HasAddress(obj));
+  MutexLock mu(Thread::Current(), region_lock_);
+  RefToRegionUnlocked(obj)->Dump(os);
+}
+
 void RegionSpace::DumpRegions(std::ostream& os) {
   MutexLock mu(Thread::Current(), region_lock_);
   for (size_t i = 0; i < num_regions_; ++i) {
@@ -338,8 +351,7 @@ bool RegionSpace::AllocNewTlab(Thread* self) {
     if (r->IsFree()) {
       r->Unfree(time_);
       ++num_non_free_regions_;
-      // TODO: this is buggy. Debug it.
-      // r->SetNewlyAllocated();
+      r->SetNewlyAllocated();
       r->SetTop(r->End());
       r->is_a_tlab_ = true;
       r->thread_ = self;
