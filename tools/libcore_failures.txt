@@ -267,5 +267,21 @@
   bug: 27464570,
   modes: [device],
   names: ["libcore.java.lang.ProcessBuilderTest#testRedirectInherit"]
+},
+{
+  description: "BigInteger failures due to the BoringSSL upgrade",
+  result: EXEC_FAILED,
+  bug: 30917411,
+  names: [
+    "org.apache.harmony.tests.java.math.BigIntegerModPowTest#testModPowNegExp",
+    "org.apache.harmony.tests.java.math.BigIntegerModPowTest#testmodInversePos1",
+    "org.apache.harmony.tests.java.math.BigIntegerTest#test_modInverseLjava_math_BigInteger"
+  ]
+},
+{
+  description: "Failure in AnnotationTest#testRepeatableAnnotationOnPackage",
+  result: EXEC_FAILED,
+  bug: 30916466,
+  names: [ "libcore.java.lang.reflect.AnnotationsTest.testRepeatableAnnotationOnPackage" ]
 }
 ]
