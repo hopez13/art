@@ -22,6 +22,30 @@
       "revId": "d833525cfe3ac2086e3156a8b3193c05974d6316",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbd2df43_d5b6dc9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-17T15:41:08Z",
+      "side": 1,
+      "message": "In adb logcat I was seeing:\n\n122 Stuff\n123 Something bad happened. I expect 12 and I got 13124 More stuff\n125 Yet more stuff\n\ni.e. merge -\u003e merge visually\n\nIt took me a while to realize the significance of some log lines.",
+      "parentUuid": "dbdd7f2d_97ce7c86",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "d833525cfe3ac2086e3156a8b3193c05974d6316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
