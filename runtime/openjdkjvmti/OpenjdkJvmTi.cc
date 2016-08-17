@@ -45,20 +45,28 @@
 
 namespace openjdkjvmti {
 
+#define ENSURE_NON_NULL(n) do { \
+  if ((n) == nullptr) { \
+    return ERR(NULL_POINTER); \
+  } \
+} while (false)
+
 class JvmtiFunctions {
  private:
   static bool IsValidEnv(jvmtiEnv* env) {
     return env != nullptr;
   }
 
+#define ENSURE_VALID_ENV(env) do { \
+  if (!IsValidEnv(env)) { \
+    return ERR(INVALID_ENVIRONMENT); \
+  } \
+} while (false)
+
  public:
   static jvmtiError Allocate(jvmtiEnv* env, jlong size, unsigned char** mem_ptr) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
-    if (mem_ptr == nullptr) {
-      return ERR(NULL_POINTER);
-    }
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(mem_ptr);
     if (size < 0) {
       return ERR(ILLEGAL_ARGUMENT);
     } else if (size == 0) {
@@ -70,9 +78,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError Deallocate(jvmtiEnv* env, unsigned char* mem) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
+    ENSURE_VALID_ENV(env);
     if (mem != nullptr) {
       free(mem);
     }
@@ -80,18 +86,22 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetThreadState(jvmtiEnv* env, jthread thread, jint* thread_state_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetCurrentThread(jvmtiEnv* env, jthread* thread_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetAllThreads(jvmtiEnv* env, jint* threads_count_ptr, jthread** threads_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SuspendThread(jvmtiEnv* env, jthread thread) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -99,10 +109,12 @@ class JvmtiFunctions {
                                       jint request_count,
                                       const jthread* request_list,
                                       jvmtiError* results) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ResumeThread(jvmtiEnv* env, jthread thread) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -110,18 +122,22 @@ class JvmtiFunctions {
                                      jint request_count,
                                      const jthread* request_list,
                                      jvmtiError* results) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError StopThread(jvmtiEnv* env, jthread thread, jobject exception) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError InterruptThread(jvmtiEnv* env, jthread thread) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadInfo(jvmtiEnv* env, jthread thread, jvmtiThreadInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -129,6 +145,7 @@ class JvmtiFunctions {
                                         jthread thread,
                                         jint* owned_monitor_count_ptr,
                                         jobject** owned_monitors_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -136,13 +153,15 @@ class JvmtiFunctions {
                                                   jthread thread,
                                                   jint* monitor_info_count_ptr,
                                                   jvmtiMonitorStackDepthInfo** monitor_info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetCurrentContendedMonitor(jvmtiEnv* env,
                                                jthread thread,
                                                jobject* monitor_ptr) {
-  return ERR(NOT_IMPLEMENTED);
+    ENSURE_VALID_ENV(env);
+    return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RunAgentThread(jvmtiEnv* env,
@@ -150,26 +169,31 @@ class JvmtiFunctions {
                                    jvmtiStartFunction proc,
                                    const void* arg,
                                    jint priority) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetThreadLocalStorage(jvmtiEnv* env, jthread thread, const void* data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadLocalStorage(jvmtiEnv* env, jthread thread, void** data_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetTopThreadGroups(jvmtiEnv* env,
                                        jint* group_count_ptr,
                                        jthreadGroup** groups_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadGroupInfo(jvmtiEnv* env,
                                        jthreadGroup group,
                                        jvmtiThreadGroupInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -179,6 +203,7 @@ class JvmtiFunctions {
                                            jthread** threads_ptr,
                                            jint* group_count_ptr,
                                            jthreadGroup** groups_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -188,6 +213,7 @@ class JvmtiFunctions {
                                   jint max_frame_count,
                                   jvmtiFrameInfo* frame_buffer,
                                   jint* count_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -195,6 +221,7 @@ class JvmtiFunctions {
                                       jint max_frame_count,
                                       jvmtiStackInfo** stack_info_ptr,
                                       jint* thread_count_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -203,14 +230,17 @@ class JvmtiFunctions {
                                              const jthread* thread_list,
                                              jint max_frame_count,
                                              jvmtiStackInfo** stack_info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetFrameCount(jvmtiEnv* env, jthread thread, jint* count_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError PopFrame(jvmtiEnv* env, jthread thread) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -219,34 +249,42 @@ class JvmtiFunctions {
                                      jint depth,
                                      jmethodID* method_ptr,
                                      jlocation* location_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError NotifyFramePop(jvmtiEnv* env, jthread thread, jint depth) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnObject(jvmtiEnv* env, jthread thread, jobject value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnInt(jvmtiEnv* env, jthread thread, jint value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnLong(jvmtiEnv* env, jthread thread, jlong value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnFloat(jvmtiEnv* env, jthread thread, jfloat value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnDouble(jvmtiEnv* env, jthread thread, jdouble value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceEarlyReturnVoid(jvmtiEnv* env, jthread thread) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -256,6 +294,7 @@ class JvmtiFunctions {
                                      jobject initial_object,
                                      const jvmtiHeapCallbacks* callbacks,
                                      const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -264,14 +303,17 @@ class JvmtiFunctions {
                                        jclass klass,
                                        const jvmtiHeapCallbacks* callbacks,
                                        const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetTag(jvmtiEnv* env, jobject object, jlong* tag_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetTag(jvmtiEnv* env, jobject object, jlong tag) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -281,10 +323,12 @@ class JvmtiFunctions {
                                        jint* count_ptr,
                                        jobject** object_result_ptr,
                                        jlong** tag_result_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ForceGarbageCollection(jvmtiEnv* env) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -293,6 +337,7 @@ class JvmtiFunctions {
       jobject object,
       jvmtiObjectReferenceCallback object_reference_callback,
       const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -301,6 +346,7 @@ class JvmtiFunctions {
                                                 jvmtiStackReferenceCallback stack_ref_callback,
                                                 jvmtiObjectReferenceCallback object_ref_callback,
                                                 const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -308,6 +354,7 @@ class JvmtiFunctions {
                                     jvmtiHeapObjectFilter object_filter,
                                     jvmtiHeapObjectCallback heap_object_callback,
                                     const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -316,6 +363,7 @@ class JvmtiFunctions {
                                                 jvmtiHeapObjectFilter object_filter,
                                                 jvmtiHeapObjectCallback heap_object_callback,
                                                 const void* user_data) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -324,6 +372,7 @@ class JvmtiFunctions {
                                    jint depth,
                                    jint slot,
                                    jobject* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -331,6 +380,7 @@ class JvmtiFunctions {
                                      jthread thread,
                                      jint depth,
                                      jobject* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -339,6 +389,7 @@ class JvmtiFunctions {
                                 jint depth,
                                 jint slot,
                                 jint* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -347,6 +398,7 @@ class JvmtiFunctions {
                                  jint depth,
                                  jint slot,
                                  jlong* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -355,6 +407,7 @@ class JvmtiFunctions {
                                   jint depth,
                                   jint slot,
                                   jfloat* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -363,6 +416,7 @@ class JvmtiFunctions {
                                    jint depth,
                                    jint slot,
                                    jdouble* value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -371,6 +425,7 @@ class JvmtiFunctions {
                                    jint depth,
                                    jint slot,
                                    jobject value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -379,6 +434,7 @@ class JvmtiFunctions {
                                 jint depth,
                                 jint slot,
                                 jint value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -387,6 +443,7 @@ class JvmtiFunctions {
                                  jint depth,
                                  jint slot,
                                  jlong value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -395,6 +452,7 @@ class JvmtiFunctions {
                                   jint depth,
                                   jint slot,
                                   jfloat value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -403,34 +461,42 @@ class JvmtiFunctions {
                                    jint depth,
                                    jint slot,
                                    jdouble value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetBreakpoint(jvmtiEnv* env, jmethodID method, jlocation location) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ClearBreakpoint(jvmtiEnv* env, jmethodID method, jlocation location) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ClearFieldAccessWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError ClearFieldModificationWatch(jvmtiEnv* env, jclass klass, jfieldID field) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetLoadedClasses(jvmtiEnv* env, jint* class_count_ptr, jclass** classes_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -438,6 +504,7 @@ class JvmtiFunctions {
                                           jobject initiating_loader,
                                           jint* class_count_ptr,
                                           jclass** classes_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -445,18 +512,22 @@ class JvmtiFunctions {
                                       jclass klass,
                                       char** signature_ptr,
                                       char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetClassStatus(jvmtiEnv* env, jclass klass, jint* status_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetSourceFileName(jvmtiEnv* env, jclass klass, char** source_name_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetClassModifiers(jvmtiEnv* env, jclass klass, jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -464,6 +535,7 @@ class JvmtiFunctions {
                                     jclass klass,
                                     jint* method_count_ptr,
                                     jmethodID** methods_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -471,6 +543,7 @@ class JvmtiFunctions {
                                    jclass klass,
                                    jint* field_count_ptr,
                                    jfieldID** fields_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -478,6 +551,7 @@ class JvmtiFunctions {
                                              jclass klass,
                                              jint* interface_count_ptr,
                                              jclass** interfaces_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -485,6 +559,7 @@ class JvmtiFunctions {
                                            jclass klass,
                                            jint* minor_version_ptr,
                                            jint* major_version_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -493,56 +568,67 @@ class JvmtiFunctions {
                                     jint* constant_pool_count_ptr,
                                     jint* constant_pool_byte_count_ptr,
                                     unsigned char** constant_pool_bytes_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsInterface(jvmtiEnv* env, jclass klass, jboolean* is_interface_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsArrayClass(jvmtiEnv* env,
                                  jclass klass,
                                  jboolean* is_array_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsModifiableClass(jvmtiEnv* env,
                                       jclass klass,
                                       jboolean* is_modifiable_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetClassLoader(jvmtiEnv* env, jclass klass, jobject* classloader_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetSourceDebugExtension(jvmtiEnv* env,
                                             jclass klass,
                                             char** source_debug_extension_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RetransformClasses(jvmtiEnv* env, jint class_count, const jclass* classes) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RedefineClasses(jvmtiEnv* env,
                                     jint class_count,
                                     const jvmtiClassDefinition* class_definitions) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetObjectSize(jvmtiEnv* env, jobject object, jlong* size_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetObjectHashCode(jvmtiEnv* env, jobject object, jint* hash_code_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetObjectMonitorUsage(jvmtiEnv* env,
                                           jobject object,
                                           jvmtiMonitorUsage* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -552,6 +638,7 @@ class JvmtiFunctions {
                                  char** name_ptr,
                                  char** signature_ptr,
                                  char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -559,6 +646,7 @@ class JvmtiFunctions {
                                            jclass klass,
                                            jfieldID field,
                                            jclass* declaring_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -566,6 +654,7 @@ class JvmtiFunctions {
                                       jclass klass,
                                       jfieldID field,
                                       jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -573,6 +662,7 @@ class JvmtiFunctions {
                                      jclass klass,
                                      jfieldID field,
                                      jboolean* is_synthetic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -581,30 +671,35 @@ class JvmtiFunctions {
                                   char** name_ptr,
                                   char** signature_ptr,
                                   char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetMethodDeclaringClass(jvmtiEnv* env,
                                             jmethodID method,
                                             jclass* declaring_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetMethodModifiers(jvmtiEnv* env,
                                        jmethodID method,
                                        jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetMaxLocals(jvmtiEnv* env,
                                  jmethodID method,
                                  jint* max_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetArgumentsSize(jvmtiEnv* env,
                                      jmethodID method,
                                      jint* size_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -612,6 +707,7 @@ class JvmtiFunctions {
                                        jmethodID method,
                                        jint* entry_count_ptr,
                                        jvmtiLineNumberEntry** table_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -619,6 +715,7 @@ class JvmtiFunctions {
                                       jmethodID method,
                                       jlocation* start_location_ptr,
                                       jlocation* end_location_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -626,6 +723,7 @@ class JvmtiFunctions {
                                           jmethodID method,
                                           jint* entry_count_ptr,
                                           jvmtiLocalVariableEntry** table_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -633,68 +731,84 @@ class JvmtiFunctions {
                                  jmethodID method,
                                  jint* bytecode_count_ptr,
                                  unsigned char** bytecodes_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsMethodNative(jvmtiEnv* env, jmethodID method, jboolean* is_native_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsMethodSynthetic(jvmtiEnv* env, jmethodID method, jboolean* is_synthetic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IsMethodObsolete(jvmtiEnv* env, jmethodID method, jboolean* is_obsolete_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetNativeMethodPrefix(jvmtiEnv* env, const char* prefix) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetNativeMethodPrefixes(jvmtiEnv* env, jint prefix_count, char** prefixes) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError CreateRawMonitor(jvmtiEnv* env, const char* name, jrawMonitorID* monitor_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError DestroyRawMonitor(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RawMonitorEnter(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RawMonitorExit(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RawMonitorWait(jvmtiEnv* env, jrawMonitorID monitor, jlong millis) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RawMonitorNotify(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RawMonitorNotifyAll(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetJNIFunctionTable(jvmtiEnv* env, const jniNativeInterface* function_table) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetJNIFunctionTable(jvmtiEnv* env, jniNativeInterface** function_table) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetEventCallbacks(jvmtiEnv* env,
                                       const jvmtiEventCallbacks* callbacks,
                                       jint size_of_callbacks) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
@@ -703,139 +817,264 @@ class JvmtiFunctions {
                                              jvmtiEvent event_type,
                                              jthread event_thread,
                                              ...) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GenerateEvents(jvmtiEnv* env, jvmtiEvent event_type) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetExtensionFunctions(jvmtiEnv* env,
                                           jint* extension_count_ptr,
                                           jvmtiExtensionFunctionInfo** extensions) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetExtensionEvents(jvmtiEnv* env,
                                        jint* extension_count_ptr,
                                        jvmtiExtensionEventInfo** extensions) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetExtensionEventCallback(jvmtiEnv* env,
                                               jint extension_event_index,
                                               jvmtiExtensionEvent callback) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetPotentialCapabilities(jvmtiEnv* env, jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(capabilities_ptr);
+    memcpy(reinterpret_cast<void*>(capabilities_ptr),
+           reinterpret_cast<const void*>(&potentialCapabilities),
+           sizeof(jvmtiCapabilities));
+    return OK;
   }
 
   static jvmtiError AddCapabilities(jvmtiEnv* env, const jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(capabilities_ptr);
+    ArtJvmTiEnv* art_env = reinterpret_cast<ArtJvmTiEnv*>(env);
+    jvmtiError ret = OK;
+#define ADD_CAPABILITY(e) \
+    do { \
+      if (capabilities_ptr->e == 1) { \
+        if (potentialCapabilities.e == 1) { \
+          art_env->capabilities.e = 1;\
+        } else { \
+          ret = ERR(NOT_AVAILABLE); \
+        } \
+      } \
+    } while(false)
+
+    ADD_CAPABILITY(can_tag_objects);
+    ADD_CAPABILITY(can_generate_field_modification_events);
+    ADD_CAPABILITY(can_generate_field_access_events);
+    ADD_CAPABILITY(can_get_bytecodes);
+    ADD_CAPABILITY(can_get_synthetic_attribute);
+    ADD_CAPABILITY(can_get_owned_monitor_info);
+    ADD_CAPABILITY(can_get_current_contended_monitor);
+    ADD_CAPABILITY(can_get_monitor_info);
+    ADD_CAPABILITY(can_pop_frame);
+    ADD_CAPABILITY(can_redefine_classes);
+    ADD_CAPABILITY(can_signal_thread);
+    ADD_CAPABILITY(can_get_source_file_name);
+    ADD_CAPABILITY(can_get_line_numbers);
+    ADD_CAPABILITY(can_get_source_debug_extension);
+    ADD_CAPABILITY(can_access_local_variables);
+    ADD_CAPABILITY(can_maintain_original_method_order);
+    ADD_CAPABILITY(can_generate_single_step_events);
+    ADD_CAPABILITY(can_generate_exception_events);
+    ADD_CAPABILITY(can_generate_frame_pop_events);
+    ADD_CAPABILITY(can_generate_breakpoint_events);
+    ADD_CAPABILITY(can_suspend);
+    ADD_CAPABILITY(can_redefine_any_class);
+    ADD_CAPABILITY(can_get_current_thread_cpu_time);
+    ADD_CAPABILITY(can_get_thread_cpu_time);
+    ADD_CAPABILITY(can_generate_method_entry_events);
+    ADD_CAPABILITY(can_generate_method_exit_events);
+    ADD_CAPABILITY(can_generate_all_class_hook_events);
+    ADD_CAPABILITY(can_generate_compiled_method_load_events);
+    ADD_CAPABILITY(can_generate_monitor_events);
+    ADD_CAPABILITY(can_generate_vm_object_alloc_events);
+    ADD_CAPABILITY(can_generate_native_method_bind_events);
+    ADD_CAPABILITY(can_generate_garbage_collection_events);
+    ADD_CAPABILITY(can_generate_object_free_events);
+    ADD_CAPABILITY(can_force_early_return);
+    ADD_CAPABILITY(can_get_owned_monitor_stack_depth_info);
+    ADD_CAPABILITY(can_get_constant_pool);
+    ADD_CAPABILITY(can_set_native_method_prefix);
+    ADD_CAPABILITY(can_retransform_classes);
+    ADD_CAPABILITY(can_retransform_any_class);
+    ADD_CAPABILITY(can_generate_resource_exhaustion_heap_events);
+    ADD_CAPABILITY(can_generate_resource_exhaustion_threads_events);
+#undef ADD_CAPABILITY
+    return ret;
   }
 
   static jvmtiError RelinquishCapabilities(jvmtiEnv* env,
                                            const jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(capabilities_ptr);
+    ArtJvmTiEnv* art_env = reinterpret_cast<ArtJvmTiEnv*>(env);
+#define DEL_CAPABILITY(e) \
+    do { \
+      if (capabilities_ptr->e == 1) { \
+        art_env->capabilities.e = 0;\
+      } \
+    } while(false)
+
+    DEL_CAPABILITY(can_tag_objects);
+    DEL_CAPABILITY(can_generate_field_modification_events);
+    DEL_CAPABILITY(can_generate_field_access_events);
+    DEL_CAPABILITY(can_get_bytecodes);
+    DEL_CAPABILITY(can_get_synthetic_attribute);
+    DEL_CAPABILITY(can_get_owned_monitor_info);
+    DEL_CAPABILITY(can_get_current_contended_monitor);
+    DEL_CAPABILITY(can_get_monitor_info);
+    DEL_CAPABILITY(can_pop_frame);
+    DEL_CAPABILITY(can_redefine_classes);
+    DEL_CAPABILITY(can_signal_thread);
+    DEL_CAPABILITY(can_get_source_file_name);
+    DEL_CAPABILITY(can_get_line_numbers);
+    DEL_CAPABILITY(can_get_source_debug_extension);
+    DEL_CAPABILITY(can_access_local_variables);
+    DEL_CAPABILITY(can_maintain_original_method_order);
+    DEL_CAPABILITY(can_generate_single_step_events);
+    DEL_CAPABILITY(can_generate_exception_events);
+    DEL_CAPABILITY(can_generate_frame_pop_events);
+    DEL_CAPABILITY(can_generate_breakpoint_events);
+    DEL_CAPABILITY(can_suspend);
+    DEL_CAPABILITY(can_redefine_any_class);
+    DEL_CAPABILITY(can_get_current_thread_cpu_time);
+    DEL_CAPABILITY(can_get_thread_cpu_time);
+    DEL_CAPABILITY(can_generate_method_entry_events);
+    DEL_CAPABILITY(can_generate_method_exit_events);
+    DEL_CAPABILITY(can_generate_all_class_hook_events);
+    DEL_CAPABILITY(can_generate_compiled_method_load_events);
+    DEL_CAPABILITY(can_generate_monitor_events);
+    DEL_CAPABILITY(can_generate_vm_object_alloc_events);
+    DEL_CAPABILITY(can_generate_native_method_bind_events);
+    DEL_CAPABILITY(can_generate_garbage_collection_events);
+    DEL_CAPABILITY(can_generate_object_free_events);
+    DEL_CAPABILITY(can_force_early_return);
+    DEL_CAPABILITY(can_get_owned_monitor_stack_depth_info);
+    DEL_CAPABILITY(can_get_constant_pool);
+    DEL_CAPABILITY(can_set_native_method_prefix);
+    DEL_CAPABILITY(can_retransform_classes);
+    DEL_CAPABILITY(can_retransform_any_class);
+    DEL_CAPABILITY(can_generate_resource_exhaustion_heap_events);
+    DEL_CAPABILITY(can_generate_resource_exhaustion_threads_events);
+#undef DEL_CAPABILITY
+    return OK;
   }
 
   static jvmtiError GetCapabilities(jvmtiEnv* env, jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(capabilities_ptr);
+    memcpy(reinterpret_cast<void*>(capabilities_ptr),
+           reinterpret_cast<void*>(&reinterpret_cast<ArtJvmTiEnv*>(env)->capabilities),
+           sizeof(jvmtiCapabilities));
+    return OK;
   }
 
   static jvmtiError GetCurrentThreadCpuTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetCurrentThreadCpuTime(jvmtiEnv* env, jlong* nanos_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadCpuTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadCpuTime(jvmtiEnv* env, jthread thread, jlong* nanos_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetTime(jvmtiEnv* env, jlong* nanos_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetAvailableProcessors(jvmtiEnv* env, jint* processor_count_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError AddToBootstrapClassLoaderSearch(jvmtiEnv* env, const char* segment) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError AddToSystemClassLoaderSearch(jvmtiEnv* env, const char* segment) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetSystemProperties(jvmtiEnv* env, jint* count_ptr, char*** property_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetSystemProperty(jvmtiEnv* env, const char* property, char** value_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetSystemProperty(jvmtiEnv* env, const char* property, const char* value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetPhase(jvmtiEnv* env, jvmtiPhase* phase_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError DisposeEnvironment(jvmtiEnv* env) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
+    ENSURE_VALID_ENV(env);
     delete env;
     return OK;
   }
 
   static jvmtiError SetEnvironmentLocalStorage(jvmtiEnv* env, const void* data) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
+    ENSURE_VALID_ENV(env);
     reinterpret_cast<ArtJvmTiEnv*>(env)->local_data = const_cast<void*>(data);
     return OK;
   }
 
   static jvmtiError GetEnvironmentLocalStorage(jvmtiEnv* env, void** data_ptr) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
+    ENSURE_VALID_ENV(env);
     *data_ptr = reinterpret_cast<ArtJvmTiEnv*>(env)->local_data;
     return OK;
   }
 
   static jvmtiError GetVersionNumber(jvmtiEnv* env, jint* version_ptr) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
+    ENSURE_VALID_ENV(env);
     *version_ptr = JVMTI_VERSION;
     return OK;
   }
 
   static jvmtiError GetErrorName(jvmtiEnv* env, jvmtiError error,  char** name_ptr) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
-    if (name_ptr == nullptr) {
-      return ERR(NULL_POINTER);
-    }
+    ENSURE_VALID_ENV(env);
+    ENSURE_NON_NULL(name_ptr);
     switch (error) {
 #define ERROR_CASE(e) case (JVMTI_ERROR_ ## e) : do { \
           *name_ptr = const_cast<char*>("JVMTI_ERROR_"#e); \
@@ -898,10 +1137,12 @@ class JvmtiFunctions {
   }
 
   static jvmtiError SetVerboseFlag(jvmtiEnv* env, jvmtiVerboseFlag flag, jboolean value) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetJLocationFormat(jvmtiEnv* env, jvmtiJlocationFormat* format_ptr) {
+    ENSURE_VALID_ENV(env);
     return ERR(NOT_IMPLEMENTED);
   }
 };
