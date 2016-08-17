@@ -92,6 +92,7 @@ inline mirror::Object* RegionSpace::AllocNonvirtual(size_t num_bytes, size_t* by
         Region* r = &regions_[i];
         if (r->IsFree()) {
           r->Unfree(time_);
+          DCHECK(!r->is_newly_allocated_);
           ++num_non_free_regions_;
           obj = r->Alloc(num_bytes, bytes_allocated, usable_size, bytes_tl_bulk_allocated);
           CHECK(obj != nullptr);
