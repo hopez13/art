@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb77a30c_fa94f137",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-17T21:42:53Z",
+      "side": 1,
+      "message": "I also use iteration.GetPrunableNodes() below to tell the code generator which registers have been allocated, so I think it makes sense to use it here too, rather than moving the work itself into ColoringIteration. (In my mind, ColoringIteration handles work that occurs on *every* iteration; assigning final spill slots only occurs afterwards.)",
+      "parentUuid": "3bd93b0e_a5b134f4",
+      "range": {
+        "startLine": 668,
+        "startChar": 8,
+        "endLine": 668,
+        "endChar": 57
+      },
+      "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b1e9ba6_ae4863ba",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-08-16T19:33:46Z",
       "side": 1,
       "message": "Can you use a set in AllocateSpillSlot() so you don\u0027t push if it\u0027s already in the set? Then you don\u0027t need this method.",
+      "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb77a30c_faadd17b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-08-17T21:42:53Z",
+      "side": 1,
+      "message": "Yes, good idea. Done.",
+      "parentUuid": "3b1e9ba6_ae4863ba",
       "revId": "fb6733108a86da526a9028d11ee2ce2a6e20f182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
