@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_12da7a41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:55:35Z",
+      "side": 1,
+      "message": "oh, and move it into its own directory (not the top level tools), not put a README at this level of course",
+      "parentUuid": "dbdd7f2d_520fa235",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_3df66f91",
         "filename": "tools/bisection-search.py",
         "patchSetId": 1
