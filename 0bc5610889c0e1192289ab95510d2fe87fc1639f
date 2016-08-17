@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_ecc5333a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T01:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_11cd1c2f",
+      "range": {
+        "startLine": 394,
+        "startChar": 59,
+        "endLine": 394,
+        "endChar": 65
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_b148e8ba",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "dbdd7f2d_0cc33f35",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T01:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_b148e8ba",
+      "range": {
+        "startLine": 2561,
+        "startChar": 2,
+        "endLine": 2561,
+        "endChar": 97
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_1140bc8e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -82,6 +130,30 @@
       "writtenOn": "2016-08-17T00:15:33Z",
       "side": 1,
       "message": "Can we also assert there\u0027s no app image found here?",
+      "range": {
+        "startLine": 2571,
+        "startChar": 24,
+        "endLine": 2571,
+        "endChar": 36
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_ace40bd4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-17T01:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_1140bc8e",
       "range": {
         "startLine": 2571,
         "startChar": 24,
