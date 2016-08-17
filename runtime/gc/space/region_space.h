@@ -31,6 +31,12 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
  public:
   typedef void(*WalkCallback)(void *start, void *end, size_t num_bytes, void* callback_arg);
 
+  enum EvacMode {
+    kEvacModeNewlyAllocated,
+    kEvacModeLivePercentNewlyAllocated,
+    kEvacModeForceAll,
+  };
+
   SpaceType GetType() const OVERRIDE {
     return kSpaceTypeRegionSpace;
   }
@@ -202,7 +208,7 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
     return RegionType::kRegionTypeNone;
   }
 
-  void SetFromSpace(accounting::ReadBarrierTable* rb_table, bool force_evacuate_all)
+  void SetFromSpace(accounting::ReadBarrierTable* rb_table, EvacMode evac_mode)
       REQUIRES(!region_lock_);
 
   size_t FromSpaceSize() REQUIRES(!region_lock_);
@@ -381,7 +387,7 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
       type_ = RegionType::kRegionTypeToSpace;
     }
 
-    ALWAYS_INLINE bool ShouldBeEvacuated();
+    ALWAYS_INLINE bool ShouldBeEvacuated(EvacMode evac_mode);
 
     void AddLiveBytes(size_t live_bytes) {
       DCHECK(IsInUnevacFromSpace());
