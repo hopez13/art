@@ -726,8 +726,9 @@ class Heap {
     return zygote_space_ != nullptr;
   }
 
+  // Returns the active concurrent copying collector.
   collector::ConcurrentCopying* ConcurrentCopyingCollector() {
-    return concurrent_copying_collector_;
+    return active_concurrent_copying_collector_;
   }
 
   CollectorType CurrentCollectorType() {
@@ -1352,6 +1353,8 @@ class Heap {
 
   std::vector<collector::GarbageCollector*> garbage_collectors_;
   collector::SemiSpace* semi_space_collector_;
+  collector::ConcurrentCopying* active_concurrent_copying_collector_;
+  collector::ConcurrentCopying* young_concurrent_copying_collector_;
   collector::ConcurrentCopying* concurrent_copying_collector_;
 
   const bool is_running_on_memory_tool_;
