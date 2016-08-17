@@ -23,6 +23,7 @@
 #include "gc/heap.h"
 #include "gc/space/region_space.h"
 #include "lock_word.h"
+#include "utils.h"
 
 namespace art {
 namespace gc {
@@ -30,6 +31,22 @@ namespace collector {
 
 inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
     mirror::Object* ref, accounting::ContinuousSpaceBitmap* bitmap) {
+  if (generational_ && !done_scanning_) {
+    // Everything in the unevac space should be marked for generational CC except for large objects.
+    DCHECK(region_space_bitmap_->Test(ref) || region_space_->IsLargeObject(ref)) << ref << " "
+        << PrettyClass(ref->GetClass<kVerifyNone, kWithoutReadBarrier>());
+    // Since the mark bitmap is still filled in from last GC, we can not use that or else the
+    // mutator may see references to the from space. Instead, use the baker pointer itself as
+    // the mark bit.
+    if (ref->AtomicSetReadBarrierPointer(ReadBarrier::WhitePtr(), ReadBarrier::GrayPtr())) {
+      // TODO: We don't actually need to scan this object later, we just need to clear the gray
+      // bit.
+      // TODO: We could also set the mark bit here for "free" since this case comes from the
+      // read barrier.
+      PushOntoMarkStack(ref);
+    }
+    return ref;
+  }
   // For the Baker-style RB, in a rare case, we could incorrectly change the object from white
   // to gray even though the object has already been marked through. This happens if a mutator
   // thread gets preempted before the AtomicSetReadBarrierPointer below, GC marks through the
@@ -99,7 +116,7 @@ inline mirror::Object* ConcurrentCopying::MarkImmuneSpace(mirror::Object* ref) {
   return ref;
 }
 
-template<bool kGrayImmuneObject>
+template<bool kGrayImmuneObject, bool kNoUnEvac>
 inline mirror::Object* ConcurrentCopying::Mark(mirror::Object* from_ref) {
   if (from_ref == nullptr) {
     return nullptr;
@@ -140,6 +157,12 @@ inline mirror::Object* ConcurrentCopying::Mark(mirror::Object* from_ref) {
       return to_ref;
     }
     case space::RegionSpace::RegionType::kRegionTypeUnevacFromSpace: {
+      if (kNoUnEvac && !region_space_->IsLargeObject(from_ref)) {
+       DCHECK(region_space_bitmap_->Test(from_ref) ||
+              from_ref->GetReadBarrierPointer() == ReadBarrier::GrayPtr())
+           << "Returning unmarked object";
+       return from_ref;
+      }
       return MarkUnevacFromSpaceRegion(from_ref, region_space_bitmap_);
     }
     case space::RegionSpace::RegionType::kRegionTypeNone:
