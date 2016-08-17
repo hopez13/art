@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1bf2b7e6_4f180dd3",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-17T09:24:03Z",
+      "side": 1,
+      "message": "It is called out in the commit comment.\n\nI will remove because you\u0027re technically right, though I figured it wasn\u0027t a big deal and it relates to the logging you need when you\u0027ve messed up the layout.\n\nI may do a follow up to include it, but I didn\u0027t really consider it important enough to warrant the testing overhead for a dedicated CL.",
+      "parentUuid": "dbdd7f2d_bd4fdf90",
+      "range": {
+        "startLine": 416,
+        "startChar": 85,
+        "endLine": 416,
+        "endChar": 94
+      },
+      "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b1e9ba6_eecb7bba",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "Oh ok that.. wonderful.\n\nCould probably turn the layouting into a constexpr and reuse it..hmm..",
       "parentUuid": "dbdd7f2d_5d609b08",
+      "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bf2b7e6_0f1205b3",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-17T09:24:03Z",
+      "side": 1,
+      "message": "It\u0027s tested in class_linker_test.cc.",
+      "parentUuid": "dbdd7f2d_0095c831",
       "revId": "c9c22e31f7c4e74859e8d510638cc5911d1e5a58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
