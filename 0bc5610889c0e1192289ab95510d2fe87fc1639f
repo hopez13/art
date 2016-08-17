@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbdd7f2d_b1ee2881",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-17T00:15:33Z",
+      "side": 1,
+      "message": "Nice savings here, too.",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_11cd1c2f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-17T00:15:33Z",
+      "side": 1,
+      "message": "should this be \"zygote large\" instead of \"zygote\"?",
+      "range": {
+        "startLine": 394,
+        "startChar": 59,
+        "endLine": 394,
+        "endChar": 65
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_b148e8ba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2561,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-17T00:15:33Z",
+      "side": 1,
+      "message": "Combine this comment with the one at line 2567?",
+      "range": {
+        "startLine": 2561,
+        "startChar": 2,
+        "endLine": 2561,
+        "endChar": 97
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_1140bc8e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-17T00:15:33Z",
+      "side": 1,
+      "message": "Can we also assert there\u0027s no app image found here?",
+      "range": {
+        "startLine": 2571,
+        "startChar": 24,
+        "endLine": 2571,
+        "endChar": 36
+      },
+      "revId": "0bc5610889c0e1192289ab95510d2fe87fc1639f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
