@@ -50,10 +50,58 @@ extern const jvmtiInterface_1 gJvmtiInterface;
 struct ArtJvmTiEnv : public jvmtiEnv {
   art::JavaVMExt* art_vm;
   void* local_data;
+  jvmtiCapabilities capabilities;
 
-  explicit ArtJvmTiEnv(art::JavaVMExt* runtime) : art_vm(runtime), local_data(nullptr) {
+  explicit ArtJvmTiEnv(art::JavaVMExt* runtime)
+      : art_vm(runtime), local_data(nullptr), capabilities() {
     functions = &gJvmtiInterface;
+    // Just zero out the capabilities.
+    memset(reinterpret_cast<void*>(&capabilities), 0, sizeof(jvmtiCapabilities));
   }
+};
+
+static jvmtiCapabilities potentialCapabilities = {
+    1,  // 0, TODO IMPLEMENT // can_tag_objects
+    0,                       // can_generate_field_modification_events
+    0,                       // can_generate_field_access_events
+    0,                       // can_get_bytecodes
+    0,                       // can_get_synthetic_attribute
+    0,                       // can_get_owned_monitor_info
+    0,                       // can_get_current_contended_monitor
+    0,                       // can_get_monitor_info
+    0,                       // can_pop_frame
+    0,                       // can_redefine_classes
+    0,                       // can_signal_thread
+    0,                       // can_get_source_file_name
+    0,                       // can_get_line_numbers
+    0,                       // can_get_source_debug_extension
+    0,                       // can_access_local_variables
+    0,                       // can_maintain_original_method_order
+    0,                       // can_generate_single_step_events
+    0,                       // can_generate_exception_events
+    0,                       // can_generate_frame_pop_events
+    0,                       // can_generate_breakpoint_events
+    0,                       // can_suspend
+    0,                       // can_redefine_any_class
+    0,                       // can_get_current_thread_cpu_time
+    0,                       // can_get_thread_cpu_time
+    0,                       // can_generate_method_entry_events
+    0,                       // can_generate_method_exit_events
+    1,  // 0, TODO IMPLEMENT // can_generate_all_class_hook_events
+    0,                       // can_generate_compiled_method_load_events
+    0,                       // can_generate_monitor_events
+    1,  // 0, TODO IMPLEMENT // can_generate_vm_object_alloc_events
+    0,                       // can_generate_native_method_bind_events
+    1,  // 0, TODO IMPLEMENT // can_generate_garbage_collection_events
+    1,  // 0, TODO IMPLEMENT // can_generate_object_free_events
+    0,                       // can_force_early_return
+    0,                       // can_get_owned_monitor_stack_depth_info
+    0,                       // can_get_constant_pool
+    0,                       // can_set_native_method_prefix
+    1,  // 0, TODO IMPLEMENT // can_retransform_classes
+    1,  // 0, TODO IMPLEMENT // can_retransform_any_class
+    0,                       // can_generate_resource_exhaustion_heap_events
+    0,                       // can_generate_resource_exhaustion_threads_events
 };
 
 // Macro and constexpr to make error values less annoying to write.
@@ -61,7 +109,7 @@ struct ArtJvmTiEnv : public jvmtiEnv {
 static constexpr jvmtiError OK = JVMTI_ERROR_NONE;
 
 // Special error code for unimplemented functions in JVMTI
-static constexpr jvmtiError ERR(NOT_IMPLEMENTED) = JVMTI_ERROR_NOT_AVAILABLE;
+static constexpr jvmtiError ERR(NOT_IMPLEMENTED) = ERR(NOT_AVAILABLE);
 
 class JvmtiFunctions {
  private:
@@ -747,20 +795,155 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetPotentialCapabilities(jvmtiEnv* env, jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    if (!IsValidEnv(env)) {
+      return ERR(INVALID_ENVIRONMENT);
+    }
+    if (capabilities_ptr == nullptr) {
+      return ERR(NULL_POINTER);
+    }
+    memcpy(reinterpret_cast<void*>(capabilities_ptr),
+           reinterpret_cast<void*>(&potentialCapabilities),
+           sizeof(jvmtiCapabilities));
+    return OK;
   }
 
   static jvmtiError AddCapabilities(jvmtiEnv* env, const jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    if (!IsValidEnv(env)) {
+      return ERR(INVALID_ENVIRONMENT);
+    }
+    if (capabilities_ptr == nullptr) {
+      return ERR(NULL_POINTER);
+    }
+    ArtJvmTiEnv* art_env = reinterpret_cast<ArtJvmTiEnv*>(env);
+    jvmtiError ret = OK;
+#define ADD_CAPABILITY(e) \
+    do { \
+      if (capabilities_ptr->e == 1) { \
+        if (potentialCapabilities.e == 1) { \
+          art_env->capabilities.e = 1;\
+        } else { \
+          ret = ERR(NOT_AVAILABLE); \
+        } \
+      } \
+    } while(false)
+
+    ADD_CAPABILITY(can_tag_objects);
+    ADD_CAPABILITY(can_generate_field_modification_events);
+    ADD_CAPABILITY(can_generate_field_access_events);
+    ADD_CAPABILITY(can_get_bytecodes);
+    ADD_CAPABILITY(can_get_synthetic_attribute);
+    ADD_CAPABILITY(can_get_owned_monitor_info);
+    ADD_CAPABILITY(can_get_current_contended_monitor);
+    ADD_CAPABILITY(can_get_monitor_info);
+    ADD_CAPABILITY(can_pop_frame);
+    ADD_CAPABILITY(can_redefine_classes);
+    ADD_CAPABILITY(can_signal_thread);
+    ADD_CAPABILITY(can_get_source_file_name);
+    ADD_CAPABILITY(can_get_line_numbers);
+    ADD_CAPABILITY(can_get_source_debug_extension);
+    ADD_CAPABILITY(can_access_local_variables);
+    ADD_CAPABILITY(can_maintain_original_method_order);
+    ADD_CAPABILITY(can_generate_single_step_events);
+    ADD_CAPABILITY(can_generate_exception_events);
+    ADD_CAPABILITY(can_generate_frame_pop_events);
+    ADD_CAPABILITY(can_generate_breakpoint_events);
+    ADD_CAPABILITY(can_suspend);
+    ADD_CAPABILITY(can_redefine_any_class);
+    ADD_CAPABILITY(can_get_current_thread_cpu_time);
+    ADD_CAPABILITY(can_get_thread_cpu_time);
+    ADD_CAPABILITY(can_generate_method_entry_events);
+    ADD_CAPABILITY(can_generate_method_exit_events);
+    ADD_CAPABILITY(can_generate_all_class_hook_events);
+    ADD_CAPABILITY(can_generate_compiled_method_load_events);
+    ADD_CAPABILITY(can_generate_monitor_events);
+    ADD_CAPABILITY(can_generate_vm_object_alloc_events);
+    ADD_CAPABILITY(can_generate_native_method_bind_events);
+    ADD_CAPABILITY(can_generate_garbage_collection_events);
+    ADD_CAPABILITY(can_generate_object_free_events);
+    ADD_CAPABILITY(can_force_early_return);
+    ADD_CAPABILITY(can_get_owned_monitor_stack_depth_info);
+    ADD_CAPABILITY(can_get_constant_pool);
+    ADD_CAPABILITY(can_set_native_method_prefix);
+    ADD_CAPABILITY(can_retransform_classes);
+    ADD_CAPABILITY(can_retransform_any_class);
+    ADD_CAPABILITY(can_generate_resource_exhaustion_heap_events);
+    ADD_CAPABILITY(can_generate_resource_exhaustion_threads_events);
+#undef ADD_CAPABILITY
+    return ret;
   }
 
   static jvmtiError RelinquishCapabilities(jvmtiEnv* env,
                                            const jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    if (!IsValidEnv(env)) {
+      return ERR(INVALID_ENVIRONMENT);
+    }
+    if (capabilities_ptr == nullptr) {
+      return ERR(NULL_POINTER);
+    }
+    ArtJvmTiEnv* art_env = reinterpret_cast<ArtJvmTiEnv*>(env);
+#define DEL_CAPABILITY(e) \
+    do { \
+      if (capabilities_ptr->e == 1) { \
+        art_env->capabilities.e = 0;\
+      } \
+    } while(false)
+
+    DEL_CAPABILITY(can_tag_objects);
+    DEL_CAPABILITY(can_generate_field_modification_events);
+    DEL_CAPABILITY(can_generate_field_access_events);
+    DEL_CAPABILITY(can_get_bytecodes);
+    DEL_CAPABILITY(can_get_synthetic_attribute);
+    DEL_CAPABILITY(can_get_owned_monitor_info);
+    DEL_CAPABILITY(can_get_current_contended_monitor);
+    DEL_CAPABILITY(can_get_monitor_info);
+    DEL_CAPABILITY(can_pop_frame);
+    DEL_CAPABILITY(can_redefine_classes);
+    DEL_CAPABILITY(can_signal_thread);
+    DEL_CAPABILITY(can_get_source_file_name);
+    DEL_CAPABILITY(can_get_line_numbers);
+    DEL_CAPABILITY(can_get_source_debug_extension);
+    DEL_CAPABILITY(can_access_local_variables);
+    DEL_CAPABILITY(can_maintain_original_method_order);
+    DEL_CAPABILITY(can_generate_single_step_events);
+    DEL_CAPABILITY(can_generate_exception_events);
+    DEL_CAPABILITY(can_generate_frame_pop_events);
+    DEL_CAPABILITY(can_generate_breakpoint_events);
+    DEL_CAPABILITY(can_suspend);
+    DEL_CAPABILITY(can_redefine_any_class);
+    DEL_CAPABILITY(can_get_current_thread_cpu_time);
+    DEL_CAPABILITY(can_get_thread_cpu_time);
+    DEL_CAPABILITY(can_generate_method_entry_events);
+    DEL_CAPABILITY(can_generate_method_exit_events);
+    DEL_CAPABILITY(can_generate_all_class_hook_events);
+    DEL_CAPABILITY(can_generate_compiled_method_load_events);
+    DEL_CAPABILITY(can_generate_monitor_events);
+    DEL_CAPABILITY(can_generate_vm_object_alloc_events);
+    DEL_CAPABILITY(can_generate_native_method_bind_events);
+    DEL_CAPABILITY(can_generate_garbage_collection_events);
+    DEL_CAPABILITY(can_generate_object_free_events);
+    DEL_CAPABILITY(can_force_early_return);
+    DEL_CAPABILITY(can_get_owned_monitor_stack_depth_info);
+    DEL_CAPABILITY(can_get_constant_pool);
+    DEL_CAPABILITY(can_set_native_method_prefix);
+    DEL_CAPABILITY(can_retransform_classes);
+    DEL_CAPABILITY(can_retransform_any_class);
+    DEL_CAPABILITY(can_generate_resource_exhaustion_heap_events);
+    DEL_CAPABILITY(can_generate_resource_exhaustion_threads_events);
+#undef DEL_CAPABILITY
+    return OK;
   }
 
   static jvmtiError GetCapabilities(jvmtiEnv* env, jvmtiCapabilities* capabilities_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    if (!IsValidEnv(env)) {
+      return ERR(INVALID_ENVIRONMENT);
+    }
+    if (capabilities_ptr == nullptr) {
+      return ERR(NULL_POINTER);
+    }
+    memcpy(reinterpret_cast<void*>(capabilities_ptr),
+           reinterpret_cast<void*>(&reinterpret_cast<ArtJvmTiEnv*>(env)->capabilities),
+           sizeof(jvmtiCapabilities));
+    return OK;
   }
 
   static jvmtiError GetCurrentThreadCpuTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
