@@ -234,6 +234,18 @@ std::unique_ptr<const DexFile> DexFile::Open(const uint8_t* base, size_t size,
   return dex_file;
 }
 
+std::unique_ptr<const DexFile> DexFile::Open(const std::string& location,
+                                             uint32_t location_checksum,
+                                             MemMap* mem_map,
+                                             std::string* error_msg) {
+  std::unique_ptr<const DexFile> dex_file = OpenMemory(location,
+                                                       location_checksum,
+                                                       mem_map,
+                                                       error_msg);
+  // TODO(oth): review location, location_checksum, & verification.
+  return dex_file;
+}
+
 std::unique_ptr<const DexFile> DexFile::OpenFile(int fd,
                                                  const char* location,
                                                  bool verify,
