@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bf2b7e6_6fa87186",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-17T18:20:15Z",
+      "side": 1,
+      "message": "Remove this one. It should have been removed by https://android-review.googlesource.com/#/c/256201/ but it looks like I messed up the rebase.",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 37
+      },
+      "revId": "1d29e9c0e0da6250d35f29b357081895c0a02950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
