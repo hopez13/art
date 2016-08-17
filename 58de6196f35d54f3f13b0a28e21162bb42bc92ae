@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "dbdd7f2d_520fa235",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "I would add a README.md in this directory with all this information in a formatted style",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_3df66f91",
         "filename": "tools/bisection-search.py",
         "patchSetId": 1
@@ -13,6 +30,74 @@
       "writtenOn": "2016-08-16T22:30:04Z",
       "side": 1,
       "message": "needs the version 2.7, 2.8 etc",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_d214925a",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "perhaps add a usage line here (with all optional comments listed, as done in Linux man)",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_d299f217",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "maybe strip the test_float part and the 19742 to get a more concise example",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_f2218eb1",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "these globals need a comment",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_3256963e",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "as a general rule, give each class its own header comment, including such exception placeholders",
       "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -98,6 +183,23 @@
       "writtenOn": "2016-08-16T22:30:04Z",
       "side": 1,
       "message": "nit: \"if compiled_methods\" ? Do you want to disambiguate vs [] etc?",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_12a27aec",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "I like this abstraction for the host/target. A very clean way. However, I would add much more documentation to this class (first why it is there, and how it is used by a driver in a way that is no longer aware of host/target)\n\nAlso, this ABS and its subclasses are useful utilities that we could share between all upcoming scripts that need to set up host and target. How about making this their own module now already, so we can start importing these in others?",
       "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -547,6 +649,23 @@
         "endLine": 410,
         "endChar": 39
       },
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbdd7f2d_d2481263",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-17T16:47:07Z",
+      "side": 1,
+      "message": "Use comments to break the various stages in this main (getting arguments), setting up env, running, reporting",
       "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
