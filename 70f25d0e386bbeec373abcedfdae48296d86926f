@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbd2df43_b5d480bb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-17T16:23:15Z",
+      "side": 1,
+      "message": "Nit: Use DCHECK_NE.",
+      "range": {
+        "startLine": 824,
+        "startChar": 2,
+        "endLine": 824,
+        "endChar": 8
+      },
+      "revId": "70f25d0e386bbeec373abcedfdae48296d86926f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
