@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "7be73325_922cdcfb",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-17T12:51:47Z",
+      "side": 1,
+      "message": "D\u0027oh!  I also forgot to add a branching instruction to the slow path\u0027s exit label…",
+      "revId": "bdf62dd00ac2b88be935af4fee8ac79413baa861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b69d7e4_97cb24bc",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 7
