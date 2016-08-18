@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bb7c4b2e_0f6a2915",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-18T00:25:18Z",
+      "side": 1,
+      "message": "Actually never mind. This delay risk already exists for the thread suspended at a normal suspend point (FullSuspendCheck) at low probability.",
+      "parentUuid": "fb77a30c_55079625",
+      "range": {
+        "startLine": 227,
+        "startChar": 6,
+        "endLine": 227,
+        "endChar": 35
+      },
+      "revId": "efa0cbd5a58985a7c3ab73f1980d5fcaa928e47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb77a30c_959cae09",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
