@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_CODE_GENERATOR_X86_H_
 #define ART_COMPILER_OPTIMIZING_CODE_GENERATOR_X86_H_
 
+#ifdef ART_ENABLE_CODEGEN_x86
+
 #include "arch/x86/instruction_set_features_x86.h"
 #include "base/enums.h"
 #include "code_generator.h"
@@ -626,5 +628,7 @@ class CodeGeneratorX86 : public CodeGenerator {
 
 }  // namespace x86
 }  // namespace art
+
+#endif  // ART_ENABLE_CODEGEN_X86
 
 #endif  // ART_COMPILER_OPTIMIZING_CODE_GENERATOR_X86_H_

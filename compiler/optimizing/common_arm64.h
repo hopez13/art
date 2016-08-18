@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_COMMON_ARM64_H_
 #define ART_COMPILER_OPTIMIZING_COMMON_ARM64_H_
 
+#ifdef ART_ENABLE_CODEGEN_arm64
+
 #include "code_generator.h"
 #include "locations.h"
 #include "nodes.h"
@@ -342,5 +344,7 @@ static inline bool ShifterOperandSupportsExtension(HInstruction* instruction) {
 }  // namespace helpers
 }  // namespace arm64
 }  // namespace art
+
+#endif  // ART_ENABLE_CODEGEN_arm64
 
 #endif  // ART_COMPILER_OPTIMIZING_COMMON_ARM64_H_

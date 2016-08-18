@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_CODE_GENERATOR_ARM64_H_
 #define ART_COMPILER_OPTIMIZING_CODE_GENERATOR_ARM64_H_
 
+#ifdef ART_ENABLE_CODEGEN_arm64
+
 #include "arch/arm64/quick_method_frame_info_arm64.h"
 #include "code_generator.h"
 #include "common_arm64.h"
@@ -738,5 +740,7 @@ inline Arm64Assembler* ParallelMoveResolverARM64::GetAssembler() const {
 
 }  // namespace arm64
 }  // namespace art
+
+#endif  // ART_ENABLE_CODEGEN_arm64
 
 #endif  // ART_COMPILER_OPTIMIZING_CODE_GENERATOR_ARM64_H_
