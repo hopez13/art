@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb7c4b2e_c0662ef4",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:00:05Z",
+      "side": 1,
+      "message": "delete unused code?",
+      "revId": "0b088bf3f7bfe7b802690320d6a48a60482406ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_a061a2de",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 1346,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:00:05Z",
+      "side": 1,
+      "message": "replace this with a named constant",
+      "range": {
+        "startLine": 1346,
+        "startChar": 17,
+        "endLine": 1346,
+        "endChar": 19
+      },
+      "revId": "0b088bf3f7bfe7b802690320d6a48a60482406ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
