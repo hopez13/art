@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "3b1e9ba6_4ece0789",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-18T17:01:39Z",
+      "side": 1,
+      "message": "This and the above two comments are not changes that I made. I am not sure why it\u0027s not happening for release builds, I just added this to replace std::copy_n. Same w/ above nits, happy to make the changes, but I didn\u0027t change those parts.",
+      "parentUuid": "3b1e9ba6_6e066bf3",
+      "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bd93b0e_b7c5e73a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 14
@@ -134,6 +152,24 @@
     },
     {
       "key": {
+        "uuid": "3b1e9ba6_ce0037a2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-18T17:01:39Z",
+      "side": 1,
+      "message": "See above where strings is declared. It is null if NumStringIds() \u003d 0.",
+      "parentUuid": "3b1e9ba6_eef9bbe2",
+      "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b1e9ba6_4ee44734",
         "filename": "runtime/mirror/dex_cache.h",
         "patchSetId": 14
@@ -179,6 +215,24 @@
       "writtenOn": "2016-08-16T19:57:47Z",
       "side": 1,
       "message": "nit: Why is it necessary to have this extra function again?",
+      "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b1e9ba6_ee8a5b17",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-18T17:01:39Z",
+      "side": 1,
+      "message": "kDexCacheStringCacheSize isn\u0027t accessible unless wrapped in a function from a few of the files that reference it.",
+      "parentUuid": "3b1e9ba6_ae5503cf",
       "revId": "29b386aabba1b8a1fc356cffd95f9c14614b7586",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
