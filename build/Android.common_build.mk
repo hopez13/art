@@ -150,51 +150,11 @@ art_cflags += \
   -fvisibility=protected \
   $(art_default_gc_type_cflags)
 
-# The architectures the compiled tools are able to run on. Setting this to 'all' will cause all
-# architectures to be included.
-ART_TARGET_CODEGEN_ARCHS ?= all
-ART_HOST_CODEGEN_ARCHS ?= all
-
-ifeq ($(ART_TARGET_CODEGEN_ARCHS),all)
-  ART_TARGET_CODEGEN_ARCHS := $(sort $(ART_TARGET_SUPPORTED_ARCH) $(ART_HOST_SUPPORTED_ARCH))
-  # We need to handle the fact that some compiler tests mix code from different architectures.
-  ART_TARGET_COMPILER_TESTS ?= true
-else
-  ART_TARGET_COMPILER_TESTS := false
-  ifeq ($(ART_TARGET_CODEGEN_ARCHS),svelte)
-    ART_TARGET_CODEGEN_ARCHS := $(sort $(ART_TARGET_ARCH_64) $(ART_TARGET_ARCH_32))
-  endif
-endif
-ifeq ($(ART_HOST_CODEGEN_ARCHS),all)
-  ART_HOST_CODEGEN_ARCHS := $(sort $(ART_TARGET_SUPPORTED_ARCH) $(ART_HOST_SUPPORTED_ARCH))
-  ART_HOST_COMPILER_TESTS ?= true
-else
-  ART_HOST_COMPILER_TESTS := false
-  ifeq ($(ART_HOST_CODEGEN_ARCHS),svelte)
-    ART_HOST_CODEGEN_ARCHS := $(sort $(ART_TARGET_CODEGEN_ARCHS) $(ART_HOST_ARCH_64) $(ART_HOST_ARCH_32))
-  endif
-endif
-
-ifneq (,$(filter arm64,$(ART_TARGET_CODEGEN_ARCHS)))
-  ART_TARGET_CODEGEN_ARCHS += arm
-endif
-ifneq (,$(filter mips64,$(ART_TARGET_CODEGEN_ARCHS)))
-  ART_TARGET_CODEGEN_ARCHS += mips
-endif
-ifneq (,$(filter x86_64,$(ART_TARGET_CODEGEN_ARCHS)))
-  ART_TARGET_CODEGEN_ARCHS += x86
-endif
-ART_TARGET_CODEGEN_ARCHS := $(sort $(ART_TARGET_CODEGEN_ARCHS))
-ifneq (,$(filter arm64,$(ART_HOST_CODEGEN_ARCHS)))
-  ART_HOST_CODEGEN_ARCHS += arm
-endif
-ifneq (,$(filter mips64,$(ART_HOST_CODEGEN_ARCHS)))
-  ART_HOST_CODEGEN_ARCHS += mips
-endif
-ifneq (,$(filter x86_64,$(ART_HOST_CODEGEN_ARCHS)))
-  ART_HOST_CODEGEN_ARCHS += x86
-endif
-ART_HOST_CODEGEN_ARCHS := $(sort $(ART_HOST_CODEGEN_ARCHS))
+# TODO: ART_TARGET_CODEGEN_ARCHS should be $(sort $(ART_TARGET_ARCH_64) $(ART_TARGET_ARCH_32))
+# We need to handle the fact that some compiler tests mix code from different architectures.
+ART_TARGET_CODEGEN_ARCHS := $(sort $(ART_TARGET_SUPPORTED_ARCH) $(ART_HOST_SUPPORTED_ARCH))
+ART_HOST_CODEGEN_ARCHS := $(sort $(ART_TARGET_SUPPORTED_ARCH) $(ART_HOST_SUPPORTED_ARCH))
+ART_TARGET_COMPILER_TESTS := true
 
 # Base set of cflags used by target build only
 art_target_cflags := \
