@@ -140,13 +140,11 @@ class Dex2oatEnvironmentTest : public CommonRuntimeTest {
     std::string cache;
     bool have_android_data;
     bool dalvik_cache_exists;
-    bool is_global_cache;
     GetDalvikCache(GetInstructionSetString(kRuntimeISA),
                    true,
                    &cache,
                    &have_android_data,
-                   &dalvik_cache_exists,
-                   &is_global_cache);
+                   &dalvik_cache_exists);
     if (!dalvik_cache_exists) {
       *error_msg = "Failed to create dalvik cache";
       return false;

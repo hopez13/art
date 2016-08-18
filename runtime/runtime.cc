@@ -793,15 +793,13 @@ static bool OpenDexFilesFromImage(const std::string& image_location,
     std::string cache_filename_unused;
     bool dalvik_cache_exists_unused;
     bool has_cache_unused;
-    bool is_global_cache_unused;
     bool found_image = gc::space::ImageSpace::FindImageFilename(image_locations[index].c_str(),
                                                                 kRuntimeISA,
                                                                 &system_filename,
                                                                 &has_system,
                                                                 &cache_filename_unused,
                                                                 &dalvik_cache_exists_unused,
-                                                                &has_cache_unused,
-                                                                &is_global_cache_unused);
+                                                                &has_cache_unused);
 
     if (!found_image || !has_system) {
       return false;
