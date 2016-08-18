@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb7c4b2e_d5b34e00",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-18T17:07:29Z",
+      "side": 1,
+      "message": "Are there any issues if a thread is at transitioning to runnable, but then another thread increments the suspend count?",
+      "range": {
+        "startLine": 438,
+        "startChar": 19,
+        "endLine": 438,
+        "endChar": 42
+      },
+      "revId": "e61e6fdd404b8f04bd33fc3ea49e38e92e31ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
