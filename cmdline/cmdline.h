@@ -51,10 +51,9 @@ static bool LocationToFilename(const std::string& location, InstructionSet isa,
 
   bool have_android_data = false;
   bool dalvik_cache_exists = false;
-  bool is_global_cache = false;
   std::string dalvik_cache;
   GetDalvikCache(GetInstructionSetString(isa), false, &dalvik_cache,
-                 &have_android_data, &dalvik_cache_exists, &is_global_cache);
+                 &have_android_data, &dalvik_cache_exists);
 
   std::string cache_filename;
   if (have_android_data && dalvik_cache_exists) {

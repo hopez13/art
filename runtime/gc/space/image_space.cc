@@ -148,7 +148,6 @@ static bool FindImageFilenameImpl(const char* image_location,
                                   std::string* system_filename,
                                   bool* dalvik_cache_exists,
                                   std::string* dalvik_cache,
-                                  bool* is_global_cache,
                                   bool* has_cache,
                                   std::string* cache_filename) {
   DCHECK(dalvik_cache != nullptr);
@@ -169,8 +168,7 @@ static bool FindImageFilenameImpl(const char* image_location,
                  true,
                  dalvik_cache,
                  &have_android_data,
-                 dalvik_cache_exists,
-                 is_global_cache);
+                 dalvik_cache_exists);
 
   if (have_android_data && *dalvik_cache_exists) {
     // Always set output location even if it does not exist,
@@ -197,8 +195,7 @@ bool ImageSpace::FindImageFilename(const char* image_location,
                                    bool* has_system,
                                    std::string* cache_filename,
                                    bool* dalvik_cache_exists,
-                                   bool* has_cache,
-                                   bool* is_global_cache) {
+                                   bool* has_cache) {
   std::string dalvik_cache_unused;
   return FindImageFilenameImpl(image_location,
                                image_isa,
@@ -206,7 +203,6 @@ bool ImageSpace::FindImageFilename(const char* image_location,
                                system_filename,
                                dalvik_cache_exists,
                                &dalvik_cache_unused,
-                               is_global_cache,
                                has_cache,
                                cache_filename);
 }
@@ -279,9 +275,8 @@ ImageHeader* ImageSpace::ReadImageHeader(const char* image_location,
   std::string cache_filename;
   bool has_cache = false;
   bool dalvik_cache_exists = false;
-  bool is_global_cache = false;
   if (FindImageFilename(image_location, image_isa, &system_filename, &has_system,
-                        &cache_filename, &dalvik_cache_exists, &has_cache, &is_global_cache)) {
+                        &cache_filename, &dalvik_cache_exists, &has_cache)) {
     if (Runtime::Current()->ShouldRelocate()) {
       if (has_system && has_cache) {
         std::unique_ptr<ImageHeader> sys_hdr(new ImageHeader);
@@ -363,7 +358,11 @@ static bool ChecksumsMatch(const char* image_a, const char* image_b, std::string
   return true;
 }
 
-static bool ImageCreationAllowed(bool is_global_cache, std::string* error_msg) {
+static bool ImageCreationAllowed(std::string* error_msg) {
+  std::string error_msg_ignored;
+  const char* android_data = GetAndroidDataSafe(&error_msg_ignored);
+  bool is_global_cache = android_data != nullptr && strcmp(android_data, "/data") == 0;
+
   // Anyone can write into a "local" cache.
   if (!is_global_cache) {
     return true;
@@ -452,29 +451,10 @@ class ImageSpaceLoader {
  public:
   static std::unique_ptr<ImageSpace> Load(const char* image_location,
                                           const std::string& image_filename,
-                                          bool is_zygote,
-                                          bool is_global_cache,
                                           bool is_system,
                                           bool relocated_version_used,
                                           std::string* error_msg)
       SHARED_REQUIRES(Locks::mutator_lock_) {
-    // Note that we must not use the file descriptor associated with
-    // ScopedFlock::GetFile to Init the image file. We want the file
-    // descriptor (and the associated exclusive lock) to be released when
-    // we leave Create.
-    ScopedFlock image_lock;
-    // Should this be a RDWR lock? This is only a defensive measure, as at
-    // this point the image should exist.
-    // However, only the zygote can write into the global dalvik-cache, so
-    // restrict to zygote processes, or any process that isn't using
-    // /data/dalvik-cache (which we assume to be allowed to write there).
-    const bool rw_lock = is_zygote || !is_global_cache;
-    image_lock.Init(image_filename.c_str(),
-                    rw_lock ? (O_CREAT | O_RDWR) : O_RDONLY /* flags */,
-                    true /* block */,
-                    error_msg);
-    VLOG(startup) << "Using image file " << image_filename.c_str() << " for image location "
-                  << image_location;
     // If we are in /system we can assume the image is good. We can also
     // assume this if we are using a relocated image (i.e. image checksum
     // matches) since this is only different by the offset. We need this to
@@ -1426,7 +1406,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
   std::string cache_filename;
   bool has_cache = false;
   bool dalvik_cache_exists = false;
-  bool is_global_cache = true;
   std::string dalvik_cache;
   bool found_image = FindImageFilenameImpl(image_location,
                                            image_isa,
@@ -1434,7 +1413,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
                                            &system_filename,
                                            &dalvik_cache_exists,
                                            &dalvik_cache,
-                                           &is_global_cache,
                                            &has_cache,
                                            &cache_filename);
 
@@ -1452,7 +1430,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
                                           &system_filename,
                                           &dalvik_cache_exists,
                                           &dalvik_cache,
-                                          &is_global_cache,
                                           &has_cache,
                                           &cache_filename);
     }
@@ -1471,8 +1448,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       std::unique_ptr<ImageSpace> relocated_space =
           ImageSpaceLoader::Load(image_location,
                                  cache_filename,
-                                 is_zygote,
-                                 is_global_cache,
                                  /* is_system */ false,
                                  /* relocated_version_used */ true,
                                  &local_error_msg);
@@ -1489,8 +1464,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::unique_ptr<ImageSpace> cache_space =
         ImageSpaceLoader::Load(image_location,
                                cache_filename,
-                               is_zygote,
-                               is_global_cache,
                                /* is_system */ false,
                                /* relocated_version_used */ true,
                                &local_error_msg);
@@ -1510,8 +1483,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::unique_ptr<ImageSpace> system_space =
         ImageSpaceLoader::Load(image_location,
                                system_filename,
-                               is_zygote,
-                               is_global_cache,
                                /* is_system */ true,
                                /* relocated_version_used */ false,
                                &local_error_msg);
@@ -1529,15 +1500,13 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       local_error_msg = "Patching disabled.";
     } else if (secondary_image) {
       local_error_msg = "Cannot patch a secondary image.";
-    } else if (ImageCreationAllowed(is_global_cache, &local_error_msg)) {
+    } else if (ImageCreationAllowed(&local_error_msg)) {
       bool patch_success =
           RelocateImage(image_location, cache_filename.c_str(), image_isa, &local_error_msg);
       if (patch_success) {
         std::unique_ptr<ImageSpace> patched_space =
             ImageSpaceLoader::Load(image_location,
                                    cache_filename,
-                                   is_zygote,
-                                   is_global_cache,
                                    /* is_system */ false,
                                    /* relocated_version_used */ true,
                                    &local_error_msg);
@@ -1560,14 +1529,12 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       local_error_msg = "Image compilation disabled.";
     } else if (secondary_image) {
       local_error_msg = "Cannot compile a secondary image.";
-    } else if (ImageCreationAllowed(is_global_cache, &local_error_msg)) {
+    } else if (ImageCreationAllowed(&local_error_msg)) {
       bool compilation_success = GenerateImage(cache_filename, image_isa, &local_error_msg);
       if (compilation_success) {
         std::unique_ptr<ImageSpace> compiled_space =
             ImageSpaceLoader::Load(image_location,
                                    cache_filename,
-                                   is_zygote,
-                                   is_global_cache,
                                    /* is_system */ false,
                                    /* relocated_version_used */ true,
                                    &local_error_msg);

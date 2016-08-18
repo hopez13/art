@@ -120,8 +120,7 @@ class ImageSpace : public MemMapSpace {
                                 bool* has_system,
                                 std::string* data_location,
                                 bool* dalvik_cache_exists,
-                                bool* has_data,
-                                bool *is_global_cache);
+                                bool* has_data);
 
   // Use the input image filename to adapt the names in the given boot classpath to establish
   // complete locations for secondary images.
