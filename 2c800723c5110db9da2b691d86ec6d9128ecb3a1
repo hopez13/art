@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8f9973d_bdce1f2e",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-18T23:50:12Z",
+      "side": 1,
+      "message": "Could you add a comment here (something along the lines that those are technically arch-independent, but for simplicity only done on x86)",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "2c800723c5110db9da2b691d86ec6d9128ecb3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_7daad71e",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-18T23:50:12Z",
+      "side": 1,
+      "message": "Should this rather be around the include points? I think that would make more sense.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "2c800723c5110db9da2b691d86ec6d9128ecb3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
