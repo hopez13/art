@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb7c4b2e_206ff2bd",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "2.6, 2.7?",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_406c7ec6",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "? delete unused code?",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_20ccd2d2",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "nit: public methods need docstrings",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_c095ce8e",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "Most scripts would just inject -Xint if interpreter is true. \n\nThe rest of the arguments can stay the same, so it\u0027s more confusing to duplicate \"-cp classes.dex Test\" twice",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_000196d9",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "Does this get called even if directory creation failed? May want to remove it only if it exists.",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_a00522e6",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "nit: Consider using named parameters where it says \u0027None\u0027 for better readability?",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7c4b2e_80ed861e",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-18T18:14:03Z",
+      "side": 1,
+      "message": "nit: this indentation seems off, it shouldn\u0027t be subindented more?",
+      "revId": "4237b03d1e3af4e9a6458282c668891ac0566648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
