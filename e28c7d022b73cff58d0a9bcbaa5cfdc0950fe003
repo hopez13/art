@@ -34,6 +34,24 @@
       "revId": "e28c7d022b73cff58d0a9bcbaa5cfdc0950fe003",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db3bbfab_adf55d85",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-18T22:22:10Z",
+      "side": 1,
+      "message": "Yes, using ATTRIBUTE_UNUSED resulted in compilation failing in cases when codegen is used. I agree that adding UNUSED here is confusing, but I can\u0027t think of a cleaner fix (unless we remove the conditional header inclusion but I assume it is there for a reason).",
+      "parentUuid": "bb7c4b2e_a07a0281",
+      "revId": "e28c7d022b73cff58d0a9bcbaa5cfdc0950fe003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
