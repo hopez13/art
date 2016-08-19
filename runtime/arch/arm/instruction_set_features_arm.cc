@@ -50,6 +50,7 @@ ArmFeaturesUniquePtr ArmInstructionSetFeatures::FromVariant(
       "cortex-a57",
       "denver",
       "krait",
+      "kryo",
   };
 
   bool has_div = FindVariantInArray(arm_variants_with_div,
@@ -67,6 +68,7 @@ ArmFeaturesUniquePtr ArmInstructionSetFeatures::FromVariant(
       "cortex-a57",
       "denver",
       "krait",
+      "kryo",
   };
   bool has_lpae = FindVariantInArray(arm_variants_with_lpae,
                                      arraysize(arm_variants_with_lpae),
