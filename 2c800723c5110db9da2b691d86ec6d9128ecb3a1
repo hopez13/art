@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e8f9973d_f1a4d0fc",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-08-19T17:54:35Z",
+      "side": 1,
+      "message": "Done.  I didn\u0027t introduce a new variable, as ARCH_INDEPENDENT isn\u0027t really correct - they _should_ be architecture independent, but they are not.",
+      "parentUuid": "e8f9973d_bdce1f2e",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "2c800723c5110db9da2b691d86ec6d9128ecb3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8f9973d_7daad71e",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Seconded.",
       "parentUuid": "e8f9973d_7daad71e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "2c800723c5110db9da2b691d86ec6d9128ecb3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_710440eb",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-08-19T17:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28b72fb7_47564e64",
       "range": {
         "startLine": 20,
         "startChar": 0,
