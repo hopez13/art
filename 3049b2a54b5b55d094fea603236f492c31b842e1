@@ -34,6 +34,24 @@
       "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_ac94abdb",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-19T18:39:30Z",
+      "side": 0,
+      "message": "It\u0027s very confusing now where the actual code lives.\n\nJust looking at the APIs all the real inherited logic should come from Executable (if not on the original class that had it).\n\nThe next person to come look at this will have to dig through a lot of java code in libcore and understand its intricacies of why everything was moved to AbstractMethod.\n\n--------\nI have no comment regarding the structure of the java code but it would be really good if the JNI code wasn\u0027t all just in AbstractMethod.cc .\n\nIf putting it into java_lang_reflect_Executable doesn\u0027t make sense (since it doesn\u0027t really have native functions! and you can\u0027t have default natives in Java), what if we put it into the AnnotatedElements equivalent cc file (or similar)?",
+      "parentUuid": "a846bf69_232a0a7c",
+      "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
