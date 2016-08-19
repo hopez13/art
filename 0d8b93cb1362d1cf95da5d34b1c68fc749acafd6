@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8f9973d_112e1c3e",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-19T18:01:32Z",
+      "side": 1,
+      "message": "nit: Since this seems to get called from at least 2 places I would suggest moving this to a helper\n\n  bool IsDalvikCacheGlobal() {\n    ...\n  }",
+      "revId": "0d8b93cb1362d1cf95da5d34b1c68fc749acafd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
