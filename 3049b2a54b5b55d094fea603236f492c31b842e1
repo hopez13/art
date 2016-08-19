@@ -16,6 +16,24 @@
       "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a846bf69_232a0a7c",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-19T17:46:33Z",
+      "side": 0,
+      "message": "They went to AbstractMethod because they were (near) identical.\n\nThe only other one I think it may be possible to move was getExceptionTypes but the implementation is sufficiently different with the one in Constructor that I didn\u0027t want to try. Figured the differences were for a good reason.\n\nI\u0027ve kept all the ART-related code in AbstractMethod for now because not everything on AbstractMethod could be moved to Executable (since the API of Executable is public), and it made sense to me to keep all the native ART / Android knowledge together.\n\nI think it could move up in this case if we wanted to.",
+      "parentUuid": "e8f9973d_11029c14",
+      "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
