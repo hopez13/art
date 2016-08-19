@@ -452,27 +452,10 @@ class ImageSpaceLoader {
  public:
   static std::unique_ptr<ImageSpace> Load(const char* image_location,
                                           const std::string& image_filename,
-                                          bool is_zygote,
-                                          bool is_global_cache,
                                           bool is_system,
                                           bool relocated_version_used,
                                           std::string* error_msg)
       SHARED_REQUIRES(Locks::mutator_lock_) {
-    // Note that we must not use the file descriptor associated with
-    // ScopedFlock::GetFile to Init the image file. We want the file
-    // descriptor (and the associated exclusive lock) to be released when
-    // we leave Create.
-    ScopedFlock image_lock;
-    // Should this be a RDWR lock? This is only a defensive measure, as at
-    // this point the image should exist.
-    // However, only the zygote can write into the global dalvik-cache, so
-    // restrict to zygote processes, or any process that isn't using
-    // /data/dalvik-cache (which we assume to be allowed to write there).
-    const bool rw_lock = is_zygote || !is_global_cache;
-    image_lock.Init(image_filename.c_str(),
-                    rw_lock ? (O_CREAT | O_RDWR) : O_RDONLY /* flags */,
-                    true /* block */,
-                    error_msg);
     VLOG(startup) << "Using image file " << image_filename.c_str() << " for image location "
                   << image_location;
     // If we are in /system we can assume the image is good. We can also
@@ -1471,8 +1454,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       std::unique_ptr<ImageSpace> relocated_space =
           ImageSpaceLoader::Load(image_location,
                                  cache_filename,
-                                 is_zygote,
-                                 is_global_cache,
                                  /* is_system */ false,
                                  /* relocated_version_used */ true,
                                  &local_error_msg);
@@ -1489,8 +1470,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::unique_ptr<ImageSpace> cache_space =
         ImageSpaceLoader::Load(image_location,
                                cache_filename,
-                               is_zygote,
-                               is_global_cache,
                                /* is_system */ false,
                                /* relocated_version_used */ true,
                                &local_error_msg);
@@ -1510,8 +1489,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::unique_ptr<ImageSpace> system_space =
         ImageSpaceLoader::Load(image_location,
                                system_filename,
-                               is_zygote,
-                               is_global_cache,
                                /* is_system */ true,
                                /* relocated_version_used */ false,
                                &local_error_msg);
@@ -1536,8 +1513,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
         std::unique_ptr<ImageSpace> patched_space =
             ImageSpaceLoader::Load(image_location,
                                    cache_filename,
-                                   is_zygote,
-                                   is_global_cache,
                                    /* is_system */ false,
                                    /* relocated_version_used */ true,
                                    &local_error_msg);
@@ -1566,8 +1541,6 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
         std::unique_ptr<ImageSpace> compiled_space =
             ImageSpaceLoader::Load(image_location,
                                    cache_filename,
-                                   is_zygote,
-                                   is_global_cache,
                                    /* is_system */ false,
                                    /* relocated_version_used */ true,
                                    &local_error_msg);
