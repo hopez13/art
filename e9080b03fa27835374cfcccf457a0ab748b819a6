@@ -22,6 +22,30 @@
       "revId": "e9080b03fa27835374cfcccf457a0ab748b819a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_b1dc080d",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-19T17:12:49Z",
+      "side": 1,
+      "message": "Note: style allows to include used elements, but not full namespaces...",
+      "parentUuid": "e8f9973d_b1c5283b",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "e9080b03fa27835374cfcccf457a0ab748b819a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
