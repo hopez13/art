@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e8f9973d_f1dcd03f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-19T18:02:39Z",
+      "side": 0,
+      "message": "I\u0027d prefer a separate CL for that. And it needs a Bug: line in the commit message.",
+      "parentUuid": "e8f9973d_31391884",
+      "revId": "36bf3a2d281892e7906d3eaf9d7455b0656c9a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8f9973d_f103b0bd",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
