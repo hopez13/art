@@ -23,6 +23,7 @@
 #include "cmdline_type_parser.h"
 
 // Includes for the types that are being specialized
+#include <cstdio>
 #include <string>
 #include "base/logging.h"
 #include "base/time_utils.h"
@@ -782,6 +783,80 @@ struct CmdlineType<ExperimentalFlags> : CmdlineTypeParser<ExperimentalFlags> {
   }
 
   static const char* Name() { return "ExperimentalFlags"; }
+};
+
+template<>
+struct CmdlineType<std::shared_ptr<LoggingRedirection>>
+  : CmdlineTypeParser<std::shared_ptr<LoggingRedirection>> {
+ public:
+  Result Parse(const std::string& substring) {
+    std::shared_ptr<LoggingRedirection> result(new LoggingRedirection());
+    std::set<LogSeverity> remaining = {LogSeverity::VERBOSE, LogSeverity::DEBUG,
+        LogSeverity::INFO, LogSeverity::WARNING, LogSeverity::ERROR, LogSeverity::FATAL};
+    std::vector<std::string> mappings;
+    Split(substring, ',', &mappings);
+    for (std::string mapping : mappings) {
+      std::vector<std::string> severity_dest_pair;
+      FILE* dest = nullptr;
+      Split(mapping, ':', &severity_dest_pair);
+      if (severity_dest_pair.size() != 2) {
+        return Result::Failure("Incorrect format");
+      }
+      const std::string& severity_symbols = Trim(severity_dest_pair[0]);
+      const std::string& dest_name = Trim(severity_dest_pair[1]);
+      if (dest_name == "stdout") {
+        dest = stdout;
+      } else if (dest_name == "stderr") {
+        dest = stderr;
+      } else if (dest_name != "default") {
+        dest = fopen(dest_name.c_str(), "w");
+        if (dest == nullptr) {
+          return Result::Failure("Failed to open file: " + dest_name);
+        }
+      }
+      for (const char& severity_symbol : severity_symbols) {
+        if (severity_symbol == '*') {
+          for (LogSeverity severity : remaining) {
+            result->SetDestination(severity, dest);
+          }
+          remaining.clear();
+        } else {
+          if (GetSeverity(severity_symbol) == LogSeverity::NONE) {
+            return Result::Failure("Incorrect severity level: " + std::string(1, severity_symbol));
+          }
+          LogSeverity severity = GetSeverity(severity_symbol);
+          if (remaining.erase(severity) == 0) {
+            return Result::Failure("Severity level redirected multiple times: "
+                                   + std::string(1, severity_symbol));
+          }
+          result->SetDestination(severity, dest);
+        }
+      }
+    }
+    return Result::Success(result);
+  }
+
+  static const char* Name() { return "LoggingRedirection"; }
+
+ private:
+  LogSeverity GetSeverity(char symbol) {
+    switch (symbol) {
+      case 'V':
+        return LogSeverity::VERBOSE;
+      case 'D':
+        return LogSeverity::DEBUG;
+      case 'I':
+        return LogSeverity::INFO;
+      case 'W':
+        return LogSeverity::WARNING;
+      case 'E':
+        return LogSeverity::ERROR;
+      case 'F':
+        return LogSeverity::FATAL;
+      default:
+        return LogSeverity::NONE;
+    }
+  }
 };
 
 }  // namespace art

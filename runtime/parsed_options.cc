@@ -300,6 +300,9 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-Xplugin:_")
           .WithType<std::vector<Plugin>>().AppendValues()
           .IntoKey(M::Plugins)
+      .Define("-Xredirect-logging=_")
+          .WithType<std::shared_ptr<LoggingRedirection>>()
+          .IntoKey(M::RedirectLogging)
       .Ignore({
           "-ea", "-da", "-enableassertions", "-disableassertions", "--runtime-arg", "-esa",
           "-dsa", "-enablesystemassertions", "-disablesystemassertions", "-Xrs", "-Xint:_",
@@ -630,6 +633,10 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
     }
   }
 
+  if (args.Exists(M::RedirectLogging)) {
+    InitLoggingRedirection(args.ReleaseOrDefault(M::RedirectLogging));
+  }
+
   *runtime_options = std::move(args);
   return true;
 }
@@ -689,6 +696,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -XmxN (max heap, must be multiple of 1K, >= 2MB)\n");
   UsageMessage(stream, "  -XssN (stack size)\n");
   UsageMessage(stream, "  -Xint\n");
+  UsageMessage(stream, "  -Xredirect-logging=<configuration> (e.g. 'IV:stdout,*:/dev/null)'\n");
   UsageMessage(stream, "\n");
 
   UsageMessage(stream, "The following Dalvik options are supported:\n");

@@ -16,6 +16,7 @@
 
 #include "logging.h"
 
+#include <cstdio>
 #include <iostream>
 #include <limits>
 #include <sstream>
@@ -43,6 +44,7 @@ static LogSeverity gMinimumLogSeverity = INFO;
 static std::unique_ptr<std::string> gCmdLine;
 static std::unique_ptr<std::string> gProgramInvocationName;
 static std::unique_ptr<std::string> gProgramInvocationShortName;
+static std::shared_ptr<LoggingRedirection> gLoggingRedirection;
 
 // Print INTERNAL_FATAL messages directly instead of at destruction time. This only works on the
 // host right now: for the device, a stream buf collating output into lines and calling LogLine or
@@ -132,6 +134,10 @@ void InitLogging(char* argv[]) {
     }
     LOG(FATAL) << "unsupported '" << spec << "' in ANDROID_LOG_TAGS (" << tags << ")";
   }
+}
+
+void InitLoggingRedirection(std::shared_ptr<LoggingRedirection> logging_redirection) {
+  gLoggingRedirection = logging_redirection;
 }
 
 // This indirection greatly reduces the stack impact of having
@@ -248,12 +254,17 @@ static_assert(arraysize(kLogSeverityToAndroidLogPriority) == INTERNAL_FATAL + 1,
               "Mismatch in size of kLogSeverityToAndroidLogPriority and values in LogSeverity");
 #endif
 
-void LogMessage::LogLine(const char* file, unsigned int line, LogSeverity log_severity,
-                         const char* message) {
-  if (log_severity == LogSeverity::NONE) {
-    return;
-  }
+static void LogLineToDestination(const char* file, unsigned int line, LogSeverity log_severity,
+                                 const char* message, FILE* destination) {
+  static const char* log_characters = "NVDIWEFF";
+  CHECK_EQ(strlen(log_characters), INTERNAL_FATAL + 1U);
+  char severity = log_characters[log_severity];
+  fprintf(destination, "%s %c %5d %5d %s:%u] %s\n",
+          ProgramInvocationShortName(), severity, getpid(), ::art::GetTid(), file, line, message);
+}
 
+static void LogLineDefault(const char* file, unsigned int line, LogSeverity log_severity,
+                           const char* message) {
 #ifdef ART_TARGET_ANDROID
   const char* tag = ProgramInvocationShortName();
   int priority = kLogSeverityToAndroidLogPriority[static_cast<size_t>(log_severity)];
@@ -263,12 +274,23 @@ void LogMessage::LogLine(const char* file, unsigned int line, LogSeverity log_se
     LOG_PRI(priority, tag, "%s", message);
   }
 #else
-  static const char* log_characters = "NVDIWEFF";
-  CHECK_EQ(strlen(log_characters), INTERNAL_FATAL + 1U);
-  char severity = log_characters[log_severity];
-  fprintf(stderr, "%s %c %5d %5d %s:%u] %s\n",
-          ProgramInvocationShortName(), severity, getpid(), ::art::GetTid(), file, line, message);
+  LogLineToDestination(file, line, log_severity, message, stderr);
 #endif
+}
+
+void LogMessage::LogLine(const char* file, unsigned int line, LogSeverity log_severity,
+                         const char* message) {
+  if (log_severity == LogSeverity::NONE) {
+    return;
+  }
+  if (gLoggingRedirection.get() != nullptr) {
+    FILE* dest = gLoggingRedirection->GetDestination(log_severity);
+    if (dest != nullptr) {
+      LogLineToDestination(file, line, log_severity, message, dest);
+      return;
+    }
+  }
+  LogLineDefault(file, line, log_severity, message);
 }
 
 void LogMessage::LogLineLowStack(const char* file, unsigned int line, LogSeverity log_severity,
@@ -324,6 +346,37 @@ ScopedLogSeverity::ScopedLogSeverity(LogSeverity level) {
 
 ScopedLogSeverity::~ScopedLogSeverity() {
   gMinimumLogSeverity = old_;
+}
+
+LoggingRedirection::LoggingRedirection() : mapping_ {} { }
+
+LoggingRedirection::~LoggingRedirection() {
+  for (int i = 0; i <= LogSeverity::INTERNAL_FATAL; i++) {
+    ResetDestination(static_cast<LogSeverity>(i));
+  }
+}
+
+FILE* LoggingRedirection::GetDestination(LogSeverity severity) const {
+  return mapping_[severity];
+}
+
+void LoggingRedirection::SetDestination(LogSeverity severity, FILE* destination) {
+  ResetDestination(severity);
+  mapping_[severity] = destination;
+}
+
+void LoggingRedirection::ResetDestination(LogSeverity severity) {
+  FILE* old_dest = mapping_[severity];
+  mapping_[severity] = nullptr;
+  if (old_dest == stderr || old_dest == stdout || old_dest == nullptr) {
+    return;
+  }
+  for (FILE* other_destination : mapping_) {
+    if (other_destination == old_dest) {
+      return;  // File will be closed when other_destination is reset
+    }
+  }
+  fclose(old_dest);
 }
 
 }  // namespace art

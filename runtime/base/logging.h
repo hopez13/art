@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_BASE_LOGGING_H_
 #define ART_RUNTIME_BASE_LOGGING_H_
 
+#include <array>
 #include <ostream>
 
 #include "base/macros.h"
@@ -77,6 +78,12 @@ extern unsigned int gAborting;
 // and a letter indicating the minimum priority level we're expected to log.
 // This can be used to reveal or conceal logs with specific tags.
 extern void InitLogging(char* argv[]);
+
+class LoggingRedirection;
+
+// Initialize logging redirection - a mapping between severity levels and destinations
+// where logs of given severity will be directed. Refer to LoggingRedirection definition.
+void InitLoggingRedirection(std::shared_ptr<LoggingRedirection> logging_redirection);
 
 // Returns the command line used to invoke the current tool or null if InitLogging hasn't been
 // performed.
@@ -270,6 +277,31 @@ class ScopedLogSeverity {
 
  private:
   LogSeverity old_;
+};
+
+// Maintains a mapping between severities and logging destinations. If mapping for a severity
+// is not nullptr then all logs with that severity will be directed to requested destination.
+// If a destination is nullptr, default destination is assumed: logcat for target and stderr
+// for host.
+//
+// Parsed from runtime arguments. Example: '-Xredirect-logging=WEF:stdout,I:stderr,*:/dev/null'.
+// Supported verbosities: 'V', 'D', 'I', 'W', 'E', 'F', '*'.
+// Supported destinations: 'stdout', 'stderr', 'default', '<file_path>'.
+class LoggingRedirection {
+ public:
+  LoggingRedirection();
+  ~LoggingRedirection();
+
+  // Return current destination for severity.
+  FILE* GetDestination(LogSeverity severity) const;
+
+  // Set destination for severity.
+  void SetDestination(LogSeverity severity, FILE* destination);
+
+ private:
+  void ResetDestination(LogSeverity severity);
+
+  std::array<FILE*, LogSeverity::INTERNAL_FATAL + 1> mapping_;
 };
 
 }  // namespace art
