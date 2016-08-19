@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8f9973d_91090c37",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-19T17:38:12Z",
+      "side": 1,
+      "message": "Why isn\u0027t this alignof(StringDexCacheType)? Is that returning 4?",
+      "revId": "bf44e0e5281de91f2e38a9378b94ef8c50ad9b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
