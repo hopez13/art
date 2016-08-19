@@ -16,6 +16,24 @@
       "revId": "20fb2685afee531749711aea543459e6b3973f26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_31a91826",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-19T17:29:12Z",
+      "side": 1,
+      "message": "Absolutely, see L207/208. The current version is sort of functional, but does not set up the dalvik cache correctly.",
+      "parentUuid": "e8f9973d_114a9cb5",
+      "revId": "20fb2685afee531749711aea543459e6b3973f26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
