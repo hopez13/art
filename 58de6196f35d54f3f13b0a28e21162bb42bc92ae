@@ -650,6 +650,29 @@
     },
     {
       "key": {
+        "uuid": "c89e9321_1f62c7aa",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-19T23:16:24Z",
+      "side": 1,
+      "message": "I think we need to do something better than asserting here. It it fails always, it may be a bug in e.g. Jack or our library. We should report that in a better way, or proceed with e.g. bisecting Jack :-)",
+      "range": {
+        "startLine": 390,
+        "startChar": 54,
+        "endLine": 390,
+        "endChar": 56
+      },
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_fd87a70e",
         "filename": "tools/bisection-search.py",
         "patchSetId": 1
@@ -701,6 +724,29 @@
       "writtenOn": "2016-08-16T22:30:04Z",
       "side": 1,
       "message": "too hardcoded\n\nalso there should be an option to use libartd.so instead of libart.so",
+      "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89e9321_7fb2eb4a",
+        "filename": "tools/bisection-search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-19T23:16:24Z",
+      "side": 1,
+      "message": "also, it is a bit unfriendly to construct the host path to dalvik from the cwd, which means we always need to start this from top level; using os.environ.get(\u0027ANDROID_BUILD_TOP\u0027) seems a bit friendlier",
+      "range": {
+        "startLine": 432,
+        "startChar": 6,
+        "endLine": 432,
+        "endChar": 12
+      },
       "revId": "58de6196f35d54f3f13b0a28e21162bb42bc92ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
