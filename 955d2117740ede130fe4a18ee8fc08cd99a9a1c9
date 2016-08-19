@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a846bf69_03c02efb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-19T13:18:07Z",
+      "side": 1,
+      "message": "Due to the comment by Mathieu Chartier read barrier is needed.",
+      "range": {
+        "startLine": 1047,
+        "startChar": 15,
+        "endLine": 1047,
+        "endChar": 17
+      },
+      "revId": "955d2117740ede130fe4a18ee8fc08cd99a9a1c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08998b37_7eaf512d",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 24
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-19T13:18:07Z",
+      "side": 1,
+      "message": "Trailing space",
+      "range": {
+        "startLine": 30,
+        "startChar": 112,
+        "endLine": 30,
+        "endChar": 113
+      },
+      "revId": "955d2117740ede130fe4a18ee8fc08cd99a9a1c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "488b83e0_e0c42212",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 24
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-08-19T13:18:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 33,
+        "startChar": 121,
+        "endLine": 33,
+        "endChar": 122
+      },
+      "revId": "955d2117740ede130fe4a18ee8fc08cd99a9a1c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
