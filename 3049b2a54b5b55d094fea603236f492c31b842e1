@@ -52,6 +52,24 @@
       "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_ec4cf3a1",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-19T18:40:26Z",
+      "side": 0,
+      "message": "Just to be perfectly clear this is a statement regarding the location of the native code only. I.e. I was confused where the native implementations of the annotations actually were.",
+      "parentUuid": "e8f9973d_ac94abdb",
+      "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
