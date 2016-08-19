@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "e8f9973d_d75e64ed",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-08-19T21:06:00Z",
+      "side": 0,
+      "message": "https://android-review.googlesource.com/#/c/259830/",
+      "parentUuid": "e8f9973d_f1dcd03f",
+      "revId": "36bf3a2d281892e7906d3eaf9d7455b0656c9a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8f9973d_f103b0bd",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -66,6 +84,30 @@
       "writtenOn": "2016-08-19T18:01:26Z",
       "side": 0,
       "message": "I should put this back.",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 36
+      },
+      "revId": "36bf3a2d281892e7906d3eaf9d7455b0656c9a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_9768dc8d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-08-19T21:06:00Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e8f9973d_f103b0bd",
       "range": {
         "startLine": 476,
         "startChar": 0,

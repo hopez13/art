@@ -16,6 +16,24 @@
       "revId": "0d8b93cb1362d1cf95da5d34b1c68fc749acafd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8f9973d_97133c12",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-08-19T21:06:00Z",
+      "side": 1,
+      "message": "I was planning to remove the other use in a separate CL. Let me work on that and see if it makes sense to submit things in a different order so we don\u0027t end up with copies of this logic.",
+      "parentUuid": "e8f9973d_112e1c3e",
+      "revId": "0d8b93cb1362d1cf95da5d34b1c68fc749acafd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
