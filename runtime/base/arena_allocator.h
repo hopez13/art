@@ -310,6 +310,7 @@ class ArenaAllocator
       return AllocFromNewArena(bytes);
     }
     uint8_t* ret = ptr_;
+    DCHECK_ALIGNED(ret, kAlignment);
     ptr_ += bytes;
     return ret;
   }
@@ -362,11 +363,12 @@ class ArenaAllocator
 
   bool Contains(const void* ptr) const;
 
+  static constexpr size_t kAlignment = 8;
+
  private:
   void* AllocWithMemoryTool(size_t bytes, ArenaAllocKind kind);
   uint8_t* AllocFromNewArena(size_t bytes);
 
-  static constexpr size_t kAlignment = 8;
 
   void UpdateBytesAllocated();
 
