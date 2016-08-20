@@ -1838,6 +1838,9 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
   Register obj = locations->InAt(0).AsRegister<Register>();
   Location index = locations->InAt(1);
   uint32_t data_offset = CodeGenerator::GetArrayDataOffset(instruction);
+  auto null_check = [this, instruction]() {
+    this->codegen_->MaybeRecordImplicitNullCheck(instruction);
+  };
 
   Primitive::Type type = instruction->GetType();
   switch (type) {
@@ -1846,10 +1849,10 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_1) + data_offset;
-        __ LoadFromOffset(kLoadUnsignedByte, out, obj, offset);
+        __ LoadFromOffset(kLoadUnsignedByte, out, obj, offset, null_check);
       } else {
         __ Addu(TMP, obj, index.AsRegister<Register>());
-        __ LoadFromOffset(kLoadUnsignedByte, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadUnsignedByte, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1859,10 +1862,10 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_1) + data_offset;
-        __ LoadFromOffset(kLoadSignedByte, out, obj, offset);
+        __ LoadFromOffset(kLoadSignedByte, out, obj, offset, null_check);
       } else {
         __ Addu(TMP, obj, index.AsRegister<Register>());
-        __ LoadFromOffset(kLoadSignedByte, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadSignedByte, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1872,11 +1875,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset;
-        __ LoadFromOffset(kLoadSignedHalfword, out, obj, offset);
+        __ LoadFromOffset(kLoadSignedHalfword, out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_2);
         __ Addu(TMP, obj, TMP);
-        __ LoadFromOffset(kLoadSignedHalfword, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadSignedHalfword, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1886,11 +1889,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset;
-        __ LoadFromOffset(kLoadUnsignedHalfword, out, obj, offset);
+        __ LoadFromOffset(kLoadUnsignedHalfword, out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_2);
         __ Addu(TMP, obj, TMP);
-        __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1902,11 +1905,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
-        __ LoadFromOffset(kLoadWord, out, obj, offset);
+        __ LoadFromOffset(kLoadWord, out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_4);
         __ Addu(TMP, obj, TMP);
-        __ LoadFromOffset(kLoadWord, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadWord, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1916,11 +1919,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
-        __ LoadFromOffset(kLoadDoubleword, out, obj, offset);
+        __ LoadFromOffset(kLoadDoubleword, out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_8);
         __ Addu(TMP, obj, TMP);
-        __ LoadFromOffset(kLoadDoubleword, out, TMP, data_offset);
+        __ LoadFromOffset(kLoadDoubleword, out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1930,11 +1933,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
-        __ LoadSFromOffset(out, obj, offset);
+        __ LoadSFromOffset(out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_4);
         __ Addu(TMP, obj, TMP);
-        __ LoadSFromOffset(out, TMP, data_offset);
+        __ LoadSFromOffset(out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1944,11 +1947,11 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
-        __ LoadDFromOffset(out, obj, offset);
+        __ LoadDFromOffset(out, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_8);
         __ Addu(TMP, obj, TMP);
-        __ LoadDFromOffset(out, TMP, data_offset);
+        __ LoadDFromOffset(out, TMP, data_offset, null_check);
       }
       break;
     }
@@ -1957,7 +1960,6 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
       LOG(FATAL) << "Unreachable type " << instruction->GetType();
       UNREACHABLE();
   }
-  codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 
 void LocationsBuilderMIPS::VisitArrayLength(HArrayLength* instruction) {
@@ -2004,6 +2006,9 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
   bool needs_runtime_call = locations->WillCall();
   bool needs_write_barrier =
       CodeGenerator::StoreNeedsWriteBarrier(value_type, instruction->GetValue());
+  auto null_check = [this, instruction]() {
+    this->codegen_->MaybeRecordImplicitNullCheck(instruction);
+  };
 
   switch (value_type) {
     case Primitive::kPrimBoolean:
@@ -2013,10 +2018,10 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_1) + data_offset;
-        __ StoreToOffset(kStoreByte, value, obj, offset);
+        __ StoreToOffset(kStoreByte, value, obj, offset, null_check);
       } else {
         __ Addu(TMP, obj, index.AsRegister<Register>());
-        __ StoreToOffset(kStoreByte, value, TMP, data_offset);
+        __ StoreToOffset(kStoreByte, value, TMP, data_offset, null_check);
       }
       break;
     }
@@ -2028,11 +2033,11 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset;
-        __ StoreToOffset(kStoreHalfword, value, obj, offset);
+        __ StoreToOffset(kStoreHalfword, value, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_2);
         __ Addu(TMP, obj, TMP);
-        __ StoreToOffset(kStoreHalfword, value, TMP, data_offset);
+        __ StoreToOffset(kStoreHalfword, value, TMP, data_offset, null_check);
       }
       break;
     }
@@ -2045,14 +2050,13 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
         if (index.IsConstant()) {
           size_t offset =
               (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
-          __ StoreToOffset(kStoreWord, value, obj, offset);
+          __ StoreToOffset(kStoreWord, value, obj, offset, null_check);
         } else {
           DCHECK(index.IsRegister()) << index;
           __ Sll(TMP, index.AsRegister<Register>(), TIMES_4);
           __ Addu(TMP, obj, TMP);
-          __ StoreToOffset(kStoreWord, value, TMP, data_offset);
+          __ StoreToOffset(kStoreWord, value, TMP, data_offset, null_check);
         }
-        codegen_->MaybeRecordImplicitNullCheck(instruction);
         if (needs_write_barrier) {
           DCHECK_EQ(value_type, Primitive::kPrimNot);
           codegen_->MarkGCCard(obj, value);
@@ -2075,11 +2079,11 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
-        __ StoreToOffset(kStoreDoubleword, value, obj, offset);
+        __ StoreToOffset(kStoreDoubleword, value, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_8);
         __ Addu(TMP, obj, TMP);
-        __ StoreToOffset(kStoreDoubleword, value, TMP, data_offset);
+        __ StoreToOffset(kStoreDoubleword, value, TMP, data_offset, null_check);
       }
       break;
     }
@@ -2091,11 +2095,11 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
-        __ StoreSToOffset(value, obj, offset);
+        __ StoreSToOffset(value, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_4);
         __ Addu(TMP, obj, TMP);
-        __ StoreSToOffset(value, TMP, data_offset);
+        __ StoreSToOffset(value, TMP, data_offset, null_check);
       }
       break;
     }
@@ -2107,11 +2111,11 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         size_t offset =
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
-        __ StoreDToOffset(value, obj, offset);
+        __ StoreDToOffset(value, obj, offset, null_check);
       } else {
         __ Sll(TMP, index.AsRegister<Register>(), TIMES_8);
         __ Addu(TMP, obj, TMP);
-        __ StoreDToOffset(value, TMP, data_offset);
+        __ StoreDToOffset(value, TMP, data_offset, null_check);
       }
       break;
     }
@@ -2119,11 +2123,6 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
     case Primitive::kPrimVoid:
       LOG(FATAL) << "Unreachable type " << instruction->GetType();
       UNREACHABLE();
-  }
-
-  // Ints and objects are handled in the switch.
-  if (value_type != Primitive::kPrimInt && value_type != Primitive::kPrimNot) {
-    codegen_->MaybeRecordImplicitNullCheck(instruction);
   }
 }
 
@@ -3589,6 +3588,9 @@ void InstructionCodeGeneratorMIPS::HandleFieldGet(HInstruction* instruction,
   LoadOperandType load_type = kLoadUnsignedByte;
   bool is_volatile = field_info.IsVolatile();
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
+  auto null_check = [this, instruction]() {
+    this->codegen_->MaybeRecordImplicitNullCheck(instruction);
+  };
 
   switch (type) {
     case Primitive::kPrimBoolean:
@@ -3654,33 +3656,19 @@ void InstructionCodeGeneratorMIPS::HandleFieldGet(HInstruction* instruction,
       if (type == Primitive::kPrimLong) {
         DCHECK(locations->Out().IsRegisterPair());
         dst = locations->Out().AsRegisterPairLow<Register>();
-        Register dst_high = locations->Out().AsRegisterPairHigh<Register>();
-        if (obj == dst) {
-          __ LoadFromOffset(kLoadWord, dst_high, obj, offset + kMipsWordSize);
-          codegen_->MaybeRecordImplicitNullCheck(instruction);
-          __ LoadFromOffset(kLoadWord, dst, obj, offset);
-        } else {
-          __ LoadFromOffset(kLoadWord, dst, obj, offset);
-          codegen_->MaybeRecordImplicitNullCheck(instruction);
-          __ LoadFromOffset(kLoadWord, dst_high, obj, offset + kMipsWordSize);
-        }
       } else {
         DCHECK(locations->Out().IsRegister());
         dst = locations->Out().AsRegister<Register>();
-        __ LoadFromOffset(load_type, dst, obj, offset);
       }
+      __ LoadFromOffset(load_type, dst, obj, offset, null_check);
     } else {
       DCHECK(locations->Out().IsFpuRegister());
       FRegister dst = locations->Out().AsFpuRegister<FRegister>();
       if (type == Primitive::kPrimFloat) {
-        __ LoadSFromOffset(dst, obj, offset);
+        __ LoadSFromOffset(dst, obj, offset, null_check);
       } else {
-        __ LoadDFromOffset(dst, obj, offset);
+        __ LoadDFromOffset(dst, obj, offset, null_check);
       }
-    }
-    // Longs are handled earlier.
-    if (type != Primitive::kPrimLong) {
-      codegen_->MaybeRecordImplicitNullCheck(instruction);
     }
   }
 
@@ -3729,6 +3717,9 @@ void InstructionCodeGeneratorMIPS::HandleFieldSet(HInstruction* instruction,
   StoreOperandType store_type = kStoreByte;
   bool is_volatile = field_info.IsVolatile();
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
+  auto null_check = [this, instruction]() {
+    this->codegen_->MaybeRecordImplicitNullCheck(instruction);
+  };
 
   switch (type) {
     case Primitive::kPrimBoolean:
@@ -3800,27 +3791,19 @@ void InstructionCodeGeneratorMIPS::HandleFieldSet(HInstruction* instruction,
       if (type == Primitive::kPrimLong) {
         DCHECK(locations->InAt(1).IsRegisterPair());
         src = locations->InAt(1).AsRegisterPairLow<Register>();
-        Register src_high = locations->InAt(1).AsRegisterPairHigh<Register>();
-        __ StoreToOffset(kStoreWord, src, obj, offset);
-        codegen_->MaybeRecordImplicitNullCheck(instruction);
-        __ StoreToOffset(kStoreWord, src_high, obj, offset + kMipsWordSize);
       } else {
         DCHECK(locations->InAt(1).IsRegister());
         src = locations->InAt(1).AsRegister<Register>();
-        __ StoreToOffset(store_type, src, obj, offset);
       }
+      __ StoreToOffset(store_type, src, obj, offset, null_check);
     } else {
       DCHECK(locations->InAt(1).IsFpuRegister());
       FRegister src = locations->InAt(1).AsFpuRegister<FRegister>();
       if (type == Primitive::kPrimFloat) {
-        __ StoreSToOffset(src, obj, offset);
+        __ StoreSToOffset(src, obj, offset, null_check);
       } else {
-        __ StoreDToOffset(src, obj, offset);
+        __ StoreDToOffset(src, obj, offset, null_check);
       }
-    }
-    // Longs are handled earlier.
-    if (type != Primitive::kPrimLong) {
-      codegen_->MaybeRecordImplicitNullCheck(instruction);
     }
   }
 
