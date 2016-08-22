@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_4188a8cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-22T23:51:54Z",
+      "side": 1,
+      "message": "I meant that we could use --run-passes in checker tests. I think Roland mentioned we considered using pass switches to improve testability. I\u0027m not sure if --run-passes is enough for this though, removed the comment.",
+      "parentUuid": "dbdd7f2d_3255b659",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "e3b37d8df8c4adf4d2f3b7377ddd2bd3879f7da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_d2ebb26f",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_c173d8ef",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-22T23:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_d2ebb26f",
+      "range": {
+        "startLine": 430,
+        "startChar": 19,
+        "endLine": 430,
+        "endChar": 37
+      },
+      "revId": "e3b37d8df8c4adf4d2f3b7377ddd2bd3879f7da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbdd7f2d_f2426e98",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2016-08-17T16:14:25Z",
       "side": 1,
       "message": "Move this comment to method header, since it is a helper method now",
+      "revId": "e3b37d8df8c4adf4d2f3b7377ddd2bd3879f7da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_017eb0b8",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-22T23:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbdd7f2d_f2426e98",
       "revId": "e3b37d8df8c4adf4d2f3b7377ddd2bd3879f7da5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
