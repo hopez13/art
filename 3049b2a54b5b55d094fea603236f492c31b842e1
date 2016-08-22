@@ -70,6 +70,24 @@
       "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a846bf69_c351f6dd",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-08-22T10:58:41Z",
+      "side": 0,
+      "message": "Before my change here we had the base class, AbstractMethod, with some of the native code and some other, related, native code on the subclasses Method / Constructor (with near-identical implementations).\n\ni.e. things like getSignatureAnnotation(), getDeclaredAnnotations(), isAnnotationPresentNative() were already implemented in AbstractMethod (after d890de26ec16f7fc32b58a00725aff1b2a79a169). \n\ngetDeclaredAnnotations() was present in AbstractMethod and overridden for Constructor only, which was a bit strange.\n\nI think now the native code associated with annotations all lives on AbstractMethod, with less duplication, so I think this is a step forward. With my change, the only native code left on Method / Constructor appears to be related to their inherent behavior differences. The only one I\u0027m not 100% sure of (i.e. it logically \"smells\" like it could be moved to AbstractMethod) is native getExceptionTypes(). The actual code appears to be different, though. One for the runtime team who understand this, perhaps.\n\nWhat I think *could* ultimately happen is that AbstractMethod and Executable should be collapsed. We can do so only if we keep the Executable public API as it is. To do so we\u0027d need to rely on package-protected methods to provide the native methods that couldn\u0027t be protected/public. That would probably allow us to remove the AbstractMethod, but would require reasonably heavy customization of Executable to introduce the fields / code from AbstractMethod.\n\nIf I do that, I would like to do it as a follow up because it\u0027s likely to involve some discussion / bike shedding and shouldn\u0027t hold up this change. The motivation here is to introduce Executable and arrange the code more closely to upstream structure to ease the rest of the upstream pull and so I can unblock the Parameter integration. It would come after the rest of the OpenJDK pull as it should have no impact on published APIs, etc.",
+      "parentUuid": "e8f9973d_ec4cf3a1",
+      "revId": "3049b2a54b5b55d094fea603236f492c31b842e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
