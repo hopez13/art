@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a846bf69_63b7e2eb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-22T13:56:41Z",
+      "side": 1,
+      "message": "I guess we could refactor InvokeRuntimeWithoutRecordingPcInfo using this.",
+      "range": {
+        "startLine": 1223,
+        "startChar": 6,
+        "endLine": 1223,
+        "endChar": 43
+      },
+      "revId": "6ec1e5cbf4e20ac3eb71ae712380fadc6eee1834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
