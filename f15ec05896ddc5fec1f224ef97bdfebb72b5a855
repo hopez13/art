@@ -118,6 +118,30 @@
       "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_3e18312d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-22T22:56:19Z",
+      "side": 1,
+      "message": "I could be wrong, but could this path cause a suspension: ObjectRegitry::Add -\u003e ObjectRegitry::InternalAdd -\u003e Object::IdentityHashCode -\u003e Monitor::InflateThinLocked -\u003e ScopedThreadSuspension?",
+      "parentUuid": "c89e9321_f91a9082",
+      "range": {
+        "startLine": 4103,
+        "startChar": 24,
+        "endLine": 4103,
+        "endChar": 35
+      },
+      "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
