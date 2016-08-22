@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c89e9321_c697b3df",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-22T17:58:01Z",
+      "side": 1,
+      "message": "Is this moving GC safe? ObjectRegistery::Add() may cause a suspend point in ObjectRegistery::InternalAdd() -\u003e IdentityHashCode().",
+      "range": {
+        "startLine": 4103,
+        "startChar": 24,
+        "endLine": 4103,
+        "endChar": 35
+      },
+      "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
