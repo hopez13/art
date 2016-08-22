@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a846bf69_4318662d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-22T13:15:23Z",
+      "side": 1,
+      "message": "Maybe rename as something more specific like `DoInvokeRuntime` or `GenerateInvokeRuntime`?",
+      "range": {
+        "startLine": 1495,
+        "startChar": 25,
+        "endLine": 1495,
+        "endChar": 44
+      },
+      "revId": "295b3157d8212bb68619668afe1dbd78a67bf38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
