@@ -22,6 +22,30 @@
       "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89e9321_6636dffd",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-08-22T18:00:38Z",
+      "side": 1,
+      "message": "The original code was already calling ObjectRegistery::Add(). I\u0027ve only changed the object that\u0027s being added and tagged.",
+      "parentUuid": "c89e9321_c697b3df",
+      "range": {
+        "startLine": 4103,
+        "startChar": 24,
+        "endLine": 4103,
+        "endChar": 35
+      },
+      "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
