@@ -22,6 +22,30 @@
       "revId": "b733e1103d89f9aa68d62137965f9e4a626978ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89e9321_b9ce482e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-22T18:34:48Z",
+      "side": 1,
+      "message": "This refers to the first argument \"o\".",
+      "parentUuid": "a846bf69_c3d6964d",
+      "range": {
+        "startLine": 1436,
+        "startChar": 45,
+        "endLine": 1436,
+        "endChar": 46
+      },
+      "revId": "b733e1103d89f9aa68d62137965f9e4a626978ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
