@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e86a77fa_b8f8b5af",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 37
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-22T20:24:49Z",
+      "side": 1,
+      "message": "We probably want to do a bit more here otherwise the mark bit will never get set, but good for now.",
+      "range": {
+        "startLine": 1128,
+        "startChar": 8,
+        "endLine": 1128,
+        "endChar": 43
+      },
+      "revId": "2a1d000d952cce8cb1bde80439c74d6cfc2ef4c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
