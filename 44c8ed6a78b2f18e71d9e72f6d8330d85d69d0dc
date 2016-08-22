@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e86a77fa_b87b9552",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-22T20:22:41Z",
+      "side": 1,
+      "message": "Not in a CL that wouldn\u0027t add some major test infrastructure.\n\nWe don\u0027t do zygote/image space testing besides the \"does it load correctly?,\" or \"does it still run without an image.\" Loading behavior is not tested, and is non-trivial to do for this. Even your oat-file-assistant test doesn\u0027t do this (because it is easier to write a real test for \"app\" dex files than the boot image).",
+      "parentUuid": "e86a77fa_582c01fe",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "44c8ed6a78b2f18e71d9e72f6d8330d85d69d0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c89e9321_434b9533",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e86a77fa_98efb918",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-22T20:22:41Z",
+      "side": 1,
+      "message": "Not relevant, I\u0027d think (and we did have validation off for this before). You\u0027d get here if there was a cache image, but the cache didn\u0027t match. It felt reasonable behavior to then take the system image directly if relocation is not required.\n\nThat is prior behavior (original lines 463-469), just teased apart / made a bit more legible (IMHO).",
+      "parentUuid": "c89e9321_434b9533",
+      "range": {
+        "startLine": 1514,
+        "startChar": 34,
+        "endLine": 1515,
+        "endChar": 26
+      },
+      "revId": "44c8ed6a78b2f18e71d9e72f6d8330d85d69d0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c89e9321_8368bd8d",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-08-22T17:22:46Z",
       "side": 1,
       "message": "I think this was \u0027true\u0027 before the refactor. Though presumably it should be valid given you just compiled it?",
+      "range": {
+        "startLine": 1566,
+        "startChar": 58,
+        "endLine": 1566,
+        "endChar": 64
+      },
+      "revId": "44c8ed6a78b2f18e71d9e72f6d8330d85d69d0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e86a77fa_787c5d7d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-22T20:22:41Z",
+      "side": 1,
+      "message": "It was, but it felt inconsistent with what we do for relocation. It\u0027s in a sense a double check - do we trust GenerateImage or not? That was my reasoning. Opinions welcome.",
+      "parentUuid": "c89e9321_8368bd8d",
       "range": {
         "startLine": 1566,
         "startChar": 58,
