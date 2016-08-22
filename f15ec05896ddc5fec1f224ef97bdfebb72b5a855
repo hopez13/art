@@ -94,6 +94,30 @@
       "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89e9321_f91a9082",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-08-22T18:38:46Z",
+      "side": 1,
+      "message": "I\u0027ve created a fix to address Hiroshi\u0027s comment here: https://android-review.googlesource.com/#/c/260191/",
+      "parentUuid": "c89e9321_e69e6fac",
+      "range": {
+        "startLine": 4103,
+        "startChar": 24,
+        "endLine": 4103,
+        "endChar": 35
+      },
+      "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
