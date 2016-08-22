@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a846bf69_86cb0c1e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-22T14:59:42Z",
+      "side": 1,
+      "message": "Do we still support devices with non-atomic LDRD?\nIf not, we should remove all dependencies on ArmInstructionSetFeatures::HasAtomicLdrdAndStrd().",
+      "range": {
+        "startLine": 1045,
+        "startChar": 4,
+        "endLine": 1045,
+        "endChar": 8
+      },
+      "revId": "56456444758d2dd294edac7e4a38698f1d20da23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a846bf69_c3efb617",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-22T14:59:42Z",
+      "side": 1,
+      "message": "Remove a few spaces. (Max 100 characters on line has higher priority than comment alignment.)",
+      "range": {
+        "startLine": 1045,
+        "startChar": 59,
+        "endLine": 1045,
+        "endChar": 65
+      },
+      "revId": "56456444758d2dd294edac7e4a38698f1d20da23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a846bf69_a3fcbad1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-22T14:59:42Z",
+      "side": 1,
+      "message": "ifdef?",
+      "range": {
+        "startLine": 1048,
+        "startChar": 1,
+        "endLine": 1048,
+        "endChar": 7
+      },
+      "revId": "56456444758d2dd294edac7e4a38698f1d20da23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a846bf69_43ebc608",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-22T14:59:42Z",
+      "side": 1,
+      "message": "TST+BEQ.\n\nAlternatively, LSRS+BCC. That would reduce the fast path to exactly 32 bytes if I\u0027m counting correctly (the LSRS is 16-bit unlike the ANDS/TST).",
+      "range": {
+        "startLine": 1050,
+        "startChar": 0,
+        "endLine": 1051,
+        "endChar": 47
+      },
+      "revId": "56456444758d2dd294edac7e4a38698f1d20da23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
