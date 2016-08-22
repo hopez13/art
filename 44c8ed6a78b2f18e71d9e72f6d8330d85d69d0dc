@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e86a77fa_582c01fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-08-22T19:59:08Z",
+      "side": 1,
+      "message": "Can we add a test that covers this bug?",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "44c8ed6a78b2f18e71d9e72f6d8330d85d69d0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c89e9321_434b9533",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
