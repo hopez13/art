@@ -46,6 +46,30 @@
       "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c89e9321_8609ab36",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-22T18:07:32Z",
+      "side": 1,
+      "message": "Could this new local var decoded_ref become stale across the Add call and is used by TagFromObject()? We didn\u0027t have this raw mirror::Object* in a local variable in the original code. Is this safe?",
+      "parentUuid": "c89e9321_6636dffd",
+      "range": {
+        "startLine": 4103,
+        "startChar": 24,
+        "endLine": 4103,
+        "endChar": 35
+      },
+      "revId": "f15ec05896ddc5fec1f224ef97bdfebb72b5a855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
