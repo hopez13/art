@@ -164,8 +164,8 @@ inline bool SpaceBitmap<kAlignment>::Modify(const mirror::Object* obj) {
   const size_t index = OffsetToIndex(offset);
   const uintptr_t mask = OffsetToMask(offset);
   DCHECK_LT(index, bitmap_size_ / sizeof(intptr_t)) << " bitmap_size_ = " << bitmap_size_;
-  uintptr_t* address = &bitmap_begin_[index];
-  uintptr_t old_word = *address;
+  Atomic<uintptr_t>* atomic_entry = reinterpret_cast<Atomic<uintptr_t>*>(&bitmap_begin_[index]);
+  uintptr_t old_word = atomic_entry->LoadRelaxed();
   if (kSetBit) {
     // Check the bit before setting the word incase we are trying to mark a read only bitmap
     // like an image space bitmap. This bitmap is mapped as read only and will fault if we
@@ -173,10 +173,10 @@ inline bool SpaceBitmap<kAlignment>::Modify(const mirror::Object* obj) {
     // occur if we check before setting the bit. This also prevents dirty pages that would
     // occur if the bitmap was read write and we did not check the bit.
     if ((old_word & mask) == 0) {
-      *address = old_word | mask;
+      atomic_entry->StoreRelaxed(old_word | mask);
     }
   } else {
-    *address = old_word & ~mask;
+    atomic_entry->StoreRelaxed(old_word & ~mask);
   }
   DCHECK_EQ(Test(obj), kSetBit);
   return (old_word & mask) != 0;
