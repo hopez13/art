@@ -22,6 +22,30 @@
       "revId": "3b346f302c66076e3748192a4a2ca4fe9fbedc2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8af9fab_9be40b36",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T17:22:23Z",
+      "side": 1,
+      "message": "Good catch!  Fixed in PS8, as well as a similar typo in compiler/optimizing/intrinsics_arm.cc.",
+      "parentUuid": "08ad0bb1_7ec1319f",
+      "range": {
+        "startLine": 4819,
+        "startChar": 58,
+        "endLine": 4819,
+        "endChar": 60
+      },
+      "revId": "3b346f302c66076e3748192a4a2ca4fe9fbedc2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
