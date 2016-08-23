@@ -21,7 +21,8 @@ include art/build/Android.common_build.mk
 
 LIBARTAGENT_COMMON_SRC_FILES := \
     ti-agent/common_load.cc \
-    901-hello-ti-agent/basics.cc
+    901-hello-ti-agent/basics.cc \
+	902-hello-transformation/transform.cc
 
 # $(1): target or host
 # $(2): debug or <empty>
