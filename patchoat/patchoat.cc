@@ -233,6 +233,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
     std::string input_oat_filename =
         ImageHeader::GetOatLocationFromImageLocation(input_image_filename);
     std::unique_ptr<File> input_oat_file(OS::OpenFileForReading(input_oat_filename.c_str()));
@@ -261,8 +263,15 @@ bool PatchOat::Patch(const std::string& image_location,
       std::string output_image_filename = output_directory +
                                           (StartsWith(converted_image_filename, "/") ? "" : "/") +
                                           converted_image_filename;
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
+
+      if (!SymlinkVdex(input_vdex_filename, output_vdex_filename)) {
+        // Errors already logged by above call.
+        return false;
+      }
 
       if (!ReplaceOatFileWithSymlink(input_oat_file->GetPath(),
                                      output_oat_filename,
@@ -304,6 +313,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
 
     t.NewTiming("Writing files");
     std::string converted_image_filename = space->GetImageLocation();
@@ -329,8 +340,16 @@ bool PatchOat::Patch(const std::string& image_location,
 
     bool skip_patching_oat = space_to_skip_patching_map.find(space)->second;
     if (!skip_patching_oat) {
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
+
+      if (!SymlinkVdex(input_vdex_filename, output_vdex_filename)) {
+        // Errors already logged by above call.
+        return false;
+      }
+
       std::unique_ptr<File>
           output_oat_file(CreateOrOpen(output_oat_filename.c_str(), &new_oat_out));
       if (output_oat_file.get() == nullptr) {
@@ -421,6 +440,26 @@ PatchOat::MaybePic PatchOat::IsOatPic(const ElfFile* oat_in) {
   }
 
   return is_pic ? PIC : NOT_PIC;
+}
+
+bool PatchOat::SymlinkVdex(const std::string& input_vdex_filename,
+                           const std::string& output_vdex_filename) {
+  // Delete the original file, since we won't need it.
+  unlink(output_vdex_filename.c_str());
+
+  // Create a symlink from the old vdex to the new vdex
+  if (symlink(input_vdex_filename.c_str(), output_vdex_filename.c_str()) < 0) {
+    int err = errno;
+    LOG(ERROR) << "Failed to create symlink at " << output_vdex_filename
+               << " error(" << err << "): " << strerror(err);
+    return false;
+  }
+
+  if (kIsDebugBuild) {
+    LOG(INFO) << "Created symlink " << output_vdex_filename << " -> " << input_vdex_filename;
+  }
+
+  return true;
 }
 
 bool PatchOat::ReplaceOatFileWithSymlink(const std::string& input_oat_filename,

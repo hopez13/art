@@ -293,6 +293,7 @@ class OatDumperOptions {
                    bool dump_header_only,
                    const char* export_dex_location,
                    const char* app_image,
+                   const char* app_vdex,
                    const char* app_oat,
                    uint32_t addr2instr)
     : dump_vmap_(dump_vmap),
@@ -306,6 +307,7 @@ class OatDumperOptions {
       dump_header_only_(dump_header_only),
       export_dex_location_(export_dex_location),
       app_image_(app_image),
+      app_vdex_(app_vdex),
       app_oat_(app_oat),
       addr2instr_(addr2instr),
       class_loader_(nullptr) {}
@@ -321,6 +323,7 @@ class OatDumperOptions {
   const bool dump_header_only_;
   const char* const export_dex_location_;
   const char* const app_image_;
+  const char* const app_vdex_;
   const char* const app_oat_;
   uint32_t addr2instr_;
   Handle<mirror::ClassLoader>* class_loader_;
@@ -1510,7 +1513,10 @@ class ImageDumper {
     Runtime* const runtime = Runtime::Current();
     ClassLinker* class_linker = runtime->GetClassLinker();
     std::string image_filename = image_space_.GetImageFilename();
+    std::string vdex_location = ImageHeader::GetVdexLocationFromImageLocation(image_filename);
     std::string oat_location = ImageHeader::GetOatLocationFromImageLocation(image_filename);
+    os << "VDEX LOCATION: " << vdex_location;
+    os << "\n";
     os << "OAT LOCATION: " << oat_location;
     os << "\n";
     std::string error_msg;
@@ -1519,7 +1525,8 @@ class ImageDumper {
       oat_file = runtime->GetOatFileManager().FindOpenedOatFileFromOatLocation(oat_location);
     }
     if (oat_file == nullptr) {
-      oat_file = OatFile::Open(oat_location,
+      oat_file = OatFile::Open(vdex_location,
+                               oat_location,
                                oat_location,
                                nullptr,
                                nullptr,
@@ -2398,7 +2405,8 @@ static int DumpImages(Runtime* runtime, OatDumperOptions* options, std::ostream*
     // We need to map the oat file in the low 4gb or else the fixup wont be able to fit oat file
     // pointers into 32 bit pointer sized ArtMethods.
     std::string error_msg;
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(options->app_oat_,
+    std::unique_ptr<OatFile> oat_file(OatFile::Open(options->app_vdex_,
+                                                    options->app_oat_,
                                                     options->app_oat_,
                                                     nullptr,
                                                     nullptr,
@@ -2489,10 +2497,14 @@ static int DumpOatWithoutRuntime(OatFile* oat_file, OatDumperOptions* options, s
   return (success) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
-static int DumpOat(Runtime* runtime, const char* oat_filename, OatDumperOptions* options,
+static int DumpOat(Runtime* runtime,
+                   const char* vdex_filename,
+                   const char* oat_filename,
+                   OatDumperOptions* options,
                    std::ostream* os) {
   std::string error_msg;
-  OatFile* oat_file = OatFile::Open(oat_filename,
+  OatFile* oat_file = OatFile::Open(vdex_filename,
+                                    oat_filename,
                                     oat_filename,
                                     nullptr,
                                     nullptr,
@@ -2512,9 +2524,13 @@ static int DumpOat(Runtime* runtime, const char* oat_filename, OatDumperOptions*
   }
 }
 
-static int SymbolizeOat(const char* oat_filename, std::string& output_name, bool no_bits) {
+static int SymbolizeOat(const char* vdex_filename,
+                        const char* oat_filename,
+                        std::string& output_name,
+                        bool no_bits) {
   std::string error_msg;
-  OatFile* oat_file = OatFile::Open(oat_filename,
+  OatFile* oat_file = OatFile::Open(vdex_filename,
+                                    oat_filename,
                                     oat_filename,
                                     nullptr,
                                     nullptr,
@@ -2592,6 +2608,8 @@ struct OatdumpArgs : public CmdlineArgs {
       }
     } else if (option.starts_with("--app-image=")) {
       app_image_ = option.substr(strlen("--app-image=")).data();
+    } else if (option.starts_with("--app-vdex=")) {
+      app_vdex_ = option.substr(strlen("--app-vdex=")).data();
     } else if (option.starts_with("--app-oat=")) {
       app_oat_ = option.substr(strlen("--app-oat=")).data();
     } else {
@@ -2696,6 +2714,7 @@ struct OatdumpArgs : public CmdlineArgs {
   }
 
  public:
+  const char* vdex_filename_ = nullptr;
   const char* oat_filename_ = nullptr;
   const char* class_filter_ = "";
   const char* method_filter_ = "";
@@ -2712,6 +2731,7 @@ struct OatdumpArgs : public CmdlineArgs {
   uint32_t addr2instr_ = 0;
   const char* export_dex_location_ = nullptr;
   const char* app_image_ = nullptr;
+  const char* app_vdex_ = nullptr;
   const char* app_oat_ = nullptr;
 };
 
@@ -2734,6 +2754,7 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
         args_->dump_header_only_,
         args_->export_dex_location_,
         args_->app_image_,
+        args_->app_vdex_,
         args_->app_oat_,
         args_->addr2instr_));
 
@@ -2753,9 +2774,13 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
       // This is what "strip --only-keep-debug" does when it creates separate ELF file
       // with only debug data. We use it in similar way to exclude .rodata and .text.
       bool no_bits = args_->only_keep_debug_;
-      return SymbolizeOat(args_->oat_filename_, args_->output_name_, no_bits) == EXIT_SUCCESS;
+      return SymbolizeOat(args_->vdex_filename_,
+                          args_->oat_filename_,
+                          args_->output_name_,
+                          no_bits) == EXIT_SUCCESS;
     } else {
       return DumpOat(nullptr,
+                     args_->vdex_filename_,
                      args_->oat_filename_,
                      oat_dumper_options_.get(),
                      args_->os_) == EXIT_SUCCESS;
@@ -2767,6 +2792,7 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
 
     if (args_->oat_filename_ != nullptr) {
       return DumpOat(runtime,
+                     args_->vdex_filename_,
                      args_->oat_filename_,
                      oat_dumper_options_.get(),
                      args_->os_) == EXIT_SUCCESS;

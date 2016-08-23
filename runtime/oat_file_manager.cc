@@ -556,6 +556,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   Runtime* const runtime = Runtime::Current();
 
   OatFileAssistant oat_file_assistant(dex_location,
+                                      nullptr /* vdex_location */,
                                       oat_location,
                                       kRuntimeISA,
                                       !runtime->IsAotCompiler());

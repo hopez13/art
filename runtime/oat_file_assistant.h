@@ -110,6 +110,7 @@ class OatFileAssistant {
   // Constructs an OatFileAssistant, providing an explicit target oat_location
   // to use instead of the standard oat location.
   OatFileAssistant(const char* dex_location,
+                   const char* vdex_location,
                    const char* oat_location,
                    const InstructionSet isa,
                    bool load_executable);
@@ -282,6 +283,7 @@ class OatFileAssistant {
   // Neither odex_filename nor error_msg may be null.
   static bool DexLocationToOdexFilename(const std::string& location,
                                         InstructionSet isa,
+                                        std::string* vdex_filename,
                                         std::string* odex_filename,
                                         std::string* error_msg);
 
@@ -293,6 +295,7 @@ class OatFileAssistant {
   // Neither oat_filename nor error_msg may be null.
   static bool DexLocationToOatFilename(const std::string& location,
                                        InstructionSet isa,
+                                       std::string* vdex_filename,
                                        std::string* oat_filename,
                                        std::string* error_msg);
 
@@ -313,7 +316,8 @@ class OatFileAssistant {
     // the cache for.
     explicit OatFileInfo(OatFileAssistant* oat_file_assistant);
 
-    const std::string* Filename();
+    const std::string* VdexFilename();
+    const std::string* OatFilename();
     bool Exists();
     OatStatus Status();
     bool IsOutOfDate();
@@ -346,7 +350,7 @@ class OatFileAssistant {
 
     // Clear any cached information and switch to getting info about the oat
     // file with the given filename.
-    void Reset(const std::string& filename);
+    void Reset(const std::string& vdex_filename, const std::string& oat_filename);
 
     // Release the loaded oat file.
     // Returns null if the oat file hasn't been loaded.
@@ -360,7 +364,8 @@ class OatFileAssistant {
     OatFileAssistant* oat_file_assistant_;
 
     bool filename_provided_ = false;
-    std::string filename_;
+    std::string vdex_filename_;
+    std::string oat_filename_;
 
     bool load_attempted_ = false;
     std::unique_ptr<OatFile> file_;

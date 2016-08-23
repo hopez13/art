@@ -179,6 +179,16 @@ class PACKED(4) ImageHeader {
     return oat_filename;
   }
 
+  static std::string GetVdexLocationFromImageLocation(const std::string& image) {
+    std::string vdex_filename = image;
+    if (vdex_filename.length() <= 3) {
+      vdex_filename += ".vdex";
+    } else {
+      vdex_filename.replace(vdex_filename.length() - 3, 3, "vdex");
+    }
+    return vdex_filename;
+  }
+
   enum ImageMethod {
     kResolutionMethod,
     kImtConflictMethod,

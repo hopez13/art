@@ -38,6 +38,7 @@
 #include "os.h"
 #include "space-inl.h"
 #include "utils.h"
+#include "vdex_file.h"
 
 namespace art {
 namespace gc {
@@ -452,6 +453,7 @@ class ImageSpaceLoader {
  public:
   static std::unique_ptr<ImageSpace> Load(const char* image_location,
                                           const std::string& image_filename,
+                                          const std::string& original_image_filename,
                                           bool is_zygote,
                                           bool is_global_cache,
                                           bool validate_oat_file,
@@ -481,6 +483,7 @@ class ImageSpaceLoader {
     // Since we are the boot image, pass null since we load the oat file from the boot image oat
     // file name.
     return Init(image_filename.c_str(),
+                original_image_filename.c_str(),
                 image_location,
                 validate_oat_file,
                 /* oat_file */nullptr,
@@ -488,6 +491,7 @@ class ImageSpaceLoader {
   }
 
   static std::unique_ptr<ImageSpace> Init(const char* image_filename,
+                                          const char* original_image_filename,
                                           const char* image_location,
                                           bool validate_oat_file,
                                           const OatFile* oat_file,
@@ -655,7 +659,7 @@ class ImageSpaceLoader {
     // set yet at this point.
     if (oat_file == nullptr) {
       TimingLogger::ScopedTiming timing("OpenOatFile", &logger);
-      space->oat_file_ = OpenOatFile(*space, image_filename, error_msg);
+      space->oat_file_ = OpenOatFile(*space, image_filename, original_image_filename, error_msg);
       if (space->oat_file_ == nullptr) {
         DCHECK(!error_msg->empty());
         return nullptr;
@@ -1291,18 +1295,21 @@ class ImageSpaceLoader {
 
   static std::unique_ptr<OatFile> OpenOatFile(const ImageSpace& image,
                                               const char* image_path,
+                                              const char* original_image_path,
                                               std::string* error_msg) {
     const ImageHeader& image_header = image.GetImageHeader();
+    std::string vdex_filename = ImageHeader::GetVdexLocationFromImageLocation(original_image_path);
     std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(image_path);
 
     CHECK(image_header.GetOatDataBegin() != nullptr);
 
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(oat_filename,
+    std::unique_ptr<OatFile> oat_file(OatFile::Open(vdex_filename,
+                                                    oat_filename,
                                                     oat_filename,
                                                     image_header.GetOatDataBegin(),
                                                     image_header.GetOatFileBegin(),
                                                     !Runtime::Current()->IsAotCompiler(),
-                                                    /*low_4gb*/false,
+                                                    false /* low_4gb */,
                                                     nullptr,
                                                     error_msg));
     if (oat_file == nullptr) {
@@ -1470,6 +1477,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       std::unique_ptr<ImageSpace> relocated_space =
           ImageSpaceLoader::Load(image_location,
                                  cache_filename,
+                                 system_filename.c_str(),
                                  is_zygote,
                                  is_global_cache,
                                  /* validate_oat_file */ false,
@@ -1486,6 +1494,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::string local_error_msg;
     std::unique_ptr<ImageSpace> cache_space =
         ImageSpaceLoader::Load(image_location,
+                               cache_filename,
                                cache_filename,
                                is_zygote,
                                is_global_cache,
@@ -1506,6 +1515,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
     std::string local_error_msg;
     std::unique_ptr<ImageSpace> system_space =
         ImageSpaceLoader::Load(image_location,
+                               system_filename,
                                system_filename,
                                is_zygote,
                                is_global_cache,
@@ -1532,6 +1542,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
         std::unique_ptr<ImageSpace> patched_space =
             ImageSpaceLoader::Load(image_location,
                                    cache_filename,
+                                   system_filename,
                                    is_zygote,
                                    is_global_cache,
                                    /* validate_oat_file */ false,
@@ -1560,6 +1571,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
       if (compilation_success) {
         std::unique_ptr<ImageSpace> compiled_space =
             ImageSpaceLoader::Load(image_location,
+                                   cache_filename,
                                    cache_filename,
                                    is_zygote,
                                    is_global_cache,
@@ -1596,6 +1608,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateFromAppImage(const char* image,
                                                            const OatFile* oat_file,
                                                            std::string* error_msg) {
   return ImageSpaceLoader::Init(image,
+                                image,
                                 image,
                                 /*validate_oat_file*/false,
                                 oat_file,

@@ -121,6 +121,7 @@ void ImageTest::TestWriteRead(ImageHeader::StorageMode storage_mode) {
       std::unique_ptr<MemMap> opened_dex_files_map;
       std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
       bool dex_files_ok = oat_writer.WriteAndOpenDexFiles(
+          nullptr, nullptr,
           rodata,
           oat_file.GetFile(),
           compiler_driver_->GetInstructionSet(),
@@ -138,13 +139,13 @@ void ImageTest::TestWriteRead(ImageHeader::StorageMode storage_mode) {
                                               instruction_set_features_.get());
       oat_writer.PrepareLayout(compiler_driver_.get(), writer.get(), dex_files, &patcher);
       size_t rodata_size = oat_writer.GetOatHeader().GetExecutableOffset();
-      size_t text_size = oat_writer.GetSize() - rodata_size;
+      size_t text_size = oat_writer.GetOatSize() - rodata_size;
       elf_writer->SetLoadedSectionSizes(rodata_size, text_size, oat_writer.GetBssSize());
 
       writer->UpdateOatFileLayout(/* oat_index */ 0u,
                                   elf_writer->GetLoadedSize(),
                                   oat_writer.GetOatDataOffset(),
-                                  oat_writer.GetSize());
+                                  oat_writer.GetOatSize());
 
       bool rodata_ok = oat_writer.WriteRodata(rodata);
       ASSERT_TRUE(rodata_ok);
