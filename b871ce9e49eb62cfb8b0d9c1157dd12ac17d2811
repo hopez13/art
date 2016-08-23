@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "88c2db6f_baeb51a7",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-23T13:59:29Z",
+      "side": 1,
+      "message": "Use \"NoImplicitNullChecker()\" and avoid the static member.",
+      "range": {
+        "startLine": 458,
+        "startChar": 59,
+        "endLine": 458,
+        "endChar": 84
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08ad0bb1_7e1b7188",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -150,6 +173,29 @@
         "startChar": 8,
         "endLine": 619,
         "endChar": 20
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8af9fab_bb07c725",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-23T13:59:29Z",
+      "side": 1,
+      "message": "Do you still need the non-template version?",
+      "range": {
+        "startLine": 636,
+        "startChar": 7,
+        "endLine": 636,
+        "endChar": 27
       },
       "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
