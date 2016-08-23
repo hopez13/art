@@ -667,6 +667,8 @@ class DexFile {
   // Looks up a class definition by its type index.
   const ClassDef* FindClassDef(uint16_t type_idx) const;
 
+  const ClassDef* FindClassDef(const char* descriptor) const;
+
   const TypeList* GetInterfacesList(const ClassDef& class_def) const {
     if (class_def.interfaces_off_ == 0) {
         return nullptr;
@@ -1010,6 +1012,12 @@ class DexFile {
   static int64_t ReadSignedLong(const uint8_t* ptr, int zwidth);
   static uint64_t ReadUnsignedLong(const uint8_t* ptr, int zwidth, bool fill_on_right);
 
+  // Opens a .dex file at the given address backed by a MemMap
+  static std::unique_ptr<const DexFile> OpenMemory(const std::string& location,
+                                                   uint32_t location_checksum,
+                                                   std::unique_ptr<MemMap> mem_map,
+                                                   std::string* error_msg);
+
  private:
   // Opens a .dex file
   static std::unique_ptr<const DexFile> OpenFile(int fd,
@@ -1042,12 +1050,6 @@ class DexFile {
                                              bool verify_checksum,
                                              std::string* error_msg,
                                              ZipOpenErrorCode* error_code);
-
-  // Opens a .dex file at the given address backed by a MemMap
-  static std::unique_ptr<const DexFile> OpenMemory(const std::string& location,
-                                                   uint32_t location_checksum,
-                                                   std::unique_ptr<MemMap> mem_map,
-                                                   std::string* error_msg);
 
   // Opens a .dex file at the given address, optionally backed by a MemMap
   static std::unique_ptr<const DexFile> OpenMemory(const uint8_t* dex_file,

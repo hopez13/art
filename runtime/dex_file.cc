@@ -562,6 +562,29 @@ uint32_t DexFile::Header::GetVersion() const {
   return atoi(version);
 }
 
+const DexFile::ClassDef* DexFile::FindClassDef(const char* descriptor) const {
+  size_t num_class_defs = NumClassDefs();
+  if (num_class_defs == 0) {
+    return nullptr;
+  }
+  const StringId* string_id = FindStringId(descriptor);
+  if (string_id == nullptr) {
+    return nullptr;
+  }
+  const TypeId* type_id = FindTypeId(GetIndexForStringId(*string_id));
+  if (type_id == nullptr) {
+    return nullptr;
+  }
+  uint16_t type_idx = GetIndexForTypeId(*type_id);
+  for (size_t i = 0; i < num_class_defs; ++i) {
+    const ClassDef& class_def = GetClassDef(i);
+    if (class_def.class_idx_ == type_idx) {
+      return &class_def;
+    }
+  }
+  return nullptr;
+}
+
 const DexFile::ClassDef* DexFile::FindClassDef(uint16_t type_idx) const {
   size_t num_class_defs = NumClassDefs();
   // Fast path for rare no class defs case.
