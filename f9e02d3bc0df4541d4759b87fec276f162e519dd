@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08ad0bb1_de5f251d",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8af9fab_fb5aef2e",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 47
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8cbf392_d4401c69",
         "filename": "compiler/optimizing/common_arm64.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-23T14:40:36Z",
       "side": 1,
       "message": "What about:\n\n  return InputCPURegisterAt(inst, index);\n\n?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 79
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_be6459ee",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "Yes! Done.",
+      "parentUuid": "c8cbf392_d4401c69",
       "range": {
         "startLine": 135,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "08ad0bb1_1e6d8dc5",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "It might have been inherited from early `static` helpers in `.cc` files, and we carefully followed the surrounding style from there! I\u0027ll prepare a following patch to remove those.",
+      "parentUuid": "08ad0bb1_be12195b",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 6
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88c2db6f_7a449957",
         "filename": "test/615-checker-arm64-store-zero/src/Main.java",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "08ad0bb1_5ebe7513",
+        "filename": "test/615-checker-arm64-store-zero/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "I don\u0027t think interleaving in the same test would work.\n\n    /// CHECK-START-ARM64: void Main.store_zero_to_static_fields() disassembly (after)\n    /// CHECK:             StaticFieldSet\n    /// CHECK-NEXT:        strb wzr, [x{{[0-9]+}}, #{{[0-9]+}}]\n\n    /// CHECK-START-ARM64: void Main.store_zero_to_static_fields() disassembly (after)\n    /// CHECK:             StaticFieldSet\n    /// CHECK-NEXT:        strh wzr, [x{{[0-9]+}}, #{{[0-9]+}}]\n\nWe don\u0027t have a way to distinguish the `StaticFieldSet` instructions. We could instead have a full series of `CHECK` and `CHECK-NEXT`, but that would have too strong requirements on the order of IRs.\n\nI felt this was sufficient, but let\u0027s do it thoroughly: I split it per type (vim macros saved me).",
+      "parentUuid": "88c2db6f_7a449957",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 84
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88c2db6f_1a3b5dca",
         "filename": "test/615-checker-arm64-store-zero/src/Main.java",
         "patchSetId": 2
@@ -105,6 +201,42 @@
       "writtenOn": "2016-08-23T14:40:36Z",
       "side": 1,
       "message": "I would call the test methods (`bar`, `store_zero_to_static_fields`, `store_zero_to_instance_fields`, `store_zero_to_array`s) in `main`.",
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_be8d7988",
+        "filename": "test/615-checker-arm64-store-zero/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c2db6f_1a3b5dca",
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_de9845c8",
+        "filename": "test/615-checker-arm64-store-zero/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T17:39:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c2db6f_1a3b5dca",
       "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
