@@ -1,0 +1,379 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48ac639b_8118007d",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "as many \u003d as there are chars in the section header?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_e1261cba",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "localizing sounds like internationalization? do you mean, locating, or just finding?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_410ee83d",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "have a look with http://markdownlivepreview.com/ to see how this file would look; in particular use 4 space indent for code fragments like the command line format",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_816ac0b8",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "oh, you should have used git mv for the original file, so we would see the history of the comments better",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_6cfe8357",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "nit: not sure if we should say README.md here",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_0c0fc78b",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "white space around from / import ?\n\nalso, don\u0027t we group from\u0027s together? or is this the pylint order?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_cc030fbe",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "Be a bit more precise, since some of these passes are architecture dependent. Say something like, if the compiler runs any of the passes listed below (for a particular arch), then this pass cannot be disabled through this script.",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_ec27f35c",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "just FYI: I just noticed I am mainly using \u0027\u0027 for strings, and you prefer the style \"\"\nboth are allowed luckily (as long as files remain consistent)",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_ec10d301",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "while line, same comment",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_6c27631b",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "at first glance, I thought this was a utility to test our script themselves, but the are really utils used by e.g. bisection and later fuzzing\n\nHow about reflecting this a bit better in file name, and this comment?",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_4c745ffd",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "see comment in other file",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_0c47c77a",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "empty line before next global",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_8c3677fa",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "Returns:\nRaises:\n\nsection? It may seem a bit overkill, but it our programming practice",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_8c0d9748",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "typo: overwritten\nalso, if file does not exist ....",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_4c0e1f3e",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "environment context sounds a bit redundant, you refer to it elsewhere as just enviroment",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_2c300be9",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "It was not clear at first reading that this returns. Use the verb returns in main comment, and add a \n\nReturns:\n\nsection",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_6c2a037d",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "same",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_4c045feb",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "you are mixing utility methods and classes, which makes it hard to grasp the organization a bit at first reading. how about grouping helper method at the top, followed by all classes?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_6ce04322",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "how about adding that this is the concrete impl of our test env? same for the other",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_2c41eb13",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "can\u0027t we simply omit this comment for all derived method?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_ac541bcf",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:37:33Z",
+      "side": 1,
+      "message": "constructor comments missing, like you did for host",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
