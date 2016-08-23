@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-#if !defined(__clang__)
-// Clang 3.4 fails to build the goto interpreter implementation.
-
-
-#include "experimental_flags.h"
 #include "interpreter_common.h"
+
+#if !defined(__clang__)
+#include "experimental_flags.h"
 #include "jit/jit.h"
 #include "safe_math.h"
+#endif
 
 namespace art {
 namespace interpreter {
+
+#if !defined(__clang__)
 
 // In the following macros, we expect the following local variables exist:
 // - "self": the current Thread*.
@@ -2571,7 +2572,28 @@ template SHARED_REQUIRES(Locks::mutator_lock_)
 JValue ExecuteGotoImpl<false, true>(Thread* self, const DexFile::CodeItem* code_item,
                                     ShadowFrame& shadow_frame, JValue result_register);
 
+#else
+
+// Clang 3.4 fails to build the goto interpreter implementation.
+template<bool do_access_check, bool transaction_active>
+JValue ExecuteGotoImpl(Thread*, const DexFile::CodeItem*, ShadowFrame&, JValue) {
+  LOG(FATAL) << "UNREACHABLE";
+  UNREACHABLE();
+}
+// Explicit definitions of ExecuteGotoImpl.
+template<> SHARED_REQUIRES(Locks::mutator_lock_)
+JValue ExecuteGotoImpl<true, false>(Thread* self, const DexFile::CodeItem* code_item,
+                                    ShadowFrame& shadow_frame, JValue result_register);
+template<> SHARED_REQUIRES(Locks::mutator_lock_)
+JValue ExecuteGotoImpl<false, false>(Thread* self, const DexFile::CodeItem* code_item,
+                                     ShadowFrame& shadow_frame, JValue result_register);
+template<> SHARED_REQUIRES(Locks::mutator_lock_)
+JValue ExecuteGotoImpl<true, true>(Thread* self,  const DexFile::CodeItem* code_item,
+                                   ShadowFrame& shadow_frame, JValue result_register);
+template<> SHARED_REQUIRES(Locks::mutator_lock_)
+JValue ExecuteGotoImpl<false, true>(Thread* self, const DexFile::CodeItem* code_item,
+                                    ShadowFrame& shadow_frame, JValue result_register);
+#endif
+
 }  // namespace interpreter
 }  // namespace art
-
-#endif
