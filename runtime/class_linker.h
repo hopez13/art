@@ -126,6 +126,10 @@ class ClassLinker {
   explicit ClassLinker(InternTable* intern_table);
   ~ClassLinker();
 
+  const void* GetClassLinkerQuickToInterpreterBridge() const {
+    return quick_to_interpreter_bridge_trampoline_;
+  }
+
   // Initialize class linker by bootstraping from dex files.
   bool InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> boot_class_path,
                         std::string* error_msg)

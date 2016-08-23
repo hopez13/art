@@ -29,18 +29,31 @@
  * questions.
  */
 
+#include <vector>
+
+#include <string.h>
 #include <jni.h>
 #include "openjdkjvmti/jvmti.h"
 
+#include "utils/dex_cache_arrays_layout-inl.h"
+#include "base/enums.h"
+#include "linear_alloc.h"
 #include "gc_root-inl.h"
 #include "globals.h"
 #include "jni_env_ext-inl.h"
 #include "scoped_thread_state_change.h"
 #include "thread_list.h"
+#include "mirror/array.h"
+#include "mirror/class-inl.h"
+#include "mirror/class_loader-inl.h"
+#include "mirror/string-inl.h"
+#include "class_linker.h"
+#include "utf.h"
 
 // TODO Remove this at some point by annotating all the methods. It was put in to make the skeleton
 // easier to create.
 #pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-variable"
 
 namespace openjdkjvmti {
 
@@ -825,7 +838,7 @@ class JvmtiFunctions {
           ret = ERR(NOT_AVAILABLE); \
         } \
       } \
-    } while(false)
+    } while (false)
 
     ADD_CAPABILITY(can_tag_objects);
     ADD_CAPABILITY(can_generate_field_modification_events);
@@ -886,7 +899,7 @@ class JvmtiFunctions {
       if (capabilities_ptr->e == 1) { \
         art_env->capabilities.e = 0;\
       } \
-    } while(false)
+    } while (false)
 
     DEL_CAPABILITY(can_tag_objects);
     DEL_CAPABILITY(can_generate_field_modification_events);
@@ -940,8 +953,9 @@ class JvmtiFunctions {
     if (capabilities_ptr == nullptr) {
       return ERR(NULL_POINTER);
     }
+    ArtJvmTiEnv* art_env = reinterpret_cast<ArtJvmTiEnv*>(env);
     memcpy(reinterpret_cast<void*>(capabilities_ptr),
-           reinterpret_cast<void*>(&reinterpret_cast<ArtJvmTiEnv*>(env)->capabilities),
+           reinterpret_cast<void*>(&(art_env->capabilities)),
            sizeof(jvmtiCapabilities));
     return OK;
   }
@@ -1105,6 +1119,457 @@ class JvmtiFunctions {
   static jvmtiError GetJLocationFormat(jvmtiEnv* env, jvmtiJlocationFormat* format_ptr) {
     return ERR(NOT_IMPLEMENTED);
   }
+
+  // TODO Remove this once events are working.
+  static jvmtiError RetransformClassWithHook(jvmtiEnv* env,
+                                             jclass klass,
+                                             jvmtiEventClassFileLoadHook hook) {
+    std::vector<jclass> classes;
+    classes.push_back(klass);
+    return RetransformClassesWithHook(reinterpret_cast<ArtJvmTiEnv*>(env), classes, hook);
+  }
+
+  // TODO This will be called by the event handler for the art::ti Event Load Event
+  static jvmtiError RetransformClassesWithHook(ArtJvmTiEnv* env,
+                                               std::vector<jclass> classes,
+                                               jvmtiEventClassFileLoadHook hook) {
+    if (!IsValidEnv(env)) {
+      return ERR(INVALID_ENVIRONMENT);
+    }
+    for (jclass klass : classes) {
+      JNIEnv* jni_env = nullptr;
+      jobject loader = nullptr;
+      std::string name;
+      jobject protection_domain = nullptr;
+      jint data_len = 0;
+      unsigned char* dex_data = nullptr;
+      jvmtiError ret = OK;
+      std::string location;
+      if ((ret = GetTransformationData(env,
+                                       klass,
+                                       /*out*/&location,
+                                       /*out*/&jni_env,
+                                       /*out*/&loader,
+                                       /*out*/&name,
+                                       /*out*/&protection_domain,
+                                       /*out*/&data_len,
+                                       /*out*/&dex_data)) != OK) {
+        // TODO Do something more here?
+        return ret;
+      }
+      jint new_data_len = 0;
+      unsigned char* new_dex_data = nullptr;
+      hook(env, jni_env, klass, loader, name.c_str(), protection_domain, data_len, dex_data,
+           /*out*/&new_data_len, /*out*/&new_dex_data);
+      if ((new_data_len != 0 || new_dex_data != nullptr) && new_dex_data != dex_data) {
+        MoveTransformedFileIntoRuntime(env,
+                                       jni_env,
+                                       klass,
+                                       std::move(location),
+                                       new_data_len,
+                                       new_dex_data);
+        env->Deallocate(new_dex_data);
+      }
+      env->Deallocate(dex_data);
+    }
+    return OK;
+  }
+
+ private:
+  static jvmtiError GetTransformationData(ArtJvmTiEnv* env,
+                                          jclass klass,
+                                          /*out*/std::string* location,
+                                          /*out*/JNIEnv** jni_env_ptr,
+                                          /*out*/jobject* loader,
+                                          /*out*/std::string* name,
+                                          /*out*/jobject* protection_domain,
+                                          /*out*/jint* data_len,
+                                          /*out*/unsigned char** dex_data) {
+    // TODO Check for error here.
+    jint ret = env->art_vm->GetEnv(reinterpret_cast<void**>(jni_env_ptr), JNI_VERSION_1_1);
+    if (ret != JNI_OK) {
+      // TODO Different error might be better?
+      return ERR(INTERNAL);
+    }
+    JNIEnv* jni_env = *jni_env_ptr;
+    art::ScopedObjectAccess soa(jni_env);
+    art::StackHandleScope<3> hs(art::Thread::Current());
+    art::Handle<art::mirror::Class> hs_klass(hs.NewHandle(soa.Decode<art::mirror::Class*>(klass)));
+    *loader = soa.AddLocalReference<jobject>(hs_klass->GetClassLoader());
+    *name = art::mirror::Class::ComputeName(hs_klass)->ToModifiedUtf8();
+    // TODO is this always null?
+    *protection_domain = nullptr;
+    const art::DexFile& dex = hs_klass->GetDexFile();
+    *location = dex.GetLocation();
+    *data_len = static_cast<jint>(dex.Size());
+    // TODO We should maybe change allocate to allow us to mprotect this memory and stop writes.
+    jvmtiError alloc_error = env->Allocate(*data_len, dex_data);
+    if (alloc_error != OK) {
+      return alloc_error;
+    }
+    // Copy the data into a temporary buffer.
+    memcpy(reinterpret_cast<void*>(*dex_data),
+           reinterpret_cast<const void*>(dex.Begin()),
+           *data_len);
+    return OK;
+  }
+
+  static bool ReadChecksum(jint data_len, const unsigned char* dex, /*out*/uint32_t* res) {
+    if (data_len < static_cast<jint>(sizeof(art::DexFile::Header))) {
+      return false;
+    }
+    *res = reinterpret_cast<const art::DexFile::Header*>(dex)->checksum_;
+    return true;
+  }
+
+  static art::MemMap* MoveDataToMemMap(const std::string& original_location,
+                                       jint data_len,
+                                       unsigned char* dex_data) {
+    // TODO Move to a memmap
+    std::string error_msg;
+    art::MemMap* map =
+        art::MemMap::MapAnonymous(
+            art::StringPrintf("%s-transformed", original_location.c_str()).c_str(),
+            nullptr,
+            data_len,
+            PROT_READ|PROT_WRITE,
+            /*low_4gb*/false,
+            /*reuse*/false,
+            &error_msg);
+    CHECK(map != nullptr);
+    memcpy(map->Begin(), dex_data, data_len);
+    map->Protect(PROT_READ);
+    return map;
+  }
+
+  // Make the runtime actually load the dex file
+  static jvmtiError MoveTransformedFileIntoRuntime(ArtJvmTiEnv* env,
+                                                   JNIEnv* jni_env,
+                                                   jclass jklass,
+                                                   std::string original_location,
+                                                   jint data_len,
+                                                   unsigned char* dex_data) {
+    const char* dex_file_name = "Ldalvik/system/DexFile;";
+    art::Thread* self = art::Thread::Current();
+    art::Runtime* runtime = art::Runtime::Current();
+    art::ThreadList* threads = runtime->GetThreadList();
+    art::ClassLinker* class_linker = runtime->GetClassLinker();
+    uint32_t checksum = 0;
+    if (!ReadChecksum(data_len, dex_data, &checksum)) {
+      return ERR(INVALID_CLASS_FORMAT);
+    }
+
+    art::MemMap* map = MoveDataToMemMap(original_location, data_len, dex_data);
+    if (map == nullptr) {
+      return ERR(INTERNAL);
+    }
+    std::string error_msg;
+    // Load the new dex_data in memory (mmap it, etc)
+    std::unique_ptr<const art::DexFile> new_dex_file = art::DexFile::OpenMemory(map->GetName(),
+                                                                                checksum,
+                                                                                map,
+                                                                                &error_msg);
+    CHECK(new_dex_file.get() != nullptr) << "Unable to load dex file! " << error_msg;
+
+    // Get mutator lock. We need the lifetimes of these variables to be longer then current lock
+    // (since there isn't upgrading of the lock) so we don't use soa.
+    art::ThreadState old_state = self->TransitionFromSuspendedToRunnable();
+    {
+      art::StackHandleScope<10> hs(self);
+      art::Handle<art::mirror::ClassLoader> null_loader =
+          art::ScopedNullHandle<art::mirror::ClassLoader>();
+      art::ArtField* dex_file_cookie_field = class_linker->FindClass(self, dex_file_name, null_loader)
+            ->FindDeclaredInstanceField("mCookie", "Ljava/lang/Object;");
+      art::ArtField* dex_file_internal_cookie_field =
+          class_linker->FindClass(self, dex_file_name, null_loader)
+            ->FindDeclaredInstanceField("mInternalCookie", "Ljava/lang/Object;");
+      CHECK(dex_file_cookie_field != nullptr);
+      art::Handle<art::mirror::Class> klass(
+          hs.NewHandle(art::down_cast<art::mirror::Class*>(self->DecodeJObject(jklass))));
+      // Find dalvik.system.DexFile that represents the dex file we are changing.
+      art::Handle<art::mirror::Object> dex_file_obj(
+          hs.NewHandle<art::mirror::Object>(FindDalvikSystemDexFileForClass(jni_env, klass)));
+      if (dex_file_obj.Get() == nullptr) {
+        self->TransitionFromRunnableToSuspended(old_state);
+        LOG(art::ERROR) << "Could not find DexFile.";
+        return ERR(INTERNAL);
+      }
+      art::Handle<art::mirror::LongArray> art_dex_array(
+          hs.NewHandle<art::mirror::LongArray>(
+              dex_file_cookie_field->GetObject(dex_file_obj.Get())->AsLongArray()));
+      art::Handle<art::mirror::LongArray> new_art_dex_array(
+          hs.NewHandle<art::mirror::LongArray>(
+              InsertDexFileIntoArray(self, new_dex_file.get(), art_dex_array)));
+      art::Handle<art::mirror::DexCache> cache(
+          hs.NewHandle(AllocateDexCache(self, *new_dex_file.get(), runtime->GetLinearAlloc())));
+      self->TransitionFromRunnableToSuspended(old_state);
+
+      threads->SuspendAll("moving dex file into runtime", /*long_suspend*/true);
+      // Change the mCookie field. Old value will be GC'd as normal.
+      dex_file_cookie_field->SetObject<false>(dex_file_obj.Get(), new_art_dex_array.Get());
+      dex_file_internal_cookie_field->SetObject<false>(dex_file_obj.Get(), new_art_dex_array.Get());
+      // Invalidate existing methods.
+      InvalidateExistingMethods(self, klass, cache, new_dex_file.release());
+      // TODO Put the new art::DexFile into the array of native dex files in dalvik.system.DexFile
+      //      at the second (2) element of the array (first is the oat file if it exists).
+      // TODO Null out the oat file from the dalvik.system.DexFile (maybe not sure if needed).
+      // TODO Replace references to old dex file in art::mirror::Class and art::ArtMethod's
+      // TODO Resume.
+      // TODO Invalidate all the functions
+      //
+      // TODO (2) do error checks
+      // TODO (2) Refactor this into a more clean architecture.
+
+      // TODO This is needed to make sure that the HandleScope dies with mutator_lock_.
+    }
+    threads->ResumeAll();
+    return OK;
+  }
+
+  // TODO Dedup with ClassLinker::AllocDexCache
+  static art::mirror::DexCache* AllocateDexCache(art::Thread* self,
+                                                 const art::DexFile& dex_file,
+                                                 art::LinearAlloc* linear_alloc)
+      SHARED_REQUIRES(art::Locks::mutator_lock_) {
+    auto* runtime = art::Runtime::Current();
+    auto* class_linker = runtime->GetClassLinker();
+    art::PointerSize image_pointer_size = class_linker->GetImagePointerSize();
+    art::StackHandleScope<6> hs(self);
+    auto dex_cache(hs.NewHandle(art::down_cast<art::mirror::DexCache*>(
+        class_linker->GetClassRoot(art::ClassLinker::kJavaLangDexCache)->AllocObject(self))));
+    if (dex_cache.Get() == nullptr) {
+      self->AssertPendingOOMException();
+      return nullptr;
+    }
+    auto location(
+        hs.NewHandle(runtime->GetInternTable()->InternStrong(dex_file.GetLocation().c_str())));
+    if (location.Get() == nullptr) {
+      self->AssertPendingOOMException();
+      return nullptr;
+    }
+    art::DexCacheArraysLayout layout(image_pointer_size, &dex_file);
+    uint8_t* raw_arrays = nullptr;
+    if (dex_file.GetOatDexFile() != nullptr &&
+        dex_file.GetOatDexFile()->GetDexCacheArrays() != nullptr) {
+      raw_arrays = dex_file.GetOatDexFile()->GetDexCacheArrays();
+    } else if (dex_file.NumStringIds() != 0u || dex_file.NumTypeIds() != 0u ||
+        dex_file.NumMethodIds() != 0u || dex_file.NumFieldIds() != 0u) {
+      // Zero-initialized.
+      raw_arrays = reinterpret_cast<uint8_t*>(linear_alloc->Alloc(self, layout.Size()));
+    }
+    art::GcRoot<art::mirror::String>* strings = (dex_file.NumStringIds() == 0u) ? nullptr :
+        reinterpret_cast<art::GcRoot<art::mirror::String>*>(raw_arrays + layout.StringsOffset());
+    art::GcRoot<art::mirror::Class>* types = (dex_file.NumTypeIds() == 0u) ? nullptr :
+        reinterpret_cast<art::GcRoot<art::mirror::Class>*>(raw_arrays + layout.TypesOffset());
+    art::ArtMethod** methods = (dex_file.NumMethodIds() == 0u) ? nullptr :
+        reinterpret_cast<art::ArtMethod**>(raw_arrays + layout.MethodsOffset());
+    art::ArtField** fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
+        reinterpret_cast<art::ArtField**>(raw_arrays + layout.FieldsOffset());
+    dex_cache->Init(&dex_file,
+                    location.Get(),
+                    strings,
+                    dex_file.NumStringIds(),
+                    types,
+                    dex_file.NumTypeIds(),
+                    methods,
+                    dex_file.NumMethodIds(),
+                    fields,
+                    dex_file.NumFieldIds(),
+                    image_pointer_size);
+    return dex_cache.Get();
+  }
+
+  // TODO Create new DexCache with new DexFile.
+  // TODO reset dex_class_def_idx_
+  // TODO for each method reset entry_point_from_quick_compiled_code_ to bridge
+  // TODO for each method reset dex_code_item_offset_
+  // TODO for each method reset dex_method_index_
+  // TODO for each method set dex_cache_resolved_methods_ to new DexCache
+  // TODO for each method set dex_cache_resolved_types_ to new DexCache
+  static void InvalidateExistingMethods(art::Thread* self,
+                                        art::Handle<art::mirror::Class>& klass,
+                                        art::Handle<art::mirror::DexCache>& cache,
+                                        const art::DexFile* dex_file)
+      SHARED_REQUIRES(art::Locks::mutator_lock_) {
+    auto* runtime = art::Runtime::Current();
+    std::string descriptor_storage;
+    const char* descriptor = klass->GetDescriptor(&descriptor_storage);
+    // Get the new class def
+    const art::DexFile::ClassDef* class_def = dex_file->FindClassDef(
+        descriptor, art::ComputeModifiedUtf8Hash(descriptor));
+    CHECK(class_def != nullptr);
+    const art::DexFile::TypeId& declaring_class_id = dex_file->GetTypeId(class_def->class_idx_);
+    art::PointerSize image_pointer_size = runtime->GetClassLinker()->GetImagePointerSize();
+    art::StackHandleScope<6> hs(self);
+    const art::DexFile& old_dex_file = klass->GetDexFile();
+    // Need to
+    for (art::ArtMethod& method : klass->GetMethods(image_pointer_size)) {
+      // TODO Find the code_item!
+      // TODO Find the dex method index and dex_code_item_offset to set
+      const art::DexFile::StringId* new_name_id = dex_file->FindStringId(method.GetName());
+      uint16_t method_return_idx =
+          dex_file->GetIndexForTypeId(*dex_file->FindTypeId(method.GetReturnTypeDescriptor()));
+      const auto* old_type_list = method.GetParameterTypeList();
+      std::vector<uint16_t> new_type_list;
+      for (uint32_t i = 0; old_type_list != nullptr && i < old_type_list->Size(); i++) {
+        new_type_list.push_back(
+            dex_file->GetIndexForTypeId(
+                *dex_file->FindTypeId(
+                    old_dex_file.GetTypeDescriptor(
+                        old_dex_file.GetTypeId(
+                            old_type_list->GetTypeItem(i).type_idx_)))));
+      }
+      const art::DexFile::ProtoId* proto_id = dex_file->FindProtoId(method_return_idx,
+                                                                    new_type_list);
+      CHECK(proto_id != nullptr || old_type_list == nullptr);
+      const art::DexFile::MethodId* method_id = dex_file->FindMethodId(declaring_class_id,
+                                                                       *new_name_id,
+                                                                       *proto_id);
+      CHECK(method_id != nullptr);
+      uint32_t dex_method_idx = dex_file->GetIndexForMethodId(*method_id);
+      method.SetDexMethodIndex(dex_method_idx);
+      method.SetEntryPointFromQuickCompiledCode(
+          runtime->GetClassLinker()->GetClassLinkerQuickToInterpreterBridge());
+      const uint8_t* class_data = dex_file->GetClassData(*class_def);
+      CHECK(class_data != nullptr);
+      art::ClassDataItemIterator it(*dex_file, class_data);
+      // Skip fields
+      while (it.HasNextStaticField()) {
+        it.Next();
+      }
+      while (it.HasNextInstanceField()) {
+        it.Next();
+      }
+      bool found_method = false;
+      while (it.HasNextDirectMethod()) {
+        if (it.GetMemberIndex() == dex_method_idx) {
+          method.SetCodeItemOffset(it.GetMethodCodeItemOffset());
+          found_method = true;
+          break;
+        }
+        it.Next();
+      }
+      while (!found_method && it.HasNextVirtualMethod()) {
+        if (it.GetMemberIndex() == dex_method_idx) {
+          method.SetCodeItemOffset(it.GetMethodCodeItemOffset());
+          found_method = true;
+          break;
+        }
+        it.Next();
+      }
+      CHECK(found_method);
+
+      // TODO Set these.
+      method.SetDexCacheResolvedMethods(cache->GetResolvedMethods(), image_pointer_size);
+      method.SetDexCacheResolvedTypes(cache->GetResolvedTypes(), image_pointer_size);
+    }
+
+    // Update the class fields.
+    // Need to update class last since the ArtMethod gets its DexFile from the class.
+    klass->SetDexCache(cache.Get());
+    klass->SetDexClassDefIndex(dex_file->GetIndexForClassDef(*class_def));
+    klass->SetDexCacheStrings(cache->GetStrings());
+    klass->SetDexTypeIndex(dex_file->GetIndexForTypeId(*dex_file->FindTypeId(descriptor)));
+  }
+
+  // Adds the dex file.
+  static art::mirror::LongArray* InsertDexFileIntoArray(art::Thread* self,
+                                                        const art::DexFile* dex,
+                                                        art::Handle<art::mirror::LongArray>& orig)
+      SHARED_REQUIRES(art::Locks::mutator_lock_) {
+    art::StackHandleScope<1> hs(self);
+    CHECK_GE(orig->GetLength(), 1);
+    art::Handle<art::mirror::LongArray> ret(
+        hs.NewHandle(art::mirror::LongArray::Alloc(self, orig->GetLength() + 1)));
+    CHECK(ret.Get() != nullptr);
+    // Copy the oat-dex.
+    // TODO Should I clear this element?
+    ret->SetWithoutChecks<false>(0, orig->GetWithoutChecks(0));
+    ret->SetWithoutChecks<false>(1, static_cast<int64_t>(reinterpret_cast<intptr_t>(dex)));
+    ret->Memcpy(2, orig.Get(), 1, orig->GetLength() - 1);
+    return ret.Get();
+  }
+
+  // TODO Handle all types of class loaders.
+  // TODO Rename this functions
+  // TODO Make it actually add the stuff.
+  static art::mirror::Object* FindDalvikSystemDexFileForClass(
+      JNIEnv* jni_env,
+      art::Handle<art::mirror::Class> klass) SHARED_REQUIRES(art::Locks::mutator_lock_) {
+    const char* dex_path_list_element_array_name = "[Ldalvik/system/DexPathList$Element;";
+    const char* dex_path_list_element_name = "Ldalvik/system/DexPathList$Element;";
+    const char* dex_file_name = "Ldalvik/system/DexFile;";
+    const char* dex_path_list_name = "Ldalvik/system/DexPathList;";
+    const char* dex_class_loader_name = "Ldalvik/system/BaseDexClassLoader;";
+    art::Handle<art::mirror::ClassLoader> null_loader =
+        art::ScopedNullHandle<art::mirror::ClassLoader>();
+
+    const char* base_loader_name = "Ldalvik/system/BaseDexClassLoader;";
+    art::Thread* self = art::Thread::Current();
+    CHECK(!self->IsExceptionPending());
+    art::StackHandleScope<9> hs(self);
+    art::ClassLinker* class_linker = art::Runtime::Current()->GetClassLinker();
+
+    art::Handle<art::mirror::Class> base_dex_loader_class(hs.NewHandle(class_linker->FindClass(
+        self, dex_class_loader_name, null_loader)));
+
+    // TODO Rewrite all fo the BaseDexClassLoader stuff with mirror maybe
+    art::ArtField* path_list_field = base_dex_loader_class->FindDeclaredInstanceField(
+        "pathList", dex_path_list_name);
+    CHECK(path_list_field != nullptr);
+
+    art::ArtField* dex_path_list_element_field =
+        class_linker->FindClass(self, dex_path_list_name, null_loader)
+          ->FindDeclaredInstanceField("dexElements", dex_path_list_element_array_name);
+    CHECK(dex_path_list_element_field != nullptr);
+
+    art::ArtField* element_dex_file_field =
+        class_linker->FindClass(self, dex_path_list_element_name, null_loader)
+          ->FindDeclaredInstanceField("dexFile", dex_file_name);
+    CHECK(element_dex_file_field != nullptr);
+
+    art::Handle<art::mirror::ClassLoader> loader(hs.NewHandle(klass->GetClassLoader()));
+    art::Handle<art::mirror::Class> loader_class(hs.NewHandle(loader->GetClass()));
+    // Check if loader is a BaseDexClassLoader
+    if (!loader_class->IsSubClass(base_dex_loader_class.Get())) {
+      LOG(art::ERROR) << "The classloader is not a BaseDexClassLoader!";
+      // TODO Print something or some other error?
+      return nullptr;
+    }
+    art::Handle<art::mirror::Object> path_list(
+        hs.NewHandle(path_list_field->GetObject(loader.Get())));
+    CHECK(path_list.Get() != nullptr);
+    CHECK(!self->IsExceptionPending());
+    art::Handle<art::mirror::ObjectArray<art::mirror::Object>> dex_elements_list(
+        hs.NewHandle(art::down_cast<art::mirror::ObjectArray<art::mirror::Object>*>(
+            dex_path_list_element_field->GetObject(path_list.Get()))));
+    CHECK(!self->IsExceptionPending());
+    CHECK(dex_elements_list.Get() != nullptr);
+    size_t num_elements = dex_elements_list->GetLength();
+    art::MutableHandle<art::mirror::Object> current_element(
+        hs.NewHandle<art::mirror::Object>(nullptr));
+    art::MutableHandle<art::mirror::Object> first_dex_file(
+        hs.NewHandle<art::mirror::Object>(nullptr));
+    // TODO Use the code for FindClassInPathClassLoader to do the iteration and find the DexFile
+    // TODO Fast way to do it:
+    // TODO Get the first element (with a dex file).
+    // TODO   Get the first dalvik.system.DexFile
+    for (size_t i = 0; i < num_elements; i++) {
+      current_element.Assign(dex_elements_list->Get(i));
+      CHECK(current_element.Get() != nullptr);
+      CHECK(!self->IsExceptionPending());
+      CHECK(dex_elements_list.Get() != nullptr);
+      CHECK_EQ(current_element->GetClass(), class_linker->FindClass(self,
+                                                                    dex_path_list_element_name,
+                                                                    null_loader));
+      // TODO Really should probably put it into the used dex file instead.
+      first_dex_file.Assign(element_dex_file_field->GetObject(current_element.Get()));
+      if (first_dex_file.Get() != nullptr) {
+        return first_dex_file.Get();
+      }
+    }
+    return nullptr;
+  }
 };
 
 static bool IsJvmtiVersion(jint version) {
@@ -1143,7 +1608,10 @@ extern "C" bool ArtPlugin_Initialize() {
 
 // The actual struct holding all of the entrypoints into the jvmti interface.
 const jvmtiInterface_1 gJvmtiInterface = {
-  nullptr,  // reserved1
+  // SPECIAL FUNCTION: RetransformClassesWithHook Is normally reserved1
+  // TODO Remove once we have events working.
+  reinterpret_cast<void*>(JvmtiFunctions::RetransformClassWithHook),
+  // nullptr,  // reserved1
   JvmtiFunctions::SetEventNotificationMode,
   nullptr,  // reserved3
   JvmtiFunctions::GetAllThreads,
