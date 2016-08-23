@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88357b64_113f966b",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T21:04:50Z",
+      "side": 1,
+      "message": "EXPECT_ or ASSERT_\nis the proper idiom for testing \n(I suspect that all your other CHECKs above are really assertions on the usage, not testing properties)",
+      "range": {
+        "startLine": 1790,
+        "startChar": 2,
+        "endLine": 1790,
+        "endChar": 10
+      },
+      "revId": "f2c5568882af607fd41c70ae3a3b48f8b4a52d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
