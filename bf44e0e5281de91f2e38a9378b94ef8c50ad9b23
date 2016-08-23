@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_e29a9709",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-23T15:22:54Z",
+      "side": 1,
+      "message": "IMHO, remove the check. I guess you\u0027ll have a complexity issue when trying to implement a fast-path, though.",
+      "parentUuid": "c8b21311_bc26a11c",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "bf44e0e5281de91f2e38a9378b94ef8c50ad9b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8f9973d_91090c37",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 17
