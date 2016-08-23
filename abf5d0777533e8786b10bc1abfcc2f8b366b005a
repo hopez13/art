@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88357b64_96607c38",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Can this be const ref?",
+      "range": {
+        "startLine": 88,
+        "startChar": 29,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_366df02e",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Can this be const ref?",
+      "range": {
+        "startLine": 92,
+        "startChar": 29,
+        "endLine": 92,
+        "endChar": 35
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_d67da4e0",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Can this be const ref?",
+      "range": {
+        "startLine": 97,
+        "startChar": 29,
+        "endLine": 97,
+        "endChar": 35
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_3882fe68",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Should these be sorted?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 14
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68bbe7d1_c2e593d1",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Can you add a more descriptive comment, it does not add at a position in the vector.",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08db4b69_ce8763be",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "const T\u0026 object",
+      "range": {
+        "startLine": 84,
+        "startChar": 44,
+        "endLine": 84,
+        "endChar": 50
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e800b787_c5217a08",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "These brackets don\u0027t do anything.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 12
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f2cfe6_0f568503",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "offset_ \u003d 0;",
+      "range": {
+        "startLine": 99,
+        "startChar": 11,
+        "endLine": 99,
+        "endChar": 18
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8dddf5f_2b7379e2",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Rename? Header shouldn\u0027t really own the non header data.",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_cbc5fd5d",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-23T21:10:57Z",
+      "side": 1,
+      "message": "Get rid of these typedefs?",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "abf5d0777533e8786b10bc1abfcc2f8b366b005a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
