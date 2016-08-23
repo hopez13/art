@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88c2db6f_5ae315cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "Nit: The format we use is \"Test: …\" on a single line, so this should look like:\n\n  Test: booted MIPS32 in QEMU\n  Test: test-art-host-gtest\n  Test: test-art-target-run-test-optimizing in QEMU",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c76782_39e06fbd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "This is duplicated in other methods in this file; please introduce a helper (named) function.",
+      "range": {
+        "startLine": 1841,
+        "startChar": 2,
+        "endLine": 1843,
+        "endChar": 4
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c76782_79eca78c",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "I think you could replace this function object with a function:\n\n  // Implicit null check generator doing nothing.\n  static void no_implicit_null_checker_() {}",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 57
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_5e18b589",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "`null_checker`? (here and below)",
+      "range": {
+        "startLine": 458,
+        "startChar": 49,
+        "endLine": 458,
+        "endChar": 56
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_7e1b7188",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "Please add a blank line between methods if they contain a definition.",
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a997a7_7d025716",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "!IsAligned\u003ckMipsDoublewordSize\u003e(offset)\n\nBetter, remove the negation and swap the `if` branches.",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 553,
+        "endChar": 20
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c76782_9991bbf9",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-23T13:42:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 619,
+        "startChar": 8,
+        "endLine": 619,
+        "endChar": 20
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
