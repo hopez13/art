@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_2704a473",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_8118007d",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_e1261cba",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "localizing sounds like internationalization? do you mean, locating, or just finding?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_8703b068",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Finding sounds good, thanks!",
+      "parentUuid": "48ac639b_e1261cba",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_e7438c9c",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_410ee83d",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_816ac0b8",
         "filename": "tools/bisection-search/bisection-search.py",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "oh, you should have used git mv for the original file, so we would see the history of the comments better",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_07cc0035",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Sorry!",
+      "parentUuid": "48ac639b_816ac0b8",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_2783c4b5",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_6cfe8357",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_ecd9b34d",
         "filename": "tools/bisection-search/bisection-search.py",
         "patchSetId": 2
@@ -104,6 +200,24 @@
       "writtenOn": "2016-08-23T00:44:31Z",
       "side": 1,
       "message": "btw, this needs updating with the new directory name\n\nalso, if you run this from android\u0027s build top, the choice of out as input file is somewhat unfortunate (we have an out directory at that level after any build)",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ac639b_8764901e",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_ecd9b34d",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_872f308a",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Added white spaces. This is the gpylint order, it complains if I move \"import ...\" to the top.",
+      "parentUuid": "48ac639b_0c0fc78b",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_cc030fbe",
         "filename": "tools/bisection-search/bisection-search.py",
         "patchSetId": 2
@@ -138,6 +270,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "Be a bit more precise, since some of these passes are architecture dependent. Say something like, if the compiler runs any of the passes listed below (for a particular arch), then this pass cannot be disabled through this script.",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f2cfe6_af6419ee",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_cc030fbe",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -161,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_76313851",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "I\u0027ve changed mine to use \u0027 as well.",
+      "parentUuid": "48ac639b_ec27f35c",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_ec10d301",
         "filename": "tools/bisection-search/bisection-search.py",
         "patchSetId": 2
@@ -172,6 +340,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "while line, same comment",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_a2d45ef0",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Is it fine now?",
+      "parentUuid": "48ac639b_ec10d301",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -201,6 +387,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_22128eb1",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_6c27631b",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_4c745ffd",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -212,6 +422,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "see comment in other file",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_621896d3",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_4c745ffd",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -235,6 +463,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_e2558656",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_0c47c77a",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_8c3677fa",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -246,6 +492,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "Returns:\nRaises:\n\nsection? It may seem a bit overkill, but it our programming practice",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_a2353ef9",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_8c3677fa",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -269,6 +533,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_2225aebd",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_8c0d9748",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_4c0e1f3e",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -280,6 +562,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "environment context sounds a bit redundant, you refer to it elsewhere as just enviroment",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_422232b7",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_4c0e1f3e",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -303,6 +603,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_c26962c7",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "I think Returns here would be redundant, added a Gets to comment. It is now very similar to style guide example: https://engdoc.corp.google.com/eng/doc/devguide/py/styleguide.shtml?cl\u003dhead#s2.13-properties .",
+      "parentUuid": "48ac639b_2c300be9",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_6c2a037d",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -320,6 +638,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_624f366e",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "48ac639b_6c2a037d",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_4c045feb",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -331,6 +667,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "you are mixing utility methods and classes, which makes it hard to grasp the organization a bit at first reading. how about grouping helper method at the top, followed by all classes?",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_22592e35",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done, maybe we should move \"private\" methods to the end of file though?",
+      "parentUuid": "48ac639b_4c045feb",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -360,6 +714,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_02998ac9",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_6ce04322",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_2c41eb13",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -377,6 +755,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_a28d3e88",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_2c41eb13",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_ac541bcf",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -388,6 +784,24 @@
       "writtenOn": "2016-08-23T00:37:33Z",
       "side": 1,
       "message": "constructor comments missing, like you did for host",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_e2402612",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-23T23:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ac639b_ac541bcf",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
