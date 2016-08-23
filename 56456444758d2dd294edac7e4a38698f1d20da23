@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "08ad0bb1_be07b925",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-08-23T13:51:14Z",
+      "side": 1,
+      "message": "I do not know what devices are supported. I agree cleaning will be necessary if not. But if we do and we know for what target, we should also document it.",
+      "parentUuid": "a846bf69_86cb0c1e",
+      "range": {
+        "startLine": 1045,
+        "startChar": 4,
+        "endLine": 1045,
+        "endChar": 8
+      },
+      "revId": "56456444758d2dd294edac7e4a38698f1d20da23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a846bf69_a3fcbad1",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 35
