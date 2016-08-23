@@ -93,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "48ac639b_ecd9b34d",
+        "filename": "tools/bisection-search/bisection-search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-23T00:44:31Z",
+      "side": 1,
+      "message": "btw, this needs updating with the new directory name\n\nalso, if you run this from android\u0027s build top, the choice of out as input file is somewhat unfortunate (we have an out directory at that level after any build)",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_0c0fc78b",
         "filename": "tools/bisection-search/bisection-search.py",
         "patchSetId": 2
