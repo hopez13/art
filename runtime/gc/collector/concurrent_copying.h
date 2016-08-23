@@ -104,7 +104,7 @@ class ConcurrentCopying : public GarbageCollector {
     DCHECK(ref != nullptr);
     return IsMarked(ref) == ref;
   }
-  template<bool kGrayImmuneObject = true>
+  template<bool kGrayImmuneObject = true, bool kFromReadBarrier = true>
   ALWAYS_INLINE mirror::Object* Mark(mirror::Object* from_ref)
       SHARED_REQUIRES(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);

@@ -1302,8 +1302,19 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
         << " " << to_ref << " " << to_ref->GetReadBarrierPointer()
         << " is_marked=" << IsMarked(to_ref);
   }
-  // Scan ref fields.
-  Scan(to_ref);
+  bool add_to_live_bytes = false;
+  if (region_space_->IsInUnevacFromSpace(to_ref)) {
+    // Mark the bitmap only in the GC thread here so that we don't need a CAS.
+    if (!kUseBakerReadBarrier || !region_space_bitmap_->Set(to_ref)) {
+      // It may be already marked if we accidentally pushed the same object twice due to the racy
+      // bitmap read in MarkUnevacFromSpaceRegion.
+      Scan(to_ref);
+      // Only add to the live bytes if the object was not already marked.
+      add_to_live_bytes = true;
+    }
+  } else {
+    Scan(to_ref);
+  }
   if (kUseBakerReadBarrier) {
     DCHECK(to_ref->GetReadBarrierPointer() == ReadBarrier::GrayPtr())
         << " " << to_ref << " " << to_ref->GetReadBarrierPointer()
@@ -1332,7 +1343,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   DCHECK(!kUseBakerReadBarrier);
 #endif
 
-  if (region_space_->IsInUnevacFromSpace(to_ref)) {
+  if (add_to_live_bytes) {
     // Add to the live bytes per unevacuated from space. Note this code is always run by the
     // GC-running thread (no synchronization required).
     DCHECK(region_space_bitmap_->Test(to_ref));
@@ -1567,7 +1578,9 @@ void ConcurrentCopying::AssertToSpaceInvariant(mirror::Object* obj, MemberOffset
       // OK.
       return;
     } else if (region_space_->IsInUnevacFromSpace(ref)) {
-      CHECK(region_space_bitmap_->Test(ref)) << ref;
+      // TODO: Is this check racy due to memory ordering issues?
+      CHECK(ref->GetReadBarrierPointer() == ReadBarrier::GrayPtr() ||
+            region_space_bitmap_->Test(ref)) << ref;
     } else if (region_space_->IsInFromSpace(ref)) {
       // Not OK. Do extra logging.
       if (obj != nullptr) {
@@ -1614,7 +1627,9 @@ void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
       // OK.
       return;
     } else if (region_space_->IsInUnevacFromSpace(ref)) {
-      CHECK(region_space_bitmap_->Test(ref)) << ref;
+      // TODO: Is this check racy due to memory ordering issues?
+      CHECK(ref->GetReadBarrierPointer() == ReadBarrier::GrayPtr() ||
+            region_space_bitmap_->Test(ref)) << ref;
     } else if (region_space_->IsInFromSpace(ref)) {
       // Not OK. Do extra logging.
       if (gc_root_source == nullptr) {
@@ -1783,7 +1798,7 @@ inline void ConcurrentCopying::Process(mirror::Object* obj, MemberOffset offset)
   DCHECK_EQ(Thread::Current(), thread_running_gc_);
   mirror::Object* ref = obj->GetFieldObject<
       mirror::Object, kVerifyNone, kWithoutReadBarrier, false>(offset);
-  mirror::Object* to_ref = Mark</*kGrayImmuneObject*/false>(ref);
+  mirror::Object* to_ref = Mark</*kGrayImmuneObject*/false, /*kFromReadBarrier*/false>(ref);
   if (to_ref == ref) {
     return;
   }

@@ -43,23 +43,15 @@ inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
     }
   }
   // This may or may not succeed, which is ok because the object may already be gray.
-  bool cas_success = false;
+  bool success = false;
   if (kUseBakerReadBarrier) {
-    cas_success = ref->AtomicSetReadBarrierPointer(ReadBarrier::WhitePtr(),
-                                                   ReadBarrier::GrayPtr());
-  }
-  if (bitmap->AtomicTestAndSet(ref)) {
-    // Already marked.
-    if (kUseBakerReadBarrier &&
-        cas_success &&
-        // The object could be white here if a thread gets preempted after a success at the
-        // above AtomicSetReadBarrierPointer, GC has marked through it, and the thread runs up
-        // to this point.
-        ref->GetReadBarrierPointer() == ReadBarrier::GrayPtr()) {
-      // Register a "false-gray" object to change it from gray to white at the end of marking.
-      PushOntoFalseGrayStack(ref);
-    }
+    // GC will mark the bitmap when popping from mark stack. If only the GC is touching the bitmap
+    // we can avoid an expensive CAS.
+    success = ref->AtomicSetReadBarrierPointer(ReadBarrier::WhitePtr(), ReadBarrier::GrayPtr());
   } else {
+    success = bitmap->AtomicTestAndSet(ref);
+  }
+  if (success) {
     // Newly marked.
     if (kUseBakerReadBarrier) {
       DCHECK_EQ(ref->GetReadBarrierPointer(), ReadBarrier::GrayPtr());
@@ -99,13 +91,15 @@ inline mirror::Object* ConcurrentCopying::MarkImmuneSpace(mirror::Object* ref) {
   return ref;
 }
 
-template<bool kGrayImmuneObject>
+template<bool kGrayImmuneObject, bool kFromReadBarrier>
 inline mirror::Object* ConcurrentCopying::Mark(mirror::Object* from_ref) {
   if (from_ref == nullptr) {
     return nullptr;
   }
   DCHECK(heap_->collector_type_ == kCollectorTypeCC);
-  if (UNLIKELY(kUseBakerReadBarrier && !is_active_)) {
+  if (!kFromReadBarrier) {
+    DCHECK(is_active_);
+  } else if (UNLIKELY(kUseBakerReadBarrier && !is_active_)) {
     // In the lock word forward address state, the read barrier bits
     // in the lock word are part of the stored forwarding address and
     // invalid. This is usually OK as the from-space copy of objects
