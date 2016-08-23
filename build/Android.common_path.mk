@@ -41,6 +41,14 @@ else
 ART_HOST_TEST_DIR := /tmp/$(USER)/test-art-$(shell echo $$PPID)
 endif
 
+# core.vdex location on the device.
+TARGET_CORE_VDEX := $(ART_TARGET_TEST_DIR)/$(DEX2OAT_TARGET_ARCH)/core.vdex
+ifdef TARGET_2ND_ARCH
+2ND_TARGET_CORE_VDEX := $(ART_TARGET_TEST_DIR)/$($(TARGET_2ND_ARCH_VAR_PREFIX)DEX2OAT_TARGET_ARCH)/core.vdex
+endif
+
+CORE_VDEX_SUFFIX := .vdex
+
 # core.oat location on the device.
 TARGET_CORE_OAT := $(ART_TARGET_TEST_DIR)/$(DEX2OAT_TARGET_ARCH)/core.oat
 ifdef TARGET_2ND_ARCH
