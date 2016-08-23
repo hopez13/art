@@ -1139,6 +1139,12 @@ class DexFile {
 
   void CreateTypeLookupTable(uint8_t* storage = nullptr) const;
 
+  // Opens a .dex file at the given address backed by a MemMap
+  static std::unique_ptr<const DexFile> OpenMemory(const std::string& location,
+                                                   uint32_t location_checksum,
+                                                   MemMap* mem_map,
+                                                   std::string* error_msg);
+
  private:
   // Opens a .dex file
   static std::unique_ptr<const DexFile> OpenFile(int fd,
@@ -1171,12 +1177,6 @@ class DexFile {
                                              bool verify_checksum,
                                              std::string* error_msg,
                                              ZipOpenErrorCode* error_code);
-
-  // Opens a .dex file at the given address backed by a MemMap
-  static std::unique_ptr<const DexFile> OpenMemory(const std::string& location,
-                                                   uint32_t location_checksum,
-                                                   MemMap* mem_map,
-                                                   std::string* error_msg);
 
   // Opens a .dex file at the given address, optionally backed by a MemMap
   static std::unique_ptr<const DexFile> OpenMemory(const uint8_t* dex_file,
