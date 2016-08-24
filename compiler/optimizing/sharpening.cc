@@ -295,7 +295,14 @@ void HSharpening::ProcessLoadString(HLoadString* load_string) {
       DCHECK(!runtime->UseJitCompilation());
       mirror::String* string = class_linker->ResolveString(dex_file, string_index, dex_cache);
       CHECK(string != nullptr);
-      // TODO: In follow up CL, add PcRelative and Address back in.
+      // TODO: In follow up CL, add PcRelative back in.
+      if (compiler_driver_->GetSupportBootImageFixup()) {
+        DCHECK(ContainsElement(compiler_driver_->GetDexFilesForOatFile(), &dex_file));
+        if (!codegen_->GetCompilerOptions().GetCompilePic()) {
+          desired_load_kind = HLoadString::LoadKind::kBootImageLinkTimeAddress;
+          address = reinterpret_cast64<uint64_t>(string);
+        }
+      }
     } else if (runtime->UseJitCompilation()) {
       // TODO: Make sure we don't set the "compile PIC" flag for JIT as that's bogus.
       // DCHECK(!codegen_->GetCompilerOptions().GetCompilePic());
