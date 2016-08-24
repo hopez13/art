@@ -22,6 +22,30 @@
       "revId": "87d06d216b40943476afd7bd0abee08cf8feb036",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ad0bb1_81501c33",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-24T16:10:48Z",
+      "side": 1,
+      "message": "we could add NOLINT [whitespace/braces] but I guess it\u0027s better to use a named variable.\n\n  auto null_checker \u003d ...;\n  return null_checker;",
+      "parentUuid": "08ad0bb1_c13504f9",
+      "range": {
+        "startLine": 1837,
+        "startChar": 0,
+        "endLine": 1837,
+        "endChar": 32
+      },
+      "revId": "87d06d216b40943476afd7bd0abee08cf8feb036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
