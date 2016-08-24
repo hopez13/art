@@ -58,6 +58,7 @@ INSTRUCTION_SET_FEATURES=""
 ARGS=""
 EXTERNAL_LOG_TAGS="n" # if y respect externally set ANDROID_LOG_TAGS.
 DRY_RUN="n" # if y prepare to run the test but don't run it.
+APP_IMAGE="y"
 
 while true; do
     if [ "x$1" = "x--quiet" ]; then
@@ -130,6 +131,9 @@ while true; do
         shift
     elif [ "x$1" = "x--prebuild" ]; then
         PREBUILD="y"
+        shift
+    elif [ "x$1" = "x--no_app_image" ]; then
+        APP_IMAGE="n"
         shift
     elif [ "x$1" = "x--strip-dex" ]; then
         STRIP_DEX="y"
@@ -364,8 +368,17 @@ fi
 if [ "$JIT" = "y" ]; then
     INT_OPTS="-Xusejit:true"
     if [ "$VERIFY" = "y" ] ; then
+<<<<<<< HEAD
       INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=verify-at-runtime"
       COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=verify-at-runtime"
+=======
+      COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=interpret-only"
+      if [ "$PREBUILD" = "n" ]; then
+        # Make sure that if we have noprebuild we still JIT as DexClassLoader will
+        # try to compile the dex file.
+        INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=verify-at-runtime"
+      fi
+>>>>>>> 1a37588... Regression test for JIT crash
     else
       INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=verify-none"
       COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=verify-none"
@@ -426,11 +439,18 @@ dex2oat_cmdline="true"
 mkdir_locations="${DEX_LOCATION}/dalvik-cache/$ISA"
 strip_cmdline="true"
 
-# Pick a base that will force the app image to get relocated.
-app_image="--base=0x4000 --app-image-file=$DEX_LOCATION/oat/$ISA/$TEST_NAME.art"
 
 if [ "$PREBUILD" = "y" ]; then
+<<<<<<< HEAD
   mkdir_locations="${mkdir_locations} ${DEX_LOCATION}/oat/$ISA"
+=======
+  if [ "$APP_IMAGE" = "y" ]; then
+    # Pick a base that will force the app image to get relocated.
+    app_image="--base=0x4000 --app-image-file=$DEX_LOCATION/oat/$ISA/$TEST_NAME.art"
+  fi
+
+  mkdir_cmdline="${mkdir_cmdline} && mkdir -p ${DEX_LOCATION}/oat/$ISA"
+>>>>>>> 1a37588... Regression test for JIT crash
   dex2oat_cmdline="$INVOKE_WITH $ANDROID_ROOT/bin/dex2oatd \
                       $COMPILE_FLAGS \
                       --boot-image=${BOOT_IMAGE} \

@@ -405,6 +405,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
     }
     if (method != nullptr) {
       if (verifier.HasInstructionThatWillThrow()) {
+        result.kind = kSoftFailure;
         method->SetAccessFlags(method->GetAccessFlags() | kAccCompileDontBother);
       }
       if ((verifier.encountered_failure_types_ & VerifyError::VERIFY_ERROR_LOCKING) != 0) {
