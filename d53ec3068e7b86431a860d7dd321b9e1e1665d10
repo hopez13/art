@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88e73b24_b5822afd",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-24T16:49:37Z",
+      "side": 1,
+      "message": "This assertion was superfluous (see line 2203), so I removed it.",
+      "range": {
+        "startLine": 2234,
+        "startChar": 4,
+        "endLine": 2234,
+        "endChar": 32
+      },
+      "revId": "d53ec3068e7b86431a860d7dd321b9e1e1665d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
