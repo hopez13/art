@@ -88,6 +88,115 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_2179885a",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_81769c66",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "such that",
+      "range": {
+        "startLine": 9,
+        "startChar": 66,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_a13e386c",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "Too complicated sounding,\n\n\u003e Given optimization passes ordered P0..Pn find the smallest Pk (0\u003c\u003dk\u003cn) s.t. Pk+1 produces correct output but Pk does not (for some method M). Correct output is defined as equivalent optimizing and interpreted output.",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_6100b0a1",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "--64/--32 ?",
+      "range": {
+        "startLine": 19,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 73
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_01c60c72",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "--host/--target?",
+      "range": {
+        "startLine": 19,
+        "startChar": 58,
+        "endLine": 19,
+        "endChar": 66
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_f07d4012",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 4
@@ -111,6 +220,40 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_a1a2b8a1",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "nit: extra newline?",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_c4f1d297",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "This is a bit unwieldy, maybe this can be encapsulated into a simple BugResult class",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_f05a2086",
         "filename": "tools/bisection-search/bisection_search.py",
         "patchSetId": 4
@@ -122,6 +265,52 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "you don\u0027t have Raises section. But perhaps we want to return something else if it fails for everything  (e.g. (\u0027*,\u0027*\u0027). it all depends how you intend to use this later in triaging failures caused by e.g. jack",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_04fe1a55",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "Don\u0027t hardcode this, use $ANDROID_HOST_OUT",
+      "range": {
+        "startLine": 257,
+        "startChar": 30,
+        "endLine": 257,
+        "endChar": 48
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_2447d6ac",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "Not really a fan of hardcoding this either, maybe this can be overridden by an environment variable if it\u0027s set. It\u0027ll make it easier if people want to use this script with other configurations.",
+      "range": {
+        "startLine": 257,
+        "startChar": 59,
+        "endLine": 257,
+        "endChar": 78
+      },
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -151,6 +340,46 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_04d29acc",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "$ANDROID_HOST_OUT",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_447782de",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "I think this could still return true if {0} is empty, you just want an \n\n   if [ -f \"{0}\" ] then\n\nhere",
+      "range": {
+        "startLine": 290,
+        "startChar": 23,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_d0035c6b",
         "filename": "tools/bisection-search/tests.py",
         "patchSetId": 4
@@ -167,6 +396,29 @@
         "startChar": 6,
         "endLine": 29,
         "endChar": 23
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_647efeb9",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-24T18:18:38Z",
+      "side": 1,
+      "message": "any meaning to these #s? please document",
+      "range": {
+        "startLine": 39,
+        "startChar": 52,
+        "endLine": 39,
+        "endChar": 54
       },
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
