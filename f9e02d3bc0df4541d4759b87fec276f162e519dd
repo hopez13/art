@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "88e73b24_b297e043",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-24T16:06:04Z",
+      "side": 1,
+      "message": "That\u0027d be nice, thanks!",
+      "parentUuid": "08ad0bb1_1e6d8dc5",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 6
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88c2db6f_7a449957",
         "filename": "test/615-checker-arm64-store-zero/src/Main.java",
         "patchSetId": 2
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "I don\u0027t think interleaving in the same test would work.\n\n    /// CHECK-START-ARM64: void Main.store_zero_to_static_fields() disassembly (after)\n    /// CHECK:             StaticFieldSet\n    /// CHECK-NEXT:        strb wzr, [x{{[0-9]+}}, #{{[0-9]+}}]\n\n    /// CHECK-START-ARM64: void Main.store_zero_to_static_fields() disassembly (after)\n    /// CHECK:             StaticFieldSet\n    /// CHECK-NEXT:        strh wzr, [x{{[0-9]+}}, #{{[0-9]+}}]\n\nWe don\u0027t have a way to distinguish the `StaticFieldSet` instructions. We could instead have a full series of `CHECK` and `CHECK-NEXT`, but that would have too strong requirements on the order of IRs.\n\nI felt this was sufficient, but let\u0027s do it thoroughly: I split it per type (vim macros saved me).",
       "parentUuid": "88c2db6f_7a449957",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 84
+      },
+      "revId": "f9e02d3bc0df4541d4759b87fec276f162e519dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c76782_bc5ead4f",
+        "filename": "test/615-checker-arm64-store-zero/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-24T16:06:04Z",
+      "side": 1,
+      "message": "Thanks for the clean up/refactoring!",
+      "parentUuid": "08ad0bb1_5ebe7513",
       "range": {
         "startLine": 76,
         "startChar": 2,
