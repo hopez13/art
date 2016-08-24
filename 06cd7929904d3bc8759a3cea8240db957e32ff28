@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "08f50bfe_a41766fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-24T18:36:25Z",
+      "side": 1,
+      "message": "I suggest testing with a libartd boot.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_97a5d6f8",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 2
@@ -627,6 +650,30 @@
       "side": 1,
       "message": "Actually I\u0027ll do kFromGCThread, want to remove some of the CAS from GC thread copying.",
       "parentUuid": "88357b64_09cbea56",
+      "range": {
+        "startLine": 107,
+        "startChar": 47,
+        "endLine": 107,
+        "endChar": 63
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_c408b233",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-24T18:36:25Z",
+      "side": 1,
+      "message": "I take \"want to remove some of the ...\" will be in a future change, not this one.",
+      "parentUuid": "88357b64_8ca868d2",
       "range": {
         "startLine": 107,
         "startChar": 47,
