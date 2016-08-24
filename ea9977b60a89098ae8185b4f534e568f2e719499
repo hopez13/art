@@ -621,6 +621,24 @@
     },
     {
       "key": {
+        "uuid": "88357b64_c28cf7e4",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "Ah yes, prove your host wrong by linking to the style guide :-) Touche.",
+      "parentUuid": "88357b64_c26962c7",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ac639b_6c2a037d",
         "filename": "tools/bisection-search/test_utils.py",
         "patchSetId": 2
@@ -685,6 +703,24 @@
       "side": 1,
       "message": "Done, maybe we should move \"private\" methods to the end of file though?",
       "parentUuid": "48ac639b_4c045feb",
+      "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_42e6a7ab",
+        "filename": "tools/bisection-search/test_utils.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "Up to you. Fine with me. My nit was just trying to avoid intermixing methods and classes",
+      "parentUuid": "88357b64_22592e35",
       "revId": "ea9977b60a89098ae8185b4f534e568f2e719499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
