@@ -46,6 +46,30 @@
       "revId": "25508113de93b5342f278235fd02fe7ae8e0b75b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_de540559",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4852,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T16:58:34Z",
+      "side": 1,
+      "message": "Currently if two pointers are the same in the from-space, they will also be same in to-space. So I think this should be OK since component type and object class are immutable:\n\n  temp1 \u003d array-\u003eklass_\n  temp1 \u003d temp1-\u003ecomponent_type_\n  temp2 \u003d value-\u003eklass_\n  cmp temp1, temp2\n  beq do_put\n  temp1 \u003d readbarrier(temp1)_\n  temp2 \u003d readbarrier(temp2)\n  cmp temp1, temp2\n  bne slow_path",
+      "parentUuid": "08ad0bb1_a1543857",
+      "range": {
+        "startLine": 4852,
+        "startChar": 15,
+        "endLine": 4852,
+        "endChar": 18
+      },
+      "revId": "25508113de93b5342f278235fd02fe7ae8e0b75b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
