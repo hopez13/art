@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_1e9b0d10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "881e5bf2_baca5175",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "881e5bf2_fad0c926",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "no space at start",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_7e4a1185",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "_ is there just to make the definition of failing pass clearer. Is this fine?",
+      "parentUuid": "881e5bf2_fad0c926",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_fe12a15b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "I just wanted to mention that I tested in manually. The previous text was more detailed, but I realized that files I linked to were on google drive which not everyone has access to. Should I remove this?",
+      "parentUuid": "8883bb54_d29fe44d",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_b09ed84e",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 4
@@ -82,6 +154,24 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "looks nice now in formatted form, thanks!",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_7e3e91ba",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Agree!",
+      "parentUuid": "4889c376_b09ed84e",
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -134,6 +224,54 @@
     },
     {
       "key": {
+        "uuid": "a8bebf34_4394a632",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_2179885a",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8bebf34_83a4de9f",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_81769c66",
+      "range": {
+        "startLine": 9,
+        "startChar": 66,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f50bfe_a13e386c",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 4
@@ -145,6 +283,24 @@
       "writtenOn": "2016-08-24T18:18:38Z",
       "side": 1,
       "message": "Too complicated sounding,\n\n\u003e Given optimization passes ordered P0..Pn find the smallest Pk (0\u003c\u003dk\u003cn) s.t. Pk+1 produces correct output but Pk does not (for some method M). Correct output is defined as equivalent optimizing and interpreted output.",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_6d5c21f4",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_a13e386c",
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -197,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "a8bebf34_a382baae",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Why should we have two switches instead of a default way of running and one switch which changes the default? Its similar to run-test --host and --64 switches.",
+      "parentUuid": "08f50bfe_6100b0a1",
+      "range": {
+        "startLine": 19,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 73
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_f07d4012",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 4
@@ -208,6 +388,30 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "sorry for not stating this earlier, but I would prefer \"expected-output\" a bit more than \"correct-output\", it seems more in line with terminology used in e.g. unit testing. if you agree, let\u0027s change everywhere, but I am also okay if you want to keep it as is.",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_5e3bd5c8",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Sure, it does sound better.",
+      "parentUuid": "4889c376_f07d4012",
       "range": {
         "startLine": 31,
         "startChar": 8,
@@ -237,6 +441,24 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_0dc11d52",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "2 newlines before top level class are recommended.",
+      "parentUuid": "08f50bfe_a1a2b8a1",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f50bfe_c4f1d297",
         "filename": "tools/bisection-search/bisection_search.py",
         "patchSetId": 4
@@ -254,6 +476,24 @@
     },
     {
       "key": {
+        "uuid": "a8bebf34_86734c15",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "I like it this way, what do we gain by adding a BugResult? Returning a tuple seems pythonic, and None has intuitive meaning of \"failed to find what you wanted\".",
+      "parentUuid": "08f50bfe_c4f1d297",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_f05a2086",
         "filename": "tools/bisection-search/bisection_search.py",
         "patchSetId": 4
@@ -265,6 +505,24 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "you don\u0027t have Raises section. But perhaps we want to return something else if it fails for everything  (e.g. (\u0027*,\u0027*\u0027). it all depends how you intend to use this later in triaging failures caused by e.g. jack",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_84c98a59",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Added Raises section for now. Need to think about supporting Jack, maybe another script would be in order since this one is pretty heavily subscribed to wrapping dex2oat.",
+      "parentUuid": "4889c376_f05a2086",
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -317,6 +575,54 @@
     },
     {
       "key": {
+        "uuid": "a8bebf34_83405e68",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_04fe1a55",
+      "range": {
+        "startLine": 257,
+        "startChar": 30,
+        "endLine": 257,
+        "endChar": 48
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8bebf34_867d0c14",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Added an --image argument.",
+      "parentUuid": "08f50bfe_2447d6ac",
+      "range": {
+        "startLine": 257,
+        "startChar": 59,
+        "endLine": 257,
+        "endChar": 78
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_70c2b005",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 4
@@ -328,6 +634,30 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "I like the name common.py!",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_a1f6388b",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "4889c376_70c2b005",
       "range": {
         "startLine": 17,
         "startChar": 3,
@@ -357,6 +687,24 @@
     },
     {
       "key": {
+        "uuid": "a8bebf34_c3541659",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_04d29acc",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f50bfe_447782de",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 4
@@ -368,6 +716,30 @@
       "writtenOn": "2016-08-24T18:18:38Z",
       "side": 1,
       "message": "I think this could still return true if {0} is empty, you just want an \n\n   if [ -f \"{0}\" ] then\n\nhere",
+      "range": {
+        "startLine": 290,
+        "startChar": 23,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e81a7724_953424de",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "[ -f \"{0}\" ] only checks if {0} is a regular file. We would like to check if {0} (directory) is non empty. Perhaps a `ls \"{0}\"` is most robust.",
+      "parentUuid": "08f50bfe_447782de",
       "range": {
         "startLine": 290,
         "startChar": 23,
@@ -403,6 +775,30 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_e1d96029",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4889c376_d0035c6b",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f50bfe_647efeb9",
         "filename": "tools/bisection-search/tests.py",
         "patchSetId": 4
@@ -414,6 +810,30 @@
       "writtenOn": "2016-08-24T18:18:38Z",
       "side": 1,
       "message": "any meaning to these #s? please document",
+      "range": {
+        "startLine": 39,
+        "startChar": 52,
+        "endLine": 39,
+        "endChar": 54
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8bebf34_038aae14",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_647efeb9",
       "range": {
         "startLine": 39,
         "startChar": 52,
@@ -449,6 +869,30 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_c1ca6451",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4889c376_f0cf805e",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_904f14c7",
         "filename": "tools/bisection-search/tests.py",
         "patchSetId": 4
@@ -460,6 +904,30 @@
       "writtenOn": "2016-08-24T00:40:44Z",
       "side": 1,
       "message": "do we have the convention to list the expected outcome in the name too?",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_c19f044e",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-24T22:20:58Z",
+      "side": 1,
+      "message": "Hmmm I looked around and I think we don\u0027t. :) Changed names to better match style in other unittests.",
+      "parentUuid": "4889c376_904f14c7",
       "range": {
         "startLine": 57,
         "startChar": 6,
