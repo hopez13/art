@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_e99c8669",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Sorry, forgot to update the comment.",
+      "parentUuid": "88357b64_97a5d6f8",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 60
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_f76782ba",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-23T22:48:18Z",
       "side": 1,
       "message": "Now we changed such that an unevac-from-space object is marked if it\u0027s marked in the mark bitmap or its gray bit is set, correct? Can you add a comment?",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 46
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_c282b7fe",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_f76782ba",
       "range": {
         "startLine": 50,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_2c7efc0e",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Yes, that was a mistake.",
+      "parentUuid": "88357b64_57c66e46",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 11
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_4c3ee0ba",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-23T23:17:06Z",
       "side": 1,
       "message": "After the offline discussion with Hans, this should be a StoreRelaxed.",
+      "range": {
+        "startLine": 1308,
+        "startChar": 56,
+        "endLine": 1308,
+        "endChar": 59
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_ec4fb43c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_4c3ee0ba",
       "range": {
         "startLine": 1308,
         "startChar": 56,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_0ccc5893",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_ec69f4c6",
+      "range": {
+        "startLine": 1582,
+        "startChar": 17,
+        "endLine": 1582,
+        "endChar": 38
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_29eb4e0a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -152,6 +272,30 @@
       "writtenOn": "2016-08-23T22:48:18Z",
       "side": 1,
       "message": "Probably related to the TODO comment above, the bitmap is written by GC only without a CAS or a release.\n\nIs this correct? The feasibility of this change seems to hinge on this.",
+      "range": {
+        "startLine": 1583,
+        "startChar": 12,
+        "endLine": 1583,
+        "endChar": 43
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_df6934c7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1583,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_29eb4e0a",
       "range": {
         "startLine": 1583,
         "startChar": 12,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "88357b64_9f4c0c79",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_8c4f086d",
+      "range": {
+        "startLine": 1631,
+        "startChar": 17,
+        "endLine": 1631,
+        "endChar": 38
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_c9df4264",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -198,6 +366,30 @@
       "writtenOn": "2016-08-23T22:48:18Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 1632,
+        "startChar": 12,
+        "endLine": 1632,
+        "endChar": 43
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_5f568404",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_c9df4264",
       "range": {
         "startLine": 1632,
         "startChar": 12,
@@ -244,6 +436,54 @@
       "writtenOn": "2016-08-23T23:17:06Z",
       "side": 1,
       "message": "The GetReadBarrierPointer should be a load acquire.",
+      "parentUuid": "88357b64_d7ca7e76",
+      "range": {
+        "startLine": 1672,
+        "startChar": 8,
+        "endLine": 1672,
+        "endChar": 38
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_ff819864",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_8c762899",
+      "range": {
+        "startLine": 1672,
+        "startChar": 8,
+        "endLine": 1672,
+        "endChar": 38
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_bf7b1085",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "88357b64_d7ca7e76",
       "range": {
         "startLine": 1672,
@@ -304,6 +544,54 @@
     },
     {
       "key": {
+        "uuid": "88357b64_3f70609b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2144,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_c912e25c",
+      "range": {
+        "startLine": 2144,
+        "startChar": 4,
+        "endLine": 2144,
+        "endChar": 47
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_5f6d24c4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2144,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88357b64_2cb27c4a",
+      "range": {
+        "startLine": 2144,
+        "startChar": 4,
+        "endLine": 2144,
+        "endChar": 47
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_09cbea56",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
@@ -315,6 +603,30 @@
       "writtenOn": "2016-08-23T22:48:18Z",
       "side": 1,
       "message": "You mean this more as \"kMaybeFromMutator\" (a negated one would be \"kFromGC\")? Or at least that makes more sense to me.\n\nCan you add an assert:\n\nif (!kMaybeFromMutator) {\n  DCHECK_EQ(Thread::Current(), thread_running_gc_);\n}",
+      "range": {
+        "startLine": 107,
+        "startChar": 47,
+        "endLine": 107,
+        "endChar": 63
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88357b64_8ca868d2",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T00:59:54Z",
+      "side": 1,
+      "message": "Actually I\u0027ll do kFromGCThread, want to remove some of the CAS from GC thread copying.",
+      "parentUuid": "88357b64_09cbea56",
       "range": {
         "startLine": 107,
         "startChar": 47,
