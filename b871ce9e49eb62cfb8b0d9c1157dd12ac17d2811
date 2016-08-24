@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "889bbb7b_b5a7eab6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c2db6f_5ae315cc",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68c76782_39e06fbd",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-23T13:42:37Z",
       "side": 1,
       "message": "This is duplicated in other methods in this file; please introduce a helper (named) function.",
+      "range": {
+        "startLine": 1841,
+        "startChar": 2,
+        "endLine": 1843,
+        "endChar": 4
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889bbb7b_d5b46ee2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c76782_39e06fbd",
       "range": {
         "startLine": 1841,
         "startChar": 2,
@@ -117,6 +165,54 @@
     },
     {
       "key": {
+        "uuid": "889bbb7b_55987e74",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c2db6f_baeb51a7",
+      "range": {
+        "startLine": 458,
+        "startChar": 59,
+        "endLine": 458,
+        "endChar": 84
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889bbb7b_35a3faa8",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ad0bb1_5e18b589",
+      "range": {
+        "startLine": 458,
+        "startChar": 49,
+        "endLine": 458,
+        "endChar": 56
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08ad0bb1_7e1b7188",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -134,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "889bbb7b_759d8263",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ad0bb1_7e1b7188",
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a997a7_7d025716",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -145,6 +259,30 @@
       "writtenOn": "2016-08-23T13:42:37Z",
       "side": 1,
       "message": "!IsAligned\u003ckMipsDoublewordSize\u003e(offset)\n\nBetter, remove the negation and swap the `if` branches.",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 553,
+        "endChar": 20
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889bbb7b_95910650",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a997a7_7d025716",
       "range": {
         "startLine": 553,
         "startChar": 8,
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "889bbb7b_b58e0a2f",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c76782_9991bbf9",
+      "range": {
+        "startLine": 619,
+        "startChar": 8,
+        "endLine": 619,
+        "endChar": 20
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8af9fab_bb07c725",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -191,6 +353,30 @@
       "writtenOn": "2016-08-23T13:59:29Z",
       "side": 1,
       "message": "Do you still need the non-template version?",
+      "range": {
+        "startLine": 636,
+        "startChar": 7,
+        "endLine": 636,
+        "endChar": 27
+      },
+      "revId": "b871ce9e49eb62cfb8b0d9c1157dd12ac17d2811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889bbb7b_d58b8e1d",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-24T06:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8af9fab_bb07c725",
       "range": {
         "startLine": 636,
         "startChar": 7,
