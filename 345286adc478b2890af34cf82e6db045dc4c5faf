@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08f50bfe_4d6965f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T20:34:23Z",
+      "side": 1,
+      "message": "we require a test stanza nowadays, something like\n\nTest: \u003cwhat has been used to test this\u003e\n\nwhich brings me to my last question, did you run the tests on the emulator on this current PS?",
+      "revId": "345286adc478b2890af34cf82e6db045dc4c5faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_cd545534",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T20:34:23Z",
+      "side": 1,
+      "message": "Not sure if I meant to keep the \"simple\" in the comment.",
+      "revId": "345286adc478b2890af34cf82e6db045dc4c5faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
