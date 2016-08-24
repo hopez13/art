@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "881e5bf2_baca5175",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "script -\u003e tool, utility?\n\nthe Python purist may not agree with our use of the term script :-)",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "881e5bf2_fad0c926",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "no space at start",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8883bb54_d29fe44d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "is this \"Manual testing\" a left over from previous text?",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_b09ed84e",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "looks nice now in formatted form, thanks!",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_f07d4012",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "sorry for not stating this earlier, but I would prefer \"expected-output\" a bit more than \"correct-output\", it seems more in line with terminology used in e.g. unit testing. if you agree, let\u0027s change everywhere, but I am also okay if you want to keep it as is.",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_f05a2086",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "you don\u0027t have Raises section. But perhaps we want to return something else if it fails for everything  (e.g. (\u0027*,\u0027*\u0027). it all depends how you intend to use this later in triaging failures caused by e.g. jack",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_70c2b005",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "I like the name common.py!",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_d0035c6b",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "BiSectionTestCase?\n\nalso, how about bisection_test.py as file name?\nthis is more in line with our conventions, tests.py is very generic :-)",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_f0cf805e",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "FailsForAllPasses?",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4889c376_904f14c7",
+        "filename": "tools/bisection-search/tests.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-24T00:40:44Z",
+      "side": 1,
+      "message": "do we have the convention to list the expected outcome in the name too?",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
