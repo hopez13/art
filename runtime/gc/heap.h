@@ -537,7 +537,7 @@ class Heap {
   void DumpForSigQuit(std::ostream& os) REQUIRES(!*gc_complete_lock_, !native_histogram_lock_);
 
   // Do a pending collector transition.
-  void DoPendingCollectorTransition() REQUIRES(!*gc_complete_lock_);
+  void DoPendingCollectorTransition() REQUIRES(!*gc_complete_lock_, !*pending_task_lock_);
 
   // Deflate monitors, ... and trim the spaces.
   void Trim(Thread* self) REQUIRES(!*gc_complete_lock_);
