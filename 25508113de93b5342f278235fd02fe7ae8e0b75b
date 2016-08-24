@@ -70,6 +70,30 @@
       "revId": "25508113de93b5342f278235fd02fe7ae8e0b75b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a997a7_2047047b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4852,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-24T17:08:50Z",
+      "side": 1,
+      "message": "Thanks Mathieu; I\u0027ll record this in the bug and work on it in a follow-up CL.",
+      "parentUuid": "08f50bfe_de540559",
+      "range": {
+        "startLine": 4852,
+        "startChar": 15,
+        "endLine": 4852,
+        "endChar": 18
+      },
+      "revId": "25508113de93b5342f278235fd02fe7ae8e0b75b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
