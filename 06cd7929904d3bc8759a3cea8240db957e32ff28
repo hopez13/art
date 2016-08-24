@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08f50bfe_c7f1d497",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T20:34:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f50bfe_a41766fc",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88357b64_97a5d6f8",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 2
@@ -674,6 +698,30 @@
       "side": 1,
       "message": "I take \"want to remove some of the ...\" will be in a future change, not this one.",
       "parentUuid": "88357b64_8ca868d2",
+      "range": {
+        "startLine": 107,
+        "startChar": 47,
+        "endLine": 107,
+        "endChar": 63
+      },
+      "revId": "06cd7929904d3bc8759a3cea8240db957e32ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f50bfe_8d6d2d31",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-24T20:34:21Z",
+      "side": 1,
+      "message": "Yes, eventually",
+      "parentUuid": "08f50bfe_c408b233",
       "range": {
         "startLine": 107,
         "startChar": 47,
