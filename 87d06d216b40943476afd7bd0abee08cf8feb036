@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08ad0bb1_c13504f9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-08-24T15:59:34Z",
+      "side": 1,
+      "message": "mma test-art-target-sync is failing on this line:\n\nFAILED: /bin/bash -c \"(art/tools/cpplint.py --quiet --filter\u003d-whitespace/line_length,-build/include,-readability/function,-readability/streams,-readability/todo,-runtime/references,-runtime/sizeof,-runtime/threadsafe_fn,-runtime/printf art/compiler/optimizing/code_generator_mips.cc ) \u0026\u0026 (mkdir -p out/target/common/cpplint/ ) \u0026\u0026 (touch out/target/common/cpplint/art__compiler__optimizing__code_generator_mips.cc )\"\nart/compiler/optimizing/code_generator_mips.cc:1851:  Extra space before [  [whitespace/braces] [5]",
+      "range": {
+        "startLine": 1837,
+        "startChar": 0,
+        "endLine": 1837,
+        "endChar": 32
+      },
+      "revId": "87d06d216b40943476afd7bd0abee08cf8feb036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
