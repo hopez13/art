@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "889bbb7b_587c357d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-24T20:52:46Z",
+      "side": 1,
+      "message": "Yes, this was run against the emulator.\n\nWould you point me to a an example of one of these test stanzas you\u0027re talking about. I\u0027ve been searching for them but haven\u0027t found any examples yet.\n\nThanks.",
+      "parentUuid": "08f50bfe_4d6965f4",
+      "revId": "345286adc478b2890af34cf82e6db045dc4c5faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f50bfe_cd545534",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-24T20:34:23Z",
       "side": 1,
       "message": "Not sure if I meant to keep the \"simple\" in the comment.",
+      "revId": "345286adc478b2890af34cf82e6db045dc4c5faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889bbb7b_9875bd90",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-08-24T20:52:46Z",
+      "side": 1,
+      "message": "Take it out \"Simple\"?",
+      "parentUuid": "08f50bfe_cd545534",
       "revId": "345286adc478b2890af34cf82e6db045dc4c5faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
