@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e541c27a_c01b0075",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-25T21:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_f5a610bc",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_d5a98c8c",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2016-08-25T18:30:05Z",
       "side": 1,
       "message": "This doesn\u0027t make sense, is it looking for the smallest method or is it looking for the earliest method in a total order M0..Mn?\n\nIf the latter say \"Given methods in order M0..Mn\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_40053070",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-25T21:43:43Z",
+      "side": 1,
+      "message": "The latter, Done",
+      "parentUuid": "25de7af7_d5a98c8c",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -89,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "e541c27a_436eda31",
+        "filename": "tools/bisection-search/bisection_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-25T21:43:43Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "25de7af7_18d429f0",
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_d82f81ef",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 5
@@ -100,6 +166,30 @@
       "writtenOn": "2016-08-25T18:30:05Z",
       "side": 1,
       "message": "Ok, I see, -f only works with files, this needs to do -d\n\n    [ -d \"{0}\" ] \n\nand fwiw ls has fairly different behavior on different platforms (and people sometimes alias it) so it\u0027s not best practices to use it",
+      "range": {
+        "startLine": 298,
+        "startChar": 28,
+        "endLine": 298,
+        "endChar": 38
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_c3614a3e",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-25T21:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_d82f81ef",
       "range": {
         "startLine": 298,
         "startChar": 28,
