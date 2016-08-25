@@ -22,6 +22,93 @@
       "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_f5a610bc",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "Sounds fine",
+      "parentUuid": "a8bebf34_4cfa13d6",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_d5a98c8c",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense, is it looking for the smallest method or is it looking for the earliest method in a total order M0..Mn?\n\nIf the latter say \"Given methods in order M0..Mn\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_18d429f0",
+        "filename": "tools/bisection-search/bisection_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "How are the magic #s derived?",
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_d82f81ef",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "Ok, I see, -f only works with files, this needs to do -d\n\n    [ -d \"{0}\" ] \n\nand fwiw ls has fairly different behavior on different platforms (and people sometimes alias it) so it\u0027s not best practices to use it",
+      "range": {
+        "startLine": 298,
+        "startChar": 28,
+        "endLine": 298,
+        "endChar": 38
+      },
+      "revId": "7f04055e7a12ca95867ea7c92e84a98ad91747de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
