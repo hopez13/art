@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e541c27a_0cca3fba",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-25T22:55:59Z",
+      "side": 1,
+      "message": "Can avoid this maybe?",
+      "range": {
+        "startLine": 1112,
+        "startChar": 4,
+        "endLine": 1112,
+        "endChar": 30
+      },
+      "revId": "e8cb87495f4d961f2974570298d2a0085cf1e54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
