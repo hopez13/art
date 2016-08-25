@@ -22,6 +22,30 @@
       "revId": "864068bdad2f9ff9b5e83ee43187e6b34c54f47e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_00e168c2",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-25T20:51:07Z",
+      "side": 1,
+      "message": "Good catch.",
+      "parentUuid": "e541c27a_a0ba34ab",
+      "range": {
+        "startLine": 298,
+        "startChar": 9,
+        "endLine": 298,
+        "endChar": 67
+      },
+      "revId": "864068bdad2f9ff9b5e83ee43187e6b34c54f47e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
