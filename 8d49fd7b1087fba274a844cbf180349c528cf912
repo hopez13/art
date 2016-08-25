@@ -22,6 +22,30 @@
       "revId": "8d49fd7b1087fba274a844cbf180349c528cf912",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25903a09_9f71f3da",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T14:53:31Z",
+      "side": 1,
+      "message": "Does not fit. I tried.",
+      "parentUuid": "658a32dd_416952c3",
+      "range": {
+        "startLine": 2167,
+        "startChar": 6,
+        "endLine": 2169,
+        "endChar": 36
+      },
+      "revId": "8d49fd7b1087fba274a844cbf180349c528cf912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
