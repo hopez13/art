@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "658a32dd_a125beb0",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-25T14:45:35Z",
+      "side": 1,
+      "message": "I\u0027d replace this with:\n\n  CHECK_NE(dex_bytes.size(), 0);\n\nhere and in below.",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 30
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0554160d_46599267",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-25T14:45:35Z",
+      "side": 1,
+      "message": "Nit:\n\n  dex_bytes.data()\n\n(here and below).",
+      "range": {
+        "startLine": 175,
+        "startChar": 24,
+        "endLine": 175,
+        "endChar": 37
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45560e16_68b0e3a2",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-25T14:45:35Z",
+      "side": 1,
+      "message": "Nit: long line (the Android coding style permits 100-character lines).",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 113
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
