@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "255bda40_67ab7221",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "I\u0027m going to rewrite this pattern, see https://android-review.googlesource.com/#/c/254920/6/compiler/optimizing/code_generator.cc@1255 .",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 52
+      },
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25903a09_7f218f06",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "FINAL?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 89
+      },
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25903a09_bfddd708",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "Reorder (StoreList first) in line with Push/Pop.",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45560e16_48f87f78",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "DCHECK() that regs is not empty and that it does not contain IP.",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a59b4a32_1b9bbb61",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a59b4a32_fbb12fda",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3336,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "DCHECK() that regs is not empty and that it does not contain IP.",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59542fc_1d7893ee",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3346,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "858566ca_e2e666dd",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "Using the lowest register from regs instead of IP may allow 16-bit encodings for both ADD (SP plus immediate, T1) and LDM (T1).",
+      "range": {
+        "startLine": 3351,
+        "startChar": 0,
+        "endLine": 3352,
+        "endChar": 22
+      },
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45560e16_c8ba2fad",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-25T13:01:49Z",
+      "side": 1,
+      "message": "Don\u0027t remove the blank line.",
+      "revId": "f80721227470918279d737c0a9f94ecda8938e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
