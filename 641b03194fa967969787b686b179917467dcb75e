@@ -377,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "25de7af7_b5896826",
+        "filename": "tools/bisection-search/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "I guess it\u0027s fine. I was thinking for completeness it could have a 32/64 flag and default to 32. Being consistent to run-test is ok too.",
+      "parentUuid": "a8bebf34_a382baae",
+      "range": {
+        "startLine": 19,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 73
+      },
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4889c376_f07d4012",
         "filename": "tools/bisection-search/README.md",
         "patchSetId": 4
@@ -488,6 +512,24 @@
       "side": 1,
       "message": "I like it this way, what do we gain by adding a BugResult? Returning a tuple seems pythonic, and None has intuitive meaning of \"failed to find what you wanted\".",
       "parentUuid": "08f50bfe_c4f1d297",
+      "revId": "641b03194fa967969787b686b179917467dcb75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_38a00d89",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-25T18:30:05Z",
+      "side": 1,
+      "message": "Sounds good, I was worried if we started adding \"magic\" return values like (\"*\", \"*\") then it would be harder at the call site to figure out what actually happened.\n\nAs long as it\u0027s a variant of (string or None, string or None) it is fine (although I do see (None,string) is illegal).",
+      "parentUuid": "a8bebf34_86734c15",
       "revId": "641b03194fa967969787b686b179917467dcb75e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
