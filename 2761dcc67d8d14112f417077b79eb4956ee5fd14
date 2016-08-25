@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "25de7af7_6f733117",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Could write this succinctly as test-art-target-gtest-dex_file_test :-)",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_4fe74d3e",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Is there a reason for the seeming duplication with OpenMemory? Especially since the implementation is a direct forward, only.",
+      "range": {
+        "startLine": 435,
+        "startChar": 2,
+        "endLine": 438,
+        "endChar": 69
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658a32dd_a125beb0",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 2
@@ -48,6 +94,52 @@
     },
     {
       "key": {
+        "uuid": "25de7af7_4f12ed10",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Single line for each arg, spaces around |\n\nAlso, recently we add /* */ with names for literals to make clear what a \"false\", for example, means.",
+      "range": {
+        "startLine": 209,
+        "startChar": 40,
+        "endLine": 210,
+        "endChar": 68
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_af735977",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Single line for each arg.",
+      "range": {
+        "startLine": 212,
+        "startChar": 56,
+        "endLine": 213,
+        "endChar": 70
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45560e16_68b0e3a2",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 2
@@ -64,6 +156,121 @@
         "startChar": 0,
         "endLine": 251,
         "endChar": 113
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_af0cb9ed",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Not necessary.",
+      "range": {
+        "startLine": 252,
+        "startChar": 17,
+        "endLine": 252,
+        "endChar": 23
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_cff7bdbe",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "unique_ptr\n\nIt\u0027s important, you\u0027re actually leaking the MemMap below in at least one error case.",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 14
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_4fcd0d8f",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "Uppercase.",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_0fc70571",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "That\u0027s not the right comment for this function.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25de7af7_8fda153f",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-25T16:52:21Z",
+      "side": 1,
+      "message": "In most cases we prefer StringPrintf, as that\u0027s Google style guide compliant.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 33
       },
       "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
