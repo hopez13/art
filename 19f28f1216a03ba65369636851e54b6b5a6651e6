@@ -22,6 +22,30 @@
       "revId": "19f28f1216a03ba65369636851e54b6b5a6651e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_32b15646",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-08-25T23:59:15Z",
+      "side": 1,
+      "message": "It\u0027s not really darwin-specific, art directly references symbols in libz.  I think the darwin linker is just stricter than the linux linker?",
+      "parentUuid": "e541c27a_f2540efe",
+      "range": {
+        "startLine": 354,
+        "startChar": 8,
+        "endLine": 354,
+        "endChar": 12
+      },
+      "revId": "19f28f1216a03ba65369636851e54b6b5a6651e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
