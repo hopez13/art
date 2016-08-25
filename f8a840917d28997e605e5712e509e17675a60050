@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25de7af7_f288661c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-25T16:52:49Z",
+      "side": 1,
+      "message": "/*clear_soft_references*/",
+      "range": {
+        "startLine": 1392,
+        "startChar": 82,
+        "endLine": 1392,
+        "endChar": 87
+      },
+      "revId": "f8a840917d28997e605e5712e509e17675a60050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
