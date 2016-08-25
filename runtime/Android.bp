@@ -233,7 +233,6 @@ cc_defaults {
 
     arch: {
         arm: {
-            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
             clang_asflags: ["-no-integrated-as"],
             srcs: [
                 "interpreter/mterp/mterp.cc",
@@ -250,7 +249,6 @@ cc_defaults {
             ],
         },
         arm64: {
-            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
             srcs: [
                 "interpreter/mterp/mterp.cc",
                 "interpreter/mterp/out/mterp_arm64.S",
@@ -265,7 +263,6 @@ cc_defaults {
             ],
         },
         x86: {
-            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
             srcs: [
                 "interpreter/mterp/mterp.cc",
                 "interpreter/mterp/out/mterp_x86.S",
@@ -279,7 +276,6 @@ cc_defaults {
             ],
         },
         x86_64: {
-            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
             srcs: [
                 // Note that the fault_handler_x86.cc is not a mistake.  This file is
                 // shared between the x86 and x86_64 architectures.
@@ -342,6 +338,18 @@ cc_defaults {
                 "libz",
                 "libbase",
             ],
+        },
+        android_arm: {
+            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
+        },
+        android_arm64: {
+            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
+        },
+        android_x86: {
+            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
+        },
+        android_x86_64: {
+            ldflags: JIT_DEBUG_REGISTER_CODE_LDFLAGS,
         },
         host: {
             srcs: [
