@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "255bda40_47ecee1e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 5437,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-25T16:32:40Z",
+      "side": 1,
+      "message": "Done in PS11.  I also changed the non read barrier case below.",
+      "parentUuid": "0554160d_c6b102db",
+      "range": {
+        "startLine": 5434,
+        "startChar": 0,
+        "endLine": 5437,
+        "endChar": 35
+      },
+      "revId": "7ea07a8c2e304ba25c10fc4e98091dd0b8f8c04d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e550e21d_25d44ef0",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-25T09:27:38Z",
       "side": 1,
       "message": "__ cmpl(Address(temp, super_offset), Immediate(0));",
+      "range": {
+        "startLine": 4915,
+        "startChar": 0,
+        "endLine": 4918,
+        "endChar": 35
+      },
+      "revId": "7ea07a8c2e304ba25c10fc4e98091dd0b8f8c04d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "858566ca_82b19a47",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 4918,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-25T16:32:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e550e21d_25d44ef0",
       "range": {
         "startLine": 4915,
         "startChar": 0,
