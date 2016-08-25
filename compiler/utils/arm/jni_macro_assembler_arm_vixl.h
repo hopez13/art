@@ -214,9 +214,9 @@ class ArmVIXLJNIMacroAssembler FINAL
 
   // List of exception blocks to generate at the end of the code cache.
   ArenaVector<std::unique_ptr<ArmVIXLJNIMacroAssembler::ArmException>> exception_blocks_;
-  // Used for testing.
-  friend class ArmVIXAssemblerTest_VixlLoadFromOffset_Test;
-  friend class ArmVIXAssemblerTest_VixlStoreToOffset_Test;
+
+  ART_FRIEND_TEST(ArmVIXLAssemblerTest, VixlLoadFromOffset);
+  ART_FRIEND_TEST(ArmVIXLAssemblerTest, VixlStoreToOffset);
 };
 
 }  // namespace arm
