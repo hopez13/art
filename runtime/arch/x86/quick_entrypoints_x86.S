@@ -1115,9 +1115,7 @@ DEFINE_FUNCTION art_quick_resolve_string
     movl DECLARING_CLASS_DEX_CACHE_STRINGS_OFFSET(%ecx), %ecx    // get string dex cache
     movl LITERAL(STRING_DEX_CACHE_SIZE_MINUS_ONE), %edx
     andl %eax, %edx
-    shl LITERAL(STRING_DEX_CACHE_ELEMENT_SIZE_SHIFT), %edx
-    addl %ecx, %edx
-    movlps (%edx), %xmm0                                     // load string idx and pointer to xmm0
+    movlps (%ecx, %edx, 8), %xmm0                            // load string idx and pointer to xmm0
     movd %xmm0, %ecx                                         // extract pointer
     pshufd LITERAL(0x55), %xmm0, %xmm0                       // shuffle index into lowest bits
     movd %xmm0, %edx                                         // extract index
