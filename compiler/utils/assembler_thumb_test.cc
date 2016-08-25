@@ -1658,7 +1658,16 @@ void EmitAndCheck(JniAssemblerType* assembler, const char* testname) {
 #undef __
 #define __ assembler.
 
+// Read barriers insert more high-level code. Disable tests for now.
+#define TEST_DISABLED_FOR_HEAP_POISONING() \
+  if (kPoisonHeapReferences) { \
+    printf("WARNING: TEST DISABLED FOR HEAP POISONING\n"); \
+    return; \
+  }
+
 TEST_F(ArmVIXLAssemblerTest, VixlJniHelpers) {
+  TEST_DISABLED_FOR_HEAP_POISONING();
+
   const bool is_static = true;
   const bool is_synchronized = false;
   const char* shorty = "IIFII";
