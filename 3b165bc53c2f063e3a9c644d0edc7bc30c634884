@@ -34,6 +34,24 @@
       "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "250afa5d_cf367d48",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-08-26T09:24:53Z",
+      "side": 1,
+      "message": "I also don\u0027t understand why there\u0027s a second one and you just don\u0027t include that class in JNIMacroAssembler.",
+      "parentUuid": "b977f3bf_6cbeb17a",
+      "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
