@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e541c27a_fa9ea0fd",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-08-26T15:47:14Z",
+      "side": 1,
+      "message": "Can you provide a more useful name so people looking at /proc/\u003cpid\u003e/smaps have a sense of where this memory is coming from and it can be properly categorized in dumpsys meminfo?",
+      "range": {
+        "startLine": 42,
+        "startChar": 47,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "4ff7c618773b8381a50e2cdedd2fc638adf6dd78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
