@@ -22,6 +22,30 @@
       "revId": "394fecf83252547422f11513854ed53873918c09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_da18047b",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-08-26T16:10:02Z",
+      "side": 1,
+      "message": "It is indeed a clang bug, but not one that has been fixed (yet). There was some adjustment to how conditional expressions are handled in the AST, and it affects the range-based for loop.",
+      "parentUuid": "e541c27a_7a2610d3",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "394fecf83252547422f11513854ed53873918c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
