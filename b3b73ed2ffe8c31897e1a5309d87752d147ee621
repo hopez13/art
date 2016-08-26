@@ -22,6 +22,30 @@
       "revId": "b3b73ed2ffe8c31897e1a5309d87752d147ee621",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_d0473c79",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T13:26:47Z",
+      "side": 1,
+      "message": "That would be better than wasting Arena memory but that\u0027s not a task for this CL.",
+      "parentUuid": "45052e49_b050b833",
+      "range": {
+        "startLine": 252,
+        "startChar": 7,
+        "endLine": 253,
+        "endChar": 58
+      },
+      "revId": "b3b73ed2ffe8c31897e1a5309d87752d147ee621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
