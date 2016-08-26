@@ -22,6 +22,30 @@
       "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_da4ac45a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T16:17:48Z",
+      "side": 1,
+      "message": "The assertion that FUTEX_WAIT takes a relative timeout is true, it\u0027s not the first piece of futex code where we did this wrong.\n\nIf I read it correctly, the timeout value isn\u0027t updated on error. So if you don\u0027t use two specs, you\u0027ll potentially wait too long/forever.",
+      "parentUuid": "45052e49_301cc8d1",
+      "range": {
+        "startLine": 634,
+        "startChar": 2,
+        "endLine": 634,
+        "endChar": 19
+      },
+      "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
