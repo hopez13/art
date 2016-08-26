@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c56d9e44_245f521f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:31:03Z",
+      "side": 1,
+      "message": "Technically wrong.",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_1088a485",
         "filename": "runtime/oat_file.h",
         "patchSetId": 3
