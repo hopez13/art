@@ -152,6 +152,23 @@ static void DumpUnattachedThread(std::ostream& os, pid_t tid, bool dump_native_s
   os << "\n";
 }
 
+#if ART_USE_FUTEXES
+static bool ComputeRelativeTimeSpec(timespec* result_ts, const timespec& lhs, const timespec& rhs) {
+  const int32_t one_sec = 1000 * 1000 * 1000;  // one second in nanoseconds.
+  result_ts->tv_sec = lhs.tv_sec - rhs.tv_sec;
+  result_ts->tv_nsec = lhs.tv_nsec - rhs.tv_nsec;
+  if (result_ts->tv_nsec < 0) {
+    result_ts->tv_sec--;
+    result_ts->tv_nsec += one_sec;
+  } else if (result_ts->tv_nsec > one_sec) {
+     result_ts->tv_sec++;
+     result_ts->tv_nsec -= one_sec;
+  }
+  return result_ts->tv_sec < 0;
+}
+#endif
+
+
 void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack) {
   DIR* d = opendir("/proc/self/task");
   if (!d) {
@@ -620,7 +637,11 @@ void ThreadList::SuspendAllInternal(Thread* self,
     int32_t cur_val = pending_threads.LoadRelaxed();
     if (LIKELY(cur_val > 0)) {
 #if ART_USE_FUTEXES
-      if (futex(pending_threads.Address(), FUTEX_WAIT, cur_val, &wait_timeout, nullptr, 0) != 0) {
+      timespec rel_ts;
+      timespec cur_time;
+      InitTimeSpec(true, CLOCK_MONOTONIC, 0, 0, &cur_time);
+      ComputeRelativeTimeSpec(&rel_ts, wait_timeout, cur_time);
+      if (futex(pending_threads.Address(), FUTEX_WAIT, cur_val, &rel_ts, nullptr, 0) != 0) {
         // EAGAIN and EINTR both indicate a spurious failure, try again from the beginning.
         if ((errno != EAGAIN) && (errno != EINTR)) {
           if (errno == ETIMEDOUT) {
