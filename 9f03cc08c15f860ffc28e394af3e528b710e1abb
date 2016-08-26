@@ -25,6 +25,98 @@
     },
     {
       "key": {
+        "uuid": "c56d9e44_8476469a",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:44:58Z",
+      "side": 1,
+      "message": "Separate line.",
+      "range": {
+        "startLine": 124,
+        "startChar": 19,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_a47342a9",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:44:58Z",
+      "side": 1,
+      "message": "Separate line.",
+      "range": {
+        "startLine": 187,
+        "startChar": 49,
+        "endLine": 187,
+        "endChar": 58
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_44b60e3f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:44:58Z",
+      "side": 1,
+      "message": "Period, same below.",
+      "range": {
+        "startLine": 444,
+        "startChar": 29,
+        "endLine": 444,
+        "endChar": 30
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_e46d3ac6",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:44:58Z",
+      "side": 1,
+      "message": "Tracking bug? You\u0027re changing the default without any mentions.",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 26
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_1088a485",
         "filename": "runtime/oat_file.h",
         "patchSetId": 3
@@ -60,6 +152,30 @@
       "side": 1,
       "message": "Thanks for raising this. I thought about doing that but decided against it. Definitely something we can revisit, though I\u0027d try to avoid it for now (as explained below) and it would also be a major refactor.\n\nThe reason why is that I\u0027d like to keep the VDEX as simple as possible (so we minimize the risk of having to change the format at any point in the future). OAT actually provides the runtime with a lot of support, OatDexFile instances to name just one example, but that\u0027s tied to the runtime internals. We don\u0027t want that in or near the VDEX.\n\nSo you are absolutely correct that interpret-only technically won\u0027t need an OAT once quickening info is in the VDEX, but I\u0027d rather think of that scenario as running out of an uncompressed+quickened APK than the VDEX replacing OAT.",
       "parentUuid": "45052e49_1088a485",
+      "range": {
+        "startLine": 283,
+        "startChar": 1,
+        "endLine": 283,
+        "endChar": 34
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_44352e88",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T17:44:58Z",
+      "side": 1,
+      "message": "quickening is runtime internals. :-)\n\nHow are you imagining to limit the complexity in places like the class-linker? Where is the management of \"plain dex\" vs \"vdex-only\" vs \"oat+vdex\" gonna happen, and how? Do you plan to drop the vdex parts and just use the existing dex \u0026 oat vectors? Do you plan to add a third vector (please don\u0027t)?\n\nI think that design has an impact and who depends on what, or where parts are stored...",
+      "parentUuid": "45052e49_b076f899",
       "range": {
         "startLine": 283,
         "startChar": 1,
