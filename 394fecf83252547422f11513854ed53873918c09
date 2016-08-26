@@ -46,6 +46,30 @@
       "revId": "394fecf83252547422f11513854ed53873918c09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_2473d217",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2016-08-26T17:13:38Z",
+      "side": 1,
+      "message": "Yes, this is a Clang bug, which we hope to fix soon.  We\u0027ll revert this once it\u0027s fixed (https://llvm.org/bugs/show_bug.cgi?id\u003d29152 and b/31104323).",
+      "parentUuid": "e541c27a_7a2610d3",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "394fecf83252547422f11513854ed53873918c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
