@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45052e49_108704c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Thanks, done :-)",
+      "parentUuid": "25de7af7_6f733117",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_4fe74d3e",
         "filename": "runtime/dex_file.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-25T16:52:21Z",
       "side": 1,
       "message": "Is there a reason for the seeming duplication with OpenMemory? Especially since the implementation is a direct forward, only.",
+      "range": {
+        "startLine": 435,
+        "startChar": 2,
+        "endLine": 438,
+        "endChar": 69
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_d0361c48",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Only that this is WIP and there\u0027s a TODO in the implementation to resolve regarding what this should look like.",
+      "parentUuid": "25de7af7_4fe74d3e",
       "range": {
         "startLine": 435,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e550e21d_053a7277",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658a32dd_a125beb0",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 30
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0554160d_46599267",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-25T14:45:35Z",
       "side": 1,
       "message": "Nit:\n\n  dex_bytes.data()\n\n(here and below).",
+      "range": {
+        "startLine": 175,
+        "startChar": 24,
+        "endLine": 175,
+        "endChar": 37
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45560e16_285e6b51",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0554160d_46599267",
       "range": {
         "startLine": 175,
         "startChar": 24,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "45052e49_b018b8d2",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_4f12ed10",
+      "range": {
+        "startLine": 209,
+        "startChar": 40,
+        "endLine": 210,
+        "endChar": 68
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_af735977",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-08-25T16:52:21Z",
       "side": 1,
       "message": "Single line for each arg.",
+      "range": {
+        "startLine": 212,
+        "startChar": 56,
+        "endLine": 213,
+        "endChar": 70
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_9015b49c",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_af735977",
       "range": {
         "startLine": 212,
         "startChar": 56,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a59b4a32_7bb19f44",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45560e16_68b0e3a2",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 113
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_af0cb9ed",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2016-08-25T16:52:21Z",
       "side": 1,
       "message": "Not necessary.",
+      "range": {
+        "startLine": 252,
+        "startChar": 17,
+        "endLine": 252,
+        "endChar": 23
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_f01240b0",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_af0cb9ed",
       "range": {
         "startLine": 252,
         "startChar": 17,
@@ -232,6 +424,54 @@
     },
     {
       "key": {
+        "uuid": "45052e49_5004ec71",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Unequivocally good practice.\n\nPaths are subtle here (bad), could not see the leak referenced?",
+      "parentUuid": "25de7af7_cff7bdbe",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 14
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_100a647f",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_4fcd0d8f",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_0fc70571",
         "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
         "patchSetId": 2
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "45052e49_f039a038",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de7af7_0fc70571",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25de7af7_8fda153f",
         "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2016-08-25T16:52:21Z",
       "side": 1,
       "message": "In most cases we prefer StringPrintf, as that\u0027s Google style guide compliant.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 33
+      },
+      "revId": "2761dcc67d8d14112f417077b79eb4956ee5fd14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_b02f18f0",
+        "filename": "runtime/native/dalvik_system_DexImageClassLoader_Image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-26T11:01:48Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "25de7af7_8fda153f",
       "range": {
         "startLine": 82,
         "startChar": 0,
