@@ -16,6 +16,24 @@
       "revId": "8b496508fc21fcf895c517abdc10ca2ca92ec593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "257f5ae8_47260e21",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-08-26T17:00:45Z",
+      "side": 1,
+      "message": "Yes, there has been a weird bug on flounder that I\u0027ve been trying to debug for a while if I add PcRelative back in. I\u0027m trying to find it, but wanted to add this in for now since this case is working.\n\nAh yes, that was from testing another option. Will take it out.",
+      "parentUuid": "45052e49_70265021",
+      "revId": "8b496508fc21fcf895c517abdc10ca2ca92ec593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
