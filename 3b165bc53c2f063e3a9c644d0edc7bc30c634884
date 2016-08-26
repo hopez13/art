@@ -52,6 +52,24 @@
       "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e541c27a_fa67c01f",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-26T15:48:36Z",
+      "side": 1,
+      "message": "Clean base class. Not all JNI assemblers were forwarding to a simple, well-known regular assembler. E.g, the old arm32 one distinguished itself between arm \u0026 thumb (to factor out common code).",
+      "parentUuid": "250afa5d_cf367d48",
+      "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
