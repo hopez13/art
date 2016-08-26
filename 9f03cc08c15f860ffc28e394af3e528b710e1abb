@@ -22,6 +22,30 @@
       "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_b076f899",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-08-26T17:24:40Z",
+      "side": 1,
+      "message": "Thanks for raising this. I thought about doing that but decided against it. Definitely something we can revisit, though I\u0027d try to avoid it for now (as explained below) and it would also be a major refactor.\n\nThe reason why is that I\u0027d like to keep the VDEX as simple as possible (so we minimize the risk of having to change the format at any point in the future). OAT actually provides the runtime with a lot of support, OatDexFile instances to name just one example, but that\u0027s tied to the runtime internals. We don\u0027t want that in or near the VDEX.\n\nSo you are absolutely correct that interpret-only technically won\u0027t need an OAT once quickening info is in the VDEX, but I\u0027d rather think of that scenario as running out of an uncompressed+quickened APK than the VDEX replacing OAT.",
+      "parentUuid": "45052e49_1088a485",
+      "range": {
+        "startLine": 283,
+        "startChar": 1,
+        "endLine": 283,
+        "endChar": 34
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
