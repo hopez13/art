@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45052e49_70265021",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T08:57:50Z",
+      "side": 1,
+      "message": "Can you reinstate the old code, including kBootImageLinkTimePcRelative, please? With the exception of the \"MIPS\" from the comments, since MIPS64 remains the only architecture where these are unimplemented.\n\nNote that the address is unused for both load kinds.",
+      "revId": "8b496508fc21fcf895c517abdc10ca2ca92ec593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
