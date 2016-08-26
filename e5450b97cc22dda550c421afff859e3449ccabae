@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c56d9e44_e4229aa5",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-08-26T17:32:19Z",
+      "side": 1,
+      "message": "how?",
+      "range": {
+        "startLine": 163,
+        "startChar": 1,
+        "endLine": 163,
+        "endChar": 44
+      },
+      "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_301cc8d1",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -42,6 +65,53 @@
         "startChar": 2,
         "endLine": 634,
         "endChar": 19
+      },
+      "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_e4f9ba17",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-08-26T17:32:19Z",
+      "side": 1,
+      "message": "According to the man page:\n\n              Note: for FUTEX_WAIT, timeout is interpreted as a relative\n              value.  This differs from other futex operations, where\n              timeout is interpreted as an absolute value.  To obtain the\n              equivalent of FUTEX_WAIT with an absolute timeout, employ\n              FUTEX_WAIT_BITSET with val3 specified as\n              FUTEX_BITSET_MATCH_ANY.\n\nIt seems easiest just to follow that advice rather than fixing the problems here.\n\n(I also get a deja vu feeling from looking at ComputeRelativeTimeSpec. We may have something equivalent elsewhere.)",
+      "parentUuid": "e541c27a_da4ac45a",
+      "range": {
+        "startLine": 634,
+        "startChar": 2,
+        "endLine": 634,
+        "endChar": 19
+      },
+      "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56d9e44_844d6676",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-08-26T17:32:19Z",
+      "side": 1,
+      "message": "Check result. But Andreas\u0027 comment is the more important problem.",
+      "range": {
+        "startLine": 643,
+        "startChar": 6,
+        "endLine": 643,
+        "endChar": 29
       },
       "revId": "e5450b97cc22dda550c421afff859e3449ccabae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
