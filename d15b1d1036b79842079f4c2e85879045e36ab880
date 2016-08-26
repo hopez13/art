@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "658a32dd_414f123e",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Use initializer-list.",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_705e5052",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "(delay_slot_.gpr_outs_mask_ \u0026 (1u \u003c\u003c rd)) \u003d\u003d 0 \u0026\u0026",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_f071a0d9",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Avoid implicit conversion from bool to uint32_t.\n\n  (...) ? 1u : 0u",
+      "range": {
+        "startLine": 2005,
+        "startChar": 13,
+        "endLine": 2006,
+        "endChar": 54
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_303de8e2",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "range": {
+        "startLine": 2460,
+        "startChar": 4,
+        "endLine": 2460,
+        "endChar": 9
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_70377002",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "What about unfillable? (Here and several times below.)",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_904db49d",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Isn\u0027t the NOP mandatory for a \"forbidden\" slot?",
+      "range": {
+        "startLine": 2745,
+        "startChar": 28,
+        "endLine": 2745,
+        "endChar": 54
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_d020dcaf",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2882,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Add a helper function for this. Pass an (template?) argument to distinguish between SLT and SLTU.",
+      "range": {
+        "startLine": 2870,
+        "startChar": 0,
+        "endLine": 2882,
+        "endChar": 5
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25903a09_bf22b7a4",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "What does FSM stand for?",
+      "range": {
+        "startLine": 720,
+        "startChar": 16,
+        "endLine": 720,
+        "endChar": 19
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a59b4a32_3b4f973f",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"Rrrc\"? (In line with the \"Rrrr\" above, the in/out register should be represented by two \"r\"s.)",
+      "range": {
+        "startLine": 962,
+        "startChar": 17,
+        "endLine": 962,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25903a09_5f312bed",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Fffc?",
+      "range": {
+        "startLine": 963,
+        "startChar": 17,
+        "endLine": 963,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_b0027813",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2572,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "Add a comment:  // Prevents reordering ADDU above with B below.",
+      "range": {
+        "startLine": 2572,
+        "startChar": 2,
+        "endLine": 2572,
+        "endChar": 19
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_d0f9fc17",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "// Prevents absorbing ADDU above.",
+      "range": {
+        "startLine": 2578,
+        "startChar": 2,
+        "endLine": 2578,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45052e49_3008482f",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-26T14:46:20Z",
+      "side": 1,
+      "message": "// Even across Bind(), CodePosition() prevents absorbing the ADDU above.",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2584,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
