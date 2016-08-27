@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "25f2fae6_cf863dc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-27T00:14:53Z",
+      "side": 1,
+      "message": "I don\u0027t know. It just isn\u0027t working at the moment.",
+      "parentUuid": "25bd9ae6_71b278e0",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_46b45ce0",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-26T23:02:07Z",
       "side": 1,
       "message": "a general ART code base question: is there a guideline to use the \"safe\" versions of things like memcpy()?",
+      "range": {
+        "startLine": 1211,
+        "startChar": 4,
+        "endLine": 1211,
+        "endChar": 10
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f2fae6_af8bf9c9",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-27T00:14:53Z",
+      "side": 1,
+      "message": "Not really AFAIK. Generally we don\u0027t use them but thats mostly down to avoiding byte buffers like these by and large",
+      "parentUuid": "25bd9ae6_46b45ce0",
       "range": {
         "startLine": 1211,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "25f2fae6_8f9035f5",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-27T00:14:53Z",
+      "side": 1,
+      "message": "Yes thats done in InvalidateExistingMethods",
+      "parentUuid": "25bd9ae6_b186d010",
+      "range": {
+        "startLine": 1246,
+        "startChar": 20,
+        "endLine": 1246,
+        "endChar": 50
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_e63ff067",
         "filename": "test/902-hello-transformation/transform.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-26T23:02:07Z",
       "side": 1,
       "message": "for prototyping/experimentation, can we just read the .class/.dex from real files instead of embedding the actual content like this?",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f2fae6_6f7631e5",
+        "filename": "test/902-hello-transformation/transform.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-08-27T00:14:53Z",
+      "side": 1,
+      "message": "Probably. The way we run these I\u0027m not sure there would be a simple way to know where to load files from.\n\nI mostly did it this way because it was simpler.",
+      "parentUuid": "25bd9ae6_e63ff067",
       "range": {
         "startLine": 37,
         "startChar": 3,
