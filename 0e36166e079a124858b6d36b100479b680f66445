@@ -255,6 +255,29 @@
     },
     {
       "key": {
+        "uuid": "25bd9ae6_54ff5d93",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-29T17:15:41Z",
+      "side": 1,
+      "message": "BTW, we retain the region space bitmap after each GC. That likely means some memory overhead even when GC isn\u0027t running. Something to think about.",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 24
+      },
+      "revId": "0e36166e079a124858b6d36b100479b680f66445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_979d0465",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
