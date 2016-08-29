@@ -130,6 +130,8 @@ class OatFile {
     uint32_t GetVmapTableOffset() const;
     uint32_t GetVmapTableOffsetOffset() const;
 
+    uint32_t GetVerifierFlags() const;
+
     // Create an OatMethod with offsets relative to the given base address
     OatMethod(const uint8_t* base, const uint32_t code_offset)
         : begin_(base), code_offset_(code_offset) {

@@ -24,13 +24,17 @@ namespace art {
 
 OatQuickMethodHeader::OatQuickMethodHeader(
     uint32_t vmap_table_offset,
+    uint32_t verifier_flags,
     uint32_t frame_size_in_bytes,
     uint32_t core_spill_mask,
     uint32_t fp_spill_mask,
     uint32_t code_size)
     : vmap_table_offset_(vmap_table_offset),
+      verifier_flags_(verifier_flags),
       frame_info_(frame_size_in_bytes, core_spill_mask, fp_spill_mask),
-      code_size_(code_size) {}
+      code_size_(code_size) {
+  DCHECK_EQ(verifier_flags & ~kAccValidVerifierFlags, 0u);
+}
 
 OatQuickMethodHeader::~OatQuickMethodHeader() {}
 

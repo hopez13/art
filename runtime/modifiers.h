@@ -99,6 +99,9 @@ static constexpr uint32_t kAccValidClassFlags = kAccPublic | kAccFinal | kAccSup
 static constexpr uint32_t kAccValidInterfaceFlags = kAccPublic | kAccInterface |
     kAccAbstract | kAccSynthetic | kAccAnnotation;
 
+// Valid (meaningful) bits for verification flags related to compilation restrictions.
+static constexpr uint32_t kAccValidVerifierFlags = kAccCompileDontBother | kAccMustCountLocks;
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_MODIFIERS_H_

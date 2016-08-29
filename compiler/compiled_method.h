@@ -423,6 +423,14 @@ class CompiledMethod FINAL : public CompiledCode {
     return fp_spill_mask_;
   }
 
+  uint32_t GetVerifierFlags() const {
+    return verifier_flags_;
+  }
+
+  void SetVerifierFlags(uint32_t verifier_flags) {
+    verifier_flags_ = verifier_flags;
+  }
+
   ArrayRef<const SrcMapElem> GetSrcMappingTable() const {
     return GetArray(src_mapping_table_);
   }
@@ -446,6 +454,8 @@ class CompiledMethod FINAL : public CompiledCode {
   const uint32_t core_spill_mask_;
   // For quick code, a bit mask describing spilled FPR callee-save registers.
   const uint32_t fp_spill_mask_;
+  // Verifier flags used while compiling this method.
+  uint32_t verifier_flags_;
   // For quick code, a set of pairs (PC, DEX) mapping from native PC offset to DEX offset.
   const LengthPrefixedArray<SrcMapElem>* const src_mapping_table_;
   // For quick code, a uleb128 encoded map from GPR/FPR register to dex register. Size prefixed.

@@ -112,6 +112,7 @@ CompiledMethod::CompiledMethod(CompilerDriver* driver,
     : CompiledCode(driver, instruction_set, quick_code),
       frame_size_in_bytes_(frame_size_in_bytes), core_spill_mask_(core_spill_mask),
       fp_spill_mask_(fp_spill_mask),
+      verifier_flags_(0u),
       src_mapping_table_(
           driver->GetCompiledMethodStorage()->DeduplicateSrcMappingTable(src_mapping_table)),
       vmap_table_(driver->GetCompiledMethodStorage()->DeduplicateVMapTable(vmap_table)),

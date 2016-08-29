@@ -31,6 +31,7 @@ class ArtMethod;
 class PACKED(4) OatQuickMethodHeader {
  public:
   OatQuickMethodHeader(uint32_t vmap_table_offset = 0U,
+                       uint32_t verifier_flags = 0U,
                        uint32_t frame_size_in_bytes = 0U,
                        uint32_t core_spill_mask = 0U,
                        uint32_t fp_spill_mask = 0U,
@@ -77,6 +78,10 @@ class PACKED(4) OatQuickMethodHeader {
 
   uint32_t GetCodeSize() const {
     return code_size_;
+  }
+
+  uint32_t GetVerifierFlags() const {
+    return verifier_flags_;
   }
 
   const uint8_t* GetVmapTable() const {
@@ -127,6 +132,8 @@ class PACKED(4) OatQuickMethodHeader {
 
   // The offset in bytes from the start of the vmap table to the end of the header.
   uint32_t vmap_table_offset_;
+  // Verifier flags used while compiling this method.
+  uint32_t verifier_flags_;
   // The stack frame information.
   QuickMethodFrameInfo frame_info_;
   // The code size in bytes.

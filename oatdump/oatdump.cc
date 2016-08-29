@@ -50,6 +50,7 @@
 #include "mirror/dex_cache-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
+#include "modifiers.h"
 #include "oat.h"
 #include "oat_file-inl.h"
 #include "oat_file_manager.h"
@@ -1017,6 +1018,8 @@ class OatDumper {
       }
 
       ScopedIndentation indent2(vios);
+      DumpVerifierFlags(vios->Stream(), oat_method.GetVerifierFlags());
+
       vios->Stream() << "vmap_table: ";
       if (options_.absolute_addresses_) {
         vios->Stream() << StringPrintf("%p ", oat_method.GetVmapTable());
@@ -1139,6 +1142,23 @@ class OatDumper {
       }
     }
     os << ")";
+  }
+
+  void DumpVerifierFlags(std::ostream& os, uint32_t flags) {
+    if (flags == 0) {
+      return;
+    }
+    os << "Verifier flags:";
+    if (flags & kAccCompileDontBother) {
+      os << " DONT_COMPILE";
+    }
+    if (flags & kAccMustCountLocks) {
+      os << " COUNT_LOCKS";
+    }
+    if (flags & ~kAccValidVerifierFlags) {
+      os << " UNKNOWN";
+    }
+    os << "\n";
   }
 
   // Display data stored at the the vmap offset of an oat method.

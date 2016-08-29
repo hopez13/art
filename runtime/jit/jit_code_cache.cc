@@ -339,6 +339,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
       new (method_header) OatQuickMethodHeader(
           (vmap_table == nullptr) ? 0 : code_ptr - vmap_table,
+          method->GetAccessFlags() & kAccValidVerifierFlags,
           frame_size_in_bytes,
           core_spill_mask,
           fp_spill_mask,

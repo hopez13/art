@@ -2900,6 +2900,7 @@ void ClassLinker::LinkCode(ArtMethod* method, const OatFile::OatClass* oat_class
     // non-abstract methods also get their code pointers.
     const OatFile::OatMethod oat_method = oat_class->GetOatMethod(class_def_method_index);
     oat_method.LinkMethod(method);
+    method->SetAccessFlags(method->GetAccessFlags() | oat_method.GetVerifierFlags());
   }
 
   // Install entry point from interpreter.

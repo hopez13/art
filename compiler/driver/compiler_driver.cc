@@ -592,6 +592,17 @@ static void CompileMethod(Thread* self,
           (verified_method != nullptr)
               ? dex_to_dex_compilation_level
               : optimizer::DexToDexCompilationLevel::kRequired);
+      if (compiled_method != nullptr) {
+        uint32_t flags = 0u;
+        if (verified_method->HasRuntimeThrow()) {
+          flags |= kAccCompileDontBother;
+        }
+        if ((verified_method->GetEncounteredVerificationFailures() &
+            verifier::VerifyError::VERIFY_ERROR_LOCKING) != 0) {
+          flags |= kAccMustCountLocks;
+        }
+        compiled_method->SetVerifierFlags(flags);
+      }
     }
   } else if ((access_flags & kAccNative) != 0) {
     // Are we extracting only and have support for generic JNI down calls?

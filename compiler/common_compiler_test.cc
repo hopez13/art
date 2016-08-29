@@ -61,6 +61,7 @@ void CommonCompilerTest::MakeExecutable(ArtMethod* method) {
     uint32_t vmap_table_offset = vmap_table.empty() ? 0u
         : sizeof(OatQuickMethodHeader) + vmap_table.size();
     OatQuickMethodHeader method_header(vmap_table_offset,
+                                       0u,
                                        compiled_method->GetFrameSizeInBytes(),
                                        compiled_method->GetCoreSpillMask(),
                                        compiled_method->GetFpSpillMask(),

@@ -96,6 +96,12 @@ inline const uint8_t* OatFile::OatMethod::GetVmapTable() const {
   return reinterpret_cast<const uint8_t*>(code) - offset;
 }
 
+inline uint32_t OatFile::OatMethod::GetVerifierFlags() const {
+  const OatQuickMethodHeader* header = GetOatQuickMethodHeader();
+  return header == nullptr ? 0u : header->GetVerifierFlags();
+}
+
+
 inline uint32_t OatFile::OatMethod::GetQuickCodeSize() const {
   const void* code = EntryPointToCodePointer(GetOatPointer<const void*>(code_offset_));
   if (code == nullptr) {

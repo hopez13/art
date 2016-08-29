@@ -746,7 +746,9 @@ class OatWriter::InitCodeMethodVisitor : public OatDexMethodVisitor {
       uint32_t frame_size_in_bytes = compiled_method->GetFrameSizeInBytes();
       uint32_t core_spill_mask = compiled_method->GetCoreSpillMask();
       uint32_t fp_spill_mask = compiled_method->GetFpSpillMask();
+      uint32_t verifier_flags = compiled_method->GetVerifierFlags();
       *method_header = OatQuickMethodHeader(vmap_table_offset,
+                                            verifier_flags,
                                             frame_size_in_bytes,
                                             core_spill_mask,
                                             fp_spill_mask,
