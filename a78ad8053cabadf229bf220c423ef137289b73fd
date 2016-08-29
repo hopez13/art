@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "25bd9ae6_ef98dc75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-29T18:14:49Z",
+      "side": 1,
+      "message": "That must be it, I think there are a fair bit of processes that never go to background state. I suspect these don\u0027t:\n\n146,830K: system (pid 25374)\n    153,431K: Persistent\n        124,983K: com.android.systemui (pid 25620)\n         17,733K: com.android.phone (pid 25778)\n         10,715K: com.android.nfc (pid 26202)\n     60,639K: Foreground\n         60,639K: com.android.launcher3 (pid 26253 / activities)\n      3,667K: Visible\n          3,667K: android.ext.services (pid 26147)\n     10,051K: Perceptible\n         10,051K: com.android.inputmethod.latin (pid 25606)",
+      "parentUuid": "25bd9ae6_8fa60003",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "a78ad8053cabadf229bf220c423ef137289b73fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_2f57f460",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
