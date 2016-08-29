@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_5c773d65",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658a32dd_414f123e",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_705e5052",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_9c11c50d",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_705e5052",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_f071a0d9",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -47,6 +83,30 @@
       "writtenOn": "2016-08-26T14:46:20Z",
       "side": 1,
       "message": "Avoid implicit conversion from bool to uint32_t.\n\n  (...) ? 1u : 0u",
+      "range": {
+        "startLine": 2005,
+        "startChar": 13,
+        "endLine": 2006,
+        "endChar": 54
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_bc168100",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2006,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_f071a0d9",
       "range": {
         "startLine": 2005,
         "startChar": 13,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_dc1b4d27",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2460,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_303de8e2",
+      "range": {
+        "startLine": 2460,
+        "startChar": 4,
+        "endLine": 2460,
+        "endChar": 9
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_70377002",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_5c101d01",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "It only applies to unconditional R2 branches (kUncondBranch and kLongUncondBranch). I mentioned this in the new comment near the definition of kUnfillableDelaySlot.",
+      "parentUuid": "45052e49_70377002",
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_904db49d",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -110,6 +212,30 @@
       "writtenOn": "2016-08-26T14:46:20Z",
       "side": 1,
       "message": "Isn\u0027t the NOP mandatory for a \"forbidden\" slot?",
+      "range": {
+        "startLine": 2745,
+        "startChar": 28,
+        "endLine": 2745,
+        "endChar": 54
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_7fe4eba1",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Conditional branches on R6 have either a delay slot (the new FPU branches bc1nez/bc1eqz (which replace the old R2 bc1t/bc1f) and the old R2 non-FPU branches (which we are not generating on R6 now)) or a forbidden slot (the new \"compact\" non-FPU R6 branches).\n\nSimilarly to delay slots, forbidden slots cannot contain another branch instruction and a few special instructions which we don\u0027t use here. However, unlike delay slots, which are executed unconditionally, forbidden slots are executed if the branch isn\u0027t taken. Forbidden slots are a bit odd, but that\u0027s what it is.\n\nAt the moment on R6 we\u0027re only filling delay slots (of bc1nez/bc1eqz) with instructions other than NOP if we can (the if clause above) and if we can\u0027t or it\u0027s a forbidden slot, we\u0027re filling it with a NOP. We\u0027ll get to using forbidden slots more effectively eventually.",
+      "parentUuid": "45052e49_904db49d",
       "range": {
         "startLine": 2745,
         "startChar": 28,
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_dfa41f51",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2882,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_d020dcaf",
+      "range": {
+        "startLine": 2870,
+        "startChar": 0,
+        "endLine": 2882,
+        "endChar": 5
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25903a09_bf22b7a4",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 6
@@ -156,6 +306,30 @@
       "writtenOn": "2016-08-26T14:46:20Z",
       "side": 1,
       "message": "What does FSM stand for?",
+      "range": {
+        "startLine": 720,
+        "startChar": 16,
+        "endLine": 720,
+        "endChar": 19
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_5f72cfde",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Finite state machine. I thought it would be pretty obvious. Anyway, I\u0027ve expanded the comment(s) a bit.",
+      "parentUuid": "25903a09_bf22b7a4",
       "range": {
         "startLine": 720,
         "startChar": 16,
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_9f3c57e7",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a59b4a32_3b4f973f",
+      "range": {
+        "startLine": 962,
+        "startChar": 17,
+        "endLine": 962,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25903a09_5f312bed",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 6
@@ -202,6 +400,30 @@
       "writtenOn": "2016-08-26T14:46:20Z",
       "side": 1,
       "message": "Fffc?",
+      "range": {
+        "startLine": 963,
+        "startChar": 17,
+        "endLine": 963,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_df36df04",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25903a09_5f312bed",
       "range": {
         "startLine": 963,
         "startChar": 17,
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_7f214bb1",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2572,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_b0027813",
+      "range": {
+        "startLine": 2572,
+        "startChar": 2,
+        "endLine": 2572,
+        "endChar": 19
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_d0f9fc17",
         "filename": "compiler/utils/mips/assembler_mips_test.cc",
         "patchSetId": 6
@@ -260,6 +506,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_bf13d369",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_d0f9fc17",
+      "range": {
+        "startLine": 2578,
+        "startChar": 2,
+        "endLine": 2578,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45052e49_3008482f",
         "filename": "compiler/utils/mips/assembler_mips_test.cc",
         "patchSetId": 6
@@ -271,6 +541,30 @@
       "writtenOn": "2016-08-26T14:46:20Z",
       "side": 1,
       "message": "// Even across Bind(), CodePosition() prevents absorbing the ADDU above.",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2584,
+        "endChar": 20
+      },
+      "revId": "d15b1d1036b79842079f4c2e85879045e36ab880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_ff0d5b45",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-08-29T23:23:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45052e49_3008482f",
       "range": {
         "startLine": 2583,
         "startChar": 0,
