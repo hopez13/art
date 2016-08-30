@@ -2332,6 +2332,11 @@ void X86_64Assembler::repne_scasw() {
   EmitUint8(0xAF);
 }
 
+void X86_64Assembler::repne_scasb() {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitUint8(0xF2);
+  EmitUint8(0xAE);
+}
 
 void X86_64Assembler::repe_cmpsw() {
   AssemblerBuffer::EnsureCapacity ensured(&buffer_);
