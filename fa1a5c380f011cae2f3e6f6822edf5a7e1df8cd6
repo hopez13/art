@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_71b41ae1",
+        "filename": "disassembler/disassembler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713cb9c0_d1230414",
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "713cb9c0_511834e3",
         "filename": "runtime/arch/instruction_set.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-08-30T09:22:40Z",
       "side": 1,
       "message": "Bogus top-level const.",
+      "range": {
+        "startLine": 27,
+        "startChar": 25,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_31f8d2ad",
+        "filename": "runtime/arch/instruction_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s bogus, it just makes explicit that you can\u0027t change the value in the function. Anyways, Done",
+      "parentUuid": "713cb9c0_511834e3",
       "range": {
         "startLine": 27,
         "startChar": 25,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_11f3d6d5",
+        "filename": "runtime/arch/instruction_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713cb9c0_311db0d3",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "713cb9c0_91d69ce0",
         "filename": "runtime/arch/instruction_set.h",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2016-08-30T09:22:40Z",
       "side": 1,
       "message": "Bogus top-level const.",
+      "range": {
+        "startLine": 78,
+        "startChar": 36,
+        "endLine": 78,
+        "endChar": 41
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_d1e88ee5",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713cb9c0_91d69ce0",
       "range": {
         "startLine": 78,
         "startChar": 36,
@@ -111,6 +201,53 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_f1ed8af2",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713cb9c0_711338c9",
+      "range": {
+        "startLine": 86,
+        "startChar": 35,
+        "endLine": 86,
+        "endChar": 40
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_91b1a6f2",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "I\u0027m very interested in a comment about this.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "713cb9c0_1122ac13",
         "filename": "runtime/image.cc",
         "patchSetId": 1
@@ -128,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_71025aad",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713cb9c0_1122ac13",
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "713cb9c0_f1260826",
         "filename": "runtime/utils.h",
         "patchSetId": 1
@@ -139,6 +294,30 @@
       "writtenOn": "2016-08-30T09:22:40Z",
       "side": 1,
       "message": "Remove the unnecessary \"static\".",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 6
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_11ccb68f",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T16:49:29Z",
+      "side": 1,
+      "message": "It\u0027s the common case in our codebase, so it was done for consistency. Done",
+      "parentUuid": "713cb9c0_f1260826",
       "range": {
         "startLine": 387,
         "startChar": 0,
