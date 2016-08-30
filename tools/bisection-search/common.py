@@ -23,6 +23,7 @@ import shlex
 from subprocess import check_call
 from subprocess import PIPE
 from subprocess import Popen
+from subprocess import STDOUT
 from subprocess import TimeoutExpired
 
 from tempfile import mkdtemp
@@ -81,19 +82,20 @@ def _RunCommandForOutputAndLog(cmd, env, logfile, timeout=60):
   Returns:
    tuple (string, string, int) stdout output, stderr output, return code.
   """
-  proc = Popen(cmd, stderr=PIPE, stdout=PIPE, env=env, universal_newlines=True)
+  proc = Popen(cmd, stderr=STDOUT, stdout=PIPE, env=env,
+               universal_newlines=True)
   timeouted = False
   try:
-    (output, err_output) = proc.communicate(timeout=timeout)
+    (output, _) = proc.communicate(timeout=timeout)
   except TimeoutExpired:
     timeouted = True
     proc.kill()
-    (output, err_output) = proc.communicate()
-  logfile.write('Command:\n{0}\n{1}{2}\nReturn code: {3}\n'.format(
-      _CommandListToCommandString(cmd), err_output, output,
+    (output, _) = proc.communicate()
+  logfile.write('Command:\n{0}\n{1}\nReturn code: {2}\n'.format(
+      _CommandListToCommandString(cmd), output,
       'TIMEOUT' if timeouted else proc.returncode))
   ret_code = 1 if timeouted else proc.returncode
-  return (output, err_output, ret_code)
+  return (output, ret_code)
 
 
 def _CommandListToCommandString(cmd):
@@ -148,12 +150,12 @@ class ITestEnv(object):
     """
 
   @abc.abstractmethod
-  def RunCommand(self, cmd):
-    """Runs command in environment.
+  def RunCommand(self, cmd, env_overrides=None):
+    """Runs command in environment with some variables overridden.
 
     Args:
-      cmd: string, command to run.
-
+      cmd: list of strings, command to run.
+      env_overrides: dict, string to string, maps variables to their values.
     Returns:
       tuple (string, string, int) stdout output, stderr output, return code.
     """
@@ -197,7 +199,8 @@ class HostTestEnv(ITestEnv):
     self._shell_env['ANDROID_DATA'] = self._env_path
     self._shell_env['ANDROID_ROOT'] = android_root
     self._shell_env['LD_LIBRARY_PATH'] = library_path
-    self._shell_env['PATH'] = (path + ':' + self._shell_env['PATH'])
+    self._shell_env['DYLD_LIBRARY_PATH'] = library_path
+    self._shell_env['PATH'] = (self._shell_env['PATH'] + ':' + path)
     # Using dlopen requires load bias on the host.
     self._shell_env['LD_USE_LOAD_BIAS'] = '1'
 
@@ -213,9 +216,13 @@ class HostTestEnv(ITestEnv):
       f.writelines('{0}\n'.format(line) for line in lines)
     return
 
-  def RunCommand(self, cmd):
+  def RunCommand(self, cmd, env_overrides=None):
+    if not env_overrides:
+      env_overrides = {}
     self._EmptyDexCache()
-    return _RunCommandForOutputAndLog(cmd, self._shell_env, self._logfile)
+    env = self._shell_env.copy()
+    env.update(env_overrides)
+    return _RunCommandForOutputAndLog(cmd, env, self._logfile)
 
   @property
   def classpath(self):
@@ -286,13 +293,16 @@ class DeviceTestEnv(ITestEnv):
       self._AdbPush(temp_file.name, file_path)
     return
 
-  def RunCommand(self, cmd):
+  def RunCommand(self, cmd, env_overrides=None):
+    if not env_overrides:
+      env_overrides = {}
     self._EmptyDexCache()
+    env = self._shell_env.copy()
+    env.update(env_overrides)
     cmd = _CommandListToCommandString(cmd)
     cmd = ('adb shell "logcat -c && ANDROID_DATA={0} {1} && '
            'logcat -d dex2oat:* *:S 1>&2"').format(self._device_env_path, cmd)
-    return _RunCommandForOutputAndLog(shlex.split(cmd), self._shell_env,
-                                      self._logfile)
+    return _RunCommandForOutputAndLog(shlex.split(cmd), env, self._logfile)
 
   @property
   def classpath(self):
