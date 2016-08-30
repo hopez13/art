@@ -148,9 +148,12 @@ void PrepareForRegisterAllocation::VisitNewInstance(HNewInstance* instruction) {
     // methods, so we need to check whether this allocation comes from an inlined method.
     // We also need to make the same check as for moving clinit check, whether the HLoadClass
     // has the clinit check responsibility or not (HLoadClass can throw anyway).
-    if (has_only_one_use &&
-        !instruction->GetEnvironment()->IsFromInlinedInvoke() &&
-        CanMoveClinitCheck(load_class, instruction)) {
+    // If the load class is in the dex cache and does not need an access check, then it can never
+    // throw, even if inlined. In this case, remove it if it has one user.
+    const bool can_throw = !load_class->IsInDexCache() || load_class->NeedsAccessCheck();
+    if (has_only_one_use && (!can_throw ||
+        (!instruction->GetEnvironment()->IsFromInlinedInvoke() &&
+            CanMoveClinitCheck(load_class, instruction)))) {
       // We can remove the load class from the graph. If it needed access checks, we delegate
       // the access check to the allocation.
       if (load_class->NeedsAccessCheck()) {
