@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_b1e30209",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T17:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88e73b24_922bbce6",
+      "range": {
+        "startLine": 1799,
+        "startChar": 4,
+        "endLine": 1799,
+        "endChar": 50
+      },
+      "revId": "5f404331c0ae5217d35ee8a7be77cde5c54a49de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8af9fab_bbba2780",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-08-23T11:14:34Z",
       "side": 1,
       "message": "Can you add CFI directives for STP/LDP, please?",
+      "revId": "5f404331c0ae5217d35ee8a7be77cde5c54a49de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_51f55eb4",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T17:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8af9fab_bbba2780",
       "revId": "5f404331c0ae5217d35ee8a7be77cde5c54a49de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
