@@ -22,6 +22,29 @@
       "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "718af9dc_442de09a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T20:53:30Z",
+      "side": 1,
+      "message": "So I think I need to change the IsInDexCache to IsInitialized or similar for it to be correct for the IsFromInlinedInvoke case. If it is initialized and does not need access checks the load class should never throw I think.",
+      "range": {
+        "startLine": 153,
+        "startChar": 40,
+        "endLine": 153,
+        "endChar": 52
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
