@@ -20,7 +20,10 @@
 #include <algorithm>
 #include <sstream>
 
+// This header is used in the disassembler with libbase's logging. b/15436106
+#ifndef CHECK
 #include "base/logging.h"
+#endif
 
 namespace art {
 

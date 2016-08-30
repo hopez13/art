@@ -21,7 +21,11 @@
 #include <limits>
 #include <type_traits>
 
+// This header is used in the disassembler with libbase's logging. b/15436106
+#ifndef CHECK
 #include "base/logging.h"
+#endif
+
 #include "base/iteration_range.h"
 #include "base/stl_util.h"
 
