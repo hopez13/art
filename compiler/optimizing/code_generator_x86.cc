@@ -157,6 +157,7 @@ class BoundsCheckSlowPathX86 : public SlowPathCode {
         length_loc = Location::RegisterLocation(calling_convention.GetRegisterAt(2));
       }
       __ movl(length_loc.AsRegister<Register>(), array_len);
+      __ andl(length_loc.AsRegister<Register>(), Immediate(0x7FFFFFFF));
     }
     x86_codegen->EmitParallelMoves(
         locations->InAt(0),
@@ -5605,6 +5606,8 @@ void InstructionCodeGeneratorX86::VisitArrayLength(HArrayLength* instruction) {
   Register obj = locations->InAt(0).AsRegister<Register>();
   Register out = locations->Out().AsRegister<Register>();
   __ movl(out, Address(obj, offset));
+  // Mask out first bit in case the array is String's array of char
+  __ andl(out, Immediate(0x7FFFFFFF));
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 

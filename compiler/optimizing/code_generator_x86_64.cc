@@ -5071,6 +5071,8 @@ void InstructionCodeGeneratorX86_64::VisitArrayLength(HArrayLength* instruction)
   CpuRegister obj = locations->InAt(0).AsRegister<CpuRegister>();
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();
   __ movl(out, Address(obj, offset));
+  // Mask out first bit in case the array is String's array of char
+  __ andl(out, Immediate(0x7FFFFFFF));
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 
