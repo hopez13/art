@@ -151,6 +151,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
 
   bool is_in_dex_cache = false;
   bool is_in_boot_image = false;
+  bool is_initialized = false;
   HLoadClass::LoadKind desired_load_kind;
   uint64_t address = 0u;  // Class or dex cache element address.
   {
@@ -162,7 +163,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
         ? compilation_unit_.GetDexCache()
         : hs.NewHandle(class_linker->FindDexCache(soa.Self(), dex_file));
     mirror::Class* klass = dex_cache->GetResolvedType(type_index);
-
+    is_initialized = klass != nullptr && klass->IsInitialized();
     if (codegen_->GetCompilerOptions().IsBootImage()) {
       // Compiling boot image. Check if the class is a boot image class.
       DCHECK(!runtime->UseJitCompilation());
@@ -191,6 +192,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
           // TODO: Use direct pointers for all non-moving spaces, not just boot image. Bug: 29530787
           desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
           address = reinterpret_cast64<uint64_t>(klass);
+          is_in_dex_cache = true;  // In the image means in the dex cache.
         } else {
           // Note: If the class is not in the dex cache or isn't initialized, the
           // instruction needs environment and will not be inlined across dex files.
@@ -205,6 +207,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
       } else if (is_in_boot_image && !codegen_->GetCompilerOptions().GetCompilePic()) {
         desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
         address = reinterpret_cast64<uint64_t>(klass);
+        // is_in_dex_cache = true;  // In the image means in the dex cache.
       } else {
         // Not JIT and either the klass is not in boot image or we are compiling in PIC mode.
         // Use PC-relative load from the dex cache if the dex file belongs
@@ -227,6 +230,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
   }
 
   if (load_class->GetLoadKind() == HLoadClass::LoadKind::kReferrersClass) {
+    load_class->MarkInitialized();
     // Loading from the ArtMethod* is the most efficient retrieval in code size.
     // TODO: This may not actually be true for all architectures and
     // locations of target classes. The additional register pressure
@@ -234,8 +238,11 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
     return;
   }
 
-  if (is_in_dex_cache) {
-    load_class->MarkInDexCache();
+  if (is_initialized) {
+    load_class->MarkInitialized();
+    if (is_in_dex_cache) {
+      load_class->MarkInDexCache();
+    }
   }
 
   HLoadClass::LoadKind load_kind = codegen_->GetSupportedLoadClassKind(desired_load_kind);

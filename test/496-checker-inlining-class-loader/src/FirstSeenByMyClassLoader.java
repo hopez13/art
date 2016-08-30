@@ -15,6 +15,9 @@
  */
 
 public class FirstSeenByMyClassLoader {
+  // Make sure a class initializer actually gets generated.
+  static int x = 2;
+
   public static void $inline$bar() {
   }
 
