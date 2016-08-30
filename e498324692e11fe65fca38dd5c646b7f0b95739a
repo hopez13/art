@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "11c7fd2d_eedcff05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-30T23:16:15Z",
+      "side": 1,
+      "message": "ok, so still WIP, but some comments already; don\u0027t forget the test stanza when you are ready for show time.",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5246297_45fdaa02",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-30T23:16:15Z",
+      "side": 1,
+      "message": "same line comment on meaning?",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c1191d_69ca4544",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-30T23:16:15Z",
+      "side": 1,
+      "message": "shall we call the switch bisection-search?\nseems bit more consistent same for the internal flag then",
+      "range": {
+        "startLine": 352,
+        "startChar": 27,
+        "endLine": 352,
+        "endChar": 33
+      },
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_c1eb2203",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -19,6 +76,29 @@
     },
     {
       "key": {
+        "uuid": "71c1191d_c9b811c7",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-30T23:16:15Z",
+      "side": 1,
+      "message": "list at top of file?",
+      "range": {
+        "startLine": 826,
+        "startChar": 32,
+        "endLine": 826,
+        "endChar": 36
+      },
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_c117a2fc",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 1
@@ -30,6 +110,29 @@
       "writtenOn": "2016-08-30T20:21:13Z",
       "side": 1,
       "message": "not too clear what this does without reading source",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05289668_061c9a6c",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-08-30T23:16:15Z",
+      "side": 1,
+      "message": "env_updates?  bit more consistent with other method naming",
+      "range": {
+        "startLine": 158,
+        "startChar": 37,
+        "endLine": 158,
+        "endChar": 43
+      },
       "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
