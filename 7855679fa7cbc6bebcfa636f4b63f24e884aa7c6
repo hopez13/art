@@ -104,6 +104,30 @@
       "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5246297_c5119a5a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-30T23:14:44Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "d17725bf_d4cbdc99",
+      "range": {
+        "startLine": 2126,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 31
+      },
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
