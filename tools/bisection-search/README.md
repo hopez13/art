@@ -15,29 +15,35 @@ incorrect output. Prints Mi and Pj.
 How to run Bisection Bug Search
 ===============================
 
-    bisection_search.py [-h] -cp CLASSPATH
-                        [--expected-output EXPECTED_OUTPUT] [--device]
-                        [--lib LIB] [--64]
-                        [--dalvikvm-option [OPTION [OPTION ...]]]
-                        [--arg [TEST_ARGS [TEST_ARGS ...]]] [--image IMAGE]
-                        [--verbose]
-                        classname
-
-    positional arguments:
-      classname             name of class to run
+    bisection_search.py [-h] [-cp CLASSPATH] [--lib LIB] [--64]
+                             [--dalvikvm-option [OPTION [OPTION ...]]]
+                             [--arg [TEST_ARGS [TEST_ARGS ...]]] [--image IMAGE]
+                             [--raw-cmd RAW_CMD] [--device]
+                             [--expected-output EXPECTED_OUTPUT]
+                             [--check_script CHECK_SCRIPT] [--verbose]
+                             [classname]
 
     optional arguments:
       -h, --help            show this help message and exit
+
+    dalvikvm command options:
       -cp CLASSPATH, --classpath CLASSPATH
                             classpath
-      --expected-output EXPECTED_OUTPUT
-                            file containing expected output
-      --device              run on device
+      classname             name of class to run
       --lib LIB             lib to use, default: libart.so
       --64                  x64 mode
       --dalvikvm-option [OPTION [OPTION ...]]
                             additional dalvikvm option
       --arg [TEST_ARGS [TEST_ARGS ...]]
-                            argument to pass to program
+                            argument passed to test
       --image IMAGE         path to image
+      --raw-cmd RAW_CMD     call dalvikvm with this command, ignore other command
+                            options
+
+    bisection options:
+      --device              run on device
+      --expected-output EXPECTED_OUTPUT
+                            file containing expected output
+      --check_script CHECK_SCRIPT
+                            script comparing output and expected output
       --verbose             enable verbose output

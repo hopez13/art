@@ -190,17 +190,19 @@ if [ "$sequental" == "yes" ]; then
   i=0
   for test_name in *; do
     if [ -d "$test_name" -a -r "$test_name" -a -r "$test_name/info.txt" ]; then
-      ./run-test ${run_args} "$test_name"
-      RES=$?
-      test_pids[i]=i
-      test_names[test_pids[i]]="$test_name"
-      if [ "$RES" != "0" ]; then
-        let failure_count+=1
-        failed_test_names="$failed_test_names ${test_names[i]}"
-      else
-        let succeeded_count+=1
+      if [[ "$test_name" > "587" ]]; then
+        ./run-test ${run_args} --bug-search "$test_name"
+        RES=$?
+        test_pids[i]=i
+        test_names[test_pids[i]]="$test_name"
+        if [ "$RES" != "0" ]; then
+          let failure_count+=1
+          failed_test_names="$failed_test_names ${test_names[i]}"
+        else
+          let succeeded_count+=1
+        fi
+        let i+=1
       fi
-      let i+=1
     fi
   done
 else
@@ -208,10 +210,13 @@ else
   i=0
   for test_name in *; do
     if [ -d "$test_name" -a -r "$test_name" -a -r "$test_name/info.txt" ]; then
-      ./run-test ${run_args} "$test_name" &
-      test_pids[i]=$!
-      test_names[test_pids[i]]="$test_name"
-      let i+=1
+      if [[ "$test_name" > "587" ]]; then
+        echo "LOL" $test_name
+        ./run-test ${run_args} --bug-search "$test_name" &
+        test_pids[i]=$!
+        test_names[test_pids[i]]="$test_name"
+        let i+=1
+      fi
     fi
   done
 
