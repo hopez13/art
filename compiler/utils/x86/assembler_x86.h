@@ -593,9 +593,12 @@ class X86Assembler FINAL : public Assembler {
   void jmp(NearLabel* label);
 
   void repne_scasw();
+  void repne_scasb();
+  void repe_cmpsb();
   void repe_cmpsw();
   void repe_cmpsl();
   void rep_movsw();
+  void rep_movsb();
 
   X86Assembler* lock();
   void cmpxchgl(const Address& address, Register reg);
