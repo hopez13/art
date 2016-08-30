@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "718af9dc_812e7ab1",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T20:06:57Z",
+      "side": 1,
+      "message": "Are there any issues with the class initializer here? The alloc object will already do a class init check I think.",
+      "range": {
+        "startLine": 153,
+        "startChar": 15,
+        "endLine": 153,
+        "endChar": 24
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
