@@ -21,7 +21,10 @@
 #include <limits>
 #include <type_traits>
 
+#ifndef CHECK
 #include "base/logging.h"
+#endif
+
 #include "base/iteration_range.h"
 #include "base/stl_util.h"
 
