@@ -4578,6 +4578,8 @@ void LocationsBuilderX86_64::VisitArrayGet(HArrayGet* instruction) {
                                                        LocationSummary::kNoCall);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+  // Needs register to check the length of string
+  locations->AddTemp(Location::RequiresRegister());
   if (Primitive::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
   } else {
@@ -4634,12 +4636,41 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
     }
 
     case Primitive::kPrimChar: {
-      CpuRegister out = out_loc.AsRegister<CpuRegister>();
-      if (index.IsConstant()) {
-        __ movzxw(out, Address(obj,
+      if (instruction->IsStringCharAt()) {
+        // Get string length
+        CpuRegister length = locations->GetTemp(0).AsRegister<CpuRegister>();
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        __ movl(length, Address(obj, count_offset));
+        CpuRegister out = out_loc.AsRegister<CpuRegister>();
+        NearLabel done;
+        if (index.IsConstant()) {
+          NearLabel is_not_compressed_1;
+          __ cmpl(length, Immediate(0));
+          __ j(kGreaterEqual, &is_not_compressed_1);
+          __ movzxb(out, Address(obj,
+            (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_1) + data_offset));
+          __ jmp(&done);
+          __ Bind(&is_not_compressed_1);
+          __ movzxw(out, Address(obj,
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset));
+        } else {
+          NearLabel is_not_compressed_2;
+          __ cmpl(length, Immediate(0));
+          __ j(kGreaterEqual, &is_not_compressed_2);
+          __ movzxb(out, Address(obj, index.AsRegister<CpuRegister>(), TIMES_1, data_offset));
+          __ jmp(&done);
+          __ Bind(&is_not_compressed_2);
+          __ movzxw(out, Address(obj, index.AsRegister<CpuRegister>(), TIMES_2, data_offset));
+        }
+        __ Bind(&done);
       } else {
-        __ movzxw(out, Address(obj, index.AsRegister<CpuRegister>(), TIMES_2, data_offset));
+        CpuRegister out = out_loc.AsRegister<CpuRegister>();
+        if (index.IsConstant()) {
+          __ movzxw(out, Address(obj,
+              (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset));
+        } else {
+          __ movzxw(out, Address(obj, index.AsRegister<CpuRegister>(), TIMES_2, data_offset));
+        }
       }
       break;
     }
@@ -5071,6 +5102,10 @@ void InstructionCodeGeneratorX86_64::VisitArrayLength(HArrayLength* instruction)
   CpuRegister obj = locations->InAt(0).AsRegister<CpuRegister>();
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();
   __ movl(out, Address(obj, offset));
+  // Mask out first bit in case the array is String's array of char
+  if (instruction->IsStringLength()) {
+    __ andl(out, Immediate(0x7FFFFFFF));
+  }
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 

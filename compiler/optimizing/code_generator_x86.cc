@@ -31,6 +31,7 @@
 #include "utils/stack_checks.h"
 #include "utils/x86/assembler_x86.h"
 #include "utils/x86/managed_register_x86.h"
+#include <iostream>
 
 namespace art {
 
@@ -157,6 +158,7 @@ class BoundsCheckSlowPathX86 : public SlowPathCode {
         length_loc = Location::RegisterLocation(calling_convention.GetRegisterAt(2));
       }
       __ movl(length_loc.AsRegister<Register>(), array_len);
+      __ andl(length_loc.AsRegister<Register>(), Immediate(0x7FFFFFFF));
     }
     x86_codegen->EmitParallelMoves(
         locations->InAt(0),
@@ -5080,6 +5082,8 @@ void LocationsBuilderX86::VisitArrayGet(HArrayGet* instruction) {
                                                        LocationSummary::kNoCall);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+  // Needs register to check the length of string
+  locations->AddTemp(Location::RequiresRegister());
   if (Primitive::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
   } else {
@@ -5140,12 +5144,41 @@ void InstructionCodeGeneratorX86::VisitArrayGet(HArrayGet* instruction) {
     }
 
     case Primitive::kPrimChar: {
-      Register out = out_loc.AsRegister<Register>();
-      if (index.IsConstant()) {
-        __ movzxw(out, Address(obj,
-            (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset));
+      if (instruction->IsStringCharAt()) {
+        // Get string length
+        Register length = locations->GetTemp(0).AsRegister<Register>();
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        __ movl(length, Address(obj, count_offset));
+        Register out = out_loc.AsRegister<Register>();
+        NearLabel done;
+        if (index.IsConstant()) {
+          NearLabel is_not_compressed_1;
+          __ cmpl(length, Immediate(0));
+          __ j(kGreaterEqual, &is_not_compressed_1);
+          __ movzxb(out, Address(obj,
+            (index.GetConstant()->AsIntConstant()->GetValue() << ScaleFactor::TIMES_1) + data_offset));
+          __ jmp(&done);
+          __ Bind(&is_not_compressed_1);
+          __ movzxw(out, Address(obj,
+            (index.GetConstant()->AsIntConstant()->GetValue() << ScaleFactor::TIMES_2) + data_offset));
+        } else {
+          NearLabel is_not_compressed_2;
+          __ cmpl(length, Immediate(0));
+          __ j(kGreaterEqual, &is_not_compressed_2);
+          __ movzxb(out, Address(obj, index.AsRegister<Register>(), ScaleFactor::TIMES_1, data_offset));
+          __ jmp(&done);
+          __ Bind(&is_not_compressed_2);
+          __ movzxw(out, Address(obj, index.AsRegister<Register>(), ScaleFactor::TIMES_2, data_offset));
+        }
+        __ Bind(&done);
       } else {
-        __ movzxw(out, Address(obj, index.AsRegister<Register>(), TIMES_2, data_offset));
+        Register out = out_loc.AsRegister<Register>();
+        if (index.IsConstant()) {
+          __ movzxw(out, Address(obj,
+             (index.GetConstant()->AsIntConstant()->GetValue() << ScaleFactor::TIMES_2) + data_offset));
+        } else {
+          __ movzxw(out, Address(obj, index.AsRegister<Register>(), ScaleFactor::TIMES_2, data_offset));
+        }
       }
       break;
     }
@@ -5605,6 +5638,10 @@ void InstructionCodeGeneratorX86::VisitArrayLength(HArrayLength* instruction) {
   Register obj = locations->InAt(0).AsRegister<Register>();
   Register out = locations->Out().AsRegister<Register>();
   __ movl(out, Address(obj, offset));
+  // Mask out first bit in case the array is String's array of char
+  if (instruction->IsStringLength()) {
+    __ andl(out, Immediate(0x7FFFFFFF));
+  }
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 
