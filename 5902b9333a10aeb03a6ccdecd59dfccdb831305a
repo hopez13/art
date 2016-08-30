@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "c5967ec8_a5b584e4",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T01:24:40Z",
+      "side": 1,
+      "message": "Parts of the classlinker itself do this directly with the libart entrypoint (bypassing the potential one in the image):\n\n GetQuickToInterpreterBridge()",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_46b45ce0",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -136,6 +159,52 @@
         "startChar": 20,
         "endLine": 1246,
         "endChar": 50
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_d07c0c17",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T01:24:40Z",
+      "side": 1,
+      "message": "Why? What\u0027s the problem with calling RegisterDexFile to do everything you need?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 2,
+        "endLine": 1380,
+        "endChar": 3
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5967ec8_308c502f",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-30T01:24:40Z",
+      "side": 1,
+      "message": "ClassLinker::SetEntryPointsToInterpreter",
+      "range": {
+        "startLine": 1431,
+        "startChar": 6,
+        "endLine": 1432,
+        "endChar": 79
       },
       "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
