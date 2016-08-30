@@ -671,6 +671,7 @@ class X86_64Assembler FINAL : public Assembler {
   void rolq(CpuRegister operand, CpuRegister shifter);
 
   void repne_scasw();
+  void repne_scasb();
   void repe_cmpsw();
   void repe_cmpsl();
   void repe_cmpsq();
