@@ -1,6 +1,14 @@
 subdirs = [
+    "benchmark",
     "build",
     "compiler",
+    "dalvikvm",
+    "dexdump",
+    "dexlist",
+    "disassembler",
+    "oatdump",
     "runtime",
     "sigchainlib",
+    "tools/cpp-define-generator",
+    "tools/dmtracedump",
 ]
