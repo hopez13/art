@@ -20,7 +20,9 @@
 #include <algorithm>
 #include <sstream>
 
+#ifndef CHECK
 #include "base/logging.h"
+#endif
 
 namespace art {
 
