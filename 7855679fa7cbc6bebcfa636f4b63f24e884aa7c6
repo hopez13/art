@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d17725bf_3489f07b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-30T22:43:05Z",
+      "side": 1,
+      "message": "Good point.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d17725bf_1428748b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2110,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-30T22:43:05Z",
+      "side": 1,
+      "message": "How about keeping \"REGION_\" in the name for clarify until we merge this with the non-region tlab case (the TODO line below.)?",
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d17725bf_f4b37855",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-08-30T22:43:05Z",
+      "side": 1,
+      "message": "What does it save to move the null checking code here and use ALLOC_OBJECT_TLAB_FAST_PATH_RESOLVED as the fast path for art_quick_alloc_object_region_tlab?\n\nIf not much, I\u0027d prefer keeping the old/simple style for regularity (using ALLOC_OBJECT_TLAB_FAST_PATH for art_quick_alloc_object_region_tlab and move this null check code back to where it was.)",
+      "range": {
+        "startLine": 2126,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 31
+      },
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
