@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "d17725bf_d4e43c38",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T22:46:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d17725bf_1428748b",
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d17725bf_f4b37855",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -53,6 +71,30 @@
       "writtenOn": "2016-08-30T22:43:05Z",
       "side": 1,
       "message": "What does it save to move the null checking code here and use ALLOC_OBJECT_TLAB_FAST_PATH_RESOLVED as the fast path for art_quick_alloc_object_region_tlab?\n\nIf not much, I\u0027d prefer keeping the old/simple style for regularity (using ALLOC_OBJECT_TLAB_FAST_PATH for art_quick_alloc_object_region_tlab and move this null check code back to where it was.)",
+      "range": {
+        "startLine": 2126,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 31
+      },
+      "revId": "7855679fa7cbc6bebcfa636f4b63f24e884aa7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d17725bf_d4cbdc99",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-30T22:46:28Z",
+      "side": 1,
+      "message": "Before there could be two null checks:\nis marking -\u003e null check -\u003e do allocation -\u003e null check #2\n\nIf you have a strong preference it is unlikely to be a measurable performance overhead.",
+      "parentUuid": "d17725bf_f4b37855",
       "range": {
         "startLine": 2126,
         "startChar": 0,
