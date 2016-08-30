@@ -20,6 +20,7 @@
 #include "mirror/object_array.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/object-inl.h"
+#include "utils.h"
 
 namespace art {
 
@@ -178,5 +179,10 @@ void ImageHeader::VisitPackedArtMethods(ArtMethodVisitor* visitor,
     pos += method_size;
   }
 }
+
+PointerSize ImageHeader::GetPointerSize() const {
+  return ConvertToPointerSize(pointer_size_);
+}
+
 
 }  // namespace art

@@ -19,9 +19,29 @@
 // Explicitly include our own elf.h to avoid Linux and other dependencies.
 #include "../elf.h"
 #include "base/bit_utils.h"
+#include "base/logging.h"
 #include "globals.h"
 
 namespace art {
+
+void InstructionSetAbort(const InstructionSet isa) {
+  switch (isa) {
+    case kArm:
+    case kThumb2:
+    case kArm64:
+    case kX86:
+    case kX86_64:
+    case kMips:
+    case kMips64:
+    case kNone:
+      LOG(FATAL) << "Unsupported instruction set " << isa;
+      UNREACHABLE();
+
+    default:
+      LOG(FATAL) << "Unknown ISA " << isa;
+      UNREACHABLE();
+  }
+}
 
 const char* GetInstructionSetString(const InstructionSet isa) {
   switch (isa) {
