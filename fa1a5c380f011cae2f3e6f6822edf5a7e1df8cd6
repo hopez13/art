@@ -327,6 +327,30 @@
       "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b118f16f_13b3cca2",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-08-30T18:33:26Z",
+      "side": 1,
+      "message": "The FlushInstructionCache() just above isn\u0027t \"static\", so local consistency is better achieved without the \"static\". However, the whole file is inconsistent, but let\u0027s not do the cleanup in this CL.",
+      "parentUuid": "c5967ec8_11ccb68f",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 6
+      },
+      "revId": "fa1a5c380f011cae2f3e6f6822edf5a7e1df8cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
