@@ -2085,11 +2085,71 @@ DEFINE_FUNCTION art_quick_string_compareto
     /* Build pointers to the start of string data */
     leal MIRROR_STRING_VALUE_OFFSET(%edi), %edi
     leal MIRROR_STRING_VALUE_OFFSET(%esi), %esi
+    /* Differ cases */
+    cmpl LITERAL(0), %r8d
+    jl .Lthis_is_compressed
+    cmpl LITERAL(0), %r9d
+    jl .Lthat_is_compressed
+    jmp .Lboth_not_compressed
+.Lthis_is_compressed:
+    andl    LITERAL(0x7FFFFFFF), %r8d
+    cmpl    LITERAL(0), %r9d
+    jl	    .Lboth_compressed
+    /* Comparison this (8-bit) and that (16-bit) */
+    mov	    %r8d, %eax
+    subl    %r9d, %eax
+    mov	    %r8d, %ecx
+    cmovg   %r9d, %ecx
+.Lloop_comparison_this_compressed:
+    cmpl    LITERAL(0), %ecx
+    jle	    .Lkeep_length
+    movzbl  (%edi), %r8d
+    movzwl  (%esi), %r9d
+    cmpl    %r8d, %r9d
+    jne	    .Lcomparison_not_equal
+    addl    LITERAL(1), %edi
+    addl    LITERAL(2), %esi
+    addl    LITERAL(-1), %ecx
+    jmp	    .Lloop_comparison_this_compressed
+.Lcomparison_not_equal:
+    movl    %r8d, %eax
+    movl    %r9d, %ecx
+    jmp	    .Lcount_difference
+.Lthat_is_compressed:
+    andl    LITERAL(0x7FFFFFFF), %r9d
+    movl    %r8d, %eax
+    subl    %r9d, %eax
+    mov	    %r8d, %ecx
+    cmovg   %r9d, %ecx
+    /* Comparison this (8-bit) and that (16-bit) */
+.Lloop_comparison_that_compressed:
+    cmpl    LITERAL(0), %ecx
+    jne	    .Lkeep_length
+    movzwl  (%edi), %r8d
+    movzbl  (%esi), %r9d
+    cmpl    %r8d, %r9d
+    jne	    .Lcomparison_not_equal
+    addl    LITERAL(2), %edi
+    addl    LITERAL(1), %esi
+    addl    LITERAL(-1), %ecx
+    jmp	    .Lloop_comparison_that_compressed
+.Lboth_compressed:
+    andl    LITERAL(0x7FFFFFFF), %r9d
     /* Calculate min length and count diff */
-    movl  %r8d, %ecx
-    movl  %r8d, %eax
-    subl  %r9d, %eax
-    cmovg %r9d, %ecx
+    movl    %r8d, %ecx
+    movl    %r8d, %eax
+    subl    %r9d, %eax
+    cmovg   %r9d, %ecx
+    jecxz   .Lkeep_length
+    repe    cmpsb
+    jne	    .Lnot_equal_compressed
+    jmp	    .Lkeep_length
+.Lboth_not_compressed:
+    /* Calculate min length and count diff */
+    movl    %r8d, %ecx
+    movl    %r8d, %eax
+    subl    %r9d, %eax
+    cmovg   %r9d, %ecx
     /*
      * At this point we have:
      *   eax: value to return if first part of strings are equal
@@ -2106,6 +2166,11 @@ DEFINE_FUNCTION art_quick_string_compareto
 .Lnot_equal:
     movzwl  -2(%edi), %eax        // get last compared char from this string
     movzwl  -2(%esi), %ecx        // get last compared char from comp string
+    jmp .Lcount_difference
+.Lnot_equal_compressed:
+    movzbl  -1(%edi), %eax        // get last compared char from this string
+    movzbl  -1(%esi), %ecx        // get last compared char from comp string
+.Lcount_difference:
     subl  %ecx, %eax              // return the difference
     ret
 END_FUNCTION art_quick_string_compareto

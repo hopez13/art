@@ -1415,10 +1415,24 @@ void IntrinsicCodeGeneratorX86::VisitStringEquals(HInvoke* invoke) {
   __ leal(esi, Address(str, value_offset));
   __ leal(edi, Address(arg, value_offset));
 
-  // Divide string length by 2 to compare characters 2 at a time and adjust for odd lengths.
+  NearLabel comparison;
+  NearLabel string_compressed;
+  // Both string are compressed
+  __ cmpl(ecx, Immediate(0));
+  __ j(kLess, &string_compressed);
+  // Divide string length by 2 to compare characters 2 at a time and adjust for lengths not
+  // divisible by 2.
   __ addl(ecx, Immediate(1));
   __ shrl(ecx, Immediate(1));
+  __ jmp(&comparison);
+  // Divide string length by 4 to compare characters 4 at a time and adjust for lengths not
+  // divisible by 4.
+  __ Bind(&string_compressed);
+  __ andl(ecx, Immediate(INT32_MAX));
+  __ addl(ecx, Immediate(3));
+  __ shrl(ecx, Immediate(2));
 
+  __ Bind(&comparison);
   // Assertions that must hold in order to compare strings 2 characters at a time.
   DCHECK_ALIGNED(value_offset, 4);
   static_assert(IsAligned<4>(kObjectAlignment), "String of odd length is not zero padded");
@@ -1463,6 +1477,8 @@ static void CreateStringIndexOfLocations(HInvoke* invoke,
   locations->AddTemp(Location::RegisterLocation(ECX));
   // Need another temporary to be able to compute the result.
   locations->AddTemp(Location::RequiresRegister());
+  // Need another temporary to be able to save unflagged string length.
+  locations->AddTemp(Location::RequiresRegister());
 }
 
 static void GenerateStringIndexOf(HInvoke* invoke,
@@ -1479,6 +1495,7 @@ static void GenerateStringIndexOf(HInvoke* invoke,
   Register search_value = locations->InAt(1).AsRegister<Register>();
   Register counter = locations->GetTemp(0).AsRegister<Register>();
   Register string_length = locations->GetTemp(1).AsRegister<Register>();
+  Register string_length_flagged = locations->GetTemp(2).AsRegister<Register>();
   Register out = locations->Out().AsRegister<Register>();
 
   // Check our assumptions for registers.
@@ -1517,6 +1534,9 @@ static void GenerateStringIndexOf(HInvoke* invoke,
 
   // Load string length, i.e., the count field of the string.
   __ movl(string_length, Address(string_obj, count_offset));
+  __ movl(string_length_flagged, string_length);
+  // Mask out first bit used as compression flag
+  __ andl(string_length, Immediate(INT32_MAX));
 
   // Do a zero-length check.
   // TODO: Support jecxz.
@@ -1524,6 +1544,7 @@ static void GenerateStringIndexOf(HInvoke* invoke,
   __ testl(string_length, string_length);
   __ j(kEqual, &not_found_label);
 
+  NearLabel start_comparation;
   if (start_at_zero) {
     // Number of chars to scan is the same as the string length.
     __ movl(counter, string_length);
@@ -1541,22 +1562,42 @@ static void GenerateStringIndexOf(HInvoke* invoke,
     __ xorl(counter, counter);
     __ cmpl(start_index, Immediate(0));
     __ cmovl(kGreater, counter, start_index);
-
-    // Move to the start of the string: string_obj + value_offset + 2 * start_index.
-    __ leal(string_obj, Address(string_obj, counter, ScaleFactor::TIMES_2, value_offset));
+    __ movl(start_index, counter);
 
     // Now update ecx (the repne scasw work counter). We have string.length - start_index left to
     // compare.
     __ negl(counter);
     __ leal(counter, Address(string_length, counter, ScaleFactor::TIMES_1, 0));
+
+    NearLabel offset_uncompressed_label;
+    __ cmpl(string_length_flagged, Immediate(0));
+    __ j(kGreater, &offset_uncompressed_label);
+    __ leal(string_obj, Address(string_obj, start_index, ScaleFactor::TIMES_1, value_offset));
+    __ jmp(&start_comparation);
+
+    // Move to the start of the string: string_obj + value_offset + 2 * start_index.
+    __ Bind(&offset_uncompressed_label);
+    __ leal(string_obj, Address(string_obj, start_index, ScaleFactor::TIMES_2, value_offset));
   }
+
+  __ Bind(&start_comparation);
+  NearLabel uncompressed_string_comparation;
+  NearLabel comparation_done;
+  __ cmpl(string_length_flagged, Immediate(0));
+  __ j(kGreater, &uncompressed_string_comparation);
+
+  // Comparing byte-per-byte
+  __ repne_scasb();
+  __ jmp(&comparation_done);
 
   // Everything is set up for repne scasw:
   //   * Comparison address in EDI.
   //   * Counter in ECX.
+  __ Bind(&uncompressed_string_comparation);
   __ repne_scasw();
 
   // Did we find a match?
+  __ Bind(&comparation_done);
   __ j(kNotEqual, &not_found_label);
 
   // Yes, we matched.  Compute the index of the result.
@@ -1694,10 +1735,13 @@ void IntrinsicLocationsBuilderX86::VisitStringGetCharsNoCheck(HInvoke* invoke) {
 void IntrinsicCodeGeneratorX86::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   X86Assembler* assembler = GetAssembler();
   LocationSummary* locations = invoke->GetLocations();
+  int stack_adjust = kX86WordSize;
 
   size_t char_component_size = Primitive::ComponentSize(Primitive::kPrimChar);
   // Location of data in char array buffer.
   const uint32_t data_offset = mirror::Array::DataOffset(char_component_size).Uint32Value();
+  // Location of count in string
+  const uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
   // Location of char array data in string.
   const uint32_t value_offset = mirror::String::ValueOffset().Uint32Value();
 
@@ -1706,46 +1750,72 @@ void IntrinsicCodeGeneratorX86::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   Location srcBegin = locations->InAt(1);
   int srcBegin_value =
     srcBegin.IsConstant() ? srcBegin.GetConstant()->AsIntConstant()->GetValue() : 0;
-  Register srcEnd = locations->InAt(2).AsRegister<Register>();
+  Register srcEnd = locations->InAt(2).AsRegister<Register>(); 
   Register dst = locations->InAt(3).AsRegister<Register>();
   Register dstBegin = locations->InAt(4).AsRegister<Register>();
 
+  // String's length, saves to EDI temporary because of insufficient register
+  __ movl(EDI, Address(obj, count_offset));
+
   // Check assumption that sizeof(Char) is 2 (used in scaling below).
   const size_t char_size = Primitive::ComponentSize(Primitive::kPrimChar);
+  const size_t c_char_size = Primitive::ComponentSize(Primitive::kPrimByte);
   DCHECK_EQ(char_size, 2u);
+  DCHECK_EQ(c_char_size, 1u);
 
-  // Compute the address of the destination buffer.
-  __ leal(EDI, Address(dst, dstBegin, ScaleFactor::TIMES_2, data_offset));
+  // Save ECX, since we don't know if it wlil be used later.
+  __ pushl(ECX);
+  DCHECK_EQ(srcEnd, ECX);
+  __ cfi().AdjustCFAOffset(stack_adjust);
 
-  // Compute the address of the source string.
+  NearLabel done;
+  NearLabel copy_loop;
+  NearLabel move_uncompressed;
   if (srcBegin.IsConstant()) {
+    NearLabel pre_loop_1;
+    // Compute the number of chars (words) to move
+    __ subl(ECX, Immediate(srcBegin_value));
+    __ cmpl(EDI, Immediate(0));
+    __ j(kLess, &pre_loop_1);
     // Compute the address of the source string by adding the number of chars from
     // the source beginning to the value offset of a string.
     __ leal(ESI, Address(obj, srcBegin_value * char_size + value_offset));
-  } else {
-    __ leal(ESI, Address(obj, srcBegin.AsRegister<Register>(),
-                         ScaleFactor::TIMES_2, value_offset));
-  }
+    __ jmp(&move_uncompressed);
 
-  // Compute the number of chars (words) to move.
-  // Now is the time to save ECX, since we don't know if it will be used later.
-  __ pushl(ECX);
-  int stack_adjust = kX86WordSize;
-  __ cfi().AdjustCFAOffset(stack_adjust);
-  DCHECK_EQ(srcEnd, ECX);
-  if (srcBegin.IsConstant()) {
-    if (srcBegin_value != 0) {
-      __ subl(ECX, Immediate(srcBegin_value));
-    }
+    __ Bind(&pre_loop_1);
+    __ leal(ESI, Address(obj, srcBegin_value * c_char_size + value_offset));
   } else {
+    NearLabel pre_loop_2;
     DCHECK(srcBegin.IsRegister());
+    // Compute the number of chars (words) to move.
     __ subl(ECX, srcBegin.AsRegister<Register>());
+    __ cmpl(EDI, Immediate(0));
+    __ j(kLess, &pre_loop_2);
+    __ leal(ESI, Address(obj, srcBegin.AsRegister<Register>(), ScaleFactor::TIMES_2, value_offset));
+    __ jmp(&move_uncompressed);
+
+    __ Bind(&pre_loop_2);
+    __ leal(ESI, Address(obj, srcBegin.AsRegister<Register>(), ScaleFactor::TIMES_1, value_offset));
   }
+  // Start the loop to copy String's value to Array of Char
+  __ leal(EDI, Address(dst, dstBegin, ScaleFactor::TIMES_2, data_offset));
+  __ Bind(&copy_loop);
+  __ jecxz(&done);
+  // Use dstBegin as temporary (not used anymore to convert byte from ESI to word)
+  __ movzxb(dstBegin, Address(ESI, 0));
+  __ movw(Address(EDI, 0), dstBegin);
+  __ leal(EDI, Address(EDI, char_size));
+  __ leal(ESI, Address(ESI, c_char_size));
+  __ subl(ECX, Immediate(1));
+  __ jmp(&copy_loop);
 
-  // Do the move.
+  __ Bind(&move_uncompressed);
+  // Do the move for uncompressed string
+  __ leal(EDI, Address(dst, dstBegin, ScaleFactor::TIMES_2, data_offset));
   __ rep_movsw();
-
-  // And restore ECX.
+  
+  __ Bind(&done);
+  // Restore ECX
   __ popl(ECX);
   __ cfi().AdjustCFAOffset(-stack_adjust);
 }
