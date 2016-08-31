@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "116e1d0e_cbb835c7",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-31T16:58:05Z",
+      "side": 1,
+      "message": "There was a comment about this in that link. The problem is that using \u0026\u0026 parameters doesn\u0027t mean that the value was actually always moved-from (so the post-condition is ambiguous).\n\n\n  using T \u003d ...; // non-templated T\n  T x_inst;\n\n  void f(T x);\n  f(std::move(x_inst)); // definitely moved from x\n\n  void f2(T\u0026\u0026 x);\n  f2(std::move(x_inst));  // maybe moved from x?\n\nAlso rvalue references are quite confusing to most people so we should really minimize their usage to when they\u0027re actually needed (for example move-constructors) especially because a lot of people confuse it with forwarding references (perfect forwarding) since the syntax looks similar.\n\n\nhttp://stackoverflow.com/questions/8114276/how-do-i-pass-a-unique-ptr-argument-to-a-constructor-or-a-function/8114913#8114913 see (D)",
+      "parentUuid": "d163a525_54eb2ca0",
+      "range": {
+        "startLine": 239,
+        "startChar": 68,
+        "endLine": 239,
+        "endChar": 70
+      },
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_a18a9ec3",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 9
@@ -382,6 +406,24 @@
       "side": 1,
       "message": "It could be seen as the type of diagnostic info you\u0027d expect to see if looking at the linker log messages. The use of class_linker follows the findClass in dalvik_system_DexFile.cc. Not sure there\u0027s an existing better category or whether another module category would be helpful. WDYT?\n\nclass_linker\ncollector\ncompiler\ndeopt\ngc\nheap\njdwp\njit\njni\nmonitor\noat\nprofiler\nsignals\nsimulator\nstartup\nthird_party_jni\nthreads\nverifier",
       "parentUuid": "718af9dc_c12322c2",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_cb54b556",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-31T16:58:05Z",
+      "side": 1,
+      "message": "Ok, thanks for looking at that, I guess if it\u0027s the same thing as DexFile.cc then it\u0027s fine to leave it like this.",
+      "parentUuid": "d163a525_7498e86a",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
