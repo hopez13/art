@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "51a175a9_b0b37856",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T17:59:50Z",
+      "side": 1,
+      "message": "Yeah, the test has been introduced way after dex2oats...",
+      "parentUuid": "b160f11c_93c83c9f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "e68376e7194bda4c70903a8f016c7a819e5baa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b160f11c_b3cbb89a",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
