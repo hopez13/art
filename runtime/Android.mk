@@ -534,11 +534,11 @@ endif
     LOCAL_SHARED_LIBRARIES += libcutils
   else # host
     ifeq ($$(art_static_or_shared),static)
-      LOCAL_STATIC_LIBRARIES += libziparchive-host libz
+      LOCAL_STATIC_LIBRARIES += libziparchive libz
       # For ashmem_create_region.
       LOCAL_STATIC_LIBRARIES += libcutils
     else
-      LOCAL_SHARED_LIBRARIES += libziparchive-host libz-host
+      LOCAL_SHARED_LIBRARIES += libziparchive libz-host
       # For ashmem_create_region.
       LOCAL_SHARED_LIBRARIES += libcutils
     endif
