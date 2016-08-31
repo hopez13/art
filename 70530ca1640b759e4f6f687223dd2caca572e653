@@ -16,6 +16,24 @@
       "revId": "70530ca1640b759e4f6f687223dd2caca572e653",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_0bfeadff",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T17:13:42Z",
+      "side": 1,
+      "message": "We have a lot of code that does things through JNI, just to make it trivially GC-safe.\n\nHowever, there\u0027s a SOA at the top - which normally indicates to use internals.\n\nWhich reminds me:\n\nNested SOAs not necessary. Annotate CreateDexFile with SHARED_REQUIRES, as you already hold it...",
+      "parentUuid": "116e1d0e_0b36ad3e",
+      "revId": "70530ca1640b759e4f6f687223dd2caca572e653",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
