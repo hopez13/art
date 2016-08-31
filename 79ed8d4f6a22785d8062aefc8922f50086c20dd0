@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71c75982_b9fa3fd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "True it should apply but since the code is the same, I doubt there should be any breakages.",
+      "parentUuid": "71c75982_59b4433e",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 32
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c75982_b9759f8f",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-31T22:33:14Z",
       "side": 1,
       "message": "This changes it so ALLOC_OBJECT_TLAB_FAST_PATH_RESOLVED \u003d\u003d ALLOC_OBJECT_TLAB_FAST_PATH_INITIALIZED because we combined the tlab size check and the status check. Add a TODO for a cleanup?",
+      "range": {
+        "startLine": 2030,
+        "startChar": 0,
+        "endLine": 2032,
+        "endChar": 5
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71ecb90a_d1f02491",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c75982_b9759f8f",
       "range": {
         "startLine": 2030,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "71c75982_99d09b1a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2040,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51a175a9_7fce3b26",
+      "range": {
+        "startLine": 2040,
+        "startChar": 100,
+        "endLine": 2040,
+        "endChar": 103
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c75982_99f89b67",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-31T22:33:14Z",
       "side": 1,
       "message": "I think a fake dependency prevents two loads from reordering. There\u0027s the object size load (x7). Is the other load some unknown future load from the class (like the status or something else) outside of this routine? \n\nThere\u0027s \"dmb ish\" at the end of this routine. Isn\u0027t it sufficient without this fake dependency?\n\nOr, if we change the dmb to an ishst and keep this fake dependency, would it work and maybe a bit faster?",
+      "range": {
+        "startLine": 2045,
+        "startChar": 65,
+        "endLine": 2047,
+        "endChar": 75
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c75982_f9d79742",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "I was just thinking about that, we normally check the status flag for loading static fields anyways. Maybe the false dependency is not required.",
+      "parentUuid": "71c75982_99f89b67",
       "range": {
         "startLine": 2045,
         "startChar": 65,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "71c75982_f99f9763",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "I changed it to max int already.",
+      "parentUuid": "51a175a9_9f0d9f99",
+      "range": {
+        "startLine": 54,
+        "startChar": 24,
+        "endLine": 54,
+        "endChar": 36
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51a175a9_9fb11fea",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "71c75982_b93d9f80",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51a175a9_9fb11fea",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 3
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51a175a9_bfb503cd",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2016-08-31T22:33:14Z",
       "side": 1,
       "message": "This position means we need a change in Class.java in libcore?",
+      "range": {
+        "startLine": 1465,
+        "startChar": 0,
+        "endLine": 1468,
+        "endChar": 0
+      },
+      "revId": "79ed8d4f6a22785d8062aefc8922f50086c20dd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c75982_7994a743",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "Yes, will upload it.",
+      "parentUuid": "51a175a9_bfb503cd",
       "range": {
         "startLine": 1465,
         "startChar": 0,
