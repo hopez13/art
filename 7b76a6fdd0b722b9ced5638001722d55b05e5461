@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5105f548_30f168fc",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T16:48:08Z",
+      "side": 1,
+      "message": "Done. Editor bogon.",
+      "parentUuid": "116e1d0e_505b3459",
+      "range": {
+        "startLine": 361,
+        "startChar": 30,
+        "endLine": 361,
+        "endChar": 71
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "116e1d0e_70b3d0a1",
         "filename": "runtime/dex_file.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-31T15:48:18Z",
       "side": 1,
       "message": "Should this be an rvalue reference?",
+      "range": {
+        "startLine": 437,
+        "startChar": 45,
+        "endLine": 437,
+        "endChar": 76
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "310a415e_2f8aa973",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T16:48:08Z",
+      "side": 1,
+      "message": "See Igor\u0027s comments suggesting the removal of \u0026\u0026 and the article referenced in the response:\n\nhttp://scottmeyers.blogspot.co.uk/2014/07/should-move-only-types-ever-be-passed.html\n\nEither works. Both seem like an awkward expression of ownership transfer. Having looked at a few instances of generated code and Scott Meyer\u0027s article, I\u0027d weakly prefer the more explicit use of \u0026\u0026.\n\nHappy to go either way.",
+      "parentUuid": "116e1d0e_70b3d0a1",
       "range": {
         "startLine": 437,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "111c5dae_866bcae5",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T16:48:08Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "116e1d0e_30b95884",
+      "range": {
+        "startLine": 64,
+        "startChar": 49,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "116e1d0e_b07d68be",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.h",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2016-08-31T15:48:18Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1efc9c0_edeee514",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T16:48:08Z",
+      "side": 1,
+      "message": "Done. Cruft from using dalvik_system_DexFile.h as template.",
+      "parentUuid": "116e1d0e_b07d68be",
       "range": {
         "startLine": 21,
         "startChar": 0,
