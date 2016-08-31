@@ -100,9 +100,17 @@ void Class::SetStatus(Handle<Class> h_this, Status new_status, Thread* self) {
   }
   static_assert(sizeof(Status) == sizeof(uint32_t), "Size of status not equal to uint32");
   if (Runtime::Current()->IsActiveTransaction()) {
-    h_this->SetField32Volatile<true>(OFFSET_OF_OBJECT_MEMBER(Class, status_), new_status);
+    h_this->SetField32Volatile<true>(StatusOffset(), new_status);
   } else {
-    h_this->SetField32Volatile<false>(OFFSET_OF_OBJECT_MEMBER(Class, status_), new_status);
+    h_this->SetField32Volatile<false>(StatusOffset(), new_status);
+  }
+  if (new_status == kStatusInitialized && !h_this->IsVariableSize()) {
+    uint32_t object_size = RoundUp(h_this->GetObjectSize(), kObjectAlignment);
+    if (h_this->IsFinalizable()) {
+      // Finalizable objects must always go slow path.
+      object_size = kMaxTLABSize + 1;
+    }
+    h_this->SetObjectSizeAllocFastPath(object_size);
   }
 
   if (!class_linker_initialized) {
@@ -1207,6 +1215,14 @@ int32_t Class::GetInnerClassFlags(Handle<Class> h_this, int32_t default_value) {
     return default_value;
   }
   return flags;
+}
+
+void Class::SetObjectSizeAllocFastPath(uint32_t new_object_size) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    SetField32Volatile<true>(ObjectSizeAllocFastPathOffset(), new_object_size);
+  } else {
+    SetField32Volatile<false>(ObjectSizeAllocFastPathOffset(), new_object_size);
+  }
 }
 
 }  // namespace mirror

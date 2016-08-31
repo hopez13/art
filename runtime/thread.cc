@@ -2965,6 +2965,8 @@ void Thread::SetTlab(uint8_t* start, uint8_t* end) {
   tlsPtr_.thread_local_start = start;
   tlsPtr_.thread_local_pos  = tlsPtr_.thread_local_start;
   tlsPtr_.thread_local_end = end;
+  DCHECK_LE(static_cast<uintptr_t>(tlsPtr_.thread_local_end - tlsPtr_.thread_local_start),
+            kMaxTLABSize);
   tlsPtr_.thread_local_objects = 0;
 }
 
