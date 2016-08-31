@@ -145,8 +145,9 @@ class OatWriter {
   // Write raw dex files to the .rodata section and open them from the oat file. The verify
   // setting dictates whether the dex file verifier should check the dex files. This is generally
   // the case, and should only be false for tests.
-  bool WriteAndOpenDexFiles(OutputStream* rodata,
-                            File* file,
+  bool WriteAndOpenDexFiles(OutputStream* vdex_out,
+                            File* vdex_file,
+                            OutputStream* oat_rodata,
                             InstructionSet instruction_set,
                             const InstructionSetFeatures* instruction_set_features,
                             SafeMap<std::string, std::string>* key_value_store,
@@ -183,8 +184,8 @@ class OatWriter {
     return *oat_header_;
   }
 
-  size_t GetSize() const {
-    return size_;
+  size_t GetOatSize() const {
+    return oat_size_;
   }
 
   size_t GetBssSize() const {
@@ -236,6 +237,23 @@ class OatWriter {
   // with a given DexMethodVisitor.
   bool VisitDexMethods(DexMethodVisitor* visitor);
 
+  bool WriteDexFiles(OutputStream* vdex_out, File* vdex_file);
+  bool WriteDexFile(OutputStream* vdex_out, File* vdex_file, OatDexFile* oat_dex_file);
+  bool SeekToDexFile(OutputStream* vdex_out, File* vdex_file, OatDexFile* oat_dex_file);
+  bool WriteDexFile(OutputStream* vdex_out,
+                    File* vdex_file,
+                    OatDexFile* oat_dex_file,
+                    ZipEntry* dex_file);
+  bool WriteDexFile(OutputStream* vdex_out,
+                    File* vdex_file,
+                    OatDexFile* oat_dex_file,
+                    File* dex_file);
+  bool WriteDexFile(OutputStream* vdex_out, OatDexFile* oat_dex_file, const uint8_t* dex_file);
+  bool OpenDexFiles(File* vdex_file,
+                    bool verify,
+                    /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
+                    /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
+
   size_t InitOatHeader(InstructionSet instruction_set,
                        const InstructionSetFeatures* instruction_set_features,
                        uint32_t num_dex_files,
@@ -253,21 +271,10 @@ class OatWriter {
   size_t WriteCodeDexFiles(OutputStream* out, const size_t file_offset, size_t relative_offset);
 
   bool RecordOatDataOffset(OutputStream* out);
-  bool ReadDexFileHeader(File* file, OatDexFile* oat_dex_file);
+  bool ReadDexFileHeader(File* oat_file, OatDexFile* oat_dex_file);
   bool ValidateDexFileHeader(const uint8_t* raw_header, const char* location);
-  bool WriteDexFiles(OutputStream* rodata, File* file);
-  bool WriteDexFile(OutputStream* rodata, File* file, OatDexFile* oat_dex_file);
-  bool SeekToDexFile(OutputStream* rodata, File* file, OatDexFile* oat_dex_file);
-  bool WriteDexFile(OutputStream* rodata, File* file, OatDexFile* oat_dex_file, ZipEntry* dex_file);
-  bool WriteDexFile(OutputStream* rodata, File* file, OatDexFile* oat_dex_file, File* dex_file);
-  bool WriteDexFile(OutputStream* rodata, OatDexFile* oat_dex_file, const uint8_t* dex_file);
-  bool WriteOatDexFiles(OutputStream* rodata);
-  bool ExtendForTypeLookupTables(OutputStream* rodata, File* file, size_t offset);
-  bool OpenDexFiles(File* file,
-                    bool verify,
-                    /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
-                    /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
-  bool WriteTypeLookupTables(MemMap* opened_dex_files_map,
+  bool WriteOatDexFiles(OutputStream* oat_rodata);
+  bool WriteTypeLookupTables(OutputStream* oat_rodata,
                              const std::vector<std::unique_ptr<const DexFile>>& opened_dex_files);
   bool WriteCodeAlignment(OutputStream* out, uint32_t aligned_code_delta);
   void SetMultiOatRelativePatcherAdjustment();
@@ -301,8 +308,12 @@ class OatWriter {
   // note OatFile does not take ownership of the DexFiles
   const std::vector<const DexFile*>* dex_files_;
 
+  size_t vdex_size_;
+
+  size_t vdex_dex_files_offset_;
+
   // Size required for Oat data structures.
-  size_t size_;
+  size_t oat_size_;
 
   // The size of the required .bss section holding the DexCache data.
   size_t bss_size_;
@@ -325,6 +336,7 @@ class OatWriter {
   std::unique_ptr<const std::vector<uint8_t>> quick_to_interpreter_bridge_;
 
   // output stats
+  uint32_t size_vdex_header_;
   uint32_t size_dex_file_alignment_;
   uint32_t size_executable_offset_alignment_;
   uint32_t size_oat_header_;

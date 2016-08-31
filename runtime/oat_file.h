@@ -30,6 +30,7 @@
 #include "oat.h"
 #include "os.h"
 #include "utils.h"
+#include "vdex_file.h"
 
 namespace art {
 
@@ -62,8 +63,8 @@ class OatFile {
   // optionally be used to request where the file should be loaded.
   // See the ResolveRelativeEncodedDexLocation for a description of how the
   // abs_dex_location argument is used.
-  static OatFile* Open(const std::string& filename,
-                       const std::string& location,
+  static OatFile* Open(const std::string& oat_filename,
+                       const std::string& oat_location,
                        uint8_t* requested_base,
                        uint8_t* oat_file_begin,
                        bool executable,
@@ -240,11 +241,18 @@ class OatFile {
     return BssEnd() - BssBegin();
   }
 
+  size_t DexSize() const {
+    return DexEnd() - DexBegin();
+  }
+
   const uint8_t* Begin() const;
   const uint8_t* End() const;
 
   const uint8_t* BssBegin() const;
   const uint8_t* BssEnd() const;
+
+  const uint8_t* DexBegin() const;
+  const uint8_t* DexEnd() const;
 
   // Returns the absolute dex location for the encoded relative dex location.
   //
@@ -278,6 +286,8 @@ class OatFile {
   //
   // The image will embed this to link its associated oat file.
   const std::string location_;
+
+  std::unique_ptr<VdexFile> vdex_;
 
   // Pointer to OatHeader.
   const uint8_t* begin_;
