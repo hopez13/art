@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d1e00515_8cd3a7fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "Actually into 0 checks since we already need the size check.",
+      "parentUuid": "71c75982_9969bbf2",
+      "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51a175a9_e48d4236",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -124,6 +142,30 @@
       "writtenOn": "2016-08-31T22:33:14Z",
       "side": 1,
       "message": "Did you consider changing the behavior of object_size_ (setting it early to a very large number, and set it to the valid *aligned* size later) without adding this field?",
+      "range": {
+        "startLine": 1467,
+        "startChar": 11,
+        "endLine": 1467,
+        "endChar": 39
+      },
+      "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1e00515_ec9d8b5d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T23:14:02Z",
+      "side": 1,
+      "message": "I think that may cause some issues when doing SizeOf on uninitialized objects. Hans had the idea of using the high bit for signalling uninitialized which could work.",
+      "parentUuid": "71c75982_990e5b43",
       "range": {
         "startLine": 1467,
         "startChar": 11,
