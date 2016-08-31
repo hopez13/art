@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71c75982_999c1b5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T22:16:03Z",
+      "side": 1,
+      "message": "Good question, the 10k was loosely based off of svelte device. On Angler it should be closer to 30k.",
+      "parentUuid": "51a175a9_e48d4236",
+      "range": {
+        "startLine": 21,
+        "startChar": 35,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b2c510_bc1c61d7",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-31T21:59:37Z",
       "side": 1,
       "message": "Doesn\u0027t look safe. Why not ::max() ?",
+      "range": {
+        "startLine": 111,
+        "startChar": 20,
+        "endLine": 111,
+        "endChar": 36
+      },
+      "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c75982_f9767733",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-08-31T22:16:03Z",
+      "side": 1,
+      "message": "True, I was thinking of overflows in asm code, but that shouldn\u0027t happen since the 64 bit ones use 64 bit comparisons.",
+      "parentUuid": "d1b2c510_bc1c61d7",
       "range": {
         "startLine": 111,
         "startChar": 20,
