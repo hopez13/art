@@ -22,6 +22,29 @@
       "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b2c510_bc1c61d7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T21:59:37Z",
+      "side": 1,
+      "message": "Doesn\u0027t look safe. Why not ::max() ?",
+      "range": {
+        "startLine": 111,
+        "startChar": 20,
+        "endLine": 111,
+        "endChar": 36
+      },
+      "revId": "cb982f4ad2c41e6c29a5c50b131960cf75c0e9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
