@@ -34,6 +34,24 @@
       "revId": "70530ca1640b759e4f6f687223dd2caca572e653",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51a175a9_50e6ccd9",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-31T17:40:54Z",
+      "side": 1,
+      "message": "So if there\u0027s SOA it sounds like we should use the Thread::IsExceptionPending instead of the JNIEnv::ExceptionCheck ?",
+      "parentUuid": "116e1d0e_0bfeadff",
+      "revId": "70530ca1640b759e4f6f687223dd2caca572e653",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
