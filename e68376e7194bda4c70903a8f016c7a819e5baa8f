@@ -22,6 +22,53 @@
       "revId": "e68376e7194bda4c70903a8f016c7a819e5baa8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1efc9c0_6df5d5b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-31T17:54:48Z",
+      "side": 1,
+      "message": "Good idea.  I\u0027ll try and add testing for oatdumps in my next patch set.",
+      "parentUuid": "51a175a9_1010c462",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "e68376e7194bda4c70903a8f016c7a819e5baa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160f11c_b3cbb89a",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-08-31T17:54:48Z",
+      "side": 1,
+      "message": "Note: I think there was a typo here (but I\u0027m not Android Makefile expert).  If this is the case, perhaps we want to fix in a separate CL?  Let me know what you think is best.",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 37
+      },
+      "revId": "e68376e7194bda4c70903a8f016c7a819e5baa8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
