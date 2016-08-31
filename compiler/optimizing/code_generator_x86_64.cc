@@ -5644,7 +5644,7 @@ HLoadString::LoadKind CodeGeneratorX86_64::GetSupportedLoadStringKind(
 
 void LocationsBuilderX86_64::VisitLoadString(HLoadString* load) {
   LocationSummary::CallKind call_kind = (load->NeedsEnvironment() || kEmitCompilerReadBarrier)
-      ? LocationSummary::kCallOnSlowPath
+      ? LocationSummary::kCallOnMainAndSlowPath
       : LocationSummary::kNoCall;
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(load, call_kind);
   if (load->GetLoadKind() == HLoadString::LoadKind::kDexCacheViaMethod) {
@@ -5678,10 +5678,14 @@ void InstructionCodeGeneratorX86_64::VisitLoadString(HLoadString* load) {
   }
 
   // TODO: Re-add the compiler code to do string dex cache lookup again.
-  SlowPathCode* slow_path = new (GetGraph()->GetArena()) LoadStringSlowPathX86_64(load);
-  codegen_->AddSlowPath(slow_path);
-  __ jmp(slow_path->GetEntryLabel());
-  __ Bind(slow_path->GetExitLabel());
+  InvokeRuntimeCallingConvention calling_convention;
+  __ movl(CpuRegister(calling_convention.GetRegisterAt(0)),
+          Immediate(load->GetStringId()));
+  codegen_->InvokeRuntime(QUICK_ENTRY_POINT(pResolveString),
+                          load,
+                          load->GetDexPc());
+  CheckEntrypointTypes<kQuickResolveString, void*, uint32_t>();
+  codegen_->Move(locations->Out(), Location::RegisterLocation(RAX));
 }
 
 static Address GetExceptionTlsAddress() {
