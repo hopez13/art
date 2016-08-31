@@ -25,6 +25,11 @@
 #include "base/logging.h"
 #include "base/stl_util.h"
 
+#if defined(__aarch64__)
+#include <sys/auxv.h>
+#include <asm/hwcap.h>
+#endif
+
 namespace art {
 
 using android::base::StringPrintf;
@@ -37,10 +42,12 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "default",
       "generic",
       "cortex-a53",
+      "cortex-a53+crc",
       "cortex-a53.a57",
       "cortex-a53.a72",
       // Pessimistically assume all "big" cortex CPUs are paired with a cortex-a53.
       "cortex-a57",
+      "cortex-a57+crc",
       "cortex-a72",
       "cortex-a73",
   };
@@ -68,28 +75,61 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
   // The variants that need a fix for 843419 are the same that need a fix for 835769.
   bool needs_a53_843419_fix = needs_a53_835769_fix;
 
+  // Check to see if variant supports crc32 feature.
+  const bool has_crc32 = variant.find("+crc") != std::string::npos;
   return Arm64FeaturesUniquePtr(
-      new Arm64InstructionSetFeatures(needs_a53_835769_fix, needs_a53_843419_fix));
+      new Arm64InstructionSetFeatures(needs_a53_835769_fix, needs_a53_843419_fix, has_crc32));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromBitmap(uint32_t bitmap) {
   bool is_a53 = (bitmap & kA53Bitfield) != 0;
-  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53));
+  bool has_crc32 = (bitmap & kCRC32Bitfield) != 0;
+  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53, has_crc32));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCppDefines() {
   const bool is_a53 = true;  // Pessimistically assume all ARM64s are A53s.
-  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53));
+#if defined(__ARM_FEATURE_CRC32)
+  const bool has_crc32 = true;
+#else
+  const bool has_crc32 = false;
+#endif
+  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53, has_crc32));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCpuInfo() {
+  // Look in /proc/cpuinfo for features we need.  Only use this when we can guarantee that
+  // the kernel puts the appropriate feature flags in here.  Sometimes it doesn't.
   const bool is_a53 = true;  // Conservative default.
-  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53));
+  bool has_crc32 = false;
+
+  std::ifstream in("/proc/cpuinfo");
+  if (!in.fail()) {
+    while (!in.eof()) {
+      std::string line;
+      std::getline(in, line);
+      if (!in.eof()) {
+        if (line.find("crc32") != std::string::npos) {
+          has_crc32 = true;
+        }
+      }
+    }
+    in.close();
+  } else {
+    LOG(ERROR) << "Failed to open /proc/cpuinfo";
+  }
+  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53, has_crc32));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
   const bool is_a53 = true;  // Pessimistically assume all ARM64s are A53s.
-  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53));
+
+#if defined(__aarch64__)
+  const bool has_crc32 = getauxval(AT_HWCAP) & HWCAP_CRC32 ? true : false;
+#else
+  const bool has_crc32 = false;
+#endif
+  return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53, is_a53, has_crc32));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromAssembly() {
@@ -102,12 +142,15 @@ bool Arm64InstructionSetFeatures::Equals(const InstructionSetFeatures* other) co
     return false;
   }
   const Arm64InstructionSetFeatures* other_as_arm64 = other->AsArm64InstructionSetFeatures();
+
   return fix_cortex_a53_835769_ == other_as_arm64->fix_cortex_a53_835769_ &&
-      fix_cortex_a53_843419_ == other_as_arm64->fix_cortex_a53_843419_;
+         fix_cortex_a53_843419_ == other_as_arm64->fix_cortex_a53_843419_ &&
+         has_crc32_ == other_as_arm64->has_crc32_;
 }
 
 uint32_t Arm64InstructionSetFeatures::AsBitmap() const {
-  return (fix_cortex_a53_835769_ ? kA53Bitfield : 0);
+  return (fix_cortex_a53_835769_ ? kA53Bitfield : 0) |
+         (has_crc32_ ? kCRC32Bitfield : 0);
 }
 
 std::string Arm64InstructionSetFeatures::GetFeatureString() const {
@@ -117,6 +160,12 @@ std::string Arm64InstructionSetFeatures::GetFeatureString() const {
   } else {
     result += "-a53";
   }
+  if (has_crc32_) {
+    result += ",crc";
+  } else {
+    result += ",-crc";
+  }
+
   return result;
 }
 
@@ -124,19 +173,24 @@ std::unique_ptr<const InstructionSetFeatures>
 Arm64InstructionSetFeatures::AddFeaturesFromSplitString(
     const std::vector<std::string>& features, std::string* error_msg) const {
   bool is_a53 = fix_cortex_a53_835769_;
+  bool has_crc32 = has_crc32_;
   for (auto i = features.begin(); i != features.end(); i++) {
     std::string feature = android::base::Trim(*i);
     if (feature == "a53") {
       is_a53 = true;
     } else if (feature == "-a53") {
       is_a53 = false;
+    } else if (feature == "crc") {
+      has_crc32 = true;
+    } else if (feature == "-crc") {
+      has_crc32 = false;
     } else {
       *error_msg = StringPrintf("Unknown instruction set feature: '%s'", feature.c_str());
       return nullptr;
     }
   }
   return std::unique_ptr<const InstructionSetFeatures>(
-      new Arm64InstructionSetFeatures(is_a53, is_a53));
+      new Arm64InstructionSetFeatures(is_a53, is_a53, has_crc32));
 }
 
 }  // namespace art

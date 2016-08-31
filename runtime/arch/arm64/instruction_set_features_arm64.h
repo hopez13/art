@@ -68,6 +68,11 @@ class Arm64InstructionSetFeatures FINAL : public InstructionSetFeatures {
       return fix_cortex_a53_843419_;
   }
 
+  // Is the crc32 instruction feature enabled?
+  bool HasCRC32Instruction() const {
+      return has_crc32_;
+  }
+
   virtual ~Arm64InstructionSetFeatures() {}
 
  protected:
@@ -77,19 +82,22 @@ class Arm64InstructionSetFeatures FINAL : public InstructionSetFeatures {
                                  std::string* error_msg) const OVERRIDE;
 
  private:
-  Arm64InstructionSetFeatures(bool needs_a53_835769_fix, bool needs_a53_843419_fix)
+  Arm64InstructionSetFeatures(bool needs_a53_835769_fix, bool needs_a53_843419_fix, bool has_crc32)
       : InstructionSetFeatures(),
         fix_cortex_a53_835769_(needs_a53_835769_fix),
-        fix_cortex_a53_843419_(needs_a53_843419_fix) {
+        fix_cortex_a53_843419_(needs_a53_843419_fix),
+        has_crc32_(has_crc32) {
   }
 
   // Bitmap positions for encoding features as a bitmap.
   enum {
     kA53Bitfield = 1 << 0,
+    kCRC32Bitfield = 1 << 1,
   };
 
   const bool fix_cortex_a53_835769_;
   const bool fix_cortex_a53_843419_;
+  const bool has_crc32_;
 
   DISALLOW_COPY_AND_ASSIGN(Arm64InstructionSetFeatures);
 };
