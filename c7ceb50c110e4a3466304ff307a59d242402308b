@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d163a525_f407d872",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91120d46_baee3114",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_61b4968c",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "Don\u0027t need the \u0026\u0026 here",
+      "range": {
+        "startLine": 239,
+        "startChar": 68,
+        "endLine": 239,
+        "endChar": 70
+      },
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_54eb2ca0",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done.\n\nThere are some differing thoughts on this:\n\nhttp://scottmeyers.blogspot.co.uk/2014/07/should-move-only-types-ever-be-passed.html\n\nI don\u0027t have a strong preference.",
+      "parentUuid": "718af9dc_61b4968c",
       "range": {
         "startLine": 239,
         "startChar": 68,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "d163a525_b4df20f9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_a18a9ec3",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_21ae8e3a",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 9
@@ -76,6 +142,24 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "Don\u0027t need the \u0026\u0026 here",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_94dca405",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_21ae8e3a",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "d163a525_f4d99813",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_41b392a1",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_e16e66f7",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 9
@@ -110,6 +212,24 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "nit: can you put comments on the (magic) constant parameters?",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_34c5d032",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_e16e66f7",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "d163a525_54d4cce4",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_c17562c2",
+      "range": {
+        "startLine": 64,
+        "startChar": 72,
+        "endLine": 64,
+        "endChar": 74
+      },
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_a14ffe84",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 9
@@ -150,6 +294,24 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "DCHECK that there\u0027s a pending exception",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_94ae6485",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_a14ffe84",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "d163a525_f4ab5873",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_c14c8292",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_c12322c2",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 9
@@ -184,6 +364,24 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "This isn\u0027t the class linker, so this isn\u0027t the right log tag",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_7498e86a",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "It could be seen as the type of diagnostic info you\u0027d expect to see if looking at the linker log messages. The use of class_linker follows the findClass in dalvik_system_DexFile.cc. Not sure there\u0027s an existing better category or whether another module category would be helpful. WDYT?\n\nclass_linker\ncollector\ncompiler\ndeopt\ngc\nheap\njdwp\njit\njni\nmonitor\noat\nprofiler\nsignals\nsimulator\nstartup\nthird_party_jni\nthreads\nverifier",
+      "parentUuid": "718af9dc_c12322c2",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -207,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "d163a525_d491fc49",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_210a0e32",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_410f1241",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 9
@@ -218,6 +434,24 @@
       "writtenOn": "2016-08-30T20:08:30Z",
       "side": 1,
       "message": "see 178",
+      "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_b4b8c0c5",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-08-31T09:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_410f1241",
       "revId": "c7ceb50c110e4a3466304ff307a59d242402308b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
