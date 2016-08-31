@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51a175a9_90b834c6",
+        "filename": "test/115-native-bridge/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-31T17:39:40Z",
+      "side": 1,
+      "message": "maybe [[ -L $path_to_file ]] \u0026\u0026 ln -s instead?\n\njust a minor nit since -sf will remove any file, but this may only want to remove links.",
+      "revId": "4abf166349883f9155290595dac733c50360211d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
