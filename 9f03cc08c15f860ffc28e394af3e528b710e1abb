@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "7104b94d_11b9cc83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "I don\u0027t get his comment. Could you give more details?",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "111c5dae_4641d259",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "I suggest we derive the vdex-location from the oat-location. Or better said the other way around. We have way too many locations, and I don\u0027t see a good reason to specify them separately. Thoughts?\n\nI don\u0027t think we can do the same with --oat-file and --vdex-file because at some point we have to pass in descriptors. But that\u0027s ok I guess.",
+      "range": {
+        "startLine": 279,
+        "startChar": 44,
+        "endLine": 280,
+        "endChar": 45
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c56d9e44_8476469a",
         "filename": "compiler/image_test.cc",
         "patchSetId": 3
@@ -94,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "5105f548_b0e43837",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "Misleading. Get or Record?",
+      "range": {
+        "startLine": 463,
+        "startChar": 5,
+        "endLine": 463,
+        "endChar": 8
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c56d9e44_e46d3ac6",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 3
@@ -110,6 +179,214 @@
         "startChar": 4,
         "endLine": 110,
         "endChar": 26
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_9445c43f",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "Could you provide rationale?",
+      "parentUuid": "c56d9e44_e46d3ac6",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 26
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "310a415e_6f84b164",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "can you write a helper? it\u0027s getting quite repetitive.",
+      "range": {
+        "startLine": 954,
+        "startChar": 1,
+        "endLine": 965,
+        "endChar": 11
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f37dac_8ec8fb9e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "no truncate?",
+      "range": {
+        "startLine": 1283,
+        "startChar": 6,
+        "endLine": 1283,
+        "endChar": 98
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d163a525_74fbc8db",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "add helpers.",
+      "range": {
+        "startLine": 1348,
+        "startChar": 0,
+        "endLine": 1352,
+        "endChar": 5
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91ff6d6b_9587660d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1875,
+        "startChar": 0,
+        "endLine": 1881,
+        "endChar": 9
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7104b94d_d14c6492",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1951,
+        "startChar": 0,
+        "endLine": 1959,
+        "endChar": 5
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160f11c_338a0874",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "PLOG(), and without strerror at the end.",
+      "range": {
+        "startLine": 453,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 7
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "111c5dae_c675c2c2",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "helper?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 25
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160f11c_5389847a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "Document. I\u0027m sure I\u0027ve seen this function somewhere else in the CL.",
+      "range": {
+        "startLine": 970,
+        "startChar": 19,
+        "endLine": 970,
+        "endChar": 31
       },
       "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -181,6 +458,52 @@
         "startChar": 1,
         "endLine": 283,
         "endChar": 34
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160f11c_b39d78bb",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "Add these as utilities as use them in the other parts where you do filename manipulation.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 1
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7104b94d_513874f5",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-08-31T17:08:04Z",
+      "side": 1,
+      "message": "1? :)",
+      "range": {
+        "startLine": 43,
+        "startChar": 59,
+        "endLine": 43,
+        "endChar": 60
       },
       "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
