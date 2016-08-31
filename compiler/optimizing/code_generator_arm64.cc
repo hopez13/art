@@ -4264,7 +4264,7 @@ HLoadString::LoadKind CodeGeneratorARM64::GetSupportedLoadStringKind(
 
 void LocationsBuilderARM64::VisitLoadString(HLoadString* load) {
   LocationSummary::CallKind call_kind = (load->NeedsEnvironment() || kEmitCompilerReadBarrier)
-      ? LocationSummary::kCallOnSlowPath
+      ? LocationSummary::kCallOnMainAndSlowPath
       : LocationSummary::kNoCall;
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(load, call_kind);
   if (load->GetLoadKind() == HLoadString::LoadKind::kDexCacheViaMethod) {
@@ -4274,6 +4274,7 @@ void LocationsBuilderARM64::VisitLoadString(HLoadString* load) {
 }
 
 void InstructionCodeGeneratorARM64::VisitLoadString(HLoadString* load) {
+  LocationSummary* locations = load->GetLocations();
   Register out = OutputRegister(load);
 
   switch (load->GetLoadKind()) {
@@ -4314,10 +4315,12 @@ void InstructionCodeGeneratorARM64::VisitLoadString(HLoadString* load) {
   }
 
   // TODO: Re-add the compiler code to do string dex cache lookup again.
-  SlowPathCodeARM64* slow_path = new (GetGraph()->GetArena()) LoadStringSlowPathARM64(load);
-  codegen_->AddSlowPath(slow_path);
-  __ B(slow_path->GetEntryLabel());
-  __ Bind(slow_path->GetExitLabel());
+  InvokeRuntimeCallingConvention calling_convention;
+  __ Mov(calling_convention.GetRegisterAt(0).W(), load->GetStringIndex());
+  codegen_->InvokeRuntime(kQuickResolveString, load, load->GetDexPc());
+  CheckEntrypointTypes<kQuickResolveString, void*, uint32_t>();
+  Primitive::Type type = load->GetType();
+  codegen_->MoveLocation(locations->Out(), calling_convention.GetReturnLocation(type), type);
 }
 
 void LocationsBuilderARM64::VisitLongConstant(HLongConstant* constant) {
