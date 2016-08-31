@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "116e1d0e_0b36ad3e",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-31T17:01:13Z",
+      "side": 1,
+      "message": "Do we have any collective thoughts over using Thread::Current()-\u003eIsExceptionPending() over the JNIENv version here?\n\nIt does the same thing but I just thought this was confusing since AllocateDexMemory is *not* a jni function.",
+      "revId": "70530ca1640b759e4f6f687223dd2caca572e653",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
