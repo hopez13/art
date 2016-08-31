@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "116e1d0e_505b3459",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T15:48:18Z",
+      "side": 1,
+      "message": "Don\u0027t spill the open-paren to the next line.",
+      "range": {
+        "startLine": 361,
+        "startChar": 30,
+        "endLine": 361,
+        "endChar": 71
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_70b3d0a1",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T15:48:18Z",
+      "side": 1,
+      "message": "Should this be an rvalue reference?",
+      "range": {
+        "startLine": 437,
+        "startChar": 45,
+        "endLine": 437,
+        "endChar": 76
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_30b95884",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T15:48:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be an rvalue reference?",
+      "range": {
+        "startLine": 64,
+        "startChar": 49,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_b07d68be",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-31T15:48:18Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "7b76a6fdd0b722b9ced5638001722d55b05e5461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
