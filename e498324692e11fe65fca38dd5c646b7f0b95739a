@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "116e1d0e_b9a71b5a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5246297_45fdaa02",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c1191d_69ca4544",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -47,6 +65,30 @@
       "writtenOn": "2016-08-30T23:16:15Z",
       "side": 1,
       "message": "shall we call the switch bisection-search?\nseems bit more consistent same for the internal flag then",
+      "range": {
+        "startLine": 352,
+        "startChar": 27,
+        "endLine": 352,
+        "endChar": 33
+      },
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_7628f08c",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c1191d_69ca4544",
       "range": {
         "startLine": 352,
         "startChar": 27,
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "116e1d0e_59d407e5",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Doesn\u0027t work in target mode. It would work if we could get error output from run-test-jar (which now goes to logcat). We could hack around similarly to what we did in bisection_search.py but maybe its not worth it. We should be in better position to support target when I fix retrieving err output in bisection_search.\n\nDone failing when both flags specified.",
+      "parentUuid": "718af9dc_c1eb2203",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71c1191d_c9b811c7",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -87,6 +147,30 @@
       "writtenOn": "2016-08-30T23:16:15Z",
       "side": 1,
       "message": "list at top of file?",
+      "range": {
+        "startLine": 826,
+        "startChar": 32,
+        "endLine": 826,
+        "endChar": 36
+      },
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_19f1ef92",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c1191d_c9b811c7",
       "range": {
         "startLine": 826,
         "startChar": 32,
@@ -139,6 +223,48 @@
     },
     {
       "key": {
+        "uuid": "116e1d0e_39614b3a",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718af9dc_c117a2fc",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_f907d372",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05289668_061c9a6c",
+      "range": {
+        "startLine": 158,
+        "startChar": 37,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_e189865b",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 1
@@ -156,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "116e1d0e_799743f3",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "run-test sets this, thought maybe its important. Remove?",
+      "parentUuid": "718af9dc_e189865b",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_0187ca46",
         "filename": "tools/bisection-search/common.py",
         "patchSetId": 1
@@ -167,6 +311,24 @@
       "writtenOn": "2016-08-30T20:21:13Z",
       "side": 1,
       "message": "?",
+      "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "116e1d0e_f98a33c4",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-08-31T01:16:37Z",
+      "side": 1,
+      "message": "run-test is setting PATH like that. art does it like it was before, I\u0027ll revert.",
+      "parentUuid": "718af9dc_0187ca46",
       "revId": "e498324692e11fe65fca38dd5c646b7f0b95739a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
