@@ -59,7 +59,7 @@ class IntrusiveForwardListIterator : public std::iterator<std::forward_iterator_
   // Conversion from iterator to const_iterator.
   template <typename OtherT,
             typename = typename std::enable_if<std::is_same<T, const OtherT>::value>::type>
-  IntrusiveForwardListIterator(const IntrusiveForwardListIterator<OtherT, HookTraits>& src)
+  explicit IntrusiveForwardListIterator(const IntrusiveForwardListIterator<OtherT, HookTraits>& src)
       : hook_(src.hook_) { }
 
   // Iteration.
