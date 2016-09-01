@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f37dac_b13b9a28",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "range": {
+        "startLine": 1203,
+        "startChar": 83,
+        "endLine": 1205,
+        "endChar": 97
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91ff6d6b_f5523205",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "range": {
+        "startLine": 993,
+        "startChar": 0,
+        "endLine": 996,
+        "endChar": 79
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7104b94d_7170186e",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "range": {
+        "startLine": 1001,
+        "startChar": 77,
+        "endLine": 1003,
+        "endChar": 91
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5105f548_73981a6b",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 865,
+        "startChar": 56,
+        "endLine": 865,
+        "endChar": 63
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5105f548_13a38ea2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "uint32_t; And shouldn\u0027t we just DCHECK() that the field already contains this value? (Initialized by InitializeClassVisitor.)",
+      "range": {
+        "startLine": 115,
+        "startChar": 40,
+        "endLine": 115,
+        "endChar": 47
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5105f548_539d1659",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-01T12:29:35Z",
+      "side": 1,
+      "message": "uint32_t",
+      "range": {
+        "startLine": 1465,
+        "startChar": 68,
+        "endLine": 1465,
+        "endChar": 71
+      },
+      "revId": "93bbee0c1c97bd9a5336ed0c9e41cd17613df585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
