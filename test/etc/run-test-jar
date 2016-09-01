@@ -406,6 +406,7 @@ if [ "$PREBUILD" = "y" ]; then
                       $COMPILE_FLAGS \
                       --boot-image=${BOOT_IMAGE} \
                       --dex-file=$DEX_LOCATION/$TEST_NAME.jar \
+                      --vdex-file=$DEX_LOCATION/oat/$ISA/$TEST_NAME.vdex \
                       --oat-file=$DEX_LOCATION/oat/$ISA/$TEST_NAME.odex \
                       ${app_image} \
                       --instruction-set=$ISA"
