@@ -110,9 +110,10 @@ void Class::SetStatus(Handle<Class> h_this, Status new_status, Thread* self) {
   // load-acquire/fake dependency.
   if (new_status == kStatusInitialized && !h_this->IsVariableSize()) {
     uint32_t object_size = RoundUp(h_this->GetObjectSize(), kObjectAlignment);
+    DCHECK_EQ(h_this->GetObjectSizeAllocFastPath(), std::numeric_limits<uint32_t>::max());
     if (h_this->IsFinalizable()) {
       // Finalizable objects must always go slow path.
-      object_size = std::numeric_limits<int32_t>::max();
+      object_size = std::numeric_limits<uint32_t>::max();
     }
     h_this->SetObjectSizeAllocFastPath(object_size);
   }
