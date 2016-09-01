@@ -130,6 +130,14 @@ have_image="yes"
 pic_image_suffix=""
 multi_image_suffix=""
 android_root="/system"
+bisection_search="no"
+bisection_search_disabled_tests=( # not compiling dex
+    000-nop 134-nodex2oat-nofallback 147-stripped-dex-fallback 595-profile-saving
+    # testing build failures
+    089-many-methods
+    # running dalvikvm more then once
+    116-nodex2oat 117-nopatchoat 118-noimage-dex2oat 119-noimage-patchoat
+    126-miranda-multidex 137-cfi)
 # By default we will use optimizing.
 image_args=""
 image_suffix="-optimizing"
@@ -348,6 +356,11 @@ while true; do
         shift
         run_args="${run_args} --instruction-set-features $1"
         shift
+    elif [ "x$1" = "x--bisection-search" ]; then
+        bisection_search="yes"
+        prebuild_mode="no"
+        run_args="${run_args} --no-prebuild"
+        shift
     elif expr "x$1" : "x--" >/dev/null 2>&1; then
         echo "unknown $0 option: $1" 1>&2
         usage="yes"
@@ -520,6 +533,21 @@ if [ "$dev_mode" = "yes" -a "$quiet" = "yes" ]; then
     usage="yes"
 fi
 
+if [ "$bisection_search" = "yes" -a "$prebuild_mode" = "yes" ]; then
+    err_echo "--bisection-search and --prebuild are mutually exclusive"
+    usage="yes"
+fi
+
+if [ "$bisection_search" = "yes" -a "$have_dex2oat" = "no" ]; then
+    err_echo "--bisection-search and --no-dex2oat are mutually exclusive"
+    usage="yes"
+fi
+
+if [ "$bisection_search" = "yes" -a "$have_patchoat" = "no" ]; then
+    err_echo "--bisection-search and --no-patchoat are mutually exclusive"
+    usage="yes"
+fi
+
 if [ "$usage" = "no" ]; then
     if [ "x$1" = "x" -o "x$1" = "x-" ]; then
         test_dir=`basename "$oldwd"`
@@ -614,6 +642,7 @@ if [ "$usage" = "yes" ]; then
         echo "                          the boot class path."
         echo "    --pic-test            Compile the test code position independent."
         echo "    --quiet               Don't print anything except failure messages"
+        echo "    --bisection-search    Perform bisection bug search."
     ) 1>&2  # Direct to stderr so usage is not printed if --quiet is set.
     exit 1
 fi
@@ -813,6 +842,43 @@ elif [ "$build_only" = "yes" ]; then
     # Clean up extraneous files that are not used by tests.
     find $tmp_dir -mindepth 1  ! -regex ".*/\(.*jar\|$output\|$expected\)" | xargs rm -rf
     exit 0
+elif [ "$bisection_search" = "yes" ]; then
+    good="yes"
+    if [[ " ${bisection_search_disabled_tests[@]} " =~ " ${TEST_NAME} " ]]; then
+        err_echo "BUG SEARCH disabled for ${TEST_NAME}"
+    else
+        "./${build}" $build_args >"$build_output" 2>&1
+        build_exit="$?"
+        if [ "$build_exit" '!=' '0' ]; then
+            err_echo "BUILD FAILED For ${TEST_NAME}"
+            good="no"
+        else
+            cwd=`pwd`
+            maybe_device_mode=""
+            raw_cmd=""
+            if [ "$target_mode" = "yes" ]; then
+              cmdline_sh_location="$DEX_LOCATION/cmdline.sh"
+              # produce cmdline.sh in $DEX_LOCATION
+              "./${run}" $run_args "$@" &> /dev/null
+              adb pull $cmdline_sh_location . &> /dev/null
+              chmod u+x cmdline.sh
+              # foward arguments to dalvikvm
+              sed -i 's#\(dalvikvm\(32\|64\)\)#\1 "$@"#' cmdline.sh
+              # clean up dalvik-cache before running
+              sed -i "1s#^#rm -r $DEX_LOCATION/dalvik-cache/\n#" cmdline.sh
+              adb push cmdline.sh "$cmdline_sh_location" &> /dev/null
+              maybe_device_mode="--device"
+              raw_cmd="$cmdline_sh_location"
+            else
+              raw_cmd="$cwd/${run} --external-log-tags $run_args $@"
+            fi
+            $ANDROID_BUILD_TOP/art/tools/bisection-search/bisection_search.py \
+              $maybe_device_mode \
+              --raw-cmd="$raw_cmd" \
+              --check-script="$cwd/check" \
+              --expected-output="$cwd/expected.txt"
+        fi
+    fi
 else
     "./${build}" $build_args >"$build_output" 2>&1
     build_exit="$?"
