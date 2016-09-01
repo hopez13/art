@@ -49,6 +49,7 @@ define create-core-oat-host-rules
   core_compile_options :=
   core_image_name :=
   core_oat_name :=
+  core_vdex_name :=
   core_infix :=
   core_pic_infix :=
   core_dex2oat_dependency := $(DEX2OAT_DEPENDENCY)
@@ -106,6 +107,7 @@ define create-core-oat-host-rules
 
   core_image_name := $($(3)HOST_CORE_IMG_OUT_BASE)$$(core_infix)$$(core_pic_infix)$$(core_multi_infix)$(4)$(CORE_IMG_SUFFIX)
   core_oat_name := $($(3)HOST_CORE_OAT_OUT_BASE)$$(core_infix)$$(core_pic_infix)$$(core_multi_infix)$(4)$(CORE_OAT_SUFFIX)
+  core_vdex_name := $($(3)HOST_CORE_OAT_OUT_BASE)$$(core_infix)$$(core_pic_infix)$$(core_multi_infix)$(4)$(CORE_VDEX_SUFFIX)
 
   # Using the bitness suffix makes it easier to add as a dependency for the run-test mk.
   ifeq ($(3),)
@@ -115,6 +117,7 @@ define create-core-oat-host-rules
   endif
   $(4)HOST_CORE_IMG_OUTS += $$(core_image_name)
   $(4)HOST_CORE_OAT_OUTS += $$(core_oat_name)
+  $(4)HOST_CORE_VDEX_OUTS += $$(core_vdex_name)
 
   # If we have a wrapper, make the target phony.
   ifneq ($(4),)
@@ -123,6 +126,7 @@ define create-core-oat-host-rules
 $$(core_image_name): PRIVATE_CORE_COMPILE_OPTIONS := $$(core_compile_options)
 $$(core_image_name): PRIVATE_CORE_IMG_NAME := $$(core_image_name)
 $$(core_image_name): PRIVATE_CORE_OAT_NAME := $$(core_oat_name)
+$$(core_image_name): PRIVATE_CORE_VDEX_NAME := $$(core_vdex_name)
 $$(core_image_name): PRIVATE_CORE_MULTI_PARAM := $$(core_multi_param)
 $$(core_image_name): $$(HOST_CORE_DEX_LOCATIONS) $$(core_dex2oat_dependency)
 	@echo "host dex2oat: $$@"
@@ -131,19 +135,22 @@ $$(core_image_name): $$(HOST_CORE_DEX_LOCATIONS) $$(core_dex2oat_dependency)
 	  --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
 	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(HOST_CORE_DEX_FILES)) \
 	  $$(addprefix --dex-location=,$$(HOST_CORE_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
-	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
+	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --vdex-file=$$(PRIVATE_CORE_VDEX_NAME) \
+	  --vdex-location=$$(PRIVATE_CORE_VDEX_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
 	  --base=$$(LIBART_IMG_HOST_BASE_ADDRESS) --instruction-set=$$($(3)ART_HOST_ARCH) \
 	  $$(LOCAL_$(3)DEX2OAT_HOST_INSTRUCTION_SET_FEATURES_OPTION) \
 	  --host --android-root=$$(HOST_OUT) --include-patch-information --generate-debug-info \
 	  $$(PRIVATE_CORE_MULTI_PARAM) $$(PRIVATE_CORE_COMPILE_OPTIONS)
 
 $$(core_oat_name): $$(core_image_name)
+$$(core_vdex_name): $$(core_image_name)
 
   # Clean up locally used variables.
   core_dex2oat_dependency :=
   core_compile_options :=
   core_image_name :=
   core_oat_name :=
+  core_vdex_name :=
   core_infix :=
   core_pic_infix :=
 endef  # create-core-oat-host-rules
@@ -189,6 +196,7 @@ define create-core-oat-target-rules
   core_compile_options :=
   core_image_name :=
   core_oat_name :=
+  core_vdex_name :=
   core_infix :=
   core_pic_infix :=
   core_dex2oat_dependency := $(DEX2OAT_DEPENDENCY)
@@ -237,6 +245,7 @@ define create-core-oat-target-rules
 
   core_image_name := $($(3)TARGET_CORE_IMG_OUT_BASE)$$(core_infix)$$(core_pic_infix)$(4)$(CORE_IMG_SUFFIX)
   core_oat_name := $($(3)TARGET_CORE_OAT_OUT_BASE)$$(core_infix)$$(core_pic_infix)$(4)$(CORE_OAT_SUFFIX)
+  core_vdex_name := $($(3)TARGET_CORE_OAT_OUT_BASE)$$(core_infix)$$(core_pic_infix)$(4)$(CORE_VDEX_SUFFIX)
 
   # Using the bitness suffix makes it easier to add as a dependency for the run-test mk.
   ifeq ($(3),)
@@ -250,6 +259,7 @@ define create-core-oat-target-rules
   endif
   $(4)TARGET_CORE_IMG_OUTS += $$(core_image_name)
   $(4)TARGET_CORE_OAT_OUTS += $$(core_oat_name)
+  $(4)TARGET_CORE_VDEX_OUTS += $$(core_vdex_name)
 
   # If we have a wrapper, make the target phony.
   ifneq ($(4),)
@@ -258,6 +268,7 @@ define create-core-oat-target-rules
 $$(core_image_name): PRIVATE_CORE_COMPILE_OPTIONS := $$(core_compile_options)
 $$(core_image_name): PRIVATE_CORE_IMG_NAME := $$(core_image_name)
 $$(core_image_name): PRIVATE_CORE_OAT_NAME := $$(core_oat_name)
+$$(core_image_name): PRIVATE_CORE_VDEX_NAME := $$(core_vdex_name)
 $$(core_image_name): $$(TARGET_CORE_DEX_FILES) $$(core_dex2oat_dependency)
 	@echo "target dex2oat: $$@"
 	@mkdir -p $$(dir $$@)
@@ -265,20 +276,24 @@ $$(core_image_name): $$(TARGET_CORE_DEX_FILES) $$(core_dex2oat_dependency)
 	  --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
 	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(TARGET_CORE_DEX_FILES)) \
 	  $$(addprefix --dex-location=,$$(TARGET_CORE_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
-	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
+	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --vdex-file=$$(PRIVATE_CORE_VDEX_NAME) \
+	  --vdex-location=$$(PRIVATE_CORE_VDEX_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
 	  --base=$$(LIBART_IMG_TARGET_BASE_ADDRESS) --instruction-set=$$($(3)TARGET_ARCH) \
 	  --instruction-set-variant=$$($(3)DEX2OAT_TARGET_CPU_VARIANT) \
 	  --instruction-set-features=$$($(3)DEX2OAT_TARGET_INSTRUCTION_SET_FEATURES) \
 	  --android-root=$$(PRODUCT_OUT)/system --include-patch-information --generate-debug-info \
-	  $$(PRIVATE_CORE_COMPILE_OPTIONS) || (rm $$(PRIVATE_CORE_OAT_NAME); exit 1)
+	  $$(PRIVATE_CORE_COMPILE_OPTIONS) || \
+	  (rm $$(PRIVATE_CORE_OAT_NAME) $$(PRIVATE_CORE_VDEX_NAME); exit 1)
 
 $$(core_oat_name): $$(core_image_name)
+$$(core_vdex_name): $$(core_image_name)
 
   # Clean up locally used variables.
   core_dex2oat_dependency :=
   core_compile_options :=
   core_image_name :=
   core_oat_name :=
+  core_vdex_name :=
   core_infix :=
   core_pic_infix :=
 endef  # create-core-oat-target-rules
