@@ -60,6 +60,8 @@ class PatchOat {
                     InstructionSet isa,
                     TimingLogger* timings);
 
+  static bool SymlinkFile(const std::string& input_filename, const std::string& output_filename);
+
   ~PatchOat() {}
   PatchOat(PatchOat&&) = default;
 
