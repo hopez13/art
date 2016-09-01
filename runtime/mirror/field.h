@@ -99,6 +99,9 @@ class MANAGED Field : public AccessibleObject {
       SHARED_REQUIRES(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
  private:
+  // TODO nfuller - document this properly
+  uint8_t padding_[2];
+
   HeapReference<mirror::Class> declaring_class_;
   HeapReference<mirror::Class> type_;
   int32_t access_flags_;
