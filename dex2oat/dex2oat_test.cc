@@ -46,12 +46,14 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
 
  protected:
   void GenerateOdexForTest(const std::string& dex_location,
+                           const std::string& vdex_location,
                            const std::string& odex_location,
                            CompilerFilter::Filter filter,
                            const std::vector<std::string>& extra_args = {},
                            bool expect_success = true) {
     std::vector<std::string> args;
     args.push_back("--dex-file=" + dex_location);
+    args.push_back("--vdex-file=" + vdex_location);
     args.push_back("--oat-file=" + odex_location);
     args.push_back("--compiler-filter=" + CompilerFilter::NameOfFilter(filter));
     args.push_back("--runtime-arg");
@@ -206,6 +208,7 @@ class Dex2oatSwapTest : public Dex2oatTest {
  protected:
   void RunTest(bool use_fd, bool expect_use, const std::vector<std::string>& extra_args = {}) {
     std::string dex_location = GetScratchDir() + "/Dex2OatSwapTest.jar";
+    std::string vdex_location = GetOdexDir() + "/Dex2OatSwapTest.vdex";
     std::string odex_location = GetOdexDir() + "/Dex2OatSwapTest.odex";
 
     Copy(GetTestDexFileName(), dex_location);
@@ -220,7 +223,7 @@ class Dex2oatSwapTest : public Dex2oatTest {
       std::string swap_location = GetOdexDir() + "/Dex2OatSwapTest.odex.swap";
       copy.push_back("--swap-file=" + swap_location);
     }
-    GenerateOdexForTest(dex_location, odex_location, CompilerFilter::kSpeed, copy);
+    GenerateOdexForTest(dex_location, vdex_location, odex_location, CompilerFilter::kSpeed, copy);
 
     CheckValidity();
     ASSERT_TRUE(success_);
@@ -434,13 +437,14 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
                bool expect_large,
                const std::vector<std::string>& extra_args = {}) {
     std::string dex_location = GetScratchDir() + "/DexNoOat.jar";
+    std::string vdex_location = GetOdexDir() + "/DexOdexNoOat.vdex";
     std::string odex_location = GetOdexDir() + "/DexOdexNoOat.odex";
 
     Copy(GetDexSrc1(), dex_location);
 
     std::vector<std::string> copy(extra_args);
 
-    GenerateOdexForTest(dex_location, odex_location, filter, copy);
+    GenerateOdexForTest(dex_location, vdex_location, odex_location, filter, copy);
 
     CheckValidity();
     ASSERT_TRUE(success_);

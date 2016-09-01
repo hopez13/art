@@ -64,6 +64,8 @@
 #include "interpreter/unstarted_runtime.h"
 #include "jit/offline_profiling_info.h"
 #include "leb128.h"
+#include "linker/buffered_output_stream.h"
+#include "linker/file_output_stream.h"
 #include "linker/multi_oat_relative_patcher.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
@@ -506,6 +508,7 @@ class Dex2Oat FINAL {
       runtime_(nullptr),
       thread_count_(sysconf(_SC_NPROCESSORS_CONF)),
       start_ns_(NanoTime()),
+      vdex_fd_(-1),
       oat_fd_(-1),
       zip_fd_(-1),
       image_base_(0U),
@@ -538,8 +541,7 @@ class Dex2Oat FINAL {
       app_image_fd_(kInvalidFd),
       profile_file_fd_(kInvalidFd),
       timings_(timings),
-      force_determinism_(false)
-      {}
+      force_determinism_(false) {}
 
   ~Dex2Oat() {
     // Log completion time before deleting the runtime_, because this accesses
@@ -556,6 +558,9 @@ class Dex2Oat FINAL {
       }
       for (std::unique_ptr<MemMap>& map : opened_dex_files_maps_) {
         map.release();
+      }
+      for (std::unique_ptr<File>& vdex_file : vdex_files_) {
+        vdex_file.release();
       }
       for (std::unique_ptr<File>& oat_file : oat_files_) {
         oat_file.release();
@@ -576,6 +581,10 @@ class Dex2Oat FINAL {
 
   void ParseZipFd(const StringPiece& option) {
     ParseUintOption(option, "--zip-fd", &zip_fd_, Usage);
+  }
+
+  void ParseVdexFd(const StringPiece& option) {
+    ParseUintOption(option, "--vdex-fd", &vdex_fd_, Usage);
   }
 
   void ParseOatFd(const StringPiece& option) {
@@ -685,6 +694,14 @@ class Dex2Oat FINAL {
       Usage("Can't have both --image and (--app-image-fd or --app-image-file)");
     }
 
+    if (vdex_filenames_.empty() && vdex_fd_ == -1) {
+      Usage("Output must be supplied with either --vdex-file or --vdex-fd");
+    }
+
+    if (!vdex_filenames_.empty() && vdex_fd_ != -1) {
+      Usage("--vdex-file should not be used with --vdex-fd");
+    }
+
     if (oat_filenames_.empty() && oat_fd_ == -1) {
       Usage("Output must be supplied with either --oat-file or --oat-fd");
     }
@@ -693,12 +710,25 @@ class Dex2Oat FINAL {
       Usage("--oat-file should not be used with --oat-fd");
     }
 
+    if ((vdex_fd_ == -1) != (oat_fd_ == -1)) {
+      Usage("VDEX and OAT output must be specified either both with filenames "
+            "or both with file descriptors");
+    }
+
+    if (vdex_filenames_.size() != oat_filenames_.size()) {
+      Usage("Number of --vdex_file arguments must match --oat-file arguments");
+    }
+
     if (!parser_options->oat_symbols.empty() && oat_fd_ != -1) {
       Usage("--oat-symbols should not be used with --oat-fd");
     }
 
     if (!parser_options->oat_symbols.empty() && is_host_) {
       Usage("--oat-symbols should not be used with --host");
+    }
+
+    if (vdex_fd_ != -1 && !image_filenames_.empty()) {
+      Usage("--vdex-fd should not be used with --image");
     }
 
     if (oat_fd_ != -1 && !image_filenames_.empty()) {
@@ -772,6 +802,12 @@ class Dex2Oat FINAL {
       }
     } else if (dex_locations_.size() != dex_filenames_.size()) {
       Usage("--dex-location arguments do not match --dex-file arguments");
+    }
+
+    if (!dex_filenames_.empty() && !oat_filenames_.empty()) {
+      if (vdex_filenames_.size() != 1 && vdex_filenames_.size() != dex_filenames_.size()) {
+        Usage("--vdex-file arguments must be singular or match --dex-file arguments");
+      }
     }
 
     if (!dex_filenames_.empty() && !oat_filenames_.empty()) {
@@ -913,33 +949,68 @@ class Dex2Oat FINAL {
         !kEmitCompilerReadBarrier;
   }
 
-  void ExpandOatAndImageFilenames() {
-    std::string base_oat = oat_filenames_[0];
-    size_t last_oat_slash = base_oat.rfind('/');
-    if (last_oat_slash == std::string::npos) {
-      Usage("--multi-image used with unusable oat filename %s", base_oat.c_str());
+  std::string GetOutputFilenameBase(const std::string& filename) {
+    size_t last_slash = filename.rfind('/');
+    if (last_slash == std::string::npos) {
+      Usage("--multi-image used with unusable filename %s", filename.c_str());
     }
-    // We also need to honor path components that were encoded through '@'. Otherwise the loading
-    // code won't be able to find the images.
-    if (base_oat.find('@', last_oat_slash) != std::string::npos) {
-      last_oat_slash = base_oat.rfind('@');
+    // We also need to honor path components that were encoded through '@'.
+    // Otherwise the loading code won't be able to find the images.
+    if (filename.find('@', last_slash) != std::string::npos) {
+      last_slash = filename.rfind('@');
     }
-    base_oat = base_oat.substr(0, last_oat_slash + 1);
+    return filename.substr(0, last_slash + 1);
+  }
 
-    std::string base_img = image_filenames_[0];
-    size_t last_img_slash = base_img.rfind('/');
-    if (last_img_slash == std::string::npos) {
-      Usage("--multi-image used with unusable image filename %s", base_img.c_str());
+  // Modify the input string in the following way:
+  //   0) Assume input is /a/b/c.d
+  //   1) Strip the path  -> c.d
+  //   2) Inject prefix p -> pc.d
+  //   3) Inject infix i  -> pci.d
+  //   4) Replace suffix with s if it's "jar"  -> d == "jar" -> pci.s
+  //   5) Prepend base b/ (ends with / or @)    -> b/pci.s
+  // Then insert it into `char_backing_storage_` and return reference to the entry.
+  const std::string& CreateMultiImageName(size_t dex_location_idx,
+                                          const std::string& base,
+                                          const std::string& prefix,
+                                          const std::string& infix,
+                                          const char* replace_suffix) {
+    std::string in = dex_locations_[dex_location_idx];
+    size_t last_dex_slash = in.rfind('/');
+    if (last_dex_slash != std::string::npos) {
+      in = in.substr(last_dex_slash + 1);
     }
-    // We also need to honor path components that were encoded through '@'. Otherwise the loading
-    // code won't be able to find the images.
-    if (base_img.find('@', last_img_slash) != std::string::npos) {
-      last_img_slash = base_img.rfind('@');
+    if (!prefix.empty()) {
+      in = prefix + in;
     }
+    if (!infix.empty()) {
+      // Inject infix.
+      size_t last_dot = in.rfind('.');
+      if (last_dot != std::string::npos) {
+        in.insert(last_dot, infix);
+      }
+    }
+    if (EndsWith(in, ".jar")) {
+      in = in.substr(0, in.length() - strlen(".jar")) +
+          (replace_suffix != nullptr ? replace_suffix : "");
+    }
+    in = base + in;
+    char_backing_storage_.push_back(in);
+    return char_backing_storage_.back();
+  }
 
-    // Get the prefix, which is the primary image name (without path components). Strip the
-    // extension.
-    std::string prefix = base_img.substr(last_img_slash + 1);
+  void ExpandOutputFilenames() {
+    std::string filename_img = image_filenames_[0];
+    std::string base_img = GetOutputFilenameBase(filename_img);
+    std::string base_vdex = GetOutputFilenameBase(vdex_filenames_[0]);
+    std::string base_oat = GetOutputFilenameBase(oat_filenames_[0]);
+
+    size_t last_img_slash = base_img.length() - 1;
+    DCHECK((base_img[last_img_slash] == '/') || base_img[last_img_slash] == '@');
+
+    // Get the prefix, which is the primary image name (without path components).
+    // Strip the extension.
+    std::string prefix = filename_img.substr(last_img_slash + 1);
     if (prefix.rfind('.') != std::string::npos) {
       prefix = prefix.substr(0, prefix.rfind('.'));
     }
@@ -947,10 +1018,8 @@ class Dex2Oat FINAL {
       prefix = prefix + "-";
     }
 
-    base_img = base_img.substr(0, last_img_slash + 1);
-
-    // Note: we have some special case here for our testing. We have to inject the differentiating
-    //       parts for the different core images.
+    // Note: We have some special case here for our testing. We have to inject
+    //       the differentiating parts for the different core images.
     std::string infix;  // Empty infix by default.
     {
       // Check the first name.
@@ -971,45 +1040,10 @@ class Dex2Oat FINAL {
     // Now create the other names. Use a counted loop to skip the first one.
     for (size_t i = 1; i < dex_locations_.size(); ++i) {
       // TODO: Make everything properly std::string.
-      std::string image_name = CreateMultiImageName(dex_locations_[i], prefix, infix, ".art");
-      char_backing_storage_.push_back(base_img + image_name);
-      image_filenames_.push_back((char_backing_storage_.end() - 1)->c_str());
-
-      std::string oat_name = CreateMultiImageName(dex_locations_[i], prefix, infix, ".oat");
-      char_backing_storage_.push_back(base_oat + oat_name);
-      oat_filenames_.push_back((char_backing_storage_.end() - 1)->c_str());
+      image_filenames_.push_back(CreateMultiImageName(i, base_img, prefix, infix, ".art").c_str());
+      vdex_filenames_.push_back(CreateMultiImageName(i, base_vdex, prefix, infix, ".vdex").c_str());
+      oat_filenames_.push_back(CreateMultiImageName(i, base_oat, prefix, infix, ".oat").c_str());
     }
-  }
-
-  // Modify the input string in the following way:
-  //   0) Assume input is /a/b/c.d
-  //   1) Strip the path  -> c.d
-  //   2) Inject prefix p -> pc.d
-  //   3) Inject infix i  -> pci.d
-  //   4) Replace suffix with s if it's "jar"  -> d == "jar" -> pci.s
-  static std::string CreateMultiImageName(std::string in,
-                                          const std::string& prefix,
-                                          const std::string& infix,
-                                          const char* replace_suffix) {
-    size_t last_dex_slash = in.rfind('/');
-    if (last_dex_slash != std::string::npos) {
-      in = in.substr(last_dex_slash + 1);
-    }
-    if (!prefix.empty()) {
-      in = prefix + in;
-    }
-    if (!infix.empty()) {
-      // Inject infix.
-      size_t last_dot = in.rfind('.');
-      if (last_dot != std::string::npos) {
-        in.insert(last_dot, infix);
-      }
-    }
-    if (EndsWith(in, ".jar")) {
-      in = in.substr(0, in.length() - strlen(".jar")) +
-          (replace_suffix != nullptr ? replace_suffix : "");
-    }
-    return in;
   }
 
   void InsertCompileOptions(int argc, char** argv) {
@@ -1074,20 +1108,26 @@ class Dex2Oat FINAL {
         ParseZipFd(option);
       } else if (option.starts_with("--zip-location=")) {
         zip_location_ = option.substr(strlen("--zip-location=")).data();
+      } else if (option.starts_with("--vdex-file=")) {
+        vdex_filenames_.push_back(option.substr(strlen("--vdex-file=")).data());
+      } else if (option.starts_with("--vdex-fd=")) {
+        ParseVdexFd(option);
+      } else if (option.starts_with("--vdex-location=")) {
+        vdex_location_ = option.substr(strlen("--vdex-location=")).data();
       } else if (option.starts_with("--oat-file=")) {
         oat_filenames_.push_back(option.substr(strlen("--oat-file=")).data());
       } else if (option.starts_with("--oat-symbols=")) {
         parser_options->oat_symbols.push_back(option.substr(strlen("--oat-symbols=")).data());
       } else if (option.starts_with("--oat-fd=")) {
         ParseOatFd(option);
+      } else if (option.starts_with("--oat-location=")) {
+        oat_location_ = option.substr(strlen("--oat-location=")).data();
       } else if (option == "--watch-dog") {
         parser_options->watch_dog_enabled = true;
       } else if (option == "--no-watch-dog") {
         parser_options->watch_dog_enabled = false;
       } else if (option.starts_with("-j")) {
         ParseJ(option);
-      } else if (option.starts_with("--oat-location=")) {
-        oat_location_ = option.substr(strlen("--oat-location=")).data();
       } else if (option.starts_with("--image=")) {
         image_filenames_.push_back(option.substr(strlen("--image=")).data());
       } else if (option.starts_with("--image-classes=")) {
@@ -1196,18 +1236,56 @@ class Dex2Oat FINAL {
 
     // Expand oat and image filenames for multi image.
     if (IsBootImage() && multi_image_) {
-      ExpandOatAndImageFilenames();
+      ExpandOutputFilenames();
     }
 
-    bool create_file = oat_fd_ == -1;  // as opposed to using open file descriptor
-    if (create_file) {
+    // VDEX file handling
+
+    if (vdex_fd_ == -1) {
+      DCHECK(!vdex_filenames_.empty());
+      for (const char* vdex_filename : vdex_filenames_) {
+        std::unique_ptr<File> vdex_file;
+        if (OS::FileExists(vdex_filename)) {
+          vdex_file.reset(OS::OpenFileReadWrite(vdex_filename));
+        } else {
+          vdex_file.reset(OS::CreateEmptyFile(vdex_filename));
+        }
+        if (vdex_file.get() == nullptr) {
+          PLOG(ERROR) << "Failed to open vdex file: " << vdex_filename;
+          return false;
+        }
+        if (fchmod(vdex_file->Fd(), 0644) != 0) {
+          PLOG(ERROR) << "Failed to make vdex file world readable: " << vdex_filename;
+          vdex_file->Erase();
+          return false;
+        }
+        vdex_files_.push_back(std::move(vdex_file));
+      }
+    } else {
+      std::unique_ptr<File> vdex_file(new File(vdex_fd_, vdex_location_, /* check_usage */ true));
+      if (vdex_file.get() == nullptr) {
+        PLOG(ERROR) << "Failed to create vdex file: " << vdex_location_;
+        return false;
+      }
+      vdex_file->DisableAutoClose();
+      if (vdex_file->SetLength(0) != 0) {
+        PLOG(WARNING) << "Truncating vdex file " << vdex_location_ << " failed.";
+      }
+      vdex_filenames_.push_back(vdex_location_.c_str());
+      vdex_files_.push_back(std::move(vdex_file));
+    }
+
+    // OAT file handling
+
+    if (oat_fd_ == -1) {
+      DCHECK(!oat_filenames_.empty());
       for (const char* oat_filename : oat_filenames_) {
         std::unique_ptr<File> oat_file(OS::CreateEmptyFile(oat_filename));
         if (oat_file.get() == nullptr) {
           PLOG(ERROR) << "Failed to create oat file: " << oat_filename;
           return false;
         }
-        if (create_file && fchmod(oat_file->Fd(), 0644) != 0) {
+        if (fchmod(oat_file->Fd(), 0644) != 0) {
           PLOG(ERROR) << "Failed to make oat file world readable: " << oat_filename;
           oat_file->Erase();
           return false;
@@ -1215,25 +1293,20 @@ class Dex2Oat FINAL {
         oat_files_.push_back(std::move(oat_file));
       }
     } else {
-      std::unique_ptr<File> oat_file(new File(oat_fd_, oat_location_, true));
-      oat_file->DisableAutoClose();
-      if (oat_file->SetLength(0) != 0) {
-        PLOG(WARNING) << "Truncating oat file " << oat_location_ << " failed.";
-      }
+      std::unique_ptr<File> oat_file(new File(oat_fd_, oat_location_, /* check_usage */ true));
       if (oat_file.get() == nullptr) {
         PLOG(ERROR) << "Failed to create oat file: " << oat_location_;
         return false;
       }
-      if (create_file && fchmod(oat_file->Fd(), 0644) != 0) {
-        PLOG(ERROR) << "Failed to make oat file world readable: " << oat_location_;
-        oat_file->Erase();
-        return false;
+      oat_file->DisableAutoClose();
+      if (oat_file->SetLength(0) != 0) {
+        PLOG(WARNING) << "Truncating oat file " << oat_location_ << " failed.";
       }
       oat_filenames_.push_back(oat_location_.c_str());
       oat_files_.push_back(std::move(oat_file));
     }
 
-    // Swap file handling.
+    // Swap file handling
     //
     // If the swap fd is not -1, we assume this is the file descriptor of an open but unlinked file
     // that we can use for swap.
@@ -1256,11 +1329,13 @@ class Dex2Oat FINAL {
     return true;
   }
 
-  void EraseOatFiles() {
-    for (size_t i = 0; i < oat_files_.size(); ++i) {
-      DCHECK(oat_files_[i].get() != nullptr);
-      oat_files_[i]->Erase();
-      oat_files_[i].reset();
+  void EraseOutputFiles() {
+    for (auto& files : { &vdex_files_, &oat_files_ }) {
+      for (size_t i = 0; i < files->size(); ++i) {
+        DCHECK((*files)[i].get() != nullptr);
+        (*files)[i]->Erase();
+        (*files)[i].reset();
+      }
     }
   }
 
@@ -1394,13 +1469,17 @@ class Dex2Oat FINAL {
     {
       TimingLogger::ScopedTiming t_dex("Writing and opening dex files", timings_);
       rodata_.reserve(oat_writers_.size());
+      vdex_out_.reserve(oat_writers_.size());
       for (size_t i = 0, size = oat_writers_.size(); i != size; ++i) {
+        vdex_out_.push_back(
+            MakeUnique<BufferedOutputStream>(MakeUnique<FileOutputStream>(vdex_files_[i].get())));
         rodata_.push_back(elf_writers_[i]->StartRoData());
         // Unzip or copy dex files straight to the oat file.
         std::unique_ptr<MemMap> opened_dex_files_map;
         std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
-        if (!oat_writers_[i]->WriteAndOpenDexFiles(rodata_.back(),
-                                                   oat_files_[i].get(),
+        if (!oat_writers_[i]->WriteAndOpenDexFiles(vdex_out_.back().get(),
+                                                   vdex_files_[i].get(),
+                                                   rodata_.back(),
                                                    instruction_set_,
                                                    instruction_set_features_.get(),
                                                    key_value_store_.get(),
@@ -1652,7 +1731,7 @@ class Dex2Oat FINAL {
   // ImageWriter, if necessary.
   // Note: Flushing (and closing) the file is the caller's responsibility, except for the failure
   //       case (when the file will be explicitly erased).
-  bool WriteOatFiles() {
+  bool WriteOutputFiles() {
     TimingLogger::ScopedTiming t("dex2oat Oat", timings_);
 
     // Sync the data to the file, in case we did dex2dex transformations.
@@ -1709,7 +1788,7 @@ class Dex2Oat FINAL {
         oat_writer->PrepareLayout(driver_.get(), image_writer_.get(), dex_files, &patcher);
 
         size_t rodata_size = oat_writer->GetOatHeader().GetExecutableOffset();
-        size_t text_size = oat_writer->GetSize() - rodata_size;
+        size_t text_size = oat_writer->GetOatSize() - rodata_size;
         elf_writer->SetLoadedSectionSizes(rodata_size, text_size, oat_writer->GetBssSize());
 
         if (IsImage()) {
@@ -1719,7 +1798,7 @@ class Dex2Oat FINAL {
           image_writer_->UpdateOatFileLayout(i,
                                              elf_writer->GetLoadedSize(),
                                              oat_writer->GetOatDataOffset(),
-                                             oat_writer->GetSize());
+                                             oat_writer->GetOatSize());
         }
       }
 
@@ -1774,12 +1853,8 @@ class Dex2Oat FINAL {
           return false;
         }
 
-        // Flush the oat file.
-        if (oat_files_[i] != nullptr) {
-          if (oat_files_[i]->Flush() != 0) {
-            PLOG(ERROR) << "Failed to flush oat file: " << oat_filenames_[i];
-            return false;
-          }
+        if (!FlushOutputFile(&vdex_files_[i]) || !FlushOutputFile(&oat_files_[i])) {
+          return false;
         }
 
         VLOG(compiler) << "Oat file written successfully: " << oat_filenames_[i];
@@ -1812,7 +1887,7 @@ class Dex2Oat FINAL {
       if (strcmp(oat_unstripped_[i], oat_filenames_[i]) != 0) {
         // If the oat file is still open, flush it.
         if (oat_files_[i].get() != nullptr && oat_files_[i]->IsOpened()) {
-          if (!FlushCloseOatFile(i)) {
+          if (!FlushCloseOutputFile(&oat_files_[i])) {
             return false;
           }
         }
@@ -1840,13 +1915,32 @@ class Dex2Oat FINAL {
     return true;
   }
 
-  bool FlushOatFiles() {
-    TimingLogger::ScopedTiming t2("dex2oat Flush ELF", timings_);
-    for (size_t i = 0; i < oat_files_.size(); ++i) {
-      if (oat_files_[i].get() != nullptr) {
-        if (oat_files_[i]->Flush() != 0) {
-          PLOG(ERROR) << "Failed to flush oat file: " << oat_filenames_[i];
-          oat_files_[i]->Erase();
+  bool FlushOutputFile(std::unique_ptr<File>* file) {
+    if (file->get() != nullptr) {
+      if (file->get()->Flush() != 0) {
+        PLOG(ERROR) << "Failed to flush output file: " << file->get()->GetPath();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool FlushCloseOutputFile(std::unique_ptr<File>* file) {
+    if (file->get() != nullptr) {
+      std::unique_ptr<File> tmp(file->release());
+      if (tmp->FlushCloseOrErase() != 0) {
+        PLOG(ERROR) << "Failed to flush and close output file: " << tmp->GetPath();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool FlushOutputFiles() {
+    TimingLogger::ScopedTiming t2("dex2oat Flush Output Files", timings_);
+    for (auto& files : { &vdex_files_, &oat_files_ }) {
+      for (size_t i = 0; i < files->size(); ++i) {
+        if (!FlushOutputFile(&(*files)[i])) {
           return false;
         }
       }
@@ -1854,21 +1948,12 @@ class Dex2Oat FINAL {
     return true;
   }
 
-  bool FlushCloseOatFile(size_t i) {
-    if (oat_files_[i].get() != nullptr) {
-      std::unique_ptr<File> tmp(oat_files_[i].release());
-      if (tmp->FlushCloseOrErase() != 0) {
-        PLOG(ERROR) << "Failed to flush and close oat file: " << oat_filenames_[i];
-        return false;
-      }
-    }
-    return true;
-  }
-
-  bool FlushCloseOatFiles() {
+  bool FlushCloseOutputFiles() {
     bool result = true;
-    for (size_t i = 0; i < oat_files_.size(); ++i) {
-      result &= FlushCloseOatFile(i);
+    for (auto& files : { &vdex_files_, &oat_files_ }) {
+      for (size_t i = 0; i < files->size(); ++i) {
+        result &= FlushCloseOutputFile(&(*files)[i]);
+      }
     }
     return result;
   }
@@ -2502,6 +2587,11 @@ class Dex2Oat FINAL {
   size_t thread_count_;
   uint64_t start_ns_;
   std::unique_ptr<WatchDog> watchdog_;
+  std::vector<std::unique_ptr<File>> vdex_files_;
+  std::string vdex_location_;
+  std::vector<const char*> vdex_filenames_;
+  std::vector<const char*> vdex_unstripped_;
+  int vdex_fd_;
   std::vector<std::unique_ptr<File>> oat_files_;
   std::string oat_location_;
   std::vector<const char*> oat_filenames_;
@@ -2541,6 +2631,7 @@ class Dex2Oat FINAL {
   std::vector<std::unique_ptr<ElfWriter>> elf_writers_;
   std::vector<std::unique_ptr<OatWriter>> oat_writers_;
   std::vector<OutputStream*> rodata_;
+  std::vector<std::unique_ptr<OutputStream>> vdex_out_;
   std::unique_ptr<ImageWriter> image_writer_;
   std::unique_ptr<CompilerDriver> driver_;
 
@@ -2603,8 +2694,8 @@ static int CompileImage(Dex2Oat& dex2oat) {
   dex2oat.LoadClassProfileDescriptors();
   dex2oat.Compile();
 
-  if (!dex2oat.WriteOatFiles()) {
-    dex2oat.EraseOatFiles();
+  if (!dex2oat.WriteOutputFiles()) {
+    dex2oat.EraseOutputFiles();
     return EXIT_FAILURE;
   }
 
@@ -2612,10 +2703,11 @@ static int CompileImage(Dex2Oat& dex2oat) {
   // unstripped name. Do not close the file if we are compiling the image with an oat fd since the
   // image writer will require this fd to generate the image.
   if (dex2oat.ShouldKeepOatFileOpen()) {
-    if (!dex2oat.FlushOatFiles()) {
+    if (!dex2oat.FlushOutputFiles()) {
+      dex2oat.EraseOutputFiles();
       return EXIT_FAILURE;
     }
-  } else if (!dex2oat.FlushCloseOatFiles()) {
+  } else if (!dex2oat.FlushCloseOutputFiles()) {
     return EXIT_FAILURE;
   }
 
@@ -2636,7 +2728,7 @@ static int CompileImage(Dex2Oat& dex2oat) {
   }
 
   // FlushClose again, as stripping might have re-opened the oat files.
-  if (!dex2oat.FlushCloseOatFiles()) {
+  if (!dex2oat.FlushCloseOutputFiles()) {
     return EXIT_FAILURE;
   }
 
@@ -2647,8 +2739,8 @@ static int CompileImage(Dex2Oat& dex2oat) {
 static int CompileApp(Dex2Oat& dex2oat) {
   dex2oat.Compile();
 
-  if (!dex2oat.WriteOatFiles()) {
-    dex2oat.EraseOatFiles();
+  if (!dex2oat.WriteOutputFiles()) {
+    dex2oat.EraseOutputFiles();
     return EXIT_FAILURE;
   }
 
@@ -2657,7 +2749,7 @@ static int CompileApp(Dex2Oat& dex2oat) {
 
   // When given --host, finish early without stripping.
   if (dex2oat.IsHost()) {
-    if (!dex2oat.FlushCloseOatFiles()) {
+    if (!dex2oat.FlushCloseOutputFiles()) {
       return EXIT_FAILURE;
     }
 
@@ -2672,7 +2764,7 @@ static int CompileApp(Dex2Oat& dex2oat) {
   }
 
   // Flush and close the files.
-  if (!dex2oat.FlushCloseOatFiles()) {
+  if (!dex2oat.FlushCloseOutputFiles()) {
     return EXIT_FAILURE;
   }
 
@@ -2721,7 +2813,7 @@ static int dex2oat(int argc, char** argv) {
   }
 
   if (!dex2oat->Setup()) {
-    dex2oat->EraseOatFiles();
+    dex2oat->EraseOutputFiles();
     return EXIT_FAILURE;
   }
 
