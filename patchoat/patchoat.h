@@ -60,6 +60,9 @@ class PatchOat {
                     InstructionSet isa,
                     TimingLogger* timings);
 
+  static bool SymlinkVdex(const std::string& input_vdex_filename,
+                          const std::string& output_vdex_filename);
+
   ~PatchOat() {}
   PatchOat(PatchOat&&) = default;
 
