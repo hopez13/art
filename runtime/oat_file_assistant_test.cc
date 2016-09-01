@@ -687,8 +687,8 @@ TEST_F(OatFileAssistantTest, ResourceOnlyDex) {
 // relocation.
 // Expect: The status is kSelfPatchOatNeeded.
 TEST_F(OatFileAssistantTest, SelfRelocation) {
-  std::string dex_location = GetScratchDir() + "/SelfRelocation.jar";
-  std::string oat_location = GetOdexDir() + "/SelfRelocation.oat";
+  std::string dex_location = "/usr/local/google/home/dbrazdil/SelfRelocation.jar";
+  std::string oat_location = "/usr/local/google/home/dbrazdil/SelfRelocation.oat";
 
   // Create the dex and odex files
   Copy(GetDexSrc1(), dex_location);
