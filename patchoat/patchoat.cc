@@ -233,6 +233,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
     std::string input_oat_filename =
         ImageHeader::GetOatLocationFromImageLocation(input_image_filename);
     std::unique_ptr<File> input_oat_file(OS::OpenFileForReading(input_oat_filename.c_str()));
@@ -261,8 +263,15 @@ bool PatchOat::Patch(const std::string& image_location,
       std::string output_image_filename = output_directory +
                                           (StartsWith(converted_image_filename, "/") ? "" : "/") +
                                           converted_image_filename;
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
+
+      if (!SymlinkVdex(input_vdex_filename, output_vdex_filename)) {
+        // Errors already logged by above call.
+        return false;
+      }
 
       if (!ReplaceOatFileWithSymlink(input_oat_file->GetPath(),
                                      output_oat_filename,
@@ -304,6 +313,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
 
     t.NewTiming("Writing files");
     std::string converted_image_filename = space->GetImageLocation();
@@ -329,8 +340,16 @@ bool PatchOat::Patch(const std::string& image_location,
 
     bool skip_patching_oat = space_to_skip_patching_map.find(space)->second;
     if (!skip_patching_oat) {
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
+
+      if (!SymlinkVdex(input_vdex_filename, output_vdex_filename)) {
+        // Errors already logged by above call.
+        return false;
+      }
+
       std::unique_ptr<File>
           output_oat_file(CreateOrOpen(output_oat_filename.c_str(), &new_oat_out));
       if (output_oat_file.get() == nullptr) {
@@ -421,6 +440,29 @@ PatchOat::MaybePic PatchOat::IsOatPic(const ElfFile* oat_in) {
   }
 
   return is_pic ? PIC : NOT_PIC;
+}
+
+bool PatchOat::SymlinkVdex(const std::string& input_vdex_filename,
+                           const std::string& output_vdex_filename) {
+  if (input_vdex_filename == output_vdex_filename) {
+    return true;
+  }
+
+  // Delete the original file, since we won't need it.
+  unlink(output_vdex_filename.c_str());
+
+  // Create a symlink from the old vdex to the new vdex
+  if (symlink(input_vdex_filename.c_str(), output_vdex_filename.c_str()) < 0) {
+    int err = errno;
+    PLOG(ERROR) << "Failed to create symlink at " << output_vdex_filename << " : ";
+    return false;
+  }
+
+  if (kIsDebugBuild) {
+    LOG(INFO) << "Created symlink " << output_vdex_filename << " -> " << input_vdex_filename;
+  }
+
+  return true;
 }
 
 bool PatchOat::ReplaceOatFileWithSymlink(const std::string& input_oat_filename,
@@ -1102,6 +1144,14 @@ static int patchoat_oat(TimingLogger& timings,
     Usage("Base offset/delta must be alligned to a pagesize (0x%08x) boundary.", kPageSize);
   }
 
+  bool symlink_vdex = !input_oat_filename.empty() && !output_oat_filename.empty();
+  std::string input_vdex_filename;
+  std::string output_vdex_filename;
+  if (symlink_vdex) {
+    input_vdex_filename = ReplaceFileExtension(input_oat_filename, "vdex");
+    output_vdex_filename = ReplaceFileExtension(output_oat_filename, "vdex");
+  }
+
   // Do we need to cleanup output files if we fail?
   bool new_oat_out = false;
 
@@ -1163,11 +1213,16 @@ static int patchoat_oat(TimingLogger& timings,
   }
 
   // TODO: get rid of this.
-  auto cleanup = [&output_oat_filename, &new_oat_out](bool success) {
+  auto cleanup = [&output_oat_filename, &output_vdex_filename, &new_oat_out, &symlink_vdex]
+                 (bool success) {
     if (!success) {
       if (new_oat_out) {
         CHECK(!output_oat_filename.empty());
         unlink(output_oat_filename.c_str());
+      }
+      if (symlink_vdex) {
+        CHECK(!output_vdex_filename.empty());
+        unlink(output_vdex_filename.c_str());
       }
     }
 
@@ -1196,6 +1251,14 @@ static int patchoat_oat(TimingLogger& timings,
       LOG(ERROR) << "Given image file was relocated by an illegal delta";
       cleanup(false);
       return false;
+    }
+  }
+
+  if (symlink_vdex) {
+    if (!PatchOat::SymlinkVdex(input_vdex_filename, output_vdex_filename)) {
+      // Errors already logged by above call.
+      cleanup(false);
+      return EXIT_FAILURE;
     }
   }
 
