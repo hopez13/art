@@ -94,6 +94,7 @@ class OatFileAssistantTest : public Dex2oatEnvironmentTest {
     std::vector<std::string> args;
     args.push_back("--dex-file=" + dex_location);
     args.push_back("--oat-file=" + odex_location);
+    args.push_back("--vdex-file=" + ReplaceFileExtension(odex_location, "vdex"));
     args.push_back("--compiler-filter=" + CompilerFilter::NameOfFilter(filter));
     args.push_back("--runtime-arg");
     args.push_back("-Xnorelocate");
@@ -223,6 +224,7 @@ static void GenerateOatForTest(const char* dex_location, CompilerFilter::Filter 
   std::vector<std::string> args;
   args.push_back("--dex-file=" + std::string(dex_location));
   args.push_back("--oat-file=" + oat_location);
+  args.push_back("--vdex-file=" + ReplaceFileExtension(oat_location, "vdex"));
   args.push_back("--compiler-filter=" + CompilerFilter::NameOfFilter(filter));
   args.push_back("--runtime-arg");
   args.push_back("-Xnorelocate");
@@ -427,6 +429,7 @@ TEST_F(OatFileAssistantTest, MultiDexSecondaryOutOfDate) {
 TEST_F(OatFileAssistantTest, RelativeEncodedDexLocation) {
   std::string dex_location = GetScratchDir() + "/RelativeEncodedDexLocation.jar";
   std::string oat_location = GetOdexDir() + "/RelativeEncodedDexLocation.oat";
+  std::string vdex_location = GetOdexDir() + "/RelativeEncodedDexLocation.vdex";
 
   // Create the dex file
   Copy(GetMultiDexSrc1(), dex_location);
@@ -436,6 +439,7 @@ TEST_F(OatFileAssistantTest, RelativeEncodedDexLocation) {
   args.push_back("--dex-file=" + dex_location);
   args.push_back("--dex-location=" + std::string("RelativeEncodedDexLocation.jar"));
   args.push_back("--oat-file=" + oat_location);
+  args.push_back("--vdex-file=" + vdex_location);
   args.push_back("--compiler-filter=speed");
 
   std::string error_msg;
