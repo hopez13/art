@@ -31,6 +31,7 @@
 #include "base/stringpiece.h"
 #include "base/stringprintf.h"
 #include "base/unix_file/fd_file.h"
+#include "base/unix_file/random_access_file_utils.h"
 #include "elf_utils.h"
 #include "elf_file.h"
 #include "elf_file_impl.h"
@@ -151,6 +152,27 @@ static bool FinishFile(File* file, bool close) {
   }
 }
 
+static bool SymlinkFile(const std::string& input_filename, const std::string& output_filename) {
+  if (input_filename == output_filename) {
+    return true;
+  }
+
+  // Unlink the original filename, since we are overwriting it.
+  unlink(output_filename.c_str());
+
+  // Create a symlink from the source file to the target path.
+  if (symlink(input_filename.c_str(), output_filename.c_str()) < 0) {
+    PLOG(ERROR) << "Failed to create symlink " << output_filename << " -> " << input_filename;
+    return false;
+  }
+
+  if (kIsDebugBuild) {
+    LOG(INFO) << "Created symlink " << output_filename << " -> " << input_filename;
+  }
+
+  return true;
+}
+
 bool PatchOat::Patch(const std::string& image_location,
                      off_t delta,
                      const std::string& output_directory,
@@ -233,6 +255,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
     std::string input_oat_filename =
         ImageHeader::GetOatLocationFromImageLocation(input_image_filename);
     std::unique_ptr<File> input_oat_file(OS::OpenFileForReading(input_oat_filename.c_str()));
@@ -261,13 +285,16 @@ bool PatchOat::Patch(const std::string& image_location,
       std::string output_image_filename = output_directory +
                                           (StartsWith(converted_image_filename, "/") ? "" : "/") +
                                           converted_image_filename;
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
 
       if (!ReplaceOatFileWithSymlink(input_oat_file->GetPath(),
                                      output_oat_filename,
                                      false,
-                                     true)) {
+                                     true) ||
+          !SymlinkFile(input_vdex_filename, output_vdex_filename)) {
         // Errors already logged by above call.
         return false;
       }
@@ -304,6 +331,8 @@ bool PatchOat::Patch(const std::string& image_location,
   for (size_t i = 0; i < spaces.size(); ++i) {
     gc::space::ImageSpace* space = spaces[i];
     std::string input_image_filename = space->GetImageFilename();
+    std::string input_vdex_filename =
+        ImageHeader::GetVdexLocationFromImageLocation(input_image_filename);
 
     t.NewTiming("Writing files");
     std::string converted_image_filename = space->GetImageLocation();
@@ -329,8 +358,11 @@ bool PatchOat::Patch(const std::string& image_location,
 
     bool skip_patching_oat = space_to_skip_patching_map.find(space)->second;
     if (!skip_patching_oat) {
+      std::string output_vdex_filename =
+          ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
           ImageHeader::GetOatLocationFromImageLocation(output_image_filename);
+
       std::unique_ptr<File>
           output_oat_file(CreateOrOpen(output_oat_filename.c_str(), &new_oat_out));
       if (output_oat_file.get() == nullptr) {
@@ -339,6 +371,9 @@ bool PatchOat::Patch(const std::string& image_location,
       }
       success = p.WriteElf(output_oat_file.get());
       success = FinishFile(output_oat_file.get(), success);
+      if (success) {
+        success = SymlinkFile(input_vdex_filename, output_vdex_filename);
+      }
       if (!success) {
         return false;
       }
@@ -921,6 +956,9 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("  --input-oat-fd=<file-descriptor>: Specifies the file-descriptor of the oat file");
   UsageError("      to be patched.");
   UsageError("");
+  UsageError("  --input-vdex-fd=<file-descriptor>: Specifies the file-descriptor of the vdex file");
+  UsageError("      associated with the oat file.");
+  UsageError("");
   UsageError("  --input-oat-location=<file.oat>: Specifies the 'location' to read the patched");
   UsageError("      oat file from. If used one must also supply the --instruction-set");
   UsageError("");
@@ -932,7 +970,10 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("      file to.");
   UsageError("");
   UsageError("  --output-oat-fd=<file-descriptor>: Specifies the file-descriptor to write the");
-  UsageError("      the patched oat file to.");
+  UsageError("      patched oat file to.");
+  UsageError("");
+  UsageError("  --output-vdex-fd=<file-descriptor>: Specifies the file-descriptor to copy the");
+  UsageError("      the vdex file associated with the patch oat file to.");
   UsageError("");
   UsageError("  --output-image-file=<file.art>: Specifies the exact file to write the patched");
   UsageError("      image file to.");
@@ -1029,10 +1070,12 @@ static int patchoat_oat(TimingLogger& timings,
                         off_t base_delta,
                         bool base_delta_set,
                         int input_oat_fd,
+                        int input_vdex_fd,
                         const std::string& input_oat_location,
                         std::string input_oat_filename,
                         bool have_input_oat,
                         int output_oat_fd,
+                        int output_vdex_fd,
                         std::string output_oat_filename,
                         bool have_output_oat,
                         bool lock_output,
@@ -1060,6 +1103,12 @@ static int patchoat_oat(TimingLogger& timings,
     if (debug) {
       LOG(INFO) << "Using input-oat-file " << input_oat_filename;
     }
+  }
+
+  if ((input_oat_fd == -1) != (input_vdex_fd == -1)) {
+    Usage("Either both input oat and vdex have to be passed as file descriptors or none of them");
+  } else if ((output_oat_fd == -1) != (output_vdex_fd == -1)) {
+    Usage("Either both output oat and vdex have to be passed as file descriptors or none of them");
   }
 
   bool match_delta = false;
@@ -1100,6 +1149,25 @@ static int patchoat_oat(TimingLogger& timings,
 
   if (!IsAligned<kPageSize>(base_delta)) {
     Usage("Base offset/delta must be alligned to a pagesize (0x%08x) boundary.", kPageSize);
+  }
+
+  // We can symlink VDEX only if we have both input and output specified as filenames.
+  // Store that piece of information before we possibly create bogus filenames for
+  // files passed as file descriptors.
+  bool symlink_vdex = !input_oat_filename.empty() && !output_oat_filename.empty();
+
+  // Infer names of VDEX files.
+  std::string input_vdex_filename;
+  std::string output_vdex_filename;
+  if (input_oat_filename.empty()) {
+    input_vdex_filename = "input-vdex-file";
+  } else {
+    input_vdex_filename = ReplaceFileExtension(input_oat_filename, "vdex");
+  }
+  if (output_oat_filename.empty()) {
+    output_vdex_filename = "output-vdex-file";
+  } else {
+    output_vdex_filename = ReplaceFileExtension(output_oat_filename, "vdex");
   }
 
   // Do we need to cleanup output files if we fail?
@@ -1162,12 +1230,50 @@ static int patchoat_oat(TimingLogger& timings,
     }
   }
 
+  // Open VDEX files if we are not symlinking them.
+  std::unique_ptr<File> input_vdex;
+  std::unique_ptr<File> output_vdex;
+  if (!symlink_vdex) {
+    if (input_vdex_fd != -1) {
+      input_vdex.reset(new File(input_vdex_fd, input_vdex_filename, true));
+      if (input_vdex == nullptr) {
+        // Unlikely, but ensure exhaustive logging in non-0 exit code case
+        LOG(ERROR) << "Failed to open input vdex file by its FD" << input_vdex_fd;
+      }
+    } else {
+      input_vdex.reset(OS::OpenFileForReading(input_vdex_filename.c_str()));
+      if (input_vdex == nullptr) {
+        PLOG(ERROR) << "Failed to open input vdex file " << input_vdex_filename;
+        return EXIT_FAILURE;
+      }
+    }
+    if (output_vdex_fd != -1) {
+      output_vdex.reset(new File(output_vdex_fd, output_vdex_filename, true));
+      if (output_vdex == nullptr) {
+        // Unlikely, but ensure exhaustive logging in non-0 exit code case
+        LOG(ERROR) << "Failed to open output vdex file by its FD" << output_vdex_fd;
+      }
+    } else {
+      bool vdex_created;  // unused
+      output_vdex.reset(CreateOrOpen(output_vdex_filename.c_str(), &vdex_created));
+      if (output_vdex == nullptr) {
+        PLOG(ERROR) << "Failed to open output vdex file " << output_vdex_filename;
+        return EXIT_FAILURE;
+      }
+    }
+  }
+
   // TODO: get rid of this.
-  auto cleanup = [&output_oat_filename, &new_oat_out](bool success) {
+  auto cleanup = [&output_oat_filename, &output_vdex_filename, &new_oat_out, &symlink_vdex]
+                 (bool success) {
     if (!success) {
       if (new_oat_out) {
         CHECK(!output_oat_filename.empty());
         unlink(output_oat_filename.c_str());
+      }
+      if (symlink_vdex) {
+        CHECK(!output_vdex_filename.empty());
+        unlink(output_vdex_filename.c_str());
       }
     }
 
@@ -1220,6 +1326,14 @@ static int patchoat_oat(TimingLogger& timings,
                              new_oat_out);
   ret = FinishFile(output_oat.get(), ret);
 
+  if (ret) {
+    if (symlink_vdex) {
+      ret = SymlinkFile(input_vdex_filename, output_vdex_filename);
+    } else {
+      ret = unix_file::CopyFile(*input_vdex.get(), output_vdex.get());
+    }
+  }
+
   if (kIsDebugBuild) {
     LOG(INFO) << "Exiting with return ... " << ret;
   }
@@ -1253,10 +1367,12 @@ static int patchoat(int argc, char **argv) {
   std::string input_oat_filename;
   std::string input_oat_location;
   int input_oat_fd = -1;
+  int input_vdex_fd = -1;
   bool have_input_oat = false;
   std::string input_image_location;
   std::string output_oat_filename;
   int output_oat_fd = -1;
+  int output_vdex_fd = -1;
   bool have_output_oat = false;
   std::string output_image_filename;
   off_t base_delta = 0;
@@ -1303,6 +1419,14 @@ static int patchoat(int argc, char **argv) {
       if (input_oat_fd < 0) {
         Usage("--input-oat-fd pass a negative value %d", input_oat_fd);
       }
+    } else if (option.starts_with("--input-vdex-fd=")) {
+      const char* vdex_fd_str = option.substr(strlen("--input-vdex-fd=")).data();
+      if (!ParseInt(vdex_fd_str, &input_vdex_fd)) {
+        Usage("Failed to parse --input-vdex-fd argument '%s' as an integer", vdex_fd_str);
+      }
+      if (input_vdex_fd < 0) {
+        Usage("--input-vdex-fd pass a negative value %d", input_vdex_fd);
+      }
     } else if (option.starts_with("--input-image-location=")) {
       input_image_location = option.substr(strlen("--input-image-location=")).data();
     } else if (option.starts_with("--output-oat-file=")) {
@@ -1322,6 +1446,14 @@ static int patchoat(int argc, char **argv) {
       }
       if (output_oat_fd < 0) {
         Usage("--output-oat-fd pass a negative value %d", output_oat_fd);
+      }
+    } else if (option.starts_with("--output-vdex-fd=")) {
+      const char* vdex_fd_str = option.substr(strlen("--output-vdex-fd=")).data();
+      if (!ParseInt(vdex_fd_str, &output_vdex_fd)) {
+        Usage("Failed to parse --output-vdex-fd argument '%s' as an integer", vdex_fd_str);
+      }
+      if (output_vdex_fd < 0) {
+        Usage("--output-vdex-fd pass a negative value %d", output_vdex_fd);
       }
     } else if (option.starts_with("--output-image-file=")) {
       output_image_filename = option.substr(strlen("--output-image-file=")).data();
@@ -1367,10 +1499,12 @@ static int patchoat(int argc, char **argv) {
                        base_delta,
                        base_delta_set,
                        input_oat_fd,
+                       input_vdex_fd,
                        input_oat_location,
                        input_oat_filename,
                        have_input_oat,
                        output_oat_fd,
+                       output_vdex_fd,
                        output_oat_filename,
                        have_output_oat,
                        lock_output,
