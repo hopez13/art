@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76ee6f74_4ab18250",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-02T22:09:20Z",
+      "side": 1,
+      "message": "Was a bug, we have to flush before pushing.",
+      "revId": "86379941f33ce651fc4cbc62ce7d95a15bbce8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_0ab37a59",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-02T22:09:20Z",
+      "side": 1,
+      "message": "Was a bug, we want to get the error output even if command failed.",
+      "revId": "86379941f33ce651fc4cbc62ce7d95a15bbce8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
