@@ -70,6 +70,24 @@
       "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312fa172_87896681",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-02T15:53:37Z",
+      "side": 1,
+      "message": "Can you point me to the code that can\u0027t just extend JNIMacroAssembler? I\u0027m still confused by your explanation.",
+      "parentUuid": "e541c27a_fa67c01f",
+      "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
