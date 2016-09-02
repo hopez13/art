@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76ee6f74_3b6337e2",
+        "filename": "runtime/stack_reference.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:00:51Z",
+      "side": 1,
+      "message": "?\n\nWas MANAGED before, why PACKED(4) now?",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "3a21e386fa55a8b86dffa5250985b263fcfd2155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
