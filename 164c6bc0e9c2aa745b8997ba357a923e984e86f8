@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "312fa172_a74caac6",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "The external callers of the DexFile::Open* methods throw a java IO exception if open fails using the error message.\n\nNot sure if the comment refers to the case when verify \u003d\u003d true and dex_file \u003d\u003d nullptr? The verifier could overwrite the message in this case so added a check that dex_file is not null.",
+      "parentUuid": "51833587_40af4e82",
+      "range": {
+        "startLine": 247,
+        "startChar": 55,
+        "endLine": 247,
+        "endChar": 64
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "312fa172_47312e5d",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-02T09:21:51Z",
       "side": 1,
       "message": "dex file?",
+      "range": {
+        "startLine": 83,
+        "startChar": 44,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312fa172_c7f35e89",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Done. I\u0027m clearly the only one who thinks a bag of bytes that comes from a file could be called an image :-)",
+      "parentUuid": "312fa172_47312e5d",
       "range": {
         "startLine": 83,
         "startChar": 44,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "312fa172_c76a7e15",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Done. Naively I\u0027d prefer a stronger check as it\u0027d be a pretty fundamental mistake that\u0027s not triggered deterministically and extremely unlikely to be perf critical.",
+      "parentUuid": "318881a4_dfe5fbcc",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 76
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b11ab155_e39cd25f",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 15
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-02T09:21:51Z",
       "side": 1,
       "message": "Comment please.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 3
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312fa172_87608637",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Removed. No longer reachable with current finalization path. Would have indicated a logic error otherwise.",
+      "parentUuid": "b11ab155_e39cd25f",
       "range": {
         "startLine": 138,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "312fa172_a7658a46",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312fa172_e7214210",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 53
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91668dcf_7ad799dd",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 15
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-02T09:21:51Z",
       "side": 1,
       "message": "I don\u0027t understand this comment. What DexCache?",
+      "range": {
+        "startLine": 161,
+        "startChar": 6,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312fa172_e7f86268",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Removed comment. It\u0027s referring to the internals of the linker and the cache used when checking in uninitialize.",
+      "parentUuid": "91668dcf_7ad799dd",
       "range": {
         "startLine": 161,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "312fa172_070e5693",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312fa172_27243a1c",
+      "range": {
+        "startLine": 166,
+        "startChar": 53,
+        "endLine": 166,
+        "endChar": 60
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "312fa172_07273623",
         "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
         "patchSetId": 15
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-02T09:21:51Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 7
+      },
+      "revId": "164c6bc0e9c2aa745b8997ba357a923e984e86f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312fa172_270b5a84",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-02T10:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312fa172_07273623",
       "range": {
         "startLine": 156,
         "startChar": 0,
