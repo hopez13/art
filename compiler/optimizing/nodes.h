@@ -303,6 +303,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         blocks_(arena->Adapter(kArenaAllocBlockList)),
         reverse_post_order_(arena->Adapter(kArenaAllocReversePostOrder)),
         linear_order_(arena->Adapter(kArenaAllocLinearOrder)),
+        linear_order_state_(kLinearOrderNotAssessed),
         entry_block_(nullptr),
         exit_block_(nullptr),
         maximum_number_of_out_vregs_(0),
@@ -533,6 +534,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   ReferenceTypeInfo GetInexactObjectRti() const { return inexact_object_rti_; }
 
+  bool IsLinearOrderWellFormed();
+
  private:
   void RemoveInstructionsAsUsersFromDeadBlocks(const ArenaBitVector& visited) const;
   void RemoveDeadBlocks(const ArenaBitVector& visited);
@@ -567,6 +570,9 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // See CacheFloatConstant comment.
   void CacheDoubleConstant(HDoubleConstant* constant);
 
+  // Returns true if the linear order is well formed.
+  bool AssessLinearOrder() const;
+
   ArenaAllocator* const arena_;
 
   // List of blocks in insertion order.
@@ -577,6 +583,13 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   // List of blocks to perform a linear order tree traversal.
   ArenaVector<HBasicBlock*> linear_order_;
+
+  // Irreducible loops may produce invalid linear order. Cache the outcome of the test.
+  enum {
+    kLinearOrderWellFormed,
+    kLinearOrderIllFormed,
+    kLinearOrderNotAssessed,
+  } linear_order_state_;
 
   HBasicBlock* entry_block_;
   HBasicBlock* exit_block_;

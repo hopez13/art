@@ -564,6 +564,47 @@ void HGraph::CacheDoubleConstant(HDoubleConstant* constant) {
   cached_double_constants_.Overwrite(value, constant);
 }
 
+bool HGraph::AssessLinearOrder() const {
+  DCHECK(!linear_order_.empty());
+
+  for (HBasicBlock* header : GetBlocks()) {
+    if (header == nullptr || !header->IsLoopHeader()) {
+      continue;
+    }
+
+    HLoopInformation* loop = header->GetLoopInformation();
+    size_t num_blocks = loop->GetBlocks().NumSetBits();
+    size_t found_blocks = 0u;
+
+    for (HLinearOrderIterator it(*this); !it.Done(); it.Advance()) {
+      HBasicBlock* current = it.Current();
+      if (loop->Contains(*current)) {
+        found_blocks++;
+        if (found_blocks == 1u && current != header) {
+          // First block is not the header.
+          return false;
+        } else if (found_blocks == num_blocks && !loop->IsBackEdge(*current)) {
+          // Last block is not a back edge.
+          return false;
+        }
+      } else if (found_blocks != 0u && found_blocks != num_blocks) {
+        // Blocks are not adjacent.
+        return false;
+      }
+    }
+    DCHECK_EQ(found_blocks, num_blocks);
+  }
+
+  return true;
+}
+
+bool HGraph::IsLinearOrderWellFormed() {
+  if (linear_order_state_ == kLinearOrderNotAssessed) {
+    linear_order_state_ = AssessLinearOrder() ? kLinearOrderWellFormed : kLinearOrderIllFormed;
+  }
+  return linear_order_state_ == kLinearOrderWellFormed;
+}
+
 void HLoopInformation::Add(HBasicBlock* block) {
   blocks_.SetBit(block->GetBlockId());
 }
