@@ -197,9 +197,6 @@ endef
 # $(5): library dependencies (host only)
 # $(6): extra include directories
 # $(7): multilib (default: empty), valid values: {,32,64,both})
-# $(8): host prefer 32-bit: {true, false} (default: false).  If argument
-#       `multilib` is explicitly set to 64, ignore the "host prefer 32-bit"
-#       setting and only build a 64-bit executable on host.
 define build-art-multi-executable
   $(foreach debug_flavor,ndebug debug,
     $(foreach target_flavor,host target,
@@ -210,7 +207,6 @@ define build-art-multi-executable
       art-multi-lib-dependencies-host := $(5)
       art-multi-include-extra := $(6)
       art-multi-multilib := $(7)
-      art-multi-host-prefer-32-bit := $(8)
 
       # Add either -host or -target specific lib dependencies to the lib dependencies.
       art-multi-lib-dependencies += $$(art-multi-lib-dependencies-$(target_flavor))
@@ -222,14 +218,6 @@ define build-art-multi-executable
 
       # Build the env guard var name, e.g. ART_BUILD_HOST_NDEBUG.
       art-multi-env-guard := $$(call art-string-to-uppercase,ART_BUILD_$(target_flavor)_$(debug_flavor))
-
-      ifeq ($(target_flavor),host)
-        ifeq ($$(art-multi-host-prefer-32-bit),true)
-          ifneq ($$(art-multi-multilib),64)
-            art-multi-multilib := 32
-          endif
-        endif
-      endif
 
       # Build the art executable only if the corresponding env guard was set.
       ifeq ($$($$(art-multi-env-guard)),true)
@@ -244,7 +232,6 @@ define build-art-multi-executable
       art-multi-lib-dependencies-host :=
       art-multi-include-extra :=
       art-multi-multilib :=
-      art-multi-host-prefer-32-bit :=
       art-multi-env-guard :=
     )
   )

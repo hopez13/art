@@ -38,14 +38,7 @@ else
   dex2oat_target_arch := 32
 endif
 
-ifeq ($(HOST_PREFER_32_BIT),true)
-  # We need to explicitly restrict the host arch to 32-bit only, as
-  # giving 'both' would make build-art-executable generate a build
-  # rule for a 64-bit dex2oat executable too.
-  dex2oat_host_arch := 32
-else
-  dex2oat_host_arch := both
-endif
+dex2oat_host_arch := both
 
 ifeq ($(ART_BUILD_TARGET_NDEBUG),true)
   $(eval $(call build-art-executable,dex2oat,$(DEX2OAT_SRC_FILES),libcutils libart-compiler libsigchain,art/compiler,target,ndebug,$(dex2oat_target_arch)))

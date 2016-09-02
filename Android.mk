@@ -164,12 +164,9 @@ test-art-run-test: test-art-host-run-test test-art-target-run-test
 # host test rules
 
 VIXL_TEST_DEPENDENCY :=
-# We can only run the vixl tests on 64-bit hosts (vixl testing issue) when its a
-# top-level build (to declare the vixl test rule).
-ifneq ($(HOST_PREFER_32_BIT),true)
+# We can only run when its a top-level build (to declare the vixl test rule).
 ifeq ($(ONE_SHOT_MAKEFILE),)
 VIXL_TEST_DEPENDENCY := run-vixl-tests
-endif
 endif
 
 .PHONY: test-art-host-vixl
@@ -224,7 +221,6 @@ test-art-host-jit$(ART_PHONY_TEST_HOST_SUFFIX): test-art-host-run-test-jit$(ART_
 	$(hide) $(call ART_TEST_PREREQ_FINISHED,$@)
 
 # Secondary host architecture variants:
-ifneq ($(HOST_PREFER_32_BIT),true)
 .PHONY: test-art-host$(2ND_ART_PHONY_TEST_HOST_SUFFIX)
 test-art-host$(2ND_ART_PHONY_TEST_HOST_SUFFIX): test-art-host-gtest$(2ND_ART_PHONY_TEST_HOST_SUFFIX) \
     test-art-host-run-test$(2ND_ART_PHONY_TEST_HOST_SUFFIX)
@@ -245,7 +241,6 @@ test-art-host-interpreter$(2ND_ART_PHONY_TEST_HOST_SUFFIX): test-art-host-run-te
 .PHONY: test-art-host-jit$(2ND_ART_PHONY_TEST_HOST_SUFFIX)
 test-art-host-jit$(2ND_ART_PHONY_TEST_HOST_SUFFIX): test-art-host-run-test-jit$(2ND_ART_PHONY_TEST_HOST_SUFFIX)
 	$(hide) $(call ART_TEST_PREREQ_FINISHED,$@)
-endif
 
 # Dexdump/list regression test.
 .PHONY: test-art-host-dexdump

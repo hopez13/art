@@ -702,9 +702,7 @@ valgrind-test-art-target-gtest-$$(art_gtest_name): $$(ART_TEST_TARGET_VALGRIND_G
 
     ART_TEST_HOST_GTEST_$$(art_gtest_name)_RULES :=
     ART_TEST_HOST_VALGRIND_GTEST_$$(art_gtest_name)_RULES :=
-    ifneq ($$(HOST_PREFER_32_BIT),true)
-      $$(eval $$(call define-art-gtest-rule-host,$$(art_gtest_name),2ND_))
-    endif
+    $$(eval $$(call define-art-gtest-rule-host,$$(art_gtest_name),2ND_))
     $$(eval $$(call define-art-gtest-rule-host,$$(art_gtest_name),))
 
     # Rules to run the different architecture versions of the gtest.
@@ -795,10 +793,8 @@ $(eval $(call define-test-art-gtest-combination,host,HOST,,))
 $(eval $(call define-test-art-gtest-combination,host,HOST,valgrind-,))
 $(eval $(call define-test-art-gtest-combination,host,HOST,,$(ART_PHONY_TEST_HOST_SUFFIX)))
 $(eval $(call define-test-art-gtest-combination,host,HOST,valgrind-,$(ART_PHONY_TEST_HOST_SUFFIX)))
-ifneq ($(HOST_PREFER_32_BIT),true)
 $(eval $(call define-test-art-gtest-combination,host,HOST,,$(2ND_ART_PHONY_TEST_HOST_SUFFIX)))
 $(eval $(call define-test-art-gtest-combination,host,HOST,valgrind-,$(2ND_ART_PHONY_TEST_HOST_SUFFIX)))
-endif
 
 # Clear locally defined variables.
 define-art-gtest-rule-target :=

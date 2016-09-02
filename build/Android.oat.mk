@@ -156,10 +156,8 @@ define create-core-oat-host-rule-combination
   $(call create-core-oat-host-rules,$(1),no-pic,,$(2),$(3),$(4))
   $(call create-core-oat-host-rules,$(1),pic,,$(2),$(3),$(4))
 
-  ifneq ($(HOST_PREFER_32_BIT),true)
-    $(call create-core-oat-host-rules,$(1),no-pic,2ND_,$(2),$(3),$(4))
-    $(call create-core-oat-host-rules,$(1),pic,2ND_,$(2),$(3),$(4))
-  endif
+  $(call create-core-oat-host-rules,$(1),no-pic,2ND_,$(2),$(3),$(4))
+  $(call create-core-oat-host-rules,$(1),pic,2ND_,$(2),$(3),$(4))
 endef
 
 $(eval $(call create-core-oat-host-rule-combination,default,,,false))
