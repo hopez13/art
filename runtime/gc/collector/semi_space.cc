@@ -264,7 +264,13 @@ void SemiSpace::MarkingPhase() {
   // space.
   RecordFree(ObjectBytePair(from_objects - to_objects, from_bytes - to_bytes));
   // Clear and protect the from space.
-  from_space_->Clear();
+  // b/31172841. Temporarily disable using madvise under gcstress mode with debug build
+  // due to some protection issue in the build server.
+  if (!(kIsDebugBuild && heap_->gc_stress_mode_)) {
+    from_space_->Clear();
+  } else {
+    from_space_->ClearWithoutMadviseOrMemset();
+  }
   // b/31172841. Temporarily disable the from-space protection under gcstress mode with debug build
   // due to some protection issue in the build server.
   if (kProtectFromSpace && !(kIsDebugBuild && heap_->gc_stress_mode_)) {
@@ -587,8 +593,22 @@ mirror::Object* SemiSpace::MarkNonForwardedObject(mirror::Object* obj) {
   bytes_moved_ += bytes_allocated;
   // Copy over the object and add it to the mark stack since we still need to update its
   // references.
-  saved_bytes_ +=
-      CopyAvoidingDirtyingPages(reinterpret_cast<void*>(forward_address), obj, object_size);
+  // b/31172841. Temporarily disable using CopyAvoidingDirtyingPages or memcpy under gcstress mode
+  // with debug build due to some protection issue in the build server.
+  if (!(kIsDebugBuild && heap_->gc_stress_mode_)) {
+    saved_bytes_ +=
+        CopyAvoidingDirtyingPages(reinterpret_cast<void*>(forward_address), obj, object_size);
+  } else {
+    DCHECK_ALIGNED(forward_address, kObjectAlignment);
+    DCHECK_ALIGNED(obj, kObjectAlignment);
+    DCHECK_EQ(sizeof(uint64_t), kObjectAlignment);
+    uint64_t* dest = reinterpret_cast<uint64_t*>(forward_address);
+    uint64_t* src = reinterpret_cast<uint64_t*>(obj);
+    size_t count = RoundUp(object_size, kObjectAlignment) / kObjectAlignment;
+    for (size_t i = 0; i < count; ++i) {
+      dest[i] = src[i];
+    }
+  }
   if (kUseBakerOrBrooksReadBarrier) {
     obj->AssertReadBarrierPointer();
     if (kUseBrooksReadBarrier) {
