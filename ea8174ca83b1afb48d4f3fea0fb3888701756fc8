@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96e9236c_e20be67f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-02T10:59:58Z",
+      "side": 1,
+      "message": "camel case? I think that\u0027s the style guide but didn\u0027t check.",
+      "range": {
+        "startLine": 592,
+        "startChar": 4,
+        "endLine": 592,
+        "endChar": 23
+      },
+      "revId": "ea8174ca83b1afb48d4f3fea0fb3888701756fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_3ece8955",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-02T10:59:58Z",
+      "side": 1,
+      "message": "If this doesn\u0027t change, then why not DCHECK in some other method that we know is not called that many times.",
+      "range": {
+        "startLine": 995,
+        "startChar": 3,
+        "endLine": 995,
+        "endChar": 63
+      },
+      "revId": "ea8174ca83b1afb48d4f3fea0fb3888701756fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
