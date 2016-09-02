@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b11ab155_6333824e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-02T11:57:56Z",
+      "side": 1,
+      "message": "Any reason why this got put into the mirror namespace? Somehow mirror always reasonates as managed classes for me.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 62
+      },
+      "revId": "bf44e0e5281de91f2e38a9378b94ef8c50ad9b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8b21311_bc26a11c",
         "filename": "runtime/mirror/dex_cache.h",
         "patchSetId": 17
