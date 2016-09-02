@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "76ee6f74_eaddfbff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-02T17:34:08Z",
+      "side": 1,
+      "message": "Did you run the tests with graph-coloring?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_473d02ed",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-02T17:34:08Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1232,
+        "startChar": 2,
+        "endLine": 1232,
+        "endChar": 10
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_2742fe60",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-02T17:34:08Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1244,
+        "startChar": 2,
+        "endLine": 1244,
+        "endChar": 10
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_670b662e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-02T17:34:08Z",
+      "side": 1,
+      "message": "Maybe consider a very simple helper function to have some more expressive name here, e.g., maybe:\n\n  SetNoCallerSaves(locations)",
+      "range": {
+        "startLine": 4000,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 89
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91668dcf_9a0f0d43",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 7
