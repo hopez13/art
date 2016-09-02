@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "76ee6f74_aa4ece34",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-02T22:18:55Z",
+      "side": 1,
+      "message": "I think for now make system decides what can be run in what configuration. I\u0027ll see if I can integrate bisection search with the make path and handle those tests there.",
+      "parentUuid": "76ee6f74_dbb56bec",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ee6f74_1bacf3a4",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -64,6 +82,24 @@
       "writtenOn": "2016-09-02T21:07:39Z",
       "side": 1,
       "message": "why?",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_caea32ff",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-02T22:18:55Z",
+      "side": 1,
+      "message": "It was tricky for example because run-test-jar runs on host, but should collect output from device. Fixed.",
+      "parentUuid": "76ee6f74_fba82f92",
       "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
