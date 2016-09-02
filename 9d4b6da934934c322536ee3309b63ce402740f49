@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96e9236c_a286febe",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-02T14:52:27Z",
+      "side": 1,
+      "message": "Why is that not optimization_flags \u003d\u003d Compiler::kFastNative?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 69
+      },
+      "revId": "9d4b6da934934c322536ee3309b63ce402740f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51833587_60361240",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-02T14:52:27Z",
+      "side": 1,
+      "message": "nit: i\u0027d probably avoid the temporary.",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 89
+      },
+      "revId": "9d4b6da934934c322536ee3309b63ce402740f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
