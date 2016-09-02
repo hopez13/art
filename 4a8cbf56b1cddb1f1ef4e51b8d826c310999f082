@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b11ab155_03b2ceec",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "We can save 2 instructions here:\n\n  add     r12, r9, r3, lsl #(ROSALLOC_BRACKET_QUANTUM_SIZE_SHIFT - POINTER_SIZE_SHIFT)\n  ldr     r12, [r12, #(THREAD_ROSALLOC_RUNS_OFFSET - POINTER_SIZE)]",
+      "range": {
+        "startLine": 1104,
+        "startChar": 0,
+        "endLine": 1110,
+        "endChar": 51
+      },
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_41b672d8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1883,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "Save 2 instructions, see arm.",
+      "range": {
+        "startLine": 1877,
+        "startChar": 0,
+        "endLine": 1883,
+        "endChar": 49
+      },
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51833587_80a9567e",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "Add comma, semicolon or \"as\".",
+      "range": {
+        "startLine": 918,
+        "startChar": 71,
+        "endLine": 918,
+        "endChar": 72
+      },
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e9236c_e2b406d2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "rax; also add comma, semicolon or \"as\".",
+      "range": {
+        "startLine": 956,
+        "startChar": 80,
+        "endLine": 956,
+        "endChar": 83
+      },
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "512a5561_881257c3",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "Remove space? There is already a space in the failure message, right?",
+      "range": {
+        "startLine": 52,
+        "startChar": 68,
+        "endLine": 52,
+        "endChar": 69
+      },
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "512a5561_c81c4fd9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-02T09:29:06Z",
+      "side": 1,
+      "message": "You don\u0027t need to SetObjectSizeAllocFastPath(object_size) for finalizable.",
+      "revId": "4a8cbf56b1cddb1f1ef4e51b8d826c310999f082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
