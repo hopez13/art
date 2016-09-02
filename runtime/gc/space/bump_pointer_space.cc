@@ -82,6 +82,29 @@ void BumpPointerSpace::Clear() {
   }
 }
 
+void BumpPointerSpace::ClearWithoutMadviseOrMemset() {
+  // Doesn't use madvise or memset. Doesn't release the pages back to the operating system.
+  uint64_t* begin = reinterpret_cast<uint64_t*>(Begin());
+  uint64_t* limit = reinterpret_cast<uint64_t*>(Limit());
+  DCHECK_ALIGNED(begin, sizeof(uint64_t));
+  DCHECK_ALIGNED(limit, sizeof(uint64_t));
+  size_t count = limit - begin;
+  for (size_t i = 0; i < count; ++i) {
+    begin[i] = 0;
+  }
+  // Reset the end of the space back to the beginning, we move the end forward as we allocate
+  // objects.
+  SetEnd(Begin());
+  objects_allocated_.StoreRelaxed(0);
+  bytes_allocated_.StoreRelaxed(0);
+  growth_end_ = Limit();
+  {
+    MutexLock mu(Thread::Current(), block_lock_);
+    num_blocks_ = 0;
+    main_block_size_ = 0;
+  }
+}
+
 void BumpPointerSpace::Dump(std::ostream& os) const {
   os << GetName() << " "
       << reinterpret_cast<void*>(Begin()) << "-" << reinterpret_cast<void*>(End()) << " - "

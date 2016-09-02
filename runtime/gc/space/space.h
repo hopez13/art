@@ -428,6 +428,9 @@ class ContinuousMemMapAllocSpace : public MemMapSpace, public AllocSpace {
 
   // Clear the space back to an empty space.
   virtual void Clear() = 0;
+  virtual void ClearWithoutMadviseOrMemset() {
+    Clear();
+  }
 
   accounting::ContinuousSpaceBitmap* GetLiveBitmap() const OVERRIDE {
     return live_bitmap_.get();

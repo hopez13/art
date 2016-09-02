@@ -100,6 +100,7 @@ class BumpPointerSpace FINAL : public ContinuousMemMapAllocSpace {
 
   // Reset the space to empty.
   void Clear() OVERRIDE REQUIRES(!block_lock_);
+  void ClearWithoutMadviseOrMemset() OVERRIDE REQUIRES(!block_lock_);
 
   void Dump(std::ostream& os) const;
 
