@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "91668dcf_3ad0c1be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-02T11:59:10Z",
+      "side": 1,
+      "message": "Got it.\n\nThat\u0027s a tricky point. I don\u0027t think the symlink strategy is viable. As you said installd always passes descriptors and that\u0027s unlikely to change. Also, you\u0027ll not have the permissions to create links there (unlikely to change as well).\n\nI think we\u0027ll need to accept a hard copy for now. Or be prepared to handle the complexity of a different vdex location.\n\nGiven that a hard copy is not actually a regression I\u0027d start with that.",
+      "parentUuid": "310a415e_d25bc280",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "111c5dae_4641d259",
         "filename": "build/Android.oat.mk",
         "patchSetId": 3
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Yeah, I was thinking the same, but I\u0027d rather not get stuck in nitty-gritty nice-to-have refactors right now.",
       "parentUuid": "111c5dae_4641d259",
+      "range": {
+        "startLine": 279,
+        "startChar": 44,
+        "endLine": 280,
+        "endChar": 45
+      },
+      "revId": "9f03cc08c15f860ffc28e394af3e528b710e1abb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1191bdce_dec8a51b",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-02T11:59:10Z",
+      "side": 1,
+      "message": "I think this qualifies for more than nitty-gritty details.\n\nOnce you introduce the concept is hard to get rid of it. Based on my personal experience wil \"*-location\" I think this will be a headache. (dex-location, oat-location, vdex-location...)\n\nParticular places were the management of different keys will be tricky and complex:\n\n- class linker: once you move to implement vdex without having an oat file things will get tricky. What\u0027s the plan forward for that?\n\n- profiling: different keys will make profiling matching a pain. Right now we\u0027re based on the dex location, but I expect we might need to change that in the presence of vdex.",
+      "parentUuid": "111c5dae_26a016a5",
       "range": {
         "startLine": 279,
         "startChar": 44,
