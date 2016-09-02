@@ -88,6 +88,24 @@
       "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_4743c295",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-02T16:23:57Z",
+      "side": 1,
+      "message": "Oh, you mean the other way around? Of course they all can - and then they all duplicate the part this delegate implements.\n\nIf I or ImgTec get around to it and translate Mips assemblers, with the move to vixl32 everything would be a Fwd, so we could then merge this back into the base class.",
+      "parentUuid": "312fa172_87896681",
+      "revId": "3b165bc53c2f063e3a9c644d0edc7bc30c634884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
