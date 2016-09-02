@@ -53,6 +53,69 @@
     },
     {
       "key": {
+        "uuid": "76ee6f74_3b8a1770",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:03:48Z",
+      "side": 1,
+      "message": "True",
+      "range": {
+        "startLine": 177,
+        "startChar": 15,
+        "endLine": 177,
+        "endChar": 19
+      },
+      "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_1b9f53b2",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:03:48Z",
+      "side": 1,
+      "message": "False",
+      "range": {
+        "startLine": 177,
+        "startChar": 42,
+        "endLine": 177,
+        "endChar": 47
+      },
+      "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_5bd39b57",
+        "filename": "tools/bisection-search/bisection_search.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:03:48Z",
+      "side": 1,
+      "message": "Does this screw up the doc inheritance if you leave it like this?\n\nI think \n  # See base class for docstring\n\nwould make more sense if that\u0027s the case.",
+      "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1be3135_cce443a1",
         "filename": "tools/bisection-search/bisection_search.py",
         "patchSetId": 3
@@ -81,6 +144,23 @@
       "writtenOn": "2016-09-02T00:15:09Z",
       "side": 1,
       "message": "make this description a bit longer, you may push several; also say what the input means, and what the files pushed to device mean",
+      "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_fb870f45",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:03:48Z",
+      "side": 1,
+      "message": "Why not a list of strings? It can be joined with : later.",
       "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
