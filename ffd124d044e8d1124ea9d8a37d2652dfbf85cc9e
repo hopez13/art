@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76ee6f74_dbb56bec",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:07:39Z",
+      "side": 1,
+      "message": "This seems like a hack, I\u0027d rather have each test directory have a file that can check whether or not it\u0027s allowed to run based on the current run-test flags.\n\nThoughts anyone else?",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_3bd21723",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:07:39Z",
+      "side": 1,
+      "message": "This seems like a hack, I\u0027d rather have each test directory have a file that can check whether or not it\u0027s allowed to run based on the current run-test flags.\n\nThoughts anyone else?",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_1bacf3a4",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:07:39Z",
+      "side": 1,
+      "message": "This seems like a hack, perhaps we can generalize this?\n\nOne way might be to have each test directory have a file (e.g. check_if_enabled) that will receive the args and then return either 0 or 1 if the test should be enabled or not.\n\nAnd even that might not be that great because if you could just have a better generalization on why these tests fail for bisection search then we wouldn\u0027t have to have test-specific logic.\n\nThoughts anyone else?",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ee6f74_fba82f92",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-02T21:07:39Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "ffd124d044e8d1124ea9d8a37d2652dfbf85cc9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
