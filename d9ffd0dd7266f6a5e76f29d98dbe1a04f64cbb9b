@@ -289,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "16fd3327_fee021bc",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-02T11:44:01Z",
+      "side": 1,
+      "message": "They\u0027re meaningful also for regular calls, where we need to know live callee-savee registers (IIRC).",
+      "parentUuid": "b977f3bf_fb57e0cd",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_5edda20d",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 34
