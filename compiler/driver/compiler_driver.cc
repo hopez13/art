@@ -617,8 +617,10 @@ static void CompileMethod(Thread* self,
               invoke_type);
 
       bool fast_native = false;
+      bool critical_native = false;
       if (LIKELY(method != nullptr)) {
         fast_native = method->IsAnnotatedWithFastNative();
+        critical_native = method->IsAnnotatedWithCriticalNative();
       } else {
         // Failed method resolutions happen very rarely, e.g. ancestor class cannot be resolved.
         DCHECK(self->IsExceptionPending());
@@ -627,6 +629,10 @@ static void CompileMethod(Thread* self,
 
       Compiler::JniOptimizationFlags optimization_flags =
           fast_native ? Compiler::kFastNative : Compiler::kNone;
+      if (critical_native) {
+        CHECK(!fast_native);
+        optimization_flags = Compiler::kCriticalNative;
+      }
       compiled_method = driver->GetCompiler()->JniCompile(access_flags,
                                                           method_idx,
                                                           dex_file,
