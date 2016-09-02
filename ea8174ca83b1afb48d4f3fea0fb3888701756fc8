@@ -93,6 +93,30 @@
       "revId": "ea8174ca83b1afb48d4f3fea0fb3888701756fc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1191bdce_1ed3edcd",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-02T11:51:25Z",
+      "side": 1,
+      "message": "IMO caching the value makes little sense. Why would you *repeatedly* test something that never change?",
+      "parentUuid": "91668dcf_7a05d969",
+      "range": {
+        "startLine": 995,
+        "startChar": 3,
+        "endLine": 995,
+        "endChar": 63
+      },
+      "revId": "ea8174ca83b1afb48d4f3fea0fb3888701756fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
