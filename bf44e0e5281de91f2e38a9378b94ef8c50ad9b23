@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76ee6f74_07feda98",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1109993
+      },
+      "writtenOn": "2016-09-02T17:22:56Z",
+      "side": 1,
+      "message": "Between patches 1 and 2 in dex_cache.h, you can see the transition--originally using StringDexCacheType was in dex_cache.h outside of the class, so that\u0027s where I put the struct to declare it once I was to switch to a struct. This is pretty easy to change, though, I can today if you feel it is cleaner in the class.",
+      "parentUuid": "b11ab155_6333824e",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 62
+      },
+      "revId": "bf44e0e5281de91f2e38a9378b94ef8c50ad9b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8b21311_bc26a11c",
         "filename": "runtime/mirror/dex_cache.h",
         "patchSetId": 17
