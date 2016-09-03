@@ -454,6 +454,31 @@ uint32_t DexFileVerifier::ReadUnsignedLittleEndian(uint32_t size) {
   return result;
 }
 
+
+#define DECODE_UNSIGNED_CHECKED_FROM_WITH_ERROR_VALUE(ptr, var, error_value)  \
+  uint32_t var;                                                               \
+  if (!DecodeUnsignedLeb128Checked(&ptr, begin_ + size_, &var)) {             \
+    return error_value;                                                       \
+  }
+
+#define DECODE_UNSIGNED_CHECKED_FROM(ptr, var)                      \
+  uint32_t var;                                                     \
+  if (!DecodeUnsignedLeb128Checked(&ptr, begin_ + size_, &var)) {   \
+    ErrorStringPrintf("Read out of bounds");                        \
+    return false;                                                   \
+  }
+
+#define DECODE_UNSIGNED_CHECKED(var) DECODE_UNSIGNED_CHECKED_FROM(ptr_, var)
+
+#define DECODE_SIGNED_CHECKED_FROM(ptr, var)                      \
+  int32_t var;                                                    \
+  if (!DecodeSignedLeb128Checked(&ptr, begin_ + size_, &var)) {   \
+    ErrorStringPrintf("Read out of bounds");                      \
+    return false;                                                 \
+  }
+
+#define DECODE_SIGNED_CHECKED(var) DECODE_SIGNED_CHECKED_FROM(ptr_, var)
+
 bool DexFileVerifier::CheckAndGetHandlerOffsets(const DexFile::CodeItem* code_item,
                                                 uint32_t* handler_offsets, uint32_t handlers_size) {
   const uint8_t* handlers_base = DexFile::GetCatchHandlerData(*code_item, 0);
@@ -461,7 +486,7 @@ bool DexFileVerifier::CheckAndGetHandlerOffsets(const DexFile::CodeItem* code_it
   for (uint32_t i = 0; i < handlers_size; i++) {
     bool catch_all;
     size_t offset = ptr_ - handlers_base;
-    int32_t size = DecodeSignedLeb128(&ptr_);
+    DECODE_SIGNED_CHECKED(size);
 
     if (UNLIKELY((size < -65536) || (size > 65536))) {
       ErrorStringPrintf("Invalid exception handler size: %d", size);
@@ -478,12 +503,12 @@ bool DexFileVerifier::CheckAndGetHandlerOffsets(const DexFile::CodeItem* code_it
     handler_offsets[i] = static_cast<uint32_t>(offset);
 
     while (size-- > 0) {
-      uint32_t type_idx = DecodeUnsignedLeb128(&ptr_);
+      DECODE_UNSIGNED_CHECKED(type_idx);
       if (!CheckIndex(type_idx, header_->type_ids_size_, "handler type_idx")) {
         return false;
       }
 
-      uint32_t addr = DecodeUnsignedLeb128(&ptr_);
+      DECODE_UNSIGNED_CHECKED(addr);
       if (UNLIKELY(addr >= code_item->insns_size_in_code_units_)) {
         ErrorStringPrintf("Invalid handler addr: %x", addr);
         return false;
@@ -491,7 +516,7 @@ bool DexFileVerifier::CheckAndGetHandlerOffsets(const DexFile::CodeItem* code_it
     }
 
     if (catch_all) {
-      uint32_t addr = DecodeUnsignedLeb128(&ptr_);
+      DECODE_UNSIGNED_CHECKED(addr);
       if (UNLIKELY(addr >= code_item->insns_size_in_code_units_)) {
         ErrorStringPrintf("Invalid handler catch_all_addr: %x", addr);
         return false;
@@ -726,7 +751,7 @@ bool DexFileVerifier::CheckEncodedValue() {
 }
 
 bool DexFileVerifier::CheckEncodedArray() {
-  uint32_t size = DecodeUnsignedLeb128(&ptr_);
+  DECODE_UNSIGNED_CHECKED(size);
 
   while (size--) {
     if (!CheckEncodedValue()) {
@@ -738,16 +763,16 @@ bool DexFileVerifier::CheckEncodedArray() {
 }
 
 bool DexFileVerifier::CheckEncodedAnnotation() {
-  uint32_t idx = DecodeUnsignedLeb128(&ptr_);
-  if (!CheckIndex(idx, header_->type_ids_size_, "encoded_annotation type_idx")) {
+  DECODE_UNSIGNED_CHECKED(anno_idx);
+  if (!CheckIndex(anno_idx, header_->type_ids_size_, "encoded_annotation type_idx")) {
     return false;
   }
 
-  uint32_t size = DecodeUnsignedLeb128(&ptr_);
+  DECODE_UNSIGNED_CHECKED(size);
   uint32_t last_idx = 0;
 
   for (uint32_t i = 0; i < size; i++) {
-    idx = DecodeUnsignedLeb128(&ptr_);
+    DECODE_UNSIGNED_CHECKED(idx);
     if (!CheckIndex(idx, header_->string_ids_size_, "annotation_element name_idx")) {
       return false;
     }
@@ -1002,7 +1027,7 @@ bool DexFileVerifier::CheckIntraCodeItem() {
   }
 
   ptr_ = DexFile::GetCatchHandlerData(*code_item, 0);
-  uint32_t handlers_size = DecodeUnsignedLeb128(&ptr_);
+  DECODE_UNSIGNED_CHECKED(handlers_size);
 
   if (UNLIKELY((handlers_size == 0) || (handlers_size >= 65536))) {
     ErrorStringPrintf("Invalid handlers_size: %ud", handlers_size);
@@ -1051,7 +1076,7 @@ bool DexFileVerifier::CheckIntraCodeItem() {
 }
 
 bool DexFileVerifier::CheckIntraStringDataItem() {
-  uint32_t size = DecodeUnsignedLeb128(&ptr_);
+  DECODE_UNSIGNED_CHECKED(size);
   const uint8_t* file_end = begin_ + size_;
 
   for (uint32_t i = 0; i < size; i++) {
@@ -1137,15 +1162,15 @@ bool DexFileVerifier::CheckIntraStringDataItem() {
 }
 
 bool DexFileVerifier::CheckIntraDebugInfoItem() {
-  DecodeUnsignedLeb128(&ptr_);
-  uint32_t parameters_size = DecodeUnsignedLeb128(&ptr_);
+  DECODE_UNSIGNED_CHECKED(dummy);
+  DECODE_UNSIGNED_CHECKED(parameters_size);
   if (UNLIKELY(parameters_size > 65536)) {
     ErrorStringPrintf("Invalid parameters_size: %x", parameters_size);
     return false;
   }
 
   for (uint32_t j = 0; j < parameters_size; j++) {
-    uint32_t parameter_name = DecodeUnsignedLeb128(&ptr_);
+    DECODE_UNSIGNED_CHECKED(parameter_name);
     if (parameter_name != 0) {
       parameter_name--;
       if (!CheckIndex(parameter_name, header_->string_ids_size_, "debug_info_item parameter_name")) {
@@ -1161,27 +1186,27 @@ bool DexFileVerifier::CheckIntraDebugInfoItem() {
         return true;
       }
       case DexFile::DBG_ADVANCE_PC: {
-        DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(advance_pc_dummy);
         break;
       }
       case DexFile::DBG_ADVANCE_LINE: {
-        DecodeSignedLeb128(&ptr_);
+        DECODE_SIGNED_CHECKED(advance_line_dummy);
         break;
       }
       case DexFile::DBG_START_LOCAL: {
-        uint32_t reg_num = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(reg_num);
         if (UNLIKELY(reg_num >= 65536)) {
           ErrorStringPrintf("Bad reg_num for opcode %x", opcode);
           return false;
         }
-        uint32_t name_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(name_idx);
         if (name_idx != 0) {
           name_idx--;
           if (!CheckIndex(name_idx, header_->string_ids_size_, "DBG_START_LOCAL name_idx")) {
             return false;
           }
         }
-        uint32_t type_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(type_idx);
         if (type_idx != 0) {
           type_idx--;
           if (!CheckIndex(type_idx, header_->type_ids_size_, "DBG_START_LOCAL type_idx")) {
@@ -1192,7 +1217,7 @@ bool DexFileVerifier::CheckIntraDebugInfoItem() {
       }
       case DexFile::DBG_END_LOCAL:
       case DexFile::DBG_RESTART_LOCAL: {
-        uint32_t reg_num = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(reg_num);
         if (UNLIKELY(reg_num >= 65536)) {
           ErrorStringPrintf("Bad reg_num for opcode %x", opcode);
           return false;
@@ -1200,26 +1225,26 @@ bool DexFileVerifier::CheckIntraDebugInfoItem() {
         break;
       }
       case DexFile::DBG_START_LOCAL_EXTENDED: {
-        uint32_t reg_num = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(reg_num);
         if (UNLIKELY(reg_num >= 65536)) {
           ErrorStringPrintf("Bad reg_num for opcode %x", opcode);
           return false;
         }
-        uint32_t name_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(name_idx);
         if (name_idx != 0) {
           name_idx--;
           if (!CheckIndex(name_idx, header_->string_ids_size_, "DBG_START_LOCAL_EXTENDED name_idx")) {
             return false;
           }
         }
-        uint32_t type_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(type_idx);
         if (type_idx != 0) {
           type_idx--;
           if (!CheckIndex(type_idx, header_->type_ids_size_, "DBG_START_LOCAL_EXTENDED type_idx")) {
             return false;
           }
         }
-        uint32_t sig_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(sig_idx);
         if (sig_idx != 0) {
           sig_idx--;
           if (!CheckIndex(sig_idx, header_->string_ids_size_, "DBG_START_LOCAL_EXTENDED sig_idx")) {
@@ -1229,7 +1254,7 @@ bool DexFileVerifier::CheckIntraDebugInfoItem() {
         break;
       }
       case DexFile::DBG_SET_FILE: {
-        uint32_t name_idx = DecodeUnsignedLeb128(&ptr_);
+        DECODE_UNSIGNED_CHECKED(name_idx);
         if (name_idx != 0) {
           name_idx--;
           if (!CheckIndex(name_idx, header_->string_ids_size_, "DBG_SET_FILE name_idx")) {
@@ -2127,7 +2152,7 @@ bool DexFileVerifier::CheckInterAnnotationSetItem() {
     const DexFile::AnnotationItem* annotation =
         reinterpret_cast<const DexFile::AnnotationItem*>(begin_ + *offsets);
     const uint8_t* data = annotation->annotation_;
-    uint32_t idx = DecodeUnsignedLeb128(&data);
+    DECODE_UNSIGNED_CHECKED_FROM(data, idx);
 
     if (UNLIKELY(last_idx >= idx && i != 0)) {
       ErrorStringPrintf("Out-of-order entry types: %x then %x", last_idx, idx);
@@ -2442,7 +2467,10 @@ static std::string GetStringOrError(const uint8_t* const begin,
   // Assume that the data is OK at this point. String data has been checked at this point.
 
   const uint8_t* ptr = begin + string_id->string_data_off_;
-  DecodeUnsignedLeb128(&ptr);
+  uint32_t dummy;
+  if (!DecodeUnsignedLeb128Checked(&ptr, begin + header->file_size_, &dummy)) {
+    return "(error)";
+  }
   return reinterpret_cast<const char*>(ptr);
 }
 
@@ -2604,7 +2632,11 @@ static bool FindMethodName(uint32_t method_index,
     return false;
   }
   const uint8_t* str_data_ptr = begin + string_off;
-  DecodeUnsignedLeb128(&str_data_ptr);
+  uint32_t dummy;
+  if (!DecodeUnsignedLeb128Checked(&str_data_ptr, begin + header->file_size_, &dummy)) {
+    *error_msg = "String size out of bounds for method flags verification";
+    return false;
+  }
   *str = reinterpret_cast<const char*>(str_data_ptr);
   return true;
 }
