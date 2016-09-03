@@ -175,6 +175,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
   uint32_t type_index = load_class->GetTypeIndex();
 
   bool is_in_dex_cache = false;
+  bool is_in_boot_image = false;
   HLoadClass::LoadKind desired_load_kind;
   uint64_t address = 0u;  // Class or dex cache element address.
   {
@@ -190,6 +191,8 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
     if (compiler_driver_->IsBootImage()) {
       // Compiling boot image. Check if the class is a boot image class.
       DCHECK(!runtime->UseJitCompilation());
+      is_in_boot_image = compiler_driver_->IsImageClass(
+          dex_file.StringDataByIdx(dex_file.GetTypeId(type_index).descriptor_idx_));
       if (!compiler_driver_->GetSupportBootImageFixup()) {
         // MIPS/MIPS64 or compiler_driver_test. Do not sharpen.
         desired_load_kind = HLoadClass::LoadKind::kDexCacheViaMethod;
@@ -211,7 +214,8 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
       // TODO: Make sure we don't set the "compile PIC" flag for JIT as that's bogus.
       // DCHECK(!codegen_->GetCompilerOptions().GetCompilePic());
       is_in_dex_cache = (klass != nullptr);
-      if (klass != nullptr && runtime->GetHeap()->ObjectIsInBootImageSpace(klass)) {
+      is_in_boot_image = runtime->GetHeap()->ObjectIsInBootImageSpace(klass);
+      if (is_in_dex_cache && is_in_boot_image) {
         // TODO: Use direct pointers for all non-moving spaces, not just boot image. Bug: 29530787
         desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
         address = reinterpret_cast64<uint64_t>(klass);
@@ -226,9 +230,10 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
         address = reinterpret_cast64<uint64_t>(dex_cache_element_address);
       }
     } else {
+      is_in_boot_image = runtime->GetHeap()->ObjectIsInBootImageSpace(klass);
       // AOT app compilation. Check if the class is in the boot image.
       if ((klass != nullptr) &&
-          runtime->GetHeap()->ObjectIsInBootImageSpace(klass) &&
+          is_in_boot_image &&
           !codegen_->GetCompilerOptions().GetCompilePic()) {
         desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
         address = reinterpret_cast64<uint64_t>(klass);
@@ -245,6 +250,9 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
   }
   if (is_in_dex_cache) {
     load_class->MarkInDexCache();
+  }
+  if (is_in_boot_image) {
+    load_class->MarkInBootImage();
   }
 
   HLoadClass::LoadKind load_kind = codegen_->GetSupportedLoadClassKind(desired_load_kind);
