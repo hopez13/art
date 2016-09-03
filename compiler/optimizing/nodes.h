@@ -5441,7 +5441,8 @@ class HLoadClass FINAL : public HInstruction {
              bool is_referrers_class,
              uint32_t dex_pc,
              bool needs_access_check,
-             bool is_in_dex_cache)
+             bool is_in_dex_cache,
+             bool is_in_boot_image)
       : HInstruction(SideEffectsForArchRuntimeCalls(), dex_pc),
         special_input_(HUserRecord<HInstruction*>(current_method)),
         type_index_(type_index),
@@ -5455,6 +5456,7 @@ class HLoadClass FINAL : public HInstruction {
         is_referrers_class ? LoadKind::kReferrersClass : LoadKind::kDexCacheViaMethod);
     SetPackedFlag<kFlagNeedsAccessCheck>(needs_access_check);
     SetPackedFlag<kFlagIsInDexCache>(is_in_dex_cache);
+    SetPackedFlag<kFlagIsInBootImage>(is_in_boot_image);
     SetPackedFlag<kFlagGenerateClInitCheck>(false);
   }
 
@@ -5545,6 +5547,7 @@ class HLoadClass FINAL : public HInstruction {
   bool IsReferrersClass() const { return GetLoadKind() == LoadKind::kReferrersClass; }
   bool NeedsAccessCheck() const { return GetPackedFlag<kFlagNeedsAccessCheck>(); }
   bool IsInDexCache() const { return GetPackedFlag<kFlagIsInDexCache>(); }
+  bool IsInBootImage() const { return GetPackedFlag<kFlagIsInBootImage>(); }
   bool MustGenerateClinitCheck() const { return GetPackedFlag<kFlagGenerateClInitCheck>(); }
 
   void MarkInDexCache() {
@@ -5552,6 +5555,10 @@ class HLoadClass FINAL : public HInstruction {
     DCHECK(!NeedsEnvironment());
     RemoveEnvironment();
     SetSideEffects(SideEffects::None());
+  }
+
+  void MarkInBootImage() {
+    SetPackedFlag<kFlagIsInBootImage>(true);
   }
 
   void AddSpecialInput(HInstruction* special_input);
@@ -5571,9 +5578,10 @@ class HLoadClass FINAL : public HInstruction {
  private:
   static constexpr size_t kFlagNeedsAccessCheck    = kNumberOfGenericPackedBits;
   static constexpr size_t kFlagIsInDexCache        = kFlagNeedsAccessCheck + 1;
+  static constexpr size_t kFlagIsInBootImage       = kFlagIsInDexCache + 1;
   // Whether this instruction must generate the initialization check.
   // Used for code generation.
-  static constexpr size_t kFlagGenerateClInitCheck = kFlagIsInDexCache + 1;
+  static constexpr size_t kFlagGenerateClInitCheck = kFlagIsInBootImage + 1;
   static constexpr size_t kFieldLoadKind           = kFlagGenerateClInitCheck + 1;
   static constexpr size_t kFieldLoadKindSize =
       MinimumBitsToStore(static_cast<size_t>(LoadKind::kLast));

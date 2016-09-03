@@ -175,6 +175,7 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
   uint32_t type_index = load_class->GetTypeIndex();
 
   bool is_in_dex_cache = false;
+  bool is_in_boot_image = false;
   HLoadClass::LoadKind desired_load_kind;
   uint64_t address = 0u;  // Class or dex cache element address.
   {
@@ -186,50 +187,49 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
         ? compilation_unit_.GetDexCache()
         : hs.NewHandle(class_linker->FindDexCache(soa.Self(), dex_file));
     mirror::Class* klass = dex_cache->GetResolvedType(type_index);
-
     if (compiler_driver_->IsBootImage()) {
       // Compiling boot image. Check if the class is a boot image class.
       DCHECK(!runtime->UseJitCompilation());
+      is_in_boot_image = compiler_driver_->IsImageClass(
+          dex_file.StringDataByIdx(dex_file.GetTypeId(type_index).descriptor_idx_));
       if (!compiler_driver_->GetSupportBootImageFixup()) {
         // MIPS/MIPS64 or compiler_driver_test. Do not sharpen.
         desired_load_kind = HLoadClass::LoadKind::kDexCacheViaMethod;
       } else {
-        if (klass != nullptr &&
-            compiler_driver_->IsImageClass(
-                dex_file.StringDataByIdx(dex_file.GetTypeId(type_index).descriptor_idx_))) {
-          is_in_dex_cache = true;
+        is_in_dex_cache = is_in_boot_image;
+        if (is_in_dex_cache) {
           desired_load_kind = codegen_->GetCompilerOptions().GetCompilePic()
               ? HLoadClass::LoadKind::kBootImageLinkTimePcRelative
               : HLoadClass::LoadKind::kBootImageLinkTimeAddress;
         } else {
+          // Not an image class, may get pruned. Can't assume it will be in the dex cache.
           // Not a boot image class. We must go through the dex cache.
           DCHECK(ContainsElement(compiler_driver_->GetDexFilesForOatFile(), &dex_file));
           desired_load_kind = HLoadClass::LoadKind::kDexCachePcRelative;
         }
       }
-    } else if (runtime->UseJitCompilation()) {
-      // TODO: Make sure we don't set the "compile PIC" flag for JIT as that's bogus.
-      // DCHECK(!codegen_->GetCompilerOptions().GetCompilePic());
-      is_in_dex_cache = (klass != nullptr);
-      if (klass != nullptr && runtime->GetHeap()->ObjectIsInBootImageSpace(klass)) {
-        // TODO: Use direct pointers for all non-moving spaces, not just boot image. Bug: 29530787
-        desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
-        address = reinterpret_cast64<uint64_t>(klass);
-      } else {
-        // Note: If the class is not in the dex cache or isn't initialized, the
-        // instruction needs environment and will not be inlined across dex files.
-        // Within a dex file, the slow-path helper loads the correct class and
-        // inlined frames are used correctly for OOM stack trace.
-        // TODO: Write a test for this. Bug: 29416588
-        desired_load_kind = HLoadClass::LoadKind::kDexCacheAddress;
-        void* dex_cache_element_address = &dex_cache->GetResolvedTypes()[type_index];
-        address = reinterpret_cast64<uint64_t>(dex_cache_element_address);
-      }
     } else {
-      // AOT app compilation. Check if the class is in the boot image.
-      if ((klass != nullptr) &&
-          runtime->GetHeap()->ObjectIsInBootImageSpace(klass) &&
-          !codegen_->GetCompilerOptions().GetCompilePic()) {
+      is_in_boot_image = runtime->GetHeap()->ObjectIsInBootImageSpace(klass);
+      if (runtime->UseJitCompilation()) {
+        // TODO: Make sure we don't set the "compile PIC" flag for JIT as that's bogus.
+        // DCHECK(!codegen_->GetCompilerOptions().GetCompilePic());
+        is_in_dex_cache = (klass != nullptr);
+        if (is_in_dex_cache && is_in_boot_image) {
+          // TODO: Use direct pointers for all non-moving spaces, not just boot image. Bug: 29530787
+          desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
+          address = reinterpret_cast64<uint64_t>(klass);
+        } else {
+          // Note: If the class is not in the dex cache or isn't initialized, the
+          // instruction needs environment and will not be inlined across dex files.
+          // Within a dex file, the slow-path helper loads the correct class and
+          // inlined frames are used correctly for OOM stack trace.
+          // TODO: Write a test for this. Bug: 29416588
+          desired_load_kind = HLoadClass::LoadKind::kDexCacheAddress;
+          void* dex_cache_element_address = &dex_cache->GetResolvedTypes()[type_index];
+          address = reinterpret_cast64<uint64_t>(dex_cache_element_address);
+        }
+        // AOT app compilation. Check if the class is in the boot image.
+      } else if (is_in_boot_image && !codegen_->GetCompilerOptions().GetCompilePic()) {
         desired_load_kind = HLoadClass::LoadKind::kBootImageAddress;
         address = reinterpret_cast64<uint64_t>(klass);
       } else {
@@ -245,6 +245,9 @@ void HSharpening::ProcessLoadClass(HLoadClass* load_class) {
   }
   if (is_in_dex_cache) {
     load_class->MarkInDexCache();
+  }
+  if (is_in_boot_image) {
+    load_class->MarkInBootImage();
   }
 
   HLoadClass::LoadKind load_kind = codegen_->GetSupportedLoadClassKind(desired_load_kind);
