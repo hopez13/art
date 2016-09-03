@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "3642374d_32afee36",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-09-03T00:26:58Z",
+      "side": 1,
+      "message": "Even if we don\u0027t do this, for correctness it will still be fine, right? Just want to make sure, since some of the cases below it seems to me we can have two slow paths, like HLoadString can have both a baker-read-barrier slow path and a null-check slow path.",
+      "parentUuid": "76ee6f74_670b662e",
+      "range": {
+        "startLine": 4000,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 89
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91668dcf_9a0f0d43",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 7
