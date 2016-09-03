@@ -325,6 +325,24 @@
     },
     {
       "key": {
+        "uuid": "3642374d_d2a8a292",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-09-03T01:19:42Z",
+      "side": 1,
+      "message": "Ok, we need to generate stack maps so it\u0027s needed more than for slow path calls.",
+      "parentUuid": "76ee6f74_473f4277",
+      "revId": "d9ffd0dd7266f6a5e76f29d98dbe1a04f64cbb9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b977f3bf_5edda20d",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 34
