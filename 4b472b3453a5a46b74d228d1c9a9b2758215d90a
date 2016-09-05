@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "36b797b7_675fd244",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T12:46:09Z",
+      "side": 1,
+      "message": "Not sure where to put that helper function. (LocationsBuilder\u003carch\u003e derive directly from HGraphVisitor and that\u0027s certainly not the right place.)",
+      "parentUuid": "76ee6f74_670b662e",
+      "range": {
+        "startLine": 4000,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 89
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_47496eb4",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 7
