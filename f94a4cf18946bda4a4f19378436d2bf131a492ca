@@ -16,6 +16,24 @@
       "revId": "f94a4cf18946bda4a4f19378436d2bf131a492ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e9236c_a28b9e1e",
+        "filename": "runtime/utf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T09:13:30Z",
+      "side": 0,
+      "message": "Nowhere. The removed ComputeUtf16Hash() declaration below was the only user of this forward declaration. And that particular overload was unused and had no definition.",
+      "parentUuid": "76ee6f74_1b7193a0",
+      "revId": "f94a4cf18946bda4a4f19378436d2bf131a492ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
