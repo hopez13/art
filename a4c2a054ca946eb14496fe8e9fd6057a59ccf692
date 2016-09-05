@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b797b7_e7b422d2",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T08:23:25Z",
+      "side": 1,
+      "message": "I can see these TODO\u0027s already existed line 265 and 267. Can you address them here or in a follow up?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 24
+      },
+      "revId": "a4c2a054ca946eb14496fe8e9fd6057a59ccf692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_a7be2aac",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T08:23:25Z",
+      "side": 1,
+      "message": "Do you still need this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "a4c2a054ca946eb14496fe8e9fd6057a59ccf692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
