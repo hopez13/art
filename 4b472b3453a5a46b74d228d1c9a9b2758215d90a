@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b6ff0722_bb2f47f8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T11:19:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76ee6f74_473d02ed",
+      "range": {
+        "startLine": 1232,
+        "startChar": 2,
+        "endLine": 1232,
+        "endChar": 10
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ee6f74_2742fe60",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 7
@@ -59,6 +83,30 @@
       "writtenOn": "2016-09-02T17:34:08Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 1244,
+        "startChar": 2,
+        "endLine": 1244,
+        "endChar": 10
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_27fa3a5e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T11:19:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76ee6f74_2742fe60",
       "range": {
         "startLine": 1244,
         "startChar": 2,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "91668dcf_ba53f1de",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T11:19:39Z",
+      "side": 1,
+      "message": "Overestimating the necessary spill size leads to suboptimal but working code. That\u0027s what we were generally doing before this CL.\n\nFor HLoadString/HLoadClass, we\u0027re also checking \"!load-\u003eNeedsEnvironment()\" so that we don\u0027t underestimate the necessary spill size; underestimating would lead to incorrect code.",
+      "parentUuid": "3642374d_32afee36",
+      "range": {
+        "startLine": 4000,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 89
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91668dcf_9a0f0d43",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 7
@@ -129,6 +201,30 @@
       "writtenOn": "2016-09-02T16:36:01Z",
       "side": 1,
       "message": "Leftovers from PS5. I\u0027ll wait for other comments before removing.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_1e374d08",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T11:19:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91668dcf_9a0f0d43",
       "range": {
         "startLine": 19,
         "startChar": 0,
