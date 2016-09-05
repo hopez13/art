@@ -190,6 +190,75 @@
     },
     {
       "key": {
+        "uuid": "36b797b7_47496eb4",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T11:20:48Z",
+      "side": 1,
+      "message": "bool has_custom_...",
+      "range": {
+        "startLine": 652,
+        "startChar": 7,
+        "endLine": 652,
+        "endChar": 36
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_674ef2bf",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T11:20:48Z",
+      "side": 1,
+      "message": "Should we make this always valid, so that we don\u0027t need the flag?\n\nAlso, we could make it empty for non-calling instruction, which would make the code cleaner whenever it needs to know which registers to save. WDYT?",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 45
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_07437696",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T11:20:48Z",
+      "side": 1,
+      "message": "Maybe add a helper ComputeMaximumSafepointSpillSize.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 3
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91668dcf_9a0f0d43",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 7
