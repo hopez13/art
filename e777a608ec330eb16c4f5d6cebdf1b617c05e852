@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "96e9236c_058014a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T12:45:24Z",
+      "side": 1,
+      "message": "Checker test. Grep for CHECK in run-test.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_812e7ab1",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2016-08-30T20:53:30Z",
       "side": 1,
       "message": "So I think I need to change the IsInDexCache to IsInitialized or similar for it to be correct for the IsFromInlinedInvoke case. If it is initialized and does not need access checks the load class should never throw I think.",
+      "range": {
+        "startLine": 153,
+        "startChar": 40,
+        "endLine": 153,
+        "endChar": 52
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_475ace55",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T12:45:24Z",
+      "side": 1,
+      "message": "So the existing code seems too conservative, right? The case you want to optimize is coming from an inlined invoke and allocating a class you know the callee has access to.\n\nShouldn\u0027t you just move the IsFromInlinedInvoke and combine it with NeedsAccessCheck?",
+      "parentUuid": "718af9dc_442de09a",
       "range": {
         "startLine": 153,
         "startChar": 40,
