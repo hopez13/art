@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6417f7a_dd676bdf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6012,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "Remove. These are image classes and if they don\u0027t need a read barrier anymore (the intent of this CL) then we can just go with the existing implementation.",
+      "range": {
+        "startLine": 6002,
+        "startChar": 0,
+        "endLine": 6012,
+        "endChar": 3
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_1e150d4a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "DCHECK(!requires_read_barrier);",
+      "range": {
+        "startLine": 6101,
+        "startChar": 6,
+        "endLine": 6101,
+        "endChar": 40
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11ab155_c6ce0455",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6107,
+        "startChar": 6,
+        "endLine": 6107,
+        "endChar": 40
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "318881a4_a243c0f5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6114,
+        "startChar": 6,
+        "endLine": 6114,
+        "endChar": 40
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_07aff635",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 5436,
+        "startChar": 0,
+        "endLine": 5446,
+        "endChar": 3
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_073db6ed",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5527,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "DCHECK(!requires_read_barrier);",
+      "range": {
+        "startLine": 5527,
+        "startChar": 6,
+        "endLine": 5527,
+        "endChar": 40
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_27423a61",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5532,
+        "startChar": 6,
+        "endLine": 5532,
+        "endChar": 40
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11ab155_86c40c37",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "Move to line 194?",
+      "range": {
+        "startLine": 200,
+        "startChar": 12,
+        "endLine": 200,
+        "endChar": 31
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16453384_3e12c9c5",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "is_in_boot_image",
+      "range": {
+        "startLine": 201,
+        "startChar": 12,
+        "endLine": 202,
+        "endChar": 88
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_64954435",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T13:05:11Z",
+      "side": 1,
+      "message": "Move to line 233?",
+      "range": {
+        "startLine": 235,
+        "startChar": 10,
+        "endLine": 235,
+        "endChar": 31
+      },
+      "revId": "56fb0dd39cdffe5389b8502b80384cc92b6b25e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
