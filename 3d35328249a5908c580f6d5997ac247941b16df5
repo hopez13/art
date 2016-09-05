@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b797b7_875d2678",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5626,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T11:03:06Z",
+      "side": 1,
+      "message": "Instead of doing this Move, you should change the SetOut to take R0 (line 5583).",
+      "range": {
+        "startLine": 5626,
+        "startChar": 0,
+        "endLine": 5626,
+        "endChar": 69
+      },
+      "revId": "3d35328249a5908c580f6d5997ac247941b16df5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
