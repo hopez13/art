@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "36b797b7_47b5ee87",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T12:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_47496eb4",
+      "range": {
+        "startLine": 652,
+        "startChar": 7,
+        "endLine": 652,
+        "endChar": 36
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_674ef2bf",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 7
@@ -236,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "36b797b7_e7a50253",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T12:43:15Z",
+      "side": 1,
+      "message": "It isn\u0027t that easy. I\u0027d rather avoid the refactoring at this time.",
+      "parentUuid": "36b797b7_674ef2bf",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 45
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_07437696",
         "filename": "compiler/optimizing/register_allocation_resolver.cc",
         "patchSetId": 7
@@ -247,6 +295,30 @@
       "writtenOn": "2016-09-05T11:20:48Z",
       "side": 1,
       "message": "Maybe add a helper ComputeMaximumSafepointSpillSize.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 3
+      },
+      "revId": "4b472b3453a5a46b74d228d1c9a9b2758215d90a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_a7862abf",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-05T12:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_07437696",
       "range": {
         "startLine": 47,
         "startChar": 0,
