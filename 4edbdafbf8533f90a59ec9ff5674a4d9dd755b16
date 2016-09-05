@@ -1,0 +1,458 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6ff0722_5bba8378",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Update?",
+      "range": {
+        "startLine": 145,
+        "startChar": 5,
+        "endLine": 145,
+        "endChar": 81
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "318881a4_05b396a2",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Isn\u0027t that a dex_file instead? If not, what is vdex in them? (same comments for methods below where you name the file vdex_file).",
+      "range": {
+        "startLine": 149,
+        "startChar": 34,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16453384_7ee1f18f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "\"with one oat filename, or with two file descriptors\"?",
+      "range": {
+        "startLine": 707,
+        "startChar": 58,
+        "endLine": 707,
+        "endChar": 77
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_e496b4f5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "I know it\u0027s old code, but a comment would be nice here.",
+      "range": {
+        "startLine": 1261,
+        "startChar": 0,
+        "endLine": 1261,
+        "endChar": 35
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_e73f42c2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Could we avoid the silently passing null?",
+      "range": {
+        "startLine": 1891,
+        "startChar": 0,
+        "endLine": 1891,
+        "endChar": 33
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_049c7814",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1901,
+        "startChar": 0,
+        "endLine": 1901,
+        "endChar": 33
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6417f7a_5d44fbfb",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 51
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_447e80b9",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Update comment? At least say where/what is embedded.",
+      "range": {
+        "startLine": 725,
+        "startChar": 4,
+        "endLine": 725,
+        "endChar": 42
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6ff0722_1bb4fb88",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "should be agnostic of vdex.",
+      "range": {
+        "startLine": 63,
+        "startChar": 35,
+        "endLine": 63,
+        "endChar": 39
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_7e8bf176",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Seems like a general utility function?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 1
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_5e9035a3",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Old code, but could you add a comment on what this section is, and why it is different than the loop just before it?",
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_a7394ade",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Comment please. Also, didn\u0027t we say we would copy?",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 70
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7182f983_04b398a2",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "exist",
+      "range": {
+        "startLine": 984,
+        "startChar": 31,
+        "endLine": 984,
+        "endChar": 37
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91668dcf_da998580",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Comment please. Why would there already be a vdex?",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 572,
+        "endChar": 3
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6ff0722_dba57353",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 54
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11ab155_061bbc7e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "oat and vdex files.",
+      "range": {
+        "startLine": 609,
+        "startChar": 27,
+        "endLine": 609,
+        "endChar": 30
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6ff0722_bba2a747",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 81
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11ab155_2618b87f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 78
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11ab155_86540cf9",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 49
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16453384_de9f65fc",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-05T14:50:35Z",
+      "side": 1,
+      "message": "Sorry, didn\u0027t realize the comment would be so dull :) You can remove.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
