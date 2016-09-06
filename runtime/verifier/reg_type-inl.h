@@ -22,6 +22,8 @@
 #include "base/casts.h"
 #include "base/scoped_arena_allocator.h"
 #include "mirror/class.h"
+#include "method_verifier.h"
+#include "verifier_deps.h"
 
 namespace art {
 namespace verifier {
@@ -62,7 +64,10 @@ inline bool RegType::IsConstantBoolean() const {
   }
 }
 
-inline bool RegType::AssignableFrom(const RegType& lhs, const RegType& rhs, bool strict) {
+inline bool RegType::AssignableFrom(const RegType& lhs,
+                                    const RegType& rhs,
+                                    bool strict,
+                                    MethodVerifier* verifier) {
   if (lhs.Equals(rhs)) {
     return true;
   } else {
@@ -104,10 +109,16 @@ inline bool RegType::AssignableFrom(const RegType& lhs, const RegType& rhs, bool
         return true;
       } else if (lhs.IsJavaLangObjectArray()) {
         return rhs.IsObjectArrayTypes();  // All reference arrays may be assigned to Object[]
-      } else if (lhs.HasClass() && rhs.HasClass() &&
-                 lhs.GetClass()->IsAssignableFrom(rhs.GetClass())) {
-        // We're assignable from the Class point-of-view.
-        return true;
+      } else if (lhs.HasClass() && rhs.HasClass()) {
+        // Test assignability from the Class point-of-view.
+        bool result = lhs.GetClass()->IsAssignableFrom(rhs.GetClass());
+        // If `verifier` is non-null, record the assignability test as dependency.
+        // RegType tests do not set `verifier`.
+        if (verifier != nullptr) {
+          VerifierDeps::MaybeRecordAssignability(
+              verifier->GetDexFile(), lhs.GetClass(), rhs.GetClass(), strict, result);
+        }
+        return result;
       } else {
         // Unresolved types are only assignable for null and equality.
         return false;
@@ -116,12 +127,12 @@ inline bool RegType::AssignableFrom(const RegType& lhs, const RegType& rhs, bool
   }
 }
 
-inline bool RegType::IsAssignableFrom(const RegType& src) const {
-  return AssignableFrom(*this, src, false);
+inline bool RegType::IsAssignableFrom(const RegType& src, MethodVerifier* verifier) const {
+  return AssignableFrom(*this, src, false, verifier);
 }
 
-inline bool RegType::IsStrictlyAssignableFrom(const RegType& src) const {
-  return AssignableFrom(*this, src, true);
+inline bool RegType::IsStrictlyAssignableFrom(const RegType& src, MethodVerifier* verifier) const {
+  return AssignableFrom(*this, src, true, verifier);
 }
 
 inline const DoubleHiType* DoubleHiType::GetInstance() {
