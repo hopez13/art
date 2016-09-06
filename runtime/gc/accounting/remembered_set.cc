@@ -55,7 +55,7 @@ void RememberedSet::ClearCards() {
   CardTable* card_table = GetHeap()->GetCardTable();
   RememberedSetCardVisitor card_visitor(&dirty_cards_);
   // Clear dirty cards in the space and insert them into the dirty card set.
-  card_table->ModifyCardsAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), card_visitor);
+  card_table->ModifyCardsNonAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), card_visitor);
 }
 
 class RememberedSetReferenceVisitor {

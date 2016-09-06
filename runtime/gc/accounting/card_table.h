@@ -98,7 +98,7 @@ class CardTable {
    * us to know which cards got cleared.
    */
   template <typename Visitor, typename ModifiedVisitor>
-  void ModifyCardsAtomic(uint8_t* scan_begin, uint8_t* scan_end, const Visitor& visitor,
+  void ModifyCardsNonAtomic(uint8_t* scan_begin, uint8_t* scan_end, const Visitor& visitor,
                          const ModifiedVisitor& modified);
 
   // For every dirty at least minumum age between begin and end invoke the visitor with the

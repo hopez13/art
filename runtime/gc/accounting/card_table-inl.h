@@ -29,24 +29,11 @@ namespace gc {
 namespace accounting {
 
 static inline bool byte_cas(uint8_t old_value, uint8_t new_value, uint8_t* address) {
-#if defined(__i386__) || defined(__x86_64__)
-  Atomic<uint8_t>* byte_atomic = reinterpret_cast<Atomic<uint8_t>*>(address);
-  return byte_atomic->CompareExchangeWeakRelaxed(old_value, new_value);
-#else
-  // Little endian means most significant byte is on the left.
-  const size_t shift_in_bytes = reinterpret_cast<uintptr_t>(address) % sizeof(uintptr_t);
-  // Align the address down.
-  address -= shift_in_bytes;
-  const size_t shift_in_bits = shift_in_bytes * kBitsPerByte;
-  Atomic<uintptr_t>* word_atomic = reinterpret_cast<Atomic<uintptr_t>*>(address);
-
-  // Word with the byte we are trying to cas cleared.
-  const uintptr_t cur_word = word_atomic->LoadRelaxed() &
-      ~(static_cast<uintptr_t>(0xFF) << shift_in_bits);
-  const uintptr_t old_word = cur_word | (static_cast<uintptr_t>(old_value) << shift_in_bits);
-  const uintptr_t new_word = cur_word | (static_cast<uintptr_t>(new_value) << shift_in_bits);
-  return word_atomic->CompareExchangeWeakRelaxed(old_word, new_word);
-#endif
+  if (*address == old_value) {
+    *address = new_value;
+    return true;
+  }
+  return false;
 }
 
 template <bool kClearCard, typename Visitor>
@@ -126,24 +113,15 @@ inline size_t CardTable::Scan(ContinuousSpaceBitmap* bitmap, uint8_t* scan_begin
   return cards_scanned;
 }
 
-/*
- * Visitor is expected to take in a card and return the new value. When a value is modified, the
- * modify visitor is called.
- * visitor: The visitor which modifies the cards. Returns the new value for a card given an old
- * value.
- * modified: Whenever the visitor modifies a card, this visitor is called on the card. Enables
- * us to know which cards got cleared.
- */
 template <typename Visitor, typename ModifiedVisitor>
-inline void CardTable::ModifyCardsAtomic(uint8_t* scan_begin, uint8_t* scan_end, const Visitor& visitor,
+inline void CardTable::ModifyCardsNonAtomic(uint8_t* scan_begin, uint8_t* scan_end, const Visitor& visitor,
                                          const ModifiedVisitor& modified) {
   uint8_t* card_cur = CardFromAddr(scan_begin);
   uint8_t* card_end = CardFromAddr(AlignUp(scan_end, kCardSize));
   CheckCardValid(card_cur);
   CheckCardValid(card_end);
 
-  // Handle any unaligned cards at the start.
-  while (!IsAligned<sizeof(intptr_t)>(card_cur) && card_cur < card_end) {
+  while (card_cur < card_end) {
     uint8_t expected, new_value;
     do {
       expected = *card_cur;
@@ -153,57 +131,6 @@ inline void CardTable::ModifyCardsAtomic(uint8_t* scan_begin, uint8_t* scan_end,
       modified(card_cur, expected, new_value);
     }
     ++card_cur;
-  }
-
-  // Handle unaligned cards at the end.
-  while (!IsAligned<sizeof(intptr_t)>(card_end) && card_end > card_cur) {
-    --card_end;
-    uint8_t expected, new_value;
-    do {
-      expected = *card_end;
-      new_value = visitor(expected);
-    } while (expected != new_value && UNLIKELY(!byte_cas(expected, new_value, card_end)));
-    if (expected != new_value) {
-      modified(card_end, expected, new_value);
-    }
-  }
-
-  // Now we have the words, we can process words in parallel.
-  uintptr_t* word_cur = reinterpret_cast<uintptr_t*>(card_cur);
-  uintptr_t* word_end = reinterpret_cast<uintptr_t*>(card_end);
-  // TODO: This is not big endian safe.
-  union {
-    uintptr_t expected_word;
-    uint8_t expected_bytes[sizeof(uintptr_t)];
-  };
-  union {
-    uintptr_t new_word;
-    uint8_t new_bytes[sizeof(uintptr_t)];
-  };
-
-  // TODO: Parallelize.
-  while (word_cur < word_end) {
-    while (true) {
-      expected_word = *word_cur;
-      if (LIKELY(expected_word == 0)) {
-        break;
-      }
-      for (size_t i = 0; i < sizeof(uintptr_t); ++i) {
-        new_bytes[i] = visitor(expected_bytes[i]);
-      }
-      Atomic<uintptr_t>* atomic_word = reinterpret_cast<Atomic<uintptr_t>*>(word_cur);
-      if (LIKELY(atomic_word->CompareExchangeWeakRelaxed(expected_word, new_word))) {
-        for (size_t i = 0; i < sizeof(uintptr_t); ++i) {
-          const uint8_t expected_byte = expected_bytes[i];
-          const uint8_t new_byte = new_bytes[i];
-          if (expected_byte != new_byte) {
-            modified(reinterpret_cast<uint8_t*>(word_cur) + i, expected_byte, new_byte);
-          }
-        }
-        break;
-      }
-    }
-    ++word_cur;
   }
 }
 
