@@ -144,7 +144,7 @@ class LogMessageData {
         severity_(severity),
         error_(error) {
     const char* last_slash = strrchr(file, '/');
-    file = (last_slash == nullptr) ? file : last_slash + 1;
+    file_ = (last_slash == nullptr) ? file : last_slash + 1;
   }
 
   const char * GetFile() const {
