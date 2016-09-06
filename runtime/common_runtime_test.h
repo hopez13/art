@@ -26,6 +26,7 @@
 #include "base/mutex.h"
 #include "globals.h"
 #include "os.h"
+#include "verifier/verifier_deps.h"
 
 namespace art {
 

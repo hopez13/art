@@ -65,6 +65,13 @@ enum MethodType {
 };
 std::ostream& operator<<(std::ostream& os, const MethodType& rhs);
 
+// Values corresponding to the method resolution algorithms defined in mirror::Class.
+enum MethodResolutionType {
+  kDirectMethodResolution,
+  kVirtualMethodResolution,
+  kInterfaceMethodResolution,
+};
+
 /*
  * An enumeration of problems that can turn up during verification.
  * Both VERIFY_ERROR_BAD_CLASS_SOFT and VERIFY_ERROR_BAD_CLASS_HARD denote failures that cause
@@ -178,6 +185,8 @@ class MethodVerifier {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   uint8_t EncodePcToReferenceMapData() const;
+
+  const DexFile& GetDexFile() const { return *dex_file_; }
 
   uint32_t DexFileVersion() const {
     return dex_file_->GetVersion();
@@ -352,7 +361,8 @@ class MethodVerifier {
    *  (3) Iterate through the method, checking type safety and looking
    *      for code flow problems.
    */
-  static FailureData VerifyMethod(Thread* self, uint32_t method_idx,
+  static FailureData VerifyMethod(Thread* self,
+                                  uint32_t method_idx,
                                   const DexFile* dex_file,
                                   Handle<mirror::DexCache> dex_cache,
                                   Handle<mirror::ClassLoader> class_loader,
@@ -841,6 +851,7 @@ class MethodVerifier {
   MethodVerifier* link_;
 
   friend class art::Thread;
+  friend class VerifierDepsTest;
 
   DISALLOW_COPY_AND_ASSIGN(MethodVerifier);
 };
