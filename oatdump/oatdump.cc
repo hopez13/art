@@ -1267,8 +1267,8 @@ class OatDumper {
           hs->NewHandle(runtime->GetClassLinker()->RegisterDexFile(*dex_file, nullptr)));
       DCHECK(options_.class_loader_ != nullptr);
       return verifier::MethodVerifier::VerifyMethodAndDump(
-          soa.Self(), vios, dex_method_idx, dex_file, dex_cache, *options_.class_loader_,
-          class_def, code_item, nullptr, method_access_flags);
+          soa.Self(), vios, dex_method_idx, dex_file, /* verifier_deps */ nullptr, dex_cache,
+          *options_.class_loader_, class_def, code_item, nullptr, method_access_flags);
     }
 
     return nullptr;
