@@ -173,9 +173,9 @@ class ElfDebugLineWriter {
       // Get and deduplicate directory and filename.
       int file_index = 0;  // 0 - primary source file of the compilation.
       auto& dex_class_def = dex->GetClassDef(mi->class_def_index);
-      const char* source_file = dex->GetSourceFile(dex_class_def);
-      if (source_file != nullptr) {
-        std::string file_name(source_file);
+      std::pair<const char*, uint32_t> source_file = dex->GetSourceFile(dex_class_def);
+      if (source_file.first != nullptr) {
+        std::string file_name(source_file.first);
         size_t file_name_slash = file_name.find_last_of('/');
         std::string class_name(dex->GetClassDescriptor(dex_class_def));
         size_t class_name_slash = class_name.find_last_of('/');

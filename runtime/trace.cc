@@ -858,7 +858,7 @@ std::string Trace::GetMethodLine(ArtMethod* method) {
   method = method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
   return StringPrintf("%#x\t%s\t%s\t%s\t%s\n", (EncodeTraceMethod(method) << TraceActionBits),
       PrettyDescriptor(method->GetDeclaringClassDescriptor()).c_str(), method->GetName(),
-      method->GetSignature().ToString().c_str(), method->GetDeclaringClassSourceFile());
+      method->GetSignature().ToString().c_str(), method->GetDeclaringClassSourceFile().first);
 }
 
 void Trace::WriteToBuf(const uint8_t* src, size_t src_size) {

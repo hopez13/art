@@ -1268,17 +1268,19 @@ bool Monitor::IsLocked() REQUIRES_SHARED(Locks::mutator_lock_) {
 
 void Monitor::TranslateLocation(ArtMethod* method,
                                 uint32_t dex_pc,
-                                const char** source_file,
+                                const char** out_source_file,
                                 int32_t* line_number) {
   // If method is null, location is unknown
   if (method == nullptr) {
-    *source_file = "";
+    *out_source_file = "";
     *line_number = 0;
     return;
   }
-  *source_file = method->GetDeclaringClassSourceFile();
-  if (*source_file == nullptr) {
-    *source_file = "";
+  std::pair<const char*, uint32_t> source_file = method->GetDeclaringClassSourceFile();
+  if (source_file.first == nullptr) {
+    *out_source_file = "";
+  } else {
+    *out_source_file = source_file.first;
   }
   *line_number = method->GetLineNumFromDexPC(dex_pc);
 }

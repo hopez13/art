@@ -133,7 +133,7 @@ TEST_F(ProxyTest, ProxyClassHelper) {
   std::string temp;
   const char* proxy_class_descriptor = proxy_class->GetDescriptor(&temp);
   EXPECT_STREQ("L$Proxy1234;", proxy_class_descriptor);
-  EXPECT_EQ(nullptr, proxy_class->GetSourceFile());
+  EXPECT_EQ(nullptr, proxy_class->GetSourceFile().first);
 }
 
 // Creates a proxy class and check FieldHelper works correctly.

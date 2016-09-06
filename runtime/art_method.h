@@ -642,7 +642,8 @@ class ArtMethod FINAL {
 
   const DexFile::TypeList* GetParameterTypeList() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  const char* GetDeclaringClassSourceFile() REQUIRES_SHARED(Locks::mutator_lock_);
+  std::pair<const char*, uint32_t> GetDeclaringClassSourceFile()
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   uint16_t GetClassDefIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 

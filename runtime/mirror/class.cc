@@ -914,12 +914,12 @@ mirror::Class* Class::GetCommonSuperClass(Handle<Class> klass) {
   return common_super_class;
 }
 
-const char* Class::GetSourceFile() {
+std::pair<const char*, uint32_t> Class::GetSourceFile() {
   const DexFile& dex_file = GetDexFile();
   const DexFile::ClassDef* dex_class_def = GetClassDef();
   if (dex_class_def == nullptr) {
     // Generated classes have no class def.
-    return nullptr;
+    return {nullptr, 0};  // NOLINT [readability/braces] [4]
   }
   return dex_file.GetSourceFile(*dex_class_def);
 }

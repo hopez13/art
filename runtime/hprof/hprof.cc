@@ -713,11 +713,11 @@ class Hprof : public SingleRootVisitor {
         __ AddU4(frame_result->second);
         __ AddStringId(LookupStringId(method->GetName()));
         __ AddStringId(LookupStringId(method->GetSignature().ToString()));
-        const char* source_file = method->GetDeclaringClassSourceFile();
-        if (source_file == nullptr) {
-          source_file = "";
+        std::pair<const char*, uint32_t> source_file = method->GetDeclaringClassSourceFile();
+        if (source_file.first == nullptr) {
+          source_file.first = "";
         }
-        __ AddStringId(LookupStringId(source_file));
+        __ AddStringId(LookupStringId(source_file.first));
         auto class_result = classes_.find(method->GetDeclaringClass());
         CHECK(class_result != classes_.end());
         __ AddU4(class_result->second);

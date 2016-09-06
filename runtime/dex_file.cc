@@ -1669,9 +1669,10 @@ mirror::Object* DexFile::CreateAnnotationMember(Handle<mirror::Class> klass,
   ScopedObjectAccessUnchecked soa(self);
   StackHandleScope<5> hs(self);
   uint32_t element_name_index = DecodeUnsignedLeb128(annotation);
-  const char* name = StringDataByIdx(element_name_index);
+  uint32_t utf16_len;
+  const char* name = StringDataAndUtf16LengthByIdx(element_name_index, &utf16_len);
   Handle<mirror::String> string_name(
-      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(self, name)));
+      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(self, utf16_len, name)));
 
   PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
   ArtMethod* annotation_method =
