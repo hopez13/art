@@ -48,6 +48,7 @@ Mutex* Locks::mem_maps_lock_ = nullptr;
 Mutex* Locks::modify_ldt_lock_ = nullptr;
 MutatorMutex* Locks::mutator_lock_ = nullptr;
 Mutex* Locks::profiler_lock_ = nullptr;
+Mutex* Locks::verifier_deps_lock_ = nullptr;
 ReaderWriterMutex* Locks::oat_file_manager_lock_ = nullptr;
 Mutex* Locks::host_dlopen_handles_lock_ = nullptr;
 Mutex* Locks::reference_processor_lock_ = nullptr;
@@ -953,6 +954,7 @@ void Locks::Init() {
     DCHECK(logging_lock_ != nullptr);
     DCHECK(mutator_lock_ != nullptr);
     DCHECK(profiler_lock_ != nullptr);
+    DCHECK(verifier_deps_lock_ != nullptr);
     DCHECK(thread_list_lock_ != nullptr);
     DCHECK(thread_suspend_count_lock_ != nullptr);
     DCHECK(trace_lock_ != nullptr);
@@ -987,6 +989,10 @@ void Locks::Init() {
     UPDATE_CURRENT_LOCK_LEVEL(kRuntimeShutdownLock);
     DCHECK(runtime_shutdown_lock_ == nullptr);
     runtime_shutdown_lock_ = new Mutex("runtime shutdown lock", current_lock_level);
+
+    UPDATE_CURRENT_LOCK_LEVEL(kVerifierDepsLock);
+    DCHECK(verifier_deps_lock_ == nullptr);
+    verifier_deps_lock_ = new Mutex("verifier deps lock", current_lock_level);
 
     UPDATE_CURRENT_LOCK_LEVEL(kProfilerLock);
     DCHECK(profiler_lock_ == nullptr);

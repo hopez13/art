@@ -106,6 +106,7 @@ enum LockLevel {
   kAllocTrackerLock,
   kDeoptimizationLock,
   kProfilerLock,
+  kVerifierDepsLock,
   kJdwpShutdownLock,
   kJdwpEventListLock,
   kJdwpAttachLock,
@@ -605,8 +606,11 @@ class Locks {
   // Guards background profiler global state.
   static Mutex* profiler_lock_ ACQUIRED_AFTER(runtime_shutdown_lock_);
 
+  // Guards verification dependency collection.
+  static Mutex* verifier_deps_lock_ ACQUIRED_AFTER(profiler_lock_);
+
   // Guards trace (ie traceview) requests.
-  static Mutex* trace_lock_ ACQUIRED_AFTER(profiler_lock_);
+  static Mutex* trace_lock_ ACQUIRED_AFTER(verifier_deps_lock_);
 
   // Guards debugger recent allocation records.
   static Mutex* alloc_tracker_lock_ ACQUIRED_AFTER(trace_lock_);
