@@ -32,6 +32,7 @@
 #include "method_reference.h"
 #include "register_line.h"
 #include "reg_type_cache.h"
+#include "verifier_deps.h"
 
 namespace art {
 
@@ -151,12 +152,14 @@ class MethodVerifier {
   static FailureKind VerifyClass(Thread* self,
                                  mirror::Class* klass,
                                  CompilerCallbacks* callbacks,
+                                 VerifierDeps* deps,
                                  bool allow_soft_failures,
                                  LogSeverity log_level,
                                  std::string* error)
       REQUIRES_SHARED(Locks::mutator_lock_);
   static FailureKind VerifyClass(Thread* self,
                                  const DexFile* dex_file,
+                                 VerifierDeps* deps,
                                  Handle<mirror::DexCache> dex_cache,
                                  Handle<mirror::ClassLoader> class_loader,
                                  const DexFile::ClassDef& class_def,
@@ -170,6 +173,7 @@ class MethodVerifier {
                                              VariableIndentationOutputStream* vios,
                                              uint32_t method_idx,
                                              const DexFile* dex_file,
+                                             VerifierDeps* deps,
                                              Handle<mirror::DexCache> dex_cache,
                                              Handle<mirror::ClassLoader> class_loader,
                                              const DexFile::ClassDef& class_def,
@@ -278,9 +282,14 @@ class MethodVerifier {
     return arena_;
   }
 
+  VerifierDeps* GetVerifierDeps() const {
+    return deps_;
+  }
+
  private:
   MethodVerifier(Thread* self,
                  const DexFile* dex_file,
+                 VerifierDeps* deps,
                  Handle<mirror::DexCache> dex_cache,
                  Handle<mirror::ClassLoader> class_loader,
                  const DexFile::ClassDef& class_def,
@@ -330,6 +339,7 @@ class MethodVerifier {
   static FailureData VerifyMethods(Thread* self,
                                    ClassLinker* linker,
                                    const DexFile* dex_file,
+                                   VerifierDeps* deps,
                                    const DexFile::ClassDef& class_def,
                                    ClassDataItemIterator* it,
                                    Handle<mirror::DexCache> dex_cache,
@@ -354,6 +364,7 @@ class MethodVerifier {
    */
   static FailureData VerifyMethod(Thread* self, uint32_t method_idx,
                                   const DexFile* dex_file,
+                                  VerifierDeps* deps,
                                   Handle<mirror::DexCache> dex_cache,
                                   Handle<mirror::ClassLoader> class_loader,
                                   const DexFile::ClassDef& class_def_idx,
@@ -755,6 +766,7 @@ class MethodVerifier {
   const uint32_t method_access_flags_;  // Method's access flags.
   const RegType* return_type_;  // Lazily computed return type of the method.
   const DexFile* const dex_file_;  // The dex file containing the method.
+  VerifierDeps* deps_;  // Collector of verification dependencies on the classpath.
   // The dex_cache for the declaring class of the method.
   Handle<mirror::DexCache> dex_cache_ GUARDED_BY(Locks::mutator_lock_);
   // The class loader for the declaring class of the method.
@@ -841,6 +853,7 @@ class MethodVerifier {
   MethodVerifier* link_;
 
   friend class art::Thread;
+  friend class VerifierDepsTest;
 
   DISALLOW_COPY_AND_ASSIGN(MethodVerifier);
 };

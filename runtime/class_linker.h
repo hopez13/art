@@ -36,6 +36,7 @@
 #include "jni.h"
 #include "oat_file.h"
 #include "object_callbacks.h"
+#include "verifier/verifier_deps.h"
 
 namespace art {
 
@@ -460,6 +461,7 @@ class ClassLinker {
 
   void VerifyClass(Thread* self,
                    Handle<mirror::Class> klass,
+                   verifier::VerifierDeps* verifier_deps,
                    LogSeverity log_level = LogSeverity::NONE)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!dex_lock_);
@@ -675,7 +677,8 @@ class ClassLinker {
   // soft-failures.
   bool AttemptSupertypeVerification(Thread* self,
                                     Handle<mirror::Class> klass,
-                                    Handle<mirror::Class> supertype)
+                                    Handle<mirror::Class> supertype,
+                                    verifier::VerifierDeps* verifier_deps)
       REQUIRES(!dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

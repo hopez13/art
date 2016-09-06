@@ -3809,13 +3809,14 @@ void ClassLinker::LookupClasses(const char* descriptor, std::vector<mirror::Clas
 
 bool ClassLinker::AttemptSupertypeVerification(Thread* self,
                                                Handle<mirror::Class> klass,
-                                               Handle<mirror::Class> supertype) {
+                                               Handle<mirror::Class> supertype,
+                                               verifier::VerifierDeps* verifier_deps) {
   DCHECK(self != nullptr);
   DCHECK(klass.Get() != nullptr);
   DCHECK(supertype.Get() != nullptr);
 
   if (!supertype->IsVerified() && !supertype->IsErroneous()) {
-    VerifyClass(self, supertype);
+    VerifyClass(self, supertype, verifier_deps);
   }
   if (supertype->IsCompileTimeVerified()) {
     // Either we are verified or we soft failed and need to retry at runtime.
@@ -3848,7 +3849,10 @@ bool ClassLinker::AttemptSupertypeVerification(Thread* self,
   return false;
 }
 
-void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeverity log_level) {
+void ClassLinker::VerifyClass(Thread* self,
+                              Handle<mirror::Class> klass,
+                              verifier::VerifierDeps* verifier_deps,
+                              LogSeverity log_level) {
   {
     // TODO: assert that the monitor on the Class is held
     ObjectLock<mirror::Class> lock(self, klass);
@@ -3901,7 +3905,8 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
   StackHandleScope<2> hs(self);
   MutableHandle<mirror::Class> supertype(hs.NewHandle(klass->GetSuperClass()));
   // If we have a superclass and we get a hard verification failure we can return immediately.
-  if (supertype.Get() != nullptr && !AttemptSupertypeVerification(self, klass, supertype)) {
+  if (supertype.Get() != nullptr &&
+      !AttemptSupertypeVerification(self, klass, supertype, verifier_deps)) {
     CHECK(self->IsExceptionPending()) << "Verification error should be pending.";
     return;
   }
@@ -3927,7 +3932,7 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
       // We only care if we have default interfaces and can skip if we are already verified...
       if (LIKELY(!iface->HasDefaultMethods() || iface->IsVerified())) {
         continue;
-      } else if (UNLIKELY(!AttemptSupertypeVerification(self, klass, iface))) {
+      } else if (UNLIKELY(!AttemptSupertypeVerification(self, klass, iface, verifier_deps))) {
         // We had a hard failure while verifying this interface. Just return immediately.
         CHECK(self->IsExceptionPending()) << "Verification error should be pending.";
         return;
@@ -3963,6 +3968,7 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
     verifier_failure = verifier::MethodVerifier::VerifyClass(self,
                                                              klass.Get(),
                                                              runtime->GetCompilerCallbacks(),
+                                                             verifier_deps,
                                                              runtime->IsAotCompiler(),
                                                              log_level,
                                                              &error_msg);
@@ -4482,7 +4488,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     CHECK(klass->IsResolved()) << PrettyClass(klass.Get()) << ": state=" << klass->GetStatus();
 
     if (!klass->IsVerified()) {
-      VerifyClass(self, klass);
+      VerifyClass(self, klass, /* verifier_deps */ nullptr);
       if (!klass->IsVerified()) {
         // We failed to verify, expect either the klass to be erroneous or verification failed at
         // compile time.

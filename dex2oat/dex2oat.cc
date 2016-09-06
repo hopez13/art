@@ -1566,6 +1566,11 @@ class Dex2Oat FINAL {
       }
     }
 
+    std::unique_ptr<verifier::VerifierDeps> verifier_deps;
+    if (!IsBootImage()) {
+      verifier_deps.reset(new verifier::VerifierDeps(dex_files_));
+    }
+
     driver_.reset(new CompilerDriver(compiler_options_.get(),
                                      verification_results_.get(),
                                      &method_inliner_map_,
@@ -1584,7 +1589,7 @@ class Dex2Oat FINAL {
                                      swap_fd_,
                                      profile_compilation_info_.get()));
     driver_->SetDexFilesForOatFile(dex_files_);
-    driver_->CompileAll(class_loader_, dex_files_, timings_);
+    driver_->CompileAll(class_loader_, dex_files_, verifier_deps.get(), timings_);
   }
 
   // Notes on the interleaving of creating the images and oat files to
