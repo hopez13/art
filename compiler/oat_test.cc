@@ -103,6 +103,7 @@ class OatTest : public CommonCompilerTest {
     method_inliner_map_.reset(new DexFileToMethodInlinerMap);
     callbacks_.reset(new QuickCompilerCallbacks(verification_results_.get(),
                                                 method_inliner_map_.get(),
+                                                nullptr, /* verifier_deps */
                                                 CompilerCallbacks::CallbackMode::kCompileApp));
     Runtime::Current()->SetCompilerCallbacks(callbacks_.get());
     timer_.reset(new CumulativeLogger("Compilation times"));
