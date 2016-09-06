@@ -28,6 +28,7 @@
 
 #include "arch/instruction_set.h"
 #include "base/macros.h"
+#include "compiler_callbacks.h"
 #include "experimental_flags.h"
 #include "gc_root.h"
 #include "instrumentation.h"
@@ -69,13 +70,13 @@ namespace ti {
 }  // namespace ti
 namespace verifier {
   class MethodVerifier;
+  class VerifierDeps;
   enum class VerifyMode : int8_t;
 }  // namespace verifier
 class ArenaPool;
 class ArtMethod;
 class ClassLinker;
 class Closure;
-class CompilerCallbacks;
 class DexFile;
 class InternTable;
 class JavaVMExt;
@@ -158,6 +159,10 @@ class Runtime {
 
   CompilerCallbacks* GetCompilerCallbacks() {
     return compiler_callbacks_;
+  }
+
+  verifier::VerifierDeps* GetVerifierDeps() {
+    return (compiler_callbacks_ == nullptr) ? nullptr : compiler_callbacks_->GetVerifierDeps();
   }
 
   void SetCompilerCallbacks(CompilerCallbacks* callbacks) {
