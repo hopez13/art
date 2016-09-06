@@ -22,6 +22,30 @@
       "revId": "fbc61389c56be3f77eba770b6970bda25e40bed9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b797b7_ea162754",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-06T16:38:02Z",
+      "side": 1,
+      "message": "Huh? Could you expand? Line 1263 *moves* the unique_ptr, hence the File will not get destroyed at the end of the \u0027else\u0027 branch because `oat_file` does not own it any more.",
+      "parentUuid": "3655d739_57ffacc5",
+      "range": {
+        "startLine": 1259,
+        "startChar": 5,
+        "endLine": 1259,
+        "endChar": 96
+      },
+      "revId": "fbc61389c56be3f77eba770b6970bda25e40bed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
