@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f6417f7a_2048e47f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-06T13:20:04Z",
+      "side": 1,
+      "message": "I\u0027m not the author, but I assume it\u0027s because we don\u0027t want to close the FDs created by installd. Comment added.",
+      "parentUuid": "7182f983_e496b4f5",
+      "range": {
+        "startLine": 1261,
+        "startChar": 0,
+        "endLine": 1261,
+        "endChar": 35
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_e73f42c2",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 10
@@ -459,6 +483,24 @@
     },
     {
       "key": {
+        "uuid": "16fd3327_a1a9587c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-06T13:20:04Z",
+      "side": 1,
+      "message": "Done. (hope i got it right)",
+      "parentUuid": "16453384_7e329118",
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_a7394ade",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 10
@@ -494,6 +536,30 @@
       "side": 1,
       "message": "ping?",
       "parentUuid": "36b797b7_a7394ade",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 70
+      },
+      "revId": "4edbdafbf8533f90a59ec9ff5674a4d9dd755b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16453384_5e5d15e8",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-06T13:20:04Z",
+      "side": 1,
+      "message": "Here we always know the filename, so might as well symlink. We only need to copy when patching OAT (without image) passed to patchoat with FDs (later PSs do that).",
+      "parentUuid": "b6ff0722_1b42bb60",
       "range": {
         "startLine": 375,
         "startChar": 0,
