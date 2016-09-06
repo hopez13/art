@@ -112,9 +112,9 @@ std::string Throwable::Dump() {
         ArtMethod* method = method_trace->GetElementPtrSize<ArtMethod*>(i, ptr_size);
         uintptr_t dex_pc = method_trace->GetElementPtrSize<uintptr_t>(i + depth, ptr_size);
         int32_t line_number = method->GetLineNumFromDexPC(dex_pc);
-        const char* source_file = method->GetDeclaringClassSourceFile();
+        std::pair<const char*, uint32_t> source_file = method->GetDeclaringClassSourceFile();
         result += StringPrintf("  at %s (%s:%d)\n", PrettyMethod(method, true).c_str(),
-                               source_file, line_number);
+                               source_file.first, line_number);
       }
     }
   } else {

@@ -1203,7 +1203,7 @@ class MANAGED Class FINAL : public Object {
                                            uint32_t idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  const char* GetSourceFile() REQUIRES_SHARED(Locks::mutator_lock_);
+  std::pair<const char*, uint32_t> GetSourceFile() REQUIRES_SHARED(Locks::mutator_lock_);
 
   std::string GetLocation() REQUIRES_SHARED(Locks::mutator_lock_);
 

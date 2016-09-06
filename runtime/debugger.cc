@@ -1098,11 +1098,11 @@ JDWP::JdwpError Dbg::GetSourceFile(JDWP::RefTypeId class_id, std::string* result
   if (c == nullptr) {
     return error;
   }
-  const char* source_file = c->GetSourceFile();
-  if (source_file == nullptr) {
+  std::pair<const char*, uint32_t> source_file = c->GetSourceFile();
+  if (source_file.first == nullptr) {
     return JDWP::ERR_ABSENT_INFORMATION;
   }
-  *result = source_file;
+  *result = source_file.first;
   return JDWP::ERR_NONE;
 }
 
@@ -4903,8 +4903,8 @@ class StringTable {
 static const char* GetMethodSourceFile(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(method != nullptr);
-  const char* source_file = method->GetDeclaringClassSourceFile();
-  return (source_file != nullptr) ? source_file : "";
+  std::pair<const char*, uint32_t> source_file = method->GetDeclaringClassSourceFile();
+  return (source_file.first != nullptr) ? source_file.first : "";
 }
 
 /*

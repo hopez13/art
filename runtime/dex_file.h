@@ -1079,11 +1079,13 @@ class DexFile {
   bool DecodeDebugPositionInfo(const CodeItem* code_item, DexDebugNewPositionCb position_cb,
                                void* context) const;
 
-  const char* GetSourceFile(const ClassDef& class_def) const {
+  std::pair<const char*, uint32_t> GetSourceFile(const ClassDef& class_def) const {
     if (class_def.source_file_idx_ == 0xffffffff) {
-      return nullptr;
+      return {nullptr, 0};  // NOLINT [readability/braces] [4]
     } else {
-      return StringDataByIdx(class_def.source_file_idx_);
+      uint32_t utf16_len;
+      const char* data = StringDataAndUtf16LengthByIdx(class_def.source_file_idx_, &utf16_len);
+      return {data, utf16_len};  // NOLINT [readability/braces] [4]
     }
   }
 

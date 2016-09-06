@@ -51,8 +51,8 @@ void WriteDebugInfo(ElfBuilder<ElfTypes>* builder,
   for (const MethodDebugInfo& mi : method_infos) {
     if (mi.dex_file != nullptr) {
       auto& dex_class_def = mi.dex_file->GetClassDef(mi.class_def_index);
-      const char* source_file = mi.dex_file->GetSourceFile(dex_class_def);
-      if (compilation_units.empty() || source_file != last_source_file) {
+      std::pair<const char*, uint32_t> source_file = mi.dex_file->GetSourceFile(dex_class_def);
+      if (compilation_units.empty() || source_file.first != last_source_file) {
         compilation_units.push_back(ElfCompilationUnit());
       }
       ElfCompilationUnit& cu = compilation_units.back();
@@ -62,7 +62,7 @@ void WriteDebugInfo(ElfBuilder<ElfTypes>* builder,
       cu.is_code_address_text_relative = mi.is_code_address_text_relative;
       cu.code_address = std::min(cu.code_address, mi.code_address);
       cu.code_end = std::max(cu.code_end, mi.code_address + mi.code_size);
-      last_source_file = source_file;
+      last_source_file = source_file.first;
     }
   }
 

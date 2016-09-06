@@ -364,7 +364,7 @@ inline const DexFile::TypeList* ArtMethod::GetParameterTypeList() {
   return dex_file->GetProtoParameters(proto);
 }
 
-inline const char* ArtMethod::GetDeclaringClassSourceFile() {
+inline std::pair<const char*, uint32_t> ArtMethod::GetDeclaringClassSourceFile() {
   DCHECK(!IsProxyMethod());
   return GetDeclaringClass()->GetSourceFile();
 }

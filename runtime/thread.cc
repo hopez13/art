@@ -1406,8 +1406,8 @@ struct StackDumpVisitor : public StackVisitor {
       if (m->IsNative()) {
         os << "(Native method)";
       } else {
-        const char* source_file(m->GetDeclaringClassSourceFile());
-        os << "(" << (source_file != nullptr ? source_file : "unavailable")
+        std::pair<const char*, uint32_t> source_file = m->GetDeclaringClassSourceFile();
+        os << "(" << (source_file.first != nullptr ? source_file.first : "unavailable")
            << ":" << line_number << ")";
       }
       os << "\n";
@@ -2217,9 +2217,10 @@ jobjectArray Thread::InternalStackTraceToStackTraceElementArray(
         soa.Self()->AssertPendingOOMException();
         return nullptr;
       }
-      const char* source_file = method->GetDeclaringClassSourceFile();
-      if (source_file != nullptr) {
-        source_name_object.Assign(mirror::String::AllocFromModifiedUtf8(soa.Self(), source_file));
+      std::pair<const char*, uint32_t> source_file = method->GetDeclaringClassSourceFile();
+      if (source_file.first != nullptr) {
+        source_name_object.Assign(mirror::String::AllocFromModifiedUtf8(soa.Self(),
+            source_file.second, source_file.first));
         if (source_name_object.Get() == nullptr) {
           soa.Self()->AssertPendingOOMException();
           return nullptr;
