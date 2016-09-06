@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3655d739_57ffacc5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-09-06T15:17:25Z",
+      "side": 1,
+      "message": "That\u0027s not the reason. It\u0027s because we move the descriptor to oat_files_ (see line 1263). Then we close everything.\n\ninstalld always execs commands so all descriptors must be closed here as well.",
+      "range": {
+        "startLine": 1259,
+        "startChar": 5,
+        "endLine": 1259,
+        "endChar": 96
+      },
+      "revId": "fbc61389c56be3f77eba770b6970bda25e40bed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
