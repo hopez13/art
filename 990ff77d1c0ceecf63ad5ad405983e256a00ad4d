@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "962843c7_19f577e8",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-06T23:38:02Z",
+      "side": 1,
+      "message": "This only handles the edge cases, most of the cards are still going to be CASed.",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962843c7_1921f761",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-06T23:38:02Z",
+      "side": 1,
+      "message": "I think this is broken for the case where it goes from\ndirty - 1 to clean. If you don\u0027t use a CAS you can lose a write to the card table.\n\nI.e.\n\nold_value \u003d kCardDirty - 1, new_value \u003d 0 \n\n*address \u003d\u003d kCardDirty - 1 is true\n\n// Mutator goes and writes card back to kCardDirty and writes some field in.\n\n*address gets incorrectly set to 0 and doesn\u0027t get scanned even though it should have been.",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962843c7_d9eabffe",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-06T23:38:02Z",
+      "side": 1,
+      "message": "Main CAS is here.",
+      "range": {
+        "startLine": 174,
+        "startChar": 30,
+        "endLine": 174,
+        "endChar": 56
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962843c7_79d3d357",
+        "filename": "runtime/gc/accounting/card_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-06T23:38:02Z",
+      "side": 1,
+      "message": "Args are misaligned now.",
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962843c7_595d2fe8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3377,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-06T23:38:02Z",
+      "side": 1,
+      "message": "Misaligned",
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
