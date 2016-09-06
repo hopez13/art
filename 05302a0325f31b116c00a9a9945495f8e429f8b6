@@ -93,6 +93,23 @@
       "revId": "05302a0325f31b116c00a9a9945495f8e429f8b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "765f4f59_ff9857c7",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-06T16:39:53Z",
+      "side": 1,
+      "message": "I realize we don\u0027t have a very consistent style on this, but every class should really have documentation. Since you are introducing a whole new format (and thus class), it seems the right time to start using this convention. A small description of the format and its purpose, and perhaps links to more doc would suffice.",
+      "revId": "05302a0325f31b116c00a9a9945495f8e429f8b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
