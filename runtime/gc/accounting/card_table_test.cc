@@ -103,7 +103,7 @@ class UpdateVisitor {
   }
 };
 
-TEST_F(CardTableTest, TestModifyCardsAtomic) {
+TEST_F(CardTableTest, TestModifyCardsNonAtomic) {
   CommonSetup();
   FillRandom();
   const size_t delta = std::min(static_cast<size_t>(HeapLimit() - HeapBegin()),
@@ -119,7 +119,7 @@ TEST_F(CardTableTest, TestModifyCardsAtomic) {
       uint8_t* end = cend - end_offset;
       end_offset = (end_offset + kObjectAlignment) % CardTable::kCardSize;
       // Modify cards.
-      card_table_->ModifyCardsAtomic(start, end, visitor, visitor);
+      card_table_->ModifyCardsNonAtomic(start, end, visitor, visitor);
       // Check adjacent cards not modified.
       for (uint8_t* cur = start - CardTable::kCardSize; cur >= HeapBegin();
           cur -= CardTable::kCardSize) {

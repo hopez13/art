@@ -3373,7 +3373,7 @@ void Heap::ProcessCards(TimingLogger* timings,
         // The races are we either end up with: Aged card, unaged card. Since we have the
         // checkpoint roots and then we scan / update mod union tables after. We will always
         // scan either card. If we end up with the non aged card, we scan it it in the pause.
-        card_table_->ModifyCardsAtomic(space->Begin(), space->End(), AgeCardVisitor(),
+        card_table_->ModifyCardsNonAtomic(space->Begin(), space->End(), AgeCardVisitor(),
                                        VoidFunctor());
       }
     }

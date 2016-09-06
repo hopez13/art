@@ -172,7 +172,7 @@ void ModUnionTableReferenceCache::ClearCards() {
   CardTable* card_table = GetHeap()->GetCardTable();
   ModUnionAddToCardSetVisitor visitor(&cleared_cards_);
   // Clear dirty cards in the this space and update the corresponding mod-union bits.
-  card_table->ModifyCardsAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), visitor);
+  card_table->ModifyCardsNonAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), visitor);
 }
 
 void ModUnionTableReferenceCache::ClearTable() {
@@ -528,7 +528,7 @@ void ModUnionTableCardCache::ClearCards() {
   CardTable* const card_table = GetHeap()->GetCardTable();
   ModUnionAddToCardBitmapVisitor visitor(card_bitmap_.get(), card_table);
   // Clear dirty cards in the this space and update the corresponding mod-union bits.
-  card_table->ModifyCardsAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), visitor);
+  card_table->ModifyCardsNonAtomic(space_->Begin(), space_->End(), AgeCardVisitor(), visitor);
 }
 
 void ModUnionTableCardCache::ClearTable() {
