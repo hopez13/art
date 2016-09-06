@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "16453384_debc8527",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-06T10:00:23Z",
+      "side": 1,
+      "message": "Correction: the \"while (i \u003e\u003d start);\" should not be there; it\u0027s a leftover from a draft using \"do { ... } while (...);\".",
+      "parentUuid": "3ad1308d_cff0ae6d",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf9233e_bdb3bfe5",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
