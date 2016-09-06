@@ -77,6 +77,7 @@
 #include "ScopedLocalRef.h"
 #include "scoped_thread_state_change.h"
 #include "utils.h"
+#include "verifier/verifier_deps.h"
 #include "well_known_classes.h"
 #include "zip_archive.h"
 
@@ -1315,10 +1316,16 @@ class Dex2Oat FINAL {
       return false;
     }
 
+    if (!IsBootImage()) {
+      // Collect verification dependencies when compiling an app.
+      verifier_deps_.reset(new verifier::VerifierDeps());
+    }
+
     verification_results_.reset(new VerificationResults(compiler_options_.get()));
     callbacks_.reset(new QuickCompilerCallbacks(
         verification_results_.get(),
         &method_inliner_map_,
+        verifier_deps_.get(),
         IsBootImage() ?
             CompilerCallbacks::CallbackMode::kCompileBootImage :
             CompilerCallbacks::CallbackMode::kCompileApp));
@@ -1423,6 +1430,12 @@ class Dex2Oat FINAL {
     }
 
     dex_files_ = MakeNonOwningPointerVector(opened_dex_files_);
+    if (!IsBootImage()) {
+      DCHECK(verifier_deps_.get() != nullptr);
+      for (const DexFile* dex_file : dex_files_) {
+        verifier_deps_->AddCompiledDexFile(*dex_file);
+      }
+    }
 
     // We had to postpone the swap decision till now, as this is the point when we actually
     // know about the dex files we're going to use.
@@ -2569,6 +2582,9 @@ class Dex2Oat FINAL {
   std::unique_ptr<CumulativeLogger> compiler_phases_timings_;
   std::vector<std::vector<const DexFile*>> dex_files_per_oat_file_;
   std::unordered_map<const DexFile*, size_t> dex_file_oat_index_map_;
+
+  // Collector of verifier dependencies.
+  std::unique_ptr<verifier::VerifierDeps> verifier_deps_;
 
   // Backing storage.
   std::vector<std::string> char_backing_storage_;
