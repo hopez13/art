@@ -41,6 +41,7 @@
 #include "thread_pool.h"
 #include "utils/array_ref.h"
 #include "utils/dex_cache_arrays_layout.h"
+#include "verifier/verifier_deps.h"
 
 namespace art {
 
@@ -120,6 +121,7 @@ class CompilerDriver {
 
   void CompileAll(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,
+                  verifier::VerifierDeps* verifier_deps,
                   TimingLogger* timings)
       REQUIRES(!Locks::mutator_lock_, !compiled_classes_lock_, !dex_to_dex_references_lock_);
 
@@ -551,6 +553,7 @@ class CompilerDriver {
  private:
   void PreCompile(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,
+                  verifier::VerifierDeps* verifier_deps,
                   TimingLogger* timings)
       REQUIRES(!Locks::mutator_lock_, !compiled_classes_lock_);
 
@@ -573,9 +576,11 @@ class CompilerDriver {
 
   void Verify(jobject class_loader,
               const std::vector<const DexFile*>& dex_files,
+              verifier::VerifierDeps* verifier_deps,
               TimingLogger* timings);
   void VerifyDexFile(jobject class_loader,
                      const DexFile& dex_file,
+                     verifier::VerifierDeps* verifier_deps,
                      const std::vector<const DexFile*>& dex_files,
                      ThreadPool* thread_pool,
                      size_t thread_count,

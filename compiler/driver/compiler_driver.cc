@@ -464,6 +464,7 @@ std::unique_ptr<const std::vector<uint8_t>> CompilerDriver::CreateQuickToInterpr
 
 void CompilerDriver::CompileAll(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierDeps* verifier_deps,
                                 TimingLogger* timings) {
   DCHECK(!Runtime::Current()->IsStarted());
 
@@ -475,7 +476,7 @@ void CompilerDriver::CompileAll(jobject class_loader,
   // 2) Resolve all classes
   // 3) Attempt to verify all classes
   // 4) Attempt to initialize image classes, and trivially initialized classes
-  PreCompile(class_loader, dex_files, timings);
+  PreCompile(class_loader, dex_files, verifier_deps, timings);
   // Compile:
   // 1) Compile all classes and methods enabled for compilation. May fall back to dex-to-dex
   //    compilation.
@@ -724,7 +725,7 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
 
   InitializeThreadPools();
 
-  PreCompile(jclass_loader, dex_files, timings);
+  PreCompile(jclass_loader, dex_files, /* verifier_deps */ nullptr, timings);
 
   // Can we run DEX-to-DEX compiler on this class ?
   optimizer::DexToDexCompilationLevel dex_to_dex_compilation_level =
@@ -914,6 +915,7 @@ inline void CompilerDriver::CheckThreadPools() {
 
 void CompilerDriver::PreCompile(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierDeps* verifier_deps,
                                 TimingLogger* timings) {
   CheckThreadPools();
 
@@ -947,7 +949,7 @@ void CompilerDriver::PreCompile(jobject class_loader,
     VLOG(compiler) << "Resolve const-strings: " << GetMemoryUsageString(false);
   }
 
-  Verify(class_loader, dex_files, timings);
+  Verify(class_loader, dex_files, verifier_deps, timings);
   VLOG(compiler) << "Verify: " << GetMemoryUsageString(false);
 
   if (had_hard_verifier_failure_ && GetCompilerOptions().AbortOnHardVerifierFailure()) {
@@ -1881,14 +1883,16 @@ class ParallelCompilationManager {
                              CompilerDriver* compiler,
                              const DexFile* dex_file,
                              const std::vector<const DexFile*>& dex_files,
-                             ThreadPool* thread_pool)
+                             ThreadPool* thread_pool,
+                             verifier::VerifierDeps* verifier_deps = nullptr)
     : index_(0),
       class_linker_(class_linker),
       class_loader_(class_loader),
       compiler_(compiler),
       dex_file_(dex_file),
       dex_files_(dex_files),
-      thread_pool_(thread_pool) {}
+      thread_pool_(thread_pool),
+      verifier_deps_(verifier_deps) {}
 
   ClassLinker* GetClassLinker() const {
     CHECK(class_linker_ != nullptr);
@@ -1908,6 +1912,8 @@ class ParallelCompilationManager {
     CHECK(dex_file_ != nullptr);
     return dex_file_;
   }
+
+  verifier::VerifierDeps* GetVerifierDeps() const { return verifier_deps_; }
 
   const std::vector<const DexFile*>& GetDexFiles() const {
     return dex_files_;
@@ -1976,6 +1982,7 @@ class ParallelCompilationManager {
   const DexFile* const dex_file_;
   const std::vector<const DexFile*>& dex_files_;
   ThreadPool* const thread_pool_;
+  verifier::VerifierDeps* verifier_deps_;
 
   DISALLOW_COPY_AND_ASSIGN(ParallelCompilationManager);
 };
@@ -2236,14 +2243,15 @@ void CompilerDriver::SetVerified(jobject class_loader,
 
 void CompilerDriver::Verify(jobject class_loader,
                             const std::vector<const DexFile*>& dex_files,
+                            verifier::VerifierDeps* verifier_deps,
                             TimingLogger* timings) {
   // Note: verification should not be pulling in classes anymore when compiling the boot image,
   //       as all should have been resolved before. As such, doing this in parallel should still
   //       be deterministic.
   for (const DexFile* dex_file : dex_files) {
-    CHECK(dex_file != nullptr);
     VerifyDexFile(class_loader,
                   *dex_file,
+                  verifier_deps,
                   dex_files,
                   parallel_thread_pool_.get(),
                   parallel_thread_count_,
@@ -2287,6 +2295,7 @@ class VerifyClassVisitor : public CompilationVisitor {
       std::string error_msg;
       if (verifier::MethodVerifier::VerifyClass(soa.Self(),
                                                 &dex_file,
+                                                manager_->GetVerifierDeps(),
                                                 dex_cache,
                                                 class_loader,
                                                 class_def,
@@ -2301,7 +2310,7 @@ class VerifyClassVisitor : public CompilationVisitor {
       }
     } else if (!SkipClass(jclass_loader, dex_file, klass.Get())) {
       CHECK(klass->IsResolved()) << PrettyClass(klass.Get());
-      class_linker->VerifyClass(soa.Self(), klass, log_level_);
+      class_linker->VerifyClass(soa.Self(), klass, manager_->GetVerifierDeps(), log_level_);
 
       if (klass->IsErroneous()) {
         // ClassLinker::VerifyClass throws, which isn't useful in the compiler.
@@ -2329,6 +2338,7 @@ class VerifyClassVisitor : public CompilationVisitor {
 
 void CompilerDriver::VerifyDexFile(jobject class_loader,
                                    const DexFile& dex_file,
+                                   verifier::VerifierDeps* verifier_deps,
                                    const std::vector<const DexFile*>& dex_files,
                                    ThreadPool* thread_pool,
                                    size_t thread_count,
@@ -2336,7 +2346,7 @@ void CompilerDriver::VerifyDexFile(jobject class_loader,
   TimingLogger::ScopedTiming t("Verify Dex File", timings);
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ParallelCompilationManager context(class_linker, class_loader, this, &dex_file, dex_files,
-                                     thread_pool);
+                                     thread_pool, verifier_deps);
   LogSeverity log_level = GetCompilerOptions().AbortOnHardVerifierFailure()
                               ? LogSeverity::INTERNAL_FATAL
                               : LogSeverity::WARNING;
