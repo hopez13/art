@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "166e130e_d6f1045f",
+        "filename": "test/412-new-array/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-06T17:20:21Z",
+      "side": 1,
+      "message": "Copy-pasted, keeping for consistency.",
+      "parentUuid": "765f4f59_ff6a17a7",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 32
+      },
+      "revId": "2fd65dc56daf33fc05735d4f030e724ea52c65e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "765f4f59_9f6ddbc3",
         "filename": "test/412-new-array/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-06T16:32:35Z",
       "side": 1,
       "message": "Two tests, one with zeros, one with some non-zero sentinel values?",
+      "range": {
+        "startLine": 229,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 32
+      },
+      "revId": "2fd65dc56daf33fc05735d4f030e724ea52c65e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fd3327_216f8825",
+        "filename": "test/412-new-array/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-06T17:20:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "765f4f59_9f6ddbc3",
       "range": {
         "startLine": 229,
         "startChar": 6,
