@@ -46,6 +46,30 @@
       "revId": "3a21e386fa55a8b86dffa5250985b263fcfd2155",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ecaf0a_34ff5efc",
+        "filename": "runtime/stack_reference.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T17:51:47Z",
+      "side": 1,
+      "message": "But why does it even need to be PACKED(4)?\n\nAnd why isn\u0027t CompressedReference also brought out of mirror then?",
+      "parentUuid": "7182f983_a19f3e64",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "3a21e386fa55a8b86dffa5250985b263fcfd2155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
