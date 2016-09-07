@@ -98,3 +98,52 @@ M-virtual           K.bar()='BAZ!'
 M-virtual           L.bar()='BAZ!'
 M-virtual           M.bar()='BAZ!'
 End testing for type M
+Testing for type N
+N-interface       Foo.bar()='foobar'
+N-virtual           N.bar()='foobar'
+End testing for type N
+Testing for type O
+O-interface       Foo.bar()='foobar foobar'
+O-interface      Foo2.bar()='foobar foobar'
+O-virtual           N.bar()='foobar foobar'
+O-virtual           O.bar()='foobar foobar'
+End testing for type O
+Testing for type P
+P-interface       Foo.bar()='not foobar!'
+P-interface      Foo2.bar()='not foobar!'
+P-virtual           N.bar()='not foobar!'
+P-virtual           O.bar()='not foobar!'
+P-virtual           P.bar()='not foobar!'
+End testing for type P
+Testing for type Q
+Q-interface on Foo: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_Foo_interface(Main.java:794)
+	at Main.TEST_NAME_Q(Main.java:355)
+	at Main.main(Main.java:847)
+Q-interface on Foo2: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_Foo2_interface(Main.java:624)
+	at Main.TEST_NAME_Q(Main.java:357)
+	at Main.main(Main.java:847)
+Q-interface on Foo3: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_Foo3_interface(Main.java:804)
+	at Main.TEST_NAME_Q(Main.java:359)
+	at Main.main(Main.java:847)
+Q-virtual on N: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_N_virtual(Main.java:674)
+	at Main.TEST_NAME_Q(Main.java:361)
+	at Main.main(Main.java:847)
+Q-virtual on O: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_O_virtual(Main.java:634)
+	at Main.TEST_NAME_Q(Main.java:363)
+	at Main.main(Main.java:847)
+Q-virtual on Q: bar() threw exception!
+java.lang.IncompatibleClassChangeError: Conflicting default method implementations java.lang.String Foo3.bar()
+	at Main.Test_Func_bar_Q_virtual(Main.java:714)
+	at Main.TEST_NAME_Q(Main.java:365)
+	at Main.main(Main.java:847)
+End testing for type Q
