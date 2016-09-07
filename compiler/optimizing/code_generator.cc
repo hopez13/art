@@ -1081,11 +1081,9 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment, SlowPathCode* slo
   }
 }
 
-bool CodeGenerator::IsImplicitNullCheckAllowed(HNullCheck* null_check) const {
-  return compiler_options_.GetImplicitNullChecks() &&
-         // Null checks which might throw into a catch block need to save live
-         // registers and therefore cannot be done implicitly.
-         !null_check->CanThrowIntoCatchBlock();
+bool CodeGenerator::IsImplicitNullCheckAllowed(HNullCheck* null_check ATTRIBUTE_UNUSED) const {
+  // TODO: Inline into callers?
+  return compiler_options_.GetImplicitNullChecks();
 }
 
 bool CodeGenerator::CanMoveNullCheckToUser(HNullCheck* null_check) {
