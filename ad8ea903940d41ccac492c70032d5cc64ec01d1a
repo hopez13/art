@@ -22,6 +22,30 @@
       "revId": "ad8ea903940d41ccac492c70032d5cc64ec01d1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962843c7_e7ea75fe",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-07T14:57:55Z",
+      "side": 1,
+      "message": "Because it\u0027s CHECK (well DCHECK) out of logging that is being used here.\n\nNote: with moving towards libbase\u0027s logging this will go away. This is mainly why I tagged it with a bug number...",
+      "parentUuid": "367f97e8_871ba68b",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "ad8ea903940d41ccac492c70032d5cc64ec01d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
