@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d64e3b0b_3c2391c6",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T20:09:40Z",
+      "side": 1,
+      "message": "Any reason to not make these unique_ptr and let annotations do the cleanup?",
+      "range": {
+        "startLine": 385,
+        "startChar": 19,
+        "endLine": 385,
+        "endChar": 40
+      },
+      "revId": "f242fe805602f71e171d1b0b7edad397973f061b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_fc2c49ba",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T20:09:40Z",
+      "side": 1,
+      "message": "Change this to std::string?",
+      "range": {
+        "startLine": 772,
+        "startChar": 14,
+        "endLine": 772,
+        "endChar": 29
+      },
+      "revId": "f242fe805602f71e171d1b0b7edad397973f061b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_9c318515",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T20:09:40Z",
+      "side": 1,
+      "message": "std::string?",
+      "range": {
+        "startLine": 1036,
+        "startChar": 8,
+        "endLine": 1036,
+        "endChar": 23
+      },
+      "revId": "f242fe805602f71e171d1b0b7edad397973f061b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
