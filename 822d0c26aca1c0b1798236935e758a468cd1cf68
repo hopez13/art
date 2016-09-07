@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "96e9236c_e80bc77f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-07T09:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166e130e_16a41ca9",
+      "revId": "822d0c26aca1c0b1798236935e758a468cd1cf68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b11ab155_090e6d93",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-06T11:12:52Z",
       "side": 1,
       "message": "Nit: you can fit both initializations on a single line.",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 39
+      },
+      "revId": "822d0c26aca1c0b1798236935e758a468cd1cf68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6417f7a_0051682a",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-07T09:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b11ab155_090e6d93",
       "range": {
         "startLine": 82,
         "startChar": 8,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "318881a4_25adfaa2",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-07T09:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91668dcf_3df7db54",
+      "range": {
+        "startLine": 85,
+        "startChar": 57,
+        "endLine": 85,
+        "endChar": 58
+      },
+      "revId": "822d0c26aca1c0b1798236935e758a468cd1cf68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fd3327_be8e192f",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 1
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "36b797b7_6a4eb7bf",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-07T09:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fd3327_be8e192f",
+      "range": {
+        "startLine": 983,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 74
+      },
+      "revId": "822d0c26aca1c0b1798236935e758a468cd1cf68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96e9236c_289e4f56",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-09-06T11:12:52Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 75
+      },
+      "revId": "822d0c26aca1c0b1798236935e758a468cd1cf68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "318881a4_65b702f3",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-07T09:51:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96e9236c_289e4f56",
       "range": {
         "startLine": 1012,
         "startChar": 0,
