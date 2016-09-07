@@ -22,6 +22,30 @@
       "revId": "2bac4fe4eccc6af04e4d1123b2f15fbb72560d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_1091d4ff",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T22:51:55Z",
+      "side": 1,
+      "message": "SetResolvedString will put a valid index at the slot. So that will cause the fast path to go off and return null strings incorrectly.",
+      "parentUuid": "d64e3b0b_70d298cb",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 78
+      },
+      "revId": "2bac4fe4eccc6af04e4d1123b2f15fbb72560d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
