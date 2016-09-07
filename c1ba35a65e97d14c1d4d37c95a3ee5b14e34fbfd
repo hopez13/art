@@ -25,6 +25,54 @@
     },
     {
       "key": {
+        "uuid": "d64e3b0b_42fc7604",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Fixed.\n\n(I probably wrote it like this for debugging originally, don\u0027t need it anymore with the gtest doing this check.)",
+      "parentUuid": "36b797b7_c7fa3e3c",
+      "range": {
+        "startLine": 630,
+        "startChar": 0,
+        "endLine": 635,
+        "endChar": 7
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_020bce2e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_c7fa3e3c",
+      "range": {
+        "startLine": 630,
+        "startChar": 0,
+        "endLine": 635,
+        "endChar": 7
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_e7f74253",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 1
@@ -36,6 +84,30 @@
       "writtenOn": "2016-09-05T12:24:00Z",
       "side": 1,
       "message": "Use the enum in compiler.h?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 2
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_e5b4ac8e",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_e7f74253",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -71,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d64e3b0b_65573c22",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_87f44650",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 60
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_478c0ee6",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 1
@@ -82,6 +178,30 @@
       "writtenOn": "2016-09-05T12:24:00Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 271,
+        "startChar": 100,
+        "endLine": 271,
+        "endChar": 101
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_052d18b4",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_478c0ee6",
       "range": {
         "startLine": 271,
         "startChar": 100,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d64e3b0b_c50f303e",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "These are just placeholder comments so I can remember how to easily refactor this later. I want to merge most of these into the same class.\n\nA lot of this code is basically copy+paste with some constants zeroed out.",
+      "parentUuid": "36b797b7_679112ff",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 19
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_079616f8",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
         "patchSetId": 1
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d64e3b0b_c5141050",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "For a future refactoring",
+      "parentUuid": "36b797b7_079616f8",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 68
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36b797b7_279b1a1f",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-05T12:24:00Z",
       "side": 1,
       "message": "Could you check before submitting this comment?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 57
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_e52eec99",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Merely a refactoring comment.",
+      "parentUuid": "36b797b7_279b1a1f",
       "range": {
         "startLine": 287,
         "startChar": 0,
@@ -220,6 +412,30 @@
       "writtenOn": "2016-09-05T12:24:00Z",
       "side": 1,
       "message": "Mentioning gtest seems odd. Could you just avoid passing true for mips and mips64?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 37
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_c589707c",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b797b7_8789a6d1",
       "range": {
         "startLine": 157,
         "startChar": 0,
@@ -290,6 +506,30 @@
       "writtenOn": "2016-09-05T12:24:00Z",
       "side": 1,
       "message": "remove.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 6
+      },
+      "revId": "c1ba35a65e97d14c1d4d37c95a3ee5b14e34fbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64e3b0b_8545a83f",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91668dcf_ba485113",
       "range": {
         "startLine": 110,
         "startChar": 0,
