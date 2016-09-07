@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76ecaf0a_91f97c6b",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T18:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1678d3fe_a650a660",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 84
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96992396_c2cd0259",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-07T10:07:47Z",
       "side": 1,
       "message": "Can you remove MIPS from the comment? MIPS64 is the sole remaining architecture here.",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 16
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ecaf0a_51231417",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T18:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96992396_c2cd0259",
       "range": {
         "startLine": 196,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "76ecaf0a_3130905a",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T18:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367f97e8_07b5f688",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76890f3e_09e7c9a8",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "76ecaf0a_b1f48073",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T18:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76890f3e_09e7c9a8",
+      "range": {
+        "startLine": 200,
+        "startChar": 12,
+        "endLine": 200,
+        "endChar": 27
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96992396_42c21227",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-07T10:07:47Z",
       "side": 1,
       "message": "Add \"klass !\u003d nullptr\" (see comments on PS1) and drop the \"is_in_dex_cache\" from the line 217.\n\nNote that repeating the \"klass !\u003d nullptr\" twice in the JIT block was intentional; is_in_dex_cache and is_in_boot_image are two separate concerns.",
+      "range": {
+        "startLine": 212,
+        "startChar": 24,
+        "endLine": 212,
+        "endChar": 25
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ecaf0a_91205c0d",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-07T18:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96992396_42c21227",
       "range": {
         "startLine": 212,
         "startChar": 24,
