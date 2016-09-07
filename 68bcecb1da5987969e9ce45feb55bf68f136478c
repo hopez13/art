@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "769e6f7e_813dba1d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "Removed comment for now. Is this something we should DCHECK for, or even treat as fatal? May indicate file corruption (e.g. annotation info not matching up with actual method info) or a layer above not checking something it should.\n\nReturning nullptr is permissive, which seems reasonable and in keeping with some of the existing code. Shout if you disagree.\n\nSame for above? Do they indicate a corrupt dex file if these structures are missing, or is null valid?\n\nFYI - For the AnnotationSetRefItem / AnnotationSetItem lookup I found examples where we don\u0027t bother with null checks so I omitted.",
+      "parentUuid": "b11ab155_e9ff51c4",
+      "range": {
+        "startLine": 1449,
+        "startChar": 7,
+        "endLine": 1449,
+        "endChar": 11
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "765f4f59_02b690f7",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-06T18:07:36Z",
       "side": 1,
       "message": "Style nit: single parameter per line.",
+      "range": {
+        "startLine": 1457,
+        "startChar": 46,
+        "endLine": 1458,
+        "endChar": 62
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b66aa72b_c3acb68e",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "765f4f59_02b690f7",
       "range": {
         "startLine": 1457,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1678d3fe_a6226610",
+        "filename": "runtime/mirror/accessible_object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fd3327_a15a787b",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "318881a4_c891c300",
         "filename": "runtime/mirror/field.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "96992396_82b37af1",
+        "filename": "runtime/mirror/field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "I\u0027ve put in a not-very-useful comment. May just be better to remove, or provide more detail. Not sure I want to explain alignment here, though.",
+      "parentUuid": "318881a4_c891c300",
+      "range": {
+        "startLine": 102,
+        "startChar": 10,
+        "endLine": 102,
+        "endChar": 17
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "765f4f59_6d85bd07",
         "filename": "runtime/mirror/field.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-06T18:07:36Z",
       "side": 1,
       "message": "I\u0027m surprised an explicit padding of two is necessary here.",
+      "range": {
+        "startLine": 103,
+        "startChar": 19,
+        "endLine": 103,
+        "endChar": 20
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "769e6f7e_2106ee78",
+        "filename": "runtime/mirror/field.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "I understand it\u0027s needed to match alignment between Java and C++, and I understand there is an algorithm for aligning / padding, but I\u0027m mostly relying on the tests to tell me if something is wrong. Let me know if there\u0027s something fishy going on. Think it\u0027s related to references always going first and needing to be aligned to word boundaries, but that\u0027s only a superficial / hand-wavey understanding.\n\nThis at least seems consistent with what was there before:\n\nPreviously the padding of 3 was needed in accessible_object, and that was valid / shared by all subclasses. Now the executable has its own Java fields the padding/layout for it (and its subclasses) is different. Field hasn\u0027t changed, so the 1 (from accessible_object) + 2 (for field) is at least mathematically consistent.",
+      "parentUuid": "765f4f59_6d85bd07",
       "range": {
         "startLine": 103,
         "startChar": 19,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "1678d3fe_666f8e24",
+        "filename": "runtime/native/java_lang_reflect_Parameter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "765f4f59_ad86b510",
+      "range": {
+        "startLine": 49,
+        "startChar": 38,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "765f4f59_adafd580",
         "filename": "runtime/native/java_lang_reflect_Parameter.cc",
         "patchSetId": 2
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "96992396_e2c8064b",
+        "filename": "runtime/native/java_lang_reflect_Parameter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "765f4f59_adafd580",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 47
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "765f4f59_cdb209ed",
         "filename": "runtime/native/java_lang_reflect_Parameter.cc",
         "patchSetId": 2
@@ -197,6 +365,30 @@
       "writtenOn": "2016-09-06T18:07:36Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 66,
+        "startChar": 101,
+        "endLine": 66,
+        "endChar": 104
+      },
+      "revId": "68bcecb1da5987969e9ce45feb55bf68f136478c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76890f3e_69cda526",
+        "filename": "runtime/native/java_lang_reflect_Parameter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-07T10:14:00Z",
+      "side": 1,
+      "message": "We don\u0027t seem to care about long lines during registration. I did my best by splitting over multiple lines, but all others I say (e.g. VMClassLoader, Proxy, Constructor) didn\u0027t bother even doing that. Couldn\u0027t find a single example of where somebody had broken up the string.",
+      "parentUuid": "765f4f59_cdb209ed",
       "range": {
         "startLine": 66,
         "startChar": 101,
