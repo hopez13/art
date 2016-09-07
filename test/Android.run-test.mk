@@ -153,17 +153,17 @@ JNI_TYPES := checkjni
 ifeq ($(ART_TEST_JNI_FORCECOPY),true)
   JNI_TYPES += forcecopy
 endif
-IMAGE_TYPES := image
+IMAGE_TYPES := picimage
 ifeq ($(ART_TEST_RUN_TEST_NO_IMAGE),true)
   IMAGE_TYPES += no-image
 endif
 ifeq ($(ART_TEST_RUN_TEST_MULTI_IMAGE),true)
-  IMAGE_TYPES := multiimage
+  IMAGE_TYPES := multipicimage
 endif
-ifeq ($(ART_TEST_PIC_IMAGE),true)
-  IMAGE_TYPES += picimage
+ifeq ($(ART_TEST_NPIC_IMAGE),true)
+  IMAGE_TYPES += npicimage
   ifeq ($(ART_TEST_RUN_TEST_MULTI_IMAGE),true)
-    IMAGE_TYPES := multipicimage
+    IMAGE_TYPES := multinpicimage
   endif
 endif
 PICTEST_TYPES := npictest
@@ -902,7 +902,7 @@ define define-test-art-run-test
       prereq_rule += $$(TARGET_CORE_IMAGE_$$(image_suffix)_no-pic_$(13))
     endif
   else
-    ifeq ($(9),image)
+    ifeq ($(9),npicimage)
       test_groups += ART_RUN_TEST_$$(uc_host_or_target)_IMAGE_RULES
       # Add the core dependency.
       ifeq ($(1),host)
@@ -920,7 +920,7 @@ define define-test-art-run-test
           prereq_rule += $$(TARGET_CORE_IMAGE_$$(image_suffix)_pic_$(13))
         endif
       else
-        ifeq ($(9),multiimage)
+        ifeq ($(9),multinpicimage)
           test_groups += ART_RUN_TEST_$$(uc_host_or_target)_IMAGE_RULES
           run_test_options += --multi-image
                 ifeq ($(1),host)
