@@ -379,7 +379,14 @@ class ArrayItem : public Item {
   };
 
   explicit ArrayItem(uint8_t type) : type_(type) { }
-  ~ArrayItem() OVERRIDE { }
+  ~ArrayItem() OVERRIDE {
+    // Free memory allocated by annotations.
+    if (type_ == DexFile::kDexAnnotationArray) {
+      delete item_.annotation_array_val_;
+    } else if (type_ == DexFile::kDexAnnotationAnnotation) {
+      delete item_.annotation_annotation_val_.array_;
+    }
+  }
 
   int8_t Type() const { return type_; }
   bool GetBoolean() const { return item_.bool_val_; }
