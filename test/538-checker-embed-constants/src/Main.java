@@ -115,11 +115,12 @@ public class Main {
 
   /// CHECK-START-ARM: long Main.and511(long) disassembly (after)
   /// CHECK:                movw {{r\d+}}, #511
-  /// CHECK-NOT:            and
+  /// CHECK-NEXT:           movs {{r\d+}}, #0
+  /// CHECK-NOT:            and{{(\.w)?}}
   /// CHECK-NOT:            bic
-  /// CHECK-DAG:            and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-DAG:            movs {{r\d+}}, #0
-  /// CHECK-NOT:            and
+  /// CHECK:                and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK-NEXT:           and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK-NOT:            and{{(\.w)?}}
   /// CHECK-NOT:            bic
 
   public static long and511(long arg) {
@@ -166,10 +167,12 @@ public class Main {
 
   /// CHECK-START-ARM: long Main.or511(long) disassembly (after)
   /// CHECK:                movw {{r\d+}}, #511
-  /// CHECK-NOT:            orr
+  /// CHECK-NEXT:           movs {{r\d+}}, #0
+  /// CHECK-NOT:            orr{{(\.w)?}}
   /// CHECK-NOT:            orn
   /// CHECK:                orr{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-NOT:            orr
+  /// CHECK-NEXT:           orr{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK-NOT:            orr{{(\.w)?}}
   /// CHECK-NOT:            orn
 
   public static long or511(long arg) {
@@ -215,9 +218,11 @@ public class Main {
 
   /// CHECK-START-ARM: long Main.xor511(long) disassembly (after)
   /// CHECK:                movw {{r\d+}}, #511
-  /// CHECK-NOT:            eor
-  /// CHECK-DAG:            eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-NOT:            eor
+  /// CHECK-NEXT:           movs {{r\d+}}, #0
+  /// CHECK-NOT:            eor{{(\.w)?}}
+  /// CHECK:                eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK-NEXT:           eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK-NOT:            eor{{(\.w)?}}
 
   public static long xor511(long arg) {
     return arg ^ 511L;
@@ -226,10 +231,10 @@ public class Main {
   /// CHECK-START-ARM: long Main.xorNot15(long) disassembly (after)
   /// CHECK-DAG:            mvn {{r\d+}}, #15
   /// CHECK-DAG:            mov.w {{r\d+}}, #-1
-  /// CHECK-NOT:            eor
+  /// CHECK-NOT:            eor{{(\.w)?}}
   /// CHECK-DAG:            eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
   /// CHECK-DAG:            eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-NOT:            eor
+  /// CHECK-NOT:            eor{{(\.w)?}}
 
   public static long xorNot15(long arg) {
     return arg ^ ~15L;
@@ -239,10 +244,10 @@ public class Main {
   /// CHECK-START-ARM: long Main.xor0xfffffff00000000f(long) disassembly (after)
   /// CHECK-DAG:            movs {{r\d+}}, #15
   /// CHECK-DAG:            mvn {{r\d+}}, #15
-  /// CHECK-NOT:            eor
+  /// CHECK-NOT:            eor{{(\.w)?}}
   /// CHECK-DAG:            eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
   /// CHECK-DAG:            eor{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-NOT:            eor
+  /// CHECK-NOT:            eor{{(\.w)?}}
 
   public static long xor0xfffffff00000000f(long arg) {
     return arg ^ 0xfffffff00000000fL;
