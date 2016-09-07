@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1678d3fe_a650a660",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-07T10:07:47Z",
+      "side": 1,
+      "message": "Add \"klass !\u003d nullptr\" (see comments on PS1) and move this to the else block (unused in the \"MIP64 or compiler_driver_test\" block).",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 84
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96992396_c2cd0259",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-07T10:07:47Z",
+      "side": 1,
+      "message": "Can you remove MIPS from the comment? MIPS64 is the sole remaining architecture here.",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 16
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_07b5f688",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-07T10:07:47Z",
+      "side": 1,
+      "message": "I prefer this flag being set to true in the kBootImageLinkTime* block. It\u0027s actually unused for these load kinds but it may be used if the codegen decides to use the fall-back load kind (kDexCacheViaMethod).",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76890f3e_09e7c9a8",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-07T10:07:47Z",
+      "side": 1,
+      "message": "This is misleading, use \"is_in_boot_image\" to state the actual intent.",
+      "range": {
+        "startLine": 200,
+        "startChar": 12,
+        "endLine": 200,
+        "endChar": 27
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96992396_42c21227",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-07T10:07:47Z",
+      "side": 1,
+      "message": "Add \"klass !\u003d nullptr\" (see comments on PS1) and drop the \"is_in_dex_cache\" from the line 217.\n\nNote that repeating the \"klass !\u003d nullptr\" twice in the JIT block was intentional; is_in_dex_cache and is_in_boot_image are two separate concerns.",
+      "range": {
+        "startLine": 212,
+        "startChar": 24,
+        "endLine": 212,
+        "endChar": 25
+      },
+      "revId": "46ab58118be10756df5b589d9926894dc3d6b3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
