@@ -22,6 +22,30 @@
       "revId": "04147efc0621ce09fb4548cc482d42da2ff4e088",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96992396_c2e622d9",
+        "filename": "runtime/globals.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-07T10:31:52Z",
+      "side": 1,
+      "message": "To make nested #if constructs easier to read.  This seems to be accepted by our C++ coding style.  I like it, but I don\u0027t mind dropping it.  What do you think?",
+      "parentUuid": "567a4bf7_481c5fd6",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 7
+      },
+      "revId": "04147efc0621ce09fb4548cc482d42da2ff4e088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
