@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d64e3b0b_d0684ced",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T22:55:30Z",
+      "side": 1,
+      "message": "Consider changing StringDexCachePair::Initialize to take an index and call that. It\u0027s well commented for why it uses a magic {0,1}.",
+      "revId": "2bac4fe4eccc6af04e4d1123b2f15fbb72560d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64e3b0b_70d298cb",
         "filename": "runtime/mirror/dex_cache.h",
         "patchSetId": 1
