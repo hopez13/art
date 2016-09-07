@@ -322,12 +322,6 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   // TODO: Replace with a catch-entering instruction that records the environment.
   void RecordCatchBlockInfo();
 
-  // Returns true if implicit null checks are allowed in the compiler options
-  // and if the null check is not inside a try block. We currently cannot do
-  // implicit null checks in that case because we need the NullCheckSlowPath to
-  // save live registers, which may be needed by the runtime to set catch phis.
-  bool IsImplicitNullCheckAllowed(HNullCheck* null_check) const;
-
   // TODO: Avoid creating the `std::unique_ptr` here.
   void AddSlowPath(SlowPathCode* slow_path) {
     slow_paths_.push_back(std::unique_ptr<SlowPathCode>(slow_path));

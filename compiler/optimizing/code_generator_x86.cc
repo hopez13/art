@@ -4983,7 +4983,7 @@ void LocationsBuilderX86::VisitNullCheck(HNullCheck* instruction) {
       ? LocationSummary::kCallOnSlowPath
       : LocationSummary::kNoCall;
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
-  Location loc = codegen_->IsImplicitNullCheckAllowed(instruction)
+  Location loc = codegen_->GetCompilerOptions().GetImplicitNullChecks()
       ? Location::RequiresRegister()
       : Location::Any();
   locations->SetInAt(0, loc);

@@ -1081,13 +1081,6 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment, SlowPathCode* slo
   }
 }
 
-bool CodeGenerator::IsImplicitNullCheckAllowed(HNullCheck* null_check) const {
-  return compiler_options_.GetImplicitNullChecks() &&
-         // Null checks which might throw into a catch block need to save live
-         // registers and therefore cannot be done implicitly.
-         !null_check->CanThrowIntoCatchBlock();
-}
-
 bool CodeGenerator::CanMoveNullCheckToUser(HNullCheck* null_check) {
   HInstruction* first_next_not_move = null_check->GetNextDisregardingMoves();
 
@@ -1096,6 +1089,10 @@ bool CodeGenerator::CanMoveNullCheckToUser(HNullCheck* null_check) {
 }
 
 void CodeGenerator::MaybeRecordImplicitNullCheck(HInstruction* instr) {
+  if (!compiler_options_.GetImplicitNullChecks()) {
+    return;
+  }
+
   // If we are from a static path don't record the pc as we can't throw NPE.
   // NB: having the checks here makes the code much less verbose in the arch
   // specific code generators.
@@ -1114,16 +1111,14 @@ void CodeGenerator::MaybeRecordImplicitNullCheck(HInstruction* instr) {
   // and needs to record the pc.
   if (first_prev_not_move != nullptr && first_prev_not_move->IsNullCheck()) {
     HNullCheck* null_check = first_prev_not_move->AsNullCheck();
-    if (IsImplicitNullCheckAllowed(null_check)) {
-      // TODO: The parallel moves modify the environment. Their changes need to be
-      // reverted otherwise the stack maps at the throw point will not be correct.
-      RecordPcInfo(null_check, null_check->GetDexPc());
-    }
+    // TODO: The parallel moves modify the environment. Their changes need to be
+    // reverted otherwise the stack maps at the throw point will not be correct.
+    RecordPcInfo(null_check, null_check->GetDexPc());
   }
 }
 
 void CodeGenerator::GenerateNullCheck(HNullCheck* instruction) {
-  if (IsImplicitNullCheckAllowed(instruction)) {
+  if (compiler_options_.GetImplicitNullChecks()) {
     MaybeRecordStat(kImplicitNullCheckGenerated);
     GenerateImplicitNullCheck(instruction);
   } else {
