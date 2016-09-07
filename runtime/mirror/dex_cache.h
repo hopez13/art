@@ -164,6 +164,10 @@ class MANAGED DexCache FINAL : public Object {
   void SetResolvedString(uint32_t string_idx, mirror::String* resolved) ALWAYS_INLINE
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Clear a string for a string_idx, used to undo string intern transactions to make sure
+  // the string isn't kept live.
+  void ClearString(uint32_t string_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+
   Class* GetResolvedType(uint32_t type_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetResolvedType(uint32_t type_idx, Class* resolved) REQUIRES_SHARED(Locks::mutator_lock_);

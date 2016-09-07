@@ -50,7 +50,22 @@ inline void DexCache::SetResolvedString(uint32_t string_idx, mirror::String* res
   idx_ptr.string_pointer = GcRoot<String>(resolved);
   GetStrings()[string_idx % NumStrings()].store(idx_ptr, std::memory_order_relaxed);
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
-  Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
+  Runtime* const runtime = Runtime::Current();
+  if (runtime->IsActiveTransaction()) {
+    runtime->RecordResolveString(this, string_idx);
+  }
+  runtime->GetHeap()->WriteBarrierEveryFieldOf(this);
+}
+
+inline void DexCache::ClearString(uint32_t string_idx) {
+  StringDexCacheType* slot = &GetStrings()[string_idx % NumStrings()];
+  // This is racy but should only be called from the transactional interpreter.
+  if (slot->load(std::memory_order_relaxed).string_index == string_idx) {
+    StringDexCachePair cleared;
+    cleared.string_index = (string_idx != 0u) ? 0u : 1u;
+    cleared.string_pointer = GcRoot<String>(nullptr);
+    slot->store(cleared, std::memory_order_relaxed);
+  }
 }
 
 inline Class* DexCache::GetResolvedType(uint32_t type_idx) {
