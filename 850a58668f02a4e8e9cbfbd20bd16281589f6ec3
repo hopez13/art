@@ -338,6 +338,24 @@
       "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360b17ab_671ad27a",
+        "filename": "tools/bisection-search/common.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-07T18:28:15Z",
+      "side": 1,
+      "message": "I think within the python script the most idiomatic is being pythonic (list instead of a magic string). When parsing the argument or invoking other shell commands it can be serialized to the format.\n\nThat being said I don\u0027t feel strongly about it, one can argue the consistency case as well.",
+      "parentUuid": "76ee6f74_f6e04623",
+      "revId": "850a58668f02a4e8e9cbfbd20bd16281589f6ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
