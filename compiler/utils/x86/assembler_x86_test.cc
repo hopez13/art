@@ -213,6 +213,18 @@ TEST_F(AssemblerX86Test, Repnescasw) {
   DriverStr(expected, "Repnescasw");
 }
 
+TEST_F(AssemblerX86Test, Repnescasb) {
+  GetAssembler()->repne_scasb();
+  const char* expected = "repne scasb\n";
+  DriverStr(expected, "Repnescasb");
+}
+
+TEST_F(AssemblerX86Test, Repecmpsb) {
+  GetAssembler()->repe_cmpsb();
+  const char* expected = "repe cmpsb\n";
+  DriverStr(expected, "Repecmpsb");
+}
+
 TEST_F(AssemblerX86Test, Repecmpsw) {
   GetAssembler()->repe_cmpsw();
   const char* expected = "repe cmpsw\n";
@@ -235,6 +247,12 @@ TEST_F(AssemblerX86Test, RepMovsw) {
   GetAssembler()->rep_movsw();
   const char* expected = "rep movsw\n";
   DriverStr(expected, "rep_movsw");
+}
+
+TEST_F(AssemblerX86Test, RepMovsb) {
+  GetAssembler()->rep_movsb();
+  const char* expected = "rep movsb\n";
+  DriverStr(expected, "rep_movsb");
 }
 
 TEST_F(AssemblerX86Test, Bsfl) {
