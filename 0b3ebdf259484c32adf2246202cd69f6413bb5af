@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "567a4bf7_a8dddb00",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-07T10:08:38Z",
+      "side": 1,
+      "message": "Could you also introduce aliases `kCondFirst` and `kCondLast` aliases for `kCondEQ` and `kCondAE` (resp.) in the definition of `IfCondition`?  Thanks.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 24,
+        "endLine": 1000,
+        "endChar": 31
+      },
+      "revId": "0b3ebdf259484c32adf2246202cd69f6413bb5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
