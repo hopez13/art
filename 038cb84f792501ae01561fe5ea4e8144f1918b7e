@@ -46,6 +46,75 @@
       "revId": "038cb84f792501ae01561fe5ea4e8144f1918b7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567a4bf7_2853abe1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-07T21:00:54Z",
+      "side": 0,
+      "message": "Why removing this?",
+      "range": {
+        "startLine": 5609,
+        "startChar": 0,
+        "endLine": 5609,
+        "endChar": 40
+      },
+      "revId": "038cb84f792501ae01561fe5ea4e8144f1918b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567a4bf7_4858dff9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-07T21:00:54Z",
+      "side": 0,
+      "message": "ditto",
+      "range": {
+        "startLine": 5615,
+        "startChar": 0,
+        "endLine": 5615,
+        "endChar": 40
+      },
+      "revId": "038cb84f792501ae01561fe5ea4e8144f1918b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567a4bf7_685da3e8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-07T21:00:54Z",
+      "side": 0,
+      "message": "ditto",
+      "range": {
+        "startLine": 5627,
+        "startChar": 0,
+        "endLine": 5627,
+        "endChar": 40
+      },
+      "revId": "038cb84f792501ae01561fe5ea4e8144f1918b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
