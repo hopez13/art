@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bfd0a27_bec4d932",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T09:03:06Z",
+      "side": 1,
+      "message": "DexFile::StringId* string_id \u003d dex_file-\u003eFindStringId(kResolvedString);\nASSERT_TRUE(string_id !\u003d nullptr);\nuint32_t string_idx \u003d dex_file-\u003eGetIndexForStringId(*string_id);",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 37
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
