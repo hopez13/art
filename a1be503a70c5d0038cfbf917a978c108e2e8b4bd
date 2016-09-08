@@ -16,6 +16,24 @@
       "revId": "a1be503a70c5d0038cfbf917a978c108e2e8b4bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_f3ae7037",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-08T18:40:19Z",
+      "side": 0,
+      "message": "Yeah, I found this too so I removed the bottom one to follow the sequence in the header file",
+      "parentUuid": "766bcf9b_136f6424",
+      "revId": "a1be503a70c5d0038cfbf917a978c108e2e8b4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
