@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_1e72ad0b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T10:48:08Z",
+      "side": 1,
+      "message": "Deliberate functional change, putting the LR to the very end of the frame. It doesn\u0027t really matter but it\u0027s a convention I prefer to stick to. (And this is the reason for Test: with CC.)",
+      "parentUuid": "ab2dde95_eb6cd102",
+      "range": {
+        "startLine": 2487,
+        "startChar": 0,
+        "endLine": 2488,
+        "endChar": 21
+      },
+      "revId": "136792d3b668b7acb50f7b10e24ecc951522a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_de08c589",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-08T10:34:10Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2523,
+        "startChar": 0,
+        "endLine": 2524,
+        "endChar": 24
+      },
+      "revId": "136792d3b668b7acb50f7b10e24ecc951522a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfd0a27_fe56e159",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T10:48:08Z",
+      "side": 1,
+      "message": "This corresponds to the change above.",
+      "parentUuid": "0bfd0a27_de08c589",
       "range": {
         "startLine": 2523,
         "startChar": 0,
