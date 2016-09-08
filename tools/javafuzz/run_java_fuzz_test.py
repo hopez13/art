@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3.4
 #
 # Copyright (C) 2016 The Android Open Source Project
 #
@@ -16,67 +16,74 @@
 
 import abc
 import argparse
+import filecmp
+
+from glob import glob
+
+import os
+import shlex
+import shutil
 import subprocess
 import sys
-import os
 
 from tempfile import mkdtemp
-from threading import Timer
 
-# Normalized return codes.
-EXIT_SUCCESS = 0
-EXIT_TIMEOUT = 1
-EXIT_NOTCOMPILED = 2
-EXIT_NOTRUN = 3
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from bisection_search.common import RetCode
+from bisection_search.common import CommandListToCommandString
+from bisection_search.common import FatalError
+from bisection_search.common import GetEnvVariableOrError
+from bisection_search.common import RunCommandForOutput
+from bisection_search.common import DeviceTestEnv
+
+
+# execution modes which support bisection bug search.
+BISECTABLE_RUN_MODES = ['HInt', 'HOpt', 'TInt', 'TOpt']
+
+# return codes supported by bisection bug search
+BISECTABLE_RET_CODES = (RetCode.SUCCESS, RetCode.ERROR, RetCode.TIMEOUT)
+
 
 #
 # Utility methods.
 #
 
-def RunCommand(cmd, args, out, err, timeout = 5):
+
+def RunCommand(cmd, out, err, timeout=5):
   """Executes a command, and returns its return code.
 
   Args:
     cmd: string, a command to execute
-    args: string, arguments to pass to command (or None)
     out: string, file name to open for stdout (or None)
     err: string, file name to open for stderr (or None)
     timeout: int, time out in seconds
   Returns:
-    return code of running command (forced EXIT_TIMEOUT on timeout)
+    RetCode, return code of running command (forced RetCode.TIMEOUT on timeout)
   """
-  cmd = 'exec ' + cmd  # preserve pid
-  if args != None:
-    cmd = cmd + ' ' + args
-  outf = None
-  if out != None:
+  devnull = subprocess.DEVNULL
+  outf = devnull
+  if out is not None:
     outf = open(out, mode='w')
-  errf = None
-  if err != None:
+  errf = devnull
+  if err is not None:
     errf = open(err, mode='w')
-  proc = subprocess.Popen(cmd, stdout=outf, stderr=errf, shell=True)
-  timer = Timer(timeout, proc.kill)  # enforces timeout
-  timer.start()
-  proc.communicate()
-  if timer.is_alive():
-    timer.cancel()
-    returncode = proc.returncode
-  else:
-    returncode = EXIT_TIMEOUT
-  if outf != None:
+  (_, _, retcode) = RunCommandForOutput(cmd, None, outf, errf, timeout)
+  if outf != devnull:
     outf.close()
-  if errf != None:
+  if errf != devnull:
     errf.close()
-  return returncode
+  return retcode
+
 
 def GetJackClassPath():
   """Returns Jack's classpath."""
-  top = os.environ.get('ANDROID_BUILD_TOP')
-  if top == None:
-    raise FatalError('Cannot find AOSP build top')
+  top = GetEnvVariableOrError('ANDROID_BUILD_TOP')
   libdir = top + '/out/host/common/obj/JAVA_LIBRARIES'
   return libdir + '/core-libart-hostdex_intermediates/classes.jack:' \
        + libdir + '/core-oj-hostdex_intermediates/classes.jack'
+
 
 def GetExecutionModeRunner(device, mode):
   """Returns a runner for the given execution mode.
@@ -101,28 +108,10 @@ def GetExecutionModeRunner(device, mode):
     return TestRunnerArtOnTarget(device, False)
   raise FatalError('Unknown execution mode')
 
-def GetReturnCode(retc):
-  """Returns a string representation of the given normalized return code.
-  Args:
-    retc: int, normalized return code
-  Returns:
-    string representation of normalized return code
-  Raises:
-    FatalError: error for unknown normalized return code
-  """
-  if retc == EXIT_SUCCESS:
-    return 'SUCCESS'
-  if retc == EXIT_TIMEOUT:
-    return 'TIMED-OUT'
-  if retc == EXIT_NOTCOMPILED:
-    return 'NOT-COMPILED'
-  if retc == EXIT_NOTRUN:
-    return 'NOT-RUN'
-  raise FatalError('Unknown normalized return code')
-
 #
 # Execution mode classes.
 #
+
 
 class TestRunner(object):
   """Abstraction for running a test in a particular execution mode."""
@@ -135,6 +124,14 @@ class TestRunner(object):
   def GetId(self):
     """Returns a short string that uniquely identifies the execution mode."""
     return self._id
+
+  @abc.abstractmethod
+  def GetBisectionSearchArgs(self):
+    """Returns arguments to pass to bisection search.
+
+    Arguments returned should reflect command arguments used to run the test.
+    """
+    pass
 
   @abc.abstractmethod
   def CompileAndRunTest(self):
@@ -153,6 +150,7 @@ class TestRunner(object):
     """
     pass
 
+
 class TestRunnerRIOnHost(TestRunner):
   """Concrete test runner of the reference implementation on host."""
 
@@ -162,16 +160,18 @@ class TestRunnerRIOnHost(TestRunner):
     self._id = 'RI'
 
   def CompileAndRunTest(self):
-    if RunCommand('javac', 'Test.java',
-                  out=None, err=None, timeout=30) == EXIT_SUCCESS:
-      retc = RunCommand('java', 'Test', 'RI_run_out.txt', err=None)
-      if retc != EXIT_SUCCESS and retc != EXIT_TIMEOUT:
-        retc = EXIT_NOTRUN
+    if RunCommand(['javac', 'Test.java'],
+                  out=None, err=None, timeout=30) == RetCode.SUCCESS:
+      retc = RunCommand(['java', 'Test'], 'RI_run_out.txt', err=None)
+      if retc != RetCode.SUCCESS and retc != RetCode.TIMEOUT:
+        retc = RetCode.NOTRUN
     else:
-      retc = EXIT_NOTCOMPILED
-    # Cleanup and return.
-    RunCommand('rm', '-f Test.class', out=None, err=None)
+      retc = RetCode.NOTCOMPILED
     return retc
+
+  def GetBisectionSearchArgs(self):
+    raise FatalError('Cannot bisect javac.')
+
 
 class TestRunnerArtOnHost(TestRunner):
   """Concrete test runner of Art on host (interpreter or optimizing)."""
@@ -182,32 +182,35 @@ class TestRunnerArtOnHost(TestRunner):
     Args:
       interpreter: boolean, selects between interpreter or optimizing
     """
-    self._art_args = '-cp classes.dex Test'
+    self._art_cmd = ['/bin/bash', 'art', '-cp', 'classes.dex']
+    self._bisection_args = ['-cp', 'classes.dex']
     if interpreter:
       self._description = 'Art interpreter on host'
       self._id = 'HInt'
-      self._art_args = '-Xint ' + self._art_args
+      self._art_cmd += ['-Xint']
     else:
       self._description = 'Art optimizing on host'
       self._id = 'HOpt'
-    self._jack_args = '-cp ' + GetJackClassPath() + ' --output-dex . Test.java'
+    self._art_cmd += ['Test']
+    self._jack_args = ['-cp', GetJackClassPath(), '--output-dex', '.',
+                       'Test.java']
 
   def CompileAndRunTest(self):
-    if RunCommand('jack', self._jack_args,
-                  out=None, err='jackerr.txt', timeout=30) == EXIT_SUCCESS:
+    if RunCommand(['jack'] + self._jack_args,
+                  out=None, err='jackerr.txt', timeout=30) == RetCode.SUCCESS:
       out = self.GetId() + '_run_out.txt'
-      retc = RunCommand('art', self._art_args, out, 'arterr.txt')
-      if retc != EXIT_SUCCESS and retc != EXIT_TIMEOUT:
-        retc = EXIT_NOTRUN
+      retc = RunCommand(self._art_cmd, out, 'arterr.txt')
+      if retc != RetCode.SUCCESS and retc != RetCode.TIMEOUT:
+        retc = RetCode.NOTRUN
     else:
-      retc = EXIT_NOTCOMPILED
-    # Cleanup and return.
-    RunCommand('rm', '-rf classes.dex jackerr.txt arterr.txt android-data*',
-               out=None, err=None)
+      retc = RetCode.NOTCOMPILED
     return retc
 
-# TODO: very rough first version without proper cache,
-#       reuse staszkiewicz' module for properly setting up dalvikvm on target.
+  def GetBisectionSearchArgs(self):
+    cmd_str = ' '.join(self._art_cmd)
+    return ['--raw-cmd={0}'.format(cmd_str), '--timeout', str(30)]
+
+
 class TestRunnerArtOnTarget(TestRunner):
   """Concrete test runner of Art on target (interpreter or optimizing)."""
 
@@ -218,62 +221,67 @@ class TestRunnerArtOnTarget(TestRunner):
       device: string, target device serial number (or None)
       interpreter: boolean, selects between interpreter or optimizing
     """
-    self._dalvik_args = 'shell dalvikvm -cp /data/local/tmp/classes.dex Test'
+    self._test_env = DeviceTestEnv('javafuzz_', specific_device=device)
+    self._dalvik_cmd = ['dalvikvm']
     if interpreter:
       self._description = 'Art interpreter on target'
       self._id = 'TInt'
-      self._dalvik_args = '-Xint ' + self._dalvik_args
+      self._dalvik_cmd += ['-Xint']
     else:
       self._description = 'Art optimizing on target'
       self._id = 'TOpt'
-    self._adb = 'adb'
-    if device != None:
-      self._adb = self._adb + ' -s ' + device
-    self._jack_args = '-cp ' + GetJackClassPath() + ' --output-dex . Test.java'
+    self._device = device
+    self._jack_args = ['-cp', GetJackClassPath(), '--output-dex', '.',
+                       'Test.java']
+    self._device_classpath = None
 
   def CompileAndRunTest(self):
-    if RunCommand('jack', self._jack_args,
-                  out=None, err='jackerr.txt', timeout=30) == EXIT_SUCCESS:
-      if RunCommand(self._adb, 'push classes.dex /data/local/tmp/',
-                    'adb.txt', err=None) != EXIT_SUCCESS:
-        raise FatalError('Cannot push to target device')
+    if RunCommand(['jack'] + self._jack_args,
+                  out=None, err='jackerr.txt', timeout=30) == RetCode.SUCCESS:
+      self._device_classpath = self._test_env.PushClasspath('classes.dex')
+      cmd = self._dalvik_cmd + ['-cp', self._device_classpath, 'Test']
       out = self.GetId() + '_run_out.txt'
-      retc = RunCommand(self._adb, self._dalvik_args, out, err=None)
-      if retc != EXIT_SUCCESS and retc != EXIT_TIMEOUT:
-        retc = EXIT_NOTRUN
+      (output, retc) = self._test_env.RunCommand(
+          cmd, {'ANDROID_LOG_TAGS': '*:s'})
+      with open(out, 'w') as run_out:
+        run_out.write(output)
+      if retc != RetCode.SUCCESS and retc != RetCode.TIMEOUT:
+        retc = RetCode.NOTRUN
     else:
-      retc = EXIT_NOTCOMPILED
-    # Cleanup and return.
-    RunCommand('rm', '-f classes.dex jackerr.txt adb.txt',
-               out=None, err=None)
-    RunCommand(self._adb, 'shell rm -f /data/local/tmp/classes.dex',
-               out=None, err=None)
+      retc = RetCode.NOTCOMPILED
     return retc
+
+  def GetBisectionSearchArgs(self):
+    cmd_str = ' '.join(self._dalvik_cmd + ['-cp', self._device_classpath,
+                                           'Test'])
+    cmd = ['--raw-cmd={0}'.format(cmd_str), '--timeout', str(30)]
+    if self._device:
+      cmd += ['--device-serial', self._device]
+    else:
+      cmd.append('--device')
+    return cmd
 
 #
 # Tester classes.
 #
 
-class FatalError(Exception):
-  """Fatal error in the tester."""
-  pass
 
 class JavaFuzzTester(object):
   """Tester that runs JavaFuzz many times and report divergences."""
 
-  def  __init__(self, num_tests, device, mode1, mode2):
+  def  __init__(self, num_tests, device, ref_mode, test_mode):
     """Constructor for the tester.
 
     Args:
-    num_tests: int, number of tests to run
-    device: string, target device serial number (or None)
-    mode1: string, execution mode for first runner
-    mode2: string, execution mode for second runner
+      num_tests: int, number of tests to run
+      device: string, target device serial number (or None)
+      ref_mode: string, execution mode for reference runner
+      test_mode: string, execution mode for test runner
     """
     self._num_tests = num_tests
     self._device = device
-    self._runner1 = GetExecutionModeRunner(device, mode1)
-    self._runner2 = GetExecutionModeRunner(device, mode2)
+    self._ref_runner = GetExecutionModeRunner(device, ref_mode)
+    self._test_runner = GetExecutionModeRunner(device, test_mode)
     self._save_dir = None
     self._tmp_dir = None
     # Statistics.
@@ -291,8 +299,8 @@ class JavaFuzzTester(object):
       FatalError: error when temp directory cannot be constructed
     """
     self._save_dir = os.getcwd()
-    self._tmp_dir = mkdtemp(dir="/tmp/")
-    if self._tmp_dir == None:
+    self._tmp_dir = mkdtemp(dir='/tmp/')
+    if self._tmp_dir is None:
       raise FatalError('Cannot obtain temp directory')
     os.chdir(self._tmp_dir)
     return self
@@ -301,44 +309,44 @@ class JavaFuzzTester(object):
     """On exit, re-enters previously saved current directory and cleans up."""
     os.chdir(self._save_dir)
     if self._num_divergences == 0:
-      RunCommand('rm', '-rf ' + self._tmp_dir, out=None, err=None)
+      shutil.rmtree(self._tmp_dir)
 
   def Run(self):
     """Runs JavaFuzz many times and report divergences."""
-    print
-    print '**\n**** JavaFuzz Testing\n**'
-    print
-    print '#Tests    :', self._num_tests
-    print 'Device    :', self._device
-    print 'Directory :', self._tmp_dir
-    print 'Exec-mode1:', self._runner1.GetDescription()
-    print 'Exec-mode2:', self._runner2.GetDescription()
+    print()
+    print('**\n**** JavaFuzz Testing\n**')
+    print()
+    print('#Tests    :', self._num_tests)
+    print('Device    :', self._device)
+    print('Directory :', self._tmp_dir)
+    print('Exec-ref_mode:', self._ref_runner.GetDescription())
+    print('Exec-test_mode:', self._test_runner.GetDescription())
     print
     self.ShowStats()
     for self._test in range(1, self._num_tests + 1):
       self.RunJavaFuzzTest()
       self.ShowStats()
     if self._num_divergences == 0:
-      print '\n\nsuccess (no divergences)\n'
+      print('\n\nsuccess (no divergences)\n')
     else:
-      print '\n\nfailure (divergences)\n'
+      print('\n\nfailure (divergences)\n')
 
   def ShowStats(self):
     """Shows current statistics (on same line) while tester is running."""
-    print '\rTests:', self._test, \
-        'Success:', self._num_success, \
-        'Not-compiled:', self._num_not_compiled, \
-        'Not-run:', self._num_not_run, \
-        'Timed-out:', self._num_timed_out, \
-        'Divergences:', self._num_divergences,
+    print('\rTests:', self._test, \
+          'Success:', self._num_success, \
+          'Not-compiled:', self._num_not_compiled, \
+          'Not-run:', self._num_not_run, \
+          'Timed-out:', self._num_timed_out, \
+          'Divergences:', self._num_divergences)
     sys.stdout.flush()
 
   def RunJavaFuzzTest(self):
     """Runs a single JavaFuzz test, comparing two execution modes."""
     self.ConstructTest()
-    retc1 = self._runner1.CompileAndRunTest()
-    retc2 = self._runner2.CompileAndRunTest()
-    self.CheckForDivergence(retc1, retc2)
+    ref_retc = self._ref_runner.CompileAndRunTest()
+    test_retc = self._test_runner.CompileAndRunTest()
+    self.CheckForDivergence(ref_retc, test_retc)
     self.CleanupTest()
 
   def ConstructTest(self):
@@ -347,51 +355,72 @@ class JavaFuzzTester(object):
     Raises:
       FatalError: error when javafuzz fails
     """
-    if RunCommand('javafuzz', args=None,
-                  out='Test.java', err=None) != EXIT_SUCCESS:
+    if RunCommand(['javafuzz'], out='Test.java', err=None) != RetCode.SUCCESS:
       raise FatalError('Unexpected error while running JavaFuzz')
 
-  def CheckForDivergence(self, retc1, retc2):
+  def CheckForDivergence(self, ref_retc, test_retc):
     """Checks for divergences and updates statistics.
 
     Args:
-      retc1: int, normalized return code of first runner
-      retc2: int, normalized return code of second runner
+      ref_retc: int, normalized return code of reference runner
+      test_retc: int, normalized return code of test runner
     """
-    if retc1 == retc2:
+    if ref_retc != test_retc:
       # Non-divergent in return code.
-      if retc1 == EXIT_SUCCESS:
+      if ref_retc == RetCode.SUCCESS:
         # Both compilations and runs were successful, inspect generated output.
-        args = self._runner1.GetId() + '_run_out.txt ' \
-            + self._runner2.GetId() + '_run_out.txt'
-        if RunCommand('diff', args, out=None, err=None) != EXIT_SUCCESS:
+        ref_runner_out = self._ref_runner.GetId() + '_run_out.txt'
+        test_runner_out = self._test_runner.GetId() + '_run_out.txt'
+        if not filecmp.cmp(ref_runner_out, test_runner_out, shallow=False):
+          if self._test_runner.GetId() in BISECTABLE_RUN_MODES:
+            self.RunBisectionSearch(expected_output=ref_runner_out)
           self.ReportDivergence('divergence in output')
         else:
           self._num_success += 1
-      elif retc1 == EXIT_TIMEOUT:
+      elif ref_retc == RetCode.TIMEOUT:
         self._num_timed_out += 1
-      elif retc1 == EXIT_NOTCOMPILED:
+      elif ref_retc == RetCode.NOTCOMPILED:
         self._num_not_compiled += 1
       else:
         self._num_not_run += 1
     else:
       # Divergent in return code.
+      if (ref_retc in BISECTABLE_RET_CODES and test_retc in BISECTABLE_RET_CODES
+          and self._test_runner.GetId() in BISECTABLE_RUN_MODES):
+        self.RunBisectionSearch(expected_retcode=ref_retc)
       self.ReportDivergence('divergence in return code: ' +
-                            GetReturnCode(retc1) + ' vs. ' +
-                            GetReturnCode(retc2))
+                            ref_retc.name + ' vs. ' + test_retc.name)
 
   def ReportDivergence(self, reason):
     """Reports and saves a divergence."""
     self._num_divergences += 1
-    print '\n', self._test, reason
+    print('\n', self._test, reason)
     # Save.
     ddir = 'divergence' + str(self._test)
-    RunCommand('mkdir', ddir, out=None, err=None)
-    RunCommand('mv', 'Test.java *.txt ' + ddir, out=None, err=None)
+    os.mkdir(ddir)
+    for f in glob('*.txt') + ['Test.java']:
+      shutil.move(f, ddir)
+
+  def RunBisectionSearch(self, expected_retcode=None, expected_output=None):
+    args = self._test_runner.GetBisectionSearchArgs() + ['--logfile',
+                                                         'bisection_log.txt']
+    if expected_retcode:
+      args += ['--expected-retcode', expected_retcode.name]
+    if expected_output:
+      args += ['--expected-output', expected_output]
+    if self._device:
+      args += ['--device-serial', self._device]
+    bisection_search_path = '{0}/{1}'.format(
+        GetEnvVariableOrError('ANDROID_BUILD_TOP'),
+        'art/tools/bisection_search/bisection_search.py')
+    RunCommand([bisection_search_path] + args, out='bisection_out.txt',
+               err=None)
 
   def CleanupTest(self):
     """Cleans up after a single test run."""
-    RunCommand('rm', '-f Test.java *.txt', out=None, err=None)
+    to_remove = glob('*.dex') + glob('*.class') + glob('*.txt') + glob('*.java')
+    for f in to_remove:
+      os.remove(f)
 
 
 def main():
@@ -400,17 +429,17 @@ def main():
   parser.add_argument('--num_tests', default=10000,
                       type=int, help='number of tests to run')
   parser.add_argument('--device', help='target device serial number')
-  parser.add_argument('--mode1', default='ri',
-                      help='execution mode 1 (default: ri)')
-  parser.add_argument('--mode2', default='hopt',
-                      help='execution mode 2 (default: hopt)')
+  parser.add_argument('--ref_mode', default='ri',
+                      help='reference execution mode (default: ri)')
+  parser.add_argument('--test_mode', default='hopt',
+                      help='test execution mode (default: hopt)')
   args = parser.parse_args()
-  if args.mode1 == args.mode2:
-    raise FatalError("Identical execution modes given")
+  if args.ref_mode == args.test_mode:
+    raise FatalError('Identical execution modes given')
   # Run the JavaFuzz tester.
   with JavaFuzzTester(args.num_tests, args.device,
-                      args.mode1, args.mode2) as fuzzer:
+                      args.ref_mode, args.test_mode) as fuzzer:
     fuzzer.Run()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
   main()
