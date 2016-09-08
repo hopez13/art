@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_ed0a0d30",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd0a27_1e9e2d0d",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 88
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_fe8261af",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-08T11:53:15Z",
       "side": 1,
       "message": "UNLIKELY?",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_0d7ca177",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd0a27_fe8261af",
       "range": {
         "startLine": 54,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_cd8f0980",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd0a27_de7fa5b1",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 79
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_5ebb957a",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-08T11:53:15Z",
       "side": 1,
       "message": "Add a constructor?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 53
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_6d999dc9",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd0a27_5ebb957a",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_8d96f198",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "We could add another setter I suppose, is it really that bad?",
+      "parentUuid": "0bfd0a27_9e891dd4",
+      "range": {
+        "startLine": 68,
+        "startChar": 30,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_3eb0c992",
         "filename": "runtime/transaction.h",
         "patchSetId": 2
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_ad101566",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Ya, that should work too. Might need to add more API for directly modifying the array though.",
+      "parentUuid": "0bfd0a27_3eb0c992",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 40
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_bec4d932",
         "filename": "runtime/transaction_test.cc",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2016-09-08T09:03:06Z",
       "side": 1,
       "message": "DexFile::StringId* string_id \u003d dex_file-\u003eFindStringId(kResolvedString);\nASSERT_TRUE(string_id !\u003d nullptr);\nuint32_t string_idx \u003d dex_file-\u003eGetIndexForStringId(*string_id);",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 37
+      },
+      "revId": "c047fcd4d8c3c4cbc9ccd20ba57d10170f98a810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_8d2351c4",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-08T17:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd0a27_bec4d932",
       "range": {
         "startLine": 508,
         "startChar": 0,
