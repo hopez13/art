@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_3e44499d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-08T10:55:00Z",
+      "side": 1,
+      "message": "In that case, it deserves a mention in the commit message.",
+      "parentUuid": "0bfd0a27_1e72ad0b",
+      "range": {
+        "startLine": 2487,
+        "startChar": 0,
+        "endLine": 2488,
+        "endChar": 21
+      },
+      "revId": "136792d3b668b7acb50f7b10e24ecc951522a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bfd0a27_de08c589",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
