@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_1e118d62",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T13:06:27Z",
+      "side": 1,
+      "message": "Maybe in a follow-up CL. I\u0027ve gone through the non-CC and CC tests and I\u0027d like to submit this now.",
+      "parentUuid": "cb3052eb_2c44339d",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 31
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab2dde95_0b7ddd73",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
