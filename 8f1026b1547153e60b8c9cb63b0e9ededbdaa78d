@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766bcf9b_9ba0e641",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6884,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T23:38:56Z",
+      "side": 1,
+      "message": "Please document the two sources of pre-existing conflicts (extend the single sentence).",
+      "range": {
+        "startLine": 6879,
+        "startChar": 14,
+        "endLine": 6884,
+        "endChar": 15
+      },
+      "revId": "8f1026b1547153e60b8c9cb63b0e9ededbdaa78d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_bb420a62",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6899,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T23:38:56Z",
+      "side": 1,
+      "message": "Comment. You added some in L6927.",
+      "range": {
+        "startLine": 6895,
+        "startChar": 16,
+        "endLine": 6899,
+        "endChar": 17
+      },
+      "revId": "8f1026b1547153e60b8c9cb63b0e9ededbdaa78d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_db2c1ebb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6923,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T23:38:56Z",
+      "side": 1,
+      "message": "Second time this is done. Helper code?",
+      "range": {
+        "startLine": 6919,
+        "startChar": 0,
+        "endLine": 6923,
+        "endChar": 15
+      },
+      "revId": "8f1026b1547153e60b8c9cb63b0e9ededbdaa78d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
