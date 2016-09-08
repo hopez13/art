@@ -34,6 +34,7 @@ from common import DeviceTestEnv
 from common import FatalError
 from common import GetEnvVariableOrError
 from common import HostTestEnv
+from common import RetCode
 
 
 # Passes that are never disabled during search process because disabling them
@@ -58,17 +59,20 @@ class Dex2OatWrapperTestable(object):
   Accepts filters on compiled methods and optimization passes.
   """
 
-  def __init__(self, base_cmd, test_env, output_checker=None, verbose=False):
+  def __init__(self, base_cmd, test_env, expected_retcode=None,
+               output_checker=None, verbose=False):
     """Constructor.
 
     Args:
       base_cmd: list of strings, base command to run.
       test_env: ITestEnv.
+      expected_retcode: RetCode, expected normalized return code.
       output_checker: IOutputCheck, output checker.
       verbose: bool, enable verbose output.
     """
     self._base_cmd = base_cmd
     self._test_env = test_env
+    self._expected_retcode = expected_retcode
     self._output_checker = output_checker
     self._compiled_methods_path = self._test_env.CreateFile('compiled_methods')
     self._passes_to_run_path = self._test_env.CreateFile('run_passes')
@@ -95,8 +99,11 @@ class Dex2OatWrapperTestable(object):
                            verbose_compiler=False)
     (output, ret_code) = self._test_env.RunCommand(
         cmd, {'ANDROID_LOG_TAGS': '*:e'})
-    res = ((self._output_checker is None and ret_code == 0)
-           or self._output_checker.Check(output))
+    res = True
+    if self._expected_retcode:
+      res = self._expected_retcode == ret_code
+    if self._output_checker:
+      res = res and self._output_checker.Check(output)
     if self._verbose:
       print('Test passed: {0}.'.format(res))
     return res
@@ -142,8 +149,13 @@ class Dex2OatWrapperTestable(object):
   def _PrepareCmd(self, compiled_methods=None, passes_to_run=None,
                   verbose_compiler=False):
     """Prepare command to run."""
-    cmd = [self._base_cmd[0]]
-    # insert additional arguments
+    first_argument = 1
+    for i, arg in enumerate(self._base_cmd):
+      if arg.startswith('-'):
+        first_argument = i
+        break
+    cmd = self._base_cmd[0:first_argument]
+    # insert additional arguments before the first argument
     if compiled_methods is not None:
       self._test_env.WriteLines(self._compiled_methods_path, compiled_methods)
       cmd += ['-Xcompiler-option', '--compiled-methods={0}'.format(
@@ -155,7 +167,7 @@ class Dex2OatWrapperTestable(object):
     if verbose_compiler:
       cmd += ['-Xcompiler-option', '--runtime-arg', '-Xcompiler-option',
               '-verbose:compiler', '-Xcompiler-option', '-j1']
-    cmd += self._base_cmd[1:]
+    cmd += self._base_cmd[first_argument:]
     return cmd
 
 
@@ -299,7 +311,7 @@ def PrepareParser():
   command_opts.add_argument('-cp', '--classpath', type=str, help='classpath')
   command_opts.add_argument('--class', dest='classname', type=str,
                             help='name of main class')
-  command_opts.add_argument('--lib', dest='lib', type=str, default='libart.so',
+  command_opts.add_argument('--lib', type=str, default='libart.so',
                             help='lib to use, default: libart.so')
   command_opts.add_argument('--dalvikvm-option', dest='dalvikvm_opts',
                             metavar='OPT', nargs='*', default=[],
@@ -307,7 +319,7 @@ def PrepareParser():
   command_opts.add_argument('--arg', dest='test_args', nargs='*', default=[],
                             metavar='ARG', help='argument passed to test')
   command_opts.add_argument('--image', type=str, help='path to image')
-  command_opts.add_argument('--raw-cmd', dest='raw_cmd', type=str,
+  command_opts.add_argument('--raw-cmd', type=str,
                             help='bisect with this command, ignore other '
                                  'command options')
   bisection_opts = parser.add_argument_group('bisection options')
@@ -315,11 +327,23 @@ def PrepareParser():
                               default=False, help='x64 mode')
   bisection_opts.add_argument(
       '--device', action='store_true', default=False, help='run on device')
+  bisection_opts.add_argument(
+      '--device-serial', help='device serial number, implies --device')
   bisection_opts.add_argument('--expected-output', type=str,
                               help='file containing expected output')
   bisection_opts.add_argument(
-      '--check-script', dest='check_script', type=str,
+      '--expected-retcode', type=str, help='expected normalized return code',
+      choices=[RetCode.SUCCESS.name, RetCode.TIMEOUT.name, RetCode.ERROR.name])
+  bisection_opts.add_argument(
+      '--check-script', type=str,
       help='script comparing output and expected output')
+  bisection_opts.add_argument(
+      '--logfile', type=str, help='custom logfile location')
+  bisection_opts.add_argument('--never-clean', dest='cleanup',
+                              action='store_false', default=True,
+                              help='do not clean up after bisecting')
+  bisection_opts.add_argument('--timeout', type=int, default=60,
+                              help='if timeout seconds pass assume test failed')
   bisection_opts.add_argument('--verbose', action='store_true',
                               default=False, help='enable verbose output')
   return parser
@@ -351,15 +375,24 @@ def main():
   args = parser.parse_args()
   if not args.raw_cmd and (not args.classpath or not args.classname):
     parser.error('Either --raw-cmd or both -cp and --class are required')
+  if args.device_serial:
+    args.device = True
+  if args.expected_retcode:
+    args.expected_retcode = RetCode[args.expected_retcode]
+  if not args.expected_retcode and not args.check_script:
+    args.expected_retcode = RetCode.SUCCESS
 
   # Prepare environment
   classpath = args.classpath
   if args.device:
-    test_env = DeviceTestEnv()
+    test_env = DeviceTestEnv(
+        'bisection_search_', args.cleanup, args.logfile, args.timeout,
+        args.device_serial)
     if classpath:
       classpath = test_env.PushClasspath(classpath)
   else:
-    test_env = HostTestEnv(args.x64)
+    test_env = HostTestEnv(
+        'bisection_search_', args.cleanup, args.logfile, args.timeout, args.x64)
   base_cmd = PrepareBaseCommand(args, classpath)
   output_checker = None
   if args.expected_output:
@@ -372,11 +405,11 @@ def main():
 
   # Perform the search
   try:
-    testable = Dex2OatWrapperTestable(base_cmd, test_env, output_checker,
-                                      args.verbose)
+    testable = Dex2OatWrapperTestable(base_cmd, test_env, args.expected_retcode,
+                                      output_checker, args.verbose)
     (method, opt_pass) = BugSearch(testable)
   except Exception as e:
-    print('Error. Refer to logfile: {0}'.format(test_env.logfile.name))
+    print('Error occurred.\nLogfile: {0}'.format(test_env.logfile.name))
     test_env.logfile.write('Exception: {0}\n'.format(e))
     raise
 
