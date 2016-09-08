@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_882dff00",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c89fe8_a5d2be23",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_65e1e6ec",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_e8f4bb74",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_42e10825",
+      "range": {
+        "startLine": 626,
+        "startChar": 8,
+        "endLine": 626,
+        "endChar": 56
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_65b606f9",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -107,6 +155,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Why line break?",
+      "range": {
+        "startLine": 184,
+        "startChar": 33,
+        "endLine": 184,
+        "endChar": 49
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_8806df76",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Fixed.\n\nProbably had some enable_if here that I deleted later.\n\nI think it\u0027s ok though, it\u0027s always safe to have 1 arg per line.",
+      "parentUuid": "f6c89fe8_65b606f9",
       "range": {
         "startLine": 184,
         "startChar": 33,
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_e842fb90",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c89fe8_c8842f0e",
+      "range": {
+        "startLine": 484,
+        "startChar": 100,
+        "endLine": 484,
+        "endChar": 104
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_08b007e3",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -153,6 +249,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 575,
+        "startChar": 100,
+        "endLine": 575,
+        "endChar": 115
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_483a0725",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "I had to cut this anyway (#if 0), the static assert always fires even if you never instantiate this template. Go figure. If this was a user library, I\u0027d do it a different way.. it will error either way, just with a less human-readable message.",
+      "parentUuid": "f6c89fe8_08b007e3",
       "range": {
         "startLine": 575,
         "startChar": 100,
@@ -188,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_e8c75b07",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c89fe8_68ad3b87",
+      "range": {
+        "startLine": 598,
+        "startChar": 100,
+        "endLine": 598,
+        "endChar": 111
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_48aaff70",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -199,6 +343,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 1311,
+        "startChar": 100,
+        "endLine": 1311,
+        "endChar": 102
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_48cf671d",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c89fe8_48aaff70",
       "range": {
         "startLine": 1311,
         "startChar": 100,
@@ -234,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_28d233ca",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Oh this was too long before... :(.\n\nFixed...",
+      "parentUuid": "f6c89fe8_a8c3b32e",
+      "range": {
+        "startLine": 1331,
+        "startChar": 100,
+        "endLine": 1331,
+        "endChar": 207
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_e8cdab58",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -245,6 +437,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 1879,
+        "startChar": 100,
+        "endLine": 1879,
+        "endChar": 105
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_a842c361",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c89fe8_e8cdab58",
       "range": {
         "startLine": 1879,
         "startChar": 100,
@@ -327,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_287153a1",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Yeah overly complicated. I thought for some reason I might want to have an extra debug flag, probably not needed since I don\u0027t think you can JDWP debug any thread that\u0027s currently running in a @CriticalNative because it can\u0027t be suspended?\n\nMight add a debug option for regular JNI later..",
+      "parentUuid": "b69387d9_9b11cbc3",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 83
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_d9cd1359",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 2
@@ -338,6 +578,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "(Nit: be more precise about a HandleScope being allocated but being unused for the time being?)",
+      "range": {
+        "startLine": 198,
+        "startChar": 50,
+        "endLine": 198,
+        "endChar": 61
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_48b3e758",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "It shouldn\u0027t even be allocating space for it because FrameSize doesn\u0027t count handlescope size if critical JNI is enabled.",
+      "parentUuid": "766bcf9b_d9cd1359",
       "range": {
         "startLine": 198,
         "startChar": 50,
@@ -397,6 +661,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_289f93b1",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Yeah I think it\u0027s a bit opaque that it uses the ArtMethod*-\u003ejni entry point to do the call so I was confused before.\n\nActually taking another look at this it does an unnecessary dependent load from the stack, it\u0027s already in a register for @CriticalNative and R0 doesn\u0027t get overwritten...\n\nEasy slight performance improvement.",
+      "parentUuid": "766bcf9b_22489455",
+      "range": {
+        "startLine": 444,
+        "startChar": 2,
+        "endLine": 444,
+        "endChar": 79
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_f99ad718",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 2
@@ -443,6 +731,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_68e18bec",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "I did have it under 521 originally but something wasn\u0027t working quite right and it was just easier to move it out here then to investigate further.",
+      "parentUuid": "766bcf9b_99b47b8e",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 44
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_39a60f5f",
         "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
         "patchSetId": 2
@@ -454,6 +766,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "missing word",
+      "range": {
+        "startLine": 27,
+        "startChar": 69,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_08c72f59",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_39a60f5f",
       "range": {
         "startLine": 27,
         "startChar": 69,
@@ -489,6 +825,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_48a92794",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_396b6fe7",
+      "range": {
+        "startLine": 29,
+        "startChar": 76,
+        "endLine": 29,
+        "endChar": 81
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_7975e7c0",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -500,6 +860,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Revert",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 60
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_88b33f06",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_7975e7c0",
       "range": {
         "startLine": 421,
         "startChar": 2,
@@ -571,6 +955,30 @@
       "side": 1,
       "message": "Yeah, but someone has to start with consistency. :-)",
       "parentUuid": "766bcf9b_a27ca47c",
+      "range": {
+        "startLine": 220,
+        "startChar": 100,
+        "endLine": 220,
+        "endChar": 115
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_e89afb71",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T20:38:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_82eb2003",
       "range": {
         "startLine": 220,
         "startChar": 100,
