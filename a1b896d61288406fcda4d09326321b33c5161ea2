@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_a253c410",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T15:09:11Z",
+      "side": 1,
+      "message": "I\u0027ll replace it with a verifier check in a later CL, sound good?",
+      "parentUuid": "f6c89fe8_65e1e6ec",
+      "range": {
+        "startLine": 626,
+        "startChar": 8,
+        "endLine": 626,
+        "endChar": 56
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6c89fe8_65b606f9",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -232,6 +256,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_c258b82d",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T15:09:11Z",
+      "side": 1,
+      "message": "That\u0027s what the existing code called it (see line 394).",
+      "parentUuid": "d6963bc8_9c11c5c3",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69387d9_9b11cbc3",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 2
@@ -289,6 +337,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Gotta get the method from somewhere to make a call off of it. This version of Call loads it from the stack (where it was spilled in the beginning).",
+      "range": {
+        "startLine": 444,
+        "startChar": 2,
+        "endLine": 444,
+        "endChar": 79
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_22489455",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T15:09:11Z",
+      "side": 1,
+      "message": "Probably stale comment, need to remove",
+      "parentUuid": "766bcf9b_f9e5779c",
       "range": {
         "startLine": 444,
         "startChar": 2,
@@ -427,6 +499,30 @@
       "writtenOn": "2016-09-08T00:37:58Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 220,
+        "startChar": 100,
+        "endLine": 220,
+        "endChar": 115
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_a27ca47c",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-08T15:09:11Z",
+      "side": 1,
+      "message": "The rest of the lines in this function don\u0027t respect it either (see below)",
+      "parentUuid": "766bcf9b_b9477f71",
       "range": {
         "startLine": 220,
         "startChar": 100,
