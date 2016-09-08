@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b373ada_724a18af",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-09-08T10:15:00Z",
+      "side": 1,
+      "message": "I am still a little bit puzzled by this test; what is its intention? That there are a couple of MOVs followed by exactly two ANDs?",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 65
+      },
+      "revId": "84a627f1632cb11a089754d14d01626b2227556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf48e40_7ff88f66",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-09-08T10:15:00Z",
+      "side": 1,
+      "message": "I feel that this is redundant, and I can just remove it, and change line 121 to a \"CHECK-NEXT\", but I have decided to keep the rules close to the original.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "84a627f1632cb11a089754d14d01626b2227556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
