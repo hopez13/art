@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_1eb50d83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T11:53:30Z",
+      "side": 1,
+      "message": "I did, see PS2. But if by \"commit message\" you mean only the first line, than I don\u0027t know how I would fit it there.",
+      "parentUuid": "0bfd0a27_be373938",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "136792d3b668b7acb50f7b10e24ecc951522a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab2dde95_eb6cd102",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
