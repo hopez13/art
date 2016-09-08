@@ -1,0 +1,441 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6c89fe8_a5d2be23",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "...",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_65e1e6ec",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be a check. I don\u0027t see the ArtMethod code checking this, and we have to support arbitrary Java input - so a native abort isn\u0027t pretty.",
+      "range": {
+        "startLine": 626,
+        "startChar": 8,
+        "endLine": 626,
+        "endChar": 56
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_65b606f9",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Why line break?",
+      "range": {
+        "startLine": 184,
+        "startChar": 33,
+        "endLine": 184,
+        "endChar": 49
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_c8842f0e",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 484,
+        "startChar": 100,
+        "endLine": 484,
+        "endChar": 104
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_08b007e3",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 575,
+        "startChar": 100,
+        "endLine": 575,
+        "endChar": 115
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_68ad3b87",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 598,
+        "startChar": 100,
+        "endLine": 598,
+        "endChar": 111
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_48aaff70",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1311,
+        "startChar": 100,
+        "endLine": 1311,
+        "endChar": 102
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_a8c3b32e",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1331,
+        "startChar": 100,
+        "endLine": 1331,
+        "endChar": 207
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c89fe8_e8cdab58",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1879,
+        "startChar": 100,
+        "endLine": 1879,
+        "endChar": 105
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6963bc8_9c11c5c3",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Bad name. Those aren\u0027t \"extra\" args. Those are args defined by the \"ABI.\"",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69387d9_9b11cbc3",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "?\n\nIn the driver you CHECK that only one is set. So why so complicated?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 83
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_d9cd1359",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "(Nit: be more precise about a HandleScope being allocated but being unused for the time being?)",
+      "range": {
+        "startLine": 198,
+        "startChar": 50,
+        "endLine": 198,
+        "endChar": 61
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_f9e5779c",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Gotta get the method from somewhere to make a call off of it. This version of Call loads it from the stack (where it was spilled in the beginning).",
+      "range": {
+        "startLine": 444,
+        "startChar": 2,
+        "endLine": 444,
+        "endChar": 79
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_f99ad718",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 499,
+        "startChar": 8,
+        "endLine": 499,
+        "endChar": 98
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_99b47b8e",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Why not put this under the check at L521? Then current_out_arg_size isn\u0027t modified, so the decrease in L582 is correct.",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 44
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_39a60f5f",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "missing word",
+      "range": {
+        "startLine": 27,
+        "startChar": 69,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_396b6fe7",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Missing word.",
+      "range": {
+        "startLine": 29,
+        "startChar": 76,
+        "endLine": 29,
+        "endChar": 81
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_7975e7c0",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Revert",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 60
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_b9477f71",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-08T00:37:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 220,
+        "startChar": 100,
+        "endLine": 220,
+        "endChar": 115
+      },
+      "revId": "a1b896d61288406fcda4d09326321b33c5161ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
