@@ -1,0 +1,265 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766bcf9b_0dd3c1ff",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "move to top perhaps? I had to search a long time of this",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_22e7b404",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "Start with capital",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_e2c13c46",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "capital, period at end",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_02c71059",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "expected type has changed",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_6df51d4a",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "remove this, just keep 130",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_adec95ba",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "I had the invariant that every concrete runner cleans up after itself, why did you change that?",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_0deca1b5",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "one line, as the original?",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_6ddb5d0b",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "same comment on not cleanup up after oneself",
+      "range": {
+        "startLine": 207,
+        "startChar": 11,
+        "endLine": 207,
+        "endChar": 15
+      },
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_0d210110",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "one line",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_ed420d91",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "see elsewhere, I think we should keep mode1 and mode2 as before and let bisection search figure out which one it can bisect and which one is ref (just because we can also run non ref impl as modes)",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_4d3a1925",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "keep runner1/runner2",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_6208cccc",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "here and many other places: you changed the style of print to use brackets? any reason for this? it is not recommended in the style guide, except perhaps when breaking lines (which is not done here)",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_8205e0b5",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "there is not really a reference and a test mode, just two modes that are compared (one could also compare compiler vs interpreter for example",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_8dd991eb",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "ah, I see you moved all cleanup here; I originally preferred the cleanup per concrete runner, since that way if we add new ones, you don\u0027t forget it here; but it is not really a big deal, so ok",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_e2ccdc85",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-08T16:28:20Z",
+      "side": 1,
+      "message": "as above, not sure I like this change in ref_mode and test_mode, it is really just two modes being compared\n\nfor bisection search, you of course want to know which one to test, but perhaps we can define that differently?",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
