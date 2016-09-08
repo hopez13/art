@@ -235,6 +235,12 @@
           "libcore.java.lang.ProcessBuilderTest#testRedirect_nullStreams"]
 },
 {
+  description: "libc.so is not present on library search path",
+  result: EXEC_FAILED,
+  modes: [host],
+  name: "libcore.java.lang.OldSystemTest#test_load"
+},
+{
   description: "Sometimes timeouts",
   result: EXEC_FAILED,
   bug: 31258002,
