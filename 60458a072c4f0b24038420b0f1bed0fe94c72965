@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_bea3b94d",
+        "filename": "runtime/mirror/field.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-08T12:08:08Z",
+      "side": 1,
+      "message": "Yes. It\u0027s needed to pass the tests.",
+      "parentUuid": "360b17ab_470c6e98",
+      "revId": "60458a072c4f0b24038420b0f1bed0fe94c72965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360b17ab_876ee625",
         "filename": "runtime/native/java_lang_reflect_Parameter.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_9ea0fd41",
+        "filename": "runtime/native/java_lang_reflect_Parameter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-08T12:08:08Z",
+      "side": 1,
+      "message": "We only had a single method to grab all annotations for all parameters in one go.\n\nIt looks like elsewhere (other AnnotatedElements) the \"look for this specific annotation\" is implemented natively, I assume to avoid the expense of materializing all the information to java objects to throw most of it away after filtering in Java.\n\nI was happy enough to follow the pattern.\n\nThat said, I haven\u0027t bothered with the \"get all annotations for parameter X\", but we could if we wanted (probably as a follow up). We\u0027re currently doing what upstream does.",
+      "parentUuid": "360b17ab_876ee625",
+      "revId": "60458a072c4f0b24038420b0f1bed0fe94c72965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360b17ab_a71b2ade",
         "filename": "runtime/native/java_lang_reflect_Parameter.cc",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2016-09-07T18:17:22Z",
       "side": 1,
       "message": "line length\n\nalso I am planning on deprecating the ! usage at some point soon",
+      "revId": "60458a072c4f0b24038420b0f1bed0fe94c72965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfd0a27_7e59b15d",
+        "filename": "runtime/native/java_lang_reflect_Parameter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-08T12:08:08Z",
+      "side": 1,
+      "message": "As mentioned on earlier PS: nowhere else bothers. This is consistent (although I\u0027ve done what I can by splitting it over several lines, nobody else bothers to do that, even).\n\nRegarding \"!\" deprecation: ack / roger that.",
+      "parentUuid": "360b17ab_a71b2ade",
       "revId": "60458a072c4f0b24038420b0f1bed0fe94c72965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
