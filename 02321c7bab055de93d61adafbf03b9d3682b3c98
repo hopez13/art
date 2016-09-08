@@ -22,6 +22,30 @@
       "revId": "02321c7bab055de93d61adafbf03b9d3682b3c98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_edd20d53",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-09-08T16:55:26Z",
+      "side": 1,
+      "message": "This causes any modules that depend on libart-compiler to get art/compiler added to their include directories.  It prevents having to manually specify include directories everywhere.",
+      "parentUuid": "0bfd0a27_9e023d64",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 31
+      },
+      "revId": "02321c7bab055de93d61adafbf03b9d3682b3c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
