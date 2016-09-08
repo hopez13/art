@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0bfd0a27_1ef74d75",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T11:42:27Z",
+      "side": 1,
+      "message": "and{{(\\.w)?}} here and lines 109, 132, 135, 145, 149.\nAlso for BIC on lines 106, 110, 120, 124, 133, 136, 146, 150.\nAlso for ORR on lines 158, 161, 184, 188, 198, 202.\nAlso for EOR on lines 211, 213, 259, 262.\n(Note that ORN has no 16-bit version, so there\u0027s no ORN.W either.)",
+      "range": {
+        "startLine": 105,
+        "startChar": 28,
+        "endLine": 105,
+        "endChar": 31
+      },
+      "revId": "84a627f1632cb11a089754d14d01626b2227556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b373ada_724a18af",
         "filename": "test/538-checker-embed-constants/src/Main.java",
         "patchSetId": 1
@@ -25,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_5e4f15bd",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T11:42:27Z",
+      "side": 1,
+      "message": "This tests that the constant 511 is materialized before being used by HAnd, i.e. the constant 511 is not erroneously embedded in the instruction.",
+      "parentUuid": "8b373ada_724a18af",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 65
+      },
+      "revId": "84a627f1632cb11a089754d14d01626b2227556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bf48e40_7ff88f66",
         "filename": "test/538-checker-embed-constants/src/Main.java",
         "patchSetId": 1
@@ -36,6 +83,30 @@
       "writtenOn": "2016-09-08T10:15:00Z",
       "side": 1,
       "message": "I feel that this is redundant, and I can just remove it, and change line 121 to a \"CHECK-NEXT\", but I have decided to keep the rules close to the original.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "84a627f1632cb11a089754d14d01626b2227556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfd0a27_3e6d692f",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-08T11:42:27Z",
+      "side": 1,
+      "message": "The intent is to check that there is no additional AND/BIC other than the emitted HAnd.\nNote that CHECK-NEXT would not work because of the interleaving HIR which I didn\u0027t want to add to the test; the ParallelMove isn\u0027t even in the same block as HAnd.",
+      "parentUuid": "2bf48e40_7ff88f66",
       "range": {
         "startLine": 119,
         "startChar": 2,
