@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb3052eb_2c44339d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-09-08T12:57:03Z",
+      "side": 1,
+      "message": "if at it we could also have a macro for this.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 31
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab2dde95_0b7ddd73",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-09-08T12:57:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 30
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
