@@ -198,6 +198,9 @@ class BoundsCheckSlowPathX86_64 : public SlowPathCode {
         length_loc = Location::RegisterLocation(calling_convention.GetRegisterAt(2));
       }
       __ movl(length_loc.AsRegister<CpuRegister>(), array_len);
+      if (mirror::kUseStringCompression) {
+        __ andl(length_loc.AsRegister<CpuRegister>(), Immediate(INT32_MAX));
+      }
     }
 
     // We're moving two locations to locations that could overlap, so we need a parallel
@@ -4483,7 +4486,21 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
 
     case Primitive::kPrimChar: {
       CpuRegister out = out_loc.AsRegister<CpuRegister>();
-      __ movzxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
+      if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+        // Branch cases into compressed and uncompressed for each index's type.
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        NearLabel done, not_compressed;
+        __ cmpl(Address(obj, count_offset), Immediate(0));
+        codegen_->MaybeRecordImplicitNullCheck(instruction);
+        __ j(kGreaterEqual, &not_compressed);
+        __ movzxb(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_1, data_offset));
+        __ jmp(&done);
+        __ Bind(&not_compressed);
+        __ movzxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
+        __ Bind(&done);
+      } else {
+        __ movzxw(out, CodeGeneratorX86_64::ArrayAddress(obj, index, TIMES_2, data_offset));
+      }
       break;
     }
 
@@ -4805,6 +4822,10 @@ void InstructionCodeGeneratorX86_64::VisitArrayLength(HArrayLength* instruction)
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();
   __ movl(out, Address(obj, offset));
   codegen_->MaybeRecordImplicitNullCheck(instruction);
+  // Mask out most significant bit in case the array is String's array of char.
+  if (mirror::kUseStringCompression && instruction->IsStringLength()) {
+    __ andl(out, Immediate(INT32_MAX));
+  }
 }
 
 void LocationsBuilderX86_64::VisitBoundsCheck(HBoundsCheck* instruction) {
@@ -4854,13 +4875,24 @@ void InstructionCodeGeneratorX86_64::VisitBoundsCheck(HBoundsCheck* instruction)
       uint32_t len_offset = CodeGenerator::GetArrayLengthOffset(array_length->AsArrayLength());
       Location array_loc = array_length->GetLocations()->InAt(0);
       Address array_len(array_loc.AsRegister<CpuRegister>(), len_offset);
-      if (index_loc.IsConstant()) {
-        int32_t value = CodeGenerator::GetInt32ValueOf(index_loc.GetConstant());
-        __ cmpl(array_len, Immediate(value));
+      if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+        CpuRegister length_reg = CpuRegister(TMP);
+        __ movl(length_reg, array_len);
+        codegen_->MaybeRecordImplicitNullCheck(array_length);
+        __ andl(length_reg, Immediate(INT32_MAX));
+        codegen_->GenerateIntCompare(Location::RegisterLocation(length_reg.AsRegister()),
+                                     index_loc);
       } else {
-        __ cmpl(array_len, index_loc.AsRegister<CpuRegister>());
+        // Checking the bound for general case:
+        // Array of char or String's array when the compression feature off.
+        if (index_loc.IsConstant()) {
+          int32_t value = CodeGenerator::GetInt32ValueOf(index_loc.GetConstant());
+          __ cmpl(array_len, Immediate(value));
+        } else {
+          __ cmpl(array_len, index_loc.AsRegister<CpuRegister>());
+        }
+        codegen_->MaybeRecordImplicitNullCheck(array_length);
       }
-      codegen_->MaybeRecordImplicitNullCheck(array_length);
     } else {
       codegen_->GenerateIntCompare(length_loc, index_loc);
     }
