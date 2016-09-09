@@ -1241,6 +1241,20 @@ class VerifyDeclaringClassVisitor : public ArtMethodVisitor {
   gc::accounting::HeapBitmap* const live_bitmap_;
 };
 
+// Copies data from one array to another array at the same position
+// if pred returns true. If there is one page of continuous data in
+// the src array for which pred returns false then corresponding page
+// in the dst array will not be touched. This should reduce number of
+// allocated physical pages.
+template <class T, class P>
+static void CopyIf(const T* src, size_t count, T* dst, const P& pred) {
+  for (size_t i = 0; i < count; ++i) {
+    if (pred(src[i])) {
+      dst[i] = src[i];
+    }
+  }
+}
+
 bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
     gc::space::ImageSpace* space,
     Handle<mirror::ClassLoader> class_loader,
@@ -1332,7 +1346,12 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           for (size_t j = 0; kIsDebugBuild && j < num_types; ++j) {
             DCHECK(types[j].IsNull());
           }
-          std::copy_n(image_resolved_types, num_types, types);
+          CopyIf(image_resolved_types,
+                 num_types,
+                 types,
+                 [](const GcRoot<mirror::Class>& elem) {
+                    return !elem.IsNull();
+                 });
           // Store a pointer to the new location for fast ArtMethod patching without requiring map.
           // This leaves random garbage at the start of the dex cache array, but nobody should ever
           // read from it again.
@@ -1346,7 +1365,12 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           for (size_t j = 0; kIsDebugBuild && j < num_methods; ++j) {
             DCHECK(methods[j] == nullptr);
           }
-          std::copy_n(image_resolved_methods, num_methods, methods);
+          CopyIf(image_resolved_methods,
+                 num_methods,
+                 methods,
+                 [] (const ArtMethod* method) {
+                    return method != nullptr;
+                 });
           // Store a pointer to the new location for fast ArtMethod patching without requiring map.
           *reinterpret_cast<ArtMethod***>(image_resolved_methods) = methods;
           dex_cache->SetResolvedMethods(methods);
@@ -1357,7 +1381,12 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           for (size_t j = 0; kIsDebugBuild && j < num_fields; ++j) {
             DCHECK(fields[j] == nullptr);
           }
-          std::copy_n(dex_cache->GetResolvedFields(), num_fields, fields);
+          CopyIf(dex_cache->GetResolvedFields(),
+                 num_fields,
+                 fields,
+                 [] (const ArtField* field) {
+                    return field != nullptr;
+                 });
           dex_cache->SetResolvedFields(fields);
         }
         if (num_method_types != 0u) {
