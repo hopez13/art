@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab607e1c_13f38c9a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-09T09:22:37Z",
+      "side": 1,
+      "message": "what is this for ? should this be a CHECK(input_filename !\u003d output_filename) ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 3
+      },
+      "revId": "da101a75907106fb864d1b692630a4b9e8504a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_33ee88b6",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-09T09:22:37Z",
+      "side": 1,
+      "message": "no error checking for the unlink ? It will give a better error message than the failing symlink that is error checked.",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "da101a75907106fb864d1b692630a4b9e8504a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
