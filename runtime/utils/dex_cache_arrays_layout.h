@@ -60,6 +60,8 @@ class DexCacheArraysLayout {
 
   size_t TypeOffset(uint32_t type_idx) const;
 
+  size_t TypeElementSize() const;
+
   size_t TypesSize(size_t num_elements) const;
 
   size_t TypesAlignment() const;
@@ -69,6 +71,8 @@ class DexCacheArraysLayout {
   }
 
   size_t MethodOffset(uint32_t method_idx) const;
+
+  size_t MethodElementSize() const;
 
   size_t MethodsSize(size_t num_elements) const;
 
@@ -89,6 +93,8 @@ class DexCacheArraysLayout {
   }
 
   size_t FieldOffset(uint32_t field_idx) const;
+
+  size_t FieldElementSize() const;
 
   size_t FieldsSize(size_t num_elements) const;
 

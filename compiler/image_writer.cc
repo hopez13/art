@@ -447,6 +447,46 @@ void ImageWriter::PrepareDexCacheArraySlots() {
     size_t oat_index = GetOatIndexForDexCache(dex_cache);
     ImageInfo& image_info = GetImageInfo(oat_index);
     uint32_t start = image_info.dex_cache_array_starts_.Get(dex_file);
+    if (compile_app_image_) {
+      if (image_info.dex_cache_bitmap_.get() == nullptr) {
+        size_t num_bits = RoundUp(image_info.bin_slot_sizes_[kBinDexCacheArray], kPageSize) / kPageSize;
+        size_t num_bytes = num_bits / 8;
+        image_info.dex_cache_bitmap_.reset(new uint8_t[num_bytes]);
+        memset(image_info.dex_cache_bitmap_.get(), 0, num_bytes);
+        image_info.bin_slot_sizes_[kBinDexCacheBitmap] = num_bytes;
+      }
+      uint8_t* bitmap = image_info.dex_cache_bitmap_.get();
+      GcRoot<mirror::Class>* resolved_types = dex_cache->GetResolvedTypes();
+      for (size_t i = 0; i < dex_cache->NumResolvedTypes(); ++i) {
+        if (!resolved_types[i].IsNull()) {
+          uint32_t page = (start + layout.TypeOffset(i)) / kPageSize;
+          SetBit(bitmap[page / 8], page % 8);
+        }
+      }
+      ArtMethod** resolved_methods = dex_cache->GetResolvedMethods();
+      for (size_t i = 0; i < dex_cache->NumResolvedMethods(); ++i) {
+        if (DexCache::GetElementPtrSize(resolved_methods, i, target_ptr_size_) != nullptr) {
+          uint32_t page = (start + layout.MethodOffset(i)) / kPageSize;
+          SetBit(bitmap[page / 8], page % 8);
+        }
+      }
+      ArtField** resolved_fields = dex_cache->GetResolvedFields();
+      for (size_t i = 0; i < dex_cache->NumResolvedFields(); ++i) {
+        if (DexCache::GetElementPtrSize(resolved_fields, i, target_ptr_size_) != nullptr) {
+          uint32_t page = (start + layout.FieldOffset(i)) / kPageSize;
+          SetBit(bitmap[page / 8], page % 8);
+        }
+      }
+      if (dex_cache->NumStrings() > 0) {
+        // Mark all string pages as dirty. There is 2 pages maximum.
+        uint32_t first_str_page = (start + layout.StringsOffset()) / kPageSize;
+        uint32_t last_str_page = (start + layout.StringOffset(dex_cache->NumStrings() - 1)) /
+                                 kPageSize;
+        for (uint32_t page = first_str_page; page <= last_str_page; ++page) {
+          SetBit(bitmap[page / 8], page % 8);
+        }
+      }
+    }
     DCHECK_EQ(dex_file->NumTypeIds() != 0u, dex_cache->GetResolvedTypes() != nullptr);
     AddDexCacheArrayRelocation(dex_cache->GetResolvedTypes(),
                                start + layout.TypesOffset(),
@@ -1419,6 +1459,9 @@ void ImageWriter::CalculateNewObjectOffsets() {
           bin_offset = RoundUp(bin_offset, method_alignment);
           break;
         }
+        case kBinDexCacheBitmap:
+          bin_offset = RoundUp(bin_offset, static_cast<size_t>(target_ptr_size_));
+          break;
         case kBinDexCacheArray:
           bin_offset = RoundUp(bin_offset, DexCacheArraysLayout::Alignment());
           break;
@@ -1506,6 +1549,11 @@ size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) c
   ImageSection* runtime_methods_section = &out_sections[ImageHeader::kSectionRuntimeMethods];
   *runtime_methods_section = ImageSection(bin_slot_offsets_[kBinRuntimeMethod],
                                           bin_slot_sizes_[kBinRuntimeMethod]);
+
+  // Add dex cache bitmap section
+  ImageSection* dex_cache_bitmap_section = &out_sections[ImageHeader::kSectionDexCacheBitmap];
+  *dex_cache_bitmap_section = ImageSection(bin_slot_offsets_[kBinDexCacheBitmap],
+                                           bin_slot_sizes_[kBinDexCacheBitmap]);
 
   // Add dex cache arrays section.
   ImageSection* dex_cache_arrays_section = &out_sections[ImageHeader::kSectionDexCacheArrays];
@@ -1642,6 +1690,10 @@ void ImageWriter::CopyAndFixupImtConflictTable(ImtConflictTable* orig, ImtConfli
 
 void ImageWriter::CopyAndFixupNativeData(size_t oat_index) {
   const ImageInfo& image_info = GetImageInfo(oat_index);
+
+  uint8_t* dex_cache_bitmap_addr = image_info.image_->Begin() + image_info.bin_slot_offsets_[kBinDexCacheBitmap];
+  memcpy(dex_cache_bitmap_addr, image_info.dex_cache_bitmap_.get(), image_info.bin_slot_sizes_[kBinDexCacheBitmap]);
+
   // Copy ArtFields and methods to their locations and update the array for convenience.
   for (auto& pair : native_object_relocations_) {
     NativeObjectRelocation& relocation = pair.second;

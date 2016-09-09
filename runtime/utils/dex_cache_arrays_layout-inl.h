@@ -63,6 +63,10 @@ inline size_t DexCacheArraysLayout::TypeOffset(uint32_t type_idx) const {
   return types_offset_ + ElementOffset(GcRootAsPointerSize<mirror::Class>(), type_idx);
 }
 
+inline size_t DexCacheArraysLayout::TypeElementSize() const {
+  return static_cast<size_t>(GcRootAsPointerSize<mirror::Class>());
+}
+
 inline size_t DexCacheArraysLayout::TypesSize(size_t num_elements) const {
   // App image patching relies on having enough room for a forwarding pointer in the types array.
   // See FixupArtMethodArrayVisitor and ClassLinker::AddImageSpace.
@@ -76,6 +80,10 @@ inline size_t DexCacheArraysLayout::TypesAlignment() const {
 
 inline size_t DexCacheArraysLayout::MethodOffset(uint32_t method_idx) const {
   return methods_offset_ + ElementOffset(pointer_size_, method_idx);
+}
+
+inline size_t DexCacheArraysLayout::MethodElementSize() const {
+  return static_cast<size_t>(pointer_size_);
 }
 
 inline size_t DexCacheArraysLayout::MethodsSize(size_t num_elements) const {
@@ -108,6 +116,10 @@ inline size_t DexCacheArraysLayout::StringsAlignment() const {
 
 inline size_t DexCacheArraysLayout::FieldOffset(uint32_t field_idx) const {
   return fields_offset_ + ElementOffset(pointer_size_, field_idx);
+}
+
+inline size_t DexCacheArraysLayout::FieldElementSize() const {
+  return static_cast<size_t>(pointer_size_);
 }
 
 inline size_t DexCacheArraysLayout::FieldsSize(size_t num_elements) const {

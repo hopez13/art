@@ -176,6 +176,7 @@ class ImageWriter FINAL {
     kBinIMTConflictTable,
     // Runtime methods (always clean, do not have a length prefix array).
     kBinRuntimeMethod,
+    kBinDexCacheBitmap,
     // Dex cache arrays have a special slot for PC-relative addressing. Since they are
     // huge, and as such their dirtiness is not important for the clean/dirty separation,
     // we arbitrarily keep them at the end of the native data.
@@ -287,6 +288,8 @@ class ImageWriter FINAL {
 
     // The start offsets of the dex cache arrays.
     SafeMap<const DexFile*, size_t> dex_cache_array_starts_;
+
+    std::unique_ptr<uint8_t[]> dex_cache_bitmap_;
 
     // Offset from oat_data_begin_ to the stubs.
     uint32_t oat_address_offsets_[kOatAddressCount] = {};
