@@ -34,6 +34,24 @@
       "revId": "6ba99b09a5be6e448e3f5139d846b08e9188425e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_9515c447",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T17:15:48Z",
+      "side": 1,
+      "message": "Well, I think two separate loops would be easier to understand. Alternatively, we could have a nested loop for [begin,end) filling in the saved_fpu_stack_offsets_[].",
+      "parentUuid": "eb6a76fa_150a542c",
+      "revId": "6ba99b09a5be6e448e3f5139d846b08e9188425e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
