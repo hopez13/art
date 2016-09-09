@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "766bcf9b_6754511c",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2016-09-09T07:42:49Z",
+      "side": 1,
+      "message": "AFAICT libgtest isn\u0027t being included anywhere in these modules. Must be getting all the symbols from libart-gtest?",
+      "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
