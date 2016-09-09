@@ -1027,6 +1027,69 @@ mirror::Object* GetAnnotationForMethodParameter(ArtMethod* method,
                                               annotation_class);
 }
 
+bool GetParametersMetadataForMethod(ArtMethod* method,
+                                    MutableHandle<mirror::ObjectArray<mirror::String>>* names,
+                                    MutableHandle<mirror::IntArray>* access_flags) {
+  const DexFile::AnnotationSetItem::AnnotationSetItem* annotation_set =
+      FindAnnotationSetForMethod(method);
+  if (annotation_set == nullptr) {
+    return false;
+  }
+
+  const DexFile* dex_file = method->GetDexFile();
+  const DexFile::AnnotationItem* annotation_item =
+      SearchAnnotationSet(*dex_file,
+                          annotation_set,
+                          "Ldalvik/annotation/MethodParameters;",
+                          DexFile::kDexVisibilitySystem);
+  if (annotation_item == nullptr) {
+    return false;
+  }
+
+  StackHandleScope<5> hs(Thread::Current());
+
+  // Extract the parameters' names String[].
+  mirror::Class* string_class = mirror::String::GetJavaLangString();
+  Handle<mirror::Class> string_array_class(hs.NewHandle(
+      Runtime::Current()->GetClassLinker()->FindArrayClass(Thread::Current(), &string_class)));
+  if (UNLIKELY(string_array_class.Get() == nullptr)) {
+    return false;
+  }
+
+  Handle<mirror::Class> klass = hs.NewHandle(method->GetDeclaringClass());
+  Handle<mirror::Object> names_obj =
+      hs.NewHandle(GetAnnotationValue(klass,
+                                      annotation_item,
+                                      "names",
+                                      string_array_class,
+                                      DexFile::kDexAnnotationArray));
+  if (names_obj.Get() == nullptr) {
+    return false;
+  }
+  mirror::ObjectArray<mirror::String>* names_array =
+      names_obj.Get()->AsObjectArray<mirror::String>();
+
+  // Extract the parameters' access flags int[].
+  Handle<mirror::Class> int_array_class(hs.NewHandle(mirror::IntArray::GetArrayClass()));
+  if (UNLIKELY(int_array_class.Get() == nullptr)) {
+    return false;
+  }
+  Handle<mirror::Object> access_flags_obj =
+      hs.NewHandle(GetAnnotationValue(klass,
+                                      annotation_item,
+                                      "accessFlags",
+                                      int_array_class,
+                                      DexFile::kDexAnnotationArray));
+  if (access_flags_obj.Get() == nullptr) {
+    return false;
+  }
+  mirror::IntArray* access_flags_array = access_flags_obj.Get()->AsIntArray();
+
+  names->Assign(names_array);
+  access_flags->Assign(access_flags_array);
+  return true;
+}
+
 mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForMethod(ArtMethod* method) {
   const DexFile::AnnotationSetItem* annotation_set = FindAnnotationSetForMethod(method);
   if (annotation_set == nullptr) {
