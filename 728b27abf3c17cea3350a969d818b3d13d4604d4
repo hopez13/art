@@ -16,6 +16,24 @@
       "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ebe7a_035eae46",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-09T16:19:39Z",
+      "side": 1,
+      "message": "If it\u0027s already getting it from libart-gtest then do we really want to link it twice?",
+      "parentUuid": "766bcf9b_6754511c",
+      "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
