@@ -316,6 +316,30 @@
       "revId": "dcef3191c77523fe2e4443ccda9230c9865aac18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_78cad963",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-09T22:19:32Z",
+      "side": 1,
+      "message": "I agree that its hacky. Does the current version feel better to you?\n\nThis is kind of a atypical case for bisection_search.py, {run} script lives on host but actually executes dalvikvm on device. It might be hard to come up with a perfectly clean solution.",
+      "parentUuid": "8b9bba7b_7514a24b",
+      "range": {
+        "startLine": 918,
+        "startChar": 0,
+        "endLine": 929,
+        "endChar": 36
+      },
+      "revId": "dcef3191c77523fe2e4443ccda9230c9865aac18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
