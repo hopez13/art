@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b04c64d_11cc2c5f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-09T10:08:46Z",
+      "side": 1,
+      "message": "Does this work as intended when `reg` is `xLR`?  In the original code, it seems we took care of using x30 (instead of xLR) in CFI directives.",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb3052eb_2c44339d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -65,6 +88,75 @@
         "startChar": 0,
         "endLine": 170,
         "endChar": 30
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_34f83066",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-09T10:08:46Z",
+      "side": 1,
+      "message": "Good catch!  Out of curiosity, was the original code working?",
+      "range": {
+        "startLine": 2305,
+        "startChar": 20,
+        "endLine": 2305,
+        "endChar": 23
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bff3a6b_d22bc4ec",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2471,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-09T10:08:46Z",
+      "side": 1,
+      "message": "Nit: extra spaces.",
+      "range": {
+        "startLine": 2471,
+        "startChar": 18,
+        "endLine": 2471,
+        "endChar": 20
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_f5db5807",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-09T10:08:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2472,
+        "startChar": 18,
+        "endLine": 2472,
+        "endChar": 20
       },
       "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
