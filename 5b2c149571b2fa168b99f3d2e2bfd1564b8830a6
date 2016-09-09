@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "ab0ebe7a_e66ba0ad",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6545,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-09T17:41:46Z",
+      "side": 1,
+      "message": "I like this way better.",
+      "parentUuid": "ab0ebe7a_6644d09e",
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_e6f1e05c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -83,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "ab0ebe7a_2688187c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6605,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-09T17:41:46Z",
+      "side": 1,
+      "message": "Really the first is just a short circuit. Also the names should be different from prettyMethod",
+      "parentUuid": "ab0ebe7a_e6f1e05c",
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_a61ec879",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -94,6 +130,30 @@
       "writtenOn": "2016-09-09T17:36:07Z",
       "side": 1,
       "message": "Can you turn this into a named constant? 0xFFFF seems pretty magical.",
+      "range": {
+        "startLine": 7187,
+        "startChar": 39,
+        "endLine": 7187,
+        "endChar": 45
+      },
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ebe7a_a69b68c2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7187,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-09T17:41:46Z",
+      "side": 1,
+      "message": "It\u0027s just getting the lower 16 bits. It\u0027s not very magic",
+      "parentUuid": "ab0ebe7a_a61ec879",
       "range": {
         "startLine": 7187,
         "startChar": 39,
