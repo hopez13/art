@@ -117,6 +117,13 @@ func defaultDeviceCodegenArches(ctx android.CustomizePropertiesContext) []string
 	ret := make([]string, 0, len(arches))
 	for a := range arches {
 		ret = append(ret, a)
+    if a == "arm64" {
+      ret = append(ret, "arm")
+    } else if a == "mips64" {
+      ret = append(ret, "mips")
+    } else if a == "x86_64" {
+      ret = append(ret, "x86")
+    }
 	}
 	sort.Strings(ret)
 	return ret
