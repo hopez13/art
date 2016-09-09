@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "8bff3a6b_32ee90b6",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_42cae896",
+      "range": {
+        "startLine": 68,
+        "startChar": 52,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b054249_70d130f3",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_02d8f06f",
+      "range": {
+        "startLine": 68,
+        "startChar": 22,
+        "endLine": 68,
+        "endChar": 29
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_425f48df",
         "filename": "build/Android.oat.mk",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-08T15:37:32Z",
       "side": 1,
       "message": "Remove",
+      "range": {
+        "startLine": 192,
+        "startChar": 1,
+        "endLine": 194,
+        "endChar": 7
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6eea0d_761bd0dd",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_425f48df",
       "range": {
         "startLine": 192,
         "startChar": 1,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "0bf34aac_8eac7b91",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_226254ac",
+      "range": {
+        "startLine": 195,
+        "startChar": 52,
+        "endLine": 195,
+        "endChar": 55
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_f5a9987f",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766bcf9b_e2577cc9",
+      "range": {
+        "startLine": 195,
+        "startChar": 22,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_a276646b",
         "filename": "test/run-test",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-08T15:37:32Z",
       "side": 1,
       "message": "Drop?",
+      "range": {
+        "startLine": 264,
+        "startChar": 8,
+        "endLine": 264,
+        "endChar": 68
+      },
+      "revId": "037c6f53105a6312e64e183d0ee460abb3447bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_d5a61cad",
+        "filename": "test/run-test",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T09:15:39Z",
+      "side": 1,
+      "message": "Maybe in a later cleanup, where we drop the compile backend option?",
+      "parentUuid": "766bcf9b_a276646b",
       "range": {
         "startLine": 264,
         "startChar": 8,
