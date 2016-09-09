@@ -73,6 +73,7 @@
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
 #include "gc/space/space-inl.h"
+#include "gc/system_weak.h"
 #include "handle_scope-inl.h"
 #include "image-inl.h"
 #include "instrumentation.h"
@@ -473,6 +474,11 @@ void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
   GetMonitorList()->SweepMonitorList(visitor);
   GetJavaVM()->SweepJniWeakGlobals(visitor);
   GetHeap()->SweepAllocationRecords(visitor);
+
+  // All other generic system-weak holders.
+  for (gc::AbstractSystemWeakHolder* holder : system_weaks_) {
+    holder->SweepWeaks(visitor);
+  }
 }
 
 bool Runtime::ParseOptions(const RuntimeOptions& raw_options,
@@ -1708,6 +1714,11 @@ void Runtime::DisallowNewSystemWeaks() {
   intern_table_->ChangeWeakRootState(gc::kWeakRootStateNoReadsOrWrites);
   java_vm_->DisallowNewWeakGlobals();
   heap_->DisallowNewAllocationRecords();
+
+  // All other generic system-weak holders.
+  for (gc::AbstractSystemWeakHolder* holder : system_weaks_) {
+    holder->DisallowNewSystemWeaks();
+  }
 }
 
 void Runtime::AllowNewSystemWeaks() {
@@ -1716,6 +1727,11 @@ void Runtime::AllowNewSystemWeaks() {
   intern_table_->ChangeWeakRootState(gc::kWeakRootStateNormal);  // TODO: Do this in the sweeping.
   java_vm_->AllowNewWeakGlobals();
   heap_->AllowNewAllocationRecords();
+
+  // All other generic system-weak holders.
+  for (gc::AbstractSystemWeakHolder* holder : system_weaks_) {
+    holder->AllowNewSystemWeaks();
+  }
 }
 
 void Runtime::BroadcastForNewSystemWeaks() {
@@ -1726,6 +1742,11 @@ void Runtime::BroadcastForNewSystemWeaks() {
   intern_table_->BroadcastForNewInterns();
   java_vm_->BroadcastForNewWeakGlobals();
   heap_->BroadcastForNewAllocationRecords();
+
+  // All other generic system-weak holders.
+  for (gc::AbstractSystemWeakHolder* holder : system_weaks_) {
+    holder->BroadcastForNewSystemWeaks();
+  }
 }
 
 void Runtime::SetInstructionSet(InstructionSet instruction_set) {
@@ -2062,6 +2083,10 @@ void Runtime::EnvSnapshot::TakeSnapshot() {
 
 char** Runtime::EnvSnapshot::GetSnapshot() const {
   return c_env_vector_.get();
+}
+
+void Runtime::AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder) {
+  system_weaks_.push_back(holder);
 }
 
 }  // namespace art
