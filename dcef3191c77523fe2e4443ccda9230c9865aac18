@@ -292,6 +292,30 @@
       "revId": "dcef3191c77523fe2e4443ccda9230c9865aac18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_7514a24b",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-09T21:05:11Z",
+      "side": 1,
+      "message": "I mean at the very least you can factor out the cmdline.sh creating part into a function so you can call it with different parameters.\n\nRunning it and then grabbing cmdline.sh seems pretty hacky.",
+      "parentUuid": "8b9bba7b_f57332d9",
+      "range": {
+        "startLine": 918,
+        "startChar": 0,
+        "endLine": 929,
+        "endChar": 36
+      },
+      "revId": "dcef3191c77523fe2e4443ccda9230c9865aac18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
