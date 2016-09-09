@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab607e1c_b3ba98b9",
+        "filename": "runtime/arch/mips/fault_handler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T09:06:44Z",
+      "side": 1,
+      "message": "kSaveEverything saves a0. We would have to save a0 here and avoid saving it in the entrypoint. Using the padding is easier.",
+      "parentUuid": "f6241f97_885fb773",
+      "range": {
+        "startLine": 85,
+        "startChar": 71,
+        "endLine": 86,
+        "endChar": 65
+      },
+      "revId": "1595bf1a9e42bb7e65d719396b4a4241e8a6740a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6241f97_a8ff134e",
         "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "eb6a76fa_7596283e",
+        "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T09:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6241f97_a8ff134e",
+      "range": {
+        "startLine": 88,
+        "startChar": 14,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "1595bf1a9e42bb7e65d719396b4a4241e8a6740a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6241f97_c8f44f75",
         "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-08T22:17:33Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 89,
+        "startChar": 64,
+        "endLine": 89,
+        "endChar": 68
+      },
+      "revId": "1595bf1a9e42bb7e65d719396b4a4241e8a6740a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_559b2c64",
+        "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T09:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6241f97_c8f44f75",
       "range": {
         "startLine": 89,
         "startChar": 64,
