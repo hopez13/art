@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b556e39_b7af2885",
+        "filename": "build/art.go",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "6b65a6f4_ece183c0",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "ecd42a6037a86303cd33587db7ee6335133b9903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb63f225_b4ba80b9",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 20
