@@ -1241,6 +1241,28 @@ class VerifyDeclaringClassVisitor : public ArtMethodVisitor {
   gc::accounting::HeapBitmap* const live_bitmap_;
 };
 
+static void CopyPages(const void* src,
+                      void* dst,
+                      size_t size,
+                      const uint8_t* bitmask,
+                      const void* base_address) {
+  const uint8_t* src_ptr = reinterpret_cast<const uint8_t*>(src);
+  const uint8_t* src_end = src_ptr + size;
+  uint8_t* dst_ptr = reinterpret_cast<uint8_t*>(dst);
+  while (src_ptr < src_end) {
+    size_t page_num = (src_ptr - reinterpret_cast<const uint8_t*>(base_address)) / kPageSize;
+    size_t num_bytes =
+        std::min(static_cast<size_t>(kPageSize), static_cast<size_t>(src_end - src_ptr));
+    if (IsBitSet(bitmask[page_num / kBitsPerByte], page_num % kBitsPerByte)) {
+      CHECK(dst_ptr + num_bytes <= src_ptr || src_ptr + num_bytes <= dst_ptr) <<
+          "Overlapping regions found";
+      memcpy(dst_ptr, src_ptr, num_bytes);
+    }
+    src_ptr += num_bytes;
+    dst_ptr += num_bytes;
+  }
+}
+
 bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
     gc::space::ImageSpace* space,
     Handle<mirror::ClassLoader> class_loader,
@@ -1281,11 +1303,18 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
         return false;
       }
     }
+    const ImageSection& bitmap_section =
+        header.GetImageSection(ImageHeader::kSectionDexCacheBitmap);
+    const uint8_t* dex_cache_bitmap = space->Begin() + bitmap_section.Offset();
+    const uint8_t* dex_cache_array_data =
+        space->Begin() + header.GetImageSection(ImageHeader::kSectionDexCacheArrays).Offset();
+
     // Only add the classes to the class loader after the points where we can return false.
     for (size_t i = 0; i < num_dex_caches; i++) {
       ObjPtr<mirror::DexCache> const dex_cache = dex_caches->Get(i);
       const DexFile* const dex_file = dex_cache->GetDexFile();
       const OatFile::OatDexFile* oat_dex_file = dex_file->GetOatDexFile();
+      const uint8_t* image_resolved_types_begin = nullptr;
       if (oat_dex_file != nullptr && oat_dex_file->GetDexCacheArrays() != nullptr) {
         // If the oat file expects the dex cache arrays to be in the BSS, then allocate there and
         // copy over the arrays.
@@ -1329,10 +1358,15 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           GcRoot<mirror::Class>* const image_resolved_types = dex_cache->GetResolvedTypes();
           GcRoot<mirror::Class>* const types =
               reinterpret_cast<GcRoot<mirror::Class>*>(raw_arrays + layout.TypesOffset());
+          image_resolved_types_begin = reinterpret_cast<const uint8_t*>(image_resolved_types);
           for (size_t j = 0; kIsDebugBuild && j < num_types; ++j) {
             DCHECK(types[j].IsNull());
           }
-          std::copy_n(image_resolved_types, num_types, types);
+          CopyPages(image_resolved_types,
+                    types,
+                    num_types * layout.TypeElementSize(),
+                    dex_cache_bitmap,
+                    dex_cache_array_data);
           // Store a pointer to the new location for fast ArtMethod patching without requiring map.
           // This leaves random garbage at the start of the dex cache array, but nobody should ever
           // read from it again.
@@ -1346,7 +1380,11 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           for (size_t j = 0; kIsDebugBuild && j < num_methods; ++j) {
             DCHECK(methods[j] == nullptr);
           }
-          std::copy_n(image_resolved_methods, num_methods, methods);
+          CopyPages(image_resolved_methods,
+                    methods,
+                    num_methods * layout.MethodElementSize(),
+                    dex_cache_bitmap,
+                    dex_cache_array_data);
           // Store a pointer to the new location for fast ArtMethod patching without requiring map.
           *reinterpret_cast<ArtMethod***>(image_resolved_methods) = methods;
           dex_cache->SetResolvedMethods(methods);
@@ -1354,10 +1392,15 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
         if (num_fields != 0u) {
           ArtField** const fields =
               reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+          ArtField** const image_resolved_fields = dex_cache->GetResolvedFields();
           for (size_t j = 0; kIsDebugBuild && j < num_fields; ++j) {
             DCHECK(fields[j] == nullptr);
           }
-          std::copy_n(dex_cache->GetResolvedFields(), num_fields, fields);
+          CopyPages(image_resolved_fields,
+                    fields,
+                    num_fields * layout.FieldElementSize(),
+                    dex_cache_bitmap,
+                    dex_cache_array_data);
           dex_cache->SetResolvedFields(fields);
         }
         if (num_method_types != 0u) {

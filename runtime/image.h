@@ -199,6 +199,7 @@ class PACKED(4) ImageHeader {
     kSectionRuntimeMethods,
     kSectionImTables,
     kSectionIMTConflictTables,
+    kSectionDexCacheBitmap,
     kSectionDexCacheArrays,
     kSectionInternedStrings,
     kSectionClassTable,
