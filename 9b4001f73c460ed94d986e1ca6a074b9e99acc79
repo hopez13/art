@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_32a1509b",
+        "filename": "runtime/gc/system_weak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0ebe7a_09f88ddc",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_69c7810b",
         "filename": "runtime/gc/system_weak.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-09T18:54:46Z",
       "side": 1,
       "message": "This has to be public for annotations?",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_129c4c5e",
+        "filename": "runtime/gc/system_weak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Sorry, I can move this back to protected, it was here from when I tried to move AllocationRecord to use it. At least for the current implementation protected is good enough.\n\nIt has to be available to do things like:\n\n MutexLock mu(...)\n WaitForAllowance()\n Access...",
+      "parentUuid": "ab0ebe7a_69c7810b",
       "range": {
         "startLine": 72,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_72ed98b5",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "The SystemWeakHolder itself doesn\u0027t declare how the weaks are held (because you could use a single element, a list, a map ...). I didn\u0027t find a way to let the Holder do anything non-trivial before having to forward to the actual implementation, so it seemed easy just to punt that completely...",
+      "parentUuid": "ab0ebe7a_49cc452e",
+      "range": {
+        "startLine": 68,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 17
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_49e3a599",
         "filename": "runtime/gc/system_weak_test.cc",
         "patchSetId": 1
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_92e11cc2",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "OK, that could be something that a generic SweepWeaks does. Or the Runtime call could do it (if the Mutex is public).",
+      "parentUuid": "ab0ebe7a_49e3a599",
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_e92251b1",
         "filename": "runtime/gc/system_weak_test.cc",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-09-09T18:54:46Z",
       "side": 1,
       "message": "Regarding the synchronization around AddSystemWeakHolder():\n\n- I think a suspend-all isn\u0027t sufficient and it must be a ScopedGCCriticalSection because we could suspend all threads in the middle of a GC, which would break/race with GC\u0027s system weak handling. This is sort of like adding an app image space.\n\n- Do we want to support adding a new holder dynamically? Or, is it enough to (statically) add each to the runtime (that is, add at startup) as a need arises? An option is to leave some holders added at startup but empty when not in use. This would work around the synchronization issue.",
+      "range": {
+        "startLine": 87,
+        "startChar": 24,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_521b34dd",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "* Is there some annotation that supports this safely? Or is it enough (and safe) to add the Scoped... in AddSystemWeakHolder?\n\n* It has to be dynamic, as plugins may be attached late. So synchronization is an issue - I had just hoped holding the lock exclusively is enough.",
+      "parentUuid": "ab0ebe7a_e92251b1",
       "range": {
         "startLine": 87,
         "startChar": 24,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_32fdd056",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "I haven\u0027t tried, yet.\n\nI assume allow should work for CC, as I also count the broadcast. disallow is an issue, yeah. I\u0027ll have to make them conditional.\n\nOnce the overall structure is satisfactory, I\u0027ll test with CC and fix...",
+      "parentUuid": "ab0ebe7a_69994124",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_897f5db2",
         "filename": "runtime/gc/system_weak_test.cc",
         "patchSetId": 1
@@ -145,6 +283,30 @@
       "writtenOn": "2016-09-09T18:54:46Z",
       "side": 1,
       "message": "Use IsNull()?",
+      "range": {
+        "startLine": 107,
+        "startChar": 25,
+        "endLine": 107,
+        "endChar": 42
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_52f25485",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0ebe7a_897f5db2",
       "range": {
         "startLine": 107,
         "startChar": 25,
@@ -203,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_d2600434",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0ebe7a_29b62993",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 42
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_292c69a4",
         "filename": "runtime/gc/system_weak_test.cc",
         "patchSetId": 1
@@ -214,6 +400,24 @@
       "writtenOn": "2016-09-09T18:54:46Z",
       "side": 1,
       "message": "If it\u0027s manageable, it might make sense to add a test that exercises WaitForAllowance. Maybe if it\u0027s possible to spawn a thread, one thread invoking GC in a loop and another accessing the weak in a loop? Or leave a TODO?",
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_f236e8ea",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s kinda a TODO right now. Thinking of how to easily do this.",
+      "parentUuid": "ab0ebe7a_292c69a4",
       "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -243,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_12e9ace4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "That was a goal, but turned out to be more complicated. Follow-up.",
+      "parentUuid": "ab0ebe7a_497d6573",
+      "range": {
+        "startLine": 1717,
+        "startChar": 0,
+        "endLine": 1721,
+        "endChar": 3
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_e64d6090",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -254,6 +482,30 @@
       "writtenOn": "2016-09-09T17:33:50Z",
       "side": 1,
       "message": "system_weak_holders_?",
+      "range": {
+        "startLine": 891,
+        "startChar": 45,
+        "endLine": 891,
+        "endChar": 58
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_12a1ac03",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-09T21:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0ebe7a_e64d6090",
       "range": {
         "startLine": 891,
         "startChar": 45,
