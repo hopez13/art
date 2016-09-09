@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "ab0ebe7a_462ef453",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6545,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-09T17:47:29Z",
+      "side": 1,
+      "message": "so I changed it to const Types\u0026 ... rest in the next version, does that work?",
+      "parentUuid": "ab0ebe7a_8698ecc6",
+      "range": {
+        "startLine": 6545,
+        "startChar": 43,
+        "endLine": 6545,
+        "endChar": 48
+      },
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_e6f1e05c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
