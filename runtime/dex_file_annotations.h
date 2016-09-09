@@ -33,6 +33,11 @@ class ClassLinker;
 
 namespace annotations {
 
+struct ParametersMetadata {
+  mirror::ObjectArray<mirror::String>* names = nullptr;
+  mirror::IntArray* access_flags = nullptr;
+};
+
 // Field annotations.
 mirror::Object* GetAnnotationForField(ArtField* field, Handle<mirror::Class> annotation_class)
     REQUIRES_SHARED(Locks::mutator_lock_);
@@ -57,6 +62,8 @@ mirror::ObjectArray<mirror::Object>* GetParameterAnnotations(ArtMethod* method)
 mirror::Object* GetAnnotationForMethodParameter(ArtMethod* method,
                                                 uint32_t parameter_idx,
                                                 Handle<mirror::Class> annotation_class)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+std::unique_ptr<ParametersMetadata> GetParametersMetadataForMethod(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForMethod(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_);
