@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_b598cac6",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-09T22:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9bba7b_f54a5275",
+      "revId": "bf90a0c3f8a0d5a99d68ce9576d86e20ad4cf901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_550f9e3b",
         "filename": "test/run-test",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-09T21:04:44Z",
       "side": 1,
       "message": "Forward.",
+      "revId": "bf90a0c3f8a0d5a99d68ce9576d86e20ad4cf901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_f59252a2",
+        "filename": "test/run-test",
+        "patchSetId": 4
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-09T22:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9bba7b_550f9e3b",
       "revId": "bf90a0c3f8a0d5a99d68ce9576d86e20ad4cf901",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
