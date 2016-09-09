@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_26466e09",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-09T23:47:32Z",
+      "side": 1,
+      "message": "No annotation that I know of. It should be safe to use ScopedGCCriticalSection in AddSystemWeakHolder. The caller should be aware that it shouldn\u0027t call it too often or regularly.",
+      "parentUuid": "8b9bba7b_521b34dd",
+      "range": {
+        "startLine": 87,
+        "startChar": 24,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0ebe7a_69994124",
         "filename": "runtime/gc/system_weak_test.cc",
         "patchSetId": 1
@@ -260,6 +284,30 @@
       "side": 1,
       "message": "I haven\u0027t tried, yet.\n\nI assume allow should work for CC, as I also count the broadcast. disallow is an issue, yeah. I\u0027ll have to make them conditional.\n\nOnce the overall structure is satisfactory, I\u0027ll test with CC and fix...",
       "parentUuid": "ab0ebe7a_69994124",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "9b4001f73c460ed94d986e1ca6a074b9e99acc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_66f316d1",
+        "filename": "runtime/gc/system_weak_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-09T23:47:32Z",
+      "side": 1,
+      "message": "Please test with SS, too.",
+      "parentUuid": "8b9bba7b_32fdd056",
       "range": {
         "startLine": 102,
         "startChar": 0,
