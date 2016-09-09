@@ -58,6 +58,10 @@ mirror::Object* GetAnnotationForMethodParameter(ArtMethod* method,
                                                 uint32_t parameter_idx,
                                                 Handle<mirror::Class> annotation_class)
     REQUIRES_SHARED(Locks::mutator_lock_);
+bool GetParametersMetadataForMethod(ArtMethod* method,
+                                    mirror::ObjectArray<mirror::String>** names,
+                                    mirror::IntArray** access_flags)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 mirror::ObjectArray<mirror::String>* GetSignatureAnnotationForMethod(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_);
 bool IsMethodAnnotationPresent(ArtMethod* method, Handle<mirror::Class> annotation_class,
