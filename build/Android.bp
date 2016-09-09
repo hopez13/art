@@ -140,6 +140,7 @@ art_global_defaults {
     },
 
     include_dirs: [
+        "external/gtest/include",
         "external/icu/icu4c/source/common",
         "external/lz4/lib",
         "external/valgrind/include",
