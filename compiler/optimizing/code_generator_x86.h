@@ -472,8 +472,9 @@ class CodeGeneratorX86 : public CodeGenerator {
   // Compare a register with a 32-bit value in the most efficient manner.
   void Compare32BitValue(Register dest, int32_t value);
 
-  // Compare int values. Supports only register locations for `lhs`.
+  // Compare int values. Supports only register locations and register for `lhs`.
   void GenerateIntCompare(Location lhs, Location rhs);
+  void GenerateIntCompare(Register lhs, Location rhs);
 
   // Construct address for array access.
   static Address ArrayAddress(Register obj,
