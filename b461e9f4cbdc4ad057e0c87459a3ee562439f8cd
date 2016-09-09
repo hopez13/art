@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_7eb65194",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Ah, I\u0027m not actually using that anywhere any more, am I? Removed.",
+      "parentUuid": "567a4bf7_c8edaf19",
+      "range": {
+        "startLine": 1167,
+        "startChar": 27,
+        "endLine": 1167,
+        "endChar": 42
+      },
+      "revId": "b461e9f4cbdc4ad057e0c87459a3ee562439f8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567a4bf7_a8e07b22",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 19
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-07T19:43:15Z",
       "side": 1,
       "message": "Use ternary operator?",
+      "range": {
+        "startLine": 1166,
+        "startChar": 0,
+        "endLine": 1175,
+        "endChar": 3
+      },
+      "revId": "b461e9f4cbdc4ad057e0c87459a3ee562439f8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfd0a27_be8cd9e3",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Not needed now.",
+      "parentUuid": "567a4bf7_a8e07b22",
       "range": {
         "startLine": 1166,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_5e45d569",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567a4bf7_08d98777",
+      "range": {
+        "startLine": 1425,
+        "startChar": 0,
+        "endLine": 1438,
+        "endChar": 7
+      },
+      "revId": "b461e9f4cbdc4ad057e0c87459a3ee562439f8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567a4bf7_e8ea73fe",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 19
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0bfd0a27_7e40915b",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567a4bf7_e8ea73fe",
+      "range": {
+        "startLine": 1452,
+        "startChar": 0,
+        "endLine": 1466,
+        "endChar": 7
+      },
+      "revId": "b461e9f4cbdc4ad057e0c87459a3ee562439f8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567a4bf7_28de4b60",
         "filename": "runtime/utils.h",
         "patchSetId": 19
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-07T19:43:15Z",
       "side": 1,
       "message": "returns a string containing filename, a period, and `new_extension` ?",
+      "range": {
+        "startLine": 283,
+        "startChar": 57,
+        "endLine": 284,
+        "endChar": 43
+      },
+      "revId": "b461e9f4cbdc4ad057e0c87459a3ee562439f8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfd0a27_3e3a09f6",
+        "filename": "runtime/utils.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567a4bf7_28de4b60",
       "range": {
         "startLine": 283,
         "startChar": 57,
