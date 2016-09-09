@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6a76fa_b5560059",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "I\u0027d record those, aren\u0027t these for dex2dex? We talked about re-doing the extraction + verification when this optimization fails.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b50e248_f82eb1fe",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Id put a comment everywhere you pass null.",
+      "range": {
+        "startLine": 728,
+        "startChar": 39,
+        "endLine": 728,
+        "endChar": 66
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_74990824",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "I\u0027d prefer making it explicit.",
+      "range": {
+        "startLine": 1887,
+        "startChar": 66,
+        "endLine": 1887,
+        "endChar": 76
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6eea0d_96cdcc2a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Comment please.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 0,
+        "endLine": 1572,
+        "endChar": 5
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_13454c6b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Could the verifier fetch it from the compiler instead? This will allow this file to stay clean, and not know about verifier deps.\n\nActually, looking at the verifier changes now, I think i\u0027d really prefer if we could do:\n\nRuntime::Current()-\u003eGetCompiler()-\u003eGetVerifiedDeps()-\u003eRecord()",
+      "range": {
+        "startLine": 3813,
+        "startChar": 0,
+        "endLine": 3813,
+        "endChar": 87
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b50e248_d82bedec",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "unrelated?",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6eea0d_f6da40dc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "why not in the if line 3640?",
+      "range": {
+        "startLine": 3643,
+        "startChar": 0,
+        "endLine": 3646,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_533fc4e4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "I\u0027d add helpers on the Verifier class to avoid all these null checks. MaybeAddClassResultion(class_idx, klass).",
+      "range": {
+        "startLine": 3644,
+        "startChar": 0,
+        "endLine": 3646,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b556e39_57720c0c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Unrelated to vdex, right?",
+      "range": {
+        "startLine": 3766,
+        "startChar": 6,
+        "endLine": 3767,
+        "endChar": 84
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf34aac_aea97732",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4070,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "why this change?",
+      "range": {
+        "startLine": 4067,
+        "startChar": 2,
+        "endLine": 4070,
+        "endChar": 15
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bff3a6b_d2ee247e",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Add that it\u0027s only used for AOT compilation.",
+      "range": {
+        "startLine": 769,
+        "startChar": 24,
+        "endLine": 769,
+        "endChar": 83
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b556e39_97530469",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Yuck, can\u0027yout you actually write the code for creation (and spare the comment?)",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 38
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_354af0ad",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "How can that be?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_154ff4bd",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "comment",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b556e39_f7608033",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "comment",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_cdc16922",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "cryptic, please add a comment.",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 53
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b04c64d_71f2d885",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "comment (here and below for the null checks).",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 163,
+        "endChar": 23
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_93503c26",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Say why it\u0027s ok not to record.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 32
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_f34d3090",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Add?",
+      "range": {
+        "startLine": 223,
+        "startChar": 30,
+        "endLine": 223,
+        "endChar": 35
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_2dee2db6",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Add a helper for this?",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_d34ab475",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Is that really what you think of VerifierDeps?",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 15
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_b353b831",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "Move that out of verifer_deps.h (eg put it in verifier.h).",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bff3a6b_f28c08e5",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T12:54:44Z",
+      "side": 1,
+      "message": "High-level comment.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
