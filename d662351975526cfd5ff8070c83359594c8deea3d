@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "766bcf9b_877de4bc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5358,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-09T15:26:55Z",
+      "side": 1,
+      "message": "an elseif is not possible, due to following code.\nbut I agree this reads very misleading and can be made more clear if you put a clarifying comment in a new line after the else, but before the if",
+      "parentUuid": "fc14e289_ac820e28",
+      "range": {
+        "startLine": 5357,
+        "startChar": 8,
+        "endLine": 5358,
+        "endChar": 41
+      },
+      "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5f5acd_06fd3a7f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -112,6 +136,23 @@
         "endLine": 5360,
         "endChar": 74
       },
+      "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766bcf9b_a78ae8c2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-09T15:26:55Z",
+      "side": 1,
+      "message": "same suggestion here, but an else comment before the if, so that the flow is easier to read",
       "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
