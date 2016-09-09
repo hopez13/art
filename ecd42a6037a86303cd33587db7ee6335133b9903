@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4b50e248_b8ba79b9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb63f225_b4ba80b9",
+      "range": {
+        "startLine": 2182,
+        "startChar": 10,
+        "endLine": 2182,
+        "endChar": 15
+      },
+      "revId": "ecd42a6037a86303cd33587db7ee6335133b9903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b054249_50d6acec",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 20
@@ -83,6 +107,30 @@
       "writtenOn": "2016-09-09T09:20:20Z",
       "side": 1,
       "message": "remove.",
+      "range": {
+        "startLine": 2196,
+        "startChar": 2,
+        "endLine": 2199,
+        "endChar": 52
+      },
+      "revId": "ecd42a6037a86303cd33587db7ee6335133b9903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b6eea0d_56f7b473",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b054249_50d6acec",
       "range": {
         "startLine": 2196,
         "startChar": 2,
