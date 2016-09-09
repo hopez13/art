@@ -283,6 +283,30 @@
       "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ebe7a_c92b15ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-09T18:10:21Z",
+      "side": 1,
+      "message": "I see..\n\n   static_cast\u003cuint16_t\u003e(i)\n\nis much more clear then. It does the same exact thing because a cast to an unsigned value is the modulus 2^sizeof.\n\nAnd it\u0027s more readable. And there\u0027s less magic.\n\n0xFFFF seems like some java-ism to go from int/long to short because they don\u0027t have proper unsigned types.\n\nLook at what it does, I made the implicit conversions explicit:\n\n   0xFFFF \u0026 i -\u003e 0xFFFF has to be converted to size_t first\n   (size_t)(0xFFFF) \u0026 i\n   // and 0xFFFF is a signed int here so we have to consider (a) signed int32-\u003eunsigned32 and \n   // (b) signed int32 -\u003e unsigned int64 depending on arch\n   Now the whole type is size_t.\n   (uint16_t)((size_t)(0xFFFF) \u0026 i)\n   and it has to do an implicit uint16_t conversion anyway because the type of the expression doesn\u0027t\n    match function parameter.\n\nPlus we have to worry about this magic number 0xFFFF. VS:\n\n   static_cast\u003cuint16_t\u003e(i)\n\nNo implicit hidden conversions, no magic numbers.",
+      "parentUuid": "ab0ebe7a_c9a675ad",
+      "range": {
+        "startLine": 7187,
+        "startChar": 39,
+        "endLine": 7187,
+        "endChar": 45
+      },
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
