@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,41 +16,31 @@
 
 package com.android.ahat;
 
-import com.android.ahat.heapdump.AhatInstance;
 import com.android.ahat.heapdump.AhatSnapshot;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-public class PerformanceTest {
+public class SiteHandlerTest {
   private static class NullOutputStream extends OutputStream {
     public void write(int b) throws IOException {
     }
   }
 
   @Test
-  public void bigArray() throws IOException {
-    // It should not take more than 1 second to load the default object view
-    // for any object, including big arrays.
+  public void noCrash() throws IOException {
     TestDump dump = TestDump.getTestDump();
 
-    AhatInstance bigArray = dump.getDumpedAhatInstance("bigArray");
-    assertNotNull(bigArray);
-
+    // The sites view should not crash.
     AhatSnapshot snapshot = dump.getAhatSnapshot();
-    AhatHandler handler = new ObjectHandler(snapshot);
+    AhatHandler handler = new SiteHandler(snapshot);
 
     PrintStream ps = new PrintStream(new NullOutputStream());
-    HtmlDoc doc = new HtmlDoc(ps, DocString.text("bigArray test"), DocString.uri("style.css"));
-    String uri = "http://localhost:7100/object?id=" + bigArray.getId();
+    HtmlDoc doc = new HtmlDoc(ps, DocString.text("noCrash test"), DocString.uri("style.css"));
+    String uri = "http://localhost:7100";
     Query query = new Query(DocString.uri(uri));
-
-    long start = System.currentTimeMillis();
     handler.handle(doc, query);
-    long time = System.currentTimeMillis() - start;
-    assertTrue("bigArray took too long: " + time + "ms", time < 1000);
   }
 }

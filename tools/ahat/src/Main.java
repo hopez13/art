@@ -16,6 +16,7 @@
 
 package com.android.ahat;
 
+import com.android.ahat.heapdump.AhatSnapshot;
 import com.sun.net.httpserver.HttpServer;
 import java.io.File;
 import java.io.IOException;

@@ -16,8 +16,11 @@
 
 package com.android.ahat;
 
-import com.android.tools.perflib.heap.Heap;
-import com.android.tools.perflib.heap.Instance;
+import com.android.ahat.heapdump.AhatHeap;
+import com.android.ahat.heapdump.AhatInstance;
+import com.android.ahat.heapdump.AhatSnapshot;
+import com.android.ahat.heapdump.NativeAllocation;
+import com.android.ahat.heapdump.Site;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,9 +41,9 @@ class Sort {
    * Compare instances by their instance id.
    * This sorts instances from smaller id to larger id.
    */
-  public static class InstanceById implements Comparator<Instance> {
+  public static class InstanceById implements Comparator<AhatInstance> {
     @Override
-    public int compare(Instance a, Instance b) {
+    public int compare(AhatInstance a, AhatInstance b) {
       return Long.compare(a.getId(), b.getId());
     }
   }
@@ -51,9 +54,9 @@ class Sort {
    * equal for the purposes of comparison.
    * This sorts instances from larger retained size to smaller retained size.
    */
-  public static class InstanceByTotalRetainedSize implements Comparator<Instance> {
+  public static class InstanceByTotalRetainedSize implements Comparator<AhatInstance> {
     @Override
-    public int compare(Instance a, Instance b) {
+    public int compare(AhatInstance a, AhatInstance b) {
       return Long.compare(b.getTotalRetainedSize(), a.getTotalRetainedSize());
     }
   }
@@ -64,20 +67,16 @@ class Sort {
    * equal for the purposes of comparison.
    * This sorts instances from larger retained size to smaller retained size.
    */
-  public static class InstanceByHeapRetainedSize implements Comparator<Instance> {
-    private int mIndex;
+  public static class InstanceByHeapRetainedSize implements Comparator<AhatInstance> {
+    private AhatHeap mHeap;
 
-    public InstanceByHeapRetainedSize(AhatSnapshot snapshot, Heap heap) {
-      mIndex = snapshot.getHeapIndex(heap);
-    }
-
-    public InstanceByHeapRetainedSize(int heapIndex) {
-      mIndex = heapIndex;
+    public InstanceByHeapRetainedSize(AhatHeap heap) {
+      mHeap = heap;
     }
 
     @Override
-    public int compare(Instance a, Instance b) {
-      return Long.compare(b.getRetainedSize(mIndex), a.getRetainedSize(mIndex));
+    public int compare(AhatInstance a, AhatInstance b) {
+      return Long.compare(b.getRetainedSize(mHeap), a.getRetainedSize(mHeap));
     }
   }
 
@@ -107,18 +106,18 @@ class Sort {
     }
   }
 
-  public static Comparator<Instance> defaultInstanceCompare(AhatSnapshot snapshot) {
-    List<Comparator<Instance>> comparators = new ArrayList<Comparator<Instance>>();
+  public static Comparator<AhatInstance> defaultInstanceCompare(AhatSnapshot snapshot) {
+    List<Comparator<AhatInstance>> comparators = new ArrayList<Comparator<AhatInstance>>();
 
     // Priority goes to the app heap, if we can find one.
-    Heap appHeap = snapshot.getHeap("app");
+    AhatHeap appHeap = snapshot.getHeap("app");
     if (appHeap != null) {
-      comparators.add(new InstanceByHeapRetainedSize(snapshot, appHeap));
+      comparators.add(new InstanceByHeapRetainedSize(appHeap));
     }
 
     // Next is by total retained size.
     comparators.add(new InstanceByTotalRetainedSize());
-    return new WithPriority<Instance>(comparators);
+    return new WithPriority<AhatInstance>(comparators);
   }
 
   /**
@@ -173,8 +172,8 @@ class Sort {
   public static class ObjectsInfoByClassName implements Comparator<Site.ObjectsInfo> {
     @Override
     public int compare(Site.ObjectsInfo a, Site.ObjectsInfo b) {
-      String aName = AhatSnapshot.getClassName(a.classObj);
-      String bName = AhatSnapshot.getClassName(b.classObj);
+      String aName = a.classObj.getClassName();
+      String bName = b.classObj.getClassName();
       return aName.compareTo(bName);
     }
   }
@@ -185,22 +184,22 @@ class Sort {
    * the purposes of comparison.
    */
   public static class NativeAllocationByHeapName
-      implements Comparator<InstanceUtils.NativeAllocation> {
+      implements Comparator<NativeAllocation> {
     @Override
-    public int compare(InstanceUtils.NativeAllocation a, InstanceUtils.NativeAllocation b) {
+    public int compare(NativeAllocation a, NativeAllocation b) {
       return a.heap.getName().compareTo(b.heap.getName());
     }
   }
 
   /**
-   * Compare InstanceUtils.NativeAllocation by their size.
+   * Compare NativeAllocation by their size.
    * Different allocations with the same size are considered equal for the
    * purposes of comparison.
    * This sorts allocations from larger size to smaller size.
    */
-  public static class NativeAllocationBySize implements Comparator<InstanceUtils.NativeAllocation> {
+  public static class NativeAllocationBySize implements Comparator<NativeAllocation> {
     @Override
-    public int compare(InstanceUtils.NativeAllocation a, InstanceUtils.NativeAllocation b) {
+    public int compare(NativeAllocation a, NativeAllocation b) {
       return Long.compare(b.size, a.size);
     }
   }

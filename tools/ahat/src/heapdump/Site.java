@@ -14,11 +14,8 @@
  * limitations under the License.
  */
 
-package com.android.ahat;
+package com.android.ahat.heapdump;
 
-import com.android.tools.perflib.heap.ClassObj;
-import com.android.tools.perflib.heap.Heap;
-import com.android.tools.perflib.heap.Instance;
 import com.android.tools.perflib.heap.StackFrame;
 
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-class Site {
+public class Site {
   // The site that this site was directly called from.
   // mParent is null for the root site.
   private Site mParent;
@@ -37,12 +34,13 @@ class Site {
   // site within its parent.
   private String mName;
 
-  // To identify this site, we pick one stack trace where we have seen the
-  // site. mStackId is the id for that stack trace, and mStackDepth is the
-  // depth of this site in that stack trace.
-  // For the root site, mStackId is 0 and mStackDepth is 0.
-  private int mStackId;
-  private int mStackDepth;
+  // To identify this site, we pick a stack trace that includes the site.
+  // mId is the id of an object allocated at that stack trace, and mDepth
+  // is the number of calls between this site and the innermost site of
+  // allocation of the object with mId.
+  // For the root site, mId is 0 and mDepth is 0.
+  private long mId;
+  private int mDepth;
 
   // Mapping from heap name to the total size of objects allocated in this
   // site (including child sites) on the given heap.
@@ -52,21 +50,25 @@ class Site {
   private Map<String, Site> mChildren;
 
   // List of all objects allocated in this site (including child sites).
-  private List<Instance> mObjects;
+  private List<AhatInstance> mObjects;
   private List<ObjectsInfo> mObjectsInfos;
-  private Map<Heap, Map<ClassObj, ObjectsInfo>> mObjectsInfoMap;
+  private Map<AhatHeap, Map<AhatClassObj, ObjectsInfo>> mObjectsInfoMap;
 
   public static class ObjectsInfo {
-    public Heap heap;
-    public ClassObj classObj;
+    public AhatHeap heap;
+    public AhatClassObj classObj;
     public long numInstances;
     public long numBytes;
 
-    public ObjectsInfo(Heap heap, ClassObj classObj, long numInstances, long numBytes) {
+    public ObjectsInfo(AhatHeap heap, AhatClassObj classObj, long numInstances, long numBytes) {
       this.heap = heap;
       this.classObj = classObj;
       this.numInstances = numInstances;
       this.numBytes = numBytes;
+
+      if (classObj == null) {
+        throw new IllegalArgumentException("classObj must not be null");
+      }
     }
   }
 
@@ -77,31 +79,31 @@ class Site {
     this(null, name, 0, 0);
   }
 
-  public Site(Site parent, String name, int stackId, int stackDepth) {
+  public Site(Site parent, String name, long id, int depth) {
     mParent = parent;
     mName = name;
-    mStackId = stackId;
-    mStackDepth = stackDepth;
+    mId = id;
+    mDepth = depth;
     mSizesByHeap = new HashMap<String, Long>();
     mChildren = new HashMap<String, Site>();
-    mObjects = new ArrayList<Instance>();
+    mObjects = new ArrayList<AhatInstance>();
     mObjectsInfos = new ArrayList<ObjectsInfo>();
-    mObjectsInfoMap = new HashMap<Heap, Map<ClassObj, ObjectsInfo>>();
+    mObjectsInfoMap = new HashMap<AhatHeap, Map<AhatClassObj, ObjectsInfo>>();
   }
 
   /**
    * Add an instance to this site.
    * Returns the site at which the instance was allocated.
    */
-  public Site add(int stackId, int stackDepth, Iterator<StackFrame> path, Instance inst) {
+  Site add(List<StackFrame> path, AhatInstance inst) {
     mObjects.add(inst);
 
     String heap = inst.getHeap().getName();
     mSizesByHeap.put(heap, getSize(heap) + inst.getSize());
 
-    Map<ClassObj, ObjectsInfo> classToObjectsInfo = mObjectsInfoMap.get(inst.getHeap());
+    Map<AhatClassObj, ObjectsInfo> classToObjectsInfo = mObjectsInfoMap.get(inst.getHeap());
     if (classToObjectsInfo == null) {
-      classToObjectsInfo = new HashMap<ClassObj, ObjectsInfo>();
+      classToObjectsInfo = new HashMap<AhatClassObj, ObjectsInfo>();
       mObjectsInfoMap.put(inst.getHeap(), classToObjectsInfo);
     }
 
@@ -115,14 +117,14 @@ class Site {
     info.numInstances++;
     info.numBytes += inst.getSize();
 
-    if (path.hasNext()) {
-      String next = path.next().toString();
+    if (!path.isEmpty()) {
+      String next = path.get(0).toString();
       Site child = mChildren.get(next);
       if (child == null) {
-        child = new Site(this, next, stackId, stackDepth + 1);
+        child = new Site(this, next, inst.getId(), path.size() - 1);
         mChildren.put(next, child);
       }
-      return child.add(stackId, stackDepth + 1, path, inst);
+      return child.add(path.subList(1, path.size()), inst);
     } else {
       return this;
     }
@@ -141,7 +143,7 @@ class Site {
    * Get the list of objects allocated under this site. Includes objects
    * allocated in children sites.
    */
-  public Collection<Instance> getObjects() {
+  public Collection<AhatInstance> getObjects() {
     return mObjects;
   }
 
@@ -170,18 +172,19 @@ class Site {
     return mName;
   }
 
-  // Returns the hprof id of a stack this site appears on.
-  public int getStackId() {
-    return mStackId;
+  // Returns the id of some object allocated in this site.
+  public long getId() {
+    return mId;
   }
 
-  // Returns the stack depth of this site in the stack whose id is returned
-  // by getStackId().
-  public int getStackDepth() {
-    return mStackDepth;
+  // Returns the number of frames between this site and the site where the
+  // object with id getId() was allocated.
+  // by getId().
+  public int getDepth() {
+    return mDepth;
   }
 
-  List<Site> getChildren() {
+  public List<Site> getChildren() {
     return new ArrayList<Site>(mChildren.values());
   }
 

@@ -20,6 +20,7 @@ import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import libcore.util.NativeAllocationRegistry;
+import org.apache.harmony.dalvik.ddmc.DdmVmInternal;
 
 /**
  * Program used to create a heap dump for test purposes.
@@ -51,6 +52,7 @@ public class Main {
     public ReferenceQueue<Object> referenceQueue = new ReferenceQueue<Object>();
     public PhantomReference aPhantomReference = new PhantomReference(anObject, referenceQueue);
     public WeakReference aWeakReference = new WeakReference(anObject, referenceQueue);
+    public WeakReference aNullReferentReference = new WeakReference(null, referenceQueue);
     public byte[] bigArray;
     public ObjectTree[] gcPathArray = new ObjectTree[]{null, null,
       new ObjectTree(
@@ -79,6 +81,9 @@ public class Main {
       return;
     }
     String file = args[0];
+
+    // Enable allocation tracking so we get stack traces in the heap dump.
+    DdmVmInternal.enableRecentAllocations(true);
 
     // Allocate the instance of DumpedStuff.
     stuff = new DumpedStuff();
