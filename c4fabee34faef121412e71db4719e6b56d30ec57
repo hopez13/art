@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb63f225_d4257cca",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Will get recorded now.",
+      "parentUuid": "eb6a76fa_b5560059",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b50e248_f82eb1fe",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Id put a comment everywhere you pass null.",
+      "range": {
+        "startLine": 728,
+        "startChar": 39,
+        "endLine": 728,
+        "endChar": 66
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_3412f06a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "No longer needed.",
+      "parentUuid": "4b50e248_f82eb1fe",
       "range": {
         "startLine": 728,
         "startChar": 39,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8bff3a6b_f24d2890",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "No longer needed.",
+      "parentUuid": "cb63f225_74990824",
+      "range": {
+        "startLine": 1887,
+        "startChar": 66,
+        "endLine": 1887,
+        "endChar": 76
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6eea0d_96cdcc2a",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Comment please.",
+      "range": {
+        "startLine": 1570,
+        "startChar": 0,
+        "endLine": 1572,
+        "endChar": 5
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_1417f45a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b6eea0d_96cdcc2a",
       "range": {
         "startLine": 1570,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ab607e1c_3312086b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3813,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_13454c6b",
+      "range": {
+        "startLine": 3813,
+        "startChar": 0,
+        "endLine": 3813,
+        "endChar": 87
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b50e248_d82bedec",
         "filename": "runtime/utils.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "unrelated?",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b50e248_38630946",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Used to make tests more readable. Would you prefer not adding these?",
+      "parentUuid": "4b50e248_d82bedec",
       "range": {
         "startLine": 445,
         "startChar": 0,
@@ -186,6 +330,54 @@
     },
     {
       "key": {
+        "uuid": "2b556e39_f737e036",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3646,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_533fc4e4",
+      "range": {
+        "startLine": 3644,
+        "startChar": 0,
+        "endLine": 3646,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b556e39_17c254fb",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3646,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Line 3640 tests whether we resolved a class which hasn\u0027t been in the dex cache until now. If so, it stores it in the dex cache.\n\nI presume that what you mean is to put it in the branch so as to not record the same resolution multiple times? I\u0027d prefer to deduplicate that on the VerifierDeps side rather than assume that the dex cache is empty before the verifier is invoked.\n\nThis way `klass` always holds the resolved class or nullptr if unresolved after line 3643 and we pass that to VerifierDeps to do whatever it wants with it.",
+      "parentUuid": "0b6eea0d_f6da40dc",
+      "range": {
+        "startLine": 3643,
+        "startChar": 0,
+        "endLine": 3646,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b556e39_57720c0c",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -197,6 +389,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Unrelated to vdex, right?",
+      "range": {
+        "startLine": 3766,
+        "startChar": 6,
+        "endLine": 3767,
+        "endChar": 84
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_2df8ed65",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Yep. I\u0027ve refactored the code a little bit and thought that this wasn\u0027t obvious and worthy of a comment.",
+      "parentUuid": "2b556e39_57720c0c",
       "range": {
         "startLine": 3766,
         "startChar": 6,
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "0bf34aac_ce4a0376",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4070,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Because it was using Class::IsAssignableFrom rather than RegType::IsAssignableFrom like the rest of the verifier. And I collect the dependencies inside RegType.\n\nI\u0027d keep it no matter what because Class::IsAssignableFrom actually corresponds to RegType::IsStrictlyAssignableFrom, so less ambiguity.",
+      "parentUuid": "0bf34aac_aea97732",
+      "range": {
+        "startLine": 4067,
+        "startChar": 2,
+        "endLine": 4070,
+        "endChar": 15
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bff3a6b_d2ee247e",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 1
@@ -243,6 +483,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Add that it\u0027s only used for AOT compilation.",
+      "range": {
+        "startLine": 769,
+        "startChar": 24,
+        "endLine": 769,
+        "endChar": 83
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b04c64d_1168ac1e",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "8bff3a6b_d2ee247e",
       "range": {
         "startLine": 769,
         "startChar": 24,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "2b556e39_7763d012",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Please suggest a cleaner way. I don\u0027t want the DexFileDeps class to be copyable, assignable or movable. Gives me confidence that there will be exactly one instance per dex file and it will always reside inside the map.",
+      "parentUuid": "2b556e39_97530469",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 38
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb6a76fa_354af0ad",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 1
@@ -289,6 +577,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "How can that be?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_13df0c5c",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Testing. I got rid of it, makes thing cleaner.",
+      "parentUuid": "eb6a76fa_354af0ad",
       "range": {
         "startLine": 86,
         "startChar": 0,
@@ -324,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "eb6a76fa_b51e007a",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6a76fa_154ff4bd",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b556e39_f7608033",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 1
@@ -335,6 +671,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "comment",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_b49ba0c2",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Turned into a DCHECK. Can this actually ever be null? I don\u0027t think so, was just being cautious.",
+      "parentUuid": "2b556e39_f7608033",
       "range": {
         "startLine": 148,
         "startChar": 0,
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "0b6eea0d_f64d2090",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebefd6c0_cdc16922",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 53
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b04c64d_71f2d885",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 1
@@ -381,6 +765,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "comment (here and below for the null checks).",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 163,
+        "endChar": 23
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b04c64d_f1da48dc",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b04c64d_71f2d885",
       "range": {
         "startLine": 163,
         "startChar": 6,
@@ -416,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "0b6eea0d_566854ed",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_93503c26",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 32
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab607e1c_f34d3090",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 1
@@ -427,6 +859,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Add?",
+      "range": {
+        "startLine": 223,
+        "startChar": 30,
+        "endLine": 223,
+        "endChar": 35
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_6d6dd52e",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_f34d3090",
       "range": {
         "startLine": 223,
         "startChar": 30,
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "ebefd6c0_0d68911e",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Removed and now stored with the dex file given as context.\nWe\u0027ll revisit this as part of the \"compression\" of dependencies, i.e. deduplicating across dex files.",
+      "parentUuid": "ebefd6c0_2dee2db6",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 3
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab607e1c_d34ab475",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 1
@@ -473,6 +953,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "Is that really what you think of VerifierDeps?",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 15
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b50e248_b83d591d",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_d34ab475",
       "range": {
         "startLine": 292,
         "startChar": 2,
@@ -508,6 +1012,30 @@
     },
     {
       "key": {
+        "uuid": "2b556e39_17bb747b",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab607e1c_b353b831",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bff3a6b_f28c08e5",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 1
@@ -519,6 +1047,30 @@
       "writtenOn": "2016-09-09T12:54:44Z",
       "side": 1,
       "message": "High-level comment.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "c4fabee34faef121412e71db4719e6b56d30ec57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_b553a031",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bff3a6b_f28c08e5",
       "range": {
         "startLine": 38,
         "startChar": 0,
