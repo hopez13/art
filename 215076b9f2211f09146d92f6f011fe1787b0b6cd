@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "cb63f225_14c254fb",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2471,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T11:34:15Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/272194",
+      "parentUuid": "8bff3a6b_d22bc4ec",
+      "range": {
+        "startLine": 2471,
+        "startChar": 18,
+        "endLine": 2471,
+        "endChar": 20
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb6a76fa_f5db5807",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -200,6 +224,30 @@
       "writtenOn": "2016-09-09T10:08:46Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2472,
+        "startChar": 18,
+        "endLine": 2472,
+        "endChar": 20
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_cd8fa925",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T11:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6a76fa_f5db5807",
       "range": {
         "startLine": 2472,
         "startChar": 18,
