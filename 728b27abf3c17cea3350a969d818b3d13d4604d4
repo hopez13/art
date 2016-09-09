@@ -52,6 +52,24 @@
       "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ebe7a_499e050e",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-09T18:14:47Z",
+      "side": 1,
+      "message": "Ok I see that it just does a static linking as well.. I miss the old days of dynamic libgtest.",
+      "parentUuid": "ab0ebe7a_c9d795b2",
+      "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
