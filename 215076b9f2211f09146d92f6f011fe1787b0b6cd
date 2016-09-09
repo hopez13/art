@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb6a76fa_95214411",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T10:44:40Z",
+      "side": 1,
+      "message": "We did use xLR in .cfi_rel_offset and .cfi_restore, see lines 1827 and 1830 in \"Base\".",
+      "parentUuid": "6b04c64d_11cc2c5f",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb3052eb_2c44339d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -106,6 +130,30 @@
       "writtenOn": "2016-09-09T10:08:46Z",
       "side": 1,
       "message": "Good catch!  Out of curiosity, was the original code working?",
+      "range": {
+        "startLine": 2305,
+        "startChar": 20,
+        "endLine": 2305,
+        "endChar": 23
+      },
+      "revId": "215076b9f2211f09146d92f6f011fe1787b0b6cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6a76fa_b5244021",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-09T10:44:40Z",
+      "side": 1,
+      "message": "The assembler didn\u0027t complain, so I guess it was OK. I don\u0027t see any other interpretation that the assembler could use.",
+      "parentUuid": "cb63f225_34f83066",
       "range": {
         "startLine": 2305,
         "startChar": 20,
