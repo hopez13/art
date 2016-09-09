@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab607e1c_53ed04b5",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:33:37Z",
+      "side": 1,
+      "message": "Nope, that\u0027s for self-relocation (input OAT \u003d\u003d output OAT). In that case patchoat will open the input file, keep the FD, unlink it and create and open a new OAT in its place. VDEX does not need relocation, so there\u0027s simply nothing to do.",
+      "parentUuid": "ab607e1c_13f38c9a",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 3
+      },
+      "revId": "da101a75907106fb864d1b692630a4b9e8504a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab607e1c_33ee88b6",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-09T09:22:37Z",
       "side": 1,
       "message": "no error checking for the unlink ? It will give a better error message than the failing symlink that is error checked.",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "da101a75907106fb864d1b692630a4b9e8504a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b054249_f0c40034",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-09T09:33:37Z",
+      "side": 1,
+      "message": "This function is adapted from ReplaceOatFileWithSymlink (line 466). I guess the author didn\u0027t care about possible low-level issues and skipped checking for errors so that they wouldn\u0027t need to test whether the file exists first. Happy to change that.",
+      "parentUuid": "ab607e1c_33ee88b6",
       "range": {
         "startLine": 161,
         "startChar": 2,
