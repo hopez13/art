@@ -70,7 +70,7 @@ def _DexArchCachePaths(android_data_path):
           for arch in DALVIK_CACHE_ARCHS)
 
 
-def _RunCommandForOutputAndLog(cmd, env, logfile, timeout=60):
+def _RunCommandForOutputAndLog(cmd, env, logfile, timeout=300):
   """Runs command and logs its output. Returns the output.
 
   Args:
