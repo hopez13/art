@@ -78,7 +78,9 @@ public class Main {
   /// CHECK:         <<CheckedArray:l\d+>>  NullCheck [<<Array>>]
   /// CHECK-NEXT:    <<Length:i\d+>>        ArrayLength [<<Array>>] is_string_length:false emitted_at_use:true loop:none
   /// CHECK-NEXT:    <<CheckedIndex:i\d+>>  BoundsCheck [<<Index>>,<<Length>>]
-  /// CHECK-NEXT:                           cmp [<<BaseReg:\w+>> + 8], e<<IndexReg:\w+>>
+  /// CHECK-NEXT:                           mov <<LengthReg:\w+>>, [<<BaseReg:\w+>> + 8]
+  /// CHECK-NEXT:                           and <<LengthReg>>, <<CompressionFlag:\d+>>
+  /// CHECK-NEXT:                           cmp <<LengthReg>>, e<<IndexReg:\w+>>
   /// CHECK:         <<ArraySet:v\d+>>      ArraySet [<<Array>>,<<Index>>,<<Value>>]
   /// CHECK-NEXT:                           mov [<<BaseReg>> + r<<IndexReg>> * 4 + 12], 9
 
