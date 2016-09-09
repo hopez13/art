@@ -201,6 +201,20 @@ inline uint32_t High32Bits(uint64_t value) {
   return static_cast<uint32_t>(value >> 32);
 }
 
+template <typename T>
+constexpr bool IsBitSet(T val, uint8_t idx) {
+  static_assert(std::is_integral<T>::value, "T must be integral");
+  DCHECK_LT(idx, BitSizeOf<T>());
+  return val & (1u << idx);
+}
+
+template <typename T>
+constexpr void SetBit(T& val, uint8_t idx) {
+  static_assert(std::is_integral<T>::value, "T must be integral");
+  DCHECK_LT(idx, BitSizeOf<T>());
+  val |= (1u << idx);
+}
+
 // Check whether an N-bit two's-complement representation can hold value.
 template <typename T>
 inline bool IsInt(size_t N, T value) {
