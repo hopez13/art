@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6a76fa_351150be",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T10:35:32Z",
+      "side": 1,
+      "message": "Please add a comment around this, especially that the OatFile class embeds the vdex.\n\nIdeally, we should rename it?",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 13
+      },
+      "revId": "906a605cc33306a8af50c368f1b319c98ef13a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab607e1c_134f0cbe",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-09T10:35:32Z",
+      "side": 1,
+      "message": ":) want to make sure people remember you?",
+      "range": {
+        "startLine": 690,
+        "startChar": 30,
+        "endLine": 690,
+        "endChar": 62
+      },
+      "revId": "906a605cc33306a8af50c368f1b319c98ef13a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
