@@ -66,24 +66,25 @@ void Thumb2Assembler::Fixup::PrepareDependents(Thumb2Assembler* assembler) {
       [fixups](FixupId dependency, FixupId dependent ATTRIBUTE_UNUSED) {
         fixups[dependency].dependents_count_ += 1u;
       });
-  // Assign index ranges in fixup_dependents_ to individual fixups. Record the end of the
-  // range in dependents_start_, we shall later decrement it as we fill in fixup_dependents_.
+  // Allocate storage for dependents and clear counts for filling.
   uint32_t number_of_dependents = 0u;
-  for (FixupId fixup_id = 0u, end_id = assembler->fixups_.size(); fixup_id != end_id; ++fixup_id) {
-    number_of_dependents += fixups[fixup_id].dependents_count_;
-    fixups[fixup_id].dependents_start_ = number_of_dependents;
+  ArenaAllocator* arena = assembler->buffer_.GetArena();
+  for (Fixup& fixup : assembler->fixups_) {
+    if (fixup.dependents_count_ != 0u) {
+      fixup.dependents_ = arena->AllocArray<FixupId>(fixup.dependents_count_, kArenaAllocAssembler);
+      fixup.dependents_count_ = 0u;
+      number_of_dependents += 1u;
+    }
   }
   if (number_of_dependents == 0u) {
     return;
   }
-  // Create and fill in the fixup_dependents_.
-  assembler->fixup_dependents_.resize(number_of_dependents);
-  FixupId* dependents = assembler->fixup_dependents_.data();
+  // Fill the dependents.
   ForExpandableDependencies(
       assembler,
-      [fixups, dependents](FixupId dependency, FixupId dependent) {
-        fixups[dependency].dependents_start_ -= 1u;
-        dependents[fixups[dependency].dependents_start_] = dependent;
+      [fixups](FixupId dependency, FixupId dependent) {
+        fixups[dependency].dependents_[fixups[dependency].dependents_count_] = dependent;
+        fixups[dependency].dependents_count_ += 1u;
       });
 }
 
@@ -127,7 +128,7 @@ void Thumb2Assembler::AdjustFixupIfNeeded(Fixup* fixup, uint32_t* current_code_s
   if (adjustment != 0u) {
     DCHECK(fixup->CanExpand());
     *current_code_size += adjustment;
-    for (FixupId dependent_id : fixup->Dependents(*this)) {
+    for (FixupId dependent_id : fixup->Dependents()) {
       Fixup* dependent = GetFixup(dependent_id);
       dependent->IncreaseAdjustment(adjustment);
       if (buffer_.Load<int16_t>(dependent->GetLocation()) == 0) {
@@ -2018,7 +2019,7 @@ inline size_t Thumb2Assembler::Fixup::IncreaseSize(Size new_size) {
   return adjustment;
 }
 
-bool Thumb2Assembler::Fixup::IsEmitEarlyCandidate() const {
+bool Thumb2Assembler::Fixup::IsCandidateForEmitEarly() const {
   DCHECK(size_ == original_size_);
   if (target_ == kUnresolved) {
     return false;
@@ -3384,7 +3385,7 @@ void Thumb2Assembler::Bind(Label* label) {
   BindLabel(label, buffer_.Size());
 
   // Try to emit some Fixups now to reduce the memory needed during the branch fixup later.
-  while (!fixups_.empty() && fixups_.back().IsEmitEarlyCandidate()) {
+  while (!fixups_.empty() && fixups_.back().IsCandidateForEmitEarly()) {
     const Fixup& last_fixup = fixups_.back();
     // Fixups are ordered by location, so the candidate can surely be emitted if it is
     // a forward branch. If it's a backward branch, it may go over any number of other
@@ -3395,7 +3396,7 @@ void Thumb2Assembler::Bind(Label* label) {
         fixups_.size() >= 2u &&
         fixups_[fixups_.size() - 2u].GetLocation() >= target) {
       const Fixup& prev_fixup = fixups_[fixups_.size() - 2u];
-      if (!prev_fixup.IsEmitEarlyCandidate()) {
+      if (!prev_fixup.IsCandidateForEmitEarly()) {
         break;
       }
       uint32_t min_target = std::min(target, prev_fixup.GetTarget());

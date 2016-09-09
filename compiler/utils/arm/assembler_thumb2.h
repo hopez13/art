@@ -41,7 +41,6 @@ class Thumb2Assembler FINAL : public ArmAssembler {
         it_cond_index_(kNoItCondition),
         next_condition_(AL),
         fixups_(arena->Adapter(kArenaAllocAssembler)),
-        fixup_dependents_(arena->Adapter(kArenaAllocAssembler)),
         literals_(arena->Adapter(kArenaAllocAssembler)),
         literal64_dedupe_map_(std::less<uint64_t>(), arena->Adapter(kArenaAllocAssembler)),
         jump_tables_(arena->Adapter(kArenaAllocAssembler)),
@@ -584,9 +583,8 @@ class Thumb2Assembler FINAL : public ArmAssembler {
     // Prepare the assembler->fixup_dependents_ and each Fixup's dependents_start_/count_.
     static void PrepareDependents(Thumb2Assembler* assembler);
 
-    ArrayRef<const FixupId> Dependents(const Thumb2Assembler& assembler) const {
-      return ArrayRef<const FixupId>(assembler.fixup_dependents_).SubArray(dependents_start_,
-                                                                           dependents_count_);
+    ArrayRef<const FixupId> Dependents() const {
+      return ArrayRef<const FixupId>(dependents_, dependents_count_);
     }
 
     // Resolve a branch when the target is known.
@@ -599,7 +597,7 @@ class Thumb2Assembler FINAL : public ArmAssembler {
     // Branches with bound targets that are in range can be emitted early.
     // However, the caller still needs to check if the branch doesn't go over
     // another Fixup that's not ready to be emitted.
-    bool IsEmitEarlyCandidate() const;
+    bool IsCandidateForEmitEarly() const;
 
     // Check if the current size is OK for current location_, target_ and adjustment_.
     // If not, increase the size. Return the size increase, 0 if unchanged.
@@ -637,7 +635,7 @@ class Thumb2Assembler FINAL : public ArmAssembler {
           target_(kUnresolved),
           adjustment_(0u),
           dependents_count_(0u),
-          dependents_start_(0u) {
+          dependents_(nullptr) {
     }
 
     static size_t SizeInBytes(Size size);
@@ -671,7 +669,7 @@ class Thumb2Assembler FINAL : public ArmAssembler {
     // Fixups that require adjustment when current size changes are stored in a single
     // array in the assembler and we store only the start index and count here.
     uint32_t dependents_count_;
-    uint32_t dependents_start_;
+    FixupId* dependents_;   // Arena-allocated.
   };
 
   // Emit a single 32 or 16 bit data processing instruction.
@@ -883,7 +881,6 @@ class Thumb2Assembler FINAL : public ArmAssembler {
   static int32_t AdrEncoding32(Register rd, int32_t offset);
 
   ArenaVector<Fixup> fixups_;
-  ArenaVector<FixupId> fixup_dependents_;
 
   // Use std::deque<> for literal labels to allow insertions at the end
   // without invalidating pointers and references to existing elements.
