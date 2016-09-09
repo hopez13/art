@@ -16,6 +16,7 @@
 
 package com.android.ahat;
 
+import com.android.ahat.heapdump.AhatSnapshot;
 import com.sun.net.httpserver.HttpServer;
 import java.io.File;
 import java.io.IOException;
@@ -86,6 +87,7 @@ public class Main {
     server.createContext("/style.css", new StaticHandler("style.css", "text/css"));
     server.setExecutor(Executors.newFixedThreadPool(1));
     System.out.println("Server started on localhost:" + port);
+
     server.start();
   }
 }
