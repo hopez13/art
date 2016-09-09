@@ -34,6 +34,24 @@
       "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0ebe7a_c9d795b2",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2016-09-09T18:11:39Z",
+      "side": 1,
+      "message": "libart-gtest doesn\u0027t necessarily have all of libgtest. It will only link what it uses.\n\nRegardless, you\u0027re using gtest, so you need to name the dependency. The practical impact of this is that you need the headers (which is the subject of this patch).",
+      "parentUuid": "ab0ebe7a_035eae46",
+      "revId": "728b27abf3c17cea3350a969d818b3d13d4604d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
