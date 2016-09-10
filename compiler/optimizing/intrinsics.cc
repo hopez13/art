@@ -380,7 +380,7 @@ static Intrinsics GetIntrinsic(InlineMethod method) {
 
     // String.
     case kIntrinsicCharAt:
-      return Intrinsics::kStringCharAt;
+      return (mirror::kUseStringCompression) ? Intrinsics::kNone : Intrinsics::kStringCharAt;
     case kIntrinsicCompareTo:
       return Intrinsics::kStringCompareTo;
     case kIntrinsicEquals:
