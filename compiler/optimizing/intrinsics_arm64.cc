@@ -1394,20 +1394,36 @@ void IntrinsicCodeGeneratorARM64::VisitStringEquals(HInvoke* invoke) {
   __ Ldr(temp, MemOperand(str.X(), count_offset));
   __ Ldr(temp1, MemOperand(arg.X(), count_offset));
   // Check if lengths are equal, return false if they're not.
+  // Also compares the compression style, if differs return false.
   __ Cmp(temp, temp1);
   __ B(&return_false, ne);
-  // Store offset of string value in preparation for comparison loop
-  __ Mov(temp1, value_offset);
-  // Return true if both strings are empty.
+  // Return true if both strings are empty,
+  // Length needs to be masked out first because 0 is treated as compressed.
+  // Using AND bitwise operation with INT32_MAX won't work so instead using 1 shl and shr.
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
   __ Cbz(temp, &return_true);
+  // Store offset of string value in preparation for comparison loop
+  __ Mov(temp, Operand(temp1));
+  __ Mov(temp1, value_offset);
 
   // Assertions that must hold in order to compare strings 4 characters at a time.
   DCHECK_ALIGNED(value_offset, 8);
   static_assert(IsAligned<8>(kObjectAlignment), "String of odd length is not zero padded");
 
+  // If not compressed, directly to fast compare. Else do preprocess on length.
+  __ Cmp(temp, Operand(0));
+  __ B(&loop, gt);
+  // Mask out compression flag and adjust length for compressed string (8-bit)
+  // as if it is a 16-bit data, new_length = (length + 1) / 2
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
+  __ Add(temp, temp, Operand(1));
+  __ Mov(temp2, Operand(2));
+  __ Sdiv(temp, temp, temp2);
+
   temp1 = temp1.X();
   temp2 = temp2.X();
-
   // Loop to compare strings 4 characters at a time starting at the beginning of the string.
   // Ok to do this because strings are zero-padded to be 8-byte aligned.
   __ Bind(&loop);

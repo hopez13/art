@@ -1214,11 +1214,16 @@ void IntrinsicCodeGeneratorARM::VisitStringEquals(HInvoke* invoke) {
   __ ldr(temp, Address(str, count_offset));
   __ ldr(temp1, Address(arg, count_offset));
   // Check if lengths are equal, return false if they're not.
+  // Also compares the compression style, if differs return false.
   __ cmp(temp, ShifterOperand(temp1));
   __ b(&return_false, NE);
   // Return true if both strings are empty.
+  // Length needs to be masked out first because 0 is treated as compressed.
+  // Using AND bitwise operation with INT32_MAX won't work because
+  // ShifterOperand only takes up to (1 << 12). So, instead do 1 shl and 1 shr.
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
   __ cbz(temp, &return_true);
-
   // Reference equality check, return true if same reference.
   __ cmp(str, ShifterOperand(arg));
   __ b(&return_true, EQ);
@@ -1227,7 +1232,18 @@ void IntrinsicCodeGeneratorARM::VisitStringEquals(HInvoke* invoke) {
   DCHECK_ALIGNED(value_offset, 4);
   static_assert(IsAligned<4>(kObjectAlignment), "String data must be aligned for fast compare.");
 
+  __ mov(temp, ShifterOperand(temp1));
   __ LoadImmediate(temp1, value_offset);
+  // If not compressed, directly to fast compare. Else do preprocess on length.
+  __ cmp(temp, ShifterOperand(0));
+  __ b(&loop, GT);
+  // Mask out compression flag and adjust length for compressed string (8-bit)
+  // as if it is a 16-bit data, new_length = (length + 1) / 2.
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
+  __ add(temp, temp, ShifterOperand(1));
+  __ mov(temp2, ShifterOperand(2));
+  __ sdiv(temp, temp, temp2);
 
   // Loop to compare strings 2 characters at a time starting at the front of the string.
   // Ok to do this because strings with an odd length are zero-padded.
