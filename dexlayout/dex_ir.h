@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include "dex_file-inl.h"
+#include "leb128.h"
 
 namespace art {
 namespace dex_ir {
@@ -43,9 +44,20 @@ class MapItem;
 class MethodId;
 class MethodItem;
 class ProtoId;
+class StringData;
 class StringId;
 class TryItem;
 class TypeId;
+class TypeList;
+
+// Item size constants.
+static constexpr size_t kHeaderItemSize = 112;
+static constexpr size_t kStringIdItemSize = 4;
+static constexpr size_t kTypeIdItemSize = 4;
+static constexpr size_t kProtoIdItemSize = 12;
+static constexpr size_t kFieldIdItemSize = 8;
+static constexpr size_t kMethodIdItemSize = 8;
+static constexpr size_t kClassDefItemSize = 32;
 
 // Visitor support
 class AbstractDispatcher {
@@ -54,6 +66,7 @@ class AbstractDispatcher {
   virtual ~AbstractDispatcher() { }
 
   virtual void Dispatch(Header* header) = 0;
+  virtual void Dispatch(const StringData* string_data) = 0;
   virtual void Dispatch(const StringId* string_id) = 0;
   virtual void Dispatch(const TypeId* type_id) = 0;
   virtual void Dispatch(const ProtoId* proto_id) = 0;
@@ -82,9 +95,14 @@ template<class T> class CollectionWithOffset {
   CollectionWithOffset() = default;
   std::vector<std::unique_ptr<T>>& Collection() { return collection_; }
   // Read-time support methods
-  void AddWithPosition(uint32_t position, T* object) {
+  void AddItem(T* object, uint32_t offset) {
+    object->SetOffset(offset);
     collection_.push_back(std::unique_ptr<T>(object));
-    collection_.back()->SetOffset(position);
+  }
+  void AddIndexedItem(T* object, uint32_t offset, uint32_t index) {
+    object->SetOffset(offset);
+    object->SetIndex(index);
+    collection_.push_back(std::unique_ptr<T>(object));
   }
   // Ordinary object insertion into collection.
   void Insert(T object ATTRIBUTE_UNUSED) {
@@ -98,18 +116,111 @@ template<class T> class CollectionWithOffset {
  private:
   std::vector<std::unique_ptr<T>> collection_;
   uint32_t offset_ = 0;
+
   DISALLOW_COPY_AND_ASSIGN(CollectionWithOffset);
+};
+
+class Collections {
+ public:
+  Collections() = default;
+
+  std::vector<std::unique_ptr<StringId>>& StringIds() { return string_ids_.Collection(); }
+  std::vector<std::unique_ptr<TypeId>>& TypeIds() { return type_ids_.Collection(); }
+  std::vector<std::unique_ptr<ProtoId>>& ProtoIds() { return proto_ids_.Collection(); }
+  std::vector<std::unique_ptr<FieldId>>& FieldIds() { return field_ids_.Collection(); }
+  std::vector<std::unique_ptr<MethodId>>& MethodIds() { return method_ids_.Collection(); }
+  std::vector<std::unique_ptr<ClassDef>>& ClassDefs() { return class_defs_.Collection(); }
+
+  std::vector<std::unique_ptr<TypeList>>& TypeLists() { return type_lists_.Collection(); }
+
+  void CreateStringId(const DexFile& dex_file, uint32_t i);
+  void CreateTypeId(const DexFile& dex_file, uint32_t i);
+  void CreateProtoId(const DexFile& dex_file, uint32_t i);
+  void CreateFieldId(const DexFile& dex_file, uint32_t i);
+  void CreateMethodId(const DexFile& dex_file, uint32_t i);
+  void CreateClassDef(const DexFile& dex_file, Header* header, uint32_t i);
+
+  TypeList* CreateTypeList(const DexFile::TypeList* type_list, uint32_t offset, bool allow_empty);
+
+  StringId* GetStringId(uint32_t index) { return StringIds()[index].get(); }
+  TypeId* GetTypeId(uint32_t index) { return TypeIds()[index].get(); }
+  ProtoId* GetProtoId(uint32_t index) { return ProtoIds()[index].get(); }
+  FieldId* GetFieldId(uint32_t index) { return FieldIds()[index].get(); }
+  MethodId* GetMethodId(uint32_t index) { return MethodIds()[index].get(); }
+  ClassDef* GetClassDef(uint32_t index) { return ClassDefs()[index].get(); }
+
+  StringId* GetStringIdOrNullPtr(uint32_t index) {
+    return index == DexFile::kDexNoIndex ? nullptr : GetStringId(index);
+  }
+  TypeId* GetTypeIdOrNullPtr(uint16_t index) {
+    return index == DexFile::kDexNoIndex16 ? nullptr : GetTypeId(index);
+  }
+
+  uint32_t StringIdsOffset() const { return string_ids_.GetOffset(); }
+  uint32_t TypeIdsOffset() const { return type_ids_.GetOffset(); }
+  uint32_t ProtoIdsOffset() const { return proto_ids_.GetOffset(); }
+  uint32_t FieldIdsOffset() const { return field_ids_.GetOffset(); }
+  uint32_t MethodIdsOffset() const { return method_ids_.GetOffset(); }
+  uint32_t ClassDefsOffset() const { return class_defs_.GetOffset(); }
+
+  void SetStringIdsOffset(uint32_t new_offset) { string_ids_.SetOffset(new_offset); }
+  void SetTypeIdsOffset(uint32_t new_offset) { type_ids_.SetOffset(new_offset); }
+  void SetProtoIdsOffset(uint32_t new_offset) { proto_ids_.SetOffset(new_offset); }
+  void SetFieldIdsOffset(uint32_t new_offset) { field_ids_.SetOffset(new_offset); }
+  void SetMethodIdsOffset(uint32_t new_offset) { method_ids_.SetOffset(new_offset); }
+  void SetClassDefsOffset(uint32_t new_offset) { class_defs_.SetOffset(new_offset); }
+
+  uint32_t StringIdsSize() const { return string_ids_.Size(); }
+  uint32_t TypeIdsSize() const { return type_ids_.Size(); }
+  uint32_t ProtoIdsSize() const { return proto_ids_.Size(); }
+  uint32_t FieldIdsSize() const { return field_ids_.Size(); }
+  uint32_t MethodIdsSize() const { return method_ids_.Size(); }
+  uint32_t ClassDefsSize() const { return class_defs_.Size(); }
+
+ private:
+  CollectionWithOffset<StringId> string_ids_;
+  CollectionWithOffset<TypeId> type_ids_;
+  CollectionWithOffset<ProtoId> proto_ids_;
+  CollectionWithOffset<FieldId> field_ids_;
+  CollectionWithOffset<MethodId> method_ids_;
+  CollectionWithOffset<ClassDef> class_defs_;
+
+  CollectionWithOffset<StringData> string_datas_;
+  CollectionWithOffset<TypeList> type_lists_;
+
+  DISALLOW_COPY_AND_ASSIGN(Collections);
 };
 
 class Item {
  public:
+  Item() { }
   virtual ~Item() { }
 
   uint32_t GetOffset() const { return offset_; }
+  uint32_t GetSize() const { return size_; }
   void SetOffset(uint32_t offset) { offset_ = offset; }
+  void SetSize(uint32_t size) { size_ = size; }
 
  protected:
+  Item(uint32_t offset, uint32_t size) : offset_(offset), size_(size) { }
+
   uint32_t offset_ = 0;
+  uint32_t size_ = 0;
+};
+
+class IndexedItem : public Item {
+ public:
+  IndexedItem() { }
+  virtual ~IndexedItem() { }
+
+  uint32_t GetIndex() const { return index_; }
+  void SetIndex(uint32_t index) { index_ = index; }
+
+ protected:
+  IndexedItem(uint32_t offset, uint32_t size, uint32_t index)
+      : Item(offset, size), index_(index) { }
+
+  uint32_t index_ = 0;
 };
 
 class Header : public Item {
@@ -124,7 +235,8 @@ class Header : public Item {
          uint32_t link_offset,
          uint32_t data_size,
          uint32_t data_offset)
-      : checksum_(checksum),
+      : Item(0, kHeaderItemSize),
+        checksum_(checksum),
         endian_tag_(endian_tag),
         file_size_(file_size),
         header_size_(header_size),
@@ -136,6 +248,8 @@ class Header : public Item {
     memcpy(signature_, signature, sizeof(signature_));
   }
   ~Header() OVERRIDE { }
+
+  static size_t ItemSize() { return kHeaderItemSize; }
 
   const uint8_t* Magic() const { return magic_; }
   uint32_t Checksum() const { return checksum_; }
@@ -159,39 +273,7 @@ class Header : public Item {
   void SetDataSize(uint32_t new_data_size) { data_size_ = new_data_size; }
   void SetDataOffset(uint32_t new_data_offset) { data_offset_ = new_data_offset; }
 
-  // Collections.
-  std::vector<std::unique_ptr<StringId>>& StringIds() { return string_ids_.Collection(); }
-  std::vector<std::unique_ptr<TypeId>>& TypeIds() { return type_ids_.Collection(); }
-  std::vector<std::unique_ptr<ProtoId>>& ProtoIds() { return proto_ids_.Collection(); }
-  std::vector<std::unique_ptr<FieldId>>& FieldIds() { return field_ids_.Collection(); }
-  std::vector<std::unique_ptr<MethodId>>& MethodIds() { return method_ids_.Collection(); }
-  std::vector<std::unique_ptr<ClassDef>>& ClassDefs() { return class_defs_.Collection(); }
-  uint32_t StringIdsOffset() const { return string_ids_.GetOffset(); }
-  uint32_t TypeIdsOffset() const { return type_ids_.GetOffset(); }
-  uint32_t ProtoIdsOffset() const { return proto_ids_.GetOffset(); }
-  uint32_t FieldIdsOffset() const { return field_ids_.GetOffset(); }
-  uint32_t MethodIdsOffset() const { return method_ids_.GetOffset(); }
-  uint32_t ClassDefsOffset() const { return class_defs_.GetOffset(); }
-  void SetStringIdsOffset(uint32_t new_offset) { string_ids_.SetOffset(new_offset); }
-  void SetTypeIdsOffset(uint32_t new_offset) { type_ids_.SetOffset(new_offset); }
-  void SetProtoIdsOffset(uint32_t new_offset) { proto_ids_.SetOffset(new_offset); }
-  void SetFieldIdsOffset(uint32_t new_offset) { field_ids_.SetOffset(new_offset); }
-  void SetMethodIdsOffset(uint32_t new_offset) { method_ids_.SetOffset(new_offset); }
-  void SetClassDefsOffset(uint32_t new_offset) { class_defs_.SetOffset(new_offset); }
-  uint32_t StringIdsSize() const { return string_ids_.Size(); }
-  uint32_t TypeIdsSize() const { return type_ids_.Size(); }
-  uint32_t ProtoIdsSize() const { return proto_ids_.Size(); }
-  uint32_t FieldIdsSize() const { return field_ids_.Size(); }
-  uint32_t MethodIdsSize() const { return method_ids_.Size(); }
-  uint32_t ClassDefsSize() const { return class_defs_.Size(); }
-
-  TypeId* GetTypeIdOrNullPtr(uint16_t index) {
-    return index == DexFile::kDexNoIndex16 ? nullptr : TypeIds()[index].get();
-  }
-
-  StringId* GetStringIdOrNullPtr(uint32_t index) {
-    return index == DexFile::kDexNoIndex ? nullptr : StringIds()[index].get();
-  }
+  Collections& GetCollections() { return collections_; }
 
   void Accept(AbstractDispatcher* dispatch) { dispatch->Dispatch(this); }
 
@@ -207,19 +289,16 @@ class Header : public Item {
   uint32_t data_size_;
   uint32_t data_offset_;
 
-  CollectionWithOffset<StringId> string_ids_;
-  CollectionWithOffset<TypeId> type_ids_;
-  CollectionWithOffset<ProtoId> proto_ids_;
-  CollectionWithOffset<FieldId> field_ids_;
-  CollectionWithOffset<MethodId> method_ids_;
-  CollectionWithOffset<ClassDef> class_defs_;
+  Collections collections_;
+
   DISALLOW_COPY_AND_ASSIGN(Header);
 };
 
-class StringId : public Item {
+class StringData : public Item {
  public:
-  explicit StringId(const char* data) : data_(strdup(data)) { }
-  ~StringId() OVERRIDE { }
+  explicit StringData(const char* data) : data_(strdup(data)) {
+    size_ = UnsignedLeb128Size(strlen(data)) + strlen(data);
+  }
 
   const char* Data() const { return data_.get(); }
 
@@ -227,13 +306,36 @@ class StringId : public Item {
 
  private:
   std::unique_ptr<const char> data_;
+
+  DISALLOW_COPY_AND_ASSIGN(StringData);
+};
+
+class StringId : public IndexedItem {
+ public:
+  explicit StringId(StringData* string_data) : string_data_(string_data) {
+    size_ = kStringIdItemSize;
+  }
+  ~StringId() OVERRIDE { }
+
+  static size_t ItemSize() { return kStringIdItemSize; }
+
+  const char* Data() const { return string_data_->Data(); }
+  StringData* DataItem() const { return string_data_; }
+
+  void Accept(AbstractDispatcher* dispatch) const { dispatch->Dispatch(this); }
+
+ private:
+  StringData* string_data_;
+
   DISALLOW_COPY_AND_ASSIGN(StringId);
 };
 
-class TypeId : public Item {
+class TypeId : public IndexedItem {
  public:
-  explicit TypeId(StringId* string_id) : string_id_(string_id) { }
+  explicit TypeId(StringId* string_id) : string_id_(string_id) { size_ = kTypeIdItemSize; }
   ~TypeId() OVERRIDE { }
+
+  static size_t ItemSize() { return kTypeIdItemSize; }
 
   StringId* GetStringId() const { return string_id_; }
 
@@ -241,35 +343,57 @@ class TypeId : public Item {
 
  private:
   StringId* string_id_;
+
   DISALLOW_COPY_AND_ASSIGN(TypeId);
 };
 
 using TypeIdVector = std::vector<const TypeId*>;
 
-class ProtoId : public Item {
+class TypeList : public Item {
  public:
-  ProtoId(const StringId* shorty, const TypeId* return_type, TypeIdVector* parameters)
-      : shorty_(shorty), return_type_(return_type), parameters_(parameters) { }
+  explicit TypeList(TypeIdVector* type_list) : type_list_(type_list) {
+    size_ = sizeof(uint32_t) + (type_list->size() * sizeof(uint16_t));
+  }
+  ~TypeList() OVERRIDE { }
+
+  const TypeIdVector* GetTypeList() const { return type_list_.get(); }
+
+ private:
+  std::unique_ptr<TypeIdVector> type_list_;
+
+  DISALLOW_COPY_AND_ASSIGN(TypeList);
+};
+
+class ProtoId : public IndexedItem {
+ public:
+  ProtoId(const StringId* shorty, const TypeId* return_type, TypeList* parameters)
+      : shorty_(shorty), return_type_(return_type), parameters_(parameters)
+      { size_ = kProtoIdItemSize; }
   ~ProtoId() OVERRIDE { }
+
+  static size_t ItemSize() { return kProtoIdItemSize; }
 
   const StringId* Shorty() const { return shorty_; }
   const TypeId* ReturnType() const { return return_type_; }
-  const std::vector<const TypeId*>& Parameters() const { return *parameters_; }
+  const TypeIdVector& Parameters() const { return *parameters_->GetTypeList(); }
 
   void Accept(AbstractDispatcher* dispatch) const { dispatch->Dispatch(this); }
 
  private:
   const StringId* shorty_;
   const TypeId* return_type_;
-  std::unique_ptr<TypeIdVector> parameters_;
+  TypeList* parameters_;
+
   DISALLOW_COPY_AND_ASSIGN(ProtoId);
 };
 
-class FieldId : public Item {
+class FieldId : public IndexedItem {
  public:
   FieldId(const TypeId* klass, const TypeId* type, const StringId* name)
-      : class_(klass), type_(type), name_(name) { }
+      : class_(klass), type_(type), name_(name) { size_ = kFieldIdItemSize; }
   ~FieldId() OVERRIDE { }
+
+  static size_t ItemSize() { return kFieldIdItemSize; }
 
   const TypeId* Class() const { return class_; }
   const TypeId* Type() const { return type_; }
@@ -281,14 +405,17 @@ class FieldId : public Item {
   const TypeId* class_;
   const TypeId* type_;
   const StringId* name_;
+
   DISALLOW_COPY_AND_ASSIGN(FieldId);
 };
 
-class MethodId : public Item {
+class MethodId : public IndexedItem {
  public:
   MethodId(const TypeId* klass, const ProtoId* proto, const StringId* name)
-      : class_(klass), proto_(proto), name_(name) { }
+      : class_(klass), proto_(proto), name_(name) { size_ = kMethodIdItemSize; }
   ~MethodId() OVERRIDE { }
+
+  static size_t ItemSize() { return kMethodIdItemSize; }
 
   const TypeId* Class() const { return class_; }
   const ProtoId* Proto() const { return proto_; }
@@ -300,6 +427,7 @@ class MethodId : public Item {
   const TypeId* class_;
   const ProtoId* proto_;
   const StringId* name_;
+
   DISALLOW_COPY_AND_ASSIGN(MethodId);
 };
 
@@ -317,6 +445,7 @@ class FieldItem : public Item {
  private:
   uint32_t access_flags_;
   const FieldId* field_id_;
+
   DISALLOW_COPY_AND_ASSIGN(FieldItem);
 };
 
@@ -338,6 +467,7 @@ class MethodItem : public Item {
   uint32_t access_flags_;
   const MethodId* method_id_;
   std::unique_ptr<const CodeItem> code_;
+
   DISALLOW_COPY_AND_ASSIGN(MethodItem);
 };
 
@@ -356,6 +486,7 @@ class ArrayItem : public Item {
    private:
     StringId* name_;
     std::unique_ptr<ArrayItem> value_;
+
     DISALLOW_COPY_AND_ASSIGN(NameValuePair);
   };
 
@@ -413,6 +544,7 @@ class ArrayItem : public Item {
  private:
   uint8_t type_;
   ArrayItemVariant item_;
+
   DISALLOW_COPY_AND_ASSIGN(ArrayItem);
 };
 
@@ -442,16 +574,16 @@ class ClassData : public Item {
   std::unique_ptr<FieldItemVector> instance_fields_;
   std::unique_ptr<MethodItemVector> direct_methods_;
   std::unique_ptr<MethodItemVector> virtual_methods_;
+
   DISALLOW_COPY_AND_ASSIGN(ClassData);
 };
 
-class ClassDef : public Item {
+class ClassDef : public IndexedItem {
  public:
   ClassDef(const TypeId* class_type,
            uint32_t access_flags,
            const TypeId* superclass,
-           TypeIdVector* interfaces,
-           uint32_t interfaces_offset,
+           TypeList* interfaces,
            const StringId* source_file,
            AnnotationsDirectoryItem* annotations,
            ArrayItemVector* static_values,
@@ -460,20 +592,20 @@ class ClassDef : public Item {
         access_flags_(access_flags),
         superclass_(superclass),
         interfaces_(interfaces),
-        interfaces_offset_(interfaces_offset),
         source_file_(source_file),
         annotations_(annotations),
         static_values_(static_values),
-        class_data_(class_data) { }
+        class_data_(class_data) { size_ = kClassDefItemSize; }
 
   ~ClassDef() OVERRIDE { }
+
+  static size_t ItemSize() { return kClassDefItemSize; }
 
   const TypeId* ClassType() const { return class_type_; }
   uint32_t GetAccessFlags() const { return access_flags_; }
   const TypeId* Superclass() const { return superclass_; }
-  TypeIdVector* Interfaces() { return interfaces_.get(); }
-  uint32_t InterfacesOffset() const { return interfaces_offset_; }
-  void SetInterfacesOffset(uint32_t new_offset) { interfaces_offset_ = new_offset; }
+  const TypeIdVector* Interfaces() { return interfaces_ == nullptr ? nullptr: interfaces_->GetTypeList(); }
+  uint32_t InterfacesOffset() { return interfaces_ == nullptr ? 0 : interfaces_->GetOffset(); }
   const StringId* SourceFile() const { return source_file_; }
   AnnotationsDirectoryItem* Annotations() const { return annotations_.get(); }
   ArrayItemVector* StaticValues() { return static_values_.get(); }
@@ -487,12 +619,12 @@ class ClassDef : public Item {
   const TypeId* class_type_;
   uint32_t access_flags_;
   const TypeId* superclass_;
-  std::unique_ptr<TypeIdVector> interfaces_;
-  uint32_t interfaces_offset_;
+  TypeList* interfaces_;
   const StringId* source_file_;
   std::unique_ptr<AnnotationsDirectoryItem> annotations_;
   std::unique_ptr<ArrayItemVector> static_values_;
   std::unique_ptr<ClassData> class_data_;
+
   DISALLOW_COPY_AND_ASSIGN(ClassDef);
 };
 
@@ -506,6 +638,7 @@ class CatchHandler {
  private:
   const TypeId* type_id_;
   uint32_t address_;
+
   DISALLOW_COPY_AND_ASSIGN(CatchHandler);
 };
 
@@ -527,6 +660,7 @@ class TryItem : public Item {
   uint32_t start_addr_;
   uint16_t insn_count_;
   std::unique_ptr<CatchHandlerVector> handlers_;
+
   DISALLOW_COPY_AND_ASSIGN(TryItem);
 };
 
@@ -570,6 +704,7 @@ class CodeItem : public Item {
   uint32_t insns_size_;
   std::unique_ptr<uint16_t[]> insns_;
   std::unique_ptr<TryItemVector> tries_;
+
   DISALLOW_COPY_AND_ASSIGN(CodeItem);
 };
 
@@ -617,6 +752,7 @@ class DebugInfoItem : public Item {
  private:
   PositionInfoVector positions_;
   LocalInfoVector locals_;
+
   DISALLOW_COPY_AND_ASSIGN(DebugInfoItem);
 };
 
@@ -630,6 +766,7 @@ class AnnotationItem {
  private:
   uint8_t visibility_;
   std::unique_ptr<ArrayItem> item_;
+
   DISALLOW_COPY_AND_ASSIGN(AnnotationItem);
 };
 
@@ -646,6 +783,7 @@ class AnnotationSetItem : public Item {
 
  private:
   std::unique_ptr<AnnotationItemVector> items_;
+
   DISALLOW_COPY_AND_ASSIGN(AnnotationSetItem);
 };
 
@@ -662,6 +800,7 @@ class FieldAnnotation {
  private:
   FieldId* field_id_;
   std::unique_ptr<AnnotationSetItem> annotation_set_item_;
+
   DISALLOW_COPY_AND_ASSIGN(FieldAnnotation);
 };
 
@@ -678,6 +817,7 @@ class MethodAnnotation {
  private:
   MethodId* method_id_;
   std::unique_ptr<AnnotationSetItem> annotation_set_item_;
+
   DISALLOW_COPY_AND_ASSIGN(MethodAnnotation);
 };
 
@@ -694,6 +834,7 @@ class ParameterAnnotation {
  private:
   MethodId* method_id_;
   std::unique_ptr<AnnotationSetItemVector> annotations_;
+
   DISALLOW_COPY_AND_ASSIGN(ParameterAnnotation);
 };
 
@@ -722,6 +863,7 @@ class AnnotationsDirectoryItem : public Item {
   std::unique_ptr<FieldAnnotationVector> field_annotations_;
   std::unique_ptr<MethodAnnotationVector> method_annotations_;
   std::unique_ptr<ParameterAnnotationVector> parameter_annotations_;
+
   DISALLOW_COPY_AND_ASSIGN(AnnotationsDirectoryItem);
 };
 
