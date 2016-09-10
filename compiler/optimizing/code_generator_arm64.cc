@@ -2125,8 +2125,15 @@ void LocationsBuilderARM64::VisitArrayLength(HArrayLength* instruction) {
 
 void InstructionCodeGeneratorARM64::VisitArrayLength(HArrayLength* instruction) {
   uint32_t offset = CodeGenerator::GetArrayLengthOffset(instruction);
+  vixl::aarch64::Register out = OutputRegister(instruction);
   BlockPoolsScope block_pools(GetVIXLAssembler());
-  __ Ldr(OutputRegister(instruction), HeapOperand(InputRegisterAt(instruction, 0), offset));
+  __ Ldr(out, HeapOperand(InputRegisterAt(instruction, 0), offset));
+  // Mask out compression flag from String's array length.
+  if (mirror::kUseStringCompression && instruction->IsStringLength()) {
+    out = out.W();
+    __ Lsl(out, out, 1);
+    __ Lsr(out, out, 1);
+  }
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 

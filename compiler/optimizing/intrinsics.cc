@@ -379,8 +379,8 @@ static Intrinsics GetIntrinsic(InlineMethod method) {
       }
 
     // String.
-    case kIntrinsicCharAt:
-      return Intrinsics::kStringCharAt;
+    /*case kIntrinsicCharAt:
+      return Intrinsics::kStringCharAt;*/
     case kIntrinsicCompareTo:
       return Intrinsics::kStringCompareTo;
     case kIntrinsicEquals:
@@ -399,6 +399,8 @@ static Intrinsics GetIntrinsic(InlineMethod method) {
       return Intrinsics::kStringNewStringFromChars;
     case kIntrinsicNewStringFromString:
       return Intrinsics::kStringNewStringFromString;
+    case kIntrinsicCharAt:
+      return Intrinsics::kNone;
 
     case kIntrinsicCas:
       switch (GetType(method.d.data, false)) {
