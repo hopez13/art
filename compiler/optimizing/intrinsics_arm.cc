@@ -1039,6 +1039,8 @@ void IntrinsicLocationsBuilderARM::VisitStringCompareTo(HInvoke* invoke) {
   locations->AddTemp(Location::RequiresRegister());
   locations->AddTemp(Location::RequiresRegister());
   locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
   locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
 }
 
@@ -1053,10 +1055,13 @@ void IntrinsicCodeGeneratorARM::VisitStringCompareTo(HInvoke* invoke) {
   Register temp0 = locations->GetTemp(0).AsRegister<Register>();
   Register temp1 = locations->GetTemp(1).AsRegister<Register>();
   Register temp2 = locations->GetTemp(2).AsRegister<Register>();
+  Register temp3 = locations->GetTemp(3).AsRegister<Register>();
+  Register temp4 = locations->GetTemp(4).AsRegister<Register>();
 
-  Label loop;
-  Label find_char_diff;
-  Label end;
+  Label loop, loop_this_compressed, process_compressed, loop_compressed, compare;
+  Label find_char_diff, find_diff;
+  Label end, compressed_comparison;
+  Label different_compression;
 
   // Get offsets of count and value fields within a string object.
   const int32_t count_offset = mirror::String::CountOffset().Int32Value();
@@ -1080,6 +1085,20 @@ void IntrinsicCodeGeneratorARM::VisitStringCompareTo(HInvoke* invoke) {
   // Load lengths of this and argument strings.
   __ ldr(temp2, Address(str, count_offset));
   __ ldr(temp1, Address(arg, count_offset));
+  // Save this and argument strings compression style.
+  __ cmp(temp2, ShifterOperand(0));
+  __ it(Condition::LT, kItElse);
+  __ mov(temp4, ShifterOperand(-1), Condition::LT);
+  __ mov(temp4, ShifterOperand(1), Condition::GE);
+  __ cmp(temp1, ShifterOperand(0));
+  __ it(Condition::LT, kItElse);
+  __ mov(temp3, ShifterOperand(-1), Condition::LT);
+  __ mov(temp3, ShifterOperand(1), Condition::GE);
+  // Clean out compression flag from lengths.
+  __ Lsl(temp2, temp2, 1);
+  __ Lsr(temp2, temp2, 1);
+  __ Lsl(temp1, temp1, 1);
+  __ Lsr(temp1, temp1, 1);
   // out = length diff.
   __ subs(out, temp2, ShifterOperand(temp1));
   // temp0 = min(len(str), len(arg)).
@@ -1091,6 +1110,13 @@ void IntrinsicCodeGeneratorARM::VisitStringCompareTo(HInvoke* invoke) {
 
   // Store offset of string value in preparation for comparison loop.
   __ mov(temp1, ShifterOperand(value_offset));
+
+  // Check if both strings using same compression style to use this comparison loop.
+  __ cmp(temp3, ShifterOperand(temp4));
+  __ b(&different_compression, NE);
+  // If both compressed (8-bit chars), then new_length = (length + 1) / 2.
+  __ cmp(temp3, ShifterOperand(0));
+  __ b(&compressed_comparison, LT);
 
   // Assertions that must hold in order to compare multiple characters at a time.
   CHECK_ALIGNED(value_offset, 8);
@@ -1144,6 +1170,50 @@ void IntrinsicCodeGeneratorARM::VisitStringCompareTo(HInvoke* invoke) {
   __ movt(temp2, 0);
   __ movt(IP, 0);
   __ sub(out, IP, ShifterOperand(temp2));
+  __ b(&end);
+
+  // Comparison for different compression style.
+  // This part is when THIS is compressed and ARG is not.
+  __ Bind(&different_compression);
+  __ mov(temp2, ShifterOperand(value_offset));
+
+  __ Bind(&loop_this_compressed);
+  __ cmp(temp3, ShifterOperand(0));
+  __ b(&process_compressed, LT);
+  __ ldrb(IP, Address(str, temp2));
+  __ ldrh(temp4, Address(arg, temp1));
+  __ add(temp2, temp2, ShifterOperand(char_size / 2));
+  __ add(temp1, temp1, ShifterOperand(char_size));
+  __ b(&compare);
+
+  __ Bind(&process_compressed);
+  // This part is when THIS is not compressed and ARG is.
+  __ ldrh(IP, Address(str, temp2));
+  __ ldrb(temp4, Address(arg, temp1));
+  __ add(temp2, temp2, ShifterOperand(char_size));
+  __ add(temp1, temp1, ShifterOperand(char_size / 2));
+
+  __ Bind(&compare);
+  __ cmp(IP, ShifterOperand(temp4));
+  __ b(&find_diff, NE);
+  __ subs(temp0, temp0, ShifterOperand(1));
+  __ b(&loop_this_compressed, GT);
+  __ b(&end);
+
+  // Compressed comparison.
+  __ Bind(&compressed_comparison);
+  __ ldrb(IP, Address(str, temp1));
+  __ ldrb(temp4, Address(arg, temp1));
+  __ add(temp1, temp1, ShifterOperand(char_size / 2));
+  __ cmp(IP, ShifterOperand(temp4));
+  __ b(&find_diff, NE);
+  __ subs(temp0, temp0, ShifterOperand(1));
+  __ b(&compressed_comparison, GT);
+  __ b(&end);
+
+  // Calculate the difference.
+  __ Bind(&find_diff);
+  __ sub(out, IP, ShifterOperand(temp4));
 
   __ Bind(&end);
 
@@ -1214,11 +1284,16 @@ void IntrinsicCodeGeneratorARM::VisitStringEquals(HInvoke* invoke) {
   __ ldr(temp, Address(str, count_offset));
   __ ldr(temp1, Address(arg, count_offset));
   // Check if lengths are equal, return false if they're not.
+  // Also compares the compression style, if differs return false.
   __ cmp(temp, ShifterOperand(temp1));
   __ b(&return_false, NE);
   // Return true if both strings are empty.
+  // Length needs to be masked out first because 0 is treated as compressed.
+  // Using AND bitwise operation with INT32_MAX won't work because
+  // ShifterOperand only takes up to (1 << 12). So, instead do 1 shl and 1 shr.
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
   __ cbz(temp, &return_true);
-
   // Reference equality check, return true if same reference.
   __ cmp(str, ShifterOperand(arg));
   __ b(&return_true, EQ);
@@ -1227,7 +1302,17 @@ void IntrinsicCodeGeneratorARM::VisitStringEquals(HInvoke* invoke) {
   DCHECK_ALIGNED(value_offset, 4);
   static_assert(IsAligned<4>(kObjectAlignment), "String data must be aligned for fast compare.");
 
+  __ mov(temp, ShifterOperand(temp1));
   __ LoadImmediate(temp1, value_offset);
+  // If not compressed, directly to fast compare. Else do preprocess on length.
+  __ cmp(temp, ShifterOperand(0));
+  __ b(&loop, GT);
+  // Mask out compression flag and adjust length for compressed string (8-bit)
+  // as if it is a 16-bit data, new_length = (length + 1) / 2.
+  __ Lsl(temp, temp, 1);
+  __ Lsr(temp, temp, 1);
+  __ add(temp, temp, ShifterOperand(1));
+  __ Lsr(temp, temp, 1);
 
   // Loop to compare strings 2 characters at a time starting at the front of the string.
   // Ok to do this because strings with an odd length are zero-padded.
@@ -2310,13 +2395,18 @@ void IntrinsicCodeGeneratorARM::VisitStringGetCharsNoCheck(HInvoke* invoke) {
 
   // Check assumption that sizeof(Char) is 2 (used in scaling below).
   const size_t char_size = Primitive::ComponentSize(Primitive::kPrimChar);
+  const size_t c_char_size = Primitive::ComponentSize(Primitive::kPrimByte);
   DCHECK_EQ(char_size, 2u);
+  DCHECK_EQ(c_char_size, 1u);
 
   // Location of data in char array buffer.
   const uint32_t data_offset = mirror::Array::DataOffset(char_size).Uint32Value();
 
   // Location of char array data in string.
   const uint32_t value_offset = mirror::String::ValueOffset().Uint32Value();
+
+  // Location of count in string.
+  const uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
 
   // void getCharsNoCheck(int srcBegin, int srcEnd, char[] dst, int dstBegin);
   // Since getChars() calls getCharsNoCheck() - we use registers rather than constants.
@@ -2330,10 +2420,20 @@ void IntrinsicCodeGeneratorARM::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   Register src_ptr = locations->GetTemp(1).AsRegister<Register>();
   Register dst_ptr = locations->GetTemp(2).AsRegister<Register>();
 
-  // src range to copy.
-  __ add(src_ptr, srcObj, ShifterOperand(value_offset));
-  __ add(src_ptr, src_ptr, ShifterOperand(srcBegin, LSL, 1));
+  // String's length.
+  __ ldr(IP, Address(srcObj, count_offset));
 
+  // src range to copy.
+  Label string_is_compressed, continue_process;
+  __ add(src_ptr, srcObj, ShifterOperand(value_offset));
+  __ cmp(IP, ShifterOperand(0));
+  __ b(&string_is_compressed, LT);
+  __ add(src_ptr, src_ptr, ShifterOperand(srcBegin, LSL, 1));
+  __ b(&continue_process);
+  __ Bind(&string_is_compressed);
+  __ add(src_ptr, src_ptr, ShifterOperand(srcBegin));
+
+  __ Bind(&continue_process);
   // dst to be copied.
   __ add(dst_ptr, dstObj, ShifterOperand(data_offset));
   __ add(dst_ptr, dst_ptr, ShifterOperand(dstBegin, LSL, 1));
@@ -2341,10 +2441,14 @@ void IntrinsicCodeGeneratorARM::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   __ subs(num_chr, srcEnd, ShifterOperand(srcBegin));
 
   // Do the copy.
-  Label loop, remainder, done;
+  Label loop, remainder, done, compressed_string_loop;
 
   // Early out for valid zero-length retrievals.
   __ b(&done, EQ);
+
+  // Check if the string is compressed.
+  __ cmp(IP, ShifterOperand(0));
+  __ b(&compressed_string_loop, LT);
 
   // Save repairing the value of num_chr on the < 4 character path.
   __ subs(IP, num_chr, ShifterOperand(4));
@@ -2374,6 +2478,14 @@ void IntrinsicCodeGeneratorARM::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   __ subs(num_chr, num_chr, ShifterOperand(1));
   __ strh(IP, Address(dst_ptr, char_size, Address::PostIndex));
   __ b(&remainder, GT);
+  __ b(&done);
+
+  // Copy loop for compressed src, copying 1 character (8-bit) to (16-bit) at a time.
+  __ Bind(&compressed_string_loop);
+  __ ldrb(IP, Address(src_ptr, c_char_size, Address::PostIndex));
+  __ strh(IP, Address(dst_ptr, char_size, Address::PostIndex));
+  __ subs(num_chr, num_chr, ShifterOperand(1));
+  __ b(&compressed_string_loop, GT);
 
   __ Bind(&done);
 }

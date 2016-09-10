@@ -2059,6 +2059,7 @@ void InstructionCodeGeneratorARM64::VisitArrayGet(HArrayGet* instruction) {
   Location index = locations->InAt(1);
   Location out = locations->Out();
   uint32_t offset = CodeGenerator::GetArrayDataOffset(instruction);
+  const bool compressed = mirror::kUseStringCompression && instruction->IsStringCharAt();
 
   MacroAssembler* masm = GetVIXLAssembler();
   UseScratchRegisterScope temps(masm);
@@ -2078,8 +2079,25 @@ void InstructionCodeGeneratorARM64::VisitArrayGet(HArrayGet* instruction) {
     // General case.
     MemOperand source = HeapOperand(obj);
     if (index.IsConstant()) {
-      offset += Int64ConstantFrom(index) << Primitive::ComponentSizeShift(type);
-      source = HeapOperand(obj, offset);
+      if (compressed) {
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        vixl::aarch64::Label uncompressed_load, done;
+        Register length = temps.AcquireW();
+        __ Ldrh(length, HeapOperand(obj, count_offset));
+        codegen_->MaybeRecordImplicitNullCheck(instruction);
+        __ Cmp(length, Operand(0));
+        __ B(gt, &uncompressed_load);
+        __ Ldrsb(Register(OutputCPURegister(instruction)),
+                 HeapOperand(obj, offset + Int64ConstantFrom(index)));
+        __ B(&done);
+        __ Bind(&uncompressed_load);
+        __ Ldrh(Register(OutputCPURegister(instruction)),
+                HeapOperand(obj, offset + (Int64ConstantFrom(index) << 1)));
+        __ Bind(&done);
+      } else {
+        offset += Int64ConstantFrom(index) << Primitive::ComponentSizeShift(type);
+        source = HeapOperand(obj, offset);
+      }
     } else {
       Register temp = temps.AcquireSameSizeAs(obj);
       if (instruction->GetArray()->IsIntermediateAddress()) {
@@ -2097,10 +2115,28 @@ void InstructionCodeGeneratorARM64::VisitArrayGet(HArrayGet* instruction) {
       } else {
         __ Add(temp, obj, offset);
       }
-      source = HeapOperand(temp, XRegisterFrom(index), LSL, Primitive::ComponentSizeShift(type));
+      if (compressed) {
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        vixl::aarch64::Label uncompressed_load, done;
+        Register length = temps.AcquireW();
+        __ Ldrh(length, HeapOperand(obj, count_offset));
+        codegen_->MaybeRecordImplicitNullCheck(instruction);
+        __ Cmp(length, Operand(0));
+        __ B(gt, &uncompressed_load);
+        __ Ldrsb(Register(OutputCPURegister(instruction)),
+                 HeapOperand(temp, XRegisterFrom(index), LSL, 0));
+        __ B(&done);
+        __ Bind(&uncompressed_load);
+        __ Ldrh(Register(OutputCPURegister(instruction)),
+                HeapOperand(temp, XRegisterFrom(index), LSL, 1));
+        __ Bind(&done);
+      } else {
+        source = HeapOperand(temp, XRegisterFrom(index), LSL, Primitive::ComponentSizeShift(type));
+      }
     }
-
-    codegen_->Load(type, OutputCPURegister(instruction), source);
+    if (!compressed) {
+      codegen_->Load(type, OutputCPURegister(instruction), source);
+    }
     codegen_->MaybeRecordImplicitNullCheck(instruction);
 
     if (type == Primitive::kPrimNot) {
@@ -2125,9 +2161,15 @@ void LocationsBuilderARM64::VisitArrayLength(HArrayLength* instruction) {
 
 void InstructionCodeGeneratorARM64::VisitArrayLength(HArrayLength* instruction) {
   uint32_t offset = CodeGenerator::GetArrayLengthOffset(instruction);
+  vixl::aarch64::Register out = OutputRegister(instruction);
   BlockPoolsScope block_pools(GetVIXLAssembler());
-  __ Ldr(OutputRegister(instruction), HeapOperand(InputRegisterAt(instruction, 0), offset));
+  __ Ldr(out, HeapOperand(InputRegisterAt(instruction, 0), offset));
   codegen_->MaybeRecordImplicitNullCheck(instruction);
+  // Mask out compression flag from String's array length.
+  if (mirror::kUseStringCompression && instruction->IsStringLength()) {
+    __ Lsl(out.W(), out.W(), 1);
+    __ Lsr(out.W(), out.W(), 1);
+  }
 }
 
 void LocationsBuilderARM64::VisitArraySet(HArraySet* instruction) {
@@ -2322,7 +2364,16 @@ void InstructionCodeGeneratorARM64::VisitBoundsCheck(HBoundsCheck* instruction) 
       new (GetGraph()->GetArena()) BoundsCheckSlowPathARM64(instruction);
   codegen_->AddSlowPath(slow_path);
 
-  __ Cmp(InputRegisterAt(instruction, 0), InputOperandAt(instruction, 1));
+  // Mask out first bit from length (used as compression flag).
+  if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+    Register length = InputRegisterAt(instruction, 1);
+    __ Lsl(length, length, 1);
+    codegen_->MaybeRecordImplicitNullCheck(instruction);
+    __ Lsr(length, length, 1);
+    __ Cmp(InputRegisterAt(instruction, 0), Operand(length));
+  } else {
+    __ Cmp(InputRegisterAt(instruction, 0), InputOperandAt(instruction, 1));
+  }
   __ B(slow_path->GetEntryLabel(), hs);
 }
 

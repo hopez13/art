@@ -4624,10 +4624,27 @@ void InstructionCodeGeneratorARM::VisitArrayGet(HArrayGet* instruction) {
     case Primitive::kPrimInt: {
       if (index.IsConstant()) {
         int32_t const_index = index.GetConstant()->AsIntConstant()->GetValue();
-        uint32_t full_offset = data_offset + (const_index << Primitive::ComponentSizeShift(type));
+        if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+          Register length = IP;
+          Label uncompressed_load, done;
+          uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+          __ LoadFromOffset(kLoadWord, length, obj, count_offset);
+          codegen_->MaybeRecordImplicitNullCheck(instruction);
+          __ cmp(length, ShifterOperand(0));
+          __ b(&uncompressed_load, GT);
+          __ LoadFromOffset(GetLoadOperandType(Primitive::kPrimByte),
+                            out_loc.AsRegister<Register>(), obj, data_offset + const_index);
+          __ b(&done);
+          __ Bind(&uncompressed_load);
+          __ LoadFromOffset(GetLoadOperandType(Primitive::kPrimChar),
+                            out_loc.AsRegister<Register>(), obj, data_offset + (const_index << 1));
+          __ Bind(&done);
+        } else {
+          uint32_t full_offset = data_offset + (const_index << Primitive::ComponentSizeShift(type));
 
-        LoadOperandType load_type = GetLoadOperandType(type);
-        __ LoadFromOffset(load_type, out_loc.AsRegister<Register>(), obj, full_offset);
+          LoadOperandType load_type = GetLoadOperandType(type);
+          __ LoadFromOffset(load_type, out_loc.AsRegister<Register>(), obj, full_offset);
+        }
       } else {
         Register temp = IP;
 
@@ -4643,7 +4660,23 @@ void InstructionCodeGeneratorARM::VisitArrayGet(HArrayGet* instruction) {
         } else {
           __ add(temp, obj, ShifterOperand(data_offset));
         }
-        codegen_->LoadFromShiftedRegOffset(type, out_loc, temp, index.AsRegister<Register>());
+        if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+          Label uncompressed_load, done;
+          uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+          __ LoadFromOffset(kLoadWord, out_loc.AsRegister<Register>(), temp, count_offset);
+          codegen_->MaybeRecordImplicitNullCheck(instruction);
+          __ cmp(out_loc.AsRegister<Register>(), ShifterOperand(0));
+          __ b(&uncompressed_load, GT);
+          __ ldrsb(out_loc.AsRegister<Register>(),
+                   Address(temp, index.AsRegister<Register>(), Shift::LSL, 0));
+          __ b(&done);
+          __ Bind(&uncompressed_load);
+          __ ldrh(out_loc.AsRegister<Register>(),
+                  Address(temp, index.AsRegister<Register>(), Shift::LSL, 1));
+          __ Bind(&done);
+        } else {
+          codegen_->LoadFromShiftedRegOffset(type, out_loc, temp, index.AsRegister<Register>());
+        }
       }
       break;
     }
@@ -5033,6 +5066,11 @@ void InstructionCodeGeneratorARM::VisitArrayLength(HArrayLength* instruction) {
   Register out = locations->Out().AsRegister<Register>();
   __ LoadFromOffset(kLoadWord, out, obj, offset);
   codegen_->MaybeRecordImplicitNullCheck(instruction);
+  // Mask out compression flag from String's array length.
+  if (mirror::kUseStringCompression && instruction->IsStringLength()) {
+    __ Lsl(out, out, 1);
+    __ Lsr(out, out, 1);
+  }
 }
 
 void LocationsBuilderARM::VisitIntermediateAddress(HIntermediateAddress* instruction) {
@@ -5087,6 +5125,12 @@ void InstructionCodeGeneratorARM::VisitBoundsCheck(HBoundsCheck* instruction) {
   Register index = locations->InAt(0).AsRegister<Register>();
   Register length = locations->InAt(1).AsRegister<Register>();
 
+  // Mask out first bit from length (used as compression flag).
+  if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+    __ Lsl(length, length, 1);
+    codegen_->MaybeRecordImplicitNullCheck(instruction);
+    __ Lsr(length, length, 1);
+  }
   __ cmp(index, ShifterOperand(length));
   __ b(slow_path->GetEntryLabel(), HS);
 }
