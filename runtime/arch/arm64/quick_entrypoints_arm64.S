@@ -2378,7 +2378,19 @@ END art_quick_deoptimize_from_compiled_code
 ENTRY art_quick_indexof
     ldr   w3, [x0, #MIRROR_STRING_COUNT_OFFSET]
     add   x0, x0, #MIRROR_STRING_VALUE_OFFSET
+    /*
+     * w4 holds compression style and remove compression flag from count
+     *   0: compressed
+     *   1: uncompressed
+     */
+    cmp   w3, #0
+    mov   w4, #1
+    b.ge  .Lpass_after_compressed_preprocess
+    mov   w4, #0
+    lsl   w3, w3, #1
+    lsr   w3, w3, #1
 
+.Lpass_after_compressed_preprocess:
     /* Clamp start to [0..count] */
     cmp   w2, #0
     csel  w2, wzr, w2, lt
@@ -2389,9 +2401,10 @@ ENTRY art_quick_indexof
     mov   x5, x0
 
     /* Build pointer to start of data to compare and pre-bias */
+    cmp   w4, #0
+    b.eq  .Lcompressed_string_iteration
     add   x0, x0, x2, lsl #1
     sub   x0, x0, #2
-
     /* Compute iteration count */
     sub   w2, w3, w2
 
@@ -2455,6 +2468,25 @@ ENTRY art_quick_indexof
 .Lmatch_3:
     sub   x0, x0, x5
     asr   x0, x0, #1
+    ret
+
+   /*
+    * Comparing compressed string character-per-character with
+    * input character
+    */
+.Lcompressed_string_iteration:
+    add   x0, x0, x2
+    sub   x0, x0, #1
+    sub   w2, w3, w2
+.Literation:
+    subs  w2, w2, #1
+    b.lt  .Lindexof_nomatch
+    ldrb  w6, [x0, #1]!
+    cmp   w6, w1
+    b.eq  .Lcompressed_matched
+    b     .Literation
+.Lcompressed_matched:
+    sub   x0, x0, x5
     ret
 END art_quick_indexof
 

@@ -1710,6 +1710,17 @@ ENTRY art_quick_indexof
     .cfi_rel_offset lr, 12
     ldr   r3, [r0, #MIRROR_STRING_COUNT_OFFSET]
     add   r0, #MIRROR_STRING_VALUE_OFFSET
+    /*
+     * r4 holds compression style and remove compression flag from count
+     *   0: compressed
+     *   1: uncompressed
+     */
+    cmp   r3, #0
+    ittte lt
+    lsllt r3, #1
+    lsrlt r3, #1
+    movlt r4, #0
+    movge r4, #1
 
     /* Clamp start to [0..count] */
     cmp   r2, #0
@@ -1723,8 +1734,14 @@ ENTRY art_quick_indexof
     mov   r12, r0
 
     /* Build pointer to start of data to compare and pre-bias */
-    add   r0, r0, r2, lsl #1
-    sub   r0, #2
+    /* Characters start at (r0 + r2) for compressed string and
+     *                  at (r0 + r2 * 2) for uncompressed string */
+    cmp   r4, #0
+    ittee eq
+    addeq r0, r0, r2, lsl #0
+    subeq r0, #1
+    addne r0, r0, r2, lsl #1
+    subne r0, #2
 
     /* Compute iteration count */
     sub   r2, r3, r2
@@ -1734,10 +1751,13 @@ ENTRY art_quick_indexof
      *   r0: start of data to test
      *   r1: char to compare
      *   r2: iteration count
+     *   r4: compression style (used temporarily)
      *   r12: original start of string data
      *   r3, r4, r10, r11 available for loading string data
      */
 
+    cmp   r4, #0
+    beq   .Lcompressed_string_index_of
     subs  r2, #4
     blt   .Lindexof_remainder
 
@@ -1790,6 +1810,17 @@ ENTRY art_quick_indexof
 .Lmatch_3:
     sub   r0, r12
     asr   r0, r0, #1
+    pop {r4, r10-r11, pc}
+
+.Lcompressed_string_index_of:
+    subs  r2, #1
+    blt   .Lindexof_nomatch
+    ldrb  r3, [r0, #1]!
+    cmp   r3, r1
+    beq   .Lcompressed_string_match
+    b     .Lcompressed_string_index_of
+.Lcompressed_string_match:
+    sub   r0, r12
     pop {r4, r10-r11, pc}
 END art_quick_indexof
 
