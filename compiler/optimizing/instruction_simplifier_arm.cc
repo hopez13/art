@@ -52,6 +52,11 @@ void InstructionSimplifierArmVisitor::VisitArrayGet(HArrayGet* instruction) {
     return;
   }
 
+  // Don't move array pointer if it is charAt because we need to take the count first.
+  if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
+    return;
+  }
+
   if (TryExtractArrayAccessAddress(instruction,
                                    instruction->GetArray(),
                                    instruction->GetIndex(),
