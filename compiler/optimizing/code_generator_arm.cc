@@ -5032,6 +5032,11 @@ void InstructionCodeGeneratorARM::VisitArrayLength(HArrayLength* instruction) {
   Register obj = locations->InAt(0).AsRegister<Register>();
   Register out = locations->Out().AsRegister<Register>();
   __ LoadFromOffset(kLoadWord, out, obj, offset);
+  // Mask out compression flag from String's array length.
+  if (mirror::kUseStringCompression && instruction->IsStringLength()) {
+    __ Lsl(out, out, 1);
+    __ Lsr(out, out, 1);
+  }
   codegen_->MaybeRecordImplicitNullCheck(instruction);
 }
 
