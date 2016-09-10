@@ -25,6 +25,9 @@ namespace art {
 namespace dex_ir {
 
 dex_ir::Header* DexIrBuilder(const DexFile& dex_file);
+ClassDef* ReadClassDef(const DexFile& dex_file,
+                       const DexFile::ClassDef& disk_class_def,
+                       Header* header);
 
 }  // namespace dex_ir
 }  // namespace art
