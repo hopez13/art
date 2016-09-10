@@ -102,23 +102,23 @@ void ReadArrayItemVariant(Header& header,
     }
     case DexFile::kDexAnnotationString: {
       const uint32_t string_index = static_cast<uint32_t>(ReadVarWidth(data, length, false));
-      item->u_.string_val_ = header.StringIds()[string_index].get();
+      item->u_.string_val_ = header.GetCollections().GetStringId(string_index);
       break;
     }
     case DexFile::kDexAnnotationType: {
       const uint32_t string_index = static_cast<uint32_t>(ReadVarWidth(data, length, false));
-      item->u_.string_val_ = header.TypeIds()[string_index]->GetStringId();
+      item->u_.string_val_ = header.GetCollections().GetTypeId(string_index)->GetStringId();
       break;
     }
     case DexFile::kDexAnnotationField:
     case DexFile::kDexAnnotationEnum: {
       const uint32_t field_index = static_cast<uint32_t>(ReadVarWidth(data, length, false));
-      item->u_.field_val_ = header.FieldIds()[field_index].get();
+      item->u_.field_val_ = header.GetCollections().GetFieldId(field_index);
       break;
     }
     case DexFile::kDexAnnotationMethod: {
       const uint32_t method_index = static_cast<uint32_t>(ReadVarWidth(data, length, false));
-      item->u_.method_val_ = header.MethodIds()[method_index].get();
+      item->u_.method_val_ = header.GetCollections().GetMethodId(method_index);
       break;
     }
     case DexFile::kDexAnnotationArray: {
@@ -133,7 +133,7 @@ void ReadArrayItemVariant(Header& header,
     }
     case DexFile::kDexAnnotationAnnotation: {
       const uint32_t type_idx = DecodeUnsignedLeb128(data);
-      item->annotation_annotation_val_.string_ = header.TypeIds()[type_idx]->GetStringId();
+      item->annotation_annotation_val_.string_ = header.GetCollections().GetTypeId(type_idx)->GetStringId();
       item->annotation_annotation_val_.array_.reset(
           new std::vector<std::unique_ptr<ArrayItem::NameValuePair>>());
       // Decode all name=value pairs.
@@ -142,7 +142,7 @@ void ReadArrayItemVariant(Header& header,
         const uint32_t name_index = DecodeUnsignedLeb128(data);
         item->annotation_annotation_val_.array_->push_back(
             std::unique_ptr<ArrayItem::NameValuePair>(
-                new ArrayItem::NameValuePair(header.StringIds()[name_index].get(),
+                new ArrayItem::NameValuePair(header.GetCollections().GetStringId(name_index),
                                              ReadArrayItem(header, data))));
       }
       break;
@@ -202,7 +202,7 @@ CodeItem* ReadCodeItem(const DexFile& dex_file,
       CatchHandlerVector* handlers = new CatchHandlerVector();
       for (CatchHandlerIterator it(disk_code_item, *disk_try_item); it.HasNext(); it.Next()) {
         const uint16_t type_index = it.GetHandlerTypeIndex();
-        const TypeId* type_id = header.GetTypeIdOrNullPtr(type_index);
+        const TypeId* type_id = header.GetCollections().GetTypeIdOrNullPtr(type_index);
         handlers->push_back(std::unique_ptr<const CatchHandler>(
             new CatchHandler(type_id, it.GetHandlerAddress())));
       }
@@ -216,7 +216,7 @@ CodeItem* ReadCodeItem(const DexFile& dex_file,
 MethodItem* GenerateMethodItem(const DexFile& dex_file,
                                dex_ir::Header& header,
                                ClassDataItemIterator& cdii) {
-  MethodId* method_item = header.MethodIds()[cdii.GetMemberIndex()].get();
+  MethodId* method_item = header.GetCollections().GetMethodId(cdii.GetMemberIndex());
   uint32_t access_flags = cdii.GetRawMemberAccessFlags();
   const DexFile::CodeItem* disk_code_item = cdii.GetMethodCodeItem();
   CodeItem* code_item = nullptr;
@@ -288,7 +288,7 @@ AnnotationsDirectoryItem* ReadAnnotationsDirectoryItem(
   if (fields != nullptr) {
     field_annotations = new FieldAnnotationVector();
     for (uint32_t i = 0; i < disk_annotations_item->fields_size_; ++i) {
-      FieldId* field_id = header.FieldIds()[fields[i].field_idx_].get();
+      FieldId* field_id = header.GetCollections().GetFieldId(fields[i].field_idx_);
       const DexFile::AnnotationSetItem* field_set_item =
           dex_file.GetFieldAnnotationSetItem(fields[i]);
       AnnotationSetItem* annotation_set_item =
@@ -303,7 +303,7 @@ AnnotationsDirectoryItem* ReadAnnotationsDirectoryItem(
   if (methods != nullptr) {
     method_annotations = new MethodAnnotationVector();
     for (uint32_t i = 0; i < disk_annotations_item->methods_size_; ++i) {
-      MethodId* method_id = header.MethodIds()[methods[i].method_idx_].get();
+      MethodId* method_id = header.GetCollections().GetMethodId(methods[i].method_idx_);
       const DexFile::AnnotationSetItem* method_set_item =
           dex_file.GetMethodAnnotationSetItem(methods[i]);
       AnnotationSetItem* annotation_set_item =
@@ -318,7 +318,7 @@ AnnotationsDirectoryItem* ReadAnnotationsDirectoryItem(
   if (parameters != nullptr) {
     parameter_annotations = new ParameterAnnotationVector();
     for (uint32_t i = 0; i < disk_annotations_item->parameters_size_; ++i) {
-      MethodId* method_id = header.MethodIds()[parameters[i].method_idx_].get();
+      MethodId* method_id = header.GetCollections().GetMethodId(parameters[i].method_idx_);
       const DexFile::AnnotationSetRefList* list =
           dex_file.GetParameterAnnotationSetRefList(&parameters[i]);
       parameter_annotations->push_back(std::unique_ptr<ParameterAnnotation>(
@@ -332,23 +332,21 @@ AnnotationsDirectoryItem* ReadAnnotationsDirectoryItem(
                                       parameter_annotations);
 }
 
+}  // namespace
+
 ClassDef* ReadClassDef(const DexFile& dex_file,
                        const DexFile::ClassDef& disk_class_def,
                        Header& header) {
-  const TypeId* class_type = header.TypeIds()[disk_class_def.class_idx_].get();
+  Collections& collections = header.GetCollections();
+  const TypeId* class_type = collections.GetTypeId(disk_class_def.class_idx_);
   uint32_t access_flags = disk_class_def.access_flags_;
-  const TypeId* superclass = header.GetTypeIdOrNullPtr(disk_class_def.superclass_idx_);
+  const TypeId* superclass = collections.GetTypeIdOrNullPtr(disk_class_def.superclass_idx_);
 
-  TypeIdVector* interfaces = nullptr;
   const DexFile::TypeList* type_list = dex_file.GetInterfacesList(disk_class_def);
-  uint32_t interfaces_offset = disk_class_def.interfaces_off_;
-  if (type_list != nullptr) {
-    interfaces = new TypeIdVector();
-    for (uint32_t index = 0; index < type_list->Size(); ++index) {
-      interfaces->push_back(header.TypeIds()[type_list->GetTypeItem(index).type_idx_].get());
-    }
-  }
-  const StringId* source_file = header.GetStringIdOrNullPtr(disk_class_def.source_file_idx_);
+  TypeList* interfaces_type_list =
+      collections.CreateTypeList(type_list, disk_class_def.interfaces_off_, false);
+
+  const StringId* source_file = collections.GetStringIdOrNullPtr(disk_class_def.source_file_idx_);
   // Annotations.
   AnnotationsDirectoryItem* annotations = nullptr;
   const DexFile::AnnotationsDirectoryItem* disk_annotations_directory_item =
@@ -379,14 +377,14 @@ ClassDef* ReadClassDef(const DexFile& dex_file,
     // Static fields.
     FieldItemVector* static_fields = new FieldItemVector();
     for (uint32_t i = 0; cdii.HasNextStaticField(); i++, cdii.Next()) {
-      FieldId* field_item = header.FieldIds()[cdii.GetMemberIndex()].get();
+      FieldId* field_item = collections.GetFieldId(cdii.GetMemberIndex());
       uint32_t access_flags = cdii.GetRawMemberAccessFlags();
       static_fields->push_back(std::unique_ptr<FieldItem>(new FieldItem(access_flags, field_item)));
     }
     // Instance fields.
     FieldItemVector* instance_fields = new FieldItemVector();
     for (uint32_t i = 0; cdii.HasNextInstanceField(); i++, cdii.Next()) {
-      FieldId* field_item = header.FieldIds()[cdii.GetMemberIndex()].get();
+      FieldId* field_item = collections.GetFieldId(cdii.GetMemberIndex());
       uint32_t access_flags = cdii.GetRawMemberAccessFlags();
       instance_fields->push_back(
           std::unique_ptr<FieldItem>(new FieldItem(access_flags, field_item)));
@@ -409,15 +407,12 @@ ClassDef* ReadClassDef(const DexFile& dex_file,
   return new ClassDef(class_type,
                       access_flags,
                       superclass,
-                      interfaces,
-                      interfaces_offset,
+                      interfaces_type_list,
                       source_file,
                       annotations,
                       static_values,
                       class_data);
 }
-
-}  // namespace
 
 Header* DexIrBuilder(const DexFile& dex_file) {
   const DexFile::Header& disk_header = dex_file.GetHeader();
@@ -433,71 +428,34 @@ Header* DexIrBuilder(const DexFile& dex_file) {
                               disk_header.data_off_);
   // Walk the rest of the header fields.
   // StringId table.
-  std::vector<std::unique_ptr<StringId>>& string_ids = header->StringIds();
-  header->SetStringIdsOffset(disk_header.string_ids_off_);
+  header->GetCollections().SetStringIdsOffset(disk_header.string_ids_off_);
   for (uint32_t i = 0; i < dex_file.NumStringIds(); ++i) {
-    const DexFile::StringId& disk_string_id = dex_file.GetStringId(i);
-    StringId* string_id = new StringId(dex_file.GetStringData(disk_string_id));
-    string_id->SetOffset(i);
-    string_ids.push_back(std::unique_ptr<StringId>(string_id));
+    header->GetCollections().CreateStringId(dex_file, i);
   }
   // TypeId table.
-  std::vector<std::unique_ptr<TypeId>>& type_ids = header->TypeIds();
-  header->SetTypeIdsOffset(disk_header.type_ids_off_);
+  header->GetCollections().SetTypeIdsOffset(disk_header.type_ids_off_);
   for (uint32_t i = 0; i < dex_file.NumTypeIds(); ++i) {
-    const DexFile::TypeId& disk_type_id = dex_file.GetTypeId(i);
-    TypeId* type_id = new TypeId(header->StringIds()[disk_type_id.descriptor_idx_].get());
-    type_id->SetOffset(i);
-    type_ids.push_back(std::unique_ptr<TypeId>(type_id));
+    header->GetCollections().CreateTypeId(dex_file, i);
   }
   // ProtoId table.
-  std::vector<std::unique_ptr<ProtoId>>& proto_ids = header->ProtoIds();
-  header->SetProtoIdsOffset(disk_header.proto_ids_off_);
+  header->GetCollections().SetProtoIdsOffset(disk_header.proto_ids_off_);
   for (uint32_t i = 0; i < dex_file.NumProtoIds(); ++i) {
-    const DexFile::ProtoId& disk_proto_id = dex_file.GetProtoId(i);
-    // Build the parameter type vector.
-    TypeIdVector* parameters = new TypeIdVector();
-    DexFileParameterIterator dfpi(dex_file, disk_proto_id);
-    while (dfpi.HasNext()) {
-      parameters->push_back(header->TypeIds()[dfpi.GetTypeIdx()].get());
-      dfpi.Next();
-    }
-    ProtoId* proto_id = new ProtoId(header->StringIds()[disk_proto_id.shorty_idx_].get(),
-                                    header->TypeIds()[disk_proto_id.return_type_idx_].get(),
-                                    parameters);
-    proto_id->SetOffset(i);
-    proto_ids.push_back(std::unique_ptr<ProtoId>(proto_id));
+    header->GetCollections().CreateProtoId(dex_file, i);
   }
   // FieldId table.
-  std::vector<std::unique_ptr<FieldId>>& field_ids = header->FieldIds();
-  header->SetFieldIdsOffset(disk_header.field_ids_off_);
+  header->GetCollections().SetFieldIdsOffset(disk_header.field_ids_off_);
   for (uint32_t i = 0; i < dex_file.NumFieldIds(); ++i) {
-    const DexFile::FieldId& disk_field_id = dex_file.GetFieldId(i);
-    FieldId* field_id = new FieldId(header->TypeIds()[disk_field_id.class_idx_].get(),
-                                    header->TypeIds()[disk_field_id.type_idx_].get(),
-                                    header->StringIds()[disk_field_id.name_idx_].get());
-    field_id->SetOffset(i);
-    field_ids.push_back(std::unique_ptr<FieldId>(field_id));
+    header->GetCollections().CreateFieldId(dex_file, i);
   }
   // MethodId table.
-  std::vector<std::unique_ptr<MethodId>>& method_ids = header->MethodIds();
-  header->SetMethodIdsOffset(disk_header.method_ids_off_);
+  header->GetCollections().SetMethodIdsOffset(disk_header.method_ids_off_);
   for (uint32_t i = 0; i < dex_file.NumMethodIds(); ++i) {
-    const DexFile::MethodId& disk_method_id = dex_file.GetMethodId(i);
-    MethodId* method_id = new MethodId(header->TypeIds()[disk_method_id.class_idx_].get(),
-                                       header->ProtoIds()[disk_method_id.proto_idx_].get(),
-                                       header->StringIds()[disk_method_id.name_idx_].get());
-    method_id->SetOffset(i);
-    method_ids.push_back(std::unique_ptr<MethodId>(method_id));
+    header->GetCollections().CreateMethodId(dex_file, i);
   }
   // ClassDef table.
-  std::vector<std::unique_ptr<ClassDef>>& class_defs = header->ClassDefs();
-  header->SetClassDefsOffset(disk_header.class_defs_off_);
+  header->GetCollections().SetClassDefsOffset(disk_header.class_defs_off_);
   for (uint32_t i = 0; i < dex_file.NumClassDefs(); ++i) {
-    const DexFile::ClassDef& disk_class_def = dex_file.GetClassDef(i);
-    ClassDef* class_def = ReadClassDef(dex_file, disk_class_def, *header);
-    class_def->SetOffset(i);
-    class_defs.push_back(std::unique_ptr<ClassDef>(class_def));
+    header->GetCollections().CreateClassDef(dex_file, header, i);
   }
 
   return header;
