@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb4e920b_9ce745d6",
+        "filename": "compiler/dex/quick_compiler_callbacks.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 53,
+        "startChar": 45,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_e7f7e274",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "Isn\u0027t that known from the start? It\u0027d be good to avoid the lock, so that you can also avoid it in GetDexFileDeps.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_272f3afd",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "Why is it ok to have *all* array classes (and according to your comments synthesized classes too) say they\u0027re part of the classpath? Maybe expand the comment.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 50
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_072c3604",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "So I guess the dependencies of that dex file will be guaranteed to be in its associated vdex?",
+      "range": {
+        "startLine": 138,
+        "startChar": 31,
+        "endLine": 138,
+        "endChar": 86
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb74360d_2583ce70",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "If you make GetDexFileDeps lock free, you can make this the first thing (add a helper btw, as this check is done my a few methods) and avoid taking the lock. You can also move the IsInClassPath check out of the lock.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bad0ab1_feed41b9",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "You mean \"compiled\" here right? There\u0027s something very confusing in this file around:\n- classes in dex files being compiled\n- classes in dex file from the classpath\n\nIt seems those sets are different right? (see your IsInClasspath implementation : return (GetDexFileDeps(*dex_file) \u003d\u003d nullptr);).\n\nIt would be good to also document what those sets of dex files are.",
+      "range": {
+        "startLine": 37,
+        "startChar": 14,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_47222e15",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "Iffy, what does that mean if this is null?",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bad0ab1_1ec22d26",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-11T20:52:36Z",
+      "side": 1,
+      "message": "Comments please.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 68
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
