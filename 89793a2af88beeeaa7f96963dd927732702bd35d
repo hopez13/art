@@ -22,6 +22,268 @@
       "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_8d2652c1",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "nit: get is redundant",
+      "range": {
+        "startLine": 451,
+        "startChar": 38,
+        "endLine": 451,
+        "endChar": 44
+      },
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_6d312ef8",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "nit: line length",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_cd4a1a51",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "kBitsPerByte here and everywhere else 8 was used",
+      "range": {
+        "startLine": 453,
+        "startChar": 38,
+        "endLine": 453,
+        "endChar": 39
+      },
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_4da1ca02",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "nit: 4 space indent only, this is overindented, or you can probably move everything after \u003d to the next line",
+      "range": {
+        "startLine": 484,
+        "startChar": 32,
+        "endLine": 484,
+        "endChar": 33
+      },
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_adb0764b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_4d2c6aa5",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "comment?",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_cd605aa6",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "why can\u0027t we use std::bitset here? Maybe the size is not a compile time constant?",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_edb19e4d",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "static constexpr",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_0dbfc21a",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "static constexpr",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_4df38a02",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_ad0236df",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "needs CHECK for non overlapping ranges",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_0df182f3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1285,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_cde69a40",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_4ddaaa6c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-12T17:54:37Z",
+      "side": 1,
+      "message": "nit: new line here (1 arg per line)",
+      "range": {
+        "startLine": 1334,
+        "startChar": 26,
+        "endLine": 1334,
+        "endChar": 27
+      },
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
