@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "2b0baeaa_87cb8616",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-12T15:11:36Z",
+      "side": 1,
+      "message": "Good point. Maybe that\u0027s something worth discussing first.\n\nI\u0027m being conservative here. This will pass for all arrays, including (a) primitive component classes, (b) framework component classes, (c) component classes from the compiled DEX files.\n\n(b) is what we definitely want, no discussion there.\n\nBut(a) and (c) are not crystal clear. They technically do not depend on the framework\u0027s bytecode, but they do depend on the access flags assigned to them by the VM (derived from the component class). Is that worth recording?",
+      "parentUuid": "2b0baeaa_272f3afd",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 50
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b0baeaa_072c3604",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 5
@@ -82,6 +106,30 @@
       "writtenOn": "2016-09-11T20:52:36Z",
       "side": 1,
       "message": "So I guess the dependencies of that dex file will be guaranteed to be in its associated vdex?",
+      "range": {
+        "startLine": 138,
+        "startChar": 31,
+        "endLine": 138,
+        "endChar": 86
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_87e26694",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-12T15:11:36Z",
+      "side": 1,
+      "message": "Exactly. This is here because the classpath can contain DEX files without an OAT file. When resolving classes form those, the MethodVerifier will recursively verify them as well but we don\u0027t care about their dependencies.\n\nThis should not happen on the device, btw. And the boot image has no dependencies.",
+      "parentUuid": "2b0baeaa_072c3604",
       "range": {
         "startLine": 138,
         "startChar": 31,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "2b0baeaa_47ceae25",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-12T15:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb74360d_2583ce70",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bad0ab1_feed41b9",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 5
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "2b0baeaa_e7bc828c",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-12T15:11:36Z",
+      "side": 1,
+      "message": "Done. Let me know if it\u0027s enough.",
+      "parentUuid": "0bad0ab1_feed41b9",
+      "range": {
+        "startLine": 37,
+        "startChar": 14,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b0baeaa_47222e15",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 5
@@ -151,6 +247,30 @@
       "writtenOn": "2016-09-11T20:52:36Z",
       "side": 1,
       "message": "Iffy, what does that mean if this is null?",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 49,
+        "endChar": 53
+      },
+      "revId": "9bed3ca54a08e0687ebc6c94349fa0cce300ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_075e7670",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-12T15:11:36Z",
+      "side": 1,
+      "message": "IIUC, the thread safety analysis is static and incredibly dumb about aliasing, so I\u0027m really just trying to make it happy with this lock so I can keep the mutator_lock condition and don\u0027t have to switch it off completely. \n\nIs there a better way of doing this? For instance, it would be a lot clearer if the singleton was defined and accessible from here rather than through the Runtime class.",
+      "parentUuid": "2b0baeaa_47222e15",
       "range": {
         "startLine": 49,
         "startChar": 16,
