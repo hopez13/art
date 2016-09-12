@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb4e920b_9c60a5d7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-12T13:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eba996a7_bd0e9f3d",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 6
+      },
+      "revId": "7c64e5f41178b9f6d3b63439cf49e8a27699140d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b0baeaa_c7161e5d",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-12T12:27:08Z",
       "side": 1,
       "message": "I think with the removal of baseline, we can DCHECK that null check has no use.",
+      "range": {
+        "startLine": 1133,
+        "startChar": 0,
+        "endLine": 1135,
+        "endChar": 3
+      },
+      "revId": "7c64e5f41178b9f6d3b63439cf49e8a27699140d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4e920b_bc6561e6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-12T13:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b0baeaa_c7161e5d",
       "range": {
         "startLine": 1133,
         "startChar": 0,
