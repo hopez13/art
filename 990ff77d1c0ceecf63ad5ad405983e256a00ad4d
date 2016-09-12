@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_0085c43e",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-09-12T21:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962843c7_19f577e8",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "962843c7_1921f761",
         "filename": "runtime/gc/accounting/card_table-inl.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_c0873c68",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-09-12T21:54:01Z",
+      "side": 1,
+      "message": "I don\u0027t believe this code is used for cleaning (you can see the uses of the code because I renamed the function).",
+      "parentUuid": "962843c7_1921f761",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "962843c7_d9eabffe",
         "filename": "runtime/gc/accounting/card_table-inl.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-06T23:38:02Z",
       "side": 1,
       "message": "Main CAS is here.",
+      "range": {
+        "startLine": 174,
+        "startChar": 30,
+        "endLine": 174,
+        "endChar": 56
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_e0b44040",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-09-12T21:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962843c7_d9eabffe",
       "range": {
         "startLine": 174,
         "startChar": 30,
