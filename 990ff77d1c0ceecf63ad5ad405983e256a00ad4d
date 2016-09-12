@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_26c8209e",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-12T22:38:15Z",
+      "side": 1,
+      "message": "MarkSweep.cc calls\n  heap_-\u003eProcessCards(GetTimings(), false, true, GetGcType() !\u003d kGcTypeSticky);\n\nWhich has process_alloc_space_cards \u003d\u003d true and clear_alloc_space_cards \u003d\u003d false for sticky GC. This can get cause cards to get cleared for back to back sticky GC. This is done concurrently, so the non atomic version may cause objects to not get scanned.",
+      "parentUuid": "8b9bba7b_c0873c68",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "990ff77d1c0ceecf63ad5ad405983e256a00ad4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "962843c7_d9eabffe",
         "filename": "runtime/gc/accounting/card_table-inl.h",
         "patchSetId": 1
