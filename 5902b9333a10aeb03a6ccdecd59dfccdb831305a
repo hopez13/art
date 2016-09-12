@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_3404cab8",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-12T23:57:34Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "c5967ec8_a5b584e4",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25bd9ae6_46b45ce0",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -200,6 +224,30 @@
       "writtenOn": "2016-08-30T01:24:40Z",
       "side": 1,
       "message": "ClassLinker::SetEntryPointsToInterpreter",
+      "range": {
+        "startLine": 1431,
+        "startChar": 6,
+        "endLine": 1432,
+        "endChar": 79
+      },
+      "revId": "5902b9333a10aeb03a6ccdecd59dfccdb831305a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_94cad669",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-12T23:57:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5967ec8_308c502f",
       "range": {
         "startLine": 1431,
         "startChar": 6,
