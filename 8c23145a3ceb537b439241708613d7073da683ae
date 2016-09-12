@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b9bba7b_d23ab921",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-12T16:38:31Z",
+      "side": 1,
+      "message": "Is there a reason not to have these in the initializers before the { ?\nI would prefer there.",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 28
+      },
+      "revId": "8c23145a3ceb537b439241708613d7073da683ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_72990d24",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-12T16:38:31Z",
+      "side": 1,
+      "message": "I prefer #ifdef SOME_MNEMONIC_TAG_THATS_NOT_DEFINED .",
+      "range": {
+        "startLine": 1488,
+        "startChar": 0,
+        "endLine": 1488,
+        "endChar": 2
+      },
+      "revId": "8c23145a3ceb537b439241708613d7073da683ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
