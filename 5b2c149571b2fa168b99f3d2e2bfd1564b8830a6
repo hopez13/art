@@ -307,6 +307,30 @@
       "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_e7624240",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7187,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-12T08:18:36Z",
+      "side": 1,
+      "message": "+1 to igor\u0027s suggestion. I was thrown off by the same (anti-)pattern in ClassLinker::LinkVirtualMethods and LinkInterfaceMethods.",
+      "parentUuid": "ab0ebe7a_c92b15ed",
+      "range": {
+        "startLine": 7187,
+        "startChar": 39,
+        "endLine": 7187,
+        "endChar": 45
+      },
+      "revId": "5b2c149571b2fa168b99f3d2e2bfd1564b8830a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
