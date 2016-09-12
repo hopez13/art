@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8b9bba7b_8861e0db",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-12T18:31:34Z",
+      "side": 1,
+      "message": "This is ugly as hell, and pulling in the compiler-callbacks header. Reconsider, please.",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 3
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_e87fccb0",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 8
