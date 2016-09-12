@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_20f2c860",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-12T20:58:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96e9236c_058014a5",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "718af9dc_812e7ab1",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "side": 1,
       "message": "So the existing code seems too conservative, right? The case you want to optimize is coming from an inlined invoke and allocating a class you know the callee has access to.\n\nShouldn\u0027t you just move the IsFromInlinedInvoke and combine it with NeedsAccessCheck?",
       "parentUuid": "718af9dc_442de09a",
+      "range": {
+        "startLine": 153,
+        "startChar": 40,
+        "endLine": 153,
+        "endChar": 52
+      },
+      "revId": "e777a608ec330eb16c4f5d6cebdf1b617c05e852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_bef7be51",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-12T20:58:23Z",
+      "side": 1,
+      "message": "I think using CanThrow might be good enough here. New CL incoming soon.",
+      "parentUuid": "36b797b7_475ace55",
       "range": {
         "startLine": 153,
         "startChar": 40,
