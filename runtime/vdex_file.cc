@@ -81,7 +81,7 @@ VdexFile* VdexFile::Open(const std::string& vdex_filename,
   }
 
   *error_msg = "Success";
-  return new VdexFile(vdex_file.release(), mmap.release());
+  return new VdexFile(mmap.release());
 }
 
 }  // namespace art
