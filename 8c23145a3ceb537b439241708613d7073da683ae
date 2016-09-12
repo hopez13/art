@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_8dc57254",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-09-12T18:06:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9bba7b_d23ab921",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 242,
+        "endChar": 28
+      },
+      "revId": "8c23145a3ceb537b439241708613d7073da683ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_72990d24",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-12T16:38:31Z",
       "side": 1,
       "message": "I prefer #ifdef SOME_MNEMONIC_TAG_THATS_NOT_DEFINED .",
+      "range": {
+        "startLine": 1488,
+        "startChar": 0,
+        "endLine": 1488,
+        "endChar": 2
+      },
+      "revId": "8c23145a3ceb537b439241708613d7073da683ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_4da2aab1",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-09-12T18:06:09Z",
+      "side": 1,
+      "message": "Yea I just needed some temporary way to take out the dex file outputting stuff. It\u0027s not really part of this CL. I\u0027ll remove it for the final CL.",
+      "parentUuid": "8b9bba7b_72990d24",
       "range": {
         "startLine": 1488,
         "startChar": 0,
