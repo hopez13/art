@@ -197,7 +197,7 @@ else
 
     if [ "${HAS_SRC_MULTIDEX}" = "true" ]; then
       mkdir classes2
-      ${JAVAC} -implicit:none -classpath src -d classes2 `find src-multidex -name '*.java'`
+      ${JAVAC} ${JAVAC_ARGS} -implicit:none -classpath src -d classes2 `find src-multidex -name '*.java'`
       if [ ${NEED_DEX} = "true" ]; then
         ${DX} -JXmx256m --debug --dex --dump-to=classes2.lst --output=classes2.dex \
           --dump-width=1000 ${DX_FLAGS} classes2

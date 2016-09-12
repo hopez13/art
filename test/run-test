@@ -115,6 +115,7 @@ relocate="yes"
 runtime="art"
 usage="no"
 build_only="no"
+no_build="no"
 suffix64=""
 trace="false"
 trace_stream="false"
@@ -293,6 +294,9 @@ while true; do
         shift
     elif [ "x$1" = "x--build-only" ]; then
         build_only="yes"
+        shift
+    elif [ "x$1" = "x--no-build" ]; then
+        no_build="yes"
         shift
     elif [ "x$1" = "x--build-with-javac-dx" ]; then
         USE_JACK="false"
@@ -520,11 +524,20 @@ if [ "$dev_mode" = "yes" -a "$quiet" = "yes" ]; then
     usage="yes"
 fi
 
+if [ "$build_only" = "yes" -a "$no_build" = "yes" ]; then
+    err_echo "--build-only and --no-build are mutually exclusive"
+    exit 1
+fi
+
 if [ "$usage" = "no" ]; then
     if [ "x$1" = "x" -o "x$1" = "x-" ]; then
         test_dir=`basename "$oldwd"`
     else
-        test_dir="$1"
+      if [ "$no_build" = "yes" ]; then
+          err_echo "--no-build can only be used when running from current directory"
+          exit 1
+      fi
+      test_dir="$1"
     fi
 
     if [ '!' -d "$test_dir" ]; then
@@ -561,6 +574,8 @@ if [ "$usage" = "yes" ]; then
         echo "    --gdb                 Run under gdb; incompatible with some tests."
         echo "    --gdb-arg             Pass an option to gdb."
         echo "    --build-only          Build test files only (off by default)."
+        echo "    --no-build            Skip build of test files (assumes that the test directory has"
+        echo "                          the build artifacts already)."
         echo "    --build-with-javac-dx Build test files with javac and dx (on by default)."
         echo "    --build-with-jack     Build test files with jack and jill (off by default)."
         echo "    --interpreter         Enable interpreter only mode (off by default)."
@@ -618,7 +633,13 @@ if [ "$usage" = "yes" ]; then
     exit 1
 fi
 
-cd "$test_dir"
+# If --no-build is specified (is not "no") the build-step is skipped.
+if [ "$no_build" = "no" ]; then
+    cd $test_dir
+else
+    cd $oldwd
+fi
+
 test_dir=`pwd`
 
 td_info="${test_dir}/${info}"
@@ -811,11 +832,23 @@ elif [ "$build_only" = "yes" ]; then
         fi
     fi
     # Clean up extraneous files that are not used by tests.
-    find $tmp_dir -mindepth 1  ! -regex ".*/\(.*jar\|$output\|$expected\)" | xargs rm -rf
-    exit 0
+    if [ "$always_clean" = "yes" -o "$good" = "yes" ] && [ "$never_clean" = "no" ]; then
+        find $tmp_dir -mindepth 1  ! -regex ".*/\(.*jar\|$output\|$expected\)" | xargs rm -rf
+    fi
+    if [ "$good" = "yes" ]; then
+        exit 0
+    else
+        exit 1
+    fi
 else
-    "./${build}" $build_args >"$build_output" 2>&1
-    build_exit="$?"
+    # If --no-build is specified (is not "no") the build-step is skipped.
+    if [ "$no_build" = "no" ]; then
+      "./${build}" $build_args >"$build_output" 2>&1
+      build_exit="$?"
+    else
+      build_exit=0
+    fi
+
     if [ "$build_exit" = '0' ]; then
         if ! ulimit -S "$run_file_size_limit"; then
           err_echo "ulimit file size setting failed"
