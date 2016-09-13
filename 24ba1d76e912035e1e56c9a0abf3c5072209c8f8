@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8b9bba7b_6a68268a",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T15:25:43Z",
+      "side": 1,
+      "message": "Could you create an enum header? I was asking because the API of MethodVerifier doesn\u0027t seem to use it.",
+      "parentUuid": "2b0baeaa_aa988f21",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 2
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_08bfb01a",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 8
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I fully agree that this is passing more than is needed. I went with it because I followed the precedent of passing MethodVerifier* to RegisterLine.\n\nI\u0027ve now changed these methods to take DexFile\u0026 but still pass MethodVerifier* to RegType.",
       "parentUuid": "8b9bba7b_08bfb01a",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_8a746a63",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T15:25:43Z",
+      "side": 1,
+      "message": "Thanks. It was an open question (maybe you need the whole thing at some point?)...",
+      "parentUuid": "2b0baeaa_4aa7d35b",
       "range": {
         "startLine": 266,
         "startChar": 0,
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "Could you be more specific about what you actually want me to do here? I\u0027ve turned the map value type into unique_ptr which gets rid of the yucky initialization and made the constructors of the structs more explicit. I don\u0027t want to move these to the .cc file because then I\u0027d have to move a lot of code from the _test.cc there too.",
       "parentUuid": "8b9bba7b_2869d4b5",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 4
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_aa792e5b",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T15:25:43Z",
+      "side": 1,
+      "message": "I was wondering why the definition of the structs needed to be here (if the map maps to a pointer instead, you can forward-declare it). test is a valid answer (though I don\u0027t think it\u0027s necessary to look at the map content - I\u0027d have thought testing the behavior of the public API should be enough). (Bigger theme is to keep headers as small as possible for compile-time yada yada...)",
+      "parentUuid": "2ba48eca_a267a01c",
       "range": {
         "startLine": 106,
         "startChar": 0,
