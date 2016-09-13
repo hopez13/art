@@ -68,6 +68,52 @@
       "revId": "af180a31b0cea9a8b62f399b5794e4b6acfa83a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_3aa753ab",
+        "filename": "test/902-hello-transformation/transform.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T01:01:05Z",
+      "side": 1,
+      "message": "Consider Base64? We do that in the dex gtests...",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 2
+      },
+      "revId": "af180a31b0cea9a8b62f399b5794e4b6acfa83a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9bba7b_fab78bcf",
+        "filename": "test/902-hello-transformation/transform.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T01:01:05Z",
+      "side": 1,
+      "message": "Looks like it fits on a single line.",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 185,
+        "endChar": 46
+      },
+      "revId": "af180a31b0cea9a8b62f399b5794e4b6acfa83a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
