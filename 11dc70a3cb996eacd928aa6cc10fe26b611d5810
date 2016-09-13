@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b0baeaa_2a3a5fd2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "Could you move this closer to line 1481 to keep the vdex logic next to each other?",
+      "range": {
+        "startLine": 1366,
+        "startChar": 0,
+        "endLine": 1378,
+        "endChar": 59
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b884673_911abcd8",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "As discussed, please add more comments about why you\u0027re unconditionnaly returning true.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 50
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b99fa95_45933c51",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "Is that true? I\u0027d say that it\u0027s the dex_file of source which will contain the vdex dependency, right?",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 62
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bad0ab1_bef219cb",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "that is, classes defined in the classpath.",
+      "range": {
+        "startLine": 35,
+        "startChar": 49,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb74360d_0b40a15a",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "Why not just DexFileDeps?",
+      "range": {
+        "startLine": 222,
+        "startChar": 26,
+        "endLine": 222,
+        "endChar": 55
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6db244_244bd211",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "How about just passing a boolean flag, and avoid passing the magic value?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 54
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6db244_4440cee9",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "Comments? What\u0027s an entry class? Why adding \" \" to access flags.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 9
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ba48eca_02740c60",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "ditto about the flag.",
+      "range": {
+        "startLine": 205,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 56
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6db244_e4037aaf",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "ditto about comments",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 8
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b884673_3103d06b",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:36:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "11dc70a3cb996eacd928aa6cc10fe26b611d5810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
