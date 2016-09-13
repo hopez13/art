@@ -162,6 +162,24 @@
     },
     {
       "key": {
+        "uuid": "4bed4206_1368ee88",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-09-13T10:48:10Z",
+      "side": 1,
+      "message": "Yes, size is not a compile time constant",
+      "parentUuid": "8b9bba7b_cd605aa6",
+      "revId": "89793a2af88beeeaa7f96963dd927732702bd35d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_edb19e4d",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 1
