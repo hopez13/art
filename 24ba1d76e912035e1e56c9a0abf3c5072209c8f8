@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b0baeaa_2aa49f54",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-13T11:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9bba7b_8861e0db",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 3
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_e87fccb0",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-12T18:23:50Z",
       "side": 1,
       "message": "Why is this here?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 2
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0baeaa_aa988f21",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-13T11:50:34Z",
+      "side": 1,
+      "message": "Where would you like to put it? It\u0027s used by both MethodVerifier and VerifierDeps.",
+      "parentUuid": "8b9bba7b_e87fccb0",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2b0baeaa_4aa7d35b",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-13T11:50:34Z",
+      "side": 1,
+      "message": "I fully agree that this is passing more than is needed. I went with it because I followed the precedent of passing MethodVerifier* to RegisterLine.\n\nI\u0027ve now changed these methods to take DexFile\u0026 but still pass MethodVerifier* to RegType.",
+      "parentUuid": "8b9bba7b_08bfb01a",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_4859b85d",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "eba996a7_0063e845",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-13T11:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9bba7b_4859b85d",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 62
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b9bba7b_2869d4b5",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-12T18:36:22Z",
       "side": 1,
       "message": "A lot of complexity here just because you want to allocate the map inline. Reconsider?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 4
+      },
+      "revId": "24ba1d76e912035e1e56c9a0abf3c5072209c8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ba48eca_a267a01c",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-13T11:50:34Z",
+      "side": 1,
+      "message": "Could you be more specific about what you actually want me to do here? I\u0027ve turned the map value type into unique_ptr which gets rid of the yucky initialization and made the constructors of the structs more explicit. I don\u0027t want to move these to the .cc file because then I\u0027d have to move a lot of code from the _test.cc there too.",
+      "parentUuid": "8b9bba7b_2869d4b5",
       "range": {
         "startLine": 106,
         "startChar": 0,
