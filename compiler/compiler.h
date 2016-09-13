@@ -25,6 +25,9 @@ namespace art {
 namespace jit {
   class JitCodeCache;
 }
+namespace mirror {
+  class DexCache;
+}
 
 class ArtMethod;
 class CompilerDriver;
