@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8be1fa42_e29a0660",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T18:30:11Z",
+      "side": 1,
+      "message": "I was discussing with bdc a couple weeks ago. Why is any of this here? Can we move this to frameworks code? Then we might not need the flag here.",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 724,
+        "endChar": 1
+      },
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
