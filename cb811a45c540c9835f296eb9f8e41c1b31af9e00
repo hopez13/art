@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4b1462d4_9b3f4f75",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-13T19:53:27Z",
+      "side": 1,
+      "message": "When writing this, I was thinking -Xzygote\u003d\u003cprivileged|unprivileged\u003e. Do you have a preference?",
+      "parentUuid": "8be1fa42_02e8caa5",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_e29a0660",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 724,
         "endChar": 1
       },
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b1462d4_fb23eb69",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-13T19:53:27Z",
+      "side": 1,
+      "message": "I think so. It looks like it could move to com_android_internal_os_Zygote_nativeUnmountStorageOnInit. This code was originally added here: https://android.googlesource.com/platform/art/+/bd86bccf1b47f1151842152ee52cf5d46d6b34ab%5E%21/#F12 from dalvik_system_Zygote.cc. And that file looks like it became com_android_internal_os_Zygote.cpp in frameworks.",
+      "parentUuid": "8be1fa42_e29a0660",
       "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
