@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b0baeaa_0ac55b84",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-13T15:47:27Z",
+      "side": 1,
+      "message": "Add a comment that this will (implicitly) make the code generator generate a StackMap for the instruction.",
+      "range": {
+        "startLine": 1129,
+        "startChar": 4,
+        "endLine": 1129,
+        "endChar": 49
+      },
+      "revId": "2610fe55d91b6c1f3c05cd8808c03d388aaebad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
