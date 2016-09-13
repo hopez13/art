@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8be1fa42_02e8caa5",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-13T18:33:03Z",
+      "side": 1,
+      "message": "Would it make sense to make this more explicit? Have -Xprivileged-zygote and -Xunprivileged-zygote?",
+      "range": {
+        "startLine": 69,
+        "startChar": 7,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_e29a0660",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
