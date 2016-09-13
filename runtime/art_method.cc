@@ -25,6 +25,7 @@
 #include "class_linker-inl.h"
 #include "debugger.h"
 #include "dex_file-inl.h"
+#include "dex_file_annotations.h"
 #include "dex_instruction.h"
 #include "entrypoints/runtime_asm_entrypoints.h"
 #include "gc/accounting/card_table-inl.h"
@@ -339,8 +340,6 @@ bool ArtMethod::IsAnnotatedWithFastNative() {
   ScopedObjectAccess soa(self);
   StackHandleScope<1> shs(self);
 
-  const DexFile& dex_file = GetDeclaringClass()->GetDexFile();
-
   mirror::Class* fast_native_annotation =
       soa.Decode<mirror::Class*>(WellKnownClasses::dalvik_annotation_optimization_FastNative);
   Handle<mirror::Class> fast_native_handle(shs.NewHandle(fast_native_annotation));
@@ -348,7 +347,9 @@ bool ArtMethod::IsAnnotatedWithFastNative() {
   // Note: Resolves any method annotations' classes as a side-effect.
   // -- This seems allowed by the spec since it says we can preload any classes
   //    referenced by another classes's constant pool table.
-  return dex_file.IsMethodAnnotationPresent(this, fast_native_handle, DexFile::kDexVisibilityBuild);
+  return annotations::IsMethodAnnotationPresent(this,
+                                                fast_native_handle,
+                                                DexFile::kDexVisibilityBuild);
 }
 
 bool ArtMethod::EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> params) {
