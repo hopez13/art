@@ -233,7 +233,7 @@ bool PrintFileToLog(const std::string& file_name, LogSeverity level) {
       // Print the rest of the buffer, if it exists.
       if (filled_to > 0) {
         buf[filled_to] = 0;
-        LOG(level) << buf;
+        LOGS(level) << buf;
       }
       return n == 0;
     }
@@ -244,7 +244,7 @@ bool PrintFileToLog(const std::string& file_name, LogSeverity level) {
       if (buf[i] == '\n') {
         // Found a line break, that's something to print now.
         buf[i] = 0;
-        LOG(level) << buf;
+        LOGS(level) << buf;
         // Copy the rest to the front.
         if (i + 1 < filled_to + n) {
           memmove(&buf[0], &buf[i + 1], filled_to + n - i - 1);
@@ -263,7 +263,7 @@ bool PrintFileToLog(const std::string& file_name, LogSeverity level) {
       // Check if we must flush now.
       if (filled_to == kBufSize) {
         buf[kBufSize] = 0;
-        LOG(level) << buf;
+        LOGS(level) << buf;
         filled_to = 0;
       }
     }

@@ -65,7 +65,7 @@ TEST_F(ReferenceQueueTest, Dump) {
   StackHandleScope<20> hs(self);
   Mutex lock("Reference queue lock");
   ReferenceQueue queue(&lock);
-  queue.Dump(LOG(INFO));
+  queue.Dump(ART_LOG_STREAM(INFO));
   auto weak_ref_class = hs.NewHandle(
       Runtime::Current()->GetClassLinker()->FindClass(self, "Ljava/lang/ref/WeakReference;",
                                                       ScopedNullHandle<mirror::ClassLoader>()));
@@ -79,9 +79,9 @@ TEST_F(ReferenceQueueTest, Dump) {
   auto ref2(hs.NewHandle(finalizer_ref_class->AllocObject(self)->AsReference()));
   ASSERT_TRUE(ref2.Get() != nullptr);
   queue.EnqueueReference(ref1.Get());
-  queue.Dump(LOG(INFO));
+  queue.Dump(ART_LOG_STREAM(INFO));
   queue.EnqueueReference(ref2.Get());
-  queue.Dump(LOG(INFO));
+  queue.Dump(ART_LOG_STREAM(INFO));
 }
 
 }  // namespace gc

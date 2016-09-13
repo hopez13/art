@@ -214,7 +214,7 @@ class DumpCheckpoint FINAL : public Closure {
     bool timed_out = barrier_.Increment(self, threads_running_checkpoint, kDumpWaitTimeout);
     if (timed_out) {
       // Avoid a recursive abort.
-      LOG((kIsDebugBuild && (gAborting == 0)) ? FATAL : ERROR)
+      LOGS((kIsDebugBuild && (gAborting == 0)) ? ::android::base::FATAL : ::android::base::ERROR)
           << "Unexpected time out during dump checkpoint.";
     }
   }
@@ -628,7 +628,8 @@ void ThreadList::SuspendAllInternal(Thread* self,
         // EAGAIN and EINTR both indicate a spurious failure, try again from the beginning.
         if ((errno != EAGAIN) && (errno != EINTR)) {
           if (errno == ETIMEDOUT) {
-            LOG(kIsDebugBuild ? FATAL : ERROR) << "Unexpected time out during suspend all.";
+            LOGS(kIsDebugBuild ? ::android::base::FATAL : ::android::base::ERROR)
+                << "Unexpected time out during suspend all.";
           } else {
             PLOG(FATAL) << "futex wait failed for SuspendAllInternal()";
           }
@@ -739,10 +740,10 @@ static void ThreadSuspendByPeerWarning(Thread* self,
           peer, WellKnownClasses::java_lang_Thread_name)));
   ScopedUtfChars scoped_name_chars(env, scoped_name_string.get());
   if (scoped_name_chars.c_str() == nullptr) {
-      LOG(severity) << message << ": " << peer;
+      LOGS(severity) << message << ": " << peer;
       env->ExceptionClear();
   } else {
-      LOG(severity) << message << ": " << peer << ":" << scoped_name_chars.c_str();
+      LOGS(severity) << message << ": " << peer << ":" << scoped_name_chars.c_str();
   }
 }
 
@@ -775,7 +776,10 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
           // ThreadList::WaitForOtherNonDaemonThreadsToExit.
           suspended_thread->ModifySuspendCount(soa.Self(), -1, nullptr, debug_suspension);
         }
-        ThreadSuspendByPeerWarning(self, WARNING, "No such thread for suspend", peer);
+        ThreadSuspendByPeerWarning(self,
+                                   ::android::base::WARNING,
+                                    "No such thread for suspend",
+                                    peer);
         return nullptr;
       }
       if (!Contains(thread)) {
@@ -822,7 +826,10 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
         }
         const uint64_t total_delay = NanoTime() - start_time;
         if (total_delay >= MsToNs(kThreadSuspendTimeoutMs)) {
-          ThreadSuspendByPeerWarning(self, FATAL, "Thread suspension timed out", peer);
+          ThreadSuspendByPeerWarning(self,
+                                     ::android::base::FATAL,
+                                      "Thread suspension timed out",
+                                      peer);
           if (suspended_thread != nullptr) {
             CHECK_EQ(suspended_thread, thread);
             suspended_thread->ModifySuspendCount(soa.Self(), -1, nullptr, debug_suspension);
@@ -849,7 +856,7 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
 static void ThreadSuspendByThreadIdWarning(LogSeverity severity,
                                            const char* message,
                                            uint32_t thread_id) {
-  LOG(severity) << StringPrintf("%s: %d", message, thread_id);
+  LOGS(severity) << StringPrintf("%s: %d", message, thread_id);
 }
 
 Thread* ThreadList::SuspendThreadByThreadId(uint32_t thread_id,
@@ -882,7 +889,9 @@ Thread* ThreadList::SuspendThreadByThreadId(uint32_t thread_id,
         CHECK(suspended_thread == nullptr) << "Suspended thread " << suspended_thread
             << " no longer in thread list";
         // There's a race in inflating a lock and the owner giving up ownership and then dying.
-        ThreadSuspendByThreadIdWarning(WARNING, "No such thread id for suspend", thread_id);
+        ThreadSuspendByThreadIdWarning(::android::base::WARNING,
+                                       "No such thread id for suspend",
+                                       thread_id);
         return nullptr;
       }
       VLOG(threads) << "SuspendThreadByThreadId found thread: " << *thread;
@@ -923,7 +932,9 @@ Thread* ThreadList::SuspendThreadByThreadId(uint32_t thread_id,
         }
         const uint64_t total_delay = NanoTime() - start_time;
         if (total_delay >= MsToNs(kThreadSuspendTimeoutMs)) {
-          ThreadSuspendByThreadIdWarning(WARNING, "Thread suspension timed out", thread_id);
+          ThreadSuspendByThreadIdWarning(::android::base::WARNING,
+                                         "Thread suspension timed out",
+                                         thread_id);
           if (suspended_thread != nullptr) {
             thread->ModifySuspendCount(soa.Self(), -1, nullptr, debug_suspension);
           }
