@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0b7a6a68_96744c2b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-14T07:47:35Z",
+      "side": 1,
+      "message": "What are the symptoms this CL is trying to resolve?\n\nMy \"planned\" work for b/30971238 regards the case when there are two zygotes both with permission to generate the boot image. But in this case, it sounds like the unprivileged zygote would not have permission to create the boot image in the first place? In that case, we don\u0027t have same \"race to generate\" issue as described in b/30971238.\n\nI assume the symptoms this CL is trying to resolve is that without root permissions you get logcat messages that suggest something went wrong, either due to permissions issues or selinux denials. The goal is not to cause misleading logcat messages, right?\n\nLooking through the code, it appears to me the IsZygote flag is used for 3 different reasons:\n1. To indicate that processes will be forked from this process, so it is not acceptable to create any threads.\n2. To indicate what level of permissions this process has, so it can avoid performing actions that it knows would fail and lead to misleading log messages.\n3. Andreas\u0027s hack to address the \"race to generate\" issue.\n\nI think \"zygote-privileged\" and \"zygote-unprivileged\" flags are decent ways to indicate and distinguish between (1) and (2). Alternatively it may be useful to reorganize the flags into separate \"zygote\" and \"privileged\" flags, which allow for the option of a privileged non-zygote process that could make sense for test cases. I\u0027m not sure.\n\nRegardless of what flags are used, I would like to see them clearly documented so the meaning and intention of the flags are well defined.",
+      "parentUuid": "8be1fa42_c930c2f7",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
