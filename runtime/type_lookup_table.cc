@@ -38,10 +38,6 @@ TypeLookupTable::~TypeLookupTable() {
   }
 }
 
-uint32_t TypeLookupTable::RawDataLength() const {
-  return RawDataLength(dex_file_);
-}
-
 uint32_t TypeLookupTable::RawDataLength(const DexFile& dex_file) {
   return RawDataLength(dex_file.NumClassDefs());
 }
@@ -70,7 +66,8 @@ TypeLookupTable* TypeLookupTable::Open(const uint8_t* raw_data, const DexFile& d
 }
 
 TypeLookupTable::TypeLookupTable(const DexFile& dex_file, uint8_t* storage)
-    : dex_file_(dex_file),
+    : dex_file_begin_(dex_file.Begin()),
+      raw_data_length_(RawDataLength(dex_file)),
       mask_(CalculateMask(dex_file.NumClassDefs())),
       entries_(storage != nullptr ? reinterpret_cast<Entry*>(storage) : new Entry[mask_ + 1]),
       owns_entries_(storage == nullptr) {
@@ -107,7 +104,8 @@ TypeLookupTable::TypeLookupTable(const DexFile& dex_file, uint8_t* storage)
 }
 
 TypeLookupTable::TypeLookupTable(const uint8_t* raw_data, const DexFile& dex_file)
-    : dex_file_(dex_file),
+    : dex_file_begin_(dex_file.Begin()),
+      raw_data_length_(RawDataLength(dex_file)),
       mask_(CalculateMask(dex_file.NumClassDefs())),
       entries_(reinterpret_cast<Entry*>(const_cast<uint8_t*>(raw_data))),
       owns_entries_(false) {}
