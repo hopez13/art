@@ -19,8 +19,8 @@
 
 #include <type_traits>
 
-#include "utils/array_ref.h"
-#include "utils/transform_iterator.h"
+#include "base/array_ref.h"
+#include "base/transform_iterator.h"
 
 namespace art {
 
