@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b4bba45_d295e430",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T15:58:14Z",
+      "side": 1,
+      "message": "Move that earlier, or else add a comment why you still need to set offset and alignment.",
+      "range": {
+        "startLine": 1608,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 3
+      },
+      "revId": "c8bc1ee0d35e875cd8286bea923e470175e66c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdda69f_a94c5d41",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T15:58:14Z",
+      "side": 1,
+      "message": "1?",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "c8bc1ee0d35e875cd8286bea923e470175e66c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
