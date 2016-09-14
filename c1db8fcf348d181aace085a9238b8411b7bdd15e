@@ -434,6 +434,24 @@
     },
     {
       "key": {
+        "uuid": "8be1fa42_b35e846e",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-14T20:00:37Z",
+      "side": 1,
+      "message": "ah, learned something :-)",
+      "parentUuid": "766bcf9b_71b5f3ca",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766bcf9b_8205e0b5",
         "filename": "tools/javafuzz/run_java_fuzz_test.py",
         "patchSetId": 1
@@ -498,6 +516,24 @@
       "side": 1,
       "message": "I just thought that cleaning in two steps was a little redundant. On the other hand this method knowing about files created by runners doesn\u0027t seem very clean.\n\nPerhaps we should run runners in a subdirectory and then just remove this subdirectory after each run?",
       "parentUuid": "766bcf9b_8dd991eb",
+      "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_733b5c27",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-14T20:00:37Z",
+      "side": 1,
+      "message": "I initially thought cleanup per task would be best separation of concern, but this way it is a lot easier (with a very minor risk that new test runners need to make a small change here too). Let\u0027s keep it as you have it now.",
+      "parentUuid": "766bcf9b_31cd3b27",
       "revId": "c1db8fcf348d181aace085a9238b8411b7bdd15e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
