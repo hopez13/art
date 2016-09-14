@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b7d7a55_c267e24d",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T11:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bce22f1_a89bbb66",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 4
+      },
+      "revId": "86fd91583fc6377a107c3f6ac0cb33973d95f699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bdda69f_a9f73d75",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-14T09:12:32Z",
       "side": 1,
       "message": "Did you forget to upload that file?",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "86fd91583fc6377a107c3f6ac0cb33973d95f699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_7503286a",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T11:26:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bdda69f_a9f73d75",
       "range": {
         "startLine": 27,
         "startChar": 10,
