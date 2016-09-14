@@ -20,6 +20,7 @@
 #include "dex_file.h"
 #include "leb128.h"
 #include "utf.h"
+#include <iostream>
 
 namespace art {
 
@@ -123,8 +124,11 @@ class TypeLookupTable {
 
   bool IsStringsEquals(const char* str, uint32_t str_offset) const {
     const uint8_t* ptr = dex_file_.Begin() + str_offset;
+    std::cout << "Lookup1: str='" << str << "'" << std::endl;
+    std::cout << "Lookup2: ptr='" << (uintptr_t)ptr << "'" << std::endl;
     // Skip string length.
     DecodeUnsignedLeb128(&ptr);
+    std::cout << "Lookup3: ptr='" << reinterpret_cast<const char*>(ptr) << "'" << std::endl;
     return CompareModifiedUtf8ToModifiedUtf8AsUtf16CodePointValues(
         str, reinterpret_cast<const char*>(ptr)) == 0;
   }

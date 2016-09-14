@@ -259,7 +259,16 @@ class OatWriter::OatDexFile {
   // Data to write to a separate section.
   dchecked_vector<uint32_t> class_offsets_;
 
+  void InitTypeLookupTable(const DexFile& dex_file, uint8_t* storage) const {
+    lookup_table_.reset(TypeLookupTable::Create(dex_file, storage));
+  }
+
+  TypeLookupTable* GetTypeLookupTable() const {
+    return lookup_table_.get();
+  }
+
  private:
+  mutable std::unique_ptr<TypeLookupTable> lookup_table_;
   size_t GetClassOffsetsRawSize() const {
     return class_offsets_.size() * sizeof(class_offsets_[0]);
   }
@@ -994,7 +1003,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
       out_(out),
       file_offset_(file_offset),
       soa_(Thread::Current()),
-      no_thread_suspension_(soa_.Self(), "OatWriter patching"),
+      no_thread_suspension_("OatWriter patching"),
       class_linker_(Runtime::Current()->GetClassLinker()),
       dex_cache_(nullptr) {
     patched_code_.reserve(16 * KB);
@@ -1036,7 +1045,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
     const CompiledMethod* compiled_method = oat_class->GetCompiledMethod(class_def_method_index);
 
     // No thread suspension since dex_cache_ that may get invalidated if that occurs.
-    ScopedAssertNoThreadSuspension tsc(Thread::Current(), __FUNCTION__);
+    ScopedAssertNoThreadSuspension tsc(__FUNCTION__);
     if (compiled_method != nullptr) {  // ie. not an abstract method
       size_t file_offset = file_offset_;
       OutputStream* out = out_;
@@ -2285,9 +2294,9 @@ bool OatWriter::WriteTypeLookupTables(
     }
 
     // Create the lookup table. When `nullptr` is given as the storage buffer,
-    // TypeLookupTable allocates its own and DexFile takes ownership.
-    opened_dex_files[i]->CreateTypeLookupTable(/* storage */ nullptr);
-    TypeLookupTable* table = opened_dex_files[i]->GetTypeLookupTable();
+    // TypeLookupTable allocates its own and OatDexFile takes ownership.
+    oat_dex_file->InitTypeLookupTable(*opened_dex_files[i], /* storage */ nullptr);
+    TypeLookupTable* table = oat_dex_file->GetTypeLookupTable();
 
     // Type tables are required to be 4 byte aligned.
     size_t initial_offset = oat_size_;
