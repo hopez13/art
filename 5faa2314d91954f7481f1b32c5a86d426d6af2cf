@@ -46,6 +46,30 @@
       "revId": "5faa2314d91954f7481f1b32c5a86d426d6af2cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb9692c8_bcba0175",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1979,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-14T10:52:50Z",
+      "side": 1,
+      "message": "!const_instr-\u003eGetUses().empty() \u0026\u0026 !const_instr-\u003eGetUses().HasExactlyOneElement()\n\nOr you can walk over the uses and have a more elaborate heuristics.",
+      "parentUuid": "8be1fa42_4896734b",
+      "range": {
+        "startLine": 1979,
+        "startChar": 38,
+        "endLine": 1979,
+        "endChar": 56
+      },
+      "revId": "5faa2314d91954f7481f1b32c5a86d426d6af2cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
