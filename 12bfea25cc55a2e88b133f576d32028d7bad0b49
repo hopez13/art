@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b820684_019e2a0c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T18:57:22Z",
+      "side": 1,
+      "message": "This is surprising, is that because this_object is pointed by another object? I guess the reason we have a \u0027**\u0027 for the object was to protect about it being moved, right? Should that be cleaned up?\n\nHow about just making this handle wrapper at the beginning of the method? It\u0027s also doing it line 490, so you\u0027d spare some duplicated code.",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 78
+      },
+      "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
