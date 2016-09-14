@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb9692c8_3c16f151",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T12:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_b5e86079",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 77
+      },
+      "revId": "d6d06932be5e42b08c7fc23823c98e52ac331f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b7a6a68_36229814",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb9692c8_5c23bdb6",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T12:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b7a6a68_36229814",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 48
+      },
+      "revId": "d6d06932be5e42b08c7fc23823c98e52ac331f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bdda69f_a958dd5b",
         "filename": "runtime/verifier/verifier_deps_test.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-14T12:09:58Z",
       "side": 1,
       "message": "Can you also check that the deps are not empty?",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 58
+      },
+      "revId": "d6d06932be5e42b08c7fc23823c98e52ac331f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b918ace_fe67211b",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T12:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bdda69f_a958dd5b",
       "range": {
         "startLine": 1003,
         "startChar": 0,
