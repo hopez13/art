@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8be1fa42_c930c2f7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-14T01:02:48Z",
+      "side": 1,
+      "message": "ruhler, any comments on this? I wonder whether your planned work to make things correctly synchronize obviates the need for any of this (as we don\u0027t really care which zygote would create the boot image, as long as they don\u0027t collide doing it)...",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
