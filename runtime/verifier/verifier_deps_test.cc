@@ -66,22 +66,26 @@ class VerifierDepsTest : public CommonRuntimeTest {
     return result;
   }
 
+  void SetVerifierDeps(const std::vector<const DexFile*>& dex_files) {
+    verifier_deps_.reset(new verifier::VerifierDeps(dex_files));
+    VerifierDepsCompilerCallbacks* callbacks =
+        reinterpret_cast<VerifierDepsCompilerCallbacks*>(callbacks_.get());
+    callbacks->SetVerifierDeps(verifier_deps_.get());
+  }
+
   void LoadDexFile(ScopedObjectAccess* soa) REQUIRES_SHARED(Locks::mutator_lock_) {
     class_loader_ = LoadDex("VerifierDeps");
     std::vector<const DexFile*> dex_files = GetDexFiles(class_loader_);
     CHECK_EQ(dex_files.size(), 1u);
     dex_file_ = dex_files.front();
 
+    SetVerifierDeps(dex_files);
+
     mirror::ClassLoader* loader = soa->Decode<mirror::ClassLoader*>(class_loader_);
     class_linker_->RegisterDexFile(*dex_file_, loader);
 
     klass_Main_ = FindClassByName("LMain;", soa);
     CHECK(klass_Main_ != nullptr);
-
-    verifier_deps_.reset(new verifier::VerifierDeps(dex_files));
-    VerifierDepsCompilerCallbacks* callbacks =
-        reinterpret_cast<VerifierDepsCompilerCallbacks*>(callbacks_.get());
-    callbacks->SetVerifierDeps(verifier_deps_.get());
   }
 
   bool VerifyMethod(const std::string& method_name) {
@@ -136,6 +140,29 @@ class VerifierDepsTest : public CommonRuntimeTest {
                             true /* allow_thread_suspension */);
     verifier.Verify();
     return !verifier.HasFailures();
+  }
+
+  void VerifyDexFiles(const std::vector<const DexFile*>& dex_files) {
+    std::string error_msg;
+    ScopedObjectAccess soa(Thread::Current());
+
+    SetVerifierDeps(dex_files);
+
+    for (const DexFile* dex_file : dex_files) {
+      for (size_t i = 0; i < dex_file->NumClassDefs(); i++) {
+        const char* descriptor = dex_file->GetClassDescriptor(dex_file->GetClassDef(i));
+        mirror::Class* klass = class_linker_->FindSystemClass(Thread::Current(), descriptor);
+        MethodVerifier::FailureKind failure = MethodVerifier::VerifyClass(
+            Thread::Current(),
+            klass,
+            nullptr,
+            true,
+            HardFailLogMode::kLogWarning,
+            &error_msg);
+        EXPECT_EQ(failure, MethodVerifier::kNoFailure)
+            << "Could not verify class " << descriptor << " : " << error_msg;
+      }
+    }
   }
 
   bool TestAssignabilityRecording(const std::string& dst,
@@ -314,6 +341,34 @@ class VerifierDepsTest : public CommonRuntimeTest {
       }
     }
     return false;
+  }
+
+  size_t NumberOfCompiledDexFiles() {
+    MutexLock mu(Thread::Current(), *Locks::verifier_deps_lock_);
+    return verifier_deps_->dex_deps_.size();
+  }
+
+  size_t HasEachKindOfRecord() {
+    MutexLock mu(Thread::Current(), *Locks::verifier_deps_lock_);
+
+    bool has_strings = false;
+    bool has_assignability = false;
+    bool has_classes = false;
+    bool has_fields = false;
+    bool has_methods = false;
+
+    for (auto& entry : verifier_deps_->dex_deps_) {
+      has_strings |= !entry.second->strings_.empty();
+      has_assignability |= !entry.second->assignable_types_.empty();
+      has_assignability |= !entry.second->unassignable_types_.empty();
+      has_classes |= !entry.second->classes_.empty();
+      has_fields |= !entry.second->fields_.empty();
+      has_methods |= !entry.second->direct_methods_.empty();
+      has_methods |= !entry.second->virtual_methods_.empty();
+      has_methods |= !entry.second->interface_methods_.empty();
+    }
+
+    return has_strings && has_assignability && has_classes && has_fields && has_methods;
   }
 
   std::unique_ptr<verifier::VerifierDeps> verifier_deps_;
@@ -962,6 +1017,22 @@ TEST_F(VerifierDepsTest, InvokeSuper_ThisNotAssignable) {
   ASSERT_TRUE(HasAssignable("Ljava/lang/Integer;", "LMain;", false));
   ASSERT_TRUE(HasMethod(
       "virtual", "Ljava/lang/Integer;", "intValue", "()I", true, "public", "Ljava/lang/Integer;"));
+}
+
+TEST_F(VerifierDepsTest, EncodeDecode) {
+  std::vector<const DexFile*> dex_files = { boot_class_path_[1] };
+  ASSERT_TRUE(dex_files.front()->GetLocation().find("core-libart") != std::string::npos);
+
+  VerifyDexFiles(dex_files);
+  ASSERT_EQ(dex_files.size(), NumberOfCompiledDexFiles());
+  ASSERT_TRUE(HasEachKindOfRecord());
+
+  std::vector<uint8_t> buffer;
+  verifier_deps_->Encode(&buffer);
+  ASSERT_FALSE(buffer.empty());
+
+  VerifierDeps decoded_deps(dex_files, buffer);
+  ASSERT_TRUE(verifier_deps_->Equals(decoded_deps));
 }
 
 }  // namespace verifier
