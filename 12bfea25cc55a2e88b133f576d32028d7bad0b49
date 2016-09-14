@@ -22,6 +22,30 @@
       "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_33b55483",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-14T20:06:02Z",
+      "side": 1,
+      "message": "True, there are a few places that it is the callee\u0027s job to fix up the caller\u0027s object if it moves. The main reason for this is to avoid handle overhead. DoInvoke calls FindMethodFromCode and is probably somewhat performance critical in the interpreter.\n\nAre you OK with leaving it this way to avoid creating the handle in the unless necessary?",
+      "parentUuid": "6b820684_019e2a0c",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 78
+      },
+      "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
