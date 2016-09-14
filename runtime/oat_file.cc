@@ -373,7 +373,6 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
     }
 
     const uint8_t* dex_file_pointer = DexBegin() + dex_file_offset;
-    LOG(ERROR) << "OFFSET = " << dex_file_offset;
     if (UNLIKELY(!DexFile::IsMagicValid(dex_file_pointer))) {
       *error_msg = StringPrintf("In oat file '%s' found OatDexFile #%zu for '%s' with invalid "
                                     "dex file magic '%s'",
