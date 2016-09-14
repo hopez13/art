@@ -63,6 +63,7 @@ enum ArenaAllocKind {
   kArenaAllocPhiInputs,
   kArenaAllocLoopInfo,
   kArenaAllocLoopInfoBackEdges,
+  kArenaAllocLoopInfoExitEdges,
   kArenaAllocTryCatchInfo,
   kArenaAllocUseListNode,
   kArenaAllocEnvironment,

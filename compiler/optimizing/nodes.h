@@ -73,6 +73,7 @@ static const int kDefaultNumberOfPredecessors = 2;
 static const int kDefaultNumberOfExceptionalPredecessors = 0;
 static const int kDefaultNumberOfDominatedBlocks = 1;
 static const int kDefaultNumberOfBackEdges = 1;
+static const int kDefaultNumberOfExitEdges = 1;
 
 // The maximum (meaningful) distance (31) that can be used in an integer shift/rotate operation.
 static constexpr int32_t kMaxIntShiftDistance = 0x1f;
@@ -678,10 +679,13 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
         suspend_check_(nullptr),
         irreducible_(false),
         contains_irreducible_loop_(false),
+        exit_nodes_simple_(true),
         back_edges_(graph->GetArena()->Adapter(kArenaAllocLoopInfoBackEdges)),
+        exit_edges_(graph->GetArena()->Adapter(kArenaAllocLoopInfoExitEdges)),
         // Make bit vector growable, as the number of blocks may change.
         blocks_(graph->GetArena(), graph->GetBlocks().size(), true, kArenaAllocLoopInfoBackEdges) {
     back_edges_.reserve(kDefaultNumberOfBackEdges);
+    exit_edges_.reserve(kDefaultNumberOfExitEdges);
   }
 
   bool IsIrreducible() const { return irreducible_; }
@@ -700,6 +704,29 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   HSuspendCheck* GetSuspendCheck() const { return suspend_check_; }
   void SetSuspendCheck(HSuspendCheck* check) { suspend_check_ = check; }
   bool HasSuspendCheck() const { return suspend_check_ != nullptr; }
+
+  void AddExitEdge(HBasicBlock* exit_edge) {
+    exit_edges_.push_back(exit_edge);
+  }
+
+  size_t NumberOfExitEdges() const {
+    return exit_edges_.size();
+  }
+
+  const ArenaVector<HBasicBlock*>& GetExitEdges() const {
+    return exit_edges_;
+  }
+
+  // Returns if there're some exit nodes for the given loop,
+  // that have at least 2 immediate predecessors from the loop itself.
+  bool IsExitNodesSimple() const {
+    return exit_nodes_simple_;
+  }
+
+  void SetExitNodesSimple(bool value) {
+    exit_nodes_simple_ = value;
+  }
+
 
   void AddBackEdge(HBasicBlock* back_edge) {
     back_edges_.push_back(back_edge);
@@ -771,7 +798,15 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   HSuspendCheck* suspend_check_;
   bool irreducible_;
   bool contains_irreducible_loop_;
+
+  // Shows if there's no exit nodes with more than one in-loop predecessor.
+  bool exit_nodes_simple_;
+
   ArenaVector<HBasicBlock*> back_edges_;
+
+  // A vector of blocks, that have predecessors in the current loop
+  ArenaVector<HBasicBlock*> exit_edges_;
+
   ArenaBitVector blocks_;
 
   DISALLOW_COPY_AND_ASSIGN(HLoopInformation);
@@ -6490,7 +6525,8 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
  public:
   explicit HParallelMove(ArenaAllocator* arena, uint32_t dex_pc = kNoDexPc)
       : HTemplateInstruction(SideEffects::None(), dex_pc),
-        moves_(arena->Adapter(kArenaAllocMoveOperands)) {
+        moves_(arena->Adapter(kArenaAllocMoveOperands)),
+        explicit_spill_(false) {
     moves_.reserve(kDefaultNumberOfMoves);
   }
 
@@ -6536,8 +6572,17 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
 
   DECLARE_INSTRUCTION(ParallelMove);
 
+  // Indicates whether the given move is a move, which was explicitly marked
+  // as a 'spill' one, to get the highest in-block placement priority later on.
+  bool IsExplicitSpill() const { return explicit_spill_; }
+
+  void SetExplicitSpill(bool is_spill) { explicit_spill_ = is_spill; }
+
  private:
   ArenaVector<MoveOperands> moves_;
+
+  // Flags whether the move contains spills (and only spills).
+  bool explicit_spill_;
 
   DISALLOW_COPY_AND_ASSIGN(HParallelMove);
 };

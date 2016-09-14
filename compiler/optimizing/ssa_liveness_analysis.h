@@ -710,6 +710,16 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
     return result;
   }
 
+  // Returns the next sibling which doesn't have an allocated register.
+  // Returns nullptr if there's no such sibling.
+  LiveInterval* GetNextSpilledSibling() const {
+    LiveInterval* result = next_sibling_;
+    while (result != nullptr && result->HasRegister()) {
+      result = result->next_sibling_;
+    }
+    return result;
+  }
+
   // Returns the first register hint that is at least free before
   // the value contained in `free_until`. If none is found, returns
   // `kNoRegister`.

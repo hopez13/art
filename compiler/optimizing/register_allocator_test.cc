@@ -26,6 +26,7 @@
 #include "optimizing_unit_test.h"
 #include "register_allocator.h"
 #include "register_allocator_linear_scan.h"
+#include "register_allocation_resolver.h"
 #include "ssa_liveness_analysis.h"
 #include "ssa_phi_elimination.h"
 
@@ -979,6 +980,153 @@ TEST_F(RegisterAllocatorTest, SpillInactive) {
   intervals.push_back(fourth);
   ASSERT_TRUE(RegisterAllocator::ValidateIntervals(
       intervals, 0, 0, codegen, &allocator, true, false));
+}
+
+/*
+ * Tests spill placement algorithm.
+ * Runs over linear scan strategy.
+ *
+ * Consider the following code:
+ * int a = 0;
+ * while (a < 10) {
+ *   a += 2;
+ * }
+ * return a;
+ *
+ * If we force a case of no free registers at the 'return' instruction,
+ * the value of 'a' shall not be spilled at the loop header.
+ * Instead, the spill shall occur in a block right after the loop.
+ *
+ * The code is a representation of the following graph:
+ *   B0 (entry)
+ *   |
+ *   B1 (preheader)
+ *   |
+ *   B2 (header)
+ *   | \ \
+ *   |  B3 (loop)
+ *   |
+ *   B4
+ *   |
+ *   B5 (exit)
+ *
+ * For the test it's only necessary to set up a phi in the loop header,
+ * which has 2 live intervals: one covers the loop and has a register
+ * and the other is after the loop (let's say, it covers only B4),
+ * and has no registers allocated.
+ */
+
+TEST_F(RegisterAllocatorTest, SpillPlacement) {
+  ArenaPool pool;
+  ArenaAllocator allocator(&pool);
+
+  // Set up the graph.
+  HGraph* graph = CreateGraph(&allocator);
+  HBasicBlock* block0 = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block1 = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block2 = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block3 = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block4 = new (&allocator) HBasicBlock(graph);
+  HBasicBlock* block5 = new (&allocator) HBasicBlock(graph);
+  graph->AddBlock(block0);
+  graph->AddBlock(block1);
+  graph->AddBlock(block2);
+  graph->AddBlock(block3);
+  graph->AddBlock(block4);
+  graph->AddBlock(block5);
+
+  graph->SetEntryBlock(block0);
+  block0->AddSuccessor(block1);
+  block1->AddSuccessor(block2);
+  block2->AddSuccessor(block4);
+  block2->AddSuccessor(block3);
+  block3->AddSuccessor(block2);
+  block4->AddSuccessor(block5);
+  graph->SetExitBlock(block5);
+
+  graph->BuildDominatorTree();
+
+  // Populate the graph with instructions.
+  HIntConstant* zero = graph->GetIntConstant(0);
+  HIntConstant* two = graph->GetIntConstant(2);
+  HIntConstant* ten = graph->GetIntConstant(10);
+  HPhi* phi = new (&allocator) HPhi(&allocator, 0, 0, Primitive::kPrimInt);
+  HAdd* incr = new (&allocator) HAdd(Primitive::kPrimInt, phi, two);
+  HReturn* ret = new (&allocator) HReturn(phi);
+  HGoto* pass = new (&allocator) HGoto();
+  HGreaterThan* cond = new (&allocator) HGreaterThan(phi, ten);
+  HIf* cond_jump = new (&allocator) HIf(cond);
+  HExit* graph_exit = new (&allocator) HExit();
+
+  block1->AddInstruction(pass);
+  block2->AddPhi(phi);
+  block2->AddInstruction(cond);
+  block2->AddInstruction(cond_jump);
+  block3->AddInstruction(incr);
+  block4->AddInstruction(ret);
+  block5->AddInstruction(graph_exit);
+
+  phi->AddInput(zero);
+  phi->AddInput(incr);
+
+  // Make additional analysis on the graph to get all the needed info.
+  ScopedNullHandle<mirror::DexCache> null_dex_cache;
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScopeCollection handles(soa.Self());
+  SsaBuilder ssa_builder(graph, null_dex_cache, &handles);
+  ssa_builder.BuildSsa();
+
+  std::unique_ptr<const X86InstructionSetFeatures> features_x86(
+      X86InstructionSetFeatures::FromCppDefines());
+  x86::CodeGeneratorX86 codegen(graph, *features_x86.get(), CompilerOptions());
+  SsaLivenessAnalysis liveness(graph, &codegen);
+  liveness.Analyze();
+
+  RegisterAllocatorLinearScan register_allocator(&allocator, &codegen, liveness);
+  register_allocator.AllocateRegistersInternal();
+
+  // Change the interval of the given phi the way a spill is needed.
+  // Split an interval after the loop into two:
+  // The first one has no dedicated register, it's right in the beginning of the block,
+  // and the second one is the trimmed part of the original interval.
+  size_t split_position = block4->GetLifetimeStart() + 1;
+  LiveInterval* interval = phi->GetLiveInterval();
+  LiveInterval* pre_split = interval->GetSiblingAt(split_position);
+  LiveInterval* spill_interval = pre_split->SplitAt(split_position);
+  spill_interval->ClearRegister();
+  register_allocator.AllocateSpillSlotFor(spill_interval);
+
+  RegisterAllocationResolver(&allocator, &codegen, liveness)
+      .Resolve(ArrayRef<HInstruction* const>(register_allocator.safepoints_),
+               register_allocator.reserved_out_slots_,
+               register_allocator.int_spill_slots_.size(),
+               register_allocator.long_spill_slots_.size(),
+               register_allocator.float_spill_slots_.size(),
+               register_allocator.double_spill_slots_.size(),
+               register_allocator.catch_phi_spill_slots_,
+               register_allocator.temp_intervals_);
+
+  // The only parallel move containing spill must be the first instruction of B4.
+  bool one_correct_spill = false;
+  for (HBasicBlock* block : graph->GetBlocks()) {
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instruction = it.Current();
+      if (instruction->IsParallelMove()){
+        HParallelMove* parallel_move = instruction->AsParallelMove();
+        for (size_t i = 0; i < parallel_move->NumMoves(); ++i) {
+          MoveOperands* move = parallel_move->MoveOperandsAt(i);
+          if (move->GetDestination().GetKind() == Location::Kind::kStackSlot) {
+            // Check if the location is correct and the spill is only one.
+            ASSERT_TRUE(block->GetBlockId() == 4
+                && block->GetFirstInstruction() == instruction
+                && !one_correct_spill);
+            one_correct_spill = true;
+          }
+        }
+      }
+    }
+  }
+  ASSERT_TRUE(one_correct_spill);
 }
 
 }  // namespace art

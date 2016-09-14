@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_OPTIMIZING_REGISTER_ALLOCATION_RESOLVER_H_
 #define ART_COMPILER_OPTIMIZING_REGISTER_ALLOCATION_RESOLVER_H_
 
+#include "base/arena_bit_vector.h"
 #include "base/arena_containers.h"
 #include "base/array_ref.h"
 #include "base/value_object.h"
@@ -29,6 +30,7 @@ class CodeGenerator;
 class HBasicBlock;
 class HInstruction;
 class HParallelMove;
+class HLoopInformation;
 class LiveInterval;
 class Location;
 class SsaLivenessAnalysis;
@@ -66,12 +68,29 @@ class RegisterAllocationResolver : ValueObject {
   // Connect siblings between block entries and exits.
   void ConnectSplitSiblings(LiveInterval* interval, HBasicBlock* from, HBasicBlock* to) const;
 
+  // Creates a list of the blocks, which are the formal exit nodes of the given loop.
+  void FindExitEdges(HLoopInformation* loop);
+
+  // Inner recursive implementation of FindExitEdges.
+  void FindExitEdgesRecursive(HLoopInformation* loop, HBasicBlock* block);
+
+  // Performs spills placement.
+  void PlaceSpills(LiveInterval* interval);
+
   // Helper methods for inserting parallel moves in the graph.
   void InsertParallelMoveAtExitOf(HBasicBlock* block,
                                   HInstruction* instruction,
                                   Location source,
                                   Location destination) const;
+
+  // Inserts a parallel move in the beginning of a block after spill parallel moves.
   void InsertParallelMoveAtEntryOf(HBasicBlock* block,
+                                   HInstruction* instruction,
+                                   Location source,
+                                   Location destination) const;
+
+  // Inserts a parallel move in the beginning of a block before other moves.
+  void InsertSpillParallelMoveAtEntryOf(HBasicBlock* block,
                                    HInstruction* instruction,
                                    Location source,
                                    Location destination) const;
@@ -93,6 +112,9 @@ class RegisterAllocationResolver : ValueObject {
   ArenaAllocator* const allocator_;
   CodeGenerator* const codegen_;
   const SsaLivenessAnalysis& liveness_;
+
+  // Used to find exit nodes in loops. Necessary for spill placement.
+  ArenaBitVector coloring_;
 
   DISALLOW_COPY_AND_ASSIGN(RegisterAllocationResolver);
 };

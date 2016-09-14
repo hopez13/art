@@ -173,6 +173,7 @@ class RegisterAllocatorLinearScan : public RegisterAllocator {
 
   ART_FRIEND_TEST(RegisterAllocatorTest, FreeUntil);
   ART_FRIEND_TEST(RegisterAllocatorTest, SpillInactive);
+  ART_FRIEND_TEST(RegisterAllocatorTest, SpillPlacement);
 
   DISALLOW_COPY_AND_ASSIGN(RegisterAllocatorLinearScan);
 };

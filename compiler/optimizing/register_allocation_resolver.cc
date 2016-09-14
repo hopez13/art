@@ -26,7 +26,9 @@ RegisterAllocationResolver::RegisterAllocationResolver(ArenaAllocator* allocator
                                                        const SsaLivenessAnalysis& liveness)
       : allocator_(allocator),
         codegen_(codegen),
-        liveness_(liveness) {}
+        liveness_(liveness),
+        coloring_(codegen_->GetGraph()->GetArena(), codegen_->GetGraph()->GetBlocks().size(),
+                                             true, kArenaAllocLoopInfoExitEdges) {}
 
 void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoints,
                                          size_t reserved_out_slots,
@@ -295,12 +297,20 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
       && current->HasRegister()
       // Currently, we spill unconditionnally the current method in the code generators.
       && !interval->GetDefinedBy()->IsCurrentMethod()) {
-    // We spill eagerly, so move must be at definition.
-    InsertMoveAfter(interval->GetDefinedBy(),
+    // Catch blocks make spill placement exceptionally complicated.
+    // Use the simple spilling algorithm in such case.
+    if (codegen_->GetGraph()->HasTryCatch()) {
+      // We spill eagerly, so move must be at definition.
+      InsertMoveAfter(interval->GetDefinedBy(),
                     interval->ToLocation(),
                     interval->NeedsTwoSpillSlots()
                         ? Location::DoubleStackSlot(interval->GetParent()->GetSpillSlot())
                         : Location::StackSlot(interval->GetParent()->GetSpillSlot()));
+    } else {
+      // If the definition is in the loop-related blocks, it may cause excessive spill repetition.
+      // Try to find more appropriate place for a move.
+      PlaceSpills(interval);
+    }
   }
   UsePosition* use = current->GetFirstUse();
   UsePosition* env_use = current->GetFirstEnvironmentUse();
@@ -650,13 +660,42 @@ void RegisterAllocationResolver::InsertParallelMoveAtEntryOf(HBasicBlock* block,
   HInstruction* first = block->GetFirstInstruction();
   HParallelMove* move = first->AsParallelMove();
   size_t position = block->GetLifetimeStart();
+
+  // Skip all of the placed spills to ensure the spilled registers are valid.
+  while (move != nullptr && move->IsExplicitSpill()) {
+    first = first->GetNext();
+    move = first->AsParallelMove();
+  }
+  // From now on "first" is the first instruction of the block which is not a spill parallel move.
+
   // This is a parallel move for connecting blocks. We need to differentiate
-  // it with moves for connecting siblings in a same block, and input moves.
+  // it with moves for connecting siblings in a same block and input moves.
   if (move == nullptr || move->GetLifetimePosition() != position) {
     move = new (allocator_) HParallelMove(allocator_);
     move->SetLifetimePosition(position);
     block->InsertInstructionBefore(move, first);
   }
+  AddMove(move, source, destination, instruction, instruction->GetType());
+}
+
+void RegisterAllocationResolver::InsertSpillParallelMoveAtEntryOf(HBasicBlock* block,
+                                                    HInstruction* instruction,
+                                                    Location source,
+                                                    Location destination) const {
+  DCHECK(IsValidDestination(destination)) << destination;
+  if (source.Equals(destination)) return;
+
+  HInstruction* first = block->GetFirstInstruction();
+  HParallelMove* move = first->AsParallelMove();
+  size_t position = block->GetLifetimeStart();
+  // If there was no explicit splits found at the beginning of the block, create a new one.
+  if (move == nullptr || !move->IsExplicitSpill()) {
+    move = new (allocator_) HParallelMove(allocator_);
+    move->SetLifetimePosition(position);
+    move->SetExplicitSpill(true);
+    block->InsertInstructionBefore(move, first);
+  }
+  // If one was found - add the current move to it.
   AddMove(move, source, destination, instruction, instruction->GetType());
 }
 
@@ -682,6 +721,156 @@ void RegisterAllocationResolver::InsertMoveAfter(HInstruction* instruction,
     instruction->GetBlock()->InsertInstructionBefore(move, instruction->GetNext());
   }
   AddMove(move, source, destination, instruction, instruction->GetType());
+}
+
+// Creates a list of the blocks, which are the formal exit nodes of the given loop.
+void RegisterAllocationResolver::FindExitEdges(HLoopInformation* loop) {
+    FindExitEdgesRecursive(loop, loop->GetHeader());
+    // Prepare the coloring vector for the next use.
+    coloring_.ClearAllBits();
+}
+
+// Inner recursive implementation of the FindExitEdges method.
+void RegisterAllocationResolver::FindExitEdgesRecursive(HLoopInformation* loop,
+                                                        HBasicBlock* block) {
+  // DFS, use additional bitvector for coloring
+  coloring_.SetBit(block->GetBlockId());
+
+  for (HBasicBlock* successor : block->GetSuccessors()) {
+    if (loop->IsBackEdge(*successor)) {
+      // Final point of the recursion.
+    } else if (!coloring_.IsBitSet(successor->GetBlockId())) {
+      if (!loop->GetBlocks().IsBitSet(successor->GetBlockId())) {
+        // Add non-colored out-of-the-loop successor to the desired list.
+        loop->AddExitEdge(successor);
+      } else {
+        // Walk into a non-colored in-the-loop successor.
+        FindExitEdgesRecursive(loop, successor);
+      }
+    } else {
+      if (!loop->GetBlocks().IsBitSet(successor->GetBlockId())) {
+        // If the successor was already colored but we can reach it from the current.
+        // node, then we shall tell about it.
+        loop->SetExitNodesSimple(false);
+      }
+    }
+  }
+}
+
+// Places spills in the least repetitive code fragments to produce less memory traffic.
+// Improves the case when the variable definition is in a loop (either header or body)
+// and the variable lives in registers within that whole loop.
+// In such case the spills are better to be done at the least nested loop possible.
+void RegisterAllocationResolver::PlaceSpills(LiveInterval* interval) {
+  if (!interval->HasRegister()) {
+    // The instruction type assumes the result is already spilled.
+    return;
+  }
+
+  LiveInterval* parent = interval->GetParent();
+  HInstruction* instruction = parent->GetDefinedBy();
+  HBasicBlock* parent_block = instruction->GetBlock();
+  HLoopInformation* parent_loop_info = parent_block->GetLoopInformation();
+  Location source_location = parent->ToLocation();
+  Location dest_location = parent->NeedsTwoSpillSlots()
+                              ? Location::DoubleStackSlot(parent->GetSpillSlot())
+                              : Location::StackSlot(parent->GetSpillSlot());
+
+  if (parent_loop_info == nullptr) {
+    // The parent is not in any loop - spilling right after the parent instruction won't
+    // create any performance overhead due to store instruction repetition.
+    InsertMoveAfter(instruction, source_location, dest_location);
+    return;
+  }
+
+  // Check if any of the spilled intervals is inside of the same loop as parent's innermost one.
+  // The task is to find the most nested loop possible which contains one of the spill
+  // intervals and the parent instruction. Spills at this level of nesting are repeated
+  // the least amount of times during execution.
+  LiveInterval* spill_interval = interval->GetNextSpilledSibling();
+  HLoopInformation* best_loop_info = parent_loop_info;
+  while (spill_interval != nullptr) {
+    HBasicBlock* spill_block = liveness_.GetBlockFromPosition(spill_interval->GetStart() / 2);
+    size_t spill_block_id = spill_block->GetBlockId();
+    if (parent_loop_info->GetBlocks().IsBitSet(spill_block_id)) {
+      // The start of the spilled interval belongs to the parent's loop => the whole interval does.
+      // That means we must do at least one spill inside of the loop, so let it dominate every
+      // other spill interval preemptively.
+      InsertMoveAfter(instruction, source_location, dest_location);
+      return;
+    }
+
+    // For each spill interval we're trying to find the most nested loop which both contains
+    // the interval and the parent instruction. Then we check if there's more nested one
+    // which was found earlier for an other spill interval.
+    HBasicBlock* prev_loop_preheader = parent_loop_info->GetPreHeader();
+    HLoopInformation* prev_loop_info = parent_loop_info;
+    HLoopInformation* current_loop_info = prev_loop_preheader->GetLoopInformation();
+    while (current_loop_info != nullptr) {
+      if (current_loop_info->GetBlocks().IsBitSet(spill_block_id)) {
+        // The loop, containing parent, appears to contain the spill interval too.
+        // Check whether the previous one if more nested than the currently best one.
+        if (best_loop_info->GetBlocks().IsBitSet(prev_loop_preheader->GetBlockId())){
+          // If it is - pick it as the new currently best one.
+          best_loop_info = prev_loop_info;
+        }
+        break;
+      }
+      prev_loop_info = current_loop_info;
+      prev_loop_preheader = current_loop_info->GetPreHeader();
+      current_loop_info = prev_loop_preheader->GetLoopInformation();
+    }
+    spill_interval = spill_interval->GetNextSpilledSibling();
+  }
+
+  // Now best_loop_info is the loop, which does not contain any of spill intervals,
+  // and the first outer loop contains some spill intervals and a parent instruction
+  // It means that the set of best_loop_info exits dominates every spill interval. (*)
+  // So the best place to put a spill in in term of a loop nesting depth is blocks
+  // which are not in any deeper loops, and which belongs to best_loop_info.
+  // The further analysis and search for a dominator of multiple spill intervals
+  // require either an excessive amount of memory (storing full dominator tree) or
+  // an excessive computational complexity.
+  // It's better to just use the (*) statement and place the spills at the exit nodes,
+  // since it gives the same code perfomance with a small overhead of a few additional
+  // spills inserted (if any) of parallel edges of the CFG.
+  if (!best_loop_info->NumberOfExitEdges()) {
+    // If the exit nodes haven't been found already for the chosen loop, find them.
+    FindExitEdges(best_loop_info);
+  }
+  // If one one the loop's exit nodes is connected to multiple in-loop nodes,
+  // skip the advanced placement - we cannot be sure which register shall we spill.
+  if (!best_loop_info->IsExitNodesSimple()) {
+    // Avoid the complex spill placement.
+    InsertMoveAfter(instruction, source_location, dest_location);
+    return;
+  } else {
+    for (HBasicBlock* exit : best_loop_info->GetExitEdges()) {
+      // Find a predecessor which stores the register location of the variable.
+      for (HBasicBlock* predecessor : exit->GetPredecessors()) {
+        if (predecessor->GetLoopInformation() == best_loop_info) {
+          // That is, the exit edge.
+          LiveInterval* source_interval = interval->GetSiblingAt(predecessor->GetLifetimeEnd() - 1);
+          if (source_interval != nullptr) {
+            // If the interval is dead (or not born) right before the exit
+            // - it means the def occured in a loop, and an "upper" exit
+            // can not be reached by the def. We're not interested in such cases.
+            if (source_interval->CoversSlow(predecessor->GetLifetimeEnd() - 1)) {
+              // If there's no active live range at the position of the loop exit
+              // - the variable is not going to be used ever after. Skip such cases.
+              source_location = source_interval->ToLocation();
+              // Spill the corresponding register right at the current exit of the loop.
+              InsertSpillParallelMoveAtEntryOf(exit, instruction,
+                                                  source_location, dest_location);
+              // We can break out of the predecessor search since we know the exit is "simple"
+              // and we've already visited the only in-loop predecessor.
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 }  // namespace art
