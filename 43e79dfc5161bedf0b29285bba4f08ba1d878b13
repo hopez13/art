@@ -22,6 +22,24 @@
       "revId": "43e79dfc5161bedf0b29285bba4f08ba1d878b13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bbace37_4f316da2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-14T18:37:06Z",
+      "side": 1,
+      "message": "I hadn\u0027t planned on it, but I\u0027ve rolled it up into this CL since it\u0027s small.",
+      "parentUuid": "8be1fa42_496af2e5",
+      "revId": "43e79dfc5161bedf0b29285bba4f08ba1d878b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
