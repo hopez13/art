@@ -22,6 +22,30 @@
       "revId": "39f8a9c05f3e85a51cc170c279fa19cacec50f77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_16575efb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-14T21:06:23Z",
+      "side": 1,
+      "message": "Sure, if you want. I put it here because it is now public, so any client can just call it again and we want to make sure we start from scratch.",
+      "parentUuid": "eb76f682_95e8c4e2",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 24
+      },
+      "revId": "39f8a9c05f3e85a51cc170c279fa19cacec50f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
