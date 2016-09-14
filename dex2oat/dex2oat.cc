@@ -64,6 +64,8 @@
 #include "interpreter/unstarted_runtime.h"
 #include "jit/offline_profiling_info.h"
 #include "leb128.h"
+#include "linker/buffered_output_stream.h"
+#include "linker/file_output_stream.h"
 #include "linker/multi_oat_relative_patcher.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
@@ -527,6 +529,7 @@ class Dex2Oat FINAL {
       elf_writers_(),
       oat_writers_(),
       rodata_(),
+      vdex_out_(),
       image_writer_(nullptr),
       driver_(nullptr),
       opened_dex_files_maps_(),
@@ -1442,13 +1445,17 @@ class Dex2Oat FINAL {
     {
       TimingLogger::ScopedTiming t_dex("Writing and opening dex files", timings_);
       rodata_.reserve(oat_writers_.size());
+      vdex_out_.reserve(oat_writers_.size());
       for (size_t i = 0, size = oat_writers_.size(); i != size; ++i) {
         rodata_.push_back(elf_writers_[i]->StartRoData());
+        vdex_out.push_back(
+            MakeUnique<BufferedOutputStream>(MakeUnique<FileOutputStream>(vdex_files_[i].get())));
         // Unzip or copy dex files straight to the oat file.
         std::unique_ptr<MemMap> opened_dex_files_map;
         std::vector<std::unique_ptr<const DexFile>> opened_dex_files;
         if (!oat_writers_[i]->WriteAndOpenDexFiles(
             kIsVdexEnabled ? vdex_files_[i].get() : oat_files_[i].get(),
+            vdex_out_.back(),
             rodata_.back(),
             instruction_set_,
             instruction_set_features_.get(),
@@ -1750,6 +1757,15 @@ class Dex2Oat FINAL {
       if (!image_writer_->PrepareImageAddressSpace()) {
         LOG(ERROR) << "Failed to prepare image address space.";
         return false;
+      }
+    }
+
+    {
+      TimingLogger::ScopedTiming t2("dex2oat Write VDEX", timings_);
+      DCHECK((IsBootImage() && verifier_deps_ == nullptr) ||
+             (oat_files_.size() == 1u && verifier_deps_ != nullptr));
+      for (size_t i = 0, size = oat_files_.size(); i != size; ++i) {
+        if (!oat_writers_[i]->WriteVerifierDeps()
       }
     }
 
@@ -2604,6 +2620,7 @@ class Dex2Oat FINAL {
   std::vector<std::unique_ptr<ElfWriter>> elf_writers_;
   std::vector<std::unique_ptr<OatWriter>> oat_writers_;
   std::vector<OutputStream*> rodata_;
+  std::vector<OutputStream*> vdex_out_;
   std::unique_ptr<ImageWriter> image_writer_;
   std::unique_ptr<CompilerDriver> driver_;
 
