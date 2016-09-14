@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb76f682_35fa90a3",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T21:38:21Z",
+      "side": 1,
+      "message": "Move to line 158.",
+      "range": {
+        "startLine": 147,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 80
+      },
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_15fd949a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T21:38:21Z",
+      "side": 1,
+      "message": "Move just before line 155.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 16
+      },
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_55070cbe",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T21:38:21Z",
+      "side": 1,
+      "message": "Add comment: we\u0027ve just updated the only use of the HLoadClass. Since we don\u0027t run DCE after this pass, do it manually.",
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
