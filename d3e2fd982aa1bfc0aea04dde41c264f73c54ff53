@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8be1fa42_3826d6c2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5016,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-14T16:57:40Z",
+      "side": 1,
+      "message": "Only ask for it when it\u0027s actually a string op?",
+      "range": {
+        "startLine": 5016,
+        "startChar": 2,
+        "endLine": 5016,
+        "endChar": 51
+      },
+      "revId": "d3e2fd982aa1bfc0aea04dde41c264f73c54ff53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_5848fa57",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5532,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-14T16:57:40Z",
+      "side": 1,
+      "message": "Same. Try to avoid impact on regular array operations...",
+      "range": {
+        "startLine": 5532,
+        "startChar": 2,
+        "endLine": 5532,
+        "endChar": 51
+      },
+      "revId": "d3e2fd982aa1bfc0aea04dde41c264f73c54ff53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_d8824a6b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5575,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-14T16:57:40Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 5573,
+        "startChar": 6,
+        "endLine": 5575,
+        "endChar": 48
+      },
+      "revId": "d3e2fd982aa1bfc0aea04dde41c264f73c54ff53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
