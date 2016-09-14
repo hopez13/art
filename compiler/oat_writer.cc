@@ -1912,7 +1912,7 @@ bool OatWriter::WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_
 
   // Update current size and account for the written data.
   if (kIsVdexEnabled) {
-    DCHECK_EQ(vdex_size_, oat_dex_file->dex_file_offset_);
+    DCHECK_EQ(vdex_size_ - vdex_dex_files_offset_, oat_dex_file->dex_file_offset_);
     vdex_size_ += oat_dex_file->dex_file_size_;
   } else {
     DCHECK_EQ(oat_size_, oat_dex_file->dex_file_offset_);
@@ -1953,10 +1953,11 @@ bool OatWriter::SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex
 
   if (kIsVdexEnabled) {
     vdex_size_ = start_offset;
+    oat_dex_file->dex_file_offset_ = start_offset - vdex_dex_files_offset_;
   } else {
     oat_size_ = start_offset;
+    oat_dex_file->dex_file_offset_ = start_offset;
   }
-  oat_dex_file->dex_file_offset_ = start_offset;
   return true;
 }
 
@@ -2190,7 +2191,7 @@ bool OatWriter::OpenDexFiles(
     return true;
   }
 
-  size_t map_offset = oat_dex_files_[0].dex_file_offset_;
+  size_t map_offset = kIsVdexEnabled ? vdex_dex_files_offset_ : oat_dex_files_[0].dex_file_offset_;
   size_t length = kIsVdexEnabled ? (vdex_size_ - map_offset) : (oat_size_ - map_offset);
 
   std::string error_msg;
@@ -2213,7 +2214,8 @@ bool OatWriter::OpenDexFiles(
     // Make sure no one messed with input files while we were copying data.
     // At the very least we need consistent file size and number of class definitions.
     const uint8_t* raw_dex_file =
-        dex_files_map->Begin() + oat_dex_file.dex_file_offset_ - map_offset;
+        kIsVdexEnabled ? (dex_files_map->Begin() + oat_dex_file.dex_file_offset_)
+                       : (dex_files_map->Begin() + oat_dex_file.dex_file_offset_ - map_offset);
     if (!ValidateDexFileHeader(raw_dex_file, oat_dex_file.GetLocation())) {
       // Note: ValidateDexFileHeader() already logged an error message.
       LOG(ERROR) << "Failed to verify written dex file header!"

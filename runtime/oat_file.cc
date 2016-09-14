@@ -342,7 +342,7 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
                                 dex_file_location.c_str());
       return false;
     }
-    if (UNLIKELY(dex_file_offset == 0U)) {
+    if (!kIsVdexEnabled && UNLIKELY(dex_file_offset == 0U)) {
       *error_msg = StringPrintf("In oat file '%s' found OatDexFile #%zu for '%s' with zero dex "
                                     "file offset",
                                 GetLocation().c_str(),
@@ -373,6 +373,7 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
     }
 
     const uint8_t* dex_file_pointer = DexBegin() + dex_file_offset;
+    LOG(ERROR) << "OFFSET = " << dex_file_offset;
     if (UNLIKELY(!DexFile::IsMagicValid(dex_file_pointer))) {
       *error_msg = StringPrintf("In oat file '%s' found OatDexFile #%zu for '%s' with invalid "
                                     "dex file magic '%s'",
@@ -1113,11 +1114,11 @@ const uint8_t* OatFile::BssEnd() const {
 }
 
 const uint8_t* OatFile::DexBegin() const {
-  return kIsVdexEnabled ? vdex_->Begin() : Begin();
+  return kIsVdexEnabled ? vdex_->DexBegin() : Begin();
 }
 
 const uint8_t* OatFile::DexEnd() const {
-  return kIsVdexEnabled ? vdex_->End() : End();
+  return kIsVdexEnabled ? vdex_->DexEnd() : End();
 }
 
 const OatFile::OatDexFile* OatFile::GetOatDexFile(const char* dex_location,
