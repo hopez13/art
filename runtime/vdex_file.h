@@ -60,9 +60,8 @@ class VdexFile {
                         bool low_4gb,
                         std::string* error_msg);
 
-  const uint8_t* Begin() const { return mmap_->Begin(); }
-  const uint8_t* End() const { return mmap_->End(); }
-  size_t Size() const { return mmap_->Size(); }
+  const uint8_t* DexBegin() const { return mmap_->Begin() + sizeof(VdexFile::Header); }
+  const uint8_t* DexEnd() const { return mmap_->End(); }
 
  private:
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
