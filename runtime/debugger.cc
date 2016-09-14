@@ -1756,9 +1756,15 @@ static JDWP::JdwpError GetFieldValueImpl(JDWP::RefTypeId ref_type_id, JDWP::Obje
                                          bool is_static)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JDWP::JdwpError error;
-  mirror::Class* c = DecodeClass(ref_type_id, &error);
-  if (ref_type_id != 0 && c == nullptr) {
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Class> c(hs.NewHandle(DecodeClass(ref_type_id, &error)));
+  if (ref_type_id != 0 && c.Get() == nullptr) {
     return error;
+  }
+
+  if (!Runtime::Current()->GetClassLinker()->EnsureInitialized(self, c, true, false)) {
+    LOG(WARNING) << "Not able to initialize class for GetValues: " << PrettyClass(c.Get());
   }
 
   mirror::Object* o = Dbg::GetObjectRegistry()->Get<mirror::Object*>(object_id, &error);
@@ -1767,7 +1773,7 @@ static JDWP::JdwpError GetFieldValueImpl(JDWP::RefTypeId ref_type_id, JDWP::Obje
   }
   ArtField* f = FromFieldId(field_id);
 
-  mirror::Class* receiver_class = c;
+  mirror::Class* receiver_class = c.Get();
   if (receiver_class == nullptr && o != nullptr) {
     receiver_class = o->GetClass();
   }
