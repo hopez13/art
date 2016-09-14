@@ -42,10 +42,13 @@ class VdexFile {
  public:
   struct Header {
    public:
-    Header();
+    Header(uint32_t dex_size, uint32_t verifier_deps_size);
 
     bool IsMagicValid() const;
     bool IsVersionValid() const;
+
+    uint32_t GetDexSize() const { return dex_size_; }
+    uint32_t GetVerifierDepsSize() const { return verifier_deps_size_; }
 
    private:
     static constexpr uint8_t kVdexMagic[] = { 'v', 'd', 'e', 'x' };
@@ -53,6 +56,8 @@ class VdexFile {
 
     uint8_t magic_[4];
     uint8_t version_[4];
+    uint32_t dex_size_;
+    uint32_t verifier_deps_size_;
   };
 
   static VdexFile* Open(const std::string& vdex_filename,
@@ -60,9 +65,8 @@ class VdexFile {
                         bool low_4gb,
                         std::string* error_msg);
 
-  const uint8_t* Begin() const { return mmap_->Begin(); }
-  const uint8_t* End() const { return mmap_->End(); }
-  size_t Size() const { return mmap_->Size(); }
+  const uint8_t* DexBegin() const { return mmap_->Begin() + sizeof(VdexFile::Header); }
+  const uint8_t* DexEnd() const { return mmap_->End(); }
 
  private:
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}

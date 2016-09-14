@@ -50,6 +50,10 @@ namespace linker {
 class MultiOatRelativePatcher;
 }  // namespace linker
 
+namespace verifier {
+  class VerifierDeps;
+}  // namespace verifier
+
 // OatHeader         variable length with count of D OatDexFiles
 //
 // OatDexFile[0]     one variable sized OatDexFile with offsets to Dex and OatClasses
@@ -149,6 +153,8 @@ class OatWriter {
                             bool verify,
                             /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
+  // Write verification dependencies to VDEX.
+  bool WriteVerifierDeps(OutputStream* vdex_out, verifier::VerifierDeps* verifier_deps);
   // Prepare layout of remaining data.
   void PrepareLayout(const CompilerDriver* compiler,
                      ImageWriter* image_writer,
@@ -310,6 +316,9 @@ class OatWriter {
 
   // Offset of section holding Dex files inside Vdex.
   size_t vdex_dex_files_offset_;
+
+  // Offset of section holding VerifierDeps inside Vdex.
+  size_t vdex_verifier_deps_offset_;
 
   // Size required for Oat data structures.
   size_t oat_size_;
