@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8be1fa42_79e17dee",
+        "filename": "tools/javafuzz/run_java_fuzz_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-14T21:58:18Z",
+      "side": 1,
+      "message": "last nit: can we save before running bisection: reason if bisection search crashes and brings down script, I would like to have the files saved already",
+      "revId": "3da77c1ce9883b62dc8e8e5a39de7002ccda458e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
