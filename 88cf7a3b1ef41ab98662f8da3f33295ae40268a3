@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8be1fa42_dfa194ad",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-14T04:11:06Z",
+      "side": 1,
+      "message": "Removed, and added in other places that needed it, but didn\u0027t have it.",
+      "parentUuid": "8be1fa42_7c2cd905",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "88cf7a3b1ef41ab98662f8da3f33295ae40268a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_3ca7f15c",
         "filename": "runtime/dex_file_annotations.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8be1fa42_1f9c9c6b",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-14T04:11:06Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "8be1fa42_3ca7f15c",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "88cf7a3b1ef41ab98662f8da3f33295ae40268a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_7ca17944",
         "filename": "runtime/dex_file_annotations.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-13T23:10:01Z",
       "side": 1,
       "message": "2016?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "88cf7a3b1ef41ab98662f8da3f33295ae40268a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_bfa650c1",
+        "filename": "runtime/dex_file_annotations.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-14T04:11:06Z",
+      "side": 1,
+      "message": "Don\u0027t know what the right answer is, but I\u0027m going with 2016.",
+      "parentUuid": "8be1fa42_7ca17944",
       "range": {
         "startLine": 2,
         "startChar": 17,
