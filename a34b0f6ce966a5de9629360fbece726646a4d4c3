@@ -22,6 +22,30 @@
       "revId": "a34b0f6ce966a5de9629360fbece726646a4d4c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b918ace_7e2071a9",
+        "filename": "runtime/verifier/verifier_deps_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-14T14:02:14Z",
+      "side": 1,
+      "message": "Changed to the DEX file for this test. We have that under control.",
+      "parentUuid": "6b820684_4109128b",
+      "range": {
+        "startLine": 1028,
+        "startChar": 14,
+        "endLine": 1028,
+        "endChar": 20
+      },
+      "revId": "a34b0f6ce966a5de9629360fbece726646a4d4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
