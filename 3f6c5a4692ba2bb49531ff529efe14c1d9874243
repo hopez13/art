@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6f72aa_f4d578df",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T13:29:36Z",
+      "side": 1,
+      "message": "Not your fault, but this is getting unreadable. How about:\n\nif (has_only_one_use) {\n  if (!load_class-\u003eCanThrow()) {\n    // Add some comments\n    Remove();\n  } else if (!Inlined \u0026\u0026 CanMove()) {\n    // Add some comments\n    if (load_class-\u003eNeedsAccessCheck()) {\n      SetEntryPoint()\n    }\n    Remove()\n  }",
+      "range": {
+        "startLine": 153,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 60
+      },
+      "revId": "3f6c5a4692ba2bb49531ff529efe14c1d9874243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
