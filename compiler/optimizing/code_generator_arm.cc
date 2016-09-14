@@ -96,10 +96,6 @@ class DivZeroCheckSlowPathARM : public SlowPathCode {
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
     CodeGeneratorARM* arm_codegen = down_cast<CodeGeneratorARM*>(codegen);
     __ Bind(GetEntryLabel());
-    if (instruction_->CanThrowIntoCatchBlock()) {
-      // Live registers will be restored in the catch block if caught.
-      SaveLiveRegisters(codegen, instruction_->GetLocations());
-    }
     arm_codegen->InvokeRuntime(kQuickThrowDivZero, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickThrowDivZero, void, void>();
   }
@@ -1502,7 +1498,7 @@ void InstructionCodeGeneratorARM::VisitIf(HIf* if_instr) {
 void LocationsBuilderARM::VisitDeoptimize(HDeoptimize* deoptimize) {
   LocationSummary* locations = new (GetGraph()->GetArena())
       LocationSummary(deoptimize, LocationSummary::kCallOnSlowPath);
-  locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+  locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   if (IsBooleanValueOrMaterializedCondition(deoptimize->InputAt(0))) {
     locations->SetInAt(0, Location::RequiresRegister());
   }
@@ -3085,14 +3081,8 @@ void InstructionCodeGeneratorARM::VisitRem(HRem* rem) {
 }
 
 void LocationsBuilderARM::VisitDivZeroCheck(HDivZeroCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
   locations->SetInAt(0, Location::RegisterOrConstant(instruction->InputAt(0)));
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
-  }
 }
 
 void InstructionCodeGeneratorARM::VisitDivZeroCheck(HDivZeroCheck* instruction) {
@@ -3931,7 +3921,7 @@ void LocationsBuilderARM::HandleFieldGet(HInstruction* instruction, const FieldI
                                                        LocationSummary::kCallOnSlowPath :
                                                        LocationSummary::kNoCall);
   if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
-    locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
 
@@ -4251,7 +4241,8 @@ void InstructionCodeGeneratorARM::VisitUnresolvedStaticFieldSet(
 }
 
 void LocationsBuilderARM::VisitNullCheck(HNullCheck* instruction) {
-  codegen_->CreateNullCheckLocations(instruction);
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
+  locations->SetInAt(0, Location::RequiresRegister());
 }
 
 void CodeGeneratorARM::GenerateImplicitNullCheck(HNullCheck* instruction) {
@@ -4403,7 +4394,7 @@ void LocationsBuilderARM::VisitArrayGet(HArrayGet* instruction) {
                                                        LocationSummary::kCallOnSlowPath :
                                                        LocationSummary::kNoCall);
   if (object_array_get_with_read_barrier && kUseBakerReadBarrier) {
-    locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
@@ -4888,15 +4879,13 @@ void InstructionCodeGeneratorARM::VisitIntermediateAddress(HIntermediateAddress*
 }
 
 void LocationsBuilderARM::VisitBoundsCheck(HBoundsCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  RegisterSet caller_saves = RegisterSet::Empty();
+  InvokeRuntimeCallingConvention calling_convention;
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction, caller_saves);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
-  }
 }
 
 void InstructionCodeGeneratorARM::VisitBoundsCheck(HBoundsCheck* instruction) {
@@ -4940,7 +4929,7 @@ void InstructionCodeGeneratorARM::VisitParallelMove(HParallelMove* instruction) 
 void LocationsBuilderARM::VisitSuspendCheck(HSuspendCheck* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
-  locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+  locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
 }
 
 void InstructionCodeGeneratorARM::VisitSuspendCheck(HSuspendCheck* instruction) {
@@ -5262,7 +5251,7 @@ void LocationsBuilderARM::VisitLoadClass(HLoadClass* cls) {
       : LocationSummary::kNoCall;
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(cls, call_kind);
   if (kUseBakerReadBarrier && requires_read_barrier && !cls->NeedsEnvironment()) {
-    locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
 
   HLoadClass::LoadKind load_kind = cls->GetLoadKind();
@@ -5566,7 +5555,7 @@ void LocationsBuilderARM::VisitInstanceOf(HInstanceOf* instruction) {
 
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
   if (baker_read_barrier_slow_path) {
-    locations->SetCustomSlowPathCallerSaves(RegisterSet());  // No caller-save registers.
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
