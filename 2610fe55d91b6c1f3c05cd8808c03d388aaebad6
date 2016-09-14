@@ -46,6 +46,30 @@
       "revId": "2610fe55d91b6c1f3c05cd8808c03d388aaebad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b6be69b_f99ad75f",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-14T09:29:35Z",
+      "side": 1,
+      "message": "I think at least saying that making the call kind \"call on slow path\" has the (unintuitive) side effect of creating a stack map.",
+      "parentUuid": "6bdda69f_492cc105",
+      "range": {
+        "startLine": 1129,
+        "startChar": 4,
+        "endLine": 1129,
+        "endChar": 49
+      },
+      "revId": "2610fe55d91b6c1f3c05cd8808c03d388aaebad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
