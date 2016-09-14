@@ -46,6 +46,52 @@
       "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_bf064578",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-14T22:47:52Z",
+      "side": 1,
+      "message": "h_this.Get()?",
+      "range": {
+        "startLine": 597,
+        "startChar": 68,
+        "endLine": 597,
+        "endChar": 80
+      },
+      "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be1fa42_bf8da5e0",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-14T22:47:52Z",
+      "side": 1,
+      "message": "Can you remind me, this means the function shouldn\u0027t have a suspend point, right?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "12bfea25cc55a2e88b133f576d32028d7bad0b49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
