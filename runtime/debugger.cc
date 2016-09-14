@@ -1756,9 +1756,15 @@ static JDWP::JdwpError GetFieldValueImpl(JDWP::RefTypeId ref_type_id, JDWP::Obje
                                          bool is_static)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JDWP::JdwpError error;
-  mirror::Class* c = DecodeClass(ref_type_id, &error);
-  if (ref_type_id != 0 && c == nullptr) {
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  MutableHandle<mirror::Class> klass(hs.NewHandle(DecodeClass(ref_type_id, &error)));
+  if (ref_type_id != 0 && klass.Get() == nullptr) {
     return error;
+  }
+
+  if (!Runtime::Current()->GetClassLinker()->EnsureInitialized(self, klass, true, false)) {
+    LOG(WARNING) << "Not able to initialize class for GetValues: " << PrettyClass(klass.Get());
   }
 
   mirror::Object* o = Dbg::GetObjectRegistry()->Get<mirror::Object*>(object_id, &error);
@@ -1767,13 +1773,12 @@ static JDWP::JdwpError GetFieldValueImpl(JDWP::RefTypeId ref_type_id, JDWP::Obje
   }
   ArtField* f = FromFieldId(field_id);
 
-  mirror::Class* receiver_class = c;
-  if (receiver_class == nullptr && o != nullptr) {
-    receiver_class = o->GetClass();
+  if (klass.Get() == nullptr && o != nullptr) {
+    klass.Assign(o->GetClass());
   }
-  // TODO: should we give up now if receiver_class is null?
-  if (receiver_class != nullptr && !f->GetDeclaringClass()->IsAssignableFrom(receiver_class)) {
-    LOG(INFO) << "ERR_INVALID_FIELDID: " << PrettyField(f) << " " << PrettyClass(receiver_class);
+  // TODO: should we give up now if klass is null?
+  if (klass.Get() != nullptr && !f->GetDeclaringClass()->IsAssignableFrom(klass.Get())) {
+    LOG(INFO) << "ERR_INVALID_FIELDID: " << PrettyField(f) << " " << PrettyClass(klass.Get());
     return JDWP::ERR_INVALID_FIELDID;
   }
 
@@ -1888,6 +1893,12 @@ static JDWP::JdwpError SetFieldValueImpl(JDWP::ObjectId object_id, JDWP::FieldId
     return JDWP::ERR_INVALID_OBJECT;
   }
   ArtField* f = FromFieldId(field_id);
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Class> klass(hs.NewHandle(f->GetDeclaringClass()));
+  if (!Runtime::Current()->GetClassLinker()->EnsureInitialized(self, klass, true, false)) {
+    LOG(WARNING) << "Not able to initialize class for SetValues: " << PrettyClass(klass.Get());
+  }
 
   // The RI only enforces the static/non-static mismatch in one direction.
   // TODO: should we change the tests and check both?
