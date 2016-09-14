@@ -154,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "8be1fa42_9fd9c112",
+        "filename": "test/618-checker-new-instance/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-14T22:53:45Z",
+      "side": 1,
+      "message": "Hmm I think the test was wrong. The fix is mostly for the MarkInDexCache case. How do I test that? That only happens for the boot image case really.",
+      "parentUuid": "4bce22f1_e8981323",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9692c8_3ce191ef",
         "filename": "test/618-checker-new-instance/src/Main.java",
         "patchSetId": 4
