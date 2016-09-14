@@ -139,18 +139,18 @@ Location InvokeRuntimeCallingConvention::GetReturnLocation(Primitive::Type retur
 
 // Calculate memory accessing operand for save/restore live registers.
 static void SaveRestoreLiveRegistersHelper(CodeGenerator* codegen,
-                                           RegisterSet* register_set,
+                                           LocationSummary* locations,
                                            int64_t spill_offset,
                                            bool is_save) {
-  DCHECK(ArtVixlRegCodeCoherentForRegSet(register_set->GetCoreRegisters(),
+  const uint32_t core_spills = codegen->GetSlowPathSpills(locations, /* core_registers */ true);
+  const uint32_t fp_spills = codegen->GetSlowPathSpills(locations, /* core_registers */ false);
+  DCHECK(ArtVixlRegCodeCoherentForRegSet(core_spills,
                                          codegen->GetNumberOfCoreRegisters(),
-                                         register_set->GetFloatingPointRegisters(),
+                                         fp_spills,
                                          codegen->GetNumberOfFloatingPointRegisters()));
 
-  CPURegList core_list = CPURegList(CPURegister::kRegister, kXRegSize,
-      register_set->GetCoreRegisters() & (~callee_saved_core_registers.GetList()));
-  CPURegList fp_list = CPURegList(CPURegister::kFPRegister, kDRegSize,
-      register_set->GetFloatingPointRegisters() & (~callee_saved_fp_registers.GetList()));
+  CPURegList core_list = CPURegList(CPURegister::kRegister, kXRegSize, core_spills);
+  CPURegList fp_list = CPURegList(CPURegister::kFPRegister, kDRegSize, fp_spills);
 
   MacroAssembler* masm = down_cast<CodeGeneratorARM64*>(codegen)->GetVIXLAssembler();
   UseScratchRegisterScope temps(masm);
@@ -184,38 +184,35 @@ static void SaveRestoreLiveRegistersHelper(CodeGenerator* codegen,
 }
 
 void SlowPathCodeARM64::SaveLiveRegisters(CodeGenerator* codegen, LocationSummary* locations) {
-  RegisterSet* register_set = locations->GetLiveRegisters();
   size_t stack_offset = codegen->GetFirstRegisterSlotInSlowPath();
-  for (size_t i = 0, e = codegen->GetNumberOfCoreRegisters(); i < e; ++i) {
-    if (!codegen->IsCoreCalleeSaveRegister(i) && register_set->ContainsCoreRegister(i)) {
-      // If the register holds an object, update the stack mask.
-      if (locations->RegisterContainsObject(i)) {
-        locations->SetStackBit(stack_offset / kVRegSize);
-      }
-      DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-      DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-      saved_core_stack_offsets_[i] = stack_offset;
-      stack_offset += kXRegSizeInBytes;
+  const uint32_t core_spills = codegen->GetSlowPathSpills(locations, /* core_registers */ true);
+  for (uint32_t i : LowToHighBits(core_spills)) {
+    // If the register holds an object, update the stack mask.
+    if (locations->RegisterContainsObject(i)) {
+      locations->SetStackBit(stack_offset / kVRegSize);
     }
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    saved_core_stack_offsets_[i] = stack_offset;
+    stack_offset += kXRegSizeInBytes;
   }
 
-  for (size_t i = 0, e = codegen->GetNumberOfFloatingPointRegisters(); i < e; ++i) {
-    if (!codegen->IsFloatingPointCalleeSaveRegister(i) &&
-        register_set->ContainsFloatingPointRegister(i)) {
-      DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
-      DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-      saved_fpu_stack_offsets_[i] = stack_offset;
-      stack_offset += kDRegSizeInBytes;
-    }
+  const uint32_t fp_spills = codegen->GetSlowPathSpills(locations, /* core_registers */ false);
+  for (size_t i : LowToHighBits(fp_spills)) {
+    DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
+    DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
+    saved_fpu_stack_offsets_[i] = stack_offset;
+    stack_offset += kDRegSizeInBytes;
   }
 
-  SaveRestoreLiveRegistersHelper(codegen, register_set,
+  SaveRestoreLiveRegistersHelper(codegen,
+                                 locations,
                                  codegen->GetFirstRegisterSlotInSlowPath(), true /* is_save */);
 }
 
 void SlowPathCodeARM64::RestoreLiveRegisters(CodeGenerator* codegen, LocationSummary* locations) {
-  RegisterSet* register_set = locations->GetLiveRegisters();
-  SaveRestoreLiveRegistersHelper(codegen, register_set,
+  SaveRestoreLiveRegistersHelper(codegen,
+                                 locations,
                                  codegen->GetFirstRegisterSlotInSlowPath(), false /* is_save */);
 }
 
@@ -261,10 +258,6 @@ class DivZeroCheckSlowPathARM64 : public SlowPathCodeARM64 {
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
     CodeGeneratorARM64* arm64_codegen = down_cast<CodeGeneratorARM64*>(codegen);
     __ Bind(GetEntryLabel());
-    if (instruction_->CanThrowIntoCatchBlock()) {
-      // Live registers will be restored in the catch block if caught.
-      SaveLiveRegisters(codegen, instruction_->GetLocations());
-    }
     arm64_codegen->InvokeRuntime(kQuickThrowDivZero, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickThrowDivZero, void, void>();
   }
@@ -2306,15 +2299,13 @@ void InstructionCodeGeneratorARM64::VisitArraySet(HArraySet* instruction) {
 }
 
 void LocationsBuilderARM64::VisitBoundsCheck(HBoundsCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  RegisterSet caller_saves;
+  InvokeRuntimeCallingConvention calling_convention;
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0).GetCode()));
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(1).GetCode()));
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction, caller_saves);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, ARM64EncodableConstantOrRegister(instruction->InputAt(1), instruction));
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
-  }
 }
 
 void InstructionCodeGeneratorARM64::VisitBoundsCheck(HBoundsCheck* instruction) {
@@ -2685,14 +2676,8 @@ void InstructionCodeGeneratorARM64::VisitDiv(HDiv* div) {
 }
 
 void LocationsBuilderARM64::VisitDivZeroCheck(HDivZeroCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
   locations->SetInAt(0, Location::RegisterOrConstant(instruction->InputAt(0)));
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
-  }
 }
 
 void InstructionCodeGeneratorARM64::VisitDivZeroCheck(HDivZeroCheck* instruction) {
@@ -4384,7 +4369,8 @@ void InstructionCodeGeneratorARM64::VisitBooleanNot(HBooleanNot* instruction) {
 }
 
 void LocationsBuilderARM64::VisitNullCheck(HNullCheck* instruction) {
-  codegen_->CreateNullCheckLocations(instruction);
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
+  locations->SetInAt(0, Location::RequiresRegister());
 }
 
 void CodeGeneratorARM64::GenerateImplicitNullCheck(HNullCheck* instruction) {

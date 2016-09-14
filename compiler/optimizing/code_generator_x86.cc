@@ -84,10 +84,6 @@ class DivZeroCheckSlowPathX86 : public SlowPathCode {
   void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
     CodeGeneratorX86* x86_codegen = down_cast<CodeGeneratorX86*>(codegen);
     __ Bind(GetEntryLabel());
-    if (instruction_->CanThrowIntoCatchBlock()) {
-      // Live registers will be restored in the catch block if caught.
-      SaveLiveRegisters(codegen, instruction_->GetLocations());
-    }
     x86_codegen->InvokeRuntime(kQuickThrowDivZero, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickThrowDivZero, void, void>();
   }
@@ -3548,10 +3544,7 @@ void InstructionCodeGeneratorX86::VisitRem(HRem* rem) {
 }
 
 void LocationsBuilderX86::VisitDivZeroCheck(HDivZeroCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
   switch (instruction->GetType()) {
     case Primitive::kPrimBoolean:
     case Primitive::kPrimByte:
@@ -3570,9 +3563,6 @@ void LocationsBuilderX86::VisitDivZeroCheck(HDivZeroCheck* instruction) {
     }
     default:
       LOG(FATAL) << "Unexpected type for HDivZeroCheck " << instruction->GetType();
-  }
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
   }
 }
 
@@ -4927,11 +4917,11 @@ void InstructionCodeGeneratorX86::VisitUnresolvedStaticFieldSet(
 }
 
 void LocationsBuilderX86::VisitNullCheck(HNullCheck* instruction) {
-  LocationSummary* locations = codegen_->CreateNullCheckLocations(instruction);
-  if (!codegen_->GetCompilerOptions().GetImplicitNullChecks()) {
-    // Explicit null checks can use any location.
-    locations->SetInAt(0, Location::Any());
-  }
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction);
+  Location loc = codegen_->GetCompilerOptions().GetImplicitNullChecks()
+      ? Location::RequiresRegister()
+      : Location::Any();
+  locations->SetInAt(0, loc);
 }
 
 void CodeGeneratorX86::GenerateImplicitNullCheck(HNullCheck* instruction) {
@@ -5369,17 +5359,15 @@ void InstructionCodeGeneratorX86::VisitArrayLength(HArrayLength* instruction) {
 }
 
 void LocationsBuilderX86::VisitBoundsCheck(HBoundsCheck* instruction) {
-  LocationSummary::CallKind call_kind = instruction->CanThrowIntoCatchBlock()
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
-  LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
+  RegisterSet caller_saves;
+  InvokeRuntimeCallingConvention calling_convention;
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(1)));
+  LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction, caller_saves);
   locations->SetInAt(0, Location::RegisterOrConstant(instruction->InputAt(0)));
   HInstruction* length = instruction->InputAt(1);
   if (!length->IsEmittedAtUseSite()) {
     locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
-  }
-  if (instruction->HasUses()) {
-    locations->SetOut(Location::SameAsFirstInput());
   }
 }
 

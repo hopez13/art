@@ -313,7 +313,8 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   bool CanMoveNullCheckToUser(HNullCheck* null_check);
   void MaybeRecordImplicitNullCheck(HInstruction* instruction);
-  LocationSummary* CreateNullCheckLocations(HNullCheck* null_check);
+  LocationSummary* CreateThrowingSlowPathLocations(HInstruction* instruction,
+                                                   RegisterSet caller_saves = RegisterSet());
   void GenerateNullCheck(HNullCheck* null_check);
   virtual void GenerateImplicitNullCheck(HNullCheck* null_check) = 0;
   virtual void GenerateExplicitNullCheck(HNullCheck* null_check) = 0;
