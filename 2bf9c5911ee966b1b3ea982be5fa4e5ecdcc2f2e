@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b5c6205_780401b9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "No. We will upstream a port of the existing intrinsics (intrinsics_arm_vixl.cc) and replace them (rename to intrinsics_arm.cc) when we reach parity, in much the same way as we are doing for the code generator. Let us know if you would prefer a different approach.",
+      "parentUuid": "f6741f0d_c5503a29",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567a4bf7_a83f9bc2",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Is this really needed, given that `vixl32` is alreay a shortcut for `vixl::aarch32`?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 52
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdda69f_ec25c3b6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "This is for the condition code. vixl32::eq, vixl32::lt etc. are less readable than eq, lt etc.",
+      "parentUuid": "567a4bf7_a83f9bc2",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_383b6528",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_18b069e1",
+      "range": {
+        "startLine": 57,
+        "startChar": 50,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6a97fa7_bd769f99",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "This change is recent, but can this be turned into:\n\n  if (EntrypointRequiresStackMap(entrypoint)) {\n    RecordPcInfo(instruction, dex_pc, slow_path);\n  }\n\n?",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 47
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b820684_c109a239",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a97fa7_bd769f99",
       "range": {
         "startLine": 397,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_58382129",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb63f225_d4929ca2",
+      "range": {
+        "startLine": 625,
+        "startChar": 6,
+        "endLine": 625,
+        "endChar": 31
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb63f225_34f31004",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 627,
+        "startChar": 6,
+        "endLine": 627,
+        "endChar": 32
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_7835dd2d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb63f225_34f31004",
       "range": {
         "startLine": 627,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "0b7a6a68_16403c37",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "It was intentional.\n\nI have patched VIXL to provide an IsLinked() equivalent in the aarch32 Label and made a note to amend the code here when we do the next VIXL release.",
+      "parentUuid": "ebefd6c0_ed370537",
+      "range": {
+        "startLine": 647,
+        "startChar": 6,
+        "endLine": 647,
+        "endChar": 61
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_d5d31c53",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Move this into a\n\n  if (kIsDebugBuild) { /* ... */ }\n\nblock?  Or maybe the definition of `cond_val` at its unique use site?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 34
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_18f86942",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_d5d31c53",
       "range": {
         "startLine": 686,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4b5c6205_3893695b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_f89acd5f",
+      "range": {
+        "startLine": 806,
+        "startChar": 61,
+        "endLine": 806,
+        "endChar": 62
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_38ad258c",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1198,
+        "endChar": 21
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb9692c8_9f58d75c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_38ad258c",
       "range": {
         "startLine": 1195,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_988e39e0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Yes. It\u0027s destination first, as in the ARM ARM.\n\ncodegen_tests doesn\u0027t explicitly test these FP code paths. I could replace them with TODO_VIXL32(FATAL) until a later patch can explicitly prove them via a test?",
+      "parentUuid": "4b5c6205_58965d99",
+      "range": {
+        "startLine": 1259,
+        "startChar": 10,
+        "endLine": 1259,
+        "endChar": 67
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_78a79da9",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1268,
+        "startChar": 0,
+        "endLine": 1271,
+        "endChar": 77
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_d898b123",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_78a79da9",
       "range": {
         "startLine": 1268,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_f89d6d10",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_98c6393f",
+      "range": {
+        "startLine": 1322,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 22
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_78c23d27",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 2021,
+        "startChar": 0,
+        "endLine": 2022,
+        "endChar": 52
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_188309b6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_78c23d27",
       "range": {
         "startLine": 2021,
         "startChar": 0,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_3880c5a6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_d8e7d1d4",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2029,
+        "endChar": 26
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_f8ec8dbb",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -358,6 +718,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2053,
+        "startChar": 0,
+        "endLine": 2053,
+        "endChar": 23
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_588d81dd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_f8ec8dbb",
       "range": {
         "startLine": 2053,
         "startChar": 0,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_788a3dc8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_38dfe5f7",
+      "range": {
+        "startLine": 2135,
+        "startChar": 47,
+        "endLine": 2135,
+        "endChar": 63
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb76f682_58dca100",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -404,6 +812,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2139,
+        "startChar": 49,
+        "endLine": 2139,
+        "endChar": 65
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_98b55988",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2139,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb76f682_58dca100",
       "range": {
         "startLine": 2139,
         "startChar": 49,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_d8afd135",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367f97e8_c732feaa",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56a16ba9_3016a861",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -450,6 +906,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "I would #undef this at the end of this file.",
+      "range": {
+        "startLine": 52,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 40
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_18aa2926",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a16ba9_3016a861",
       "range": {
         "startLine": 52,
         "startChar": 8,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_f8b48d88",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a16ba9_500b2c34",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 42
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76890f3e_898ad94c",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -496,6 +1000,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "Factor this macro definition with the one from line 214?",
+      "range": {
+        "startLine": 182,
+        "startChar": 8,
+        "endLine": 182,
+        "endChar": 46
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_f8672d1b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76890f3e_898ad94c",
       "range": {
         "startLine": 182,
         "startChar": 8,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_186dc9fc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76890f3e_e9819530",
+      "range": {
+        "startLine": 189,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 48
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96992396_025aca54",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -554,6 +1106,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_78a15d44",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96992396_025aca54",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 10
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "367f97e8_a7350a96",
         "filename": "compiler/optimizing/common_arm.h",
         "patchSetId": 1
@@ -565,6 +1141,30 @@
       "writtenOn": "2016-09-15T10:22:21Z",
       "side": 1,
       "message": "`vixl32` is an alias of `vixl::aarch32`; I think we should consistently use one or the other in this file.",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_386a85e5",
+        "filename": "compiler/optimizing/common_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-09-15T15:14:03Z",
+      "side": 1,
+      "message": "Agreed, and vixl::aarch32 makes the header more independent.",
+      "parentUuid": "367f97e8_a7350a96",
       "range": {
         "startLine": 57,
         "startChar": 9,
