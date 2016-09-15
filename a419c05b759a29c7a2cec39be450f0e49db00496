@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab6cfeb8_13068c2c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-15T12:40:20Z",
+      "side": 1,
+      "message": "The worst of the hackery is here. This needs a minor refactor of the invoke code to handle properly.",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 56
+      },
+      "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
