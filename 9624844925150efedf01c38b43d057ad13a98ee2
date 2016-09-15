@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b7a6a68_f66580e5",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-15T14:35:48Z",
+      "side": 1,
+      "message": "We don\u0027t have an appropriate operator\u003c\u003c for that.",
+      "parentUuid": "6b820684_618d36de",
+      "range": {
+        "startLine": 2022,
+        "startChar": 2,
+        "endLine": 2022,
+        "endChar": 8
+      },
+      "revId": "9624844925150efedf01c38b43d057ad13a98ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b4bba45_f2eca8bb",
         "filename": "compiler/utils/arm/assembler_thumb2.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-15T12:22:36Z",
       "side": 1,
       "message": "IsCandidateForEmitEarly?",
+      "range": {
+        "startLine": 602,
+        "startChar": 9,
+        "endLine": 602,
+        "endChar": 29
+      },
+      "revId": "9624844925150efedf01c38b43d057ad13a98ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7a6a68_d6aa44df",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-15T14:35:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4bba45_f2eca8bb",
       "range": {
         "startLine": 602,
         "startChar": 9,
