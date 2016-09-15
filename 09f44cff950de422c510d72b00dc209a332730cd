@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "708af7dc_e1b0a6e4",
+        "filename": "test/618-checker-new-instance/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T19:46:29Z",
+      "side": 1,
+      "message": "Ah yes :( So unfortunately, we don\u0027t have the infrastructure (yet?) for testing boot image optimizations in checker.\n\nHow about if the HLoadClass is on the current method?",
+      "parentUuid": "cb1db24e_e7a05ca7",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9692c8_3ce191ef",
         "filename": "test/618-checker-new-instance/src/Main.java",
         "patchSetId": 4
