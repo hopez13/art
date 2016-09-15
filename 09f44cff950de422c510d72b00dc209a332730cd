@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "4bce22f1_a82a9b9f",
+        "filename": "test/618-checker-new-instance/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T09:54:39Z",
+      "side": 1,
+      "message": "Not app image?",
+      "parentUuid": "8be1fa42_9fd9c112",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "09f44cff950de422c510d72b00dc209a332730cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb9692c8_3ce191ef",
         "filename": "test/618-checker-new-instance/src/Main.java",
         "patchSetId": 4
