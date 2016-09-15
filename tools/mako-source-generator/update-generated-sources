@@ -1,0 +1,202 @@
+#!/bin/bash
+
+#
+# Copyright (C) 2016 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+########################################################################################
+#
+# Process each mako file in ./views/path/to/file.ext.mako by rendering it with the
+# mako templating engine and save the resulting file into $ANDROID_BUILD_TOP/path/to/file.ext
+#
+# This means the relative directory structure of the views files gets copied
+# relative to the Android build directory (and .mako removed from the file extension).
+#########################################################################################
+
+# Allow mapping from ./views/ to only the following directories.
+# -- Files in other directories under ./views/ will be considered an error.
+allowed_root_directories=(art libcore)
+
+[[ -z ${ANDROID_BUILD_TOP+x} ]] && { echo "Run source build/envsetup.sh first" >&2 && exit 1; }
+
+set -e
+
+this_dir="$(cd "$(dirname "$0")"; pwd)"
+views_dir="$this_dir/views"
+
+print_usage() {
+  echo "Usage: ${BASH_SOURCE##*/}"
+  echo ""
+  echo "  Optional parameters:"
+  echo "      -d|--debug: Enable extra debugging output."
+  echo "      -s|--simulate-update: Don't update the files in the android root. Instead update them into a temporary directory."
+  echo "      -h|--help: Print this usage."
+}
+
+debug_print() {
+  if [[ $debug -eq 1 ]]; then
+    echo "DEBUG: $@" >&2
+  fi
+}
+
+error_print() {
+  echo "ERROR: $@" >&2
+}
+
+warning_print() {
+  echo "WARNING: $@" >&2
+}
+
+fatal_print() {
+  echo "FATAL: $@" >&2
+  exit 1
+}
+
+main() {
+  # Sanity checks before we do anything else.
+  [[ -d $views_dir ]] || fatal_print "Missing directory '$views_dir'"
+
+  debug=0
+  while [[ $# -gt 0 ]]
+  do
+    key="$1"
+
+    case "$key" in
+      -d|--debug)
+      debug=1
+      ;;
+      -s|--simulate-update)
+      simulate_update=1
+      ;;
+      -h|--help)
+      print_usage
+      exit 0
+      ;;
+      -*)
+      error_print "Unknown flag $key"
+      print_usage
+      exit 1
+      ;;
+      *)
+              # unknown option
+      ;;
+    esac
+    shift # past argument or value
+  done
+
+  find_all_views | while read -r view_file_name; do
+    if ! regenerate_file_from_view "$view_file_name"; then
+      # Sometimes we return an exit code of 1, e.g. warning. Do not exit if that's the case.
+      echo "" >& /dev/null
+    fi
+  done
+}
+
+# Find all views in the views directory and print a relative path to them from the views directory.
+find_all_views() {
+  pushd "$views_dir" >&/dev/null
+  ## .mako and .pmako files only
+  find . -regex ".*[.]p?mako"  | sed "s:^[.][/]::g" # and strip the annoying "./" prefix from files.
+  popd >&/dev/null
+}
+
+# Remove the '.mako' file extension.
+strip_mako_extension() {
+  local view_name="$1"
+
+  # foo/bar/baz.cpp.p?mako -> foo/bar/baz.cpp
+  local original_file="${view_name%%.mako}"  # strip .mako suffix
+  original_file="${original_file%%.pmako}"   # strip .pmako suffix
+
+  echo "$original_file"
+}
+
+is_file_in_allowed_root_directory() {
+  local file_name="$1"
+  local dir_name="${file_name%%/*}"  # a/b/c.txt -> a
+
+  for root_dir in "${allowed_root_directories[@]}"; do
+    if [[ $dir_name == $root_dir ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+# Join array (passed in $1) with commas.
+join_array() {
+  declare -a array1=("${!1}")
+  printf ",%s" "${array1[@]}"
+  return 0
+}
+
+is_partial_mako_file() {
+  local view_name="$1"
+
+  [[ $view_name == *.pmako ]]
+}
+
+# Given a ".mako"/."pmako" file path generate it by
+# consuming the views/<path>/foo.mako and producing $ANDROID_BUILD_TOP/foo
+regenerate_file_from_view() {
+  local view_file_name="$1"
+  local target_file="$ANDROID_BUILD_TOP/$(strip_mako_extension "$view_file_name")"
+  local src_mako_file="$views_dir/$view_file_name"
+
+  debug_print "View_file_name: $view_file_name"
+  debug_print "Target_file: $target_file"
+  debug_print "src_mako_file: $src_mako_file"
+
+  if ! is_file_in_allowed_root_directory "$view_file_name"; then
+    local allowed_string="$(join_array allowed_root_directories[@])"
+    error_print "View file '$view_file_name' is not in an allowed root directory ($allowed_string)."
+    return 1
+  fi
+
+  if ! [[ -f "$target_file" ]]; then
+    warning_print "Target file '$target_file' does not exist; refusing to re-generate it."
+    return 1
+  fi
+
+  # TODO: Implement support for pmako files which need to be generated into the middle
+  # of an existing file.
+  if is_partial_mako_file "$view_file_name"; then
+    warning_print "View '$view_file_name' is a .pmako, currently unsupported; SKIPPING."
+    return 1
+  fi
+
+  # Always print the command so we can see what's going on.
+  echo "./render_mako_template.py \"$src_mako_file\" \"$target_file\""
+
+  if (( simulate_update == 1 )); then
+    # If ran with --simulate update, finish, don't actually execute the command.
+    return 0
+  fi
+
+  # Normal mode of operation, actually execute the command.
+  if ! $this_dir/render_mako_template.py "$src_mako_file" "$target_file"; then
+    error_print "Failed to generate '$target_file'; check for syntax errors?"
+    return 1
+  fi
+
+  # TODO: maybe add some support for diffing the file to print a summary
+  # of actually changed files.
+
+  return 0
+}
+
+main "$@"
+

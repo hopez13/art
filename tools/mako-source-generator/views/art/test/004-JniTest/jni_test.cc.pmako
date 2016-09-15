@@ -1,0 +1,127 @@
+## -*- coding: utf-8 -*-
+##
+## Copyright (C) 2016 The Android Open Source Project
+##
+##  Licensed under the Apache License, Version 2.0 (the "License");
+##  you may not use this file except in compliance with the License.
+##  You may obtain a copy of the License at
+##
+##       http://www.apache.org/licenses/LICENSE-2.0
+##
+##  Unless required by applicable law or agreed to in writing, software
+##  distributed under the License is distributed on an "AS IS" BASIS,
+##  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+##  See the License for the specific language governing permissions and
+##  limitations under the License.
+##
+
+% for explicit_register, jni_prefix in [(False, ""), (True, "Fast"), (True, "Critical")]:
+<%
+jni_extra_args = jni_prefix != "Critical" and "JNIEnv*, jclass," or ""
+%>
+
+% if explicit_register:
+static jbyte Java_Main_${jni_prefix}byteMethod(JNIEnv*, jclass, jbyte b1, jbyte b2, jbyte b3, jbyte b4, jbyte b5, jbyte b6, jbyte b7, jbyte b8, jbyte b9, jbyte b10);
+static jshort Java_Main_${jni_prefix}shortMethod(JNIEnv*, jclass, jshort b1, jshort b2, jshort b3, jshort b4, jshort b5, jshort b6, jshort b7, jshort b8, jshort b9, jshort b10);
+static jboolean Java_Main_${jni_prefix}booleanMethod(JNIEnv*, jclass, jboolean b1, jboolean b2, jboolean b3, jboolean b4, jboolean b5, jboolean b6, jboolean b7, jboolean b8, jboolean b9, jboolean b10);
+static jchar Java_Main_${jni_prefix}charMethod(JNIEnv*, jclass, jchar b1, jchar b2, jchar b3, jchar b4, jchar b5, jchar b6, jchar b7, jchar b8, jchar b9, jchar b10);
+
+static JNINativeMethod sMainMethods${jni_prefix}[] = {
+    {"${jni_prefix}byteMethod",    "(BBBBBBBBBB)B", reinterpret_cast<void*>(Java_Main_${jni_prefix}byteMethod) },
+    {"${jni_prefix}shortMethod",   "(SSSSSSSSSS)S", reinterpret_cast<void*>(Java_Main_${jni_prefix}shortMethod) },
+    {"${jni_prefix}booleanMethod", "(ZZZZZZZZZZ)Z", reinterpret_cast<void*>(Java_Main_${jni_prefix}booleanMethod) },
+    {"${jni_prefix}charMethod",    "(ZZZZZZZZZZ)Z", reinterpret_cast<void*>(Java_Main_${jni_prefix}charMethod) },
+};
+
+%endif
+
+extern "C" jbyte JNICALL Java_Main_${jni_prefix}byteMethod(${jni_extra_args} jbyte b1, jbyte b2,
+    jbyte b3, jbyte b4, jbyte b5, jbyte b6,
+    jbyte b7, jbyte b8, jbyte b9, jbyte b10) {
+  constexpr size_t kByteReturnSize = 7;
+  jbyte byte_returns[kByteReturnSize] = { 0, 1, 2, 127, -1, -2, -128 };
+
+  // We use b1 to drive the output.
+  CHECK_EQ(b2, 2);
+  CHECK_EQ(b3, -3);
+  CHECK_EQ(b4, 4);
+  CHECK_EQ(b5, -5);
+  CHECK_EQ(b6, 6);
+  CHECK_EQ(b7, -7);
+  CHECK_EQ(b8, 8);
+  CHECK_EQ(b9, -9);
+  CHECK_EQ(b10, 10);
+
+  CHECK_LE(0, b1);
+  CHECK_LT(b1, static_cast<jbyte>(kByteReturnSize));
+
+  return byte_returns[b1];
+}
+
+extern "C" jshort JNICALL Java_Main_${jni_prefix}shortMethod(${jni_extra_args} jshort s1, jshort s2,
+    jshort s3, jshort s4, jshort s5, jshort s6,
+    jshort s7, jshort s8, jshort s9, jshort s10) {
+  constexpr size_t kShortReturnSize = 9;
+  jshort short_returns[kShortReturnSize] = { 0, 1, 2, 127, 32767, -1, -2, -128,
+      static_cast<jshort>(0x8000) };
+  // The weird static_cast is because short int is only guaranteed down to -32767, not Java's -32768.
+
+  // We use s1 to drive the output.
+  CHECK_EQ(s2, 2);
+  CHECK_EQ(s3, -3);
+  CHECK_EQ(s4, 4);
+  CHECK_EQ(s5, -5);
+  CHECK_EQ(s6, 6);
+  CHECK_EQ(s7, -7);
+  CHECK_EQ(s8, 8);
+  CHECK_EQ(s9, -9);
+  CHECK_EQ(s10, 10);
+
+  CHECK_LE(0, s1);
+  CHECK_LT(s1, static_cast<jshort>(kShortReturnSize));
+
+  return short_returns[s1];
+}
+
+extern "C" jboolean JNICALL Java_Main_${jni_prefix}booleanMethod(${jni_extra_args} jboolean b1,
+    jboolean b2, jboolean b3, jboolean b4,
+    jboolean b5, jboolean b6, jboolean b7,
+    jboolean b8, jboolean b9, jboolean b10) {
+  // We use b1 to drive the output.
+  CHECK_EQ(b2, JNI_TRUE);
+  CHECK_EQ(b3, JNI_FALSE);
+  CHECK_EQ(b4, JNI_TRUE);
+  CHECK_EQ(b5, JNI_FALSE);
+  CHECK_EQ(b6, JNI_TRUE);
+  CHECK_EQ(b7, JNI_FALSE);
+  CHECK_EQ(b8, JNI_TRUE);
+  CHECK_EQ(b9, JNI_FALSE);
+  CHECK_EQ(b10, JNI_TRUE);
+
+  CHECK(b1 == JNI_TRUE || b1 == JNI_FALSE);
+  return b1;
+}
+
+extern "C" jchar JNICALL Java_Main_${jni_prefix}charMethod(${jni_extra_args} jchar c1, jchar c2,
+    jchar c3, jchar c4, jchar c5, jchar c6, jchar c7,
+    jchar c8, jchar c9, jchar c10) {
+  constexpr size_t kCharReturnSize = 8;
+  jchar char_returns[kCharReturnSize] = { 0, 1, 2, 127, 255, 256, 15000, 34000 };
+
+  // We use c1 to drive the output.
+  CHECK_EQ(c2, 'a');
+  CHECK_EQ(c3, 'b');
+  CHECK_EQ(c4, 'c');
+  CHECK_EQ(c5, '0');
+  CHECK_EQ(c6, '1');
+  CHECK_EQ(c7, '2');
+  CHECK_EQ(c8, 1234);
+  CHECK_EQ(c9, 2345);
+  CHECK_EQ(c10, 3456);
+
+  CHECK_LT(c1, static_cast<jchar>(kCharReturnSize));
+
+  return char_returns[c1];
+}
+
+%endfor
