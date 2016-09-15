@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_9e2a8da0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-15T22:05:50Z",
+      "side": 1,
+      "message": "Is it worth guarding this with annotation for thread_list_lock_?",
+      "range": {
+        "startLine": 711,
+        "startChar": 4,
+        "endLine": 711,
+        "endChar": 28
+      },
+      "revId": "907c76cff94e8c51d0696bbc9431aa3c71265646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_a7782457",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-15T22:05:50Z",
+      "side": 1,
+      "message": "Prefer using \"class Closure;\" instead of including this?",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "907c76cff94e8c51d0696bbc9431aa3c71265646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
