@@ -29,6 +29,7 @@
 #include "mirror/object.h"
 #include "mirror/object_reference.h"
 #include "safe_map.h"
+#include "thread_pool.h"
 
 #include <unordered_map>
 #include <vector>
@@ -161,9 +162,9 @@ class ConcurrentCopying : public GarbageCollector {
   void VerifyGrayImmuneObjects()
       REQUIRES(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
-  size_t ProcessThreadLocalMarkStacks(bool disable_weak_ref_access)
+  size_t ProcessThreadLocalMarkStacks(bool disable_weak_ref_access, Closure* checkpoint_callback)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!mark_stack_lock_);
-  void RevokeThreadLocalMarkStacks(bool disable_weak_ref_access)
+  void RevokeThreadLocalMarkStacks(bool disable_weak_ref_access, Closure* checkpoint_callback)
       REQUIRES_SHARED(Locks::mutator_lock_);
   void SwitchToSharedMarkStackMode() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_);
@@ -311,7 +312,9 @@ class ConcurrentCopying : public GarbageCollector {
   class AssertToSpaceInvariantRefsVisitor;
   class ClearBlackPtrsVisitor;
   class ComputeUnevacFromSpaceLiveRatioVisitor;
+  class DisableMarkingCallback;
   class DisableMarkingCheckpoint;
+  class DisableWeakRefAccessCallback;
   class FlipCallback;
   class GrayImmuneObjectVisitor;
   class ImmuneSpaceScanObjVisitor;
