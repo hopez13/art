@@ -164,6 +164,30 @@
       "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_7826bdd6",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-15T15:18:39Z",
+      "side": 1,
+      "message": "So here\u0027s the deal...\n\nWhat we really need is a guarantee that `destination` and `source` did not have any linkage issues. If a class had at any point the status \"resolved\", that holds.\n\nNow that is fine for both callers of AddAssignability but didn\u0027t use to hold for the optimization. So what I\u0027ve done is test for IsResolved and optimize if it is.\n\nI\u0027ve added a gtest that tests both situations (when we can / cannot optimize).\n\nAlso added comments in here.",
+      "parentUuid": "eb76f682_9849d9bb",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 78
+      },
+      "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
