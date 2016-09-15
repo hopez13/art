@@ -1,0 +1,579 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6741f0d_c5503a29",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Does the new code generator already support (existing) intrinsics generation?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567a4bf7_a83f9bc2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Is this really needed, given that `vixl32` is alreay a shortcut for `vixl::aarch32`?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 52
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_18b069e1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: 4u",
+      "range": {
+        "startLine": 57,
+        "startChar": 50,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a97fa7_bd769f99",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "This change is recent, but can this be turned into:\n\n  if (EntrypointRequiresStackMap(entrypoint)) {\n    RecordPcInfo(instruction, dex_pc, slow_path);\n  }\n\n?",
+      "range": {
+        "startLine": 397,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 47
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_d4929ca2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Add parentheses.  Also, the whole instruction should fit on a single line.",
+      "range": {
+        "startLine": 625,
+        "startChar": 6,
+        "endLine": 625,
+        "endChar": 31
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb63f225_34f31004",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 627,
+        "startChar": 6,
+        "endLine": 627,
+        "endChar": 32
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebefd6c0_ed370537",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "This conditions differs from the one in compiler/optimizing/code_generator_arm.cc; is this on purpose?  (Maybe VIXL does not provide a `IsLinked` method for labels?)",
+      "range": {
+        "startLine": 647,
+        "startChar": 6,
+        "endLine": 647,
+        "endChar": 61
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_d5d31c53",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Move this into a\n\n  if (kIsDebugBuild) { /* ... */ }\n\nblock?  Or maybe the definition of `cond_val` at its unique use site?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 34
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_f89acd5f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: 3u",
+      "range": {
+        "startLine": 806,
+        "startChar": 61,
+        "endLine": 806,
+        "endChar": 62
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_38ad258c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1198,
+        "endChar": 21
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b5c6205_58965d99",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \n\n  __ Vcvt(I32, F32, …);\n\ni.e., destination data type then source data type (and likewise in other uses below)?  (The VIXL documentation is a bit scarce about this.)",
+      "range": {
+        "startLine": 1259,
+        "startChar": 10,
+        "endLine": 1259,
+        "endChar": 67
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_78a79da9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 1268,
+        "startChar": 0,
+        "endLine": 1271,
+        "endChar": 77
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_98c6393f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 0,
+        "endLine": 1325,
+        "endChar": 22
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_78c23d27",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Put on a single line.",
+      "range": {
+        "startLine": 2021,
+        "startChar": 0,
+        "endLine": 2022,
+        "endChar": 52
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_d8e7d1d4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2029,
+        "endChar": 26
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_f8ec8dbb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2053,
+        "startChar": 0,
+        "endLine": 2053,
+        "endChar": 23
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_38dfe5f7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Nit: Move after `int reg`.",
+      "range": {
+        "startLine": 2135,
+        "startChar": 47,
+        "endLine": 2135,
+        "endChar": 63
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_58dca100",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2139,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2139,
+        "startChar": 49,
+        "endLine": 2139,
+        "endChar": 65
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_c732feaa",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "This macro seems to be only used in ` compiler/optimizing/code_generator_arm_vixl.cc`, so I\u0027d move this definition there.",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a16ba9_3016a861",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "I would #undef this at the end of this file.",
+      "range": {
+        "startLine": 52,
+        "startChar": 8,
+        "endLine": 52,
+        "endChar": 40
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a16ba9_500b2c34",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 42
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76890f3e_898ad94c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Factor this macro definition with the one from line 214?",
+      "range": {
+        "startLine": 182,
+        "startChar": 8,
+        "endLine": 182,
+        "endChar": 46
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76890f3e_e9819530",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Likewise, factor this definition with the one from line 221?",
+      "range": {
+        "startLine": 189,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 48
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96992396_025aca54",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 267,
+        "endChar": 10
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_a7350a96",
+        "filename": "compiler/optimizing/common_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T10:22:21Z",
+      "side": 1,
+      "message": "`vixl32` is an alias of `vixl::aarch32`; I think we should consistently use one or the other in this file.",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
