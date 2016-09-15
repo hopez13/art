@@ -86,6 +86,30 @@
       "revId": "55003b0c5e076fd87935cdc32e7e7a0fad344589",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_3899a5ca",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T16:25:17Z",
+      "side": 1,
+      "message": "Indeed, good point. Please add a comment and some asserts somewhere local that we are using compressed pointers in the managed heap.",
+      "parentUuid": "eb76f682_18b5c939",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 50
+      },
+      "revId": "55003b0c5e076fd87935cdc32e7e7a0fad344589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
