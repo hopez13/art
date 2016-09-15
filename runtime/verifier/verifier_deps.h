@@ -29,6 +29,7 @@
 #include "os.h"
 
 namespace art {
+
 namespace verifier {
 
 // Verification dependencies collector class used by the MethodVerifier to record
@@ -88,6 +89,13 @@ class VerifierDeps {
   // Serialize the recorded dependencies and store the data into `buffer`.
   void Encode(std::vector<uint8_t>* buffer) const
       REQUIRES(!Locks::verifier_deps_lock_);
+
+  static bool DecodeAndVerify(const std::vector<const DexFile*>& dex_files,
+                              ArrayRef<uint8_t> data,
+                              Handle<mirror::ClassLoader> loader,
+                              Handle<mirror::DexCache> dex_cache,
+                              std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
   static constexpr uint16_t kUnresolvedMarker = static_cast<uint16_t>(-1);
@@ -186,14 +194,10 @@ class VerifierDeps {
   uint32_t GetIdFromString(const DexFile& dex_file, const std::string& str)
       REQUIRES(Locks::verifier_deps_lock_);
 
-  // Returns the string represented by `id`.
-  std::string GetStringFromId(const DexFile& dex_file, uint32_t string_id)
-      REQUIRES(Locks::verifier_deps_lock_);
-
   // Returns the bytecode access flags of `element` (bottom 16 bits), or
   // `kUnresolvedMarker` if `element` is null.
   template <typename T>
-  uint16_t GetAccessFlags(T* element)
+  static uint16_t GetAccessFlags(T* element)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns a string ID of the descriptor of the declaring class of `element`,
@@ -202,6 +206,11 @@ class VerifierDeps {
   uint32_t GetDeclaringClassStringId(const DexFile& dex_file, T* element)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::verifier_deps_lock_);
+
+  // Returns the string represented by `id`.
+  static std::string GetStringFromId(const DexFile& dex_file,
+                                     const std::vector<std::string>& extra_strings,
+                                     uint32_t string_id);
 
   void AddClassResolution(const DexFile& dex_file,
                           uint16_t type_idx,
@@ -232,6 +241,34 @@ class VerifierDeps {
 
   bool Equals(const VerifierDeps& rhs) const
       REQUIRES(!Locks::verifier_deps_lock_);
+
+  static bool VerifyClassResolution(ClassResolution dep,
+                                    const DexFile& dex_file,
+                                    Handle<mirror::ClassLoader> loader,
+                                    std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static bool VerifyFieldResolution(FieldResolution dep,
+                                    const DexFile& dex_file,
+                                    Handle<mirror::ClassLoader> loader,
+                                    Handle<mirror::DexCache> dex_cache,
+                                    std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static bool VerifyMethodResolution(MethodResolution dep,
+                                     MethodResolutionKind res_kind,
+                                     const DexFile& dex_file,
+                                     Handle<mirror::ClassLoader> loader,
+                                     std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static bool VerifyAssignability(TypeAssignability dep,
+                                  bool expect_assignable,
+                                  const DexFile& dex_file,
+                                  const std::vector<std::string>& extra_strings,
+                                  Handle<mirror::ClassLoader> loader,
+                                  std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Map from DexFiles into dependencies collected from verification of their methods.
   std::map<const DexFile*, std::unique_ptr<DexFileDeps>> dex_deps_

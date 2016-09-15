@@ -184,6 +184,80 @@ class VerifierDepsTest : public CommonRuntimeTest {
     return true;
   }
 
+  bool VerifyAssignability(const std::string& dst, const std::string& src, bool is_assignable) {
+    ScopedObjectAccess soa(Thread::Current());
+    LoadDexFile(&soa);
+
+    const DexFile::StringId* dst_type = dex_file_->FindStringId(dst.c_str());
+    DCHECK(dst_type != nullptr);
+    const DexFile::StringId* src_type = dex_file_->FindStringId(src.c_str());
+    DCHECK(src_type != nullptr);
+
+    StackHandleScope<1> hs(Thread::Current());
+    Handle<mirror::ClassLoader> h_loader(hs.NewHandle(
+      soa.Decode<mirror::ClassLoader*>(class_loader_)));
+
+    std::string error_msg;
+    std::vector<std::string> strings;
+    VerifierDeps::TypeAssignability dep(dex_file_->GetIndexForStringId(*dst_type),
+                                        dex_file_->GetIndexForStringId(*src_type));
+    bool result = VerifierDeps::VerifyAssignability(dep,
+                                                    is_assignable,
+                                                    *dex_file_,
+                                                    strings,
+                                                    h_loader,
+                                                    &error_msg);
+    if (!result) {
+      LOG(ERROR) << "Verification failed: " << error_msg;
+    }
+    return result;
+  }
+
+  bool VerifyClassResolution(const std::string& desc, bool resolved, uint16_t access_flags = 0u) {
+    ScopedObjectAccess soa(Thread::Current());
+    LoadDexFile(&soa);
+
+    const DexFile::TypeId* type = dex_file_->FindTypeId(desc.c_str());
+    DCHECK(type != nullptr);
+
+    StackHandleScope<1> hs(Thread::Current());
+    Handle<mirror::ClassLoader> h_loader(
+      hs.NewHandle(soa.Decode<mirror::ClassLoader*>(class_loader_)));
+
+    std::string error_msg;
+    std::vector<std::string> strings;
+    VerifierDeps::ClassResolution dep(dex_file_->GetIndexForTypeId(*type),
+                                      resolved ? access_flags : VerifierDeps::kUnresolvedMarker);
+    bool result = VerifierDeps::VerifyClassResolution(dep, *dex_file_, h_loader, &error_msg);
+    if (!result) {
+      LOG(ERROR) << "Verification failed: " << error_msg;
+    }
+    return result;
+  }
+
+  bool VerifyDeps() {
+    ScopedObjectAccess soa(Thread::Current());
+
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::ClassLoader> h_loader(
+        hs.NewHandle(soa.Decode<mirror::ClassLoader*>(class_loader_)));
+    Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(klass_Main_->GetDexCache()));
+
+    std::vector<uint8_t> buffer;
+    verifier_deps_->Encode(&buffer);
+
+    std::string error_msg;
+    if (!VerifierDeps::DecodeAndVerify({ dex_file_ },
+                                       ArrayRef<uint8_t>(buffer),
+                                       h_loader,
+                                       h_dex_cache,
+                                       &error_msg)) {
+      LOG(ERROR) << "Verification failed: " << error_msg;
+      return false;
+    }
+    return true;
+  }
+
   // Iterates over all assignability records and tries to find an entry which
   // matches the expected destination/source pair.
   bool HasAssignable(const std::string& expected_destination,
@@ -195,9 +269,10 @@ class VerifierDepsTest : public CommonRuntimeTest {
       auto& storage = expected_is_assignable ? dex_dep.second->assignable_types_
                                              : dex_dep.second->unassignable_types_;
       for (auto& entry : storage) {
-        std::string actual_destination =
-            verifier_deps_->GetStringFromId(dex_file, entry.GetDestination());
-        std::string actual_source = verifier_deps_->GetStringFromId(dex_file, entry.GetSource());
+        std::string actual_destination = VerifierDeps::GetStringFromId(
+            dex_file, dex_dep.second->strings_, entry.GetDestination());
+        std::string actual_source = VerifierDeps::GetStringFromId(
+            dex_file, dex_dep.second->strings_, entry.GetSource());
         if ((expected_destination == actual_destination) && (expected_source == actual_source)) {
           return true;
         }
@@ -278,8 +353,8 @@ class VerifierDepsTest : public CommonRuntimeTest {
             continue;
           }
 
-          std::string actual_decl_klass = verifier_deps_->GetStringFromId(
-              *dex_dep.first, entry.GetDeclaringClassIndex());
+          std::string actual_decl_klass = VerifierDeps::GetStringFromId(
+              *dex_dep.first, dex_dep.second->strings_, entry.GetDeclaringClassIndex());
           if (expected_decl_klass != actual_decl_klass) {
             continue;
           }
@@ -335,8 +410,8 @@ class VerifierDepsTest : public CommonRuntimeTest {
             continue;
           }
 
-          std::string actual_decl_klass = verifier_deps_->GetStringFromId(
-              *dex_dep.first, entry.GetDeclaringClassIndex());
+          std::string actual_decl_klass = VerifierDeps::GetStringFromId(
+              *dex_dep.first, dex_dep.second->strings_, entry.GetDeclaringClassIndex());
           if (expected_decl_klass != actual_decl_klass) {
             continue;
           }
@@ -388,21 +463,26 @@ TEST_F(VerifierDepsTest, StringToId) {
 
   MutexLock mu(Thread::Current(), *Locks::verifier_deps_lock_);
 
+  VerifierDeps::DexFileDeps* dex_deps = verifier_deps_->GetDexFileDeps(*dex_file_);
+  ASSERT_TRUE(dex_deps != nullptr);
+
   uint32_t id_Main1 = verifier_deps_->GetIdFromString(*dex_file_, "LMain;");
   ASSERT_LT(id_Main1, dex_file_->NumStringIds());
-  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, id_Main1));
+  ASSERT_EQ("LMain;", VerifierDeps::GetStringFromId(*dex_file_, dex_deps->strings_, id_Main1));
 
   uint32_t id_Main2 = verifier_deps_->GetIdFromString(*dex_file_, "LMain;");
   ASSERT_LT(id_Main2, dex_file_->NumStringIds());
-  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, id_Main2));
+  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Main2));
 
   uint32_t id_Lorem1 = verifier_deps_->GetIdFromString(*dex_file_, "Lorem ipsum");
   ASSERT_GE(id_Lorem1, dex_file_->NumStringIds());
-  ASSERT_EQ("Lorem ipsum", verifier_deps_->GetStringFromId(*dex_file_, id_Lorem1));
+  ASSERT_EQ("Lorem ipsum",
+            verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Lorem1));
 
   uint32_t id_Lorem2 = verifier_deps_->GetIdFromString(*dex_file_, "Lorem ipsum");
   ASSERT_GE(id_Lorem2, dex_file_->NumStringIds());
-  ASSERT_EQ("Lorem ipsum", verifier_deps_->GetStringFromId(*dex_file_, id_Lorem2));
+  ASSERT_EQ("Lorem ipsum",
+            verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Lorem2));
 
   ASSERT_EQ(id_Main1, id_Main2);
   ASSERT_EQ(id_Lorem1, id_Lorem2);
@@ -415,6 +495,7 @@ TEST_F(VerifierDepsTest, Assignable_BothInBoot) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot1) {
@@ -423,6 +504,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot1) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/net/Socket;", "LMySSLSocket;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot2) {
@@ -431,6 +513,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot2) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "LMySimpleTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot3) {
@@ -439,6 +522,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot3) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/Collection;", "LMyThreadSet;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
@@ -451,6 +535,7 @@ TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
   ASSERT_FALSE(HasAssignable("[[Ljava/util/TimeZone;", "[[Ljava/util/SimpleTimeZone;", true));
   ASSERT_FALSE(HasAssignable("[Ljava/util/TimeZone;", "[Ljava/util/SimpleTimeZone;", true));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothArrays_Erroneous) {
@@ -463,11 +548,8 @@ TEST_F(VerifierDepsTest, Assignable_BothArrays_Erroneous) {
   ASSERT_FALSE(HasAssignable("[[Ljava/util/TimeZone;", "[[LMyErroneousTimeZone;", true));
   ASSERT_TRUE(HasAssignable("[Ljava/util/TimeZone;", "[LMyErroneousTimeZone;", true));
   ASSERT_FALSE(HasAssignable("Ljava/util/TimeZone;", "LMyErroneousTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
-
-  // We test that VerifierDeps does not try to optimize by storing assignability
-  // of the component types. This is due to the fact that the component type may
-  // be an erroneous class, even though the array type has resolved status.
 
 TEST_F(VerifierDepsTest, Assignable_ArrayToInterface1) {
   ASSERT_TRUE(TestAssignabilityRecording(/* dst */ "Ljava/io/Serializable;",
@@ -475,6 +557,7 @@ TEST_F(VerifierDepsTest, Assignable_ArrayToInterface1) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/io/Serializable;", "[Ljava/util/TimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_ArrayToInterface2) {
@@ -483,6 +566,7 @@ TEST_F(VerifierDepsTest, Assignable_ArrayToInterface2) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/io/Serializable;", "[LMyThreadSet;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, NotAssignable_BothInBoot) {
@@ -491,6 +575,7 @@ TEST_F(VerifierDepsTest, NotAssignable_BothInBoot) {
                                          /* is_strict */ true,
                                          /* is_assignable */ false));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "Ljava/util/SimpleTimeZone;", false));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, NotAssignable_DestinationInBoot1) {
@@ -499,6 +584,7 @@ TEST_F(VerifierDepsTest, NotAssignable_DestinationInBoot1) {
                                          /* is_strict */ true,
                                          /* is_assignable */ false));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "LMySSLSocket;", false));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, NotAssignable_DestinationInBoot2) {
@@ -507,6 +593,7 @@ TEST_F(VerifierDepsTest, NotAssignable_DestinationInBoot2) {
                                          /* is_strict */ true,
                                          /* is_assignable */ false));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "LMySimpleTimeZone;", false));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, NotAssignable_BothArrays) {
@@ -515,41 +602,97 @@ TEST_F(VerifierDepsTest, NotAssignable_BothArrays) {
                                          /* is_strict */ true,
                                          /* is_assignable */ false));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "Ljava/util/SimpleTimeZone;", false));
+  ASSERT_TRUE(VerifyDeps());
+}
+
+TEST_F(VerifierDepsTest, Assignable_Verify_Unresolved1) {
+  ASSERT_FALSE(VerifyAssignability(/* dst */ "LUnresolvedClass;",
+                                   /* src */ "Ljava/lang/Object;",
+                                   /* assignable */ true));
+}
+
+TEST_F(VerifierDepsTest, Assignable_Verify_Unresolved2) {
+  ASSERT_FALSE(VerifyAssignability(/* dst */ "Ljava/lang/Object;",
+                                   /* src */ "LUnresolvedClass;",
+                                   /* assignable */ true));
+}
+
+TEST_F(VerifierDepsTest, Assignable_Verify_Pass) {
+  ASSERT_TRUE(VerifyAssignability(/* dst */ "Ljava/lang/Runnable;",
+                                  /* src */ "Ljava/lang/Thread;",
+                                  /* assignable */ true));
+}
+
+TEST_F(VerifierDepsTest, Assignable_Verify_Fail) {
+  ASSERT_FALSE(VerifyAssignability(/* dst */ "Ljava/util/TimeZone;",
+                                   /* src */ "LMyThreadSet;",
+                                   /* assignable */ true));
+}
+
+TEST_F(VerifierDepsTest, NotAssignable_Verify_Pass) {
+  ASSERT_TRUE(VerifyAssignability(/* dst */ "Ljava/util/TimeZone;",
+                                  /* src */ "LMyThreadSet;",
+                                  /* assignable */ false));
+}
+
+TEST_F(VerifierDepsTest, NotAssignable_Verify_Fail) {
+  ASSERT_FALSE(VerifyAssignability(/* dst */ "Ljava/lang/Runnable;",
+                                   /* src */ "Ljava/lang/Thread;",
+                                   /* assignable */ false));
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_ResolvedClass) {
   ASSERT_TRUE(VerifyMethod("ArgumentType_ResolvedClass"));
   ASSERT_TRUE(HasClass("Ljava/lang/Thread;", true, "public"));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_ResolvedReferenceArray) {
   ASSERT_TRUE(VerifyMethod("ArgumentType_ResolvedReferenceArray"));
   ASSERT_TRUE(HasClass("[Ljava/lang/Thread;", true, "public final abstract"));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_ResolvedPrimitiveArray) {
   ASSERT_TRUE(VerifyMethod("ArgumentType_ResolvedPrimitiveArray"));
   ASSERT_TRUE(HasClass("[B", true, "public final abstract"));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_UnresolvedClass) {
   ASSERT_TRUE(VerifyMethod("ArgumentType_UnresolvedClass"));
   ASSERT_TRUE(HasClass("LUnresolvedClass;", false));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ArgumentType_UnresolvedSuper) {
   ASSERT_TRUE(VerifyMethod("ArgumentType_UnresolvedSuper"));
   ASSERT_TRUE(HasClass("LMySetWithUnresolvedSuper;", false));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ReturnType_Reference) {
   ASSERT_TRUE(VerifyMethod("ReturnType_Reference"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Throwable;", "Ljava/lang/IllegalStateException;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, ReturnType_Array) {
   ASSERT_FALSE(VerifyMethod("ReturnType_Array"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Integer;", "Ljava/lang/IllegalStateException;", false));
+  ASSERT_TRUE(VerifyDeps());
+}
+
+TEST_F(VerifierDepsTest, ClassResolution_Verify_Resolved) {
+  ASSERT_FALSE(VerifyClassResolution("Ljava/lang/Integer;", false));
+  ASSERT_TRUE(VerifyClassResolution("Ljava/lang/Integer;", true, kAccPublic | kAccFinal));
+  ASSERT_FALSE(VerifyClassResolution(
+      "Ljava/lang/Integer;", true, kAccPublic | kAccFinal | kAccAbstract));
+}
+
+TEST_F(VerifierDepsTest, ClassResolution_Verify_Unresolved) {
+  ASSERT_TRUE(VerifyClassResolution("LUnresolvedClass;", false));
+  ASSERT_FALSE(VerifyClassResolution("LUnresolvedClass;", true));
 }
 
 TEST_F(VerifierDepsTest, InvokeArgumentType) {
