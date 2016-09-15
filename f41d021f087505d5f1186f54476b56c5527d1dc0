@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb76f682_78fdddfe",
+        "filename": "test/VerifierDeps/MyErroneousTimeZone.smali",
+        "patchSetId": 21
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:40:56Z",
+      "side": 1,
+      "message": "Say why it\u0027s erroneous.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "f41d021f087505d5f1186f54476b56c5527d1dc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_98047921",
+        "filename": "test/VerifierDeps/MySimpleTimeZone.smali",
+        "patchSetId": 21
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:40:56Z",
+      "side": 1,
+      "message": "Say why you\u0027re adding a final method.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "f41d021f087505d5f1186f54476b56c5527d1dc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
