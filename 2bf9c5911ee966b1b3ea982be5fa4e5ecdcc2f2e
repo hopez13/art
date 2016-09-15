@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "eb76f682_f82acd85",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T16:02:48Z",
+      "side": 1,
+      "message": "Alright; this sounds good to me.",
+      "parentUuid": "4b5c6205_780401b9",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567a4bf7_a83f9bc2",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "This is for the condition code. vixl32::eq, vixl32::lt etc. are less readable than eq, lt etc.",
       "parentUuid": "567a4bf7_a83f9bc2",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 52
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_78379de7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T16:02:48Z",
+      "side": 1,
+      "message": "I see.  What about importing the condition codes used in this file instead of the whole namespace?",
+      "parentUuid": "6bdda69f_ec25c3b6",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -507,6 +555,30 @@
       "side": 1,
       "message": "Yes. It\u0027s destination first, as in the ARM ARM.\n\ncodegen_tests doesn\u0027t explicitly test these FP code paths. I could replace them with TODO_VIXL32(FATAL) until a later patch can explicitly prove them via a test?",
       "parentUuid": "4b5c6205_58965d99",
+      "range": {
+        "startLine": 1259,
+        "startChar": 10,
+        "endLine": 1259,
+        "endChar": 67
+      },
+      "revId": "2bf9c5911ee966b1b3ea982be5fa4e5ecdcc2f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_3848c557",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-15T16:02:48Z",
+      "side": 1,
+      "message": "I think it is fine as it is now.\n\nIIRC, we said we would review this CL as you extend it and keep it unmerged until the VIXL-based code generator is on par with the original AArch32 code generator.  I think we can wait for its completion before testing it using run-tests.",
+      "parentUuid": "eb76f682_988e39e0",
       "range": {
         "startLine": 1259,
         "startChar": 10,
