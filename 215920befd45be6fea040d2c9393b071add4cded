@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb76f682_f801eddd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-15T16:58:35Z",
+      "side": 1,
+      "message": "Actually, this is unnecessary as there is always at least one user.",
+      "range": {
+        "startLine": 1975,
+        "startChar": 7,
+        "endLine": 1975,
+        "endChar": 37
+      },
+      "revId": "215920befd45be6fea040d2c9393b071add4cded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_38e44536",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-15T16:58:35Z",
+      "side": 1,
+      "message": "Always false here, see StoreNeedsWriteBarrier(). Replace with DCHECK(!needs_write_barrier).",
+      "range": {
+        "startLine": 2067,
+        "startChar": 14,
+        "endLine": 2067,
+        "endChar": 33
+      },
+      "revId": "215920befd45be6fea040d2c9393b071add4cded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_78eebd17",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-15T16:58:35Z",
+      "side": 1,
+      "message": "Always false.",
+      "range": {
+        "startLine": 4035,
+        "startChar": 8,
+        "endLine": 4035,
+        "endChar": 35
+      },
+      "revId": "215920befd45be6fea040d2c9393b071add4cded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
