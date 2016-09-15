@@ -89,21 +89,21 @@ uint32_t VerifierDeps::GetIdFromString(const DexFile& dex_file, const std::strin
 
   uint32_t new_id = num_ids_in_dex + num_extra_ids;
   CHECK_GE(new_id, num_ids_in_dex);  // check for overflows
-  DCHECK_EQ(str, GetStringFromId(dex_file, new_id));
+  DCHECK_EQ(str, GetStringFromId(dex_file, deps->strings_, new_id));
 
   return new_id;
 }
 
-std::string VerifierDeps::GetStringFromId(const DexFile& dex_file, uint32_t string_id) {
+std::string VerifierDeps::GetStringFromId(const DexFile& dex_file,
+                                          const std::vector<std::string>& extra_strings,
+                                          uint32_t string_id) {
   uint32_t num_ids_in_dex = dex_file.NumStringIds();
   if (string_id < num_ids_in_dex) {
     return std::string(dex_file.StringDataByIdx(string_id));
   } else {
-    DexFileDeps* deps = GetDexFileDeps(dex_file);
-    DCHECK(deps != nullptr);
     string_id -= num_ids_in_dex;
-    CHECK_LT(string_id, deps->strings_.size());
-    return deps->strings_[string_id];
+    CHECK_LT(string_id, extra_strings.size());
+    return extra_strings[string_id];
   }
 }
 
@@ -199,6 +199,7 @@ void VerifierDeps::AddMethodResolution(const DexFile& dex_file,
   }
 }
 
+template<bool ignore_errors>
 void VerifierDeps::AddAssignability(const DexFile& dex_file,
                                     mirror::Class* destination,
                                     mirror::Class* source,
@@ -221,7 +222,9 @@ void VerifierDeps::AddAssignability(const DexFile& dex_file,
     return;
   }
 
-  DCHECK_EQ(is_assignable, destination->IsAssignableFrom(source));
+  if (!ignore_errors) {
+    DCHECK_EQ(is_assignable, destination->IsAssignableFrom(source));
+  }
 
   if (destination->IsArrayClass() && source->IsArrayClass()) {
     // Both types are arrays. Break down to component types and add recursively.
@@ -463,6 +466,72 @@ bool VerifierDeps::DexFileDeps::Equals(const VerifierDeps::DexFileDeps& rhs) con
          (direct_methods_ == rhs.direct_methods_) &&
          (virtual_methods_ == rhs.virtual_methods_) &&
          (interface_methods_ == rhs.interface_methods_);
+}
+
+bool VerifierDeps::VerifyAssignability(TypeAssignability dep,
+                                       bool expect_assignable,
+                                       const DexFile& dex_file,
+                                       const std::vector<std::string>& extra_strings,
+                                       mirror::ClassLoader* loader,
+                                       std::string* error_msg) {
+  std::string destination_desc = GetStringFromId(dex_file, extra_strings, dep.GetDestination());
+  std::string source_desc = GetStringFromId(dex_file, extra_strings, dep.GetSource());
+
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  Thread* self = Thread::Current();
+  StackHandleScope<1> hs(self);
+  Handle<mirror::ClassLoader> h_loader(hs.NewHandle(loader));
+
+  mirror::Class* destination = class_linker->FindClass(self, destination_desc.c_str(), h_loader);
+  if (destination == nullptr) {
+    *error_msg = "Could not resolve class " + destination_desc;
+    return false;
+  }
+
+  mirror::Class* source = class_linker->FindClass(self, source_desc.c_str(), h_loader);
+  if (source == nullptr) {
+    *error_msg = "Could not resolve class " + source_desc;
+    return false;
+  }
+
+  if (destination->IsAssignableFrom(source) != expect_assignable) {
+    *error_msg = "Expected " + destination_desc + (expect_assignable ? "" : " not") +
+                 " assignable from " + source_desc;
+    return false;
+  }
+
+  return true;
+}
+
+bool VerifierDeps::DecodeAndVerify(const std::vector<const DexFile*>& dex_files,
+                                   ArrayRef<uint8_t> data,
+                                   mirror::ClassLoader* loader,
+                                   std::string* error_msg) {
+  const uint8_t* data_start = data.data();
+  const uint8_t* data_end = data_start + data.size();
+
+  for (const DexFile* dex_file : dex_files) {
+    std::vector<std::string> extra_strings;
+    DecodeStringVector(&data_start, data_end, &extra_strings);
+
+    for (bool expect_assignable : { true, false }) {
+      size_t num_entries = DecodeUint32WithOverflowCheck(&data_start, data_end);
+      for (size_t i = 0; i < num_entries; ++i) {
+        TypeAssignability dep;
+        DecodeTuple(&data_start, data_end, &dep);
+        if (!VerifyAssignability(dep,
+                                 expect_assignable,
+                                 *dex_file,
+                                 extra_strings,
+                                 loader,
+                                 error_msg)) {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
 }
 
 }  // namespace verifier

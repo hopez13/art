@@ -160,17 +160,33 @@ class VerifierDepsTest : public CommonRuntimeTest {
     }
   }
 
+  template<bool ignore_errors = false>
   bool TestAssignabilityRecording(const std::string& dst,
                                   const std::string& src,
                                   bool is_strict,
                                   bool is_assignable) {
     ScopedObjectAccess soa(Thread::Current());
     LoadDexFile(&soa);
-    verifier_deps_->AddAssignability(*dex_file_,
-                                     FindClassByName(dst, &soa),
-                                     FindClassByName(src, &soa),
-                                     is_strict,
-                                     is_assignable);
+    verifier_deps_->AddAssignability<ignore_errors>(*dex_file_,
+                                                    FindClassByName(dst, &soa),
+                                                    FindClassByName(src, &soa),
+                                                    is_strict,
+                                                    is_assignable);
+    return true;
+  }
+
+  bool VerifyDeps() {
+    ScopedObjectAccess soa(Thread::Current());
+    std::vector<uint8_t> buffer;
+    verifier_deps_->Encode(&buffer);
+    std::string error_msg;
+    if (!VerifierDeps::DecodeAndVerify({ dex_file_ },
+                                       ArrayRef<uint8_t>(buffer),
+                                       soa.Decode<mirror::ClassLoader*>(class_loader_),
+                                       &error_msg)) {
+      LOG(ERROR) << "Verification failed: " << error_msg;
+      return false;
+    }
     return true;
   }
 
@@ -185,9 +201,10 @@ class VerifierDepsTest : public CommonRuntimeTest {
       auto& storage = expected_is_assignable ? dex_dep.second->assignable_types_
                                              : dex_dep.second->unassignable_types_;
       for (auto& entry : storage) {
-        std::string actual_destination =
-            verifier_deps_->GetStringFromId(dex_file, entry.GetDestination());
-        std::string actual_source = verifier_deps_->GetStringFromId(dex_file, entry.GetSource());
+        std::string actual_destination = VerifierDeps::GetStringFromId(
+            dex_file, dex_dep.second->strings_, entry.GetDestination());
+        std::string actual_source = VerifierDeps::GetStringFromId(
+            dex_file, dex_dep.second->strings_, entry.GetSource());
         if ((expected_destination == actual_destination) && (expected_source == actual_source)) {
           return true;
         }
@@ -268,8 +285,8 @@ class VerifierDepsTest : public CommonRuntimeTest {
             continue;
           }
 
-          std::string actual_decl_klass = verifier_deps_->GetStringFromId(
-              *dex_dep.first, entry.GetDeclaringClassIndex());
+          std::string actual_decl_klass = VerifierDeps::GetStringFromId(
+              *dex_dep.first, dex_dep.second->strings_, entry.GetDeclaringClassIndex());
           if (expected_decl_klass != actual_decl_klass) {
             continue;
           }
@@ -325,8 +342,8 @@ class VerifierDepsTest : public CommonRuntimeTest {
             continue;
           }
 
-          std::string actual_decl_klass = verifier_deps_->GetStringFromId(
-              *dex_dep.first, entry.GetDeclaringClassIndex());
+          std::string actual_decl_klass = VerifierDeps::GetStringFromId(
+              *dex_dep.first, dex_dep.second->strings_, entry.GetDeclaringClassIndex());
           if (expected_decl_klass != actual_decl_klass) {
             continue;
           }
@@ -378,21 +395,26 @@ TEST_F(VerifierDepsTest, StringToId) {
 
   MutexLock mu(Thread::Current(), *Locks::verifier_deps_lock_);
 
+  VerifierDeps::DexFileDeps* dex_deps = verifier_deps_->GetDexFileDeps(*dex_file_);
+  ASSERT_TRUE(dex_deps != nullptr);
+
   uint32_t id_Main1 = verifier_deps_->GetIdFromString(*dex_file_, "LMain;");
   ASSERT_LT(id_Main1, dex_file_->NumStringIds());
-  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, id_Main1));
+  ASSERT_EQ("LMain;", VerifierDeps::GetStringFromId(*dex_file_, dex_deps->strings_, id_Main1));
 
   uint32_t id_Main2 = verifier_deps_->GetIdFromString(*dex_file_, "LMain;");
   ASSERT_LT(id_Main2, dex_file_->NumStringIds());
-  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, id_Main2));
+  ASSERT_EQ("LMain;", verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Main2));
 
   uint32_t id_Lorem1 = verifier_deps_->GetIdFromString(*dex_file_, "Lorem ipsum");
   ASSERT_GE(id_Lorem1, dex_file_->NumStringIds());
-  ASSERT_EQ("Lorem ipsum", verifier_deps_->GetStringFromId(*dex_file_, id_Lorem1));
+  ASSERT_EQ("Lorem ipsum",
+            verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Lorem1));
 
   uint32_t id_Lorem2 = verifier_deps_->GetIdFromString(*dex_file_, "Lorem ipsum");
   ASSERT_GE(id_Lorem2, dex_file_->NumStringIds());
-  ASSERT_EQ("Lorem ipsum", verifier_deps_->GetStringFromId(*dex_file_, id_Lorem2));
+  ASSERT_EQ("Lorem ipsum",
+            verifier_deps_->GetStringFromId(*dex_file_, dex_deps->strings_, id_Lorem2));
 
   ASSERT_EQ(id_Main1, id_Main2);
   ASSERT_EQ(id_Lorem1, id_Lorem2);
@@ -405,6 +427,7 @@ TEST_F(VerifierDepsTest, Assignable_BothInBoot) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot1) {
@@ -413,6 +436,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot1) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/net/Socket;", "LMySSLSocket;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot2) {
@@ -421,6 +445,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot2) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "LMySimpleTimeZone;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_DestinationInBoot3) {
@@ -429,6 +454,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot3) {
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
   ASSERT_TRUE(HasAssignable("Ljava/util/Collection;", "LMyThreadSet;", true));
+  ASSERT_TRUE(VerifyDeps());
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
