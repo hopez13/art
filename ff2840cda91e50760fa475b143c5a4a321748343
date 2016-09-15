@@ -140,6 +140,30 @@
       "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_9849d9bb",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T12:39:03Z",
+      "side": 1,
+      "message": "OK, please add all of this as comments in the file.",
+      "parentUuid": "eb76f682_d86c3135",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 78
+      },
+      "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
