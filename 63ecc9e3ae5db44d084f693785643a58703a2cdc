@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_678aacc8",
+        "filename": "tools/javafuzz/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-15T17:58:01Z",
+      "side": 1,
+      "message": "I missed this issue, we can make it work from anywhere by wrapping __file__ with a os.path.realpath call. Let me fix that in another CL.",
+      "revId": "63ecc9e3ae5db44d084f693785643a58703a2cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
