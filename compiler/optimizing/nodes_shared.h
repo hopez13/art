@@ -117,10 +117,13 @@ class HBitwiseNegatedRight FINAL : public HBinaryOperation {
 // This instruction computes an intermediate address pointing in the 'middle' of an object. The
 // result pointer cannot be handled by GC, so extra care is taken to make sure that this value is
 // never used across anything that can trigger GC.
+// The result of this instruction is not a pointer in the sense of `Primitive::kPrimNot`: it does
+// not point to the start of an object. However it still is a 32bit address pointing to the managed
+// heap. So we represent it by the type `Primitive::kPrimInt`.
 class HIntermediateAddress FINAL : public HExpression<2> {
  public:
   HIntermediateAddress(HInstruction* base_address, HInstruction* offset, uint32_t dex_pc)
-      : HExpression(Primitive::kPrimNot, SideEffects::DependsOnGC(), dex_pc) {
+      : HExpression(Primitive::kPrimInt, SideEffects::DependsOnGC(), dex_pc) {
     SetRawInputAt(0, base_address);
     SetRawInputAt(1, offset);
   }
