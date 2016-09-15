@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_b38ce290",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-15T21:41:07Z",
+      "side": 1,
+      "message": "Also static_assert(kObjectHeaderSize \u003d\u003d sizeof(HeapReference\u003cmirror::Class\u003e) + sizeof(LockWord)) or factor this out to a function in mirror::Object?",
+      "revId": "69a3228af7e41b7e28b130929195ebd7521b78d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
