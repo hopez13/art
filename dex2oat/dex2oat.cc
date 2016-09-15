@@ -2782,6 +2782,7 @@ static int dex2oat(int argc, char** argv) {
     return EXIT_FAILURE;
   }
 
+  // Helps debugging on device. Used by tools/bisection_search/bisection_search.py.
   VLOG(compiler) << "Running dex2oat (parent PID = " << getppid() << ")";
 
   bool result;
