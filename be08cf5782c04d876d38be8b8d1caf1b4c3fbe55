@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8be1fa42_e5f79aeb",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-15T00:09:37Z",
+      "side": 1,
+      "message": "Right. I guess this means a function that\u0027s declared to be uninterruptible must not call this function because it contains a suspend point.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "be08cf5782c04d876d38be8b8d1caf1b4c3fbe55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
