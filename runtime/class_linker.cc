@@ -311,7 +311,7 @@ static void ShuffleForward(size_t* current_field_idx,
 
 ClassLinker::ClassLinker(InternTable* intern_table)
     // dex_lock_ is recursive as it may be used in stack dumping.
-    : dex_lock_("ClassLinker dex lock", kDefaultMutexLevel),
+    : dex_lock_("ClassLinker dex lock", kDexLock),
       dex_cache_boot_image_class_lookup_required_(false),
       failed_dex_cache_class_lookups_(0),
       class_roots_(nullptr),
@@ -2059,28 +2059,22 @@ mirror::PointerArray* ClassLinker::AllocPointerArray(Thread* self, size_t length
           : static_cast<mirror::Array*>(mirror::IntArray::Alloc(self, length)));
 }
 
-mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
-                                             const DexFile& dex_file,
-                                             LinearAlloc* linear_alloc) {
-  StackHandleScope<6> hs(self);
-  auto dex_cache(hs.NewHandle(down_cast<mirror::DexCache*>(
-      GetClassRoot(kJavaLangDexCache)->AllocObject(self))));
-  if (dex_cache.Get() == nullptr) {
-    self->AssertPendingOOMException();
-    return nullptr;
-  }
-  auto location(hs.NewHandle(intern_table_->InternStrong(dex_file.GetLocation().c_str())));
-  if (location.Get() == nullptr) {
-    self->AssertPendingOOMException();
-    return nullptr;
-  }
+void ClassLinker::InitializeDexCache(Thread* self,
+                                     mirror::DexCache* dex_cache,
+                                     mirror::String* location,
+                                     const DexFile& dex_file,
+                                     LinearAlloc* linear_alloc) {
+  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   DexCacheArraysLayout layout(image_pointer_size_, &dex_file);
   uint8_t* raw_arrays = nullptr;
-  if (dex_file.GetOatDexFile() != nullptr &&
-      dex_file.GetOatDexFile()->GetDexCacheArrays() != nullptr) {
-    raw_arrays = dex_file.GetOatDexFile()->GetDexCacheArrays();
-  } else if (dex_file.NumStringIds() != 0u || dex_file.NumTypeIds() != 0u ||
-      dex_file.NumMethodIds() != 0u || dex_file.NumFieldIds() != 0u) {
+
+  const OatDexFile* const oat_dex = dex_file.GetOatDexFile();
+  if (oat_dex != nullptr && oat_dex->GetDexCacheArrays() != nullptr) {
+    raw_arrays = oat_dex->GetDexCacheArrays();
+  } else if (dex_file.NumStringIds() != 0u ||
+             dex_file.NumTypeIds() != 0u ||
+             dex_file.NumMethodIds() != 0u ||
+             dex_file.NumFieldIds() != 0u) {
     // Zero-initialized.
     raw_arrays = reinterpret_cast<uint8_t*>(linear_alloc->Alloc(self, layout.Size()));
   }
@@ -2111,7 +2105,7 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
       CHECK(strings[i].load(std::memory_order_relaxed).string_pointer.IsNull());
     }
     for (size_t i = 0; i < dex_file.NumTypeIds(); ++i) {
-      CHECK(types[i].Read<kWithoutReadBarrier>() == nullptr);
+      CHECK(types[i].IsNull());
     }
     for (size_t i = 0; i < dex_file.NumMethodIds(); ++i) {
       CHECK(mirror::DexCache::GetElementPtrSize(methods, i, image_pointer_size_) == nullptr);
@@ -2124,7 +2118,7 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
     mirror::StringDexCachePair::Initialize(strings);
   }
   dex_cache->Init(&dex_file,
-                  location.Get(),
+                  location,
                   strings,
                   num_strings,
                   types,
@@ -2134,7 +2128,38 @@ mirror::DexCache* ClassLinker::AllocDexCache(Thread* self,
                   fields,
                   dex_file.NumFieldIds(),
                   image_pointer_size_);
+}
+
+mirror::DexCache* ClassLinker::AllocDexCache(mirror::String** out_location,
+                                             Thread* self,
+                                             const DexFile& dex_file) {
+  StackHandleScope<1> hs(self);
+  DCHECK(out_location != nullptr);
+  auto dex_cache(hs.NewHandle(down_cast<mirror::DexCache*>(
+      GetClassRoot(kJavaLangDexCache)->AllocObject(self))));
+  if (dex_cache.Get() == nullptr) {
+    self->AssertPendingOOMException();
+    return nullptr;
+  }
+  mirror::String* location = intern_table_->InternStrong(dex_file.GetLocation().c_str());
+  if (location == nullptr) {
+    self->AssertPendingOOMException();
+    return nullptr;
+  }
+  *out_location = location;
   return dex_cache.Get();
+}
+
+mirror::DexCache* ClassLinker::AllocAndInitializeDexCache(Thread* self,
+                                                          const DexFile& dex_file,
+                                                          LinearAlloc* linear_alloc) {
+  mirror::String* location = nullptr;
+  mirror::DexCache* dex_cache = AllocDexCache(&location, self, dex_file);
+  if (dex_cache != nullptr) {
+    DCHECK(location != nullptr);
+    InitializeDexCache(self, dex_cache, location, dex_file, linear_alloc);
+  }
+  return dex_cache;
 }
 
 mirror::Class* ClassLinker::AllocClass(Thread* self, mirror::Class* java_lang_Class,
@@ -3207,7 +3232,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
 
 void ClassLinker::AppendToBootClassPath(Thread* self, const DexFile& dex_file) {
   StackHandleScope<1> hs(self);
-  Handle<mirror::DexCache> dex_cache(hs.NewHandle(AllocDexCache(
+  Handle<mirror::DexCache> dex_cache(hs.NewHandle(AllocAndInitializeDexCache(
       self,
       dex_file,
       Runtime::Current()->GetLinearAlloc())));
@@ -3284,8 +3309,12 @@ mirror::DexCache* ClassLinker::RegisterDexFile(const DexFile& dex_file,
   // Don't alloc while holding the lock, since allocation may need to
   // suspend all threads and another thread may need the dex_lock_ to
   // get to a suspend point.
-  StackHandleScope<1> hs(self);
-  Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(AllocDexCache(self, dex_file, linear_alloc)));
+  StackHandleScope<2> hs(self);
+  mirror::String* location;
+  Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(AllocDexCache(/*out*/&location,
+                                                                  self,
+                                                                  dex_file)));
+  Handle<mirror::String> h_location(hs.NewHandle(location));
   {
     WriterMutexLock mu(self, dex_lock_);
     mirror::DexCache* dex_cache = FindDexCacheLocked(self, dex_file, true);
@@ -3296,6 +3325,10 @@ mirror::DexCache* ClassLinker::RegisterDexFile(const DexFile& dex_file,
       self->AssertPendingOOMException();
       return nullptr;
     }
+    // Do InitializeDexCache while holding dex lock to make sure two threads don't call it at the
+    // same time with the same dex cache. Since the .bss is shared this can cause failing DCHECK
+    // that the arrays are null.
+    InitializeDexCache(self, h_dex_cache.Get(), h_location.Get(), dex_file, linear_alloc);
     RegisterDexFileLocked(dex_file, h_dex_cache);
   }
   table->InsertStrongRoot(h_dex_cache.Get());

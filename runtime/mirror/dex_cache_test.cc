@@ -36,9 +36,10 @@ TEST_F(DexCacheTest, Open) {
   StackHandleScope<1> hs(soa.Self());
   ASSERT_TRUE(java_lang_dex_file_ != nullptr);
   Handle<DexCache> dex_cache(
-      hs.NewHandle(class_linker_->AllocDexCache(soa.Self(),
-                                                *java_lang_dex_file_,
-                                                Runtime::Current()->GetLinearAlloc())));
+      hs.NewHandle(class_linker_->AllocAndInitializeDexCache(
+          soa.Self(),
+          *java_lang_dex_file_,
+          Runtime::Current()->GetLinearAlloc())));
   ASSERT_TRUE(dex_cache.Get() != nullptr);
 
   EXPECT_TRUE(dex_cache->StaticStringSize() == dex_cache->NumStrings()

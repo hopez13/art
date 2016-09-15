@@ -90,6 +90,7 @@ enum LockLevel {
   kDeoptimizedMethodsLock,
   kClassLoaderClassesLock,
   kDefaultMutexLevel,
+  kDexLock,
   kMarkSweepLargeObjectLock,
   kPinTableLock,
   kJdwpObjectRegistryLock,
