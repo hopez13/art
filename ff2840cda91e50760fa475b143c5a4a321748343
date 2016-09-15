@@ -116,6 +116,30 @@
       "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_d86c3135",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-09-15T12:12:08Z",
+      "side": 1,
+      "message": "The tests below are all fine:\n - IsObjectClass \u003d (GetSuperclass() \u003d\u003d nullptr)\n - IsInterface - from access flags\n - IsArrayClass - (GetComponentType() \u003d\u003d nullptr)\n - IsAssignableFrom - uses IsSubClass and Implements, both should be okay\n\nEither way, testing for IsResolved, as we found some time ago, is non-deterministic. So we should record these dependencies.",
+      "parentUuid": "eb76f682_98ed59bb",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 78
+      },
+      "revId": "ff2840cda91e50760fa475b143c5a4a321748343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
