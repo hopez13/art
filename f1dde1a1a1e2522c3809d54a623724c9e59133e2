@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb76f682_38b8c5c1",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T10:14:55Z",
+      "side": 1,
+      "message": "I\u0027d drop the \"if verifier is non-null\" and after the \"Record...\", say\"the verifier is null only when doing unit tests\"",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "f1dde1a1a1e2522c3809d54a623724c9e59133e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_58c5812c",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T10:14:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 77
+      },
+      "revId": "f1dde1a1a1e2522c3809d54a623724c9e59133e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
