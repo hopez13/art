@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_f9655be5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5011,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-15T22:46:12Z",
+      "side": 1,
+      "message": "Need would be a bit more consistent with comment style in context. Also, comment really applies to true branch only. Finally, add explanation on why this applies to charat",
+      "range": {
+        "startLine": 5011,
+        "startChar": 11,
+        "endLine": 5011,
+        "endChar": 19
+      },
+      "revId": "f1a27a2de2173898622f965ff017b791aa818200",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_59558fea",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5077,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-15T22:46:12Z",
+      "side": 1,
+      "message": "period at end",
+      "range": {
+        "startLine": 5077,
+        "startChar": 22,
+        "endLine": 5077,
+        "endChar": 28
+      },
+      "revId": "f1a27a2de2173898622f965ff017b791aa818200",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_99a0e701",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-15T22:46:12Z",
+      "side": 1,
+      "message": "add comment that this is the traditional case",
+      "range": {
+        "startLine": 5102,
+        "startChar": 13,
+        "endLine": 5102,
+        "endChar": 14
+      },
+      "revId": "f1a27a2de2173898622f965ff017b791aa818200",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
