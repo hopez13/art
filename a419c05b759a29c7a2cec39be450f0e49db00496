@@ -22,6 +22,92 @@
       "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_584e618c",
+        "filename": "runtime/mirror/method_handle_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:16:16Z",
+      "side": 1,
+      "message": "C++ mirror of... ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 54
+      },
+      "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_982ab9a0",
+        "filename": "runtime/mirror/method_type-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:16:16Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_d8343102",
+        "filename": "runtime/mirror/method_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:16:16Z",
+      "side": 1,
+      "message": "GetReturnType? (unless Java says GetRType?)\n\nSame comment below about parameter types.",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb76f682_181f8978",
+        "filename": "test/955-methodhandles-smali/smali/Main.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-15T15:16:16Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "a419c05b759a29c7a2cec39be450f0e49db00496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
