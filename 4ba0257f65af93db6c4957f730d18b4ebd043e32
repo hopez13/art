@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_fc237f69",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-16T21:02:26Z",
+      "side": 1,
+      "message": "It\u0027s kind of asymmetric now because it generates cmdline.sh for device only, I think this can use more comments.",
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_5c881359",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-16T21:02:26Z",
+      "side": 1,
+      "message": "why is it listed twice?",
+      "range": {
+        "startLine": 920,
+        "startChar": 54,
+        "endLine": 920,
+        "endChar": 65
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
