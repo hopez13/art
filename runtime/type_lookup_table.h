@@ -71,7 +71,7 @@ class TypeLookupTable {
   }
 
   // Method returns length of binary data. Used by the oat writer.
-  uint32_t RawDataLength() const;
+  uint32_t RawDataLength() const { return raw_data_length_; }
 
   // Method returns length of binary data for the specified dex file.
   static uint32_t RawDataLength(const DexFile& dex_file);
@@ -122,7 +122,7 @@ class TypeLookupTable {
   TypeLookupTable(const uint8_t* raw_data, const DexFile& dex_file);
 
   bool IsStringsEquals(const char* str, uint32_t str_offset) const {
-    const uint8_t* ptr = dex_file_.Begin() + str_offset;
+    const uint8_t* ptr = dex_file_begin_ + str_offset;
     // Skip string length.
     DecodeUnsignedLeb128(&ptr);
     return CompareModifiedUtf8ToModifiedUtf8AsUtf16CodePointValues(
@@ -154,7 +154,8 @@ class TypeLookupTable {
   // Find the last entry in a chain.
   uint32_t FindLastEntryInBucket(uint32_t cur_pos) const;
 
-  const DexFile& dex_file_;
+  const uint8_t* dex_file_begin_;
+  const uint32_t raw_data_length_;
   const uint32_t mask_;
   std::unique_ptr<Entry[]> entries_;
   // owns_entries_ specifies if the lookup table owns the entries_ array.
