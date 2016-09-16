@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f050a71d_65b7e690",
+        "filename": "runtime/plugin.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T12:41:10Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "185d134a3b43ab7529053e965917e0fa74bceba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_47462e7a",
+        "filename": "runtime/plugin.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T12:41:10Z",
+      "side": 1,
+      "message": "const\u0026 ?",
+      "range": {
+        "startLine": 69,
+        "startChar": 18,
+        "endLine": 69,
+        "endChar": 29
+      },
+      "revId": "185d134a3b43ab7529053e965917e0fa74bceba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
