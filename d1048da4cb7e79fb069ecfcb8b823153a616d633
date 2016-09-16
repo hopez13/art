@@ -1,0 +1,388 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0462f6a_431506a9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Same as x86-64.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d049e37c_04e4b6a0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 5596,
+        "startChar": 0,
+        "endLine": 5599,
+        "endChar": 7
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_a72dea03",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 4586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "You need\n\n  codegen_-\u003eMaybeRecordImplicitNullCheck(instruction);\n\nhere instead of later after the switch.\n\nAnd why not directly\n\n  __ cmpl(Address(obj, count_offset), Immediate(0))\n\n? That way we can avoid the temporary.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_87d666b7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5040,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Maybe this optimization isn\u0027t so useful for string compression and should be disabled.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "708af7dc_41f87262",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5071,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Unnecessary. This has already been done for ArrayLength.",
+      "range": {
+        "startLine": 5068,
+        "startChar": 0,
+        "endLine": 5071,
+        "endChar": 7
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d049e37c_64580a5a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "and compression tag",
+      "range": {
+        "startLine": 1404,
+        "startChar": 10,
+        "endLine": 1404,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_67137270",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "and compression tags",
+      "range": {
+        "startLine": 1406,
+        "startChar": 14,
+        "endLine": 1406,
+        "endChar": 21
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_47186e88",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Zero-length string is uncompressed, right?",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_270d7a4a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Check if strings are compressed (either both are or neither is thanks to the check above).",
+      "range": {
+        "startLine": 1418,
+        "startChar": 2,
+        "endLine": 1418,
+        "endChar": 31
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_07127668",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "This can be merged to addl (0x8000000 + 3).",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1430,
+        "endChar": 29
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_c7033e1b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "or 4 (compressed)",
+      "range": {
+        "startLine": 1434,
+        "startChar": 59,
+        "endLine": 1434,
+        "endChar": 60
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_871e6666",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "It would be cleaner if we instead checked the flag right here and split the code below into two separate paths.\n\nNote that the zero-length check can be done before this, assuming that zero-length string is considered uncompressed.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_67049221",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "comparison?",
+      "range": {
+        "startLine": 1545,
+        "startChar": 18,
+        "endLine": 1545,
+        "endChar": 29
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_07139665",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Input string_obj is clobbered! Do we have a pre-existing bug here? (Or, how are we telling the register allocator that the input is clobbered?)",
+      "range": {
+        "startLine": 1551,
+        "startChar": 12,
+        "endLine": 1551,
+        "endChar": 22
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_034a6ea9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "Don\u0027t load the tag into a register, do the comparison against the memory.",
+      "range": {
+        "startLine": 1750,
+        "startChar": 2,
+        "endLine": 1750,
+        "endChar": 43
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_672db29f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1758,
+        "startChar": 41,
+        "endLine": 1758,
+        "endChar": 45
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_c73d7eca",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "copy",
+      "range": {
+        "startLine": 1765,
+        "startChar": 12,
+        "endLine": 1765,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_dfaa1b24",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-16T14:21:08Z",
+      "side": 1,
+      "message": "copy",
+      "range": {
+        "startLine": 1805,
+        "startChar": 12,
+        "endLine": 1805,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
