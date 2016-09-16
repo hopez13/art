@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_9ff27d5f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-16T22:08:56Z",
+      "side": 1,
+      "message": "I moved the creation of the lookup table to the constructor for OatDexFile.  There should be no threading issue there.",
+      "parentUuid": "cb1db24e_16d11af4",
+      "range": {
+        "startLine": 1230,
+        "startChar": 6,
+        "endLine": 1230,
+        "endChar": 24
+      },
+      "revId": "e1af172e419c094e5ed9b5abda29e08d9515ef7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_f6155ea9",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -64,6 +88,54 @@
         "startChar": 6,
         "endLine": 1234,
         "endChar": 19
+      },
+      "revId": "e1af172e419c094e5ed9b5abda29e08d9515ef7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_bfef3979",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-16T22:08:56Z",
+      "side": 1,
+      "message": "Done by moving to the OatDexFile constructor.",
+      "parentUuid": "cb1db24e_76b88ec2",
+      "range": {
+        "startLine": 1234,
+        "startChar": 6,
+        "endLine": 1234,
+        "endChar": 19
+      },
+      "revId": "e1af172e419c094e5ed9b5abda29e08d9515ef7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_df8eb5e0",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-09-16T22:08:56Z",
+      "side": 1,
+      "message": "I lowered the interface to take the pointer to the bare dex_file_pointer rather than the DexFile.",
+      "parentUuid": "cb1db24e_f6155ea9",
+      "range": {
+        "startLine": 1234,
+        "startChar": 69,
+        "endLine": 1234,
+        "endChar": 77
       },
       "revId": "e1af172e419c094e5ed9b5abda29e08d9515ef7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
