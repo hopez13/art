@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "305b1f41_a7060a7a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "I\u0027d rather not mess with the verifier. Why is not not OK to have this check here?",
+      "range": {
+        "startLine": 626,
+        "startChar": 61,
+        "endLine": 626,
+        "endChar": 69
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8703066a",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Did you file a bug? These comments belong more to a bug than in code.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 368,
+        "endChar": 69
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_67625243",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "So why not using it? Please add more comments.",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 67
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_47674e51",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "What\u0027s the action item here? Please add comments. I think I already commented that I don\u0027t mind having this duplicated.",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 73
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_e7552250",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Thank you for all those comments.",
+      "range": {
+        "startLine": 448,
+        "startChar": 3,
+        "endLine": 451,
+        "endChar": 53
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_276c5a31",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Please don\u0027t submit code that has this.What\u0027s XX?",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 67
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_07715607",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "ditto about action items.",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 59
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_c7521e66",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 42
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_a75f2a6c",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 74
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_674b72b1",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 42
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_875c2678",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Maybe file a bug? Or is that fixed already?",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 73
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_47506e59",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Same comment: please don\u0027t submit such XX.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 87
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_074a76a9",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "What\u0027s the action item?",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 50
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_e73e4216",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-16T10:15:00Z",
+      "side": 1,
+      "message": "Same comment as in the other change. Please don\u0027t reference things other contributors don\u0027t have access to.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 94
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
