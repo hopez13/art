@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_fcd45f0e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T21:11:34Z",
+      "side": 1,
+      "message": "I am no ARM expert, but why is this preferred over an AND?",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_5ce493ff",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T21:11:34Z",
+      "side": 1,
+      "message": "same question; also if you don\u0027t inline the out.W(), then put it in a new local variable, don\u0027t clobber original",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_bcdbc737",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T21:11:34Z",
+      "side": 1,
+      "message": "please don\u0027t leave commented out code",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
