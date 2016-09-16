@@ -2,6 +2,86 @@
   "comments": [
     {
       "key": {
+        "uuid": "cb1db24e_16de7acd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "and x84_64 (first line is displayed most)",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_d6e3029b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "I don\u0027t think this build line is needed.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_f6939e03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "did you also run the tests with both mirror::kUseStringCompression \u003d false (default now) and true? If so, please add to this line",
+      "range": {
+        "startLine": 14,
+        "startChar": 22,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_f95d514a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5077,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "I like what you did below putting this in a boolean with a more intuitive name (even though you need the value here only once, it documents itself through the name then and is consistent)",
+      "range": {
+        "startLine": 5077,
+        "startChar": 18,
+        "endLine": 5077,
+        "endChar": 39
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_431506a9",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
@@ -13,6 +93,80 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "Same as x86-64.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_796a41e6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "both following true/else contain cmpl, so you can move that up; also, you could compare directly with 0 immediate saving the movl and even the register",
+      "range": {
+        "startLine": 5082,
+        "startChar": 49,
+        "endLine": 5082,
+        "endChar": 52
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_b974b9c3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5085,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "omit the _1 and _2, they are local variables just in scope of the true/else; your name implies there are two labels in the generated code",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_f909d138",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5094,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "it feels you could move most of the true/false branch into one block of code, only making a difference in the movzxb and movzwx instructions; that way less code is duplicated",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_393a89ed",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "I would not use capitals for String Compression everywhere, unless this is a true name we gave it?",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -36,6 +190,46 @@
         "endLine": 5599,
         "endChar": 7
       },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_f9de315d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "was this for debugging? remove",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_dc4963ba",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 4581,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "from here on, same comments as I gave in x86",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -145,6 +339,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_5cd1f3c0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "is it ever possible that two identical strings are compressed and not compressed at the same time (I hope not :-). In any case, it is good to comment on that here.",
+      "parentUuid": "305b1f41_67137270",
+      "range": {
+        "startLine": 1406,
+        "startChar": 14,
+        "endLine": 1406,
+        "endChar": 21
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_47186e88",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -176,6 +394,29 @@
       "range": {
         "startLine": 1418,
         "startChar": 2,
+        "endLine": 1418,
+        "endChar": 31
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_fcc1bff7",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "period at end",
+      "range": {
+        "startLine": 1418,
+        "startChar": 21,
         "endLine": 1418,
         "endChar": 31
       },
@@ -225,6 +466,23 @@
         "endLine": 1434,
         "endChar": 60
       },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_9cdb6be1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "period at end",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -288,6 +546,40 @@
         "endLine": 1551,
         "endChar": 22
       },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_1cde9bcd",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "period",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_3ce3579b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "period",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -363,6 +655,23 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_5cf81343",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "period",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30907f09_dfaa1b24",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -380,6 +689,115 @@
         "endLine": 1805,
         "endChar": 16
       },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_9cf28b5f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "and period",
+      "parentUuid": "30907f09_dfaa1b24",
+      "range": {
+        "startLine": 1805,
+        "startChar": 12,
+        "endLine": 1805,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_dc8ec3e0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "same",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_fc937f03",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "here and below, period at end",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_3cb51783",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1978,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "no tabs",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_5caad326",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2102,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "no tabs",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_bca10747",
+        "filename": "test/609-checker-x86-bounds-check/src/Main.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-16T20:27:37Z",
+      "side": 1,
+      "message": "wait, isn\u0027t this conditional on setting the feature on? you presubmit passed though",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
