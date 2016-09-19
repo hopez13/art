@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2b022be2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_16de7acd",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_d6e3029b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "I don\u0027t think this build line is needed.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_4be7673c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_d6e3029b",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_6be42337",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_f6939e03",
+      "range": {
+        "startLine": 14,
+        "startChar": 22,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_f95d514a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
@@ -70,6 +130,30 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "I like what you did below putting this in a boolean with a more intuitive name (even though you need the value here only once, it documents itself through the name then and is consistent)",
+      "range": {
+        "startLine": 5077,
+        "startChar": 18,
+        "endLine": 5077,
+        "endChar": 39
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_ab529b01",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5077,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_f95d514a",
       "range": {
         "startLine": 5077,
         "startChar": 18,
@@ -122,6 +206,48 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_8b6cffc7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_431506a9",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_ab69bbb7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_796a41e6",
+      "range": {
+        "startLine": 5082,
+        "startChar": 49,
+        "endLine": 5082,
+        "endChar": 52
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_b974b9c3",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
@@ -133,6 +259,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "omit the _1 and _2, they are local variables just in scope of the true/else; your name implies there are two labels in the generated code",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_cba0b702",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5085,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_b974b9c3",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -156,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2bb06b4a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5094,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_f909d138",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_393a89ed",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_cb2b578c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_393a89ed",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d049e37c_04e4b6a0",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
@@ -184,6 +364,30 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "Unnecessary.",
+      "range": {
+        "startLine": 5596,
+        "startChar": 0,
+        "endLine": 5599,
+        "endChar": 7
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_eb3013f7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5599,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d049e37c_04e4b6a0",
       "range": {
         "startLine": 5596,
         "startChar": 0,
@@ -219,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_4596764b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_f9de315d",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_dc4963ba",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 15
@@ -230,6 +458,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "from here on, same comments as I gave in x86",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_6b6fc3bc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 4581,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_dc4963ba",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -253,6 +499,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_d0cf827b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 4586,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_a72dea03",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_87d666b7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 15
@@ -264,6 +528,24 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "Maybe this optimization isn\u0027t so useful for string compression and should be disabled.",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_d02b028c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5040,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "which part should be disabled? The whole charAt?",
+      "parentUuid": "305b1f41_87d666b7",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -293,6 +575,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_908d0ae1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5071,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708af7dc_41f87262",
+      "range": {
+        "startLine": 5068,
+        "startChar": 0,
+        "endLine": 5071,
+        "endChar": 7
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d049e37c_64580a5a",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -304,6 +610,30 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "and compression tag",
+      "range": {
+        "startLine": 1404,
+        "startChar": 10,
+        "endLine": 1404,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_eb781358",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d049e37c_64580a5a",
       "range": {
         "startLine": 1404,
         "startChar": 10,
@@ -363,6 +693,54 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2b730b79",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_67137270",
+      "range": {
+        "startLine": 1406,
+        "startChar": 14,
+        "endLine": 1406,
+        "endChar": 21
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_6b85033e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_5cd1f3c0",
+      "range": {
+        "startLine": 1406,
+        "startChar": 14,
+        "endLine": 1406,
+        "endChar": 21
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_47186e88",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -374,6 +752,24 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "Zero-length string is uncompressed, right?",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_0b29ef4a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Zero-length string is compressed for the case of allocation new string from strings: A (empty) + B (ascii - compressed) \u003d\u003e new_string (ascii - compressed).",
+      "parentUuid": "305b1f41_47186e88",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -426,6 +822,54 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2b45cbf8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_fcc1bff7",
+      "range": {
+        "startLine": 1418,
+        "startChar": 21,
+        "endLine": 1418,
+        "endChar": 31
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_4baf679d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_270d7a4a",
+      "range": {
+        "startLine": 1418,
+        "startChar": 2,
+        "endLine": 1418,
+        "endChar": 31
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_07127668",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -437,6 +881,30 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "This can be merged to addl (0x8000000 + 3).",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1430,
+        "endChar": 29
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_0bc56f51",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "I tried for an example if ECX is 1, ((1 AND INT32_MAX) + 3) is 4, meanwhile (1 + 134217728 + 3) is 134217732. Is this aligned with what you mean?",
+      "parentUuid": "305b1f41_07127668",
       "range": {
         "startLine": 1429,
         "startChar": 0,
@@ -472,6 +940,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_8b34ff94",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_c7033e1b",
+      "range": {
+        "startLine": 1434,
+        "startChar": 59,
+        "endLine": 1434,
+        "endChar": 60
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_9cdb6be1",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -483,6 +975,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "period at end",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_6bac23a8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_9cdb6be1",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -506,6 +1016,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_ddd87ae6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "zero-length is compressed so it has to be after clean up the top-most bit. As for the split, I feel there will be many code duplication if it is split this early?",
+      "parentUuid": "305b1f41_871e6666",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_67049221",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -517,6 +1045,30 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "comparison?",
+      "range": {
+        "startLine": 1545,
+        "startChar": 18,
+        "endLine": 1545,
+        "endChar": 29
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_8bb95fe7",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_67049221",
       "range": {
         "startLine": 1545,
         "startChar": 18,
@@ -552,6 +1104,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_3dc7ce0b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "It is on purpose I guess by looking at the CreateStringIndexOfLocations with comment \"As we clobber EDI during execution anyways, also use it as the output\". I have no further information though how this will affected the process.",
+      "parentUuid": "305b1f41_07139665",
+      "range": {
+        "startLine": 1551,
+        "startChar": 12,
+        "endLine": 1551,
+        "endChar": 22
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_1cde9bcd",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -563,6 +1139,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "period",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_abb61bf1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_1cde9bcd",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -586,6 +1180,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_cba197ad",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_3ce3579b",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_034a6ea9",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -597,6 +1209,30 @@
       "writtenOn": "2016-09-16T14:21:08Z",
       "side": 1,
       "message": "Don\u0027t load the tag into a register, do the comparison against the memory.",
+      "range": {
+        "startLine": 1750,
+        "startChar": 2,
+        "endLine": 1750,
+        "endChar": 43
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_bd2f3efa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_034a6ea9",
       "range": {
         "startLine": 1750,
         "startChar": 2,
@@ -632,6 +1268,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_6b93435a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_672db29f",
+      "range": {
+        "startLine": 1758,
+        "startChar": 41,
+        "endLine": 1758,
+        "endChar": 45
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_c73d7eca",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -655,6 +1315,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_ab8d3b37",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_c73d7eca",
+      "range": {
+        "startLine": 1765,
+        "startChar": 12,
+        "endLine": 1765,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_5cf81343",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -666,6 +1350,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "period",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_3d7fce06",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_5cf81343",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -719,6 +1421,54 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_9d860212",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_9cf28b5f",
+      "range": {
+        "startLine": 1805,
+        "startChar": 12,
+        "endLine": 1805,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_7d894624",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_dfaa1b24",
+      "range": {
+        "startLine": 1805,
+        "startChar": 12,
+        "endLine": 1805,
+        "endChar": 16
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_dc8ec3e0",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -730,6 +1480,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "same",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_bd93be4f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_dc8ec3e0",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -753,6 +1521,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_cb4c3743",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_fc937f03",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_3cb51783",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 15
@@ -764,6 +1550,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "no tabs",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_abc53b86",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 1978,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_3cb51783",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -787,6 +1591,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_4bce87ae",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2102,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_5caad326",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_bca10747",
         "filename": "test/609-checker-x86-bounds-check/src/Main.java",
         "patchSetId": 15
@@ -798,6 +1620,24 @@
       "writtenOn": "2016-09-16T20:27:37Z",
       "side": 1,
       "message": "wait, isn\u0027t this conditional on setting the feature on? you presubmit passed though",
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_0bd48f3a",
+        "filename": "test/609-checker-x86-bounds-check/src/Main.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Sorry, I messed up with changes from other local branches and settings",
+      "parentUuid": "cb1db24e_bca10747",
       "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
