@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508b33e0_63f9fc68",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-19T12:57:52Z",
+      "side": 1,
+      "message": "Could this be turned into a `static_assert`?",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "e95a049c3907f406aaac561feb3be7d44d609224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
