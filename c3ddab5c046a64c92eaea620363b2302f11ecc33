@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_6edee7ce",
+        "filename": "test/run-test",
+        "patchSetId": 10
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-19T21:51:41Z",
+      "side": 1,
+      "message": "thanks for adding, seems the list is not up to date on all flags actually",
+      "revId": "c3ddab5c046a64c92eaea620363b2302f11ecc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_ae837fb3",
+        "filename": "test/run-test",
+        "patchSetId": 10
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-19T21:51:41Z",
+      "side": 1,
+      "message": "do we want to log something when bisection/run_checker combination occurs; future users may expect something to happen and silently skipping the search seems a bit too silent :-)",
+      "revId": "c3ddab5c046a64c92eaea620363b2302f11ecc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
