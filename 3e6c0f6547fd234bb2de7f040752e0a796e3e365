@@ -22,6 +22,30 @@
       "revId": "3e6c0f6547fd234bb2de7f040752e0a796e3e365",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_ea23a717",
+        "filename": "compiler/optimizing/nodes_shared.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-09-19T12:46:14Z",
+      "side": 1,
+      "message": "Added a check that the size of `kPrimInt` and `kPrimNot` is the same.",
+      "parentUuid": "f09507fc_fddfe7f3",
+      "range": {
+        "startLine": 121,
+        "startChar": 62,
+        "endLine": 121,
+        "endChar": 67
+      },
+      "revId": "3e6c0f6547fd234bb2de7f040752e0a796e3e365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
