@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "30423f4d_12c98a6c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-19T17:12:19Z",
+      "side": 1,
+      "message": "\u003e What are the symptoms this CL is trying to resolve?\n \u003e \n \u003e My \"planned\" work for b/30971238 regards the case when there are two zygotes both with permission to generate the boot image. But in this case, it sounds like the unprivileged zygote would not have permission to create the boot image in the first place? In that case, we don\u0027t have same \"race to generate\" issue as described in b/30971238.\n \u003e \n \u003e I assume the symptoms this CL is trying to resolve is that without root permissions you get logcat messages that suggest something went wrong, either due to permissions issues or selinux denials. The goal is not to cause misleading logcat messages, right?\n\nWe are introducing a new zygote process type for creating WebView renderers. Since it\u0027s going to be a specialization of the system zygote, it doesn\u0027t need to write the boot marker or have direct write access to the Dalvik cache. The runtime in some cases choses to abort if it doesn\u0027t have permission to do certain privileged operations, so we\u0027re adding this flag to skip privileged ops.\n\nI\u0027m not too familiar with b/30971238 so I can\u0027t comment on that (your #3 below).\n\n \u003e Looking through the code, it appears to me the IsZygote flag is used for 3 different reasons:\n \u003e 1. To indicate that processes will be forked from this process, so it is not acceptable to create any threads.\n \u003e 2. To indicate what level of permissions this process has, so it can avoid performing actions that it knows would fail and lead to misleading log messages.\n \u003e 3. Andreas\u0027s hack to address the \"race to generate\" issue.\n \u003e \n \u003e I think \"zygote-privileged\" and \"zygote-unprivileged\" flags are decent ways to indicate and distinguish between (1) and (2). Alternatively it may be useful to reorganize the flags into separate \"zygote\" and \"privileged\" flags, which allow for the option of a privileged non-zygote process that could make sense for test cases. I\u0027m not sure.\n\nThe first version of the patch set did your latter suggestion, but per review advice I\u0027ve switched it to the former to make things more explicit. I don\u0027t have a preference so will defer to you all.\n\n \u003e Regardless of what flags are used, I would like to see them clearly documented so the meaning and intention of the flags are well defined.\n\nI left documentation around the member variables in runtime.h. Is there another place you\u0027d like this to be documented?",
+      "parentUuid": "0b7a6a68_96744c2b",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
