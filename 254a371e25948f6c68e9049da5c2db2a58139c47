@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10545b0d_46f752ef",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-19T13:38:02Z",
+      "side": 1,
+      "message": "According to the design document, empty string is compressed, so this is always false, unless we flip the meaning of the compression bit (0\u003dcompressed, 1\u003duncompressed).",
+      "range": {
+        "startLine": 1412,
+        "startChar": 2,
+        "endLine": 1412,
+        "endChar": 25
+      },
+      "revId": "254a371e25948f6c68e9049da5c2db2a58139c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
