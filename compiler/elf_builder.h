@@ -75,6 +75,10 @@ template <typename ElfTypes>
 class ElfBuilder FINAL {
  public:
   static constexpr size_t kMaxProgramHeaders = 16;
+  // SHA-1 digest.  Not using SHA_DIGEST_LENGTH from openssl/sha.h to avoid
+  // spreading this header dependency for just this single constant.
+  static constexpr size_t kBuildIdLen = 20;
+
   using Elf_Addr = typename ElfTypes::Addr;
   using Elf_Off = typename ElfTypes::Off;
   using Elf_Word = typename ElfTypes::Word;
@@ -458,6 +462,45 @@ class ElfBuilder FINAL {
     } abiflags_;
   };
 
+  class BuildIdSection FINAL : public Section {
+   public:
+    BuildIdSection(ElfBuilder<ElfTypes>* owner,
+                   const std::string& name,
+                   Elf_Word type,
+                   Elf_Word flags,
+                   const Section* link,
+                   Elf_Word info,
+                   Elf_Word align,
+                   Elf_Word entsize)
+        : Section(owner, name, type, flags, link, info, align, entsize),
+          digest_start_(-1) {
+    }
+
+    void Write() {
+      this->WriteUint32(4);  // namesz.
+      this->WriteUint32(kBuildIdLen);  // descsz.
+      this->WriteUint32(3);  // type = NT_GNU_BUILD_ID.
+      this->WriteFully("GNU", 4);  // name.
+      digest_start_ = this->Seek(0, kSeekCurrent);
+      this->WriteFully(std::string(kBuildIdLen, '\0').c_str(), kBuildIdLen);
+    }
+
+    off_t GetDigestStart() {
+      CHECK_GT(digest_start_, 0);
+      return digest_start_;
+    }
+
+   private:
+    bool WriteUint32(uint32_t v) {
+      return this->WriteFully(&v, sizeof(v));
+    }
+
+    // File offset where the build ID digest starts.
+    // Populated with zeros first, then updated with the actual value as the
+    // very last thing in the output file creation.
+    off_t digest_start_;
+  };
+
   ElfBuilder(InstructionSet isa, const InstructionSetFeatures* features, OutputStream* output)
       : isa_(isa),
         features_(features),
@@ -479,6 +522,7 @@ class ElfBuilder FINAL {
         shstrtab_(this, ".shstrtab", 0, 1),
         abiflags_(this, ".MIPS.abiflags", SHT_MIPS_ABIFLAGS, SHF_ALLOC, nullptr, 0, kPageSize, 0,
                   isa, features),
+        build_id_(this, ".note.gnu.build-id", SHT_NOTE, SHF_ALLOC, nullptr, 0, 4, 0),
         started_(false),
         write_program_headers_(false),
         loaded_size_(0u),
@@ -489,6 +533,7 @@ class ElfBuilder FINAL {
     dynamic_.phdr_type_ = PT_DYNAMIC;
     eh_frame_hdr_.phdr_type_ = PT_GNU_EH_FRAME;
     abiflags_.phdr_type_ = PT_MIPS_ABIFLAGS;
+    build_id_.phdr_type_ = PT_NOTE;
   }
   ~ElfBuilder() {}
 
@@ -730,6 +775,17 @@ class ElfBuilder FINAL {
     abiflags_.End();
   }
 
+  void WriteBuildIdSection() {
+    build_id_.Start();
+    build_id_.Write();
+    build_id_.End();
+  }
+
+  void WriteBuildId(uint8_t build_id[kBuildIdLen]) {
+    stream_.Seek(build_id_.GetDigestStart(), kSeekSet);
+    stream_.WriteFully(build_id, kBuildIdLen);
+  }
+
   // Returns true if all writes and seeks on the output stream succeeded.
   bool Good() {
     return stream_.Good();
@@ -921,6 +977,7 @@ class ElfBuilder FINAL {
   Section debug_line_;
   StringSection shstrtab_;
   AbiflagsSection abiflags_;
+  BuildIdSection build_id_;
   std::vector<std::unique_ptr<Section>> other_sections_;
 
   // List of used section in the order in which they were written.
