@@ -22,6 +22,30 @@
       "revId": "773d2dc852a32847421213ad775501583501753d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10545b0d_e6e51e36",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T14:26:22Z",
+      "side": 1,
+      "message": "Scratch this, DCE will remove it. Can you add another CHECK section that makes sure it\u0027s removed?",
+      "parentUuid": "9085abca_e5aaf023",
+      "range": {
+        "startLine": 1202,
+        "startChar": 0,
+        "endLine": 1202,
+        "endChar": 60
+      },
+      "revId": "773d2dc852a32847421213ad775501583501753d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
