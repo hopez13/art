@@ -37,6 +37,42 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_057e1209",
+        "filename": "tools/bisection_search/bisection_search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "No worries.\n\nIf we go ahead with this CL we cannot use art on device because we rely on pid of the process we start being equal to pid of dalvikvm.",
+      "parentUuid": "10545b0d_2627b6c1",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_65cb4648",
+        "filename": "tools/bisection_search/bisection_search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_4a7205a4",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_4a192582",
         "filename": "tools/bisection_search/common.py",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2016-09-16T22:46:59Z",
       "side": 1,
       "message": "not a valid log severity symbol?",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_87222b12",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_4a192582",
       "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_e7f75f74",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_1f0f6d3c",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_3f14294a",
         "filename": "tools/bisection_search/common.py",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2016-09-16T22:46:59Z",
       "side": 1,
       "message": "period",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_07fd5b55",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_3f14294a",
       "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_08e947a9",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_8a55dded",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_03402e58",
         "filename": "tools/bisection_search/common.py",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2016-09-19T09:22:43Z",
       "side": 1,
       "message": "So the reason this works for you is:\n1) This is only emitted in verbose mode, and the actual dex2oat on device isn\u0027t run on verbose mode.\n2) The tests are being run sequentially, so you can easily fetch the pid of the last run.\n\nIs that correct? Might make sense to add a few comments here.",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 65
+      },
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_a20715bd",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T23:33:20Z",
+      "side": 1,
+      "message": "This works by grabbing PID of command we execute and then using this PID to filter dex2oat instances spawned by process with this pid.\n\nIt should work no matter what happens in the background, even if we run tests in parallel.\n\nIt wont work if we use --raw-cmd switch to run a wrapper script that spawns dalvikvm as separate process (e.g. art). I updated the README to reflect that. It also won\u0027t work if dex2oat is run in non verbose mode.\n\nPotential problems include skipping some logs if we kill the logcat process too early (for now we kill it as soon as runtime returns with its output). This was never a problem during my tests though.\n\n\nOverall this is pretty messy, but I can\u0027t think of anything better. Perfect way would be to make runtime print logs to stderr/file rather then logcat, but my attempt to get this kind of CL in failed as it introduces logging overhead for everyone.",
+      "parentUuid": "b0462f6a_03402e58",
       "range": {
         "startLine": 427,
         "startChar": 0,
