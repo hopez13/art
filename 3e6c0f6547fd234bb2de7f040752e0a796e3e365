@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "30907f09_5f47eb05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-19T12:57:52Z",
+      "side": 1,
+      "message": "Why was this removed in PS4?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "3e6c0f6547fd234bb2de7f040752e0a796e3e365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_fddfe7f3",
         "filename": "compiler/optimizing/nodes_shared.h",
         "patchSetId": 3
