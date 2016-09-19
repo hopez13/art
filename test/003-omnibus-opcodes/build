@@ -17,6 +17,7 @@
 # Stop if something fails.
 set -e
 
+echo ${JAVAC}
 mkdir classes
 ${JAVAC} -d classes `find src -name '*.java'`
 rm classes/UnresClass.class
