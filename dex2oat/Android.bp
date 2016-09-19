@@ -24,7 +24,6 @@ cc_defaults {
         android: {
             // Use the 32-bit version of dex2oat on devices
             compile_multilib: "prefer32",
-
             sanitize: {
                 // ASan slows down dex2oat by ~3.5x, which translates into
                 // extremely slow first boot. Disabled to help speed up
@@ -34,8 +33,6 @@ cc_defaults {
             },
         },
     },
-
-
     include_dirs: [
         "art/cmdline",
     ],
