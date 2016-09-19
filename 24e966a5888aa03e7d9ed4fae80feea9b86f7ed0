@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f050a71d_485d1f48",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T20:45:22Z",
+      "side": 1,
+      "message": "Could we remove this constructor and instead have a RegisterSet::EmptyRegisterSet helper?",
+      "range": {
+        "startLine": 317,
+        "startChar": 78,
+        "endLine": 317,
+        "endChar": 89
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
