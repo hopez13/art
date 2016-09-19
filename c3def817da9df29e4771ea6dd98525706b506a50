@@ -102,6 +102,29 @@
       "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_03402e58",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T09:22:43Z",
+      "side": 1,
+      "message": "So the reason this works for you is:\n1) This is only emitted in verbose mode, and the actual dex2oat on device isn\u0027t run on verbose mode.\n2) The tests are being run sequentially, so you can easily fetch the pid of the last run.\n\nIs that correct? Might make sense to add a few comments here.",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 65
+      },
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
