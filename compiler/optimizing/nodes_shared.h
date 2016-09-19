@@ -17,6 +17,8 @@
 #ifndef ART_COMPILER_OPTIMIZING_NODES_SHARED_H_
 #define ART_COMPILER_OPTIMIZING_NODES_SHARED_H_
 
+#include "nodes.h"
+
 namespace art {
 
 class HMultiplyAccumulate FINAL : public HExpression<3> {
