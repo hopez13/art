@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2757b7c9",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-19T18:45:16Z",
+      "side": 1,
+      "message": "b/31592276",
+      "parentUuid": "305b1f41_8703066a",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 368,
+        "endChar": 69
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_67625243",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_6788cf59",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-19T18:45:16Z",
+      "side": 1,
+      "message": "I just changed the old code minimally for now (see line 293 from Base).\n\nI didn\u0027t realize it was actually sizeof(IRTSegmentState) until almost the end so I dropped a comment in here to remind myself to fix it later.",
+      "parentUuid": "305b1f41_67625243",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 67
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_47674e51",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2016-09-16T10:15:00Z",
       "side": 1,
       "message": "What\u0027s the action item here? Please add comments. I think I already commented that I don\u0027t mind having this duplicated.",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 73
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_a7348794",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-19T18:45:16Z",
+      "side": 1,
+      "message": "all the \"identical to x86_64\" means we should combine all those functions into one and introduce smaller functions to denote the differnce\n\nSo for example we\u0027d have a base\n\n   size_t OutArgSize() // in Jnicallingconvention\n   {\n     return RoundUp(NumberOfOutgoingStackArgs() * kFramePointerSize + GetStackPadding(),\n                 kStackAlignment\n   }\n\nand a \n\n    virtual size_t GetStackPadding() { return 0; }\n\nwhich would only be overridden for ARM to \n\n   virtual size_t GetStackPadding() override { return padding_; }",
+      "parentUuid": "305b1f41_47674e51",
       "range": {
         "startLine": 413,
         "startChar": 0,
@@ -128,6 +200,30 @@
       "writtenOn": "2016-09-16T10:15:00Z",
       "side": 1,
       "message": "Please don\u0027t submit code that has this.What\u0027s XX?",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 67
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_67e44f00",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-19T18:45:16Z",
+      "side": 1,
+      "message": "Must have forgotten to remove. I was hoping someone would catch things like this and tell me what what it was actually doing here.",
+      "parentUuid": "305b1f41_276c5a31",
       "range": {
         "startLine": 481,
         "startChar": 0,
@@ -243,6 +339,30 @@
       "writtenOn": "2016-09-16T10:15:00Z",
       "side": 1,
       "message": "Maybe file a bug? Or is that fixed already?",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 73
+      },
+      "revId": "367f3dd32454858b8b25d87feb8f6599d3b4c9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_07c0fb41",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-19T18:45:16Z",
+      "side": 1,
+      "message": "Still need MIPS support",
+      "parentUuid": "305b1f41_875c2678",
       "range": {
         "startLine": 373,
         "startChar": 0,
