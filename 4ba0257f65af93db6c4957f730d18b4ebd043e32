@@ -19,6 +19,93 @@
     },
     {
       "key": {
+        "uuid": "30907f09_ff0effea",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T12:37:04Z",
+      "side": 1,
+      "message": "Agree. We already have a build-only option, and dry-run with the current comment sounds equivalent.",
+      "parentUuid": "cb1db24e_fc237f69",
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_7d099735",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T12:37:04Z",
+      "side": 1,
+      "message": "Why this change? It\u0027s supposedly already done at line 479.",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 54
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8ad9cb10",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T12:37:04Z",
+      "side": 1,
+      "message": "this will have the effect of accepting  \"--prebuild --bisection-search\", which isn\u0027t great. How about forcing passing --no-prebuild?",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 26
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_1d0e533f",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T12:37:04Z",
+      "side": 1,
+      "message": "Requires a comment.",
+      "range": {
+        "startLine": 908,
+        "startChar": 63,
+        "endLine": 908,
+        "endChar": 79
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_5c881359",
         "filename": "test/run-test",
         "patchSetId": 7
