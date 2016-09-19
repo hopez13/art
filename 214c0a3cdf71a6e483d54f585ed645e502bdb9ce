@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_8bd95576",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-19T21:12:32Z",
+      "side": 1,
+      "message": "Ah, an interesting restriction. Reason the more to give Vladimir\u0027s idea a shot ;-)",
+      "parentUuid": "cb1db24e_2ad6a9eb",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_5ce493ff",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 7
