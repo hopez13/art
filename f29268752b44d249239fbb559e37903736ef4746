@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1db24e_eb6ba985",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T21:24:15Z",
+      "side": 1,
+      "message": "Android style: end comments with a period.",
+      "range": {
+        "startLine": 478,
+        "startChar": 29,
+        "endLine": 478,
+        "endChar": 38
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_ab3a9181",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T21:24:15Z",
+      "side": 1,
+      "message": "Just wanted to note that I\u0027m very unhappy with this. We shouldn\u0027t be in the business of depending on OpenSSL/BoringSSL directly. (But it seems I\u0027m the only one with this opinion)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_2b46a108",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T21:24:15Z",
+      "side": 1,
+      "message": "Android is 100-column.",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_6bca596d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T21:24:15Z",
+      "side": 1,
+      "message": "Personally I think this is yuck. If I understand this correctly, the checksum depends on the 20 zero bytes. So this isn\u0027t idempotent.",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 30
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_6bc5f950",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T21:24:15Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c ...",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 14
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
