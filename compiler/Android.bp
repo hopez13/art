@@ -174,8 +174,16 @@ art_cc_defaults {
     },
     target: {
         host: {
+            cflags: ["-DSUPPORT_BUILD_ID_GENERATION"],
             // For compiler driver TLS.
             host_ldlibs: ["-lpthread"],
+            // For SHA-1 checksumming of build ID
+            static: {
+                whole_static_libs: ["libcrypto"],
+            },
+            shared: {
+                shared_libs: ["libcrypto"],
+            },
         },
         android: {
             // For atrace.
