@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2ad6a9eb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:06:38Z",
+      "side": 1,
+      "message": "The Immediate in ARM is limited to the 4 rotate bits and 8 value bits, I tried the __ And(out, ShifterOperand(INT32_MAX)) and later figured out INT32_MAX is not possible to be constructed. Then throwing out the first bit by shifts is chosen.",
+      "parentUuid": "cb1db24e_fcd45f0e",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_5ce493ff",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_45403638",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_5ce493ff",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_bcdbc737",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2016-09-16T21:11:34Z",
       "side": 1,
       "message": "please don\u0027t leave commented out code",
+      "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_4a0cc59c",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:06:38Z",
+      "side": 1,
+      "message": "Sorry, this shouldn\u0027t be uploaded. Fixed.",
+      "parentUuid": "cb1db24e_bcdbc737",
       "revId": "214c0a3cdf71a6e483d54f585ed645e502bdb9ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
