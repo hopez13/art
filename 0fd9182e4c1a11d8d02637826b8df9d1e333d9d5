@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_ac346e94",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-19T18:01:32Z",
+      "side": 1,
+      "message": "I actually like Vladimir\u0027s suggestion. Of course this would mean you also have to go back to libcore and interpreter to make the representation change, but if you have the time, it would be very interesting to compare how much the \"micro optimizations\" that become possible for arm/x86 help in code size.",
+      "parentUuid": "30907f09_1f288344",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1296,
+        "endChar": 24
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_03138e65",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 8
