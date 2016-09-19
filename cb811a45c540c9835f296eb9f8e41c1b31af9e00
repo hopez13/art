@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_ac554eed",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-19T17:48:43Z",
+      "side": 1,
+      "message": "But what are these \"privileged operations?\" Right now it\u0027s boot image creation only. Are there other things that are not in this CL (it would be *highly* relevant for the design)?\n\nThe question then is: why and how is it not allowed to create the boot image? If it\u0027s on an ACL/selinux basis, why do we need to track this ourselves? Is that really just to suppress the messages?\n\nIf the webview zygote is actually root and technically has rights to write, then Richard\u0027s work becomes relevant. At that point the question would be: why do we have to restrict which zygote writes the boot image, if there\u0027s no observable difference in the end (when things are correctly \"synchronized\")?",
+      "parentUuid": "30423f4d_12c98a6c",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
