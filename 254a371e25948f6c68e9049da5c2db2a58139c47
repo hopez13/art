@@ -22,6 +22,30 @@
       "revId": "254a371e25948f6c68e9049da5c2db2a58139c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_62aa7d27",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-19T21:17:13Z",
+      "side": 1,
+      "message": "Sure, I missed this. Thanks, it\u0027s fixed.",
+      "parentUuid": "10545b0d_46f752ef",
+      "range": {
+        "startLine": 1412,
+        "startChar": 2,
+        "endLine": 1412,
+        "endChar": 25
+      },
+      "revId": "254a371e25948f6c68e9049da5c2db2a58139c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
