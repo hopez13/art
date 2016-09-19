@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "10545b0d_2627b6c1",
+        "filename": "tools/bisection_search/bisection_search.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-19T09:18:40Z",
+      "side": 1,
+      "message": "+1. Sorry I broke this, I didn\u0027t realize we had uses of the core image here.\n\nAny reason you cannot use the art/tools/art script?",
+      "parentUuid": "cb1db24e_4a7205a4",
+      "revId": "c3def817da9df29e4771ea6dd98525706b506a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_4a192582",
         "filename": "tools/bisection_search/common.py",
         "patchSetId": 1
