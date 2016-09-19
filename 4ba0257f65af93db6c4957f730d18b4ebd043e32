@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_ec4586fc",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T18:10:19Z",
+      "side": 1,
+      "message": "I adjusted the comment a bit. build-only is run-test option, run-test-jar\u0027s job is running the test.",
+      "parentUuid": "30907f09_ff0effea",
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_7d099735",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 7
@@ -48,6 +66,30 @@
       "writtenOn": "2016-09-19T12:37:04Z",
       "side": 1,
       "message": "Why this change? It\u0027s supposedly already done at line 479.",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 54
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_eca02602",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T18:10:19Z",
+      "side": 1,
+      "message": "This is so cmdline.sh can be called multiple times with different options to rerun the test with recompiling. It is not necessary for the usual testing flow where we only run cmdline.sh once, it doesn\u0027t hurt though.\n\nThis line used to be added at the run-test level via a sed call in patchset 5, do you prefer that way?",
+      "parentUuid": "f09507fc_7d099735",
       "range": {
         "startLine": 508,
         "startChar": 0,
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2c579ec9",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T18:10:19Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "305b1f41_8ad9cb10",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 26
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_1d0e533f",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -106,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_2cab1ee5",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T18:10:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_1d0e533f",
+      "range": {
+        "startLine": 908,
+        "startChar": 63,
+        "endLine": 908,
+        "endChar": 79
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_5c881359",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -117,6 +207,30 @@
       "writtenOn": "2016-09-16T21:02:26Z",
       "side": 1,
       "message": "why is it listed twice?",
+      "range": {
+        "startLine": 920,
+        "startChar": 54,
+        "endLine": 920,
+        "endChar": 65
+      },
+      "revId": "4ba0257f65af93db6c4957f730d18b4ebd043e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_d17f8136",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-19T18:10:19Z",
+      "side": 1,
+      "message": "--runtime-option \u0027\"$@\"\u0027 is to make the generated cmdline.sh script forward its arguments to dalvikvm. \"$@\" is to pass additional arguments to run-test-jar, same as line 847.",
+      "parentUuid": "cb1db24e_5c881359",
       "range": {
         "startLine": 920,
         "startChar": 54,
