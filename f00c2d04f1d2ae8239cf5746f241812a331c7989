@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ac2770_6efec353",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-09-20T01:05:29Z",
+      "side": 1,
+      "message": "does anyone seriously object to adding this in as a dependency? I\u0027d rather not add unnecessary ifdef.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_ce0c979e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-09-20T01:05:29Z",
+      "side": 1,
+      "message": "is there an boringssl constant for this? yes...\n\nSHA_DIGEST_LENGTH\n\nobviously requires lack of ifdef",
+      "range": {
+        "startLine": 78,
+        "startChar": 40,
+        "endLine": 78,
+        "endChar": 42
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
