@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_5f585359",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-20T15:08:49Z",
+      "side": 1,
+      "message": "Why are there selinux denials? Only the root user is allowed to write into the ISA directories, and only root user + group (nnk, why is that?) are allowed to write into /data/dalvik-cache. To me, if that\u0027s all, it seems like we\u0027d be able to live without the flag by first doing a stat on the directory...",
+      "parentUuid": "30423f4d_c327b6d2",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
