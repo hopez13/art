@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "30423f4d_63092a36",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-20T19:25:22Z",
+      "side": 1,
+      "message": "\u003e Why are there selinux denials?\n\nI\u0027m not sure why there\u0027s denials for the dalvik-cache writes but not the boot marker. The SELinux denials also only get printed if the webview_zygote tries to race the creation of the boot image, but not if it gets started later in boot.\n\n\u003e it seems like we\u0027d be able to live without the flag by first doing a stat on the directory...\n\nIf you\u0027re OK with just an access check, then that will work as well. Updated to just add a check in ImageCreationAllowed(). It won\u0027t short-circuit the boot marker warning, but that doesn\u0027t create an SELinux error, for whatever reason.",
+      "parentUuid": "f0ac2770_5f585359",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
