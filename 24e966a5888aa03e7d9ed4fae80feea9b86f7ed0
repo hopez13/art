@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "305b1f41_8a50abfc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T10:33:14Z",
+      "side": 1,
+      "message": "I see; so I guess `size_t` on line 201 should be changed to `uint32_t`.",
+      "parentUuid": "b0462f6a_26e9f8a9",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10545b0d_0646fa06",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
