@@ -70,6 +70,30 @@
       "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8a666bbd",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T13:27:01Z",
+      "side": 1,
+      "message": "There\u0027s no out args here. I think you\u0027re being confused by the \u0027out\u0027 in the parameter name, but that\u0027s a file where we are going to dump stuff to (for the oat file, we actually just call it \u0027out\u0027).\n\nAnd the style I think we\u0027ve always followed is only use const references.",
+      "parentUuid": "305b1f41_cacb439a",
+      "range": {
+        "startLine": 1597,
+        "startChar": 58,
+        "endLine": 1597,
+        "endChar": 95
+      },
+      "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
