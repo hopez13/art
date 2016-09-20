@@ -265,6 +265,30 @@
       "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_e4e40f03",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-20T20:05:03Z",
+      "side": 1,
+      "message": "Ok, I was probably the one suggesting the TODO, since I am afraid we will forget all the details in a bit after the internship ends. But let\u0027s change this into the simplicity comment, and open a bug on the potential improvements (you can assign to me but make P4 :-)",
+      "parentUuid": "305b1f41_8defa579",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 22
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
