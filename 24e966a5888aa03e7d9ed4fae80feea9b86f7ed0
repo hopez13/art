@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "10545b0d_26c45656",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T13:56:41Z",
+      "side": 1,
+      "message": "Done, PS4.",
+      "parentUuid": "10545b0d_66e80ee0",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10545b0d_0646fa06",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
