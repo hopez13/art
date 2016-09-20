@@ -247,6 +247,9 @@ class InstructionCodeGeneratorMIPS : public InstructionCodeGenerator {
                                Register obj,
                                uint32_t offset);
   void GenerateIntCompare(IfCondition cond, LocationSummary* locations);
+  bool MaterializeIntCompare(IfCondition cond,
+                             LocationSummary* input_locations,
+                             Register dst);
   void GenerateIntCompareAndBranch(IfCondition cond,
                                    LocationSummary* locations,
                                    MipsLabel* label);
@@ -257,6 +260,16 @@ class InstructionCodeGeneratorMIPS : public InstructionCodeGenerator {
                          bool gt_bias,
                          Primitive::Type type,
                          LocationSummary* locations);
+  bool MaterializeFpCompareR2(IfCondition cond,
+                              bool gt_bias,
+                              Primitive::Type type,
+                              LocationSummary* input_locations,
+                              int cc);
+  bool MaterializeFpCompareR6(IfCondition cond,
+                              bool gt_bias,
+                              Primitive::Type type,
+                              LocationSummary* input_locations,
+                              FRegister dst);
   void GenerateFpCompareAndBranch(IfCondition cond,
                                   bool gt_bias,
                                   Primitive::Type type,
@@ -283,6 +296,8 @@ class InstructionCodeGeneratorMIPS : public InstructionCodeGenerator {
                                  uint32_t num_entries,
                                  HBasicBlock* switch_block,
                                  HBasicBlock* default_block);
+  void GenConditionalMoveR2(HSelect* select);
+  void GenConditionalMoveR6(HSelect* select);
 
   MipsAssembler* const assembler_;
   CodeGeneratorMIPS* const codegen_;
