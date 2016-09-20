@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_f9e27f2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-20T05:17:01Z",
+      "side": 1,
+      "message": "You can try test-art-target-gtest-stub_test, but it doesn\u0027t cover all code that\u0027s using this (but should be enough to cover the macro usage).",
+      "parentUuid": "f0ac2770_1960bbd5",
+      "revId": "9f17db7565df68baa6cdefc5573697a7c12a2448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_f946ff4b",
         "filename": "runtime/arch/arm/asm_support_arm.S",
         "patchSetId": 1
