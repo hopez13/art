@@ -16,6 +16,93 @@
       "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "708af7dc_a1b7fef0",
+        "filename": "tools/bisection_search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T16:40:58Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "f0ac2770_5a1061ba",
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8d5c4578",
+        "filename": "tools/bisection_search/bisection_search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T16:40:58Z",
+      "side": 1,
+      "message": "core image",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_6d4b51b1",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T16:40:58Z",
+      "side": 1,
+      "message": "Add a comment that you\u0027re printing the pid of the shell and then invoking the comment. That PID is what you\u0027ll compare against when grepping for relevant output in the logcat.",
+      "range": {
+        "startLine": 411,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 68
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_a675e8c2",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T16:40:58Z",
+      "side": 1,
+      "message": "Why do you kill it? Can\u0027t you use logcat -d?",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 22
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
