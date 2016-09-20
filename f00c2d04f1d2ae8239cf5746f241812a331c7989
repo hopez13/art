@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_5975d35d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-09-20T05:32:42Z",
+      "side": 1,
+      "message": "like all things borg, we\u0027d statically link.",
+      "parentUuid": "f0ac2770_d9cea3ac",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_ce0c979e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
