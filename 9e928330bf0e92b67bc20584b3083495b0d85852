@@ -22,6 +22,30 @@
       "revId": "9e928330bf0e92b67bc20584b3083495b0d85852",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_ea17274e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T09:25:01Z",
+      "side": 1,
+      "message": "So, when are we building `oatdump(d)s` now?  Are these part of the default build target?  Or just `build-art-host`?\n\nThe `oatdump(d)s` and `dex2oat(d)s` targets were initially guarded by conditionals to avoid building them by default, as they increased build times and were only used by few people.",
+      "parentUuid": "d049e37c_6775ac5e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "9e928330bf0e92b67bc20584b3083495b0d85852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
