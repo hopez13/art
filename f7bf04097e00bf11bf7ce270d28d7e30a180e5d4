@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ac2770_53da8768",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "I\u0027d prefer the JNI style CHECK_NON_NULL_ARGUMENT() - how about we reuse that?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_336fcb90",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "This seems problematic: either fail on size \u003d\u003d 0 (under the assumption that it\u0027s likely an unintended mistake) or return a non-null, ideally unique pointer if you want a permissive semantic (I prefer the former)",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_33282b45",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "free(nullptr) already does this so no need for the extra code",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_13f96fac",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "what\u0027s wrong with *capabilities_ptr \u003d kPotentialCapabilities ?",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 744,
+        "endChar": 38
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_339a6abe",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "same deal, a simple assignment should do the trick (and safer than memcpy\u0027ing bits around)",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 38
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_13696fee",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "Can we follow the JNI precedence for naming (JNIEnvExt / JNIEnv) ? How about JvmtiEnvExt ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_1315ef45",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "why value-initialize capabilities in the initializers list then?",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 79
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_f3037268",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "I think \"supported\" sounds better than \"potential\" in this case",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 46
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_13b16f4d",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-20T23:16:02Z",
+      "side": 1,
+      "message": "the designated initializers are technically C-only so it makes this header non-portable when it comes to C++",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 21
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
