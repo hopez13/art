@@ -34,6 +34,24 @@
       "revId": "9d445e07b2d4b0d621b9831337a2cfe61185869b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8a4b0b79",
+        "filename": "test/run-test",
+        "patchSetId": 4
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T08:29:26Z",
+      "side": 1,
+      "message": "Would you mind updating them? It\u0027s an oversight that we broke --jvm for those tests.",
+      "parentUuid": "305b1f41_aa75afc2",
+      "revId": "9d445e07b2d4b0d621b9831337a2cfe61185869b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
