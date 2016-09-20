@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_27c6a910",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5046,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_bdecff1d",
+      "range": {
+        "startLine": 5041,
+        "startChar": 0,
+        "endLine": 5046,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30907f09_2245309b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 17
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 5049,
+        "startChar": 0,
+        "endLine": 5054,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_47cba515",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5054,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_2245309b",
       "range": {
         "startLine": 5049,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_c7d6b5b8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5437,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_430158dc",
+      "range": {
+        "startLine": 5434,
+        "startChar": 0,
+        "endLine": 5437,
+        "endChar": 5
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_86d9cc10",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 17
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Use CodeGeneratorX86_X64::ArrayAddress()",
+      "range": {
+        "startLine": 4506,
+        "startChar": 0,
+        "endLine": 4511,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_e7aad123",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_86d9cc10",
       "range": {
         "startLine": 4506,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_6758215a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4519,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_e23e6816",
+      "range": {
+        "startLine": 4514,
+        "startChar": 0,
+        "endLine": 4519,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30907f09_023cac1b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 17
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Unnecessary.",
+      "range": {
+        "startLine": 4878,
+        "startChar": 0,
+        "endLine": 4881,
+        "endChar": 5
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_875d1d4b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4881,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_023cac1b",
       "range": {
         "startLine": 4878,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_a2f7e7ed",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d049e37c_aa06cb79",
+      "range": {
+        "startLine": 1420,
+        "startChar": 0,
+        "endLine": 1432,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30907f09_c2d6c4b8",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "We must not clobber the start_index, so the string_obj calculation needs to come before we modify the counter.",
+      "range": {
+        "startLine": 1565,
+        "startChar": 12,
+        "endLine": 1565,
+        "endChar": 23
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_1d3e5ec6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_c2d6c4b8",
       "range": {
         "startLine": 1565,
         "startChar": 12,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_421ab3d9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_ddceabac",
+      "range": {
+        "startLine": 1574,
+        "startChar": 9,
+        "endLine": 1574,
+        "endChar": 17
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9085abca_48f89362",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
@@ -226,6 +442,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_b85f186c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9085abca_48f89362",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10545b0d_c6f8e2aa",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
@@ -237,6 +471,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1777,
+        "startChar": 0,
+        "endLine": 1781,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_273b09fa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10545b0d_c6f8e2aa",
       "range": {
         "startLine": 1777,
         "startChar": 0,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_62eecfb3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10545b0d_a605e6b8",
+      "range": {
+        "startLine": 1782,
+        "startChar": 2,
+        "endLine": 1782,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d049e37c_0a1f1fc9",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
@@ -283,6 +565,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1784,
+        "startChar": 0,
+        "endLine": 1788,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_47408559",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d049e37c_0a1f1fc9",
       "range": {
         "startLine": 1784,
         "startChar": 0,
@@ -318,6 +624,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_4713a564",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1800,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_c620e40d",
+      "range": {
+        "startLine": 1799,
+        "startChar": 0,
+        "endLine": 1800,
+        "endChar": 21
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "708af7dc_e111860b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 17
@@ -329,6 +659,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Always false with the current representation.",
+      "range": {
+        "startLine": 1579,
+        "startChar": 2,
+        "endLine": 1579,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_58b62492",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708af7dc_e111860b",
       "range": {
         "startLine": 1579,
         "startChar": 2,
@@ -358,6 +712,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_42fcf3cf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f050a71d_2879c387",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f050a71d_c86fcfba",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 17
@@ -369,6 +741,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "start_index cannot be clobbered.",
+      "range": {
+        "startLine": 1731,
+        "startChar": 12,
+        "endLine": 1731,
+        "endChar": 23
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_dd31a6a4",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f050a71d_c86fcfba",
       "range": {
         "startLine": 1731,
         "startChar": 12,
@@ -404,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_82f98b6b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_a606087a",
+      "range": {
+        "startLine": 1739,
+        "startChar": 9,
+        "endLine": 1739,
+        "endChar": 17
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_a390644d",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 17
@@ -415,6 +835,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Check if EAX is ASCII.",
+      "range": {
+        "startLine": 1754,
+        "startChar": 2,
+        "endLine": 1754,
+        "endChar": 19
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_1853cc6b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_a390644d",
       "range": {
         "startLine": 1754,
         "startChar": 2,
@@ -450,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_67134170",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_fd5cc7ea",
+      "range": {
+        "startLine": 1933,
+        "startChar": 0,
+        "endLine": 1938,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f050a71d_68a0db00",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 17
@@ -461,6 +929,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Avoid this JMP, see x86.",
+      "range": {
+        "startLine": 1939,
+        "startChar": 2,
+        "endLine": 1939,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_02e35bca",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f050a71d_68a0db00",
       "range": {
         "startLine": 1939,
         "startChar": 2,
@@ -496,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_270d494a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1946,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_9d690390",
+      "range": {
+        "startLine": 1941,
+        "startChar": 0,
+        "endLine": 1946,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f050a71d_88baf725",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 17
@@ -507,6 +1023,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Add a comment: // TODO: Add support for LOOP to X86_64Assembler.",
+      "range": {
+        "startLine": 1955,
+        "startChar": 0,
+        "endLine": 1956,
+        "endChar": 21
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_c7fd5500",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f050a71d_88baf725",
       "range": {
         "startLine": 1955,
         "startChar": 0,
@@ -542,6 +1082,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_18b18c4d",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10545b0d_06d03a16",
+      "range": {
+        "startLine": 1993,
+        "startChar": 0,
+        "endLine": 1994,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_03ab5090",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 17
@@ -553,6 +1117,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "SUB yields the same flags and we wouldn\u0027t have to do the subtraction afterwards, just move it to the output register.",
+      "range": {
+        "startLine": 1997,
+        "startChar": 4,
+        "endLine": 1997,
+        "endChar": 22
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_73a0e300",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_03ab5090",
       "range": {
         "startLine": 1997,
         "startChar": 4,
@@ -588,6 +1176,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_d36997b5",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2002,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f050a71d_c8990fca",
+      "range": {
+        "startLine": 2001,
+        "startChar": 0,
+        "endLine": 2002,
+        "endChar": 89
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_3d2d4f55",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 17
@@ -599,6 +1211,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "SUB",
+      "range": {
+        "startLine": 2019,
+        "startChar": 4,
+        "endLine": 2019,
+        "endChar": 22
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_93a55f12",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f09507fc_3d2d4f55",
       "range": {
         "startLine": 2019,
         "startChar": 4,
@@ -634,6 +1270,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_33aa6bdf",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30907f09_622a58a2",
+      "range": {
+        "startLine": 2023,
+        "startChar": 0,
+        "endLine": 2024,
+        "endChar": 89
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_a3b704f1",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 17
@@ -657,6 +1317,30 @@
     },
     {
       "key": {
+        "uuid": "708af7dc_04859807",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_a3b704f1",
+      "range": {
+        "startLine": 2034,
+        "startChar": 0,
+        "endLine": 2035,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_e3966c4b",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 17
@@ -668,6 +1352,24 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 1,
       "message": "Please add code comments as on x86.\n\nAddress the same comments as on quick_entrypoints_x86.S .",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_f8b35055",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_e3966c4b",
       "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_38b1e898",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d049e37c_ea1de37e",
+      "range": {
+        "startLine": 1409,
+        "startChar": 0,
+        "endLine": 1410,
+        "endChar": 25
+      },
+      "revId": "6a40fc9bbb9421f78ffd7a9cce7f9acff3aa7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_1d5653ce",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-20T15:00:14Z",
       "side": 0,
       "message": "I apparently didn\u0027t clean up everything that can use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1713,
+        "startChar": 0,
+        "endLine": 1720,
+        "endChar": 3
+      },
+      "revId": "6a40fc9bbb9421f78ffd7a9cce7f9acff3aa7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_38624810",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-20T23:05:40Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f09507fc_1d5653ce",
       "range": {
         "startLine": 1713,
         "startChar": 0,
