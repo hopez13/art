@@ -94,6 +94,47 @@
       "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_6347bc06",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T13:43:31Z",
+      "side": 1,
+      "message": "Why not const pointers? They are perfectly reasonable.",
+      "parentUuid": "305b1f41_8a666bbd",
+      "range": {
+        "startLine": 1597,
+        "startChar": 58,
+        "endLine": 1597,
+        "endChar": 95
+      },
+      "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_834c4028",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1776,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T13:43:31Z",
+      "side": 1,
+      "message": "You need to Flush() either here or in WriteVdexHeader().",
+      "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
