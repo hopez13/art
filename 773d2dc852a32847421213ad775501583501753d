@@ -46,6 +46,30 @@
       "revId": "773d2dc852a32847421213ad775501583501753d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_4a5193d4",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-09-20T13:23:56Z",
+      "side": 1,
+      "message": "I tested that it works after adding the new section below:\n\n  /// CHECK-START: boolean Main.$noinline$NotNotBool(boolean) dead_code_elimination$final (after)\n  /// CHECK-DAG:     \u003c\u003cArg:z\\d+\u003e\u003e       ParameterValue\n  /// CHECK-DAG:                        Return [\u003c\u003cArg\u003e\u003e]\n\n\nDo you mind if we keep the code as is in the cherry-pick (that\u0027s easier for the new Jack release) and do the follow-up above after the switch to new Jack is done?",
+      "parentUuid": "10545b0d_e6e51e36",
+      "range": {
+        "startLine": 1202,
+        "startChar": 0,
+        "endLine": 1202,
+        "endChar": 60
+      },
+      "revId": "773d2dc852a32847421213ad775501583501753d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
