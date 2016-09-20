@@ -69,13 +69,13 @@
     // The RUNTIME_CURRENT macros that are bound to the \name argument of DEF_ENTRY to ensure
     // that label names are unique.
     .macro RUNTIME_CURRENT1 rDest, rTemp
-        RUNTIME_CURRENT \name, 1, \rDest, \rTemp
+        RUNTIME_CURRENT \name, 1, \rDest
     .endm
     .macro RUNTIME_CURRENT2 rDest, rTemp
-        RUNTIME_CURRENT \name, 2, \rDest, \rTemp
+        RUNTIME_CURRENT \name, 2, \rDest
     .endm
     .macro RUNTIME_CURRENT3 rDest, rTemp
-        RUNTIME_CURRENT \name, 3, \rDest, \rTemp
+        RUNTIME_CURRENT \name, 3, \rDest
     .endm
 .endm
 
