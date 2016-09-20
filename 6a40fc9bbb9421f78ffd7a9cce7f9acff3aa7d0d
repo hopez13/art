@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d049e37c_ea1de37e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T17:51:58Z",
+      "side": 0,
+      "message": "We cannot simply drop the JECXZ, see https://android-review.googlesource.com/83425 .",
+      "range": {
+        "startLine": 1409,
+        "startChar": 0,
+        "endLine": 1410,
+        "endChar": 25
+      },
+      "revId": "6a40fc9bbb9421f78ffd7a9cce7f9acff3aa7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f09507fc_1d5653ce",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 17
