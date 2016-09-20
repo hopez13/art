@@ -22,6 +22,98 @@
       "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_aa3a4fce",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T09:54:48Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10545b0d_0646fa06",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T09:54:48Z",
+      "side": 1,
+      "message": "bl?",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8a378be8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T09:54:48Z",
+      "side": 1,
+      "message": "bl?",
+      "range": {
+        "startLine": 445,
+        "startChar": 4,
+        "endLine": 445,
+        "endChar": 5
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_6a569701",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-20T09:54:48Z",
+      "side": 1,
+      "message": "Add\n\n  brk 0\n\nafter the branch instruction, as in other macros below (maybe in another CL)?",
+      "range": {
+        "startLine": 446,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
