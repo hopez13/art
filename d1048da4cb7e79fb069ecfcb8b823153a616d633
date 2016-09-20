@@ -917,6 +917,30 @@
     },
     {
       "key": {
+        "uuid": "30907f09_e2cf481f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "It seems I wrote one zero too few, it should have been 0x80000000.\n\nWe know that the highest bit in ECX is set here (for example 0x80000001 instead of 1), so in 32-bit arithmetic\n\n    ECX \u0026 0x7fffffff \u003d ECX + 0x80000000\n    (ECX \u0026 0x7fffffff) + 3 \u003d ECX + (0x80000000 + 3)\n\nand we can then do one addition instead of two.",
+      "parentUuid": "cb1db24e_0bc56f51",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1430,
+        "endChar": 29
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_c7033e1b",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 15
@@ -1116,6 +1140,30 @@
       "side": 1,
       "message": "It is on purpose I guess by looking at the CreateStringIndexOfLocations with comment \"As we clobber EDI during execution anyways, also use it as the output\". I have no further information though how this will affected the process.",
       "parentUuid": "305b1f41_07139665",
+      "range": {
+        "startLine": 1551,
+        "startChar": 12,
+        "endLine": 1551,
+        "endChar": 22
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_a2d940e9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Ah, I see, that\u0027s a dirty trick. But we must still avoid clobbering the start_index register.",
+      "parentUuid": "cb1db24e_3dc7ce0b",
       "range": {
         "startLine": 1551,
         "startChar": 12,
