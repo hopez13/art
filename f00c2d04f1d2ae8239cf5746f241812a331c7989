@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_d9cea3ac",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-20T05:24:09Z",
+      "side": 1,
+      "message": "Just to make sure: libcrypto routines are supported on borg? We won\u0027t run into issues doing this in general?",
+      "parentUuid": "f0ac2770_6efec353",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_ce0c979e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
