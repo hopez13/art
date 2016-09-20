@@ -251,13 +251,25 @@ void MallocSpace::SweepCallback(size_t num_ptrs, mirror::Object** ptrs, void* ar
 void MallocSpace::ClampGrowthLimit() {
   size_t new_capacity = Capacity();
   CHECK_LE(new_capacity, NonGrowthLimitCapacity());
-  GetLiveBitmap()->SetHeapSize(new_capacity);
-  GetMarkBitmap()->SetHeapSize(new_capacity);
+  if (LIKELY(GetLiveBitmap() != nullptr)) {
+    GetLiveBitmap()->SetHeapSize(new_capacity);
+  } else {
+    LOG(ERROR) << "GetLiveBitmap() returned nullptr, skipping heap resizing";
+  }
+  if (LIKELY(GetMarkBitmap() != nullptr)) {
+    GetMarkBitmap()->SetHeapSize(new_capacity);
+  } else {
+    LOG(ERROR) << "GetMarkBitmap() returned nullptr, skipping heap resizing";
+  }
   if (temp_bitmap_.get() != nullptr) {
     // If the bitmaps are clamped, then the temp bitmap is actually the mark bitmap.
     temp_bitmap_->SetHeapSize(new_capacity);
   }
-  GetMemMap()->SetSize(new_capacity);
+  if (LIKELY(GetMemMap() != nullptr)) {
+    GetMemMap()->SetSize(new_capacity);
+  } else {
+    LOG(ERROR) << "GetMemMap() returned nullptr, skipping resizing";
+  }
   limit_ = Begin() + new_capacity;
 }
 
