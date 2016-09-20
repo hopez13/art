@@ -127,6 +127,30 @@
       "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8d356532",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T16:50:30Z",
+      "side": 1,
+      "message": "OK, I guess we\u0027re expecting quite some logs here?\n\nWhat prevents you from doing the TODO? Just adding a sleep is fine by now, and you can just say that another alternative would be to log more, but sleeping is just simpler.",
+      "parentUuid": "f0ac2770_9a8b39ca",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 22
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
