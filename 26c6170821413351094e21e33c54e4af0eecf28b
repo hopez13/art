@@ -241,6 +241,30 @@
       "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8defa579",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T19:59:46Z",
+      "side": 1,
+      "message": "sgtm. Again, just mentioning simplicity as a reason is fine enough. I generally dislike open-ended TODOs as they\u0027re discussion items more relevant in a bug than in code.",
+      "parentUuid": "f0ac2770_2ecbe66f",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 22
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
