@@ -1,0 +1,596 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "305b1f41_4d93ed06",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "const\u0026?",
+      "range": {
+        "startLine": 921,
+        "startChar": 47,
+        "endLine": 921,
+        "endChar": 74
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_2d98b91e",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Like what? Please expand.",
+      "range": {
+        "startLine": 944,
+        "startChar": 8,
+        "endLine": 944,
+        "endChar": 39
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_0d9df50e",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 949,
+        "startChar": 11,
+        "endLine": 950,
+        "endChar": 55
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5037b30c_0092064d",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Comments please.",
+      "range": {
+        "startLine": 951,
+        "startChar": 6,
+        "endLine": 951,
+        "endChar": 87
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_ed8181ad",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 955,
+        "endChar": 32
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_bd02bfac",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Can we have a helper for this? I guess the in memory dex file loaded that got added recently use more or less the same arguments?",
+      "range": {
+        "startLine": 66,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_26e9c2a9",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "MapAnonymous can fail, right? And I think we handle failures in other places, you should handle it here too.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_5dd13b1d",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Make this a helper method in dex file?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 34
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5037b30c_e08e0229",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "I don\u0027t think we ever pass handles by reference.",
+      "range": {
+        "startLine": 110,
+        "startChar": 69,
+        "endLine": 110,
+        "endChar": 70
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5037b30c_409d2e59",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Full sentences please.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 64
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_c603441b",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "But where is that actually being used? It might be good to say which ArtMethod methods (?) would break if you were to update the class first.",
+      "range": {
+        "startLine": 165,
+        "startChar": 31,
+        "endLine": 165,
+        "endChar": 83
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_abdc8d00",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Just a copy of the method name. I\u0027d drop it, or extend it if there is more to know.",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 21
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_8bd9d110",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "The method is not doing what its name is saying.",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_a600480f",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_46ee46b3",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "which one?",
+      "range": {
+        "startLine": 183,
+        "startChar": 25,
+        "endLine": 183,
+        "endChar": 29
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_e6e2fac4",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "mirror::Object** or MutableHandle*",
+      "range": {
+        "startLine": 193,
+        "startChar": 50,
+        "endLine": 193,
+        "endChar": 51
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_66049021",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 194,
+        "startChar": 11,
+        "endLine": 194,
+        "endChar": 55
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_86fd4c01",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 4
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_8d88c5cd",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Maybe that the feature only works with BaseDexClassLoader?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 48
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_6db7d190",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "This is oome you\u0027re protecting against right? You need to handle that properly. A CHECK crashing of the VM will  not help the user of the feature.",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 37
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_4dbc0d71",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 95
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_2db1d998",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "change to what?",
+      "range": {
+        "startLine": 292,
+        "startChar": 33,
+        "endLine": 292,
+        "endChar": 41
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_0db61591",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Do you plan on addressing this in this change?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 99
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_cda7dd5b",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "Don\u0027t you need to deoptimize everything to interpreter here (because of inlining)?",
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d049e37c_8afd4f01",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "which ones? please expand the comment.",
+      "range": {
+        "startLine": 332,
+        "startChar": 48,
+        "endLine": 332,
+        "endChar": 53
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_edaaa123",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:33:12Z",
+      "side": 1,
+      "message": "What is \u0027this\u0027? The scope? I suggest putting the comment at the beginning of the scope and say \"We need a scope to make sure...\".",
+      "range": {
+        "startLine": 376,
+        "startChar": 7,
+        "endLine": 376,
+        "endChar": 11
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
