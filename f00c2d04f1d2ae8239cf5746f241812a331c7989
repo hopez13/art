@@ -93,6 +93,29 @@
       "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_03b1104d",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T09:50:47Z",
+      "side": 1,
+      "message": "Use the initializer-list.",
+      "range": {
+        "startLine": 474,
+        "startChar": 6,
+        "endLine": 474,
+        "endChar": 25
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
