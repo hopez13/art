@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "305b1f41_2ad53f39",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-20T12:53:16Z",
+      "side": 1,
+      "message": "btw, this seems awkward. i initially assumed it was an out arg but it\u0027s not - shouldn\u0027t we pass it as an in-arg by const reference (and make VerifierDeps::Encode const ?)",
+      "range": {
+        "startLine": 1597,
+        "startChar": 58,
+        "endLine": 1597,
+        "endChar": 95
+      },
+      "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
