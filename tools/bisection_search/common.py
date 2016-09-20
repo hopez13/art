@@ -23,6 +23,7 @@ import shlex
 import shutil
 import time
 
+from subprocess import DEVNULL
 from subprocess import check_call
 from subprocess import PIPE
 from subprocess import Popen
@@ -115,6 +116,14 @@ def GetEnvVariableOrError(variable_name):
   return top
 
 
+def GetJackClassPath():
+  """Returns Jack's classpath."""
+  top = GetEnvVariableOrError('ANDROID_BUILD_TOP')
+  libdir = top + '/out/host/common/obj/JAVA_LIBRARIES'
+  return libdir + '/core-libart-hostdex_intermediates/classes.jack:' \
+       + libdir + '/core-oj-hostdex_intermediates/classes.jack'
+
+
 def _DexArchCachePaths(android_data_path):
   """Returns paths to architecture specific caches.
 
@@ -170,6 +179,33 @@ def _LogCmdOutput(logfile, cmd, output, retcode):
   """
   logfile.write('Command:\n{0}\n{1}\nReturn code: {2}\n'.format(
       CommandListToCommandString(cmd), output, retcode))
+
+
+def RunCommand(cmd, out, err, timeout=5):
+  """Executes a command, and returns its return code.
+
+  Args:
+    cmd: list of strings, a command to execute
+    out: string, file name to open for stdout (or None)
+    err: string, file name to open for stderr (or None)
+    timeout: int, time out in seconds
+  Returns:
+    RetCode, return code of running command (forced RetCode.TIMEOUT
+    on timeout)
+  """
+  devnull = DEVNULL
+  outf = devnull
+  if out is not None:
+    outf = open(out, mode='w')
+  errf = devnull
+  if err is not None:
+    errf = open(err, mode='w')
+  (_, _, retcode) = RunCommandForOutput(cmd, None, outf, errf, timeout)
+  if outf != devnull:
+    outf.close()
+  if errf != devnull:
+    errf.close()
+  return retcode
 
 
 def CommandListToCommandString(cmd):
