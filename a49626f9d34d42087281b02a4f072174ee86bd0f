@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_ceb492ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-20T23:54:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_b1bbdebe",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "a49626f9d34d42087281b02a4f072174ee86bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_51162ab6",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-19T22:29:41Z",
       "side": 1,
       "message": "Non-standard indentation. Please move the \"do\" to the next line. Also align \"\\.\"",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "a49626f9d34d42087281b02a4f072174ee86bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_2e9d2668",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-20T23:54:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_51162ab6",
       "range": {
         "startLine": 48,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_11ae4f88",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-20T23:54:02Z",
+      "side": 1,
+      "message": "Changed to use this in fewwer places.",
+      "parentUuid": "cb1db24e_b1259e1d",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 15
+      },
+      "revId": "a49626f9d34d42087281b02a4f072174ee86bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_11f03256",
         "filename": "runtime/openjdkjvmti/art_jvmti.h",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_311a6bd9",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-20T23:54:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_11f03256",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "a49626f9d34d42087281b02a4f072174ee86bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_f1db96df",
         "filename": "runtime/openjdkjvmti/art_jvmti.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-19T22:29:41Z",
       "side": 1,
       "message": "Could use field name initialization to avoid comments and make it readable:\n\n .can_tag_objects \u003d 0",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 58
+      },
+      "revId": "a49626f9d34d42087281b02a4f072174ee86bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_7110e3ba",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-20T23:54:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1db24e_f1db96df",
       "range": {
         "startLine": 77,
         "startChar": 4,
