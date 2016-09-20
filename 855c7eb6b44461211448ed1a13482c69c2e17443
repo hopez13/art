@@ -22,6 +22,30 @@
       "revId": "855c7eb6b44461211448ed1a13482c69c2e17443",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_0a65dbe5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 0,
+      "message": "Just like for NullCheck, this is no longer needed and we CHECK(!instruction-\u003eHasUses()) instead in CreateThrowingSlowPathLocations(instruction).",
+      "parentUuid": "d049e37c_4a79971f",
+      "range": {
+        "startLine": 3093,
+        "startChar": 2,
+        "endLine": 3095,
+        "endChar": 3
+      },
+      "revId": "855c7eb6b44461211448ed1a13482c69c2e17443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

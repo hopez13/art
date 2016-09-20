@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "708af7dc_a1693e8f",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 1,
+      "message": "That\u0027s too long, I\u0027ll go with RegisterSet::Empty().",
+      "parentUuid": "f050a71d_485d1f48",
+      "range": {
+        "startLine": 317,
+        "startChar": 78,
+        "endLine": 317,
+        "endChar": 89
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_aa3a4fce",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-20T09:54:48Z",
       "side": 1,
       "message": "size_t?",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_26e9f8a9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 1,
+      "message": "decltype(LowToHighBits(core_spills).begin())::value_type is uint32_t.",
+      "parentUuid": "305b1f41_aa3a4fce",
       "range": {
         "startLine": 189,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0462f6a_06eefcb1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 1,
+      "message": "Right. Copy-paste before rebase across https://android-review.googlesource.com/274274 .",
+      "parentUuid": "10545b0d_0646fa06",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_8a378be8",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "10545b0d_c637c299",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_8a378be8",
+      "range": {
+        "startLine": 445,
+        "startChar": 4,
+        "endLine": 445,
+        "endChar": 5
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_6a569701",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-20T09:54:48Z",
       "side": 1,
       "message": "Add\n\n  brk 0\n\nafter the branch instruction, as in other macros below (maybe in another CL)?",
+      "range": {
+        "startLine": 446,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "24e966a5888aa03e7d9ed4fae80feea9b86f7ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9085abca_e823a717",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T10:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_6a569701",
       "range": {
         "startLine": 446,
         "startChar": 0,
