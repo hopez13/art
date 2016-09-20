@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "305b1f41_8a72ebd6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-20T07:13:36Z",
+      "side": 1,
+      "message": "Just to double check: do you need to use a zygote flag at all for the Webview zygote? What goes wrong if you don\u0027t pass --zygote?\n\nI would like to see more detailed documentation for the flags in parsed_options.cc ParsedOptions::Usage that shows up when you run dalvikvm -help, for example.",
+      "parentUuid": "30423f4d_182c09a0",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
