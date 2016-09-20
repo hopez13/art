@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_f80cb09d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-20T21:56:47Z",
+      "side": 1,
+      "message": "Looks like Android binaries have\n\n0x0000001e (FLAGS)                      BIND_NOW\n\nin the dynamic section though.  I\u0027ll time whether having libcrypto.so dependency changes \"time dex2oat\" output in a significant way.",
+      "parentUuid": "f0ac2770_e28ddf35",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_ce0c979e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
