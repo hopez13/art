@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_02411b3c",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-09-20T21:05:25Z",
+      "side": 1,
+      "message": "i guess your point is that linking against it dynamically affects dex2oat startup time, though it should be pretty small as the file will be mapped in for other processes, so there won\u0027t be an i/o cost, just dynamic linking for symbol used. and if that is the real concern, you could use dlopen/dlsym for the symbol lookup lazily.",
+      "parentUuid": "30907f09_e217484e",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_ce0c979e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
