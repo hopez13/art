@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_7fa50f0f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5077,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-20T15:52:18Z",
+      "side": 1,
+      "message": "You say done, but you did not change this? at a few places, it would be nice to name the long condition you did below, just to make the code self documenting a bit more",
+      "parentUuid": "cb1db24e_ab529b01",
+      "range": {
+        "startLine": 5077,
+        "startChar": 18,
+        "endLine": 5077,
+        "endChar": 39
+      },
+      "revId": "d1048da4cb7e79fb069ecfcb8b823153a616d633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_431506a9",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 15
