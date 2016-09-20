@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "30423f4d_c327b6d2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-20T14:36:41Z",
+      "side": 1,
+      "message": "Yes, we do need to pass the -Xzygote flag, otherwise Runtime::Start() calls InitNonZygoteOrPostFork(), which starts threads and makes forking unsafe.",
+      "parentUuid": "305b1f41_8a72ebd6",
+      "revId": "cb811a45c540c9835f296eb9f8e41c1b31af9e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be1fa42_02e8caa5",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
