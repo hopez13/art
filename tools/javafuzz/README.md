@@ -8,7 +8,7 @@ using the optimizing compiler, using an external reference implementation,
 or using various target architectures. Any difference between the outputs
 (**divergence**) may indicate a bug in one of the execution modes.
 
-JavaFuzz can be combined with dexfuzz to get multi-layered fuzz testing.
+JavaFuzz can be combined with DexFuzz to get multi-layered fuzz testing.
 
 How to run JavaFuzz
 ===================
@@ -36,8 +36,8 @@ a fixed testing class named Test. So a typical test run looks as follows.
     jack -cp ${JACK_CLASSPATH} --output-dex . Test.java
     art -classpath classes.dex Test
 
-How to start the JavaFuzz tests
-===============================
+How to start JavaFuzz testing
+=============================
 
     run_java_fuzz_test.py
                           [--num_tests=#TESTS]
@@ -55,6 +55,12 @@ where
       hopt = Art optimizing on host (default for m2)
       tint = Art interpreter on target
       topt = Art optimizing on target
+
+How to start Java/DexFuzz testing (multi-layered)
+=================================================
+
+    run_dex_fuzz_test.py
+                          [--num_tests=#TESTS]
 
 Background
 ==========
