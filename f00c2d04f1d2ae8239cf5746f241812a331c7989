@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "30907f09_e217484e",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T20:05:11Z",
+      "side": 1,
+      "message": "I\u0027ve asked the same question on the internal change, and Alexey did say:\n\n\"The goal is to avoid libcrypto dependency and the build ID generation on the device where it\u0027s not needed.\"\n\nWhich makes sense if libcrypto is not loaded on device, but I guess it always is?",
+      "parentUuid": "f0ac2770_5975d35d",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "f00c2d04f1d2ae8239cf5746f241812a331c7989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_ce0c979e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
