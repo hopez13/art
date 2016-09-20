@@ -22,6 +22,24 @@
       "revId": "475fc22a82f1ff6f70e8e0fec3c2ac6085d4f18b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a67fa_55cb2c15",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1042203
+      },
+      "writtenOn": "2016-09-20T23:44:43Z",
+      "side": 1,
+      "message": "\u003e If you check for ImageCreationAllowed here, you\u0027d avoid the marker failure. But maybe that should be a different helper.\n\nGood thought. Refactored the access check into CanWriteToDalvikCache().",
+      "parentUuid": "f0ac2770_04e36b31",
+      "revId": "475fc22a82f1ff6f70e8e0fec3c2ac6085d4f18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
