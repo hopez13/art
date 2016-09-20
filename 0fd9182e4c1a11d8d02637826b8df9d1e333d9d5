@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "305b1f41_8afd4b01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-20T09:20:35Z",
+      "side": 1,
+      "message": "Not sure what this means? charAt is implemented by transforming it to an ArrayGet. Where is that diabled?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_83f44083",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 8
