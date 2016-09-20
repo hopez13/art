@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_6e8ebee2",
+        "filename": "tools/bisection_search/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-20T18:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708af7dc_a1b7fef0",
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_8d5c4578",
         "filename": "tools/bisection_search/bisection_search.py",
         "patchSetId": 2
@@ -60,6 +78,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_8e93fa05",
+        "filename": "tools/bisection_search/bisection_search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-20T18:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_8d5c4578",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_6d4b51b1",
         "filename": "tools/bisection_search/common.py",
         "patchSetId": 2
@@ -71,6 +113,30 @@
       "writtenOn": "2016-09-20T16:40:58Z",
       "side": 1,
       "message": "Add a comment that you\u0027re printing the pid of the shell and then invoking the comment. That PID is what you\u0027ll compare against when grepping for relevant output in the logcat.",
+      "range": {
+        "startLine": 411,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 68
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_4e7e6271",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-20T18:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305b1f41_6d4b51b1",
       "range": {
         "startLine": 411,
         "startChar": 4,
@@ -142,6 +208,30 @@
       "side": 1,
       "message": "OK, I guess we\u0027re expecting quite some logs here?\n\nWhat prevents you from doing the TODO? Just adding a sleep is fine by now, and you can just say that another alternative would be to log more, but sleeping is just simpler.",
       "parentUuid": "f0ac2770_9a8b39ca",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 22
+      },
+      "revId": "26c6170821413351094e21e33c54e4af0eecf28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_2ecbe66f",
+        "filename": "tools/bisection_search/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-20T18:24:45Z",
+      "side": 1,
+      "message": "Verbose compiler can be pretty verbose at times and I observed log loss with default device log buffer size. The reason for this is that logcat forgets old logs of components which would otherwise use a large portion of the log buffer. This prevents one component from monopolizing the shared buffer. It is described in more detail here: https://docs.google.com/document/d/1B1duaEbB5GHvz3_yBn3UccY5X9GIlINbWoi5svWaup8/edit#heading\u003dh.mz05yb1xbi10 .\n\nI will go ahead and add a sleep. The reason I don\u0027t want to dive into making this super robust is that I only have a couple days of my internship left and I would like to prioritize other tasks. As I mentioned this could very well be good enough as it worked for me every time so far.",
+      "parentUuid": "305b1f41_8d356532",
       "range": {
         "startLine": 415,
         "startChar": 0,
