@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0ac2770_04e36b31",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-20T19:56:45Z",
+      "side": 1,
+      "message": "If you check for ImageCreationAllowed here, you\u0027d avoid the marker failure. But maybe that should be a different helper.",
+      "range": {
+        "startLine": 1423,
+        "startChar": 2,
+        "endLine": 1423,
+        "endChar": 38
+      },
+      "revId": "475fc22a82f1ff6f70e8e0fec3c2ac6085d4f18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
