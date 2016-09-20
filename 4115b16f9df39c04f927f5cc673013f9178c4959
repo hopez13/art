@@ -46,6 +46,30 @@
       "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305b1f41_cacb439a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-20T13:00:38Z",
+      "side": 1,
+      "message": "second half of the message is still valid (can be const verifier::VerifierDeps* verifier_deps).\n\nI don\u0027t know how much of the google3 style guide you follow, but in-args must come before out-args according to that.",
+      "parentUuid": "708af7dc_a11b7e27",
+      "range": {
+        "startLine": 1597,
+        "startChar": 58,
+        "endLine": 1597,
+        "endChar": 95
+      },
+      "revId": "4115b16f9df39c04f927f5cc673013f9178c4959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
