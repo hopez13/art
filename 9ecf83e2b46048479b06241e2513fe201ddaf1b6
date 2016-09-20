@@ -1,0 +1,676 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f09507fc_bdecff1d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5046,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 5041,
+        "startChar": 0,
+        "endLine": 5046,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_2245309b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5054,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 5049,
+        "startChar": 0,
+        "endLine": 5054,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_430158dc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "The constant should be just length, right? It should not contain the compression tag, so this is unnecessary.",
+      "range": {
+        "startLine": 5434,
+        "startChar": 0,
+        "endLine": 5437,
+        "endChar": 5
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_86d9cc10",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX86_X64::ArrayAddress()",
+      "range": {
+        "startLine": 4506,
+        "startChar": 0,
+        "endLine": 4511,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_e23e6816",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4514,
+        "startChar": 0,
+        "endLine": 4519,
+        "endChar": 9
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_023cac1b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 4878,
+        "startChar": 0,
+        "endLine": 4881,
+        "endChar": 5
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d049e37c_aa06cb79",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "We can save a JMP here.\n\n  __ cmpl(ecx, Immediate(0));\n  __ j(kGreaterEqual, \u0026string_not_compressed);\n  // Divide string length by 2, rounding up, and continue as if uncompressed.\n  // Merge clearing the compression flag (+0x80000000) with +1 for rounding.\n  __ addl(ecx, Immediate(0x80000001));\n  __ shrl(ecx, Immediate(1));\n  __ Bind(\u0026string_not_compressed);\n  // Divide string length by 2 to compare characters 2 at a time and adjust for lengths not\n  // divisible by 2.\n  __ addl(ecx, Immediate(1));\n  __ shrl(ecx, Immediate(1));\n\nNot sure what impact that would have on speed though.",
+      "range": {
+        "startLine": 1420,
+        "startChar": 0,
+        "endLine": 1432,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_c2d6c4b8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "We must not clobber the start_index, so the string_obj calculation needs to come before we modify the counter.",
+      "range": {
+        "startLine": 1565,
+        "startChar": 12,
+        "endLine": 1565,
+        "endChar": 23
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_ddceabac",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "kGreaterEqual? (Not that it matters, it cannot be zero with the current representation anyway.)",
+      "range": {
+        "startLine": 1574,
+        "startChar": 9,
+        "endLine": 1574,
+        "endChar": 17
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9085abca_48f89362",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "We need to check if EAX is ASCII and branch to not_found_label otherwise. We do not want to match 0x100+\u0027a\u0027 to \u0027a\u0027.",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10545b0d_c6f8e2aa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1777,
+        "startChar": 0,
+        "endLine": 1781,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10545b0d_a605e6b8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Avoid this JMP by moving the LEA after copy_uncompressed and change the conditional jump above to\n\n  __ j(kGreaterEqual, copy_uncompressed);",
+      "range": {
+        "startLine": 1782,
+        "startChar": 2,
+        "endLine": 1782,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d049e37c_0a1f1fc9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1784,
+        "startChar": 0,
+        "endLine": 1788,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_c620e40d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Add a comment: // TODO: Add support for LOOP to X86Assembler.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 0,
+        "endLine": 1800,
+        "endChar": 21
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "708af7dc_e111860b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Always false with the current representation.",
+      "range": {
+        "startLine": 1579,
+        "startChar": 2,
+        "endLine": 1579,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_2879c387",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Save a JMP, see x86.",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_c86fcfba",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "start_index cannot be clobbered.",
+      "range": {
+        "startLine": 1731,
+        "startChar": 12,
+        "endLine": 1731,
+        "endChar": 23
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0462f6a_a606087a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "kGreaterEqual?",
+      "range": {
+        "startLine": 1739,
+        "startChar": 9,
+        "endLine": 1739,
+        "endChar": 17
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_a390644d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Check if EAX is ASCII.",
+      "range": {
+        "startLine": 1754,
+        "startChar": 2,
+        "endLine": 1754,
+        "endChar": 19
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_fd5cc7ea",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX64_64::ArrayAddress().",
+      "range": {
+        "startLine": 1933,
+        "startChar": 0,
+        "endLine": 1938,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_68a0db00",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Avoid this JMP, see x86.",
+      "range": {
+        "startLine": 1939,
+        "startChar": 2,
+        "endLine": 1939,
+        "endChar": 29
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_9d690390",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1946,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Use CodeGeneratorX64_64::ArrayAddress().",
+      "range": {
+        "startLine": 1941,
+        "startChar": 0,
+        "endLine": 1946,
+        "endChar": 3
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_88baf725",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Add a comment: // TODO: Add support for LOOP to X86_64Assembler.",
+      "range": {
+        "startLine": 1955,
+        "startChar": 0,
+        "endLine": 1956,
+        "endChar": 21
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10545b0d_06d03a16",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "JECXZ",
+      "range": {
+        "startLine": 1993,
+        "startChar": 0,
+        "endLine": 1994,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_03ab5090",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 1997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "SUB yields the same flags and we wouldn\u0027t have to do the subtraction afterwards, just move it to the output register.",
+      "range": {
+        "startLine": 1997,
+        "startChar": 4,
+        "endLine": 1997,
+        "endChar": 22
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f050a71d_c8990fca",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2002,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Move .Lloop_comparison_this_compressed: after the JECXZ above, then\n\n    loop .Lloop_comparison_this_compressed\n    jmp keep_length",
+      "range": {
+        "startLine": 2001,
+        "startChar": 0,
+        "endLine": 2002,
+        "endChar": 89
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f09507fc_3d2d4f55",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "SUB",
+      "range": {
+        "startLine": 2019,
+        "startChar": 4,
+        "endLine": 2019,
+        "endChar": 22
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30907f09_622a58a2",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "LOOP",
+      "range": {
+        "startLine": 2023,
+        "startChar": 0,
+        "endLine": 2024,
+        "endChar": 89
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_a3b704f1",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "JE to .Lkeep_length and move the two MOVZXB here.",
+      "range": {
+        "startLine": 2034,
+        "startChar": 0,
+        "endLine": 2035,
+        "endChar": 25
+      },
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508b33e0_e3966c4b",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 1,
+      "message": "Please add code comments as on x86.\n\nAddress the same comments as on quick_entrypoints_x86.S .",
+      "revId": "9ecf83e2b46048479b06241e2513fe201ddaf1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

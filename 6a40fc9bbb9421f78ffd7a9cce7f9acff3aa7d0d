@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f09507fc_1d5653ce",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-20T15:00:14Z",
+      "side": 0,
+      "message": "I apparently didn\u0027t clean up everything that can use CodeGeneratorX86::ArrayAddress().",
+      "range": {
+        "startLine": 1713,
+        "startChar": 0,
+        "endLine": 1720,
+        "endChar": 3
+      },
+      "revId": "6a40fc9bbb9421f78ffd7a9cce7f9acff3aa7d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
