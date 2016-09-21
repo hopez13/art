@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "503b335a_6089725b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-21T23:57:53Z",
+      "side": 1,
+      "message": "Yes, https://android-review.googlesource.com/#/c/275630.",
+      "parentUuid": "909beb7b_32187088",
+      "range": {
+        "startLine": 15,
+        "startChar": 20,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "e77a5c6f3671f2ef9c09c8189158155bb7a4ae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_12136c70",
         "filename": "compiler/elf_writer_test.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-21T19:55:34Z",
       "side": 1,
       "message": "State this test in your test stanza.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "e77a5c6f3671f2ef9c09c8189158155bb7a4ae41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "503b335a_80ccb6b3",
+        "filename": "compiler/elf_writer_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-21T23:57:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_12136c70",
       "range": {
         "startLine": 104,
         "startChar": 0,
