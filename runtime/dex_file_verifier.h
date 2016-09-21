@@ -152,13 +152,16 @@ class DexFileVerifier {
   const char* CheckLoadStringByIdx(uint32_t idx, const char* error_fmt);
   const char* CheckLoadStringByTypeIdx(uint32_t type_idx, const char* error_fmt);
 
-  // Load a field/method Id by index. Checks whether the index is in bounds, printing the error if
-  // not. If there is an error, null is returned.
+  // Load a field/method/proto Id by index. Checks whether the index is in bounds, printing the
+  // error if not. If there is an error, null is returned.
   const DexFile::FieldId* CheckLoadFieldId(uint32_t idx, const char* error_fmt);
   const DexFile::MethodId* CheckLoadMethodId(uint32_t idx, const char* error_fmt);
+  const DexFile::ProtoId* CheckLoadProtoId(uint32_t idx, const char* error_fmt);
 
+  void ErrorStringPrintf(const std::string& reason) { failure_reason_ = reason; }
   void ErrorStringPrintf(const char* fmt, ...)
       __attribute__((__format__(__printf__, 2, 3))) COLD_ATTR;
+  bool FailureReasonIsSet() const { return failure_reason_.size() != 0; }
 
   // Retrieve class index and class access flag from the given member. index is the member index,
   // which is taken as either a field or a method index (as designated by is_field). The result,
@@ -175,16 +178,30 @@ class DexFileVerifier {
   // with the given second access flags.
   bool CheckFieldAccessFlags(uint32_t idx,
                              uint32_t field_access_flags,
-                             uint32_t class_access_flags,
-                             std::string* error_msg);
+                             uint32_t class_access_flags);
+
+  // Flag indicating whether method name is special.
+  enum SpecialNameFlag {
+    kNone = 0,
+    kClassInitializer = 1,  // "<clinit>"
+    kConstructor = 2        // "<init>
+  };
+
+  // Check method name exists, is valid, and whether it's special.
+  bool FindMethodName(uint32_t method_index,
+                      SpecialNameFlag* name_flag);
+
   // Check validity of the given method and access flags, in the context of a class with the given
   // second access flags.
   bool CheckMethodAccessFlags(uint32_t method_index,
                               uint32_t method_access_flags,
                               uint32_t class_access_flags,
+                              SpecialNameFlag name_flag,
                               bool has_code,
-                              bool expect_direct,
-                              std::string* error_msg);
+                              bool expect_direct);
+
+  // Check validity of given method if it's a constructor or class initializer.
+  bool CheckConstructorProperties(uint32_t method_index, SpecialNameFlag name_flag);
 
   const DexFile* const dex_file_;
   const uint8_t* const begin_;

@@ -100,6 +100,13 @@ const DexFile::MethodId* DexFileVerifier::CheckLoadMethodId(uint32_t idx, const 
   return &dex_file_->GetMethodId(idx);
 }
 
+const DexFile::ProtoId* DexFileVerifier::CheckLoadProtoId(uint32_t idx, const char* err_string) {
+  if (UNLIKELY(!CheckIndex(idx, dex_file_->NumProtoIds(), err_string))) {
+    return nullptr;
+  }
+  return &dex_file_->GetProtoId(idx);
+}
+
 // Helper macro to load string and return false on error.
 #define LOAD_STRING(var, idx, error)                    \
   const char* (var) = CheckLoadStringByIdx(idx, error); \
@@ -278,12 +285,13 @@ bool DexFileVerifier::CheckHeader() {
   const uint8_t* non_sum_ptr = reinterpret_cast<const uint8_t*>(header_) + non_sum;
   adler_checksum = adler32(adler_checksum, non_sum_ptr, expected_size - non_sum);
   if (adler_checksum != header_->checksum_) {
+    std::string error_msg =
+        StringPrintf("Bad checksum (%08x, expected %08x)", adler_checksum, header_->checksum_);
     if (verify_checksum_) {
-      ErrorStringPrintf("Bad checksum (%08x, expected %08x)", adler_checksum, header_->checksum_);
+      ErrorStringPrintf(error_msg);
       return false;
     } else {
-      LOG(WARNING) << StringPrintf(
-          "Ignoring bad checksum (%08x, expected %08x)", adler_checksum, header_->checksum_);
+      LOG(WARNING) << error_msg;
     }
   }
 
@@ -531,9 +539,8 @@ bool DexFileVerifier::CheckClassDataItemField(uint32_t idx,
   }
 
   // Check field access flags.
-  std::string error_msg;
-  if (!CheckFieldAccessFlags(idx, access_flags, class_access_flags, &error_msg)) {
-    ErrorStringPrintf("%s", error_msg.c_str());
+  if (!CheckFieldAccessFlags(idx, access_flags, class_access_flags)) {
+    DCHECK(FailureReasonIsSet());
     return false;
   }
 
@@ -572,16 +579,27 @@ bool DexFileVerifier::CheckClassDataItemMethod(uint32_t idx,
     return false;
   }
 
-  // Check method access flags.
+  SpecialNameFlag name_flag;
+  if (!FindMethodName(idx, &name_flag)) {
+    DCHECK(FailureReasonIsSet());
+    return false;
+  }
+
   bool has_code = (code_offset != 0);
-  std::string error_msg;
   if (!CheckMethodAccessFlags(idx,
                               access_flags,
                               class_access_flags,
+                              name_flag,
                               has_code,
-                              expect_direct,
-                              &error_msg)) {
-    ErrorStringPrintf("%s", error_msg.c_str());
+                              expect_direct)) {
+    DCHECK(FailureReasonIsSet());
+    return false;
+  }
+
+  if (!CheckConstructorProperties(idx, name_flag)) {
+    DCHECK(FailureReasonIsSet());
+    // TODO(oth): Remove logging here - for effect evaluation only.
+    LOG(FATAL) << "CheckConstructorProperties failed: " << FailureReason();
     return false;
   }
 
@@ -1302,7 +1320,7 @@ bool DexFileVerifier::CheckIntraAnnotationsDirectoryItem() {
   for (uint32_t i = 0; i < method_count; i++) {
     if (UNLIKELY(last_idx >= method_item->method_idx_ && i != 0)) {
       ErrorStringPrintf("Out-of-order method_idx for annotation: %x then %x",
-                       last_idx, method_item->method_idx_);
+                        last_idx, method_item->method_idx_);
       return false;
     }
     last_idx = method_item->method_idx_;
@@ -2499,14 +2517,13 @@ static std::string GetMethodDescriptionOrError(const uint8_t* const begin,
 
 bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
                                             uint32_t field_access_flags,
-                                            uint32_t class_access_flags,
-                                            std::string* error_msg) {
+                                            uint32_t class_access_flags) {
   // Generally sort out >16-bit flags.
   if ((field_access_flags & ~kAccJavaFlagsMask) != 0) {
-    *error_msg = StringPrintf("Bad field access_flags for %s: %x(%s)",
-                              GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
-                              field_access_flags,
-                              PrettyJavaAccessFlags(field_access_flags).c_str());
+    ErrorStringPrintf("Bad field access_flags for %s: %x(%s)",
+                      GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
+                      field_access_flags,
+                      PrettyJavaAccessFlags(field_access_flags).c_str());
     return false;
   }
 
@@ -2523,10 +2540,10 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
 
   // Fields may have only one of public/protected/final.
   if (!CheckAtMostOneOfPublicProtectedPrivate(field_access_flags)) {
-    *error_msg = StringPrintf("Field may have only one of public/protected/private, %s: %x(%s)",
-                              GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
-                              field_access_flags,
-                              PrettyJavaAccessFlags(field_access_flags).c_str());
+    ErrorStringPrintf("Field may have only one of public/protected/private, %s: %x(%s)",
+                      GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
+                      field_access_flags,
+                      PrettyJavaAccessFlags(field_access_flags).c_str());
     return false;
   }
 
@@ -2535,31 +2552,34 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
     // Interface fields must be public final static.
     constexpr uint32_t kPublicFinalStatic = kAccPublic | kAccFinal | kAccStatic;
     if ((field_access_flags & kPublicFinalStatic) != kPublicFinalStatic) {
-      *error_msg = StringPrintf("Interface field is not public final static, %s: %x(%s)",
-                                GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
-                                field_access_flags,
-                                PrettyJavaAccessFlags(field_access_flags).c_str());
+      std::string error_msg =
+          StringPrintf("Interface field is not public final static, %s: %x(%s)",
+                       GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
+                       field_access_flags,
+                       PrettyJavaAccessFlags(field_access_flags).c_str());
       if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        ErrorStringPrintf(error_msg);
         return false;
       } else {
         // Allow in older versions, but warn.
         LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                     << *error_msg;
+                     << error_msg;
       }
     }
     // Interface fields may be synthetic, but may not have other flags.
     constexpr uint32_t kDisallowed = ~(kPublicFinalStatic | kAccSynthetic);
     if ((field_access_flags & kFieldAccessFlags & kDisallowed) != 0) {
-      *error_msg = StringPrintf("Interface field has disallowed flag, %s: %x(%s)",
-                                GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
-                                field_access_flags,
-                                PrettyJavaAccessFlags(field_access_flags).c_str());
+      std::string error_msg = StringPrintf("Interface field has disallowed flag, %s: %x(%s)",
+                                           GetFieldDescriptionOrError(begin_, header_, idx).c_str(),
+                                           field_access_flags,
+                                           PrettyJavaAccessFlags(field_access_flags).c_str());
       if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        ErrorStringPrintf(error_msg);
         return false;
       } else {
         // Allow in older versions, but warn.
         LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                     << *error_msg;
+                     << error_msg;
       }
     }
     return true;
@@ -2568,60 +2588,70 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
   // Volatile fields may not be final.
   constexpr uint32_t kVolatileFinal = kAccVolatile | kAccFinal;
   if ((field_access_flags & kVolatileFinal) == kVolatileFinal) {
-    *error_msg = StringPrintf("Fields may not be volatile and final: %s",
-                              GetFieldDescriptionOrError(begin_, header_, idx).c_str());
+    ErrorStringPrintf("Fields may not be volatile and final: %s",
+                      GetFieldDescriptionOrError(begin_, header_, idx).c_str());
     return false;
   }
 
   return true;
 }
 
-// Try to find the name of the method with the given index. We do not want to rely on DexFile
-// infrastructure at this point, so do it all by hand. begin and header correspond to begin_ and
-// header_ of the DexFileVerifier. str will contain the pointer to the method name on success
-// (flagged by the return value), otherwise error_msg will contain an error string.
-static bool FindMethodName(uint32_t method_index,
-                           const uint8_t* begin,
-                           const DexFile::Header* header,
-                           const char** str,
-                           std::string* error_msg) {
-  if (method_index >= header->method_ids_size_) {
-    *error_msg = "Method index not available for method flags verification";
+bool DexFileVerifier::FindMethodName(uint32_t method_index, SpecialNameFlag* name_flag) {
+  if (method_index >= header_->method_ids_size_) {
+    ErrorStringPrintf("Method index not available for method flags verification");
     return false;
   }
   uint32_t string_idx =
-      (reinterpret_cast<const DexFile::MethodId*>(begin + header->method_ids_off_) +
+      (reinterpret_cast<const DexFile::MethodId*>(begin_ + header_->method_ids_off_) +
           method_index)->name_idx_;
-  if (string_idx >= header->string_ids_size_) {
-    *error_msg = "String index not available for method flags verification";
+  if (string_idx >= header_->string_ids_size_) {
+    ErrorStringPrintf("String index not available for method flags verification");
     return false;
   }
   uint32_t string_off =
-      (reinterpret_cast<const DexFile::StringId*>(begin + header->string_ids_off_) + string_idx)->
+      (reinterpret_cast<const DexFile::StringId*>(begin_ + header_->string_ids_off_) + string_idx)->
           string_data_off_;
-  if (string_off >= header->file_size_) {
-    *error_msg = "String offset out of bounds for method flags verification";
+  if (string_off >= header_->file_size_) {
+    ErrorStringPrintf("String offset out of bounds for method flags verification");
     return false;
   }
-  const uint8_t* str_data_ptr = begin + string_off;
+  const uint8_t* str_data_ptr = begin_ + string_off;
   DecodeUnsignedLeb128(&str_data_ptr);
-  *str = reinterpret_cast<const char*>(str_data_ptr);
+
+  const size_t name_offset = str_data_ptr - begin_;
+  if (name_offset >= header_->file_size_) {
+    ErrorStringPrintf("Invalid method name offset");
+    return false;
+  }
+
+  const size_t max_name_length = header_->file_size_ - name_offset;
+  const char* name = reinterpret_cast<const char*>(str_data_ptr);
+  if (name[0] != '<') {
+    *name_flag = kNone;
+  } else if (strncmp(name, "<clinit>", max_name_length) == 0) {
+    *name_flag = kClassInitializer;
+  } else if (strncmp(name, "<init>", max_name_length) == 0) {
+    *name_flag = kConstructor;
+  } else {
+    ErrorStringPrintf("Invalid special method name");
+    return false;
+  }
   return true;
 }
 
 bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
                                              uint32_t method_access_flags,
                                              uint32_t class_access_flags,
+                                             SpecialNameFlag name_flag,
                                              bool has_code,
-                                             bool expect_direct,
-                                             std::string* error_msg) {
+                                             bool expect_direct) {
   // Generally sort out >16-bit flags, except dex knows Constructor and DeclaredSynchronized.
   constexpr uint32_t kAllMethodFlags =
       kAccJavaFlagsMask | kAccConstructor | kAccDeclaredSynchronized;
   if ((method_access_flags & ~kAllMethodFlags) != 0) {
-    *error_msg = StringPrintf("Bad method access_flags for %s: %x",
-                              GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-                              method_access_flags);
+    ErrorStringPrintf("Bad method access_flags for %s: %x",
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
+                      method_access_flags);
     return false;
   }
 
@@ -2641,67 +2671,55 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
 
   // Methods may have only one of public/protected/final.
   if (!CheckAtMostOneOfPublicProtectedPrivate(method_access_flags)) {
-    *error_msg = StringPrintf("Method may have only one of public/protected/private, %s: %x",
-                              GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-                              method_access_flags);
+    ErrorStringPrintf("Method may have only one of public/protected/private, %s: %x",
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
+                      method_access_flags);
     return false;
   }
 
-  // Try to find the name, to check for constructor properties.
-  const char* str;
-  if (!FindMethodName(method_index, begin_, header_, &str, error_msg)) {
-    return false;
-  }
-  bool is_init_by_name = false;
-  constexpr const char* kInitName = "<init>";
-  size_t str_offset = (reinterpret_cast<const uint8_t*>(str) - begin_);
-  if (header_->file_size_ - str_offset >= sizeof(kInitName)) {
-    is_init_by_name = strcmp(kInitName, str) == 0;
-  }
-  bool is_clinit_by_name = false;
-  constexpr const char* kClinitName = "<clinit>";
-  if (header_->file_size_ - str_offset >= sizeof(kClinitName)) {
-    is_clinit_by_name = strcmp(kClinitName, str) == 0;
-  }
-  bool is_constructor = is_init_by_name || is_clinit_by_name;
+  bool is_constructor = (name_flag == SpecialNameFlag::kClassInitializer ||
+                         name_flag == SpecialNameFlag::kConstructor);
 
   // Only methods named "<clinit>" or "<init>" may be marked constructor. Note: we cannot enforce
   // the reverse for backwards compatibility reasons.
   if (((method_access_flags & kAccConstructor) != 0) && !is_constructor) {
-    *error_msg =
-        StringPrintf("Method %" PRIu32 "(%s) is marked constructor, but doesn't match name",
-                     method_index,
-                     GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+    ErrorStringPrintf("Method %" PRIu32 "(%s) is marked constructor, but doesn't match name",
+                      method_index,
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
     return false;
   }
-  // Check that the static constructor (= static initializer) is named "<clinit>" and that the
-  // instance constructor is called "<init>".
+
   if (is_constructor) {
+    // Check that the static constructor (= static initializer) is named "<clinit>" and that the
+    // instance constructor is called "<init>".
+    bool is_clinit_by_name = (name_flag == kClassInitializer);
     bool is_static = (method_access_flags & kAccStatic) != 0;
     if (is_static ^ is_clinit_by_name) {
-      *error_msg = StringPrintf("Constructor %" PRIu32 "(%s) is not flagged correctly wrt/ static.",
-                                method_index,
-                                GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+      std::string error_msg =
+          StringPrintf("Constructor %" PRIu32 "(%s) is not flagged correctly wrt/ static.",
+                       method_index,
+                       GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
       if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        ErrorStringPrintf(error_msg);
         return false;
       } else {
         // Allow in older versions, but warn.
         LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                     << *error_msg;
+                     << error_msg;
       }
     }
   }
+
   // Check that static and private methods, as well as constructors, are in the direct methods list,
   // and other methods in the virtual methods list.
   bool is_direct = (method_access_flags & (kAccStatic | kAccPrivate)) != 0 || is_constructor;
   if (is_direct != expect_direct) {
-    *error_msg = StringPrintf("Direct/virtual method %" PRIu32 "(%s) not in expected list %d",
-                              method_index,
-                              GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-                              expect_direct);
+    ErrorStringPrintf("Direct/virtual method %" PRIu32 "(%s) not in expected list %d",
+                      method_index,
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
+                      expect_direct);
     return false;
   }
-
 
   // From here on out it is easier to mask out the bits we're supposed to ignore.
   method_access_flags &= kMethodAccessFlags;
@@ -2714,15 +2732,17 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
       desired_flags |= kAccPrivate;
     }
     if ((method_access_flags & desired_flags) == 0) {
-      *error_msg = StringPrintf("Interface virtual method %" PRIu32 "(%s) is not public",
-          method_index,
-          GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+      std::string error_msg =
+          StringPrintf("Interface virtual method %" PRIu32 "(%s) is not public",
+                       method_index,
+                       GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
       if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        ErrorStringPrintf(error_msg);
         return false;
       } else {
         // Allow in older versions, but warn.
         LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                      << *error_msg;
+                     << error_msg;
       }
     }
   }
@@ -2731,23 +2751,24 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
   if (!has_code) {
     // Only native or abstract methods may not have code.
     if ((method_access_flags & (kAccNative | kAccAbstract)) == 0) {
-      *error_msg = StringPrintf("Method %" PRIu32 "(%s) has no code, but is not marked native or "
-                                "abstract",
-                                method_index,
-                                GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+      ErrorStringPrintf("Method %" PRIu32 "(%s) has no code, but is not marked native or abstract",
+                  method_index,
+                  GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
       return false;
     }
     // Constructors must always have code.
     if (is_constructor) {
-      *error_msg = StringPrintf("Constructor %u(%s) must not be abstract or native",
-                                method_index,
-                                GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+      std::string error_msg =
+          StringPrintf("Constructor %u(%s) must not be abstract or native",
+                       method_index,
+                       GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
       if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+        ErrorStringPrintf(error_msg);
         return false;
       } else {
         // Allow in older versions, but warn.
         LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                      << *error_msg;
+                     << error_msg;
       }
     }
     if ((method_access_flags & kAccAbstract) != 0) {
@@ -2755,10 +2776,10 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
       constexpr uint32_t kForbidden =
           kAccPrivate | kAccStatic | kAccFinal | kAccNative | kAccStrict | kAccSynchronized;
       if ((method_access_flags & kForbidden) != 0) {
-        *error_msg = StringPrintf("Abstract method %" PRIu32 "(%s) has disallowed access flags %x",
-            method_index,
-            GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-            method_access_flags);
+        ErrorStringPrintf("Abstract method %" PRIu32 "(%s) has disallowed access flags %x",
+                          method_index,
+                          GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
+                          method_access_flags);
         return false;
       }
       // Abstract methods should be in an abstract class or interface.
@@ -2773,15 +2794,17 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
     if ((class_access_flags & kAccInterface) != 0) {
       // Interface methods without code must be abstract.
       if ((method_access_flags & (kAccPublic | kAccAbstract)) != (kAccPublic | kAccAbstract)) {
-        *error_msg = StringPrintf("Interface method %" PRIu32 "(%s) is not public and abstract",
-            method_index,
-            GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+        std::string error_msg =
+            StringPrintf("Interface method %" PRIu32 "(%s) is not public and abstract",
+                         method_index,
+                         GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
         if (header_->GetVersion() >= DexFile::kDefaultMethodsVersion) {
+          ErrorStringPrintf(error_msg);
           return false;
         } else {
           // Allow in older versions, but warn.
           LOG(WARNING) << "This dex file is invalid and will be rejected in the future. Error is: "
-                       << *error_msg;
+                       << error_msg;
         }
       }
       // At this point, we know the method is public and abstract. This means that all the checks
@@ -2793,23 +2816,66 @@ bool DexFileVerifier::CheckMethodAccessFlags(uint32_t method_index,
 
   // When there's code, the method must not be native or abstract.
   if ((method_access_flags & (kAccNative | kAccAbstract)) != 0) {
-    *error_msg = StringPrintf("Method %" PRIu32 "(%s) has code, but is marked native or abstract",
-                              method_index,
-                              GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+    ErrorStringPrintf("Method %" PRIu32 "(%s) has code, but is marked native or abstract",
+                      method_index,
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
     return false;
   }
 
   // Instance constructors must not be synchronized and a few other flags.
-  if (is_init_by_name) {
+  if (name_flag == SpecialNameFlag::kConstructor) {
     static constexpr uint32_t kInitAllowed =
         kAccPrivate | kAccProtected | kAccPublic | kAccStrict | kAccVarargs | kAccSynthetic;
     if ((method_access_flags & ~kInitAllowed) != 0) {
-      *error_msg = StringPrintf("Constructor %" PRIu32 "(%s) flagged inappropriately %x",
-                                method_index,
-                                GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
-                                method_access_flags);
+      ErrorStringPrintf("Constructor %" PRIu32 "(%s) flagged inappropriately %x",
+                        method_index,
+                        GetMethodDescriptionOrError(begin_, header_, method_index).c_str(),
+                        method_access_flags);
       return false;
     }
+  }
+
+  return true;
+}
+
+bool DexFileVerifier::CheckConstructorProperties(
+      uint32_t method_index,
+      SpecialNameFlag name_flag) {
+  bool is_constructor = (name_flag == SpecialNameFlag::kClassInitializer ||
+                         name_flag == SpecialNameFlag::kConstructor);
+  if (!is_constructor) {
+    return true;
+  }
+
+  // Check signature matches expectations.
+  const DexFile::MethodId* const method_id = CheckLoadMethodId(method_index,
+                                                               "Bad <init>/<clinit> method id");
+  if (method_id == nullptr) {
+    return false;
+  }
+
+  // Check ProtoId for signature is valid.
+  //
+  // TODO(oth): error message here is satisfy dex_file_verifier_test
+  // (Proto idx error). The test is checking that the error contains
+  // this string if the index is out of range.
+  const DexFile::ProtoId* const proto_id = CheckLoadProtoId(method_id->proto_idx_,
+                                                            "inter_method_id_item proto_idx");
+  if (proto_id == nullptr) {
+    return false;
+  }
+
+  Signature signature = dex_file_->GetMethodSignature(*method_id);
+  if (name_flag == kClassInitializer) {
+    if (!signature.IsVoid() || signature.GetNumberOfParameters() != 0) {
+      ErrorStringPrintf("<clinit> must have descriptor ()V");
+      return false;
+    }
+  } else if (!signature.IsVoid()) {
+    ErrorStringPrintf("Constructor %u(%s) must be void",
+                      method_index,
+                      GetMethodDescriptionOrError(begin_, header_, method_index).c_str());
+    return false;
   }
 
   return true;
