@@ -2642,7 +2642,7 @@ std::ostream& operator<<(std::ostream& os, HLoadString::LoadKind rhs) {
       return os << "BootImageAddress";
     case HLoadString::LoadKind::kDexCacheAddress:
       return os << "DexCacheAddress";
-    case HLoadString::LoadKind::kDexCachePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
       return os << "DexCachePcRelative";
     case HLoadString::LoadKind::kDexCacheViaMethod:
       return os << "DexCacheViaMethod";

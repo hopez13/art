@@ -71,7 +71,7 @@ class DexCacheArrayFixupsVisitor : public HGraphVisitor {
   void VisitLoadString(HLoadString* load_string) OVERRIDE {
     // If this is a load with PC-relative access to the dex cache strings array,
     // we need to add the dex cache arrays base as the special input.
-    if (load_string->GetLoadKind() == HLoadString::LoadKind::kDexCachePcRelative) {
+    if (load_string->GetLoadKind() == HLoadString::LoadKind::kBssEntry) {
       // Initialize base for target dex file if needed.
       const DexFile& dex_file = load_string->GetDexFile();
       HMipsDexCacheArraysBase* base = GetOrCreateDexCacheArrayBase(dex_file);

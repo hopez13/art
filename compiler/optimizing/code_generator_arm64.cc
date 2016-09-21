@@ -4131,9 +4131,10 @@ HLoadString::LoadKind CodeGeneratorARM64::GetSupportedLoadStringKind(
     case HLoadString::LoadKind::kDexCacheAddress:
       DCHECK(Runtime::Current()->UseJitCompilation());
       break;
-    case HLoadString::LoadKind::kDexCachePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
       DCHECK(!Runtime::Current()->UseJitCompilation());
-      break;
+      // TODO: Implement.
+      return HLoadString::LoadKind::kDexCacheViaMethod;
     case HLoadString::LoadKind::kDexCacheViaMethod:
       break;
   }

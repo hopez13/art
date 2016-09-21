@@ -211,7 +211,10 @@ class OatTest : public CommonCompilerTest {
     oat_writer.PrepareLayout(compiler_driver_.get(), nullptr, dex_files, &patcher);
     size_t rodata_size = oat_writer.GetOatHeader().GetExecutableOffset();
     size_t text_size = oat_writer.GetOatSize() - rodata_size;
-    elf_writer->SetLoadedSectionSizes(rodata_size, text_size, oat_writer.GetBssSize());
+    elf_writer->PrepareDynamicSection(rodata_size,
+                                      text_size,
+                                      oat_writer.GetBssSize(),
+                                      oat_writer.GetBssRootsOffset());
 
     if (!oat_writer.WriteRodata(oat_rodata)) {
       return false;

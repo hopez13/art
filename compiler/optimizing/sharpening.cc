@@ -322,6 +322,8 @@ void HSharpening::ProcessLoadString(HLoadString* load_string) {
           !codegen_->GetCompilerOptions().GetCompilePic()) {
         desired_load_kind = HLoadString::LoadKind::kBootImageAddress;
         address = reinterpret_cast64<uint64_t>(string);
+      } else {
+        desired_load_kind = HLoadString::LoadKind::kBssEntry;
       }
     }
   }
@@ -330,6 +332,7 @@ void HSharpening::ProcessLoadString(HLoadString* load_string) {
   switch (load_kind) {
     case HLoadString::LoadKind::kBootImageLinkTimeAddress:
     case HLoadString::LoadKind::kBootImageLinkTimePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
     case HLoadString::LoadKind::kDexCacheViaMethod:
       load_string->SetLoadKindWithStringReference(load_kind, dex_file, string_index);
       break;
@@ -338,13 +341,6 @@ void HSharpening::ProcessLoadString(HLoadString* load_string) {
       DCHECK_NE(address, 0u);
       load_string->SetLoadKindWithAddress(load_kind, address);
       break;
-    case HLoadString::LoadKind::kDexCachePcRelative: {
-      PointerSize pointer_size = InstructionSetPointerSize(codegen_->GetInstructionSet());
-      DexCacheArraysLayout layout(pointer_size, &dex_file);
-      size_t element_index = layout.StringOffset(string_index);
-      load_string->SetLoadKindWithDexCacheReference(load_kind, dex_file, element_index);
-      break;
-    }
   }
 }
 

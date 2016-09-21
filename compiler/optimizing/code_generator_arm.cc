@@ -5427,16 +5427,10 @@ HLoadString::LoadKind CodeGeneratorARM::GetSupportedLoadStringKind(
     case HLoadString::LoadKind::kDexCacheAddress:
       DCHECK(Runtime::Current()->UseJitCompilation());
       break;
-    case HLoadString::LoadKind::kDexCachePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
       DCHECK(!Runtime::Current()->UseJitCompilation());
-      // We disable pc-relative load when there is an irreducible loop, as the optimization
-      // is incompatible with it.
-      // TODO: Create as many ArmDexCacheArraysBase instructions as needed for methods
-      // with irreducible loops.
-      if (GetGraph()->HasIrreducibleLoops()) {
-        return HLoadString::LoadKind::kDexCacheViaMethod;
-      }
-      break;
+      // TODO: Implement.
+      return HLoadString::LoadKind::kDexCacheViaMethod;
     case HLoadString::LoadKind::kDexCacheViaMethod:
       break;
   }
@@ -5450,7 +5444,7 @@ void LocationsBuilderARM::VisitLoadString(HLoadString* load) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(load, call_kind);
 
   HLoadString::LoadKind load_kind = load->GetLoadKind();
-  DCHECK(load_kind != HLoadString::LoadKind::kDexCachePcRelative) << "Not supported";
+  DCHECK(load_kind != HLoadString::LoadKind::kBssEntry) << "Not supported";
   if (load_kind == HLoadString::LoadKind::kDexCacheViaMethod) {
     locations->SetInAt(0, Location::RequiresRegister());
     locations->SetOut(Location::RegisterLocation(R0));

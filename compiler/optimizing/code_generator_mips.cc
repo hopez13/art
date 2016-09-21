@@ -4241,6 +4241,8 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
   }
   // We disable PC-relative load when there is an irreducible loop, as the optimization
   // is incompatible with it.
+  // TODO: Create as many MipsDexCacheArraysBase instructions as needed for methods
+  // with irreducible loops.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
   bool fallback_load = has_irreducible_loops;
   switch (desired_string_load_kind) {
@@ -4256,11 +4258,10 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
       DCHECK(Runtime::Current()->UseJitCompilation());
       fallback_load = false;
       break;
-    case HLoadString::LoadKind::kDexCachePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
       DCHECK(!Runtime::Current()->UseJitCompilation());
-      // TODO: Create as many MipsDexCacheArraysBase instructions as needed for methods
-      // with irreducible loops.
-      break;
+      // TODO: Implement.
+      return HLoadString::LoadKind::kDexCacheViaMethod;
     case HLoadString::LoadKind::kDexCacheViaMethod:
       fallback_load = false;
       break;
@@ -4755,7 +4756,7 @@ void LocationsBuilderMIPS::VisitLoadString(HLoadString* load) {
       }
       FALLTHROUGH_INTENDED;
     // We need an extra register for PC-relative dex cache accesses.
-    case HLoadString::LoadKind::kDexCachePcRelative:
+    case HLoadString::LoadKind::kBssEntry:
     case HLoadString::LoadKind::kDexCacheViaMethod:
       locations->SetInAt(0, Location::RequiresRegister());
       break;
