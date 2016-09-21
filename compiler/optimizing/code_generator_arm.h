@@ -483,6 +483,7 @@ class CodeGeneratorARM : public CodeGenerator {
 
   PcRelativePatchInfo* NewPcRelativeStringPatch(const DexFile& dex_file, uint32_t string_index);
   PcRelativePatchInfo* NewPcRelativeTypePatch(const DexFile& dex_file, uint32_t type_index);
+  PcRelativePatchInfo* NewStringBssEntryPatch(const DexFile& dex_file, uint32_t string_index);
   PcRelativePatchInfo* NewPcRelativeDexCacheArrayPatch(const DexFile& dex_file,
                                                        uint32_t element_offset);
   Literal* DeduplicateBootImageStringLiteral(const DexFile& dex_file, uint32_t string_index);
@@ -614,7 +615,7 @@ class CodeGeneratorARM : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
   // Deduplication map for boot string literals for kBootImageLinkTimeAddress.
   BootStringToLiteralMap boot_image_string_patches_;
-  // PC-relative String patch info.
+  // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
   // Deduplication map for boot type literals for kBootImageLinkTimeAddress.
   BootTypeToLiteralMap boot_image_type_patches_;
@@ -622,6 +623,9 @@ class CodeGeneratorARM : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_type_patches_;
   // Deduplication map for patchable boot image addresses.
   Uint32ToLiteralMap boot_image_address_patches_;
+
+  // We cannot access CompilerDriver::IsBootImage(), so keep track of boot image patches here.
+  bool have_boot_image_patches_;
 
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARM);
 };
