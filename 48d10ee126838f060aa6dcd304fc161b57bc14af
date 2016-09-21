@@ -22,6 +22,30 @@
       "revId": "48d10ee126838f060aa6dcd304fc161b57bc14af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_67133865",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-09-21T01:42:50Z",
+      "side": 0,
+      "message": "Looks like I missed the ?\u003d.  I can add it back to art.go if you want, although I think it is easier to just change the value in build/Android.bp.  In any case, this line isn\u0027t doing anything now.",
+      "parentUuid": "f0ac2770_e72408d0",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "48d10ee126838f060aa6dcd304fc161b57bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
