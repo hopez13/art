@@ -46,6 +46,30 @@
       "revId": "48d10ee126838f060aa6dcd304fc161b57bc14af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_c7346c97",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-21T02:14:28Z",
+      "side": 0,
+      "message": "The ? was important, it made everything easy to change without having to revert changes etc. I\u0027d prefer for you to put this back in, but maybe I\u0027m the only one.\n\n(I know it\u0027s not doing anything, I -1-ed so that there\u0027s a discussion before any trace goes away...)",
+      "parentUuid": "f0ac2770_67133865",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "48d10ee126838f060aa6dcd304fc161b57bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
