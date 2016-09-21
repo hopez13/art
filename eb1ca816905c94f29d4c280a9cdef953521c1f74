@@ -22,6 +22,30 @@
       "revId": "eb1ca816905c94f29d4c280a9cdef953521c1f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_5c3cce1c",
+        "filename": "tools/javafuzz/run_dex_fuzz_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-21T15:56:01Z",
+      "side": 1,
+      "message": "Yes, Wojciech and I talked about that, and throught introducing a third directory for this would make sense. If you also feel that way, shall I make a /art/tools/common (there is always the danger that such a directory fills up with too much stuff :-)",
+      "parentUuid": "909beb7b_521a54d9",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "eb1ca816905c94f29d4c280a9cdef953521c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
