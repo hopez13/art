@@ -589,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "7089173e_e98ef528",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "Sure, but it still creates a new array. InsertDexFileIntoArray for me means you\u0027re going to put the dex file in the passed array.",
+      "parentUuid": "f0ac2770_9d79ee22",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_a600480f",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 11
@@ -624,6 +648,30 @@
       "side": 1,
       "message": "It\u0027s the first element of the array.",
       "parentUuid": "b0462f6a_a600480f",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca9b6e_f6034068",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "OK, but oat-dex is not a well known notion. I suggest: \"copy the {oat, dex} pair in the first entry of the new array.",
+      "parentUuid": "f0ac2770_a2eda7f0",
       "range": {
         "startLine": 182,
         "startChar": 2,
@@ -918,6 +966,30 @@
     },
     {
       "key": {
+        "uuid": "909beb7b_f2c0a81f",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "I see, then I agree those can stay CHECKs (or DCHECK, but we can have this in a separate conversation).",
+      "parentUuid": "f0ac2770_fdf82243",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 37
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_4dbc0d71",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 11
@@ -965,6 +1037,30 @@
     },
     {
       "key": {
+        "uuid": "50a173a9_b0b618d5",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "Then I suggest: \"It would be cleaner to put it into the used dex file ..., but it\u0027s more annoying because...\"",
+      "parentUuid": "f0ac2770_bdf2aa5f",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 95
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_2db1d998",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 11
@@ -1000,6 +1096,30 @@
       "side": 1,
       "message": "change the method.",
       "parentUuid": "305b1f41_2db1d998",
+      "range": {
+        "startLine": 292,
+        "startChar": 33,
+        "endLine": 292,
+        "endChar": 41
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08b4731_cddce902",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "You mean env-\u003eAllocate?\n\nThen you are taking about the memory returned by it? How do you plan on doing this knowing it\u0027s at the page level?",
+      "parentUuid": "f0ac2770_7d58b259",
       "range": {
         "startLine": 292,
         "startChar": 33,
@@ -1134,6 +1254,24 @@
       "side": 1,
       "message": "We are currently assuming inlining must not be enabled",
       "parentUuid": "305b1f41_cda7dd5b",
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "108ffb3e_4e1ab3d9",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T09:27:36Z",
+      "side": 1,
+      "message": "Do you plan on checking it? Making this assumption will very likely confuse everyone trying it, as it\u0027s very brittle to write scripts that ensure all used oat files don\u0027t inline.",
+      "parentUuid": "f0ac2770_dd7206d8",
       "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
