@@ -24,6 +24,7 @@ import com.android.tools.perflib.heap.Heap;
 import com.android.tools.perflib.heap.Instance;
 import com.android.tools.perflib.heap.RootType;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,6 +38,7 @@ class ObjectHandler implements AhatHandler {
 
   private static final String ARRAY_ELEMENTS_ID = "elements";
   private static final String DOMINATOR_PATH_ID = "dompath";
+  private static final String DOMINATOR_PATHS_ID = "dompaths";
   private static final String ALLOCATION_SITE_ID = "frames";
   private static final String DOMINATED_OBJECTS_ID = "dominated";
   private static final String INSTANCE_FIELDS_ID = "ifields";
@@ -64,6 +66,7 @@ class ObjectHandler implements AhatHandler {
 
     printAllocationSite(doc, query, inst);
     printGcRootPath(doc, query, inst);
+    printPathsFromDominator(doc, query, inst);
 
     doc.section("Object Info");
     ClassObj cls = inst.getClassObj();
@@ -247,6 +250,33 @@ class ObjectHandler implements AhatHandler {
       }
     };
     HeapTable.render(doc, query, DOMINATOR_PATH_ID, table, mSnapshot, path);
+  }
+
+  private void printPathsFromDominator(Doc doc, Query query, Instance inst) {
+    doc.section("Paths from Immediate Dominator");
+    List<List<PathElement>> paths = InstanceUtils.getPathsFromDominator(mSnapshot, inst);
+
+    doc.table(new Column("Path"));
+    SubsetSelector<List<PathElement>> selector = new SubsetSelector(
+        query, DOMINATOR_PATHS_ID, paths);
+    for (List<PathElement> path : selector.selected()) {
+      DocString pathstr = Value.render(mSnapshot, path.get(0).instance);
+      String field = path.get(0).field;
+      for (PathElement elem : path.subList(1, path.size())) {
+        URI target;
+        if (elem.instance == null) {
+          target = DocString.uri("rooted");
+        } else {
+          target = DocString.formattedUri("object?id=%d", elem.instance.getId());
+        }
+        pathstr.append(" ");
+        pathstr.appendLink(target, DocString.text(field));
+        field = elem.field;
+      }
+      doc.row(pathstr);
+    }
+    doc.end();
+    selector.render(doc);
   }
 
   public void printDominatedObjects(Doc doc, Query query, Instance inst) {

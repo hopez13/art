@@ -28,8 +28,10 @@ import com.android.tools.perflib.heap.Type;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Utilities for extracting information from hprof instances.
@@ -407,7 +409,14 @@ class InstanceUtils {
     if (parent == null || parent instanceof RootObj) {
       return null;
     }
+    return new PathElement(parent, describeFieldFromParentToChild(parent, inst));
+  }
 
+  /**
+   * Returns a string description of which field of the given parent object
+   * refers to the given child object.
+   */
+  private static String describeFieldFromParentToChild(Instance parent, Instance child) {
     // Search the parent for the reference to the child.
     // TODO: This seems terribly inefficient. Can we use data structures to
     // help us here?
@@ -418,7 +427,7 @@ class InstanceUtils {
       for (int i = 0; i < values.length; i++) {
         if (values[i] instanceof Instance) {
           Instance ref = (Instance)values[i];
-          if (ref.getId() == inst.getId()) {
+          if (ref.getId() == child.getId()) {
             description = String.format("[%d]", i);
             break;
           }
@@ -429,7 +438,7 @@ class InstanceUtils {
       for (Map.Entry<Field, Object> entries : cls.getStaticFieldValues().entrySet()) {
         if (entries.getValue() instanceof Instance) {
           Instance ref = (Instance)entries.getValue();
-          if (ref.getId() == inst.getId()) {
+          if (ref.getId() == child.getId()) {
             description = "." + entries.getKey().getName();
             break;
           }
@@ -440,13 +449,85 @@ class InstanceUtils {
       for (ClassInstance.FieldValue fields : obj.getValues()) {
         if (fields.getValue() instanceof Instance) {
           Instance ref = (Instance)fields.getValue();
-          if (ref.getId() == inst.getId()) {
+          if (ref.getId() == child.getId()) {
             description = "." + fields.getField().getName();
             break;
           }
         }
       }
     }
-    return new PathElement(parent, description);
+    return description;
+  }
+
+  /**
+   * Returns a list of all paths to the given instance from its immediate
+   * dominator. The given instance is included in each path.
+   * There is guaranteed to be at least one path in the returned list.
+   */
+  public static List<List<PathElement>> getPathsFromDominator(
+      AhatSnapshot snapshot, Instance inst) {
+    List<PathElement> path = new ArrayList<PathElement>();
+    path.add(new PathElement(inst, ""));
+
+    List<List<PathElement>> found = new ArrayList<List<PathElement>>();
+    Instance dominator = inst.getImmediateDominator();
+    if (dominator instanceof RootObj) {
+      dominator = null;
+    }
+    findPathsFromDominator(snapshot, dominator, new HashSet<Long>(), path, found, false);
+    return found;
+  }
+
+  /**
+   * Find (acyclic) paths from a dominator to an instance.
+   * @param dominator - The dominator to find paths from. Use null for the
+   * dominator to find all paths from GC root objects.
+   * @param seen - A set of nodes we have visited already.
+   * @param path - A reverse partial path from the instance towards a dominator.
+   * @param found - The collection to add newly found paths to.
+   * @param one - If true, only find a single path.
+   * Returns true if at least one path was found.
+   */
+  private static boolean findPathsFromDominator(AhatSnapshot snapshot, Instance dominator,
+      Set<Long> seen, List<PathElement> path, List<List<PathElement>> found, boolean one) {
+    PathElement last = path.get(path.size() - 1);
+    if ((dominator == null && snapshot.isRoot(last.instance)) ||
+        (dominator != null && last.instance.getId() == dominator.getId())) {
+      List<PathElement> foundPath = new ArrayList<PathElement>(path);
+      Collections.reverse(foundPath);
+      found.add(foundPath);
+      return true;
+    }
+
+    boolean foundOne = false;
+    for (Instance ref : last.instance.getHardReverseReferences()) {
+      if (instanceInPath(ref, path)) {
+        continue;
+      }
+
+      path.add(new PathElement(ref, describeFieldFromParentToChild(ref, last.instance)));
+      boolean foundMore = findPathsFromDominator(snapshot, dominator, seen,
+          path, found, !seen.add(ref.getId()));
+      path.remove(path.size() - 1);
+      if (foundMore) {
+        if (one) {
+          return true;
+        }
+        foundOne = true;
+      }
+    }
+    return foundOne;
+  }
+
+  /**
+   * Returns true if the given instance occurs somewhere in the given path.
+   */
+  private static boolean instanceInPath(Instance inst, List<PathElement> path) {
+    for (PathElement elem : path) {
+      if (inst.getId() == elem.instance.getId()) {
+        return true;
+      }
+    }
+    return false;
   }
 }
