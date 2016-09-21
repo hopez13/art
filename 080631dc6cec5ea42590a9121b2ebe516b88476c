@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0b2c310_ff4adbab",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-21T18:17:47Z",
+      "side": 1,
+      "message": "Remove this quote. We are not following JVM spec, because we\u0027re not a JVM.",
+      "range": {
+        "startLine": 644,
+        "startChar": 6,
+        "endLine": 644,
+        "endChar": 76
+      },
+      "revId": "080631dc6cec5ea42590a9121b2ebe516b88476c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
