@@ -177,14 +177,33 @@ class DexFileVerifier {
                              uint32_t field_access_flags,
                              uint32_t class_access_flags,
                              std::string* error_msg);
+
+  enum SpecialNameFlag {
+    kNone = 0,
+    kClassInitializer = 1,  // "<clinit>"
+    kConstructor = 2        // "<init>
+  };
+
   // Check validity of the given method and access flags, in the context of a class with the given
   // second access flags.
   bool CheckMethodAccessFlags(uint32_t method_index,
                               uint32_t method_access_flags,
                               uint32_t class_access_flags,
+                              SpecialNameFlag name_flag,
                               bool has_code,
                               bool expect_direct,
                               std::string* error_msg);
+
+  // Check validity of given method if it's a constructor or class initializer.
+  bool CheckConstructorProperties(uint32_t method_index,
+                                  uint32_t method_access_flags,
+                                  bool has_code,
+                                  SpecialNameFlag name_flag,
+                                  std::string* error_msg);
+
+  bool FindMethodName(uint32_t method_index,
+                      SpecialNameFlag* name_flag,
+                      std::string* error_msg) const;
 
   const DexFile* const dex_file_;
   const uint8_t* const begin_;
