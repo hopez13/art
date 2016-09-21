@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_13608ea3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T05:21:40Z",
+      "side": 1,
+      "message": "in the intrinsics.cc, I change the Intrinsics::kStringCharAt to kNone on case kIntrinsicsCharAt. I\u0027ll put this on the commit message. Thanks!",
+      "parentUuid": "305b1f41_8afd4b01",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508b33e0_83f44083",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_eb964997",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4861,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T05:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508b33e0_83f44083",
+      "range": {
+        "startLine": 4861,
+        "startChar": 2,
+        "endLine": 4861,
+        "endChar": 54
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_a3003a0f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-19T17:39:33Z",
       "side": 1,
       "message": "This must be right after the Ldr().",
+      "range": {
+        "startLine": 2136,
+        "startChar": 2,
+        "endLine": 2136,
+        "endChar": 54
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb1db24e_2bf30104",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T05:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_a3003a0f",
       "range": {
         "startLine": 2136,
         "startChar": 2,
@@ -164,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "cb1db24e_8b5cf5ec",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T05:21:40Z",
+      "side": 1,
+      "message": "after this CL is wrapped, I\u0027ll put the changes on a new CL to move the flag from top-bit to lowest bit, including the changes in the Libcore and Interpreter as well. Thanks for the suggestion!",
+      "parentUuid": "cb1db24e_ac346e94",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1296,
+        "endChar": 24
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0462f6a_03138e65",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 8
@@ -175,6 +271,30 @@
       "writtenOn": "2016-09-19T17:39:33Z",
       "side": 1,
       "message": "For the length\u003dINT_MAX (theoretically valid), you\u0027d get a negative result. Lsr() would be correct.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1317,
+        "endChar": 29
+      },
+      "revId": "0fd9182e4c1a11d8d02637826b8df9d1e333d9d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_4d989b1f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T05:21:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0462f6a_03138e65",
       "range": {
         "startLine": 1316,
         "startChar": 0,
