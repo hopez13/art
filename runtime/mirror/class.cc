@@ -641,9 +641,12 @@ ArtMethod* Class::FindVirtualMethodForInterfaceSuper(ArtMethod* method, PointerS
 ArtMethod* Class::FindClassInitializer(PointerSize pointer_size) {
   for (ArtMethod& method : GetDirectMethods(pointer_size)) {
     if (method.IsClassInitializer()) {
-      DCHECK_STREQ(method.GetName(), "<clinit>");
-      DCHECK_STREQ(method.GetSignature().ToString().c_str(), "()V");
-      return &method;
+      // JVMS8 S2.9 Special Methods - signature is ()V and name is <clinit>.
+      Signature signature = method.GetSignature();
+      if (signature.IsVoid() && signature.GetNumberOfParameters() == 0 &&
+          strcmp(method.GetName(), "<clinit>") == 0) {
+        return &method;
+      }
     }
   }
   return nullptr;
