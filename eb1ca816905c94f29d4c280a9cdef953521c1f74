@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "909beb7b_521a54d9",
+        "filename": "tools/javafuzz/run_dex_fuzz_test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-21T10:38:33Z",
+      "side": 1,
+      "message": "Should you have a common directory for this? The methods you\u0027re importing here seem more like common helpers than bisection search.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "eb1ca816905c94f29d4c280a9cdef953521c1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
