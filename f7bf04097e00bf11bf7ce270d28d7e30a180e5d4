@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_bc23876b",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-21T00:52:24Z",
+      "side": 1,
+      "message": "CHECK_NON_NULL_ARGUMENT() is already used in jni_internal.cc",
+      "parentUuid": "f0ac2770_16887c1e",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_336fcb90",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 4
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_fc7fbf35",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-21T00:52:24Z",
+      "side": 1,
+      "message": "Sigh, so they picked the worse choice :)",
+      "parentUuid": "f0ac2770_d6c3c429",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_33282b45",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 4
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "OOS.\n\ndefensive programming.\n\nAlso IIRC that is implementation defined.",
       "parentUuid": "f0ac2770_33282b45",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_7c742f60",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-21T00:52:24Z",
+      "side": 1,
+      "message": "What\u0027s OOS? free(nullptr) is well defined (as no action)",
+      "parentUuid": "f0ac2770_b6f40883",
       "range": {
         "startLine": 84,
         "startChar": 0,
