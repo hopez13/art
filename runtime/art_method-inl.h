@@ -38,6 +38,7 @@
 #include "runtime-inl.h"
 #include "scoped_thread_state_change.h"
 #include "thread-inl.h"
+#include "utf.h"
 #include "utils.h"
 
 namespace art {
@@ -124,7 +125,7 @@ inline uint32_t ArtMethod::GetDexMethodIndex() {
 }
 
 inline uint32_t ArtMethod::GetImtIndex() {
-  return GetDexMethodIndex() % ImTable::kSize;
+  return ComputeModifiedUtf8Hash(PrettyMethod(this, true).c_str()) % ImTable::kSize;
 }
 
 inline ArtMethod** ArtMethod::GetDexCacheResolvedMethods(PointerSize pointer_size) {
