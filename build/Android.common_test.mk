@@ -130,7 +130,7 @@ define ART_TEST_FAILED
     (mkdir -p $(ART_HOST_TEST_DIR)/failed/ && touch $(ART_HOST_TEST_DIR)/failed/$(1) && \
       echo $(ART_TEST_KNOWN_FAILING) | grep -q $(1) \
         && (echo -e "$(1) \e[91mKNOWN FAILURE\e[0m") \
-        || (echo -e "$(1) \e[91mFAILED\e[0m" >&2 )))
+        || (echo -e "$(1) \e[91mFAILED\e[0m" >&2; exit 1)))
 endef
 
 ifeq ($(ART_TEST_QUIET),true)
