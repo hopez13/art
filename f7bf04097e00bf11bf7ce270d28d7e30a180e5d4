@@ -450,6 +450,30 @@
     },
     {
       "key": {
+        "uuid": "f018a7be_4539caf5",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-21T22:41:05Z",
+      "side": 1,
+      "message": "Nevermind, I see that the official docs calls them \"potential\" capabilities.",
+      "parentUuid": "f0ac2770_f3037268",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 46
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_13b16f4d",
         "filename": "runtime/openjdkjvmti/art_jvmti.h",
         "patchSetId": 4
