@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "50a173a9_50d08cf0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Comment has been updated but code has not.",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 29
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_d2aac471",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
@@ -94,6 +117,75 @@
     },
     {
       "key": {
+        "uuid": "909beb7b_92e2fcc3",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Remove two spaces.",
+      "range": {
+        "startLine": 1694,
+        "startChar": 5,
+        "endLine": 1694,
+        "endChar": 7
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08b4731_cd2dc903",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Break the line here.",
+      "range": {
+        "startLine": 1933,
+        "startChar": 27,
+        "endLine": 1933,
+        "endChar": 28
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70a037a6_5197b439",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Break the line here.",
+      "range": {
+        "startLine": 1950,
+        "startChar": 27,
+        "endLine": 1950,
+        "endChar": 28
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_f2a7c8a8",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 22
@@ -110,6 +202,75 @@
         "startChar": 0,
         "endLine": 1989,
         "endChar": 22
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30b15ff2_37677852",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "We could play even more tricks here:\n\n    addl    LITERAL(1), %esi                    // ++this_cur_char (8-bit)\n    addl    LITERAL(2), %edi                    // ++that_cur_char (16-bit)\n    subl    %ebx, %edx                          // if (*(this_cur_char) \u003d\u003d *(that_cur_char) \u0026\u0026\n    loope   .Lloop_comparison_this_compressed   //     more_to_compare) continue;\n    cmovne  %edx, %eax                          // If we found a difference, move it to eax",
+      "range": {
+        "startLine": 2009,
+        "startChar": 0,
+        "endLine": 2016,
+        "endChar": 73
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30a6bfc4_4f970d3a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Some branches that lead here do want to keep the length difference as the return value but other branches do not. So this should be renamed .Lkeep_length -\u003e .Lstring_compareto_return . Alternatively, we could have two labels at the same place and pick the target label based on the intent of the branch.",
+      "range": {
+        "startLine": 2064,
+        "startChar": 0,
+        "endLine": 2064,
+        "endChar": 13
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30a6bfc4_2fa2c9a0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-21T10:44:23Z",
+      "side": 1,
+      "message": "Since you got rid of the second \"return\" (POP+POP+ret), please change the JNE at line 2063 to JE (change target to .Lkeep_length) and move this section after that. That way we not only avoid the extra JMP but we also get valid CFI without explicit .cfi_remember_state/.cfi_restore_state (that was previously broken).\n\nThen rename .Lnot_equal -\u003e .Lstring_compareto_equal . I think all the local labels should have the \"string_compareto\" prefix (I wouldn\u0027t use the full \"art_quick_string_compareto\").",
+      "range": {
+        "startLine": 2069,
+        "startChar": 0,
+        "endLine": 2074,
+        "endChar": 25
       },
       "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
