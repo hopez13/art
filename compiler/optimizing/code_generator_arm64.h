@@ -540,6 +540,14 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                                  uint32_t string_index,
                                                  vixl::aarch64::Label* adrp_label = nullptr);
 
+  // Add a new PC-relative string .bss entry patch for an instruction and return
+  // the label to be bound before the instruction. The instruction will be either
+  // the ADRP (pass `adrp_label = null`) or the LDR/STR (pass `adrp_label` pointing
+  // to the associated ADRP patch label).
+  vixl::aarch64::Label* NewStringBssEntryPatch(const DexFile& dex_file,
+                                               uint32_t string_index,
+                                               vixl::aarch64::Label* adrp_label = nullptr);
+
   // Add a new PC-relative type patch for an instruction and return the label
   // to be bound before the instruction. The instruction will be either the
   // ADRP (pass `adrp_label = null`) or the ADD (pass `adrp_label` pointing
@@ -563,6 +571,14 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                                                     uint32_t type_index);
   vixl::aarch64::Literal<uint32_t>* DeduplicateBootImageAddressLiteral(uint64_t address);
   vixl::aarch64::Literal<uint64_t>* DeduplicateDexCacheAddressLiteral(uint64_t address);
+
+  void EmitAdrpPlaceholder(vixl::aarch64::Label* fixup_label, vixl::aarch64::Register reg);
+  void EmitAddPlaceholder(vixl::aarch64::Label* fixup_label,
+                          vixl::aarch64::Register out,
+                          vixl::aarch64::Register base);
+  void EmitLdrOffsetPlaceholder(vixl::aarch64::Label* fixup_label,
+                                vixl::aarch64::Register out,
+                                vixl::aarch64::Register base);
 
   void EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patches) OVERRIDE;
 
@@ -718,7 +734,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
   // Deduplication map for boot string literals for kBootImageLinkTimeAddress.
   BootStringToLiteralMap boot_image_string_patches_;
-  // PC-relative String patch info.
+  // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
   // Deduplication map for boot type literals for kBootImageLinkTimeAddress.
   BootTypeToLiteralMap boot_image_type_patches_;
@@ -726,6 +742,9 @@ class CodeGeneratorARM64 : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_type_patches_;
   // Deduplication map for patchable boot image addresses.
   Uint32ToLiteralMap boot_image_address_patches_;
+
+  // We cannot access CompilerDriver::IsBootImage(), so keep track of boot image patches here.
+  bool have_boot_image_patches_;
 
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARM64);
 };
