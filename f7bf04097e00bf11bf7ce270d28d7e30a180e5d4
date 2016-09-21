@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_6888e578",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T14:51:08Z",
+      "side": 1,
+      "message": "noted but since I will likely use many CHECKS and DCHECKS in this code I will avoid confusion here by making sure this has a different form",
+      "parentUuid": "f0ac2770_bc23876b",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_336fcb90",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 4
@@ -215,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_4883a95f",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T14:51:08Z",
+      "side": 1,
+      "message": "out of scope for cl",
+      "parentUuid": "f0ac2770_7c742f60",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_13f96fac",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 4
@@ -273,6 +321,30 @@
       "writtenOn": "2016-09-20T23:16:02Z",
       "side": 1,
       "message": "same deal, a simple assignment should do the trick (and safer than memcpy\u0027ing bits around)",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 38
+      },
+      "revId": "f7bf04097e00bf11bf7ce270d28d7e30a180e5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "708af7dc_a4914c4a",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T14:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ac2770_339a6abe",
       "range": {
         "startLine": 870,
         "startChar": 0,
