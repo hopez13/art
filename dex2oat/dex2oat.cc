@@ -1765,7 +1765,10 @@ class Dex2Oat FINAL {
 
         size_t rodata_size = oat_writer->GetOatHeader().GetExecutableOffset();
         size_t text_size = oat_writer->GetOatSize() - rodata_size;
-        elf_writer->SetLoadedSectionSizes(rodata_size, text_size, oat_writer->GetBssSize());
+        elf_writer->PrepareDynamicSection(rodata_size,
+                                          text_size,
+                                          oat_writer->GetBssSize(),
+                                          oat_writer->GetBssRootsOffset());
 
         if (IsImage()) {
           // Update oat layout.

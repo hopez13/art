@@ -143,7 +143,10 @@ void ImageTest::TestWriteRead(ImageHeader::StorageMode storage_mode) {
       oat_writer.PrepareLayout(compiler_driver_.get(), writer.get(), dex_files, &patcher);
       size_t rodata_size = oat_writer.GetOatHeader().GetExecutableOffset();
       size_t text_size = oat_writer.GetOatSize() - rodata_size;
-      elf_writer->SetLoadedSectionSizes(rodata_size, text_size, oat_writer.GetBssSize());
+      elf_writer->PrepareDynamicSection(rodata_size,
+                                        text_size,
+                                        oat_writer.GetBssSize(),
+                                        oat_writer.GetBssRootsOffset());
 
       writer->UpdateOatFileLayout(/* oat_index */ 0u,
                                   elf_writer->GetLoadedSize(),
