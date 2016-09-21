@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_7cab7929",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_32a230a1",
+      "range": {
+        "startLine": 475,
+        "startChar": 58,
+        "endLine": 475,
+        "endChar": 71
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_b2ad408d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 22
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-21T09:03:49Z",
       "side": 1,
       "message": "x64 has TMP for this, I think you can use it and avoid requesting one.",
+      "range": {
+        "startLine": 4842,
+        "startChar": 0,
+        "endLine": 4845,
+        "endChar": 3
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b2c310_3c8cd1e0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4845,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_b2ad408d",
       "range": {
         "startLine": 4842,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_fc578929",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a6bfc4_cf913d4a",
+      "range": {
+        "startLine": 513,
+        "startChar": 53,
+        "endLine": 513,
+        "endChar": 68
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50a173a9_50d08cf0",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-21T10:44:23Z",
       "side": 1,
       "message": "Comment has been updated but code has not.",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 29
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "909beb7b_b21aa083",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Somehow when I change the andl + addl into __ addl(rcx, Immediate(0x80000001)), it\u0027s broken. Is there any possiblity it\u0027s not treated as 32-bit?",
+      "parentUuid": "50a173a9_50d08cf0",
       "range": {
         "startLine": 1588,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_dc660d54",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_d2aac471",
+      "range": {
+        "startLine": 1644,
+        "startChar": 0,
+        "endLine": 1645,
+        "endChar": 51
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_92e2fcc3",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-21T10:44:23Z",
       "side": 1,
       "message": "Remove two spaces.",
+      "range": {
+        "startLine": 1694,
+        "startChar": 5,
+        "endLine": 1694,
+        "endChar": 7
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b2c310_dcca8d43",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_92e2fcc3",
       "range": {
         "startLine": 1694,
         "startChar": 5,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_bce8e1a6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08b4731_cd2dc903",
+      "range": {
+        "startLine": 1933,
+        "startChar": 27,
+        "endLine": 1933,
+        "endChar": 28
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70a037a6_5197b439",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-21T10:44:23Z",
       "side": 1,
       "message": "Break the line here.",
+      "range": {
+        "startLine": 1950,
+        "startChar": 27,
+        "endLine": 1950,
+        "endChar": 28
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b2c310_9ced25b7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70a037a6_5197b439",
       "range": {
         "startLine": 1950,
         "startChar": 27,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_225dca72",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "how to check the constant?",
+      "parentUuid": "909beb7b_f2a7c8a8",
+      "range": {
+        "startLine": 1989,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 22
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30b15ff2_37677852",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 22
@@ -220,6 +436,30 @@
       "writtenOn": "2016-09-21T10:44:23Z",
       "side": 1,
       "message": "We could play even more tricks here:\n\n    addl    LITERAL(1), %esi                    // ++this_cur_char (8-bit)\n    addl    LITERAL(2), %edi                    // ++that_cur_char (16-bit)\n    subl    %ebx, %edx                          // if (*(this_cur_char) \u003d\u003d *(that_cur_char) \u0026\u0026\n    loope   .Lloop_comparison_this_compressed   //     more_to_compare) continue;\n    cmovne  %edx, %eax                          // If we found a difference, move it to eax",
+      "range": {
+        "startLine": 2009,
+        "startChar": 0,
+        "endLine": 2016,
+        "endChar": 73
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b2c310_5ff9cfab",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b15ff2_37677852",
       "range": {
         "startLine": 2009,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_7f07eb29",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a6bfc4_4f970d3a",
+      "range": {
+        "startLine": 2064,
+        "startChar": 0,
+        "endLine": 2064,
+        "endChar": 13
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30a6bfc4_2fa2c9a0",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 22
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_dfdf1f58",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a6bfc4_2fa2c9a0",
+      "range": {
+        "startLine": 2069,
+        "startChar": 0,
+        "endLine": 2074,
+        "endChar": 25
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_12c60c42",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 22
@@ -289,6 +577,24 @@
       "writtenOn": "2016-09-21T09:03:49Z",
       "side": 1,
       "message": "ditto",
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b2c310_024beeb1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-21T21:27:02Z",
+      "side": 1,
+      "message": "how to check the constant?",
+      "parentUuid": "909beb7b_12c60c42",
       "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
