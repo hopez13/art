@@ -1165,6 +1165,9 @@ class Signature : public ValueObject {
     return Signature();
   }
 
+  bool IsVoid() const;
+  uint32_t GetNumberOfParameters() const;
+
   bool operator==(const Signature& rhs) const;
   bool operator!=(const Signature& rhs) const {
     return !(*this == rhs);
