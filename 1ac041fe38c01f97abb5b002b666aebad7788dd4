@@ -1061,6 +1061,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_1f4c0890",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T17:37:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50a173a9_b0b618d5",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 95
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305b1f41_2db1d998",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 11
@@ -1120,6 +1144,30 @@
       "side": 1,
       "message": "You mean env-\u003eAllocate?\n\nThen you are taking about the memory returned by it? How do you plan on doing this knowing it\u0027s at the page level?",
       "parentUuid": "f0ac2770_7d58b259",
+      "range": {
+        "startLine": 292,
+        "startChar": 33,
+        "endLine": 292,
+        "endChar": 41
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_ff27acd1",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T17:37:57Z",
+      "side": 1,
+      "message": "no idea. This is just a idle speculation of a future improvement.",
+      "parentUuid": "f08b4731_cddce902",
       "range": {
         "startLine": 292,
         "startChar": 33,
@@ -1202,6 +1250,30 @@
     },
     {
       "key": {
+        "uuid": "f0ac2770_5fae0089",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T17:37:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ac2770_71f9c368",
+      "range": {
+        "startLine": 321,
+        "startChar": 6,
+        "endLine": 321,
+        "endChar": 26
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ac2770_110acf7f",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 11
@@ -1213,6 +1285,30 @@
       "writtenOn": "2016-09-21T00:45:19Z",
       "side": 1,
       "message": "Is a CHECK appropriate here?",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 83
+      },
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_3fba24bb",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T17:37:57Z",
+      "side": 1,
+      "message": "the dex file has been loaded into memory already. I think its fine.",
+      "parentUuid": "f0ac2770_110acf7f",
       "range": {
         "startLine": 330,
         "startChar": 2,
@@ -1272,6 +1368,24 @@
       "side": 1,
       "message": "Do you plan on checking it? Making this assumption will very likely confuse everyone trying it, as it\u0027s very brittle to write scripts that ensure all used oat files don\u0027t inline.",
       "parentUuid": "f0ac2770_dd7206d8",
+      "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ac2770_bfeff4af",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-21T17:37:57Z",
+      "side": 1,
+      "message": "At some point. Dealing with that would be annoying and we just want a basic implementation at this point. I added a note in the commit message.",
+      "parentUuid": "108ffb3e_4e1ab3d9",
       "revId": "1ac041fe38c01f97abb5b002b666aebad7788dd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
