@@ -406,8 +406,9 @@ class CodeGeneratorX86_64 : public CodeGenerator {
   void GenerateVirtualCall(HInvokeVirtual* invoke, Location temp) OVERRIDE;
 
   void RecordSimplePatch();
-  void RecordStringPatch(HLoadString* load_string);
+  void RecordBootStringPatch(HLoadString* load_string);
   void RecordTypePatch(HLoadClass* load_class);
+  Label* NewStringBssEntryPatch(HLoadString* load_string);
   Label* NewPcRelativeDexCacheArrayPatch(const DexFile& dex_file, uint32_t element_offset);
 
   void MoveFromReturnRegister(Location trg, Primitive::Type type) OVERRIDE;
@@ -583,10 +584,13 @@ class CodeGeneratorX86_64 : public CodeGenerator {
   ArenaDeque<PcRelativeDexCacheAccessInfo> pc_relative_dex_cache_patches_;
   // Patch locations for patchoat where the linker doesn't do any other work.
   ArenaDeque<Label> simple_patches_;
-  // String patch locations.
+  // String patch locations; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<StringPatchInfo<Label>> string_patches_;
   // Type patch locations.
   ArenaDeque<TypePatchInfo<Label>> type_patches_;
+
+  // We cannot access CompilerDriver::IsBootImage(), so keep track of boot image patches here.
+  bool have_boot_image_patches_;
 
   // Fixups for jump tables need to be handled specially.
   ArenaVector<JumpTableRIPFixup*> fixups_to_jump_tables_;
