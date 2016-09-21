@@ -759,11 +759,12 @@ class ClassLinker {
                  const DexFile::ClassDef& dex_class_def,
                  Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void LoadClassMembers(Thread* self,
+  bool LoadClassMembers(Thread* self,
                         const DexFile& dex_file,
                         const uint8_t* class_data,
                         Handle<mirror::Class> klass,
-                        const OatFile::OatClass* oat_class)
+                        const OatFile::OatClass* oat_class,
+                        std::string* error_msg)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void LoadField(const ClassDataItemIterator& it, Handle<mirror::Class> klass, ArtField* dst)

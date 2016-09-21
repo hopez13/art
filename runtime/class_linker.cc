@@ -2970,15 +2970,36 @@ void ClassLinker::LoadClass(Thread* self,
     return;  // no fields or methods - for example a marker interface
   }
   bool has_oat_class = false;
+  bool class_format_error = false;
+  std::string error_msg;
   if (Runtime::Current()->IsStarted() && !Runtime::Current()->IsAotCompiler()) {
     OatFile::OatClass oat_class = FindOatClass(dex_file, klass->GetDexClassDefIndex(),
                                                &has_oat_class);
     if (has_oat_class) {
-      LoadClassMembers(self, dex_file, class_data, klass, &oat_class);
+      class_format_error = LoadClassMembers(self,
+                                            dex_file,
+                                            class_data,
+                                            klass,
+                                            &oat_class,
+                                            &error_msg);
     }
   }
   if (!has_oat_class) {
-    LoadClassMembers(self, dex_file, class_data, klass, nullptr);
+    class_format_error = LoadClassMembers(self,
+                                          dex_file,
+                                          class_data,
+                                          klass,
+                                          nullptr,
+                                          &error_msg);
+  }
+
+  if (class_format_error) {
+    ScopedObjectAccessUnchecked soa(self);
+    if (Runtime::Current()->GetTargetSdkVersion() >= 25) {
+      ThrowClassFormatError(klass.Get(), "%s", error_msg.c_str());
+    } else {
+      VLOG(class_linker) << error_msg;
+    }
   }
 }
 
@@ -3040,11 +3061,13 @@ LinearAlloc* ClassLinker::GetOrCreateAllocatorForClassLoader(mirror::ClassLoader
   return allocator;
 }
 
-void ClassLinker::LoadClassMembers(Thread* self,
+bool ClassLinker::LoadClassMembers(Thread* self,
                                    const DexFile& dex_file,
                                    const uint8_t* class_data,
                                    Handle<mirror::Class> klass,
-                                   const OatFile::OatClass* oat_class) {
+                                   const OatFile::OatClass* oat_class,
+                                   std::string* error_msg) {
+  bool class_format_error_found = false;
   {
     // Note: We cannot have thread suspension until the field and method arrays are setup or else
     // Class::VisitFieldRoots may miss some fields or methods.
@@ -3111,6 +3134,7 @@ void ClassLinker::LoadClassMembers(Thread* self,
     size_t class_def_method_index = 0;
     uint32_t last_dex_method_index = DexFile::kDexNoIndex;
     size_t last_class_def_method_index = 0;
+    size_t clinit_count = 0;
     // TODO These should really use the iterators.
     for (size_t i = 0; it.HasNextDirectMethod(); i++, it.Next()) {
       ArtMethod* method = klass->GetDirectMethodUnchecked(i, image_pointer_size_);
@@ -3125,6 +3149,32 @@ void ClassLinker::LoadClassMembers(Thread* self,
         last_dex_method_index = it_method_index;
         last_class_def_method_index = class_def_method_index;
       }
+      const char* method_name = method->GetName();
+      if (strcmp(method_name, "<clinit>") == 0) {
+        if (!method->IsClassInitializer()) {
+          *error_msg = "<clinit> found that is not a class initializer.";
+          class_format_error_found = true;
+
+        } else if (!method->GetSignature().IsVoid() ||
+                   method->GetSignature().GetNumberOfParameters() != 0) {
+          *error_msg = StringPrintf("<clinit> with wrong signature \"%s\"",
+                                    method->GetSignature().ToString().c_str());
+          class_format_error_found = true;
+        } else if (clinit_count++ > 0) {
+          *error_msg = "Class has more than one <clinit>.";
+          class_format_error_found = true;
+        }
+      } else if (strcmp(method_name, "<init>") == 0) {
+        if (!method->IsConstructor()) {
+          *error_msg = "<init> is not flagged as a constructor.";
+          class_format_error_found = true;
+        }
+      } else if (method_name[0] == '<') {
+        // This matches RI though RI appears weaker than spec JVMS8
+        // S4.4 for method names.
+        *error_msg = StringPrintf("Bad method name: %s", method_name);
+        class_format_error_found = true;
+      }
       class_def_method_index++;
     }
     for (size_t i = 0; it.HasNextVirtualMethod(); i++, it.Next()) {
@@ -3132,13 +3182,21 @@ void ClassLinker::LoadClassMembers(Thread* self,
       LoadMethod(dex_file, it, klass, method);
       DCHECK_EQ(class_def_method_index, it.NumDirectMethods() + i);
       LinkCode(method, oat_class, class_def_method_index);
+      const char* method_name = method->GetName();
+      if (method_name[0] == '<') {
+        *error_msg = StringPrintf("Bad method name: %s", method_name);
+        class_format_error_found = true;
+      }
       class_def_method_index++;
     }
     DCHECK(!it.HasNext());
   }
+
   // Ensure that the card is marked so that remembered sets pick up native roots.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(klass.Get());
   self->AllowThreadSuspension();
+
+  return class_format_error_found;
 }
 
 void ClassLinker::LoadField(const ClassDataItemIterator& it,
