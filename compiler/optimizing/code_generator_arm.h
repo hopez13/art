@@ -483,6 +483,7 @@ class CodeGeneratorARM : public CodeGenerator {
 
   PcRelativePatchInfo* NewPcRelativeStringPatch(const DexFile& dex_file, uint32_t string_index);
   PcRelativePatchInfo* NewPcRelativeTypePatch(const DexFile& dex_file, uint32_t type_index);
+  PcRelativePatchInfo* NewStringBssEntryPatch(const DexFile& dex_file, uint32_t string_index);
   PcRelativePatchInfo* NewPcRelativeDexCacheArrayPatch(const DexFile& dex_file,
                                                        uint32_t element_offset);
   Literal* DeduplicateBootImageStringLiteral(const DexFile& dex_file, uint32_t string_index);
@@ -593,6 +594,10 @@ class CodeGeneratorARM : public CodeGenerator {
                                           uint32_t offset_or_index,
                                           ArenaDeque<PcRelativePatchInfo>* patches);
 
+  template <LinkerPatch (*Factory)(size_t, const DexFile*, uint32_t, uint32_t)>
+  static void EmitPcRelativeLinkerPatches(const ArenaDeque<PcRelativePatchInfo>& infos,
+                                          ArenaVector<LinkerPatch>* linker_patches);
+
   // Labels for each block that will be compiled.
   Label* block_labels_;  // Indexed by block id.
   Label frame_entry_label_;
@@ -609,12 +614,12 @@ class CodeGeneratorARM : public CodeGenerator {
   MethodToLiteralMap call_patches_;
   // Relative call patch info.
   // Using ArenaDeque<> which retains element addresses on push/emplace_back().
-  ArenaDeque<MethodPatchInfo<Label>> relative_call_patches_;
+  ArenaDeque<PatchInfo<Label>> relative_call_patches_;
   // PC-relative patch info for each HArmDexCacheArraysBase.
   ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
   // Deduplication map for boot string literals for kBootImageLinkTimeAddress.
   BootStringToLiteralMap boot_image_string_patches_;
-  // PC-relative String patch info.
+  // PC-relative String patch info; type depends on configuration (app .bss or boot image PIC).
   ArenaDeque<PcRelativePatchInfo> pc_relative_string_patches_;
   // Deduplication map for boot type literals for kBootImageLinkTimeAddress.
   BootTypeToLiteralMap boot_image_type_patches_;
@@ -622,6 +627,9 @@ class CodeGeneratorARM : public CodeGenerator {
   ArenaDeque<PcRelativePatchInfo> pc_relative_type_patches_;
   // Deduplication map for patchable boot image addresses.
   Uint32ToLiteralMap boot_image_address_patches_;
+
+  // We cannot access CompilerDriver::IsBootImage(), so keep track of boot image patches here.
+  bool have_boot_image_patches_;
 
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorARM);
 };
