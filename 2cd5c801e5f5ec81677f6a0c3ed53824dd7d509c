@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "d0b2c310_0b62e941",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-21T23:53:47Z",
+      "side": 1,
+      "message": "The following gives you the right encoding:\n\n__ addl(rcx, Immediate(static_cast\u003cint32_t\u003e(0x80000001)));",
+      "parentUuid": "909beb7b_b21aa083",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 29
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_d2aac471",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
