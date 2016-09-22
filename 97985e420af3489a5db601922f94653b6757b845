@@ -16,6 +16,24 @@
       "revId": "97985e420af3489a5db601922f94653b6757b845",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30ecff3b_9fa43315",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-09-22T15:54:30Z",
+      "side": 1,
+      "message": "I had a change somewhere to allow local changes like this one for test purposes, for this script and other scripts in `art/tools`; I\u0027ll upload it when I find it.",
+      "parentUuid": "30195f0f_779a90bf",
+      "revId": "97985e420af3489a5db601922f94653b6757b845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
