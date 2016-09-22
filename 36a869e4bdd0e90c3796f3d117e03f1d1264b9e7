@@ -52,6 +52,69 @@
       "revId": "36a869e4bdd0e90c3796f3d117e03f1d1264b9e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_f75a2021",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T15:31:46Z",
+      "side": 1,
+      "message": "Either\n\n  DCHECK(IsUint\u003c16\u003e(vtable_idx));\n\nor change the vtable_idx to uint16_t and\n\n  static_assert(std::same_type\u003cuint16_t, decltype(resolved_method-\u003eGetMethodIndex())\u003e::value, \"...\");",
+      "revId": "36a869e4bdd0e90c3796f3d117e03f1d1264b9e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_b764a8ea",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T15:31:46Z",
+      "side": 1,
+      "message": "ATTRIBUTE_UNUSED (We don\u0027t run lint over this file?)",
+      "range": {
+        "startLine": 435,
+        "startChar": 29,
+        "endLine": 435,
+        "endChar": 35
+      },
+      "revId": "36a869e4bdd0e90c3796f3d117e03f1d1264b9e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_7747f048",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T15:31:46Z",
+      "side": 1,
+      "message": "Move to the else branch below where it\u0027s needed.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "36a869e4bdd0e90c3796f3d117e03f1d1264b9e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
