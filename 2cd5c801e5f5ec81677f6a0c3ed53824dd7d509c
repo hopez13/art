@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "503b335a_236a9483",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-22T01:20:19Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "d0b2c310_0b62e941",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 29
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_d2aac471",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 22
@@ -461,6 +485,30 @@
       "side": 1,
       "message": "Can you add a macro and ifdef?",
       "parentUuid": "d0b2c310_225dca72",
+      "range": {
+        "startLine": 1989,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 22
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "503b335a_c35ac8ef",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-22T01:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909beb7b_d2000411",
       "range": {
         "startLine": 1989,
         "startChar": 0,
