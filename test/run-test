@@ -35,7 +35,7 @@ progdir=`pwd`
 prog="${progdir}"/`basename "${prog}"`
 test_dir="test-$$"
 if [ -z "$TMPDIR" ]; then
-  tmp_dir="/tmp/$USER/${test_dir}"
+  tmp_dir="/tmp/${test_dir}"
 else
   tmp_dir="${TMPDIR}/${test_dir}"
 fi
