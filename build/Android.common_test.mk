@@ -23,7 +23,7 @@ include art/build/Android.common_path.mk
 ifneq ($(TMPDIR),)
 ART_HOST_TEST_DIR := $(TMPDIR)/test-art-$(shell echo $$PPID)
 else
-ART_HOST_TEST_DIR := /tmp/$(USER)/test-art-$(shell echo $$PPID)
+ART_HOST_TEST_DIR := /tmp/art/test-art-$(shell echo $$PPID)
 endif
 
 # List of known broken tests that we won't attempt to execute. The test name must be the full
