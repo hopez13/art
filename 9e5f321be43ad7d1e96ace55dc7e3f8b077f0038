@@ -22,6 +22,30 @@
       "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_9782c45a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-22T15:39:29Z",
+      "side": 0,
+      "message": "Correct. A virtual call stays virtual unless it gets inlined. Only an interface call can change and become virtual, but that\u0027s not devirtualization.",
+      "parentUuid": "50e7b356_e00042dc",
+      "range": {
+        "startLine": 1727,
+        "startChar": 0,
+        "endLine": 1758,
+        "endChar": 5
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
