@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f02ee725_b5f7c073",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-22T12:49:09Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 149,
+        "startChar": 89,
+        "endLine": 149,
+        "endChar": 90
+      },
+      "revId": "9c20a14103f87a8a7ad53f7d3e863887ea4e800a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f01a6724_d5b5fc84",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-22T12:49:09Z",
+      "side": 1,
+      "message": "You may have missed this from my previous review:\nI suggest: \"copy the {oat, dex} pair in the first entry of the new array.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 44
+      },
+      "revId": "9c20a14103f87a8a7ad53f7d3e863887ea4e800a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f01a6724_35ab902a",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-22T12:49:09Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 10
+      },
+      "revId": "9c20a14103f87a8a7ad53f7d3e863887ea4e800a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
