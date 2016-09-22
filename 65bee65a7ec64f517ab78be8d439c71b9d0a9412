@@ -34,6 +34,24 @@
       "revId": "65bee65a7ec64f517ab78be8d439c71b9d0a9412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_db40b3ed",
+        "filename": "dexdump/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-22T21:07:24Z",
+      "side": 1,
+      "message": "we should build for host (I see it in my master/out/host/....), but our build is changing so fast, I am not sure anymore under what settings we build it. But m dexlist -j32 should remove all doubt.",
+      "parentUuid": "b0938fd9_5b1ca31f",
+      "revId": "65bee65a7ec64f517ab78be8d439c71b9d0a9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
