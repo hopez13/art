@@ -86,6 +86,8 @@ working_packages=("dalvik.system"
                   "tests.java.lang.String"
                   "jsr166")
 
+working_packages=("libcore.java.lang.invoke")
+
 # List of packages we could run, but don't have rights to revert
 # changes in case of failures.
 # "org.apache.harmony.security"
