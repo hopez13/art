@@ -265,7 +265,8 @@ endif
 # 569-checker-pattern-replacement tests behaviour present only on host.
 TEST_ART_BROKEN_TARGET_TESTS := \
   147-stripped-dex-fallback \
-  569-checker-pattern-replacement
+  569-checker-pattern-replacement \
+  902-hello-transformation
 
 ifneq (,$(filter target,$(TARGET_TYPES)))
   ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,target,$(RUN_TYPES),$(PREBUILD_TYPES), \
