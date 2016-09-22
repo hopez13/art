@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_1bcf7ba9",
+        "filename": "oatdump/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "The static binaries make this impossible. I tried. :-(",
+      "parentUuid": "b0938fd9_1b0dbb97",
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_7b04ff71",
         "filename": "runtime/base/logging.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-22T20:40:24Z",
       "side": 1,
       "message": "Why?",
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_3b5d17e5",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "The LOG macros in libbase are structured differently. libbase made the conscious choice to have the severity check first (we had it in the destructor). Downside is that you cannot use the LOG macro anymore to unconditionally get a stream you can pass on.\n\nThis is to emulate our behavior below with ART_LOG_STREAM - which always returns a stream. However, we need to /dev/null if the severity isn\u0027t high enough.\n\n(Regrettably you can\u0027t return a non-const reference to a temporary in C++, so this helper is the way around that. If you have a better idea [and yeah, could optimize this to not ever store anything, this is just the simplest implementation], just let me know.)",
+      "parentUuid": "b0938fd9_7b04ff71",
       "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_9b4b8b28",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "There\u0027s a corresponding change. LOG_STREAM_S takes a severity as a fully qualified LogSeverity. It\u0027s required because our usage with a ternary for log level wasn\u0027t supported in libbase.",
+      "parentUuid": "b0938fd9_fb664f21",
+      "range": {
+        "startLine": 100,
+        "startChar": 26,
+        "endLine": 100,
+        "endChar": 37
+      },
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_bb45a76d",
         "filename": "runtime/base/logging.h",
         "patchSetId": 1
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_7b679fba",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "No clue. I assume because we didn\u0027t want to have to give two parameters?",
+      "parentUuid": "b0938fd9_bb45a76d",
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_fbcacf10",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -87,6 +165,30 @@
       "writtenOn": "2016-09-22T20:40:24Z",
       "side": 1,
       "message": "why is it LOGS now instead of LOG?",
+      "range": {
+        "startLine": 331,
+        "startChar": 4,
+        "endLine": 331,
+        "endChar": 8
+      },
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_fb73af76",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "Because libbase\u0027s LOG is hardcoded to prepend ::android::base to the severity - the parameter is *not* an expression. That was done for compatibility and to not pollute the global namespae.\n\nThe LOG_S variant was added to take an actual fully qualified severity, which is required for the ternary (or passing down parameters).",
+      "parentUuid": "b0938fd9_fbcacf10",
       "range": {
         "startLine": 331,
         "startChar": 4,
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_7b807f2e",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "I can do that. I was actually considering throwing it into the art namespace in logging.h. Opinions about that?",
+      "parentUuid": "b0938fd9_fbe3af98",
+      "range": {
+        "startLine": 356,
+        "startChar": 12,
+        "endLine": 356,
+        "endChar": 36
+      },
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_5b8ca3e1",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 1
@@ -133,6 +259,30 @@
       "writtenOn": "2016-09-22T20:40:24Z",
       "side": 1,
       "message": "Is the new thing not a stream? I don\u0027t understand?",
+      "range": {
+        "startLine": 278,
+        "startChar": 48,
+        "endLine": 278,
+        "endChar": 62
+      },
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_db27d375",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-22T21:03:22Z",
+      "side": 1,
+      "message": "See the comments in logging.h. Yes, because of design choices in libbase, (LOG) is not a stream.",
+      "parentUuid": "b0938fd9_5b8ca3e1",
       "range": {
         "startLine": 278,
         "startChar": 48,
