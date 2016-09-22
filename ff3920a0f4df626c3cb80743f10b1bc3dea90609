@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_0401dcdd",
+        "filename": "tools/jfuzz/jfuzz.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-22T22:52:23Z",
+      "side": 1,
+      "message": "I also changed this to make it less likely subsequent calls to jfuzz see the same seed, and thus program.",
+      "range": {
+        "startLine": 1140,
+        "startChar": 31,
+        "endLine": 1140,
+        "endChar": 38
+      },
+      "revId": "ff3920a0f4df626c3cb80743f10b1bc3dea90609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
