@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1091bbce_de7d050d",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-22T20:32:58Z",
+      "side": 1,
+      "message": "Oh, I thought it\u0027s all with the helper. Already put them back.",
+      "parentUuid": "500093b2_98ca9542",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 54
+      },
+      "revId": "2cd5c801e5f5ec81677f6a0c3ed53824dd7d509c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "909beb7b_b2ad408d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 22
