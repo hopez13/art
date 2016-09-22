@@ -22,6 +22,30 @@
       "revId": "acf3a421f27c281073caedd9942aaa6537668c11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f01a6724_d52b3c88",
+        "filename": "runtime/dex_file_annotations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-22T14:29:53Z",
+      "side": 1,
+      "message": "Pretty sure I was told off for doing that once in bionic code (argument along the lines of \"we don\u0027t write C!\").\n\nHard to keep track. Will change.",
+      "parentUuid": "50e7b356_c02c1ea6",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "acf3a421f27c281073caedd9942aaa6537668c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
