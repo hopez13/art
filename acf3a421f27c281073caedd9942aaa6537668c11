@@ -46,6 +46,29 @@
       "revId": "acf3a421f27c281073caedd9942aaa6537668c11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "101e1b18_76a51052",
+        "filename": "runtime/native/java_lang_reflect_Executable.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-22T14:32:51Z",
+      "side": 1,
+      "message": "ART folks that know things about JNI / ART memory management: please take a careful look at this code. I\u0027m not convinced I understand everything required when mixing ART internals / JNI and the requirements around JNI local references.",
+      "range": {
+        "startLine": 80,
+        "startChar": 20,
+        "endLine": 80,
+        "endChar": 45
+      },
+      "revId": "acf3a421f27c281073caedd9942aaa6537668c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
