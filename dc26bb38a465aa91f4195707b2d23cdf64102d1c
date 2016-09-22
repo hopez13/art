@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30195f0f_976ba41a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "Please reorder. Logically \"keep_length\" goes to \"return\", not the other way around.",
+      "range": {
+        "startLine": 2067,
+        "startChar": 0,
+        "endLine": 2068,
+        "endChar": 31
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_372bb8ef",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "Drop this. It was used to align the following label but now there is none.",
+      "range": {
+        "startLine": 2072,
+        "startChar": 4,
+        "endLine": 2072,
+        "endChar": 14
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_37041871",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "In contrast to x86, there is nothing to POP on x86-64, so it would make sense to return directly with \"ret\".",
+      "range": {
+        "startLine": 2129,
+        "startChar": 4,
+        "endLine": 2129,
+        "endChar": 37
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_d7611c3e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "ret",
+      "range": {
+        "startLine": 2146,
+        "startChar": 4,
+        "endLine": 2146,
+        "endChar": 37
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_f766a053",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "If we \"ret\" above, this label will not be needed.",
+      "range": {
+        "startLine": 2181,
+        "startChar": 0,
+        "endLine": 2181,
+        "endChar": 26
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30195f0f_17079478",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-22T10:40:57Z",
+      "side": 1,
+      "message": "Drop this.",
+      "range": {
+        "startLine": 2184,
+        "startChar": 4,
+        "endLine": 2184,
+        "endChar": 14
+      },
+      "revId": "dc26bb38a465aa91f4195707b2d23cdf64102d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
