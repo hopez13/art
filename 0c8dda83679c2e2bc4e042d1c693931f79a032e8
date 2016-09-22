@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "503b335a_26df0226",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4245,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-09-22T04:38:04Z",
+      "side": 1,
+      "message": "Vladimir, could you please educate me on what irreducible loops are and how they\u0027re related to PC-relative loads of strings, classes and other things? Namely, why we\u0027re currently avoiding some (but not all) PC-relative loads in the presence of such loops? I wonder if some PC-relative loads could be enabled despite irreducible loops.",
+      "range": {
+        "startLine": 4244,
+        "startChar": 0,
+        "endLine": 4245,
+        "endChar": 28
+      },
+      "revId": "0c8dda83679c2e2bc4e042d1c693931f79a032e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
