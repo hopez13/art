@@ -3559,7 +3559,7 @@ static bool TryGenerateIntrinsicCode(HInvoke* invoke, CodeGeneratorARM64* codege
 
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARM64::GetSupportedInvokeStaticOrDirectDispatch(
       const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
-      MethodReference target_method ATTRIBUTE_UNUSED) {
+      HInvokeStaticOrDirect* invoke ATTRIBUTE_UNUSED) {
   // On ARM64 we support all dispatch types.
   return desired_dispatch_info;
 }
@@ -3603,7 +3603,7 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invok
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
       // Add ADRP with its PC-relative DexCache access patch.
-      const DexFile& dex_file = *invoke->GetTargetMethod().dex_file;
+      const DexFile& dex_file = invoke->GetDexFile();
       uint32_t element_offset = invoke->GetDexCacheArrayOffset();
       vixl::aarch64::Label* adrp_label = NewPcRelativeDexCacheArrayPatch(dex_file, element_offset);
       {

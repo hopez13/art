@@ -345,7 +345,7 @@ void CodeGenerator::GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invok
 
   // Initialize to anything to silent compiler warnings.
   QuickEntrypointEnum entrypoint = kQuickInvokeStaticTrampolineWithAccessCheck;
-  switch (invoke->GetOriginalInvokeType()) {
+  switch (invoke->GetInvokeType()) {
     case kStatic:
       entrypoint = kQuickInvokeStaticTrampolineWithAccessCheck;
       break;
