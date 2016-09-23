@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_dae9847c",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T14:49:29Z",
+      "side": 1,
+      "message": "That\u0027s non-trivial, see line 100.\n\nLOG_STREAM_S returns an std::ostream so the types won\u0027t match\n\n   BOOL ? OSTREAM : NOT_OSTREAM\n\nwill give a compilation error\n\nso we\u0027d have to wrap both of this with\n\n   BOOL ? WRAPPED_STREAM(OSTREAM) : WRAPPED_STREAM(NONE)\n\nor similar. I\u0027m not sure if that would work either , it depends on what type the call sites of that macro expect.",
+      "parentUuid": "85656bf7_491c01dc",
+      "range": {
+        "startLine": 95,
+        "startChar": 7,
+        "endLine": 95,
+        "endChar": 20
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_297d4d0b",
         "filename": "runtime/jni_env_ext-inl.h",
         "patchSetId": 3
