@@ -52,6 +52,24 @@
       "revId": "65bee65a7ec64f517ab78be8d439c71b9d0a9412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_a46ae3a7",
+        "filename": "dexdump/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T03:47:01Z",
+      "side": 1,
+      "message": "Builds just fine. Are you using LOG and such in dexlist (doesn\u0027t look that way)?",
+      "parentUuid": "b0938fd9_db40b3ed",
+      "revId": "65bee65a7ec64f517ab78be8d439c71b9d0a9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
