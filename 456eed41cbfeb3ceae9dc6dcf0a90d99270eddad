@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_70124c11",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T21:59:14Z",
+      "side": 1,
+      "message": "For the smallest path we can probably get away with $(TMPDIR)/PID\n\nMaybe even call some hash function to compress the pid down to characters.\n\nI think \u0027dalvik-cache\u0027 is hardcoded for correctness which is a shame. We would accept a C++ patch to change the dalvik-cache directory to be something shorter.",
+      "parentUuid": "b0938fd9_29886478",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "456eed41cbfeb3ceae9dc6dcf0a90d99270eddad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455b733f_07d036f3",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 3
