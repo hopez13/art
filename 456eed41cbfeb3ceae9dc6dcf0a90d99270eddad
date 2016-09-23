@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_f8bba877",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-23T17:46:06Z",
+      "side": 1,
+      "message": "Andreas mentioned in b/31597671 that build bots set TMPDIR. In that case if we added art here we would actually reduce the number of characters available to them.\n\nThe name TMPDIR is not very fortunate, maybe it should be TEST_DIR. If we wanted to rename this though, we would need to change buildbots as well and I suspect it might be problematic with buildbots running continuously.\n\nOr should we skip art in both cases and put a TMPDIR\u003d in Andreas\u0027 bashrc? :)",
+      "parentUuid": "85656bf7_09fde951",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "456eed41cbfeb3ceae9dc6dcf0a90d99270eddad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455b733f_07d036f3",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 3
