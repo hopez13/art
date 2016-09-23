@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_699a256b",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-23T07:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f70f09_9bbbab79",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 24
+      },
+      "revId": "453c521e37269a7357c66078d2e66a34cf1fbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0f70f09_fbb0ef96",
         "filename": "tools/ahat/test-dump/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-22T13:00:05Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "453c521e37269a7357c66078d2e66a34cf1fbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_898d5932",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-23T07:13:19Z",
+      "side": 1,
+      "message": "Not these, because we set \u0027left\u0027 and \u0027right\u0027 later on after the object is constructed in some cases.",
+      "parentUuid": "b0f70f09_fbb0ef96",
       "range": {
         "startLine": 33,
         "startChar": 0,
