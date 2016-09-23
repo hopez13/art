@@ -25,6 +25,122 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_0945e96a",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "FindArrayClass ends with an AssertPendingException() so yes. Nobody else was doing anything special for this so I had assumed it was the case. Good to check, though.",
+      "parentUuid": "85656bf7_a90b7d84",
+      "range": {
+        "startLine": 1053,
+        "startChar": 1,
+        "endLine": 1055,
+        "endChar": 3
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_c956b127",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "This could enqueue an error here. The general strategy for these kind of cases (malformed system annotations) seems to be to ignore them, so I\u0027m consistent.\n\ni.e.\nGetInnerClassFlags\nGetSignatureValue\nGetThrowsValue\nGetAnnotationDefaultValue\nGetDeclaringClass\nGetEnclosingClass\nGetEnclosingMethod\nGetInnerClass\n\nGiven we don\u0027t (AFAIK) verify system annotations at verification / class load time at all, and this would happen at runtime I\u0027m guessing throwing a VerifyError at this point would be inappropriate.\n\nGenericSignatureFormatError (a subclass of ClassFormatError) is similar and is thrown at runtime during reflection if the *contents* of a well formed system annotation is found to be junk. I don\u0027t think it warrants declaring a subclass so if we do decide to make badly formed system annotations an error I\u0027d suggest throwing ClassFormatError.\n\nThere\u0027s a small chance it would throw up some error cases due to tools like proguard not behaving that we previously ignored if we fix \"malformed system annotation\" generally. Seems unlikely, but perhaps best to do as a follow up. I\u0027ll create a bug if ART folks agree it\u0027s something to fix generally.\n\n[Not sure how the runtime folks feel about adding validation of system annotation at verification / class load time. I\u0027m guessing they\u0027d be against anything that slows down verification / classload. ART folks feel free to chime in: if we declared that we should be syntax checking system annotations at verification time I\u0027d suggest that should be treated a another bug.]",
+      "range": {
+        "startLine": 1065,
+        "startChar": 11,
+        "endLine": 1065,
+        "endChar": 16
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_e9597559",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "Nobody else seems to bother with this, so have removed.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 11,
+        "endLine": 1070,
+        "endChar": 16
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_8950b929",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "As above.",
+      "range": {
+        "startLine": 1085,
+        "startChar": 11,
+        "endLine": 1085,
+        "endChar": 16
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_a9537d35",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "Removed this one too.",
+      "range": {
+        "startLine": 1088,
+        "startChar": 6,
+        "endLine": 1088,
+        "endChar": 24
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_c9559154",
         "filename": "runtime/native/java_lang_reflect_Executable.cc",
         "patchSetId": 2
@@ -84,6 +200,30 @@
       "side": 1,
       "message": "Rather than being an odd mix, I saw this as \"preparing the JNI object for return. This was the point where objects go from internal provided by things like annotations:: code to external for return.\n\nSounds like it\u0027s easier to continue in the ART world a while longer and do a final translation at the end. I\u0027ll take a look.",
       "parentUuid": "85656bf7_895f9972",
+      "range": {
+        "startLine": 140,
+        "startChar": 3,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_c9047127",
+        "filename": "runtime/native/java_lang_reflect_Executable.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-09-23T13:47:58Z",
+      "side": 1,
+      "message": "Oh: I went with push / pop over deletelocalref because it meant not having to keep track of the Parameter / String directly. Seemed easier but may carry a cost I\u0027m not aware of.",
+      "parentUuid": "c546836b_e3ad1288",
       "range": {
         "startLine": 140,
         "startChar": 3,
