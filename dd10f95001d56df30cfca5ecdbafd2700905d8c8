@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_53cb9a15",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-23T22:53:54Z",
+      "side": 1,
+      "message": "Script runs on host but dalvikvm can run on device and thats where it will try to generate vdex files in no-prebuild mode.\n\nOn device it looks like /data/run-test/test-\u003cPID\u003e. I guess it\u0027s really short so there is no reason to check in that case.\n\nMoved check to run-test-jar.",
+      "parentUuid": "b0938fd9_30dfe4c9",
+      "revId": "dd10f95001d56df30cfca5ecdbafd2700905d8c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_70f96c45",
         "filename": "test/run-test",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-23T21:35:26Z",
       "side": 1,
       "message": "NAME_MAX is for the filename size (basename whatever)\n\nPATH_MAX is for the path size (full path) and its usually 1024",
+      "range": {
+        "startLine": 704,
+        "startChar": 24,
+        "endLine": 704,
+        "endChar": 41
+      },
+      "revId": "dd10f95001d56df30cfca5ecdbafd2700905d8c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_134cb225",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-23T22:53:54Z",
+      "side": 1,
+      "message": "vdex filename is constructed by taking VDEX_PATH and changing every / to @ so it is NAME_MAX that we care about.\n\nI updated the comment to be more verbose.",
+      "parentUuid": "b0938fd9_70f96c45",
       "range": {
         "startLine": 704,
         "startChar": 24,
