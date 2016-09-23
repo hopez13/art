@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_69bb4592",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 5452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-23T09:47:54Z",
+      "side": 1,
+      "message": "Only if we extend GenerateIntCompare() to accept non-register \"lhs\".",
+      "parentUuid": "85656bf7_8908b988",
+      "range": {
+        "startLine": 5447,
+        "startChar": 0,
+        "endLine": 5452,
+        "endChar": 9
+      },
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_496ac113",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 26
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-23T09:03:41Z",
       "side": 1,
       "message": "GenerateIntCompare?",
+      "range": {
+        "startLine": 4887,
+        "startChar": 0,
+        "endLine": 4892,
+        "endChar": 9
+      },
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_89367938",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 4892,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-23T09:47:54Z",
+      "side": 1,
+      "message": "Only if we extend GenerateIntCompare() to accept non-register \"lhs\".",
+      "parentUuid": "85656bf7_496ac113",
       "range": {
         "startLine": 4887,
         "startChar": 0,
