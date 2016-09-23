@@ -404,6 +404,18 @@ if [ "$HOST" = "n" ]; then
   fi
 fi
 
+# Prevent test from silently falling back to interpreter in no-prebuild mode. This happens
+# when DEX_LOCATION path is too long, because vdex/odex filename is constructed by taking
+# full path to dex, stripping leading '/', appending '@classes.vdex' and changing every
+# remaining '/' into '@'. Only checking in host mode because target paths are always short.
+if [ "$HOST" = "y" ]; then
+  VDEX_PATH="${DEX_LOCATION#/}/$TEST_NAME.jar@classes.vdex"
+  if [ ${#VDEX_PATH} -gt $(getconf NAME_MAX $DEX_LOCATION) ]; then
+      echo  "Dex location path too long."
+      exit 1
+  fi
+fi
+
 dex2oat_cmdline="true"
 mkdir_locations="${DEX_LOCATION}/dalvik-cache/$ISA"
 strip_cmdline="true"
