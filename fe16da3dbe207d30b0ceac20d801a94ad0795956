@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_3ae6e841",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T15:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85656bf7_4978811b",
+      "range": {
+        "startLine": 28,
+        "startChar": 30,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_491c01dc",
         "filename": "runtime/base/logging.h",
         "patchSetId": 3
@@ -113,6 +137,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_1a012cde",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T15:58:27Z",
+      "side": 1,
+      "message": "I think it is possible. LoggingDummyMessage is in the end a wrapper to make the ostringstring look like an ostream.\n\nHowever, the whole setup is intentional, as it retains old behavior. E.g., we have tests that are configured to do this with LOG(INFO) but have a comment that says \"test dumping\" - which would be totally filtered.",
+      "parentUuid": "b0938fd9_dae9847c",
+      "range": {
+        "startLine": 95,
+        "startChar": 7,
+        "endLine": 95,
+        "endChar": 20
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_297d4d0b",
         "filename": "runtime/jni_env_ext-inl.h",
         "patchSetId": 3
@@ -124,6 +172,30 @@
       "writtenOn": "2016-09-23T06:56:26Z",
       "side": 1,
       "message": "Is this TODO for a later CL, or did you mean to re-enable it in this CL?",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_5ae3b430",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T15:58:27Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "85656bf7_297d4d0b",
       "range": {
         "startLine": 35,
         "startChar": 1,
