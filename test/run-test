@@ -134,6 +134,7 @@ bisection_search="no"
 # By default we will use optimizing.
 image_args=""
 image_suffix=""
+max_filename_size=255
 
 while true; do
     if [ "x$1" = "x--host" ]; then
@@ -691,6 +692,14 @@ chmod 755 "$run"
 chmod 755 "$check_cmd"
 
 export TEST_NAME=`basename ${test_dir}`
+
+# Prevent test from silently falling back to interpreter in no-prebuild mode.
+# This happens when vdex/odex path is longer then filename limit.
+VDEX_PATH="${DEX_LOCATION#/}/$TEST_NAME.jar@classes.vdex"
+if [ ${#VDEX_PATH} -gt $max_filename_size ]; then
+    err_echo "Test output path too long." 1>&2
+    exit 1
+fi
 
 # arch_supports_read_barrier ARCH
 # -------------------------------
