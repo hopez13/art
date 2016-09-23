@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85656bf7_09828903",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-23T06:56:26Z",
+      "side": 1,
+      "message": "What is libbase, what is the motivation for using libbase, and what are the important points I, as an ART developer, should know about how this changes logging in ART moving forward?\n\nI would like to see the answers to these questions in the commit message.",
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_4978811b",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-23T06:56:26Z",
+      "side": 1,
+      "message": "more easily",
+      "range": {
+        "startLine": 28,
+        "startChar": 30,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_297d4d0b",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-09-23T06:56:26Z",
+      "side": 1,
+      "message": "Is this TODO for a later CL, or did you mean to re-enable it in this CL?",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "fe16da3dbe207d30b0ceac20d801a94ad0795956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
