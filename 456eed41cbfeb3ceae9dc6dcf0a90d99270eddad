@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_ae047a72",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T19:06:21Z",
+      "side": 1,
+      "message": "TMPDIR is a unix (?) standard. It doesn\u0027t make sense to copy it just to have our own name.",
+      "parentUuid": "b0938fd9_f8bba877",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "456eed41cbfeb3ceae9dc6dcf0a90d99270eddad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455b733f_07d036f3",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 3
