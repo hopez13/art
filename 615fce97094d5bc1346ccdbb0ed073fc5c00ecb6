@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85656bf7_8908b988",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 5452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T09:03:41Z",
+      "side": 1,
+      "message": "Use GenerateIntCompare?",
+      "range": {
+        "startLine": 5447,
+        "startChar": 0,
+        "endLine": 5452,
+        "endChar": 9
+      },
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_496ac113",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 4892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T09:03:41Z",
+      "side": 1,
+      "message": "GenerateIntCompare?",
+      "range": {
+        "startLine": 4887,
+        "startChar": 0,
+        "endLine": 4892,
+        "endChar": 9
+      },
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_296f8d23",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T09:03:41Z",
+      "side": 1,
+      "message": "Why is code in this file not guarded by mirror::kUseStringCompression ?",
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_0974c9f3",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T09:03:41Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "615fce97094d5bc1346ccdbb0ed073fc5c00ecb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
