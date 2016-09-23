@@ -692,6 +692,20 @@ chmod 755 "$check_cmd"
 
 export TEST_NAME=`basename ${test_dir}`
 
+# Prevent test from silently falling back to interpreter in no-prebuild mode.
+# This happens when vdex/odex path is longer then filename limit.
+if [ "$target_mode" = "yes" ]; then
+  # There is no getconf on device.
+  max_filename_size=255
+else
+  max_filename_size=$(getconf NAME_MAX $DEX_LOCATION)
+fi
+VDEX_PATH="${DEX_LOCATION#/}/$TEST_NAME.jar@classes.vdex"
+if [ ${#VDEX_PATH} -gt $max_filename_size ]; then
+    err_echo "Test output path too long." 1>&2
+    exit 1
+fi
+
 # arch_supports_read_barrier ARCH
 # -------------------------------
 # Return whether the Optimizing compiler has read barrier support for ARCH.
