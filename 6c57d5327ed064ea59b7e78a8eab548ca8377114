@@ -52,6 +52,24 @@
       "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_b8bbe02a",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T17:56:09Z",
+      "side": 1,
+      "message": "None of this is what \"upstream\" libbase wants. They simply have *zero* need for this complexity.\n\nI also question that *we* require this complexity. Most of logging with a stream is *error* logging. So I see this as a follow-up cleanup.",
+      "parentUuid": "b0938fd9_987624cc",
+      "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
