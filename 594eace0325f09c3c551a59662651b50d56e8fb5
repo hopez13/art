@@ -22,6 +22,30 @@
       "revId": "594eace0325f09c3c551a59662651b50d56e8fb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8e2edefc",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-23T19:52:02Z",
+      "side": 1,
+      "message": "We don\u0027t have getconf on device though so we can\u0027t always get the exact value.",
+      "parentUuid": "b0938fd9_53e55ffb",
+      "range": {
+        "startLine": 137,
+        "startChar": 18,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "594eace0325f09c3c551a59662651b50d56e8fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
