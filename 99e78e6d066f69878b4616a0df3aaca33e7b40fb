@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_5538ec88",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T01:11:19Z",
+      "side": 1,
+      "message": "Else branch to set error_code to a defined state?",
+      "range": {
+        "startLine": 353,
+        "startChar": 4,
+        "endLine": 355,
+        "endChar": 5
+      },
+      "revId": "99e78e6d066f69878b4616a0df3aaca33e7b40fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
