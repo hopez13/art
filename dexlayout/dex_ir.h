@@ -137,10 +137,22 @@ class Collections {
   std::vector<std::unique_ptr<FieldId>>& FieldIds() { return field_ids_.Collection(); }
   std::vector<std::unique_ptr<MethodId>>& MethodIds() { return method_ids_.Collection(); }
   std::vector<std::unique_ptr<ClassDef>>& ClassDefs() { return class_defs_.Collection(); }
-
+  std::vector<std::unique_ptr<StringData>>& StringDatas() { return string_datas_.Collection(); }
   std::vector<std::unique_ptr<TypeList>>& TypeLists() { return type_lists_.Collection(); }
   std::vector<std::unique_ptr<EncodedArrayItem>>& EncodedArrayItems()
       { return encoded_array_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationItem>>& AnnotationItems()
+      { return annotation_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationSetItem>>& AnnotationSetItems()
+      { return annotation_set_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationSetRefList>>& AnnotationSetRefLists()
+      { return annotation_set_ref_lists_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationsDirectoryItem>>& AnnotationsDirectoryItems()
+      { return annotations_directory_items_.Collection(); }
+  std::vector<std::unique_ptr<DebugInfoItem>>& DebugInfoItems()
+      { return debug_info_items_.Collection(); }
+  std::vector<std::unique_ptr<CodeItem>>& CodeItems() { return code_items_.Collection(); }
+  std::vector<std::unique_ptr<ClassData>>& ClassDatas() { return class_datas_.Collection(); }
 
   void CreateStringId(const DexFile& dex_file, uint32_t i);
   void CreateTypeId(const DexFile& dex_file, uint32_t i);
@@ -431,7 +443,7 @@ class ProtoId : public IndexedItem {
 
   const StringId* Shorty() const { return shorty_; }
   const TypeId* ReturnType() const { return return_type_; }
-  const TypeIdVector& Parameters() const { return *parameters_->GetTypeList(); }
+  const TypeList* Parameters() const { return parameters_; }
 
   void Accept(AbstractDispatcher* dispatch) const { dispatch->Dispatch(this); }
 
@@ -680,8 +692,8 @@ class ClassDef : public IndexedItem {
         interfaces_(interfaces),
         source_file_(source_file),
         annotations_(annotations),
-        static_values_(static_values),
-        class_data_(class_data) { size_ = kClassDefItemSize; }
+        class_data_(class_data),
+        static_values_(static_values) { size_ = kClassDefItemSize; }
 
   ~ClassDef() OVERRIDE { }
 
@@ -695,8 +707,8 @@ class ClassDef : public IndexedItem {
   uint32_t InterfacesOffset() { return interfaces_ == nullptr ? 0 : interfaces_->GetOffset(); }
   const StringId* SourceFile() const { return source_file_; }
   AnnotationsDirectoryItem* Annotations() const { return annotations_; }
-  EncodedArrayItem* StaticValues() { return static_values_; }
   ClassData* GetClassData() { return class_data_; }
+  EncodedArrayItem* StaticValues() { return static_values_; }
 
   MethodItem* GenerateMethodItem(Header& header, ClassDataItemIterator& cdii);
 
@@ -709,8 +721,8 @@ class ClassDef : public IndexedItem {
   TypeList* interfaces_;
   const StringId* source_file_;
   AnnotationsDirectoryItem* annotations_;
-  EncodedArrayItem* static_values_;
   ClassData* class_data_;
+  EncodedArrayItem* static_values_;
 
   DISALLOW_COPY_AND_ASSIGN(ClassDef);
 };
