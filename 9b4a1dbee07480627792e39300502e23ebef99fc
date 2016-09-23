@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_1ae4cca0",
+        "filename": "oatdump/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T14:49:29Z",
+      "side": 1,
+      "message": "Why can\u0027t we inherit this configuration I mean? This seems like a BP issue.",
+      "parentUuid": "b0938fd9_1bcf7ba9",
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_7b04ff71",
         "filename": "runtime/base/logging.h",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "The LOG macros in libbase are structured differently. libbase made the conscious choice to have the severity check first (we had it in the destructor). Downside is that you cannot use the LOG macro anymore to unconditionally get a stream you can pass on.\n\nThis is to emulate our behavior below with ART_LOG_STREAM - which always returns a stream. However, we need to /dev/null if the severity isn\u0027t high enough.\n\n(Regrettably you can\u0027t return a non-const reference to a temporary in C++, so this helper is the way around that. If you have a better idea [and yeah, could optimize this to not ever store anything, this is just the simplest implementation], just let me know.)",
       "parentUuid": "b0938fd9_7b04ff71",
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_3af98846",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T14:49:29Z",
+      "side": 1,
+      "message": "I took a quick look at base/logging.h and it seems like most of our changes from this file should go there instead, I don\u0027t like the way it\u0027s done now because there\u0027s no way to discard messages without concatenating them first into an ostream.\n\nWe could provide our own custom LoggerBase (?) but then it does too much work.",
+      "parentUuid": "b0938fd9_3b5d17e5",
       "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -107,6 +143,30 @@
       "side": 1,
       "message": "There\u0027s a corresponding change. LOG_STREAM_S takes a severity as a fully qualified LogSeverity. It\u0027s required because our usage with a ternary for log level wasn\u0027t supported in libbase.",
       "parentUuid": "b0938fd9_fb664f21",
+      "range": {
+        "startLine": 100,
+        "startChar": 26,
+        "endLine": 100,
+        "endChar": 37
+      },
+      "revId": "9b4a1dbee07480627792e39300502e23ebef99fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_9ad7fcb3",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T14:49:29Z",
+      "side": 1,
+      "message": "Sounds like it should be named ART_LOG_STREAM_S",
+      "parentUuid": "b0938fd9_9b4b8b28",
       "range": {
         "startLine": 100,
         "startChar": 26,
