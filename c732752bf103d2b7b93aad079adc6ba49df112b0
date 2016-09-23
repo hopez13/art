@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_f3a4ab15",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-23T18:34:59Z",
+      "side": 1,
+      "message": "if you put this in its own TOTAL_PATH, I believe you can simply do the following to get the length, no need to echo and pipe into wc\n\n${#TOTAL_PATH}",
+      "revId": "c732752bf103d2b7b93aad079adc6ba49df112b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
