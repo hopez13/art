@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_18c6940f",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T17:42:26Z",
+      "side": 1,
+      "message": "I think you would want ART_LOG_STREAM to return a wrapped stream-like struct\n\n  struct MaybeLogStream {\n    explicit MaybeLogStream(bool would_log) ALWAYS_INLINE {\n      if (would_log) {\n        os_ \u003d (new (\u0026log_message_) (LogMessage(__FILE__, __LINE__, severity_, -1)).stream();\n        // avoid creating expensive LogMessage unless its actually necessary\n        // avoid any dynamic allocation on the fast path\n      }\n      would_log_ \u003d would_log;\n    }\n\n    template \u003ctypename T\u003e\n    MaybeLogStream\u0026 operator\u003c\u003c(const T\u0026 any) ALWAYS_INLINE {\n       if (would_log_) {\n           os_ \u003c\u003c any;\n       }\n    }\n\n    bool would_log_;\n    char[sizeof(LogMessage]] log_message_;\n    std::ostream* os_;\n  };\n\n   #define ART_LOG_STREAM_S(severity) MaybeLogStream(WOULD_LOG_SEVERITY(severity))\n\nYes this does look ugly.. but the API is quite unsuited to what we wanted to do, which is why I was saying we might be  better off fixing base/logging.h. \n\n----\nFurther explanation:\n\nLogMessage is in a CC file so we have to call LogMessage constructor from another library (eww a library call, and it even does a malloc inside, why??) **just** to get the stream (and it . Obviously we want to avoid this unless we actually need to.\n\nAt the very least getting the logging stream should be a new API call. Better yet we could have custom stream type. And best yet we could plug-in a user-provided log filter to determine whether or not a message should hit the stream (before we lose the file/line/severity/etc information). Of course it should be nicely inline/templatized to avoid expensive library calls when filtering is disabled.",
+      "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
