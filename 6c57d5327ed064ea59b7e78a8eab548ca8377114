@@ -16,6 +16,24 @@
       "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_987624cc",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T17:45:38Z",
+      "side": 1,
+      "message": "Blergh, screwed up the field alignment\n\n  std::aligned_storage\u003csizeof(LogMessage), alignof(LogMessage)\u003e log_message_;\n  bool would_log_;\n  std::ostream* os_;\n\nin the debugging case where it doesn\u0027t get inlined and the bool up front would screw up alignment.",
+      "parentUuid": "b0938fd9_18c6940f",
+      "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
