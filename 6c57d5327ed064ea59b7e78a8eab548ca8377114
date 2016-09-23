@@ -70,6 +70,24 @@
       "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_380190de",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-23T17:58:58Z",
+      "side": 1,
+      "message": "I don\u0027t think that way is cleaner, because it overrides any choice a top-level tool might have made wrt/ where it wants to log (e.g., certain interns might have installed Stderr logging even on device). There\u0027s no API to get the current logging function (yet).",
+      "parentUuid": "b0938fd9_5873bca7",
+      "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
