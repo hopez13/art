@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_53e55ffb",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T18:50:08Z",
+      "side": 1,
+      "message": "Please don\u0027t hardcode this, use getconf NAME_MAX and getconf PATH_MAX at runtime on the target paths.",
+      "range": {
+        "startLine": 137,
+        "startChar": 18,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "594eace0325f09c3c551a59662651b50d56e8fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
