@@ -55,6 +55,54 @@ static void GetLocalsCb(void* context, const DexFile::LocalInfo& entry) {
                     entry.end_address_, entry.reg_)));
 }
 
+static uint32_t GetDebugInfoStreamSize(const uint8_t* debug_info_stream) {
+  const uint8_t* stream = debug_info_stream;
+  DecodeUnsignedLeb128(&stream);  // line_start
+  uint32_t parameters_size = DecodeUnsignedLeb128(&stream);
+  for (uint32_t i = 0; i < parameters_size; ++i) {
+    DecodeUnsignedLeb128P1(&stream);  // Parameter name.
+  }
+
+  for (;;)  {
+    uint8_t opcode = *stream++;
+    switch (opcode) {
+      case DexFile::DBG_END_SEQUENCE:
+        return stream - debug_info_stream;  // end of stream.
+      case DexFile::DBG_ADVANCE_PC:
+        DecodeUnsignedLeb128(&stream);  // addr_diff
+        break;
+      case DexFile::DBG_ADVANCE_LINE:
+        DecodeSignedLeb128(&stream);  // line_diff
+        break;
+      case DexFile::DBG_START_LOCAL:
+        DecodeUnsignedLeb128(&stream);  // register_num
+        DecodeUnsignedLeb128P1(&stream);  // name_idx
+        DecodeUnsignedLeb128P1(&stream);  // type_idx
+        break;
+      case DexFile::DBG_START_LOCAL_EXTENDED:
+        DecodeUnsignedLeb128(&stream);  // register_num
+        DecodeUnsignedLeb128P1(&stream);  // name_idx
+        DecodeUnsignedLeb128P1(&stream);  // type_idx
+        DecodeUnsignedLeb128P1(&stream);  // sig_idx
+        break;
+      case DexFile::DBG_END_LOCAL:
+      case DexFile::DBG_RESTART_LOCAL:
+        DecodeUnsignedLeb128(&stream);  // register_num
+        break;
+      case DexFile::DBG_SET_PROLOGUE_END:
+      case DexFile::DBG_SET_EPILOGUE_BEGIN:
+        break;
+      case DexFile::DBG_SET_FILE: {
+        DecodeUnsignedLeb128P1(&stream);  // name_idx
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+}
+
 EncodedValue* Collections::ReadEncodedValue(const uint8_t** data) {
   const uint8_t encoded_value = *(*data)++;
   const uint8_t type = encoded_value & 0x1f;
@@ -390,7 +438,10 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
   const uint8_t* debug_info_stream = dex_file.GetDebugInfoStream(&disk_code_item);
   DebugInfoItem* debug_info = nullptr;
   if (debug_info_stream != nullptr) {
-    debug_info = new DebugInfoItem();
+    uint32_t debug_info_size = GetDebugInfoStreamSize(debug_info_stream);
+    uint8_t* debug_info_buffer = new uint8_t[debug_info_size];
+    memcpy(debug_info_buffer, debug_info_stream, debug_info_size);
+    debug_info = new DebugInfoItem(debug_info_size, debug_info_buffer);
     debug_info_items_.AddItem(debug_info, disk_code_item.debug_info_off_);
   }
 
@@ -399,26 +450,41 @@ CodeItem* Collections::CreateCodeItem(const DexFile& dex_file,
   memcpy(insns, disk_code_item.insns_, insns_size * sizeof(uint16_t));
 
   TryItemVector* tries = nullptr;
+  CatchHandlerVector* handler_list = nullptr;
   if (tries_size > 0) {
     tries = new TryItemVector();
+    handler_list = new CatchHandlerVector();
     for (uint32_t i = 0; i < tries_size; ++i) {
       const DexFile::TryItem* disk_try_item = dex_file.GetTryItems(disk_code_item, i);
       uint32_t start_addr = disk_try_item->start_addr_;
       uint16_t insn_count = disk_try_item->insn_count_;
-      CatchHandlerVector* handlers = new CatchHandlerVector();
-      for (CatchHandlerIterator it(disk_code_item, *disk_try_item); it.HasNext(); it.Next()) {
-        const uint16_t type_index = it.GetHandlerTypeIndex();
-        const TypeId* type_id = GetTypeIdOrNullPtr(type_index);
-        handlers->push_back(std::unique_ptr<const CatchHandler>(
-            new CatchHandler(type_id, it.GetHandlerAddress())));
+      uint16_t handler_off = disk_try_item->handler_off_;
+      const CatchHandler* handlers = nullptr;
+      for (std::unique_ptr<const CatchHandler>& existing_handlers : *handler_list) {
+        if (handler_off == existing_handlers->GetListOffset()) {
+          handlers = existing_handlers.get();
+        }
+      }
+      if (handlers == nullptr) {
+        bool catch_all = false;
+        TypeAddrPairVector* addr_pairs = new TypeAddrPairVector();
+        for (CatchHandlerIterator it(disk_code_item, *disk_try_item); it.HasNext(); it.Next()) {
+          const uint16_t type_index = it.GetHandlerTypeIndex();
+          const TypeId* type_id = GetTypeIdOrNullPtr(type_index);
+          catch_all |= type_id == nullptr;
+          addr_pairs->push_back(std::unique_ptr<const TypeAddrPair>(
+              new TypeAddrPair(type_id, it.GetHandlerAddress())));
+        }
+        handlers = new CatchHandler(catch_all, handler_off, addr_pairs);
+        handler_list->push_back(std::unique_ptr<const CatchHandler>(handlers));
       }
       TryItem* try_item = new TryItem(start_addr, insn_count, handlers);
       tries->push_back(std::unique_ptr<const TryItem>(try_item));
     }
   }
   // TODO: Calculate the size of the code item.
-  CodeItem* code_item =
-      new CodeItem(registers_size, ins_size, outs_size, debug_info, insns_size, insns, tries);
+  CodeItem* code_item = new CodeItem(
+      registers_size, ins_size, outs_size, debug_info, insns_size, insns, tries, handler_list);
   code_items_.AddItem(code_item, offset);
   return code_item;
 }
@@ -481,6 +547,29 @@ ClassData* Collections::CreateClassData(
     class_datas_.AddItem(class_data, offset);
   }
   return class_data;
+}
+
+template <class T> static uint32_t GetMinOffset(std::vector<std::unique_ptr<T>>& items) {
+  uint32_t offset = 0xffffffff;
+  for (std::unique_ptr<T>& item : items) {
+    if (item->GetOffset() < offset) {
+      offset = item->GetOffset();
+    }
+  }
+  return offset;
+}
+
+void Collections::CalculateSectionOffsets() {
+  SetStringIdsOffset(GetMinOffset(StringDatas()));
+  SetTypeListsOffset(GetMinOffset(TypeLists()));
+  SetEncodedArrayItemsOffset(GetMinOffset(EncodedArrayItems()));
+  SetAnnotationItemsOffset(GetMinOffset(AnnotationItems()));
+  SetAnnotationSetItemsOffset(GetMinOffset(AnnotationSetItems()));
+  SetAnnotationSetRefListsOffset(GetMinOffset(AnnotationSetRefLists()));
+  SetAnnotationsDirectoryItemsOffset(GetMinOffset(AnnotationsDirectoryItems()));
+  SetDebugInfoItemsOffset(GetMinOffset(DebugInfoItems()));
+  SetCodeItemsOffset(GetMinOffset(CodeItems()));
+  SetClassDatasOffset(GetMinOffset(ClassDatas()));
 }
 
 }  // namespace dex_ir

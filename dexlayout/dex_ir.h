@@ -137,10 +137,22 @@ class Collections {
   std::vector<std::unique_ptr<FieldId>>& FieldIds() { return field_ids_.Collection(); }
   std::vector<std::unique_ptr<MethodId>>& MethodIds() { return method_ids_.Collection(); }
   std::vector<std::unique_ptr<ClassDef>>& ClassDefs() { return class_defs_.Collection(); }
-
+  std::vector<std::unique_ptr<StringData>>& StringDatas() { return string_datas_.Collection(); }
   std::vector<std::unique_ptr<TypeList>>& TypeLists() { return type_lists_.Collection(); }
   std::vector<std::unique_ptr<EncodedArrayItem>>& EncodedArrayItems()
       { return encoded_array_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationItem>>& AnnotationItems()
+      { return annotation_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationSetItem>>& AnnotationSetItems()
+      { return annotation_set_items_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationSetRefList>>& AnnotationSetRefLists()
+      { return annotation_set_ref_lists_.Collection(); }
+  std::vector<std::unique_ptr<AnnotationsDirectoryItem>>& AnnotationsDirectoryItems()
+      { return annotations_directory_items_.Collection(); }
+  std::vector<std::unique_ptr<DebugInfoItem>>& DebugInfoItems()
+      { return debug_info_items_.Collection(); }
+  std::vector<std::unique_ptr<CodeItem>>& CodeItems() { return code_items_.Collection(); }
+  std::vector<std::unique_ptr<ClassData>>& ClassDatas() { return class_datas_.Collection(); }
 
   void CreateStringId(const DexFile& dex_file, uint32_t i);
   void CreateTypeId(const DexFile& dex_file, uint32_t i);
@@ -182,14 +194,16 @@ class Collections {
   uint32_t ClassDefsOffset() const { return class_defs_.GetOffset(); }
   uint32_t StringDatasOffset() const { return string_datas_.GetOffset(); }
   uint32_t TypeListsOffset() const { return type_lists_.GetOffset(); }
-  uint32_t EncodedArrayOffset() const { return encoded_array_items_.GetOffset(); }
-  uint32_t AnnotationOffset() const { return annotation_items_.GetOffset(); }
-  uint32_t AnnotationSetOffset() const { return annotation_set_items_.GetOffset(); }
+  uint32_t EncodedArrayItemsOffset() const { return encoded_array_items_.GetOffset(); }
+  uint32_t AnnotationItemsOffset() const { return annotation_items_.GetOffset(); }
+  uint32_t AnnotationSetItemsOffset() const { return annotation_set_items_.GetOffset(); }
   uint32_t AnnotationSetRefListsOffset() const { return annotation_set_ref_lists_.GetOffset(); }
-  uint32_t AnnotationsDirectoryOffset() const { return annotations_directory_items_.GetOffset(); }
-  uint32_t DebugInfoOffset() const { return debug_info_items_.GetOffset(); }
+  uint32_t AnnotationsDirectoryItemsOffset() const
+      { return annotations_directory_items_.GetOffset(); }
+  uint32_t DebugInfoItemsOffset() const { return debug_info_items_.GetOffset(); }
   uint32_t CodeItemsOffset() const { return code_items_.GetOffset(); }
   uint32_t ClassDatasOffset() const { return class_datas_.GetOffset(); }
+  uint32_t MapItemOffset() const { return map_item_offset_; }
 
   void SetStringIdsOffset(uint32_t new_offset) { string_ids_.SetOffset(new_offset); }
   void SetTypeIdsOffset(uint32_t new_offset) { type_ids_.SetOffset(new_offset); }
@@ -199,16 +213,21 @@ class Collections {
   void SetClassDefsOffset(uint32_t new_offset) { class_defs_.SetOffset(new_offset); }
   void SetStringDatasOffset(uint32_t new_offset) { string_datas_.SetOffset(new_offset); }
   void SetTypeListsOffset(uint32_t new_offset) { type_lists_.SetOffset(new_offset); }
-  void SetEncodedArrayOffset(uint32_t new_offset) { encoded_array_items_.SetOffset(new_offset); }
-  void SetAnnotationOffset(uint32_t new_offset) { annotation_items_.SetOffset(new_offset); }
-  void SetAnnotationSetOffset(uint32_t new_offset) { annotation_set_items_.SetOffset(new_offset); }
+  void SetEncodedArrayItemsOffset(uint32_t new_offset)
+      { encoded_array_items_.SetOffset(new_offset); }
+  void SetAnnotationItemsOffset(uint32_t new_offset) { annotation_items_.SetOffset(new_offset); }
+  void SetAnnotationSetItemsOffset(uint32_t new_offset)
+      { annotation_set_items_.SetOffset(new_offset); }
   void SetAnnotationSetRefListsOffset(uint32_t new_offset)
       { annotation_set_ref_lists_.SetOffset(new_offset); }
-  void SetAnnotationsDirectoryOffset(uint32_t new_offset)
+  void SetAnnotationsDirectoryItemsOffset(uint32_t new_offset)
       { annotations_directory_items_.SetOffset(new_offset); }
-  void SetDebugInfoOffset(uint32_t new_offset) { debug_info_items_.SetOffset(new_offset); }
+  void SetDebugInfoItemsOffset(uint32_t new_offset) { debug_info_items_.SetOffset(new_offset); }
   void SetCodeItemsOffset(uint32_t new_offset) { code_items_.SetOffset(new_offset); }
   void SetClassDatasOffset(uint32_t new_offset) { class_datas_.SetOffset(new_offset); }
+  void SetMapItemOffset(uint32_t new_offset) { map_item_offset_ = new_offset; }
+
+  void CalculateSectionOffsets();
 
   uint32_t StringIdsSize() const { return string_ids_.Size(); }
   uint32_t TypeIdsSize() const { return type_ids_.Size(); }
@@ -216,6 +235,16 @@ class Collections {
   uint32_t FieldIdsSize() const { return field_ids_.Size(); }
   uint32_t MethodIdsSize() const { return method_ids_.Size(); }
   uint32_t ClassDefsSize() const { return class_defs_.Size(); }
+  uint32_t StringDatasSize() const { return string_datas_.Size(); }
+  uint32_t TypeListsSize() const { return type_lists_.Size(); }
+  uint32_t EncodedArrayItemsSize() const { return encoded_array_items_.Size(); }
+  uint32_t AnnotationItemsSize() const { return annotation_items_.Size(); }
+  uint32_t AnnotationSetItemsSize() const { return annotation_set_items_.Size(); }
+  uint32_t AnnotationSetRefListsSize() const { return annotation_set_ref_lists_.Size(); }
+  uint32_t AnnotationsDirectoryItemsSize() const { return annotations_directory_items_.Size(); }
+  uint32_t DebugInfoItemsSize() const { return debug_info_items_.Size(); }
+  uint32_t CodeItemsSize() const { return code_items_.Size(); }
+  uint32_t ClassDatasSize() const { return class_datas_.Size(); }
 
  private:
   EncodedValue* ReadEncodedValue(const uint8_t** data);
@@ -243,6 +272,8 @@ class Collections {
   CollectionWithOffset<DebugInfoItem> debug_info_items_;
   CollectionWithOffset<CodeItem> code_items_;
   CollectionWithOffset<ClassData> class_datas_;
+
+  uint32_t map_item_offset_ = 0;
 
   DISALLOW_COPY_AND_ASSIGN(Collections);
 };
@@ -431,7 +462,7 @@ class ProtoId : public IndexedItem {
 
   const StringId* Shorty() const { return shorty_; }
   const TypeId* ReturnType() const { return return_type_; }
-  const TypeIdVector& Parameters() const { return *parameters_->GetTypeList(); }
+  const TypeList* Parameters() const { return parameters_; }
 
   void Accept(AbstractDispatcher* dispatch) const { dispatch->Dispatch(this); }
 
@@ -680,8 +711,8 @@ class ClassDef : public IndexedItem {
         interfaces_(interfaces),
         source_file_(source_file),
         annotations_(annotations),
-        static_values_(static_values),
-        class_data_(class_data) { size_ = kClassDefItemSize; }
+        class_data_(class_data),
+        static_values_(static_values) { size_ = kClassDefItemSize; }
 
   ~ClassDef() OVERRIDE { }
 
@@ -695,8 +726,8 @@ class ClassDef : public IndexedItem {
   uint32_t InterfacesOffset() { return interfaces_ == nullptr ? 0 : interfaces_->GetOffset(); }
   const StringId* SourceFile() const { return source_file_; }
   AnnotationsDirectoryItem* Annotations() const { return annotations_; }
-  EncodedArrayItem* StaticValues() { return static_values_; }
   ClassData* GetClassData() { return class_data_; }
+  EncodedArrayItem* StaticValues() { return static_values_; }
 
   MethodItem* GenerateMethodItem(Header& header, ClassDataItemIterator& cdii);
 
@@ -709,15 +740,15 @@ class ClassDef : public IndexedItem {
   TypeList* interfaces_;
   const StringId* source_file_;
   AnnotationsDirectoryItem* annotations_;
-  EncodedArrayItem* static_values_;
   ClassData* class_data_;
+  EncodedArrayItem* static_values_;
 
   DISALLOW_COPY_AND_ASSIGN(ClassDef);
 };
 
-class CatchHandler {
+class TypeAddrPair {
  public:
-  CatchHandler(const TypeId* type_id, uint32_t address) : type_id_(type_id), address_(address) { }
+  TypeAddrPair(const TypeId* type_id, uint32_t address) : type_id_(type_id), address_(address) { }
 
   const TypeId* GetTypeId() const { return type_id_; }
   uint32_t GetAddress() const { return address_; }
@@ -726,6 +757,25 @@ class CatchHandler {
   const TypeId* type_id_;
   uint32_t address_;
 
+  DISALLOW_COPY_AND_ASSIGN(TypeAddrPair);
+};
+
+using TypeAddrPairVector = std::vector<std::unique_ptr<const TypeAddrPair>>;
+
+class CatchHandler {
+ public:
+  explicit CatchHandler(bool catch_all, uint16_t list_offset, TypeAddrPairVector* handlers)
+      : catch_all_(catch_all), list_offset_(list_offset), handlers_(handlers) { }
+
+  bool HasCatchAll() const { return catch_all_; }
+  uint16_t GetListOffset() const { return list_offset_; }
+  TypeAddrPairVector* GetHandlers() const { return handlers_.get(); }
+
+ private:
+  bool catch_all_;
+  uint16_t list_offset_;
+  std::unique_ptr<TypeAddrPairVector> handlers_;
+
   DISALLOW_COPY_AND_ASSIGN(CatchHandler);
 };
 
@@ -733,20 +783,20 @@ using CatchHandlerVector = std::vector<std::unique_ptr<const CatchHandler>>;
 
 class TryItem : public Item {
  public:
-  TryItem(uint32_t start_addr, uint16_t insn_count, CatchHandlerVector* handlers)
+  TryItem(uint32_t start_addr, uint16_t insn_count, const CatchHandler* handlers)
       : start_addr_(start_addr), insn_count_(insn_count), handlers_(handlers) { }
   ~TryItem() OVERRIDE { }
 
   uint32_t StartAddr() const { return start_addr_; }
   uint16_t InsnCount() const { return insn_count_; }
-  const CatchHandlerVector& GetHandlers() const { return *handlers_.get(); }
+  const CatchHandler* GetHandlers() const { return handlers_; }
 
   void Accept(AbstractDispatcher* dispatch) { dispatch->Dispatch(this); }
 
  private:
   uint32_t start_addr_;
   uint16_t insn_count_;
-  std::unique_ptr<CatchHandlerVector> handlers_;
+  const CatchHandler* handlers_;
 
   DISALLOW_COPY_AND_ASSIGN(TryItem);
 };
@@ -761,14 +811,16 @@ class CodeItem : public Item {
            DebugInfoItem* debug_info,
            uint32_t insns_size,
            uint16_t* insns,
-           TryItemVector* tries)
+           TryItemVector* tries,
+           CatchHandlerVector* handlers)
       : registers_size_(registers_size),
         ins_size_(ins_size),
         outs_size_(outs_size),
         debug_info_(debug_info),
         insns_size_(insns_size),
         insns_(insns),
-        tries_(tries) { }
+        tries_(tries),
+        handlers_(handlers) { }
 
   ~CodeItem() OVERRIDE { }
 
@@ -780,6 +832,7 @@ class CodeItem : public Item {
   uint32_t InsnsSize() const { return insns_size_; }
   uint16_t* Insns() const { return insns_.get(); }
   TryItemVector* Tries() const { return tries_.get(); }
+  CatchHandlerVector* Handlers() const { return handlers_.get(); }
 
   void Accept(AbstractDispatcher* dispatch) { dispatch->Dispatch(this); }
 
@@ -791,6 +844,7 @@ class CodeItem : public Item {
   uint32_t insns_size_;
   std::unique_ptr<uint16_t[]> insns_;
   std::unique_ptr<TryItemVector> tries_;
+  std::unique_ptr<CatchHandlerVector> handlers_;
 
   DISALLOW_COPY_AND_ASSIGN(CodeItem);
 };
@@ -830,12 +884,19 @@ using LocalInfoVector = std::vector<std::unique_ptr<LocalInfo>>;
 
 class DebugInfoItem : public Item {
  public:
-  DebugInfoItem() = default;
+  DebugInfoItem(uint32_t debug_info_size, uint8_t* debug_info)
+     : debug_info_size_(debug_info_size), debug_info_(debug_info) { }
+
+  uint32_t GetDebugInfoSize() const { return debug_info_size_; }
+  uint8_t* GetDebugInfo() const { return debug_info_.get(); }
 
   PositionInfoVector& GetPositionInfo() { return positions_; }
   LocalInfoVector& GetLocalInfo() { return locals_; }
 
  private:
+  uint32_t debug_info_size_;
+  std::unique_ptr<uint8_t[]> debug_info_;
+
   PositionInfoVector positions_;
   LocalInfoVector locals_;
 
