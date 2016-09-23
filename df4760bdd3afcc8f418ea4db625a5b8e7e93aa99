@@ -22,6 +22,30 @@
       "revId": "df4760bdd3afcc8f418ea4db625a5b8e7e93aa99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_4903e171",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4675,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T08:46:53Z",
+      "side": 1,
+      "message": "I haven\u0027t looked too closely at the generated code, but isn\u0027t it the intermediate address instruction you need to change how it generates code?",
+      "parentUuid": "b0938fd9_105bd2f4",
+      "range": {
+        "startLine": 4647,
+        "startChar": 0,
+        "endLine": 4675,
+        "endChar": 25
+      },
+      "revId": "df4760bdd3afcc8f418ea4db625a5b8e7e93aa99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
