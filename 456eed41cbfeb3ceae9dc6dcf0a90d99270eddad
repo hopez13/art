@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_29886478",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-23T20:16:23Z",
+      "side": 1,
+      "message": "Yes * is PID.\n\nSo I guess we should either add /art in both paths or skip it in both. I would prefer to save those 4 characters. What do you think Nicolas?",
+      "parentUuid": "b0938fd9_0eb1ee98",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "456eed41cbfeb3ceae9dc6dcf0a90d99270eddad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455b733f_07d036f3",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 3
