@@ -45,6 +45,30 @@
       "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_895f9972",
+        "filename": "runtime/native/java_lang_reflect_Executable.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-23T09:06:22Z",
+      "side": 1,
+      "message": "It is. I think you can drop the env-\u003eNewObject, and just call heap/mirror::Class helpers directly.",
+      "parentUuid": "85656bf7_c9559154",
+      "range": {
+        "startLine": 140,
+        "startChar": 3,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "860cd43363e44c9a602f37d8ebb8b29685cfeb30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
