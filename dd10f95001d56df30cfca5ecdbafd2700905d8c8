@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_30dfe4c9",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T21:35:26Z",
+      "side": 1,
+      "message": "This script only runs on the host (see line 1 where its specified to be bash).\n\nWhat does the path look like for when it runs on the device? Shouldn\u0027t it also includde /data/tmp? I\u0027d be more worried about PATH_MAX in that case. That checking seems like it should go into run-test-jar .",
+      "revId": "dd10f95001d56df30cfca5ecdbafd2700905d8c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_70f96c45",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T21:35:26Z",
+      "side": 1,
+      "message": "NAME_MAX is for the filename size (basename whatever)\n\nPATH_MAX is for the path size (full path) and its usually 1024",
+      "range": {
+        "startLine": 704,
+        "startChar": 24,
+        "endLine": 704,
+        "endChar": 41
+      },
+      "revId": "dd10f95001d56df30cfca5ecdbafd2700905d8c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
