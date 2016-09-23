@@ -34,6 +34,24 @@
       "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_5873bca7",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-23T17:55:07Z",
+      "side": 1,
+      "message": "One more thing, if we don\u0027t care about performance at all (which was the upfront assumption)\n\nThe much cleaner way is simply to change the LogFunction that\u0027s passed to InitLogging to filter the severity there.\n\n   void ArtLoggingFunction(LogId, LogSeverity severity, const char*, const char*, unsigned int, const char*) {\n      if (WOULD_LOG_SEVERITY(severity)) {\n          INIT_LOGGING_DEFAULT_LOGGER(...);\n      }\n   }\n\n   InitLogging(argv, ArtLoggingFunction);",
+      "parentUuid": "b0938fd9_987624cc",
+      "revId": "6c57d5327ed064ea59b7e78a8eab548ca8377114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
