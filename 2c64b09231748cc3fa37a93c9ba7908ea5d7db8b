@@ -68,6 +68,29 @@
       "revId": "2c64b09231748cc3fa37a93c9ba7908ea5d7db8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c546836b_c6f2245f",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-26T12:19:40Z",
+      "side": 1,
+      "message": "Does the preprocessor know \"true\"/\"false\"?",
+      "range": {
+        "startLine": 244,
+        "startChar": 35,
+        "endLine": 244,
+        "endChar": 40
+      },
+      "revId": "2c64b09231748cc3fa37a93c9ba7908ea5d7db8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
