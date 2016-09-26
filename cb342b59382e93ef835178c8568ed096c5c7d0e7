@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5638725_b45e00e8",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-26T20:02:14Z",
+      "side": 1,
+      "message": "Alex, I just noticed it: this should be static_cast, not reinterpret_cast (the former is all that is required, and should be used for forced down-casts in C++. reinterpret_cast is a big hammer only for low level casts, and conversely should be viewed as highly suspicious in other contexts)",
+      "range": {
+        "startLine": 749,
+        "startChar": 27,
+        "endLine": 749,
+        "endChar": 43
+      },
+      "revId": "cb342b59382e93ef835178c8568ed096c5c7d0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
