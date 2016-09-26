@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_2cf8bb61",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-09-26T15:07:11Z",
+      "side": 1,
+      "message": "Personally, I share Andreas\u0027 sentiment, but I have no strong objection to the library approach.",
+      "parentUuid": "90bccb98_6a1557a9",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_2b46a108",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "It\u0027s idempotent wrt to a dex2oat invocation for an identical input.  I didn\u0027t consider build ID calculation over the same file again as practical.  I can skip the build ID section content here if preferred.",
       "parentUuid": "cb1db24e_6bca596d",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 30
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_cc0ebf96",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-09-26T15:07:11Z",
+      "side": 1,
+      "message": "I am happy with this.  I have seen this definition of hash before and I like it (i.e. hash over the whole file with the hash field set to zeros).\n\nIn terms of implementation, the caller (End()) could explicitly set the build ID to zeros, or we could even move the WriteBuildId calls down to this method to make it foolproof.  I think it is overkill and I would keep it as it, but it is an option.",
+      "parentUuid": "f0ac2770_45ef2ab1",
       "range": {
         "startLine": 292,
         "startChar": 0,
