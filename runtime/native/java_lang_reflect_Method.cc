@@ -83,10 +83,35 @@ static jobject Method_invoke(JNIEnv* env, jobject javaMethod, jobject javaReceiv
   return InvokeMethod(soa, javaMethod, javaReceiver, javaArgs);
 }
 
+static jboolean Method_hasDetour(JNIEnv* env, jobject javaMethod) {
+  ScopedFastNativeObjectAccess soa(env);
+  ArtMethod* method = ArtMethod::FromReflectedMethod(soa, javaMethod);
+  return method->GetRealMethodData().IsDetourInstalled();
+}
+
+static jobject Method_invokeOriginal(JNIEnv* env,
+                                     jobject javaMethod,
+                                     jobject javaReceiver,
+                                     jobject javaArgs) {
+  ScopedFastNativeObjectAccess soa(env);
+  return InvokeOriginalMethod(soa, javaMethod, javaReceiver, javaArgs);
+}
+
+static void Method_installDetour(JNIEnv* env ATTRIBUTE_UNUSED,
+                                 jobject javaThis ATTRIBUTE_UNUSED,
+                                 jobject detour ATTRIBUTE_UNUSED) {
+  // TODO
+  return;
+}
+
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(Method, getDefaultValue, "!()Ljava/lang/Object;"),
   NATIVE_METHOD(Method, getExceptionTypes, "!()[Ljava/lang/Class;"),
   NATIVE_METHOD(Method, invoke, "!(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
+  NATIVE_METHOD(Method, hasDetour, "!()Z"),
+  NATIVE_METHOD(
+      Method, invokeOriginal, "!(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
+  NATIVE_METHOD(Method, installDetour, "!(Ljava/lang/reflect/Method;)V"),
 };
 
 void register_java_lang_reflect_Method(JNIEnv* env) {

@@ -33,6 +33,7 @@
 
 namespace art {
 
+class ArtMethod;
 template<class T> class Handle;
 union JValue;
 class OatQuickMethodHeader;
@@ -217,48 +218,23 @@ class ImtConflictTable {
   DISALLOW_COPY_AND_ASSIGN(ImtConflictTable);
 };
 
-class ArtMethod FINAL {
+// A class containing all of the actual data making up an ArtMethod. This is used as an indirection
+// in cases where the method has a detour.
+class MethodData FINAL {
  public:
-  ArtMethod() : access_flags_(0), dex_code_item_offset_(0), dex_method_index_(0),
-      method_index_(0), hotness_count_(0) { }
+  MethodData() : access_flags_(0),
+                 dex_code_item_offset_(0),
+                 dex_method_index_(0),
+                 method_index_(0),
+                 hotness_count_(0) { }
 
-  ArtMethod(ArtMethod* src, PointerSize image_pointer_size) {
-    CopyFrom(src, image_pointer_size);
+  ALWAYS_INLINE bool IsDetourInstalled() {
+    return (GetAccessFlags() & kAccMethodHasDetours) != 0;
   }
 
-  static ArtMethod* FromReflectedMethod(const ScopedObjectAccessAlreadyRunnable& soa,
-                                        jobject jlr_method)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE mirror::Class* GetDeclaringClass() REQUIRES_SHARED(Locks::mutator_lock_);
-
-  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE mirror::Class* GetDeclaringClassUnchecked()
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  void SetDeclaringClass(mirror::Class *new_declaring_class)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  bool CASDeclaringClass(mirror::Class* expected_class, mirror::Class* desired_class)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  static MemberOffset DeclaringClassOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(ArtMethod, declaring_class_));
+  ALWAYS_INLINE uint32_t GetAccessFlags() {
+    return access_flags_;
   }
-
-  // Note: GetAccessFlags acquires the mutator lock in debug mode to check that it is not called for
-  // a proxy method.
-  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ALWAYS_INLINE uint32_t GetAccessFlags();
-
-  void SetAccessFlags(uint32_t new_access_flags) {
-    // Not called within a transaction.
-    access_flags_ = new_access_flags;
-  }
-
-  // Approximate what kind of method call would be used for this method.
-  InvokeType GetInvokeType() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if the method is declared public.
   bool IsPublic() {
@@ -339,9 +315,8 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & kAccDefault) != 0;
   }
 
-  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsNative() {
-    return (GetAccessFlags<kReadBarrierOption>() & kAccNative) != 0;
+    return (GetAccessFlags() & kAccNative) != 0;
   }
 
   bool IsFastNative() {
@@ -357,10 +332,259 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & kAccSynthetic) != 0;
   }
 
+  bool SkipAccessChecks() {
+    return (GetAccessFlags() & kAccSkipAccessChecks) != 0;
+  }
+
+  // Should this method be run in the interpreter and count locks (e.g., failed structured-
+  // locking verification)?
+  bool MustCountLocks() {
+    return (GetAccessFlags() & kAccMustCountLocks) != 0;
+  }
+
+ protected:
+  // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
+  // The class we are a part of.
+  GcRoot<mirror::Class> declaring_class_;
+
+  // Access flags; low 16 bits are defined by spec.
+  uint32_t access_flags_;
+
+  /* Dex file fields. The defining dex file is available via declaring_class_->dex_cache_ */
+
+  // Offset to the CodeItem.
+  uint32_t dex_code_item_offset_;
+
+  // Index into method_ids of the dex file associated with this method.
+  uint32_t dex_method_index_;
+
+  /* End of dex file fields. */
+
+  // Entry within a dispatch table for this method. For static/direct methods the index is into
+  // the declaringClass.directMethods, for virtual methods the vtable and for interface methods the
+  // ifTable.
+  uint16_t method_index_;
+
+  // The hotness we measure for this method. Managed by the interpreter. Not atomic, as we allow
+  // missing increments: if the method is hot, we will see it eventually.
+  uint16_t hotness_count_;
+
+  // Fake padding field gets inserted here.
+
+  // Must be the last fields in the method.
+  struct PtrSizedFields {
+    // Short cuts to declaring_class_->dex_cache_ member for fast compiled code access.
+    ArtMethod** dex_cache_resolved_methods_;
+
+    // Short cuts to declaring_class_->dex_cache_ member for fast compiled code access.
+    GcRoot<mirror::Class>* dex_cache_resolved_types_;
+
+    // Pointer to JNI function registered to this method, or a function to resolve the JNI function,
+    // or the profiling data and any detours for non-native methods, or an ImtConflictTable.
+    void* data_;
+
+    // Method dispatch from quick compiled code invokes this pointer which may cause bridging into
+    // the interpreter.
+    void* entry_point_from_quick_compiled_code_;
+  } ptr_sized_fields_;
+
+ private:
+  friend class ArtMethod;
+
+  DISALLOW_COPY_AND_ASSIGN(MethodData);
+};
+
+class ArtMethod FINAL {
+ public:
+  ArtMethod() : method_data_() { }
+
+  ArtMethod(ArtMethod* src, PointerSize image_pointer_size) {
+    CopyFrom(src, image_pointer_size);
+  }
+
+  static ArtMethod* FromReflectedMethod(const ScopedObjectAccessAlreadyRunnable& soa,
+                                        jobject jlr_method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ALWAYS_INLINE mirror::Class* GetDeclaringClass() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ALWAYS_INLINE mirror::Class* GetDeclaringClassUnchecked()
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void SetDeclaringClass(mirror::Class *new_declaring_class)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool CASDeclaringClass(mirror::Class* expected_class, mirror::Class* desired_class)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static MemberOffset DeclaringClassOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(ArtMethod, method_data_.declaring_class_));
+  }
+
+  // TODO Probably just remove and inline this into GetOriginalMethodData when implemented.
+  MethodData& GetDetouredMethodData() {
+    LOG(FATAL) << "NOT YET IMPLEMENTED!";
+    UNREACHABLE();
+  }
+
+  // Get's the MethodData for the original method this one either detours or was declared as. This
+  // is used by default for everything except invocation.
+  ALWAYS_INLINE MethodData& GetOriginalMethodData() {
+    if (UNLIKELY(method_data_.IsDetourInstalled())) {
+      return GetDetouredMethodData();
+    } else {
+      return GetRealMethodData();
+    }
+  }
+
+  // Get's the method data for this actual method. If this method has been detoured it will be
+  // different then what one might expect.
+  ALWAYS_INLINE MethodData& GetRealMethodData() {
+    return method_data_;
+  }
+
+  ArtMethod* GetOriginalMethod() {
+    // TODO write this
+    if (!GetRealMethodData().IsDetourInstalled()) {
+      // TODO Throw error
+      return this;
+    } else {
+      // TODO Return method.
+      return nullptr;
+    }
+  }
+
+  // Note: GetAccessFlags acquires the mutator lock in debug mode to check that it is not called for
+  // a proxy method.
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ALWAYS_INLINE uint32_t GetAccessFlags() {
+    CheckMethodAndClassSanity<kReadBarrierOption>();
+    return GetOriginalMethodData().GetAccessFlags();
+  }
+
+  // TODO Remove this function. Require explicit selection.
+  void SetAccessFlags(uint32_t new_access_flags) {
+    // Not called within a transaction.
+    GetOriginalMethodData().access_flags_ = new_access_flags;
+  }
+
+  // Approximate what kind of method call would be used for this method.
+  InvokeType GetInvokeType() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Returns true if the method is declared public.
+  bool IsPublic() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsPublic();
+  }
+
+  // Returns true if the method is declared private.
+  bool IsPrivate() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsPrivate();
+  }
+
+  // Returns true if the method is declared static.
+  bool IsStatic() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsStatic();
+  }
+
+  // Returns true if the method is a constructor.
+  bool IsConstructor() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsConstructor();
+  }
+
+  // Returns true if the method is a class initializer.
+  bool IsClassInitializer() {
+    return IsConstructor() && IsStatic();
+  }
+
+  // Returns true if the method is static, private, or a constructor.
+  bool IsDirect() {
+    CheckMethodAndClassSanity();
+    return IsDirect(GetAccessFlags());
+  }
+
+  static bool IsDirect(uint32_t access_flags) {
+    constexpr uint32_t direct = kAccStatic | kAccPrivate | kAccConstructor;
+    return (access_flags & direct) != 0;
+  }
+
+  // Returns true if the method is declared synchronized.
+  bool IsSynchronized() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsSynchronized();
+  }
+
+  bool IsFinal() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsFinal();
+  }
+
+  bool IsCopied() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsCopied();
+  }
+
+  bool IsMiranda() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsMiranda();
+  }
+
+  // Returns true if invoking this method will not throw an AbstractMethodError or
+  // IncompatibleClassChangeError.
+  bool IsInvokable() {
+    return !IsAbstract() && !IsDefaultConflicting();
+  }
+
+  bool IsCompilable() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsCompilable();
+  }
+
+  // A default conflict method is a special sentinel method that stands for a conflict between
+  // multiple default methods. It cannot be invoked, throwing an IncompatibleClassChangeError if one
+  // attempts to do so.
+  bool IsDefaultConflicting() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsDefaultConflicting();
+  }
+
+  // This is set by the class linker.
+  bool IsDefault() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsDefault();
+  }
+
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  bool IsNative() {
+    CheckMethodAndClassSanity<kReadBarrierOption>();
+    return GetOriginalMethodData().IsNative();
+  }
+
+  bool IsFastNative() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsFastNative();
+  }
+
+  bool IsAbstract() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsAbstract();
+  }
+
+  bool IsSynthetic() {
+    CheckMethodAndClassSanity();
+    return GetOriginalMethodData().IsSynthetic();
+  }
+
   template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsProxyMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool SkipAccessChecks() {
+    CheckMethodAndClassSanity();
     return (GetAccessFlags() & kAccSkipAccessChecks) != 0;
   }
 
@@ -371,8 +595,10 @@ class ArtMethod FINAL {
 
   // Should this method be run in the interpreter and count locks (e.g., failed structured-
   // locking verification)?
+  // TODO I think this should be RealMetodData but I'm not entirely sure.
   bool MustCountLocks() {
-    return (GetAccessFlags() & kAccMustCountLocks) != 0;
+    CheckMethodAndClassSanity();
+    return GetRealMethodData().MustCountLocks();
   }
 
   // Checks to see if the method was annotated with @dalvik.annotation.optimization.FastNative
@@ -401,26 +627,29 @@ class ArtMethod FINAL {
     return GetMethodIndex();
   }
 
+  // TODO Remove this function. Require explicit selection.
   void SetMethodIndex(uint16_t new_method_index) REQUIRES_SHARED(Locks::mutator_lock_) {
     // Not called within a transaction.
-    method_index_ = new_method_index;
+    GetOriginalMethodData().method_index_ = new_method_index;
   }
 
   static MemberOffset DexMethodIndexOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(ArtMethod, dex_method_index_);
+    return OFFSET_OF_OBJECT_MEMBER(ArtMethod, method_data_.dex_method_index_);
   }
 
   static MemberOffset MethodIndexOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(ArtMethod, method_index_);
+    return OFFSET_OF_OBJECT_MEMBER(ArtMethod, method_data_.method_index_);
   }
 
+  // TODO Remove this function. Require explicit selection.
   uint32_t GetCodeItemOffset() {
-    return dex_code_item_offset_;
+    return GetOriginalMethodData().dex_code_item_offset_;
   }
 
+  // TODO Remove this function. Require explicit selection.
   void SetCodeItemOffset(uint32_t new_code_off) {
     // Not called within a transaction.
-    dex_code_item_offset_ = new_code_off;
+    GetOriginalMethodData().dex_code_item_offset_ = new_code_off;
   }
 
   // Number of 32bit registers that would be required to hold all the arguments
@@ -430,9 +659,10 @@ class ArtMethod FINAL {
 
   ALWAYS_INLINE uint32_t GetImtIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // TODO Remove this function. Require explicit selection.
   void SetDexMethodIndex(uint32_t new_idx) {
     // Not called within a transaction.
-    dex_method_index_ = new_idx;
+    GetOriginalMethodData().dex_method_index_ = new_idx;
   }
 
   ALWAYS_INLINE ArtMethod** GetDexCacheResolvedMethods(PointerSize pointer_size)
@@ -513,19 +743,19 @@ class ArtMethod FINAL {
 
   static MemberOffset DexCacheResolvedMethodsOffset(PointerSize pointer_size) {
     return MemberOffset(PtrSizedFieldsOffset(pointer_size) + OFFSETOF_MEMBER(
-        PtrSizedFields, dex_cache_resolved_methods_) / sizeof(void*)
+        MethodData::PtrSizedFields, dex_cache_resolved_methods_) / sizeof(void*)
             * static_cast<size_t>(pointer_size));
   }
 
   static MemberOffset DexCacheResolvedTypesOffset(PointerSize pointer_size) {
     return MemberOffset(PtrSizedFieldsOffset(pointer_size) + OFFSETOF_MEMBER(
-        PtrSizedFields, dex_cache_resolved_types_) / sizeof(void*)
+        MethodData::PtrSizedFields, dex_cache_resolved_types_) / sizeof(void*)
             * static_cast<size_t>(pointer_size));
   }
 
   static MemberOffset DataOffset(PointerSize pointer_size) {
     return MemberOffset(PtrSizedFieldsOffset(pointer_size) + OFFSETOF_MEMBER(
-        PtrSizedFields, data_) / sizeof(void*) * static_cast<size_t>(pointer_size));
+        MethodData::PtrSizedFields, data_) / sizeof(void*) * static_cast<size_t>(pointer_size));
   }
 
   static MemberOffset EntryPointFromJniOffset(PointerSize pointer_size) {
@@ -534,7 +764,7 @@ class ArtMethod FINAL {
 
   static MemberOffset EntryPointFromQuickCompiledCodeOffset(PointerSize pointer_size) {
     return MemberOffset(PtrSizedFieldsOffset(pointer_size) + OFFSETOF_MEMBER(
-        PtrSizedFields, entry_point_from_quick_compiled_code_) / sizeof(void*)
+        MethodData::PtrSizedFields, entry_point_from_quick_compiled_code_) / sizeof(void*)
             * static_cast<size_t>(pointer_size));
   }
 
@@ -677,7 +907,7 @@ class ArtMethod FINAL {
   // Size of an instance of this native class.
   static size_t Size(PointerSize pointer_size) {
     return PtrSizedFieldsOffset(pointer_size) +
-        (sizeof(PtrSizedFields) / sizeof(void*)) * static_cast<size_t>(pointer_size);
+        (sizeof(MethodData::PtrSizedFields) / sizeof(void*)) * static_cast<size_t>(pointer_size);
   }
 
   // Alignment of an instance of this native class.
@@ -696,20 +926,24 @@ class ArtMethod FINAL {
   // Note, hotness_counter_ updates are non-atomic but it doesn't need to be precise.  Also,
   // given that the counter is only 16 bits wide we can expect wrap-around in some
   // situations.  Consumers of hotness_count_ must be able to deal with that.
+  // TODO Remove this function. Require explicit selection.
   uint16_t IncrementCounter() {
-    return ++hotness_count_;
+    return ++(GetOriginalMethodData().hotness_count_);
   }
 
+  // TODO Remove this function. Require explicit selection.
   void ClearCounter() {
-    hotness_count_ = 0;
+    GetOriginalMethodData().hotness_count_ = 0;
   }
 
+  // TODO Remove this function. Require explicit selection.
   void SetCounter(int16_t hotness_count) {
-    hotness_count_ = hotness_count;
+    GetOriginalMethodData().hotness_count_ = hotness_count;
   }
 
-  uint16_t GetCounter() const {
-    return hotness_count_;
+  // TODO Remove this function. Require explicit selection.
+  uint16_t GetCounter() {
+    return GetOriginalMethodData().hotness_count_;
   }
 
   const uint8_t* GetQuickenedInfo() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -735,57 +969,18 @@ class ArtMethod FINAL {
   ALWAYS_INLINE void UpdateEntrypoints(const Visitor& visitor, PointerSize pointer_size);
 
  protected:
-  // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
-  // The class we are a part of.
-  GcRoot<mirror::Class> declaring_class_;
-
-  // Access flags; low 16 bits are defined by spec.
-  uint32_t access_flags_;
-
-  /* Dex file fields. The defining dex file is available via declaring_class_->dex_cache_ */
-
-  // Offset to the CodeItem.
-  uint32_t dex_code_item_offset_;
-
-  // Index into method_ids of the dex file associated with this method.
-  uint32_t dex_method_index_;
-
-  /* End of dex file fields. */
-
-  // Entry within a dispatch table for this method. For static/direct methods the index is into
-  // the declaringClass.directMethods, for virtual methods the vtable and for interface methods the
-  // ifTable.
-  uint16_t method_index_;
-
-  // The hotness we measure for this method. Managed by the interpreter. Not atomic, as we allow
-  // missing increments: if the method is hot, we will see it eventually.
-  uint16_t hotness_count_;
-
-  // Fake padding field gets inserted here.
-
-  // Must be the last fields in the method.
-  struct PtrSizedFields {
-    // Short cuts to declaring_class_->dex_cache_ member for fast compiled code access.
-    ArtMethod** dex_cache_resolved_methods_;
-
-    // Short cuts to declaring_class_->dex_cache_ member for fast compiled code access.
-    GcRoot<mirror::Class>* dex_cache_resolved_types_;
-
-    // Pointer to JNI function registered to this method, or a function to resolve the JNI function,
-    // or the profiling data for non-native methods, or an ImtConflictTable.
-    void* data_;
-
-    // Method dispatch from quick compiled code invokes this pointer which may cause bridging into
-    // the interpreter.
-    void* entry_point_from_quick_compiled_code_;
-  } ptr_sized_fields_;
+  MethodData method_data_;
 
  private:
+  template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
+  ALWAYS_INLINE void CheckMethodAndClassSanity();
+
   bool IsAnnotatedWith(jclass klass, uint32_t visibility);
 
   static constexpr size_t PtrSizedFieldsOffset(PointerSize pointer_size) {
     // Round up to pointer size for padding field. Tested in art_method.cc.
-    return RoundUp(offsetof(ArtMethod, hotness_count_) + sizeof(hotness_count_),
+    return RoundUp(offsetof(ArtMethod, method_data_.hotness_count_) +
+                   sizeof(MethodData::hotness_count_),
                    static_cast<size_t>(pointer_size));
   }
 

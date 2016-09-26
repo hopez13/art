@@ -567,6 +567,15 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
   return result;
 }
 
+// TODO fill this in and dedup with InvokeMethod
+jobject InvokeOriginalMethod(const ScopedObjectAccessAlreadyRunnable& soa ATTRIBUTE_UNUSED,
+                             jobject javaMethod ATTRIBUTE_UNUSED,
+                             jobject javaReciever ATTRIBUTE_UNUSED,
+                             jobject javaArgs ATTRIBUTE_UNUSED,
+                             size_t num_frames ATTRIBUTE_UNUSED) {
+  return nullptr;
+}
+
 jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaMethod,
                      jobject javaReceiver, jobject javaArgs, size_t num_frames) {
   // We want to make sure that the stack is not within a small distance from the

@@ -62,8 +62,19 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 // num_frames is number of frames we look up for access check.
-jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject method, jobject receiver,
-                     jobject args, size_t num_frames = 1)
+jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa,
+                     jobject method,
+                     jobject receiver,
+                     jobject args,
+                     size_t num_frames = 1)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+// num_frames is number of frames we look up for access check.
+jobject InvokeOriginalMethod(const ScopedObjectAccessAlreadyRunnable& soa,
+                             jobject method,
+                             jobject receiver,
+                             jobject args,
+                             size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 ALWAYS_INLINE bool VerifyObjectIsClass(mirror::Object* o, mirror::Class* c)

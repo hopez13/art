@@ -502,10 +502,12 @@ bool ArtMethod::HasAnyCompiledCode() {
   return Runtime::Current()->GetClassLinker()->GetOatMethodQuickCodeFor(this) != nullptr;
 }
 
+// TODO Rewrite move into MethodData?
 void ArtMethod::CopyFrom(ArtMethod* src, PointerSize image_pointer_size) {
   memcpy(reinterpret_cast<void*>(this), reinterpret_cast<const void*>(src),
          Size(image_pointer_size));
-  declaring_class_ = GcRoot<mirror::Class>(const_cast<ArtMethod*>(src)->GetDeclaringClass());
+  GetOriginalMethodData().declaring_class_ =
+      GcRoot<mirror::Class>(const_cast<ArtMethod*>(src)->GetDeclaringClass());
 
   // If the entry point of the method we are copying from is from JIT code, we just
   // put the entry point of the new method to interpreter. We could set the entry point
@@ -522,7 +524,7 @@ void ArtMethod::CopyFrom(ArtMethod* src, PointerSize image_pointer_size) {
     SetProfilingInfoPtrSize(nullptr, image_pointer_size);
   }
   // Clear hotness to let the JIT properly decide when to compile this method.
-  hotness_count_ = 0;
+  GetOriginalMethodData().hotness_count_ = 0;
 }
 
 bool ArtMethod::IsImagePointerSize(PointerSize pointer_size) {
@@ -533,11 +535,11 @@ bool ArtMethod::IsImagePointerSize(PointerSize pointer_size) {
   static_assert(std::is_standard_layout<ArtMethod>::value, "ArtMethod is not standard layout.");
   static_assert(
       (sizeof(void*) != 4) ||
-          (offsetof(ArtMethod, ptr_sized_fields_) == PtrSizedFieldsOffset(PointerSize::k32)),
+          (offsetof(MethodData, ptr_sized_fields_) == PtrSizedFieldsOffset(PointerSize::k32)),
       "Unexpected 32-bit class layout.");
   static_assert(
       (sizeof(void*) != 8) ||
-          (offsetof(ArtMethod, ptr_sized_fields_) == PtrSizedFieldsOffset(PointerSize::k64)),
+          (offsetof(MethodData, ptr_sized_fields_) == PtrSizedFieldsOffset(PointerSize::k64)),
       "Unexpected 64-bit class layout.");
 
   Runtime* runtime = Runtime::Current();

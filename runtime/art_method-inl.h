@@ -45,7 +45,7 @@ namespace art {
 template <ReadBarrierOption kReadBarrierOption>
 inline mirror::Class* ArtMethod::GetDeclaringClassUnchecked() {
   GcRootSource gc_root_source(this);
-  return declaring_class_.Read<kReadBarrierOption>(&gc_root_source);
+  return GetOriginalMethodData().declaring_class_.Read<kReadBarrierOption>(&gc_root_source);
 }
 
 template <ReadBarrierOption kReadBarrierOption>
@@ -63,17 +63,19 @@ inline mirror::Class* ArtMethod::GetDeclaringClass() {
   return result;
 }
 
+// TODO Remove this functoin. Require explicit selection.
 inline void ArtMethod::SetDeclaringClass(mirror::Class* new_declaring_class) {
-  declaring_class_ = GcRoot<mirror::Class>(new_declaring_class);
+  GetRealMethodData().declaring_class_ = GcRoot<mirror::Class>(new_declaring_class);
 }
 
+// TODO Remove this function. require explicit selection.
 inline bool ArtMethod::CASDeclaringClass(mirror::Class* expected_class,
                                          mirror::Class* desired_class) {
   GcRoot<mirror::Class> expected_root(expected_class);
   GcRoot<mirror::Class> desired_root(desired_class);
-  return reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(&declaring_class_)->
-      CompareExchangeStrongSequentiallyConsistent(
-          expected_root, desired_root);
+  return reinterpret_cast<Atomic<GcRoot<mirror::Class>>*>(
+      &GetOriginalMethodData().declaring_class_)->
+      CompareExchangeStrongSequentiallyConsistent(expected_root, desired_root);
 }
 
 // AssertSharedHeld doesn't work in GetAccessFlags, so use a NO_THREAD_SAFETY_ANALYSIS helper.
@@ -87,7 +89,7 @@ ALWAYS_INLINE static inline void DoGetAccessFlagsHelper(ArtMethod* method)
 }
 
 template <ReadBarrierOption kReadBarrierOption>
-inline uint32_t ArtMethod::GetAccessFlags() {
+inline void ArtMethod::CheckMethodAndClassSanity() {
   if (kIsDebugBuild) {
     Thread* self = Thread::Current();
     if (!Locks::mutator_lock_->IsSharedHeld(self)) {
@@ -104,23 +106,22 @@ inline uint32_t ArtMethod::GetAccessFlags() {
       DoGetAccessFlagsHelper<kReadBarrierOption>(this);
     }
   }
-  return access_flags_;
 }
 
 inline uint16_t ArtMethod::GetMethodIndex() {
   DCHECK(IsRuntimeMethod() || GetDeclaringClass()->IsResolved() ||
          GetDeclaringClass()->IsErroneous());
-  return method_index_;
+  return GetOriginalMethodData().method_index_;
 }
 
 inline uint16_t ArtMethod::GetMethodIndexDuringLinking() {
-  return method_index_;
+  return GetOriginalMethodData().method_index_;
 }
 
 inline uint32_t ArtMethod::GetDexMethodIndex() {
   DCHECK(IsRuntimeMethod() || GetDeclaringClass()->IsIdxLoaded() ||
          GetDeclaringClass()->IsErroneous());
-  return dex_method_index_;
+  return GetOriginalMethodData().dex_method_index_;
 }
 
 inline uint32_t ArtMethod::GetImtIndex() {
@@ -249,7 +250,7 @@ inline bool ArtMethod::CheckIncompatibleClassChange(InvokeType type) {
 }
 
 inline bool ArtMethod::IsRuntimeMethod() {
-  return dex_method_index_ == DexFile::kDexNoIndex;
+  return GetOriginalMethodData().dex_method_index_ == DexFile::kDexNoIndex;
 }
 
 inline bool ArtMethod::IsCalleeSaveMethod() {
@@ -453,9 +454,9 @@ inline mirror::Class* ArtMethod::GetReturnType(bool resolve, PointerSize pointer
 
 template<ReadBarrierOption kReadBarrierOption, typename RootVisitorType>
 void ArtMethod::VisitRoots(RootVisitorType& visitor, PointerSize pointer_size) {
-  if (LIKELY(!declaring_class_.IsNull())) {
-    visitor.VisitRoot(declaring_class_.AddressWithoutBarrier());
-    mirror::Class* klass = declaring_class_.Read<kReadBarrierOption>();
+  if (LIKELY(!GetOriginalMethodData().declaring_class_.IsNull())) {
+    visitor.VisitRoot(GetOriginalMethodData().declaring_class_.AddressWithoutBarrier());
+    mirror::Class* klass = GetOriginalMethodData().declaring_class_.Read<kReadBarrierOption>();
     if (UNLIKELY(klass->IsProxyClass())) {
       // For normal methods, dex cache shortcuts will be visited through the declaring class.
       // However, for proxies we need to keep the interface method alive, so we visit its roots.
