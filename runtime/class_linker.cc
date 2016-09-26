@@ -66,6 +66,7 @@
 #include "mirror/class.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
+#include "mirror/detour.h"
 #include "mirror/dex_cache.h"
 #include "mirror/dex_cache-inl.h"
 #include "mirror/field.h"
@@ -634,6 +635,16 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
   SetClassRoot(kJavaLangReflectMethodArrayClass, class_root);
   mirror::Method::SetArrayClass(class_root);
 
+  // Create dalvik.system.Detour.class root and array root.
+  class_root = FindSystemClass(self, "Ldalvik/system/Detour;");
+  CHECK(class_root != nullptr);
+  SetClassRoot(kDalvikSystemDetour, class_root);
+  mirror::Detour::SetClass(class_root);
+  class_root = FindSystemClass(self, "[Ldalvik/system/Detour;");
+  CHECK(class_root != nullptr);
+  SetClassRoot(kDalvikSystemDetourArrayClass, class_root);
+  mirror::Detour::SetArrayClass(class_root);
+
   // java.lang.ref classes need to be specially flagged, but otherwise are normal classes
   // finish initializing Reference class
   mirror::Class::SetStatus(java_lang_ref_Reference, mirror::Class::kStatusNotReady, self);
@@ -1028,6 +1039,8 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   mirror::Field::SetArrayClass(GetClassRoot(kJavaLangReflectFieldArrayClass));
   mirror::Constructor::SetClass(GetClassRoot(kJavaLangReflectConstructor));
   mirror::Constructor::SetArrayClass(GetClassRoot(kJavaLangReflectConstructorArrayClass));
+  mirror::Detour::SetClass(GetClassRoot(kDalvikSystemDetour));
+  mirror::Detour::SetArrayClass(GetClassRoot(kDalvikSystemDetourArrayClass));
   mirror::Method::SetClass(GetClassRoot(kJavaLangReflectMethod));
   mirror::Method::SetArrayClass(GetClassRoot(kJavaLangReflectMethodArrayClass));
   mirror::Reference::SetClass(GetClassRoot(kJavaLangRefReference));
@@ -2013,6 +2026,7 @@ void ClassLinker::VisitClassesWithoutClassesLock(ClassVisitor* visitor) {
 ClassLinker::~ClassLinker() {
   mirror::Class::ResetClass();
   mirror::Constructor::ResetClass();
+  mirror::Detour::ResetClass();
   mirror::Field::ResetClass();
   mirror::Method::ResetClass();
   mirror::Reference::ResetClass();
@@ -2023,6 +2037,7 @@ ClassLinker::~ClassLinker() {
   mirror::ByteArray::ResetArrayClass();
   mirror::CharArray::ResetArrayClass();
   mirror::Constructor::ResetArrayClass();
+  mirror::Detour::ResetArrayClass();
   mirror::DoubleArray::ResetArrayClass();
   mirror::Field::ResetArrayClass();
   mirror::FloatArray::ResetArrayClass();
@@ -8084,6 +8099,8 @@ const char* ClassLinker::GetClassRootDescriptor(ClassRoot class_root) {
     "[J",
     "[S",
     "[Ljava/lang/StackTraceElement;",
+    "Ldalvik/system/Detour;",
+    "[Ldalvik/system/Detour;",
   };
   static_assert(arraysize(class_roots_descriptors) == size_t(kClassRootsMax),
                 "Mismatch between class descriptors and class-root enum");
