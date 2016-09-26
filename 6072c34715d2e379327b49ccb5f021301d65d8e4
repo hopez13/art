@@ -22,6 +22,30 @@
       "revId": "6072c34715d2e379327b49ccb5f021301d65d8e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5638725_3419503d",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-26T19:59:49Z",
+      "side": 1,
+      "message": "Test path on target is always /data/run-test/test-\u003cPID\u003e/ - its set at the beginning of run-test as DEX_LOCATION.\n\nI can check both to be super sure but maybe its not worth the extra lines.",
+      "parentUuid": "c546836b_c627c41c",
+      "range": {
+        "startLine": 410,
+        "startChar": 26,
+        "endLine": 410,
+        "endChar": 91
+      },
+      "revId": "6072c34715d2e379327b49ccb5f021301d65d8e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
