@@ -70,6 +70,30 @@
       "revId": "6072c34715d2e379327b49ccb5f021301d65d8e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_30b5c883",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-26T21:05:56Z",
+      "side": 1,
+      "message": "Right, the $TEST_NAME part can be really long. I\u0027ll check both cases, thanks!",
+      "parentUuid": "e5bf07c0_b4838004",
+      "range": {
+        "startLine": 410,
+        "startChar": 26,
+        "endLine": 410,
+        "endChar": 91
+      },
+      "revId": "6072c34715d2e379327b49ccb5f021301d65d8e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
