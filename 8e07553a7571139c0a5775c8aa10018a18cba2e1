@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2554bf0d_462f5293",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-09-26T15:07:11Z",
+      "side": 1,
+      "message": "I believe this needs to be 64-bit on 64-bit systems.\nYou can replace uint32_t with one of the types in ElfTypes.\n\nAlso note that the name/desc needs to be padded to word size.\n\nCan you please test that the build-id works for ARM64?",
+      "range": {
+        "startLine": 495,
+        "startChar": 21,
+        "endLine": 495,
+        "endChar": 29
+      },
+      "revId": "8e07553a7571139c0a5775c8aa10018a18cba2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
