@@ -61,7 +61,7 @@ static constexpr jvmtiError ERR(NOT_IMPLEMENTED) = JVMTI_ERROR_NOT_AVAILABLE;
 
 static inline JNIEnv* GetJniEnv(jvmtiEnv* env) {
   JNIEnv* ret_value = nullptr;
-  jint res = reinterpret_cast<ArtJvmTiEnv*>(env)->art_vm->GetEnv(
+  jint res = static_cast<ArtJvmTiEnv*>(env)->art_vm->GetEnv(
       reinterpret_cast<void**>(&ret_value), JNI_VERSION_1_1);
   if (res != JNI_OK) {
     return nullptr;

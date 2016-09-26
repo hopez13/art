@@ -53,6 +53,7 @@ struct WellKnownClasses {
   static jclass java_lang_ClassLoader;
   static jclass java_lang_ClassNotFoundException;
   static jclass java_lang_Daemons;
+  static jclass java_lang_Detour;
   static jclass java_lang_Error;
   static jclass java_lang_ExceptionInInitializerError;
   static jclass java_lang_IllegalAccessError;
