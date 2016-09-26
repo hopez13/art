@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_4a975439",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T17:43:04Z",
+      "side": 1,
+      "message": "That seems like (ideally, but not necessarily) an upstream fix?\n\n  \"using namespace ::android::base;\"\n\ninside of the macro like I suggested originally. Now we even have a justification because it screws with other libraries that can redefine those common macro names.\n\nI\u0027m worried otherwise we might lose debugging functionality from dlmalloc",
+      "parentUuid": "b0938fd9_8f896e5e",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8cab3c28",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "Could call Runtime::Abort(), but we usually do this implicitly as part of LOG(FATAL).\n\nThe right thing is probably to re-order the statements. The advantage of LOG(FATAL) is that it will also set the abort message correctly (which looks like it should be \"Failed to register\").",
       "parentUuid": "b0938fd9_2f84da76",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_caab6475",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T17:43:04Z",
+      "side": 1,
+      "message": "Agreed, lets just reorder the messages.\n\nI think I\u0027ve seen this particular abort before and was very confused with a class dump at the abort reason.",
+      "parentUuid": "b0938fd9_0fe8fede",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
