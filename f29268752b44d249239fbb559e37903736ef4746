@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_ead740b2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-26T17:57:24Z",
+      "side": 1,
+      "message": "OK, leaving as is since there are no strong objections.  And according to enh@ the performance of SHA-1 in libcrypto is times better than the public domain sha1.c\u0027s one, and that\u0027s nice even if it\u0027s just host side.",
+      "parentUuid": "85656bf7_2cf8bb61",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "f29268752b44d249239fbb559e37903736ef4746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb1db24e_2b46a108",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
