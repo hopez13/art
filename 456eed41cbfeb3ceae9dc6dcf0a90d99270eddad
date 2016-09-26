@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "e549c77c_a7d5e4db",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-26T08:53:04Z",
+      "side": 1,
+      "message": "I\u0027d go with what you prefer, but Andreas seems to be the one wanting a common directory for all tests.",
+      "parentUuid": "b0938fd9_29886478",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "456eed41cbfeb3ceae9dc6dcf0a90d99270eddad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455b733f_07d036f3",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 3
