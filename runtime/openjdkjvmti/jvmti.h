@@ -23,9 +23,6 @@
  * questions.
  */
 
-    /* AUTOMATICALLY GENERATED FILE - DO NOT EDIT */
-
-
     /* Include file for the Java(tm) Virtual Machine Tool Interface */
 
 #ifndef _JAVA_JVMTI_H_
@@ -54,6 +51,9 @@ Agent_OnAttach(JavaVM* vm, char* options, void* reserved);
 
 JNIEXPORT void JNICALL
 Agent_OnUnload(JavaVM *vm);
+
+struct _jdetourID;                      /* opaque structure */
+typedef struct _detourID* jdetourID;    /* detour IDs */
 
     /* Forward declaration of the environment */
 
@@ -1781,6 +1781,24 @@ typedef struct jvmtiInterface_1_ {
     jint depth,
     jobject* value_ptr);
 
+  /*   156 : Install Method Detour */
+  jvmtiError (JNICALL *InstallMethodDetour) (jvmtiEnv* env,
+    jmethodID target,
+    jmethodID detour,
+    jdetourID* original);
+
+  /*   157 : Remove Method Detour */
+  jvmtiError (JNICALL *RemoveMethodDetour) (jvmtiEnv* env,
+    jdetourID detour);
+
+  /*   158 : To Detour Object */
+  jobject    (*ToDetourObject)(jvmtiEnv* env,
+    jdetourID detour);
+
+  /*   159 : From Detour Object */
+  jdetourID  (*FromDetourObject)(jvmtiEnv* env,
+    jobject detour);
+
 } jvmtiInterface_1;
 
 struct _jvmtiEnv {
@@ -2520,6 +2538,23 @@ struct _jvmtiEnv {
 
   jvmtiError GetJLocationFormat(jvmtiJlocationFormat* format_ptr) {
     return functions->GetJLocationFormat(this, format_ptr);
+  }
+
+  jvmtiError InstallMethodDetour(jmethodID target, jmethodID detour,
+            jdetourID* original) {
+    return functions->InstallMethodDetour(this, target, detour, original);
+  }
+
+  jvmtiError RemoveMethodDetour(jdetourID detour) {
+    return functions->RemoveMethodDetour(this, detour);
+  }
+
+  jobject ToDetourObject(jdetourID detour) {
+    return functions->ToDetourObject(this, detour);
+  }
+
+  jdetourID FromDetourObject(jobject detour) {
+    return functions->FromDetourObject(this, detour);
   }
 
 #endif /* __cplusplus */

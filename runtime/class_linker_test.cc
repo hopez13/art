@@ -642,6 +642,12 @@ struct ProxyOffsets : public CheckOffsets<mirror::Proxy> {
   };
 };
 
+struct DetourOffsets : public CheckOffsets<mirror::Detour> {
+  DetourOffsets() : CheckOffsets<mirror::Detour>(false, "Ljava/lang/Detour;") {
+    addOffset(OFFSETOF_MEMBER(mirror::Detour, art_detour_), "artDetour");    
+  };
+};
+
 struct DexCacheOffsets : public CheckOffsets<mirror::DexCache> {
   DexCacheOffsets() : CheckOffsets<mirror::DexCache>(false, "Ljava/lang/DexCache;") {
     addOffset(OFFSETOF_MEMBER(mirror::DexCache, dex_), "dex");
@@ -720,6 +726,7 @@ TEST_F(ClassLinkerTest, ValidateFieldOrderOfJavaCppUnionClasses) {
   EXPECT_TRUE(StackTraceElementOffsets().Check());
   EXPECT_TRUE(ClassLoaderOffsets().Check());
   EXPECT_TRUE(ProxyOffsets().Check());
+  EXPECT_TRUE(DetourOffsets().Check());
   EXPECT_TRUE(DexCacheOffsets().Check());
   EXPECT_TRUE(ReferenceOffsets().Check());
   EXPECT_TRUE(FinalizerReferenceOffsets().Check());

@@ -966,6 +966,29 @@ class JvmtiFunctions {
     }
     return OK;
   }
+
+  static jvmtiError InstallMethodDetour(jvmtiEnv* env,
+                                        jmethodID target,
+                                        jmethodID detour,
+                                        jdetourID* original) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+
+  static jvmtiError RemoveMethodDetour(jvmtiEnv* env, jdetourID detour) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+
+  static jobject ToDetourObject(jvmtiEnv* env, jdetourID detour) {
+    // TODO
+    return nullptr;
+  }
+
+  static jdetourID FromDetourObject(jvmtiEnv* env, jobject detour) {
+    // TODO
+    return nullptr;
+  }
 };
 
 static bool IsJvmtiVersion(jint version) {
@@ -1162,6 +1185,10 @@ const jvmtiInterface_1 gJvmtiInterface = {
   JvmtiFunctions::GetOwnedMonitorStackDepthInfo,
   JvmtiFunctions::GetObjectSize,
   JvmtiFunctions::GetLocalInstance,
+  JvmtiFunctions::InstallMethodDetour,
+  JvmtiFunctions::RemoveMethodDetour,
+  JvmtiFunctions::ToDetourObject,
+  JvmtiFunctions::FromDetourObject,
 };
 
 };  // namespace openjdkjvmti

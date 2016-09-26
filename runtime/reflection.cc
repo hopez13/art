@@ -678,6 +678,13 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
   return soa.AddLocalReference<jobject>(BoxPrimitive(Primitive::GetType(shorty[0]), result));
 }
 
+jobject InvokeDetour(const ScopedObjectAccessAlreadyRunnable& /*soa*/, jobject /*javaMethod*/,
+                     jobject /*javaReceiver*/, jobject /*javaArgs*/) {
+  // TODO: implement detour invocation
+  ThrowIllegalAccessException("NOT IMPLEMENTED");
+  return nullptr;
+}
+
 mirror::Object* BoxPrimitive(Primitive::Type src_class, const JValue& value) {
   if (src_class == Primitive::kPrimNot) {
     return value.GetL();

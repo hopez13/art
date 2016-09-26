@@ -42,6 +42,7 @@ jclass WellKnownClasses::java_lang_BootClassLoader;
 jclass WellKnownClasses::java_lang_ClassLoader;
 jclass WellKnownClasses::java_lang_ClassNotFoundException;
 jclass WellKnownClasses::java_lang_Daemons;
+jclass WellKnownClasses::java_lang_Detour;
 jclass WellKnownClasses::java_lang_Error;
 jclass WellKnownClasses::java_lang_ExceptionInInitializerError;
 jclass WellKnownClasses::java_lang_IllegalAccessError;
@@ -231,6 +232,7 @@ void WellKnownClasses::Init(JNIEnv* env) {
   java_lang_ClassLoader = CacheClass(env, "java/lang/ClassLoader");
   java_lang_ClassNotFoundException = CacheClass(env, "java/lang/ClassNotFoundException");
   java_lang_Daemons = CacheClass(env, "java/lang/Daemons");
+  java_lang_Detour = CacheClass(env, "java/lang/Detour");
   java_lang_Object = CacheClass(env, "java/lang/Object");
   java_lang_OutOfMemoryError = CacheClass(env, "java/lang/OutOfMemoryError");
   java_lang_Error = CacheClass(env, "java/lang/Error");

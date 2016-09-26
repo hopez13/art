@@ -121,6 +121,8 @@ class ClassLinker {
     kLongArrayClass,
     kShortArrayClass,
     kJavaLangStackTraceElementArrayClass,
+    kJavaLangDetour,
+    kJavaLangDetourArrayClass,
     kClassRootsMax,
   };
 
