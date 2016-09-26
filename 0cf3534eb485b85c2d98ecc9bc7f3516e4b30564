@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "2554bf0d_2688d67b",
+        "filename": "runtime/mirror/method_type-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-26T15:57:26Z",
+      "side": 1,
+      "message": "No strong opinion, I just wanted to know the reason you opted for a -inl.h.",
+      "parentUuid": "85656bf7_0cca9714",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_ac0b8b84",
         "filename": "runtime/mirror/method_type_test.cc",
         "patchSetId": 1
