@@ -66,6 +66,12 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject metho
                      jobject args, size_t num_frames = 1)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+// Invoke the next method in a detour chain
+// (this is intended to forward to the next detour, if any, or to the original method)
+jobject InvokeDetour(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaDetour,
+                    jobject receiver, jobject args)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 ALWAYS_INLINE bool VerifyObjectIsClass(mirror::Object* o, mirror::Class* c)
     REQUIRES_SHARED(Locks::mutator_lock_);
 

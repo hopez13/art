@@ -677,6 +677,18 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
   return soa.AddLocalReference<jobject>(BoxPrimitive(Primitive::GetType(shorty[0]), result));
 }
 
+// The detour object encapsulates the (detourMethod, originalMethod) pair, which
+// identifies what the target method should be: the detour in the chain following "detourMethod",
+// or originalMethod if "detourMethod" is the last detour in the chain.
+jobject InvokeDetour(const ScopedObjectAccessAlreadyRunnable& /*soa*/,
+                     jobject /*javaDetour*/,
+                     jobject /*javaReceiver*/,
+                     jobject /*javaArgs*/) {
+  // TODO: implement detour invocation
+  ThrowIllegalAccessException("NOT IMPLEMENTED");
+  return nullptr;
+}
+
 mirror::Object* BoxPrimitive(Primitive::Type src_class, const JValue& value) {
   if (src_class == Primitive::kPrimNot) {
     return value.GetL();
