@@ -166,6 +166,30 @@
       "revId": "8e07553a7571139c0a5775c8aa10018a18cba2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85bbabd0_19e8eba1",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-26T20:11:23Z",
+      "side": 1,
+      "message": "$ adb pull /system/lib64/libart.so\n[100%] /system/lib64/libart.so\n\n$ file libart.so \nlibart.so: ELF 64-bit LSB  shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[md5/uuid]\u003d3e4ca548c9f99777a5fe7dad4e20a65d, not stripped\n\n$ readelf -x .note.gnu.build-id libart.so \n\nHex dump of section \u0027.note.gnu.build-id\u0027:\n  0x00024218 04000000 10000000 03000000 474e5500 ............GNU.\n  0x00024228 3e4ca548 c9f99777 a5fe7dad 4e20a65d \u003eL.H...w..}.N .]\n\n\n\u003e Any luck finding the real thing?\n\nNot really, the source of libbfd seems to be the most likely source of truth.",
+      "parentUuid": "25e11fe5_3e78291b",
+      "range": {
+        "startLine": 495,
+        "startChar": 21,
+        "endLine": 495,
+        "endChar": 29
+      },
+      "revId": "8e07553a7571139c0a5775c8aa10018a18cba2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
