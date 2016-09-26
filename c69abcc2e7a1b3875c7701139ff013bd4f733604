@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_ec804030",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "dlmalloc uses a DEBUG define to help debugging. As it\u0027s a c file, they don\u0027t undef. The define then interferes with the LOG macro lambda.\n\nI could move the undef to malloc.c.",
+      "parentUuid": "b0938fd9_acf63854",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8cab3c28",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-26T16:33:43Z",
       "side": 1,
       "message": "Wow what a mess, relying on destructor order to abort..",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8c125c0e",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "I could rewrite both lines to be FATAL_WITHOUT_ABORT, and then a conditional LOG(FATAL), if you prefer. This is just inherited...",
+      "parentUuid": "b0938fd9_8cab3c28",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_2c4ce825",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0938fd9_ac3e38c3",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_2c5b0827",
         "filename": "test/099-vmdebug/check",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2016-09-26T16:33:43Z",
       "side": 1,
       "message": "?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8c3b3c86",
+        "filename": "test/099-vmdebug/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "Base/logging prints the program name correctly (don\u0027t know why we ever printed art, when it was running dalvikvm...).",
+      "parentUuid": "b0938fd9_2c5b0827",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_ec3200a8",
+        "filename": "test/119-noimage-patchoat/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "b0938fd9_6c6510e5",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8c4a5c4f",
         "filename": "test/143-string-value/check",
         "patchSetId": 5
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_0ce80cdf",
+        "filename": "test/143-string-value/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "b0938fd9_8c4a5c4f",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_ac471847",
         "filename": "test/149-suspend-all-stress/suspend_all.cc",
         "patchSetId": 5
@@ -115,6 +223,24 @@
       "writtenOn": "2016-09-26T16:33:43Z",
       "side": 1,
       "message": "????\n\nif (0) instead so at least it compiles?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_2cedc8ee",
+        "filename": "test/149-suspend-all-stress/suspend_all.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:25:24Z",
+      "side": 1,
+      "message": "OK, I\u0027ll clean this up.",
+      "parentUuid": "b0938fd9_ac471847",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
