@@ -32,6 +32,7 @@ namespace mirror {
 }  // namespace mirror
 
 class ArtMethod;
+struct ArtDetour;
 class Libraries;
 class ParsedOptions;
 class Runtime;

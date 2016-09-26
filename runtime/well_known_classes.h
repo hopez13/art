@@ -47,6 +47,7 @@ struct WellKnownClasses {
   static jclass com_android_dex_Dex;
   static jclass dalvik_annotation_optimization_CriticalNative;
   static jclass dalvik_annotation_optimization_FastNative;
+  static jclass dalvik_system_Detour;
   static jclass dalvik_system_DexFile;
   static jclass dalvik_system_DexPathList;
   static jclass dalvik_system_DexPathList__Element;

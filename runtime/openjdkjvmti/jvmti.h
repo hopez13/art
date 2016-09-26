@@ -23,9 +23,6 @@
  * questions.
  */
 
-    /* AUTOMATICALLY GENERATED FILE - DO NOT EDIT */
-
-
     /* Include file for the Java(tm) Virtual Machine Tool Interface */
 
 #ifndef _JAVA_JVMTI_H_

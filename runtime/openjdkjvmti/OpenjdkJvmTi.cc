@@ -35,8 +35,10 @@
 #include <jni.h>
 
 #include "openjdkjvmti/jvmti.h"
+#include "openjdkjvmti/method_detours.h"
 
 #include "art_jvmti.h"
+#include "art_method_detours.h"
 #include "base/mutex.h"
 #include "events-inl.h"
 #include "jni_env_ext-inl.h"
@@ -56,6 +58,37 @@ namespace openjdkjvmti {
 
 EventHandler gEventHandler;
 ObjectTagTable gObjectTagTable(&gEventHandler);
+
+class DetoursFunctions {
+public:
+  static jvmtiError InstallMethodDetour(detoursEnv* env,
+                                        jmethodID target,
+                                        jmethodID detour,
+                                        jint flags,
+                                        jdetourID* original) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+
+  static jvmtiError RemoveMethodDetour(detoursEnv* env, jdetourID detour) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+
+  static jvmtiError ToDetourObject(detoursEnv* env,
+                                   jdetourID detour_id,
+                                   jobject* detour_ptr) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+
+  static jvmtiError FromDetourObject(detoursEnv* env,
+                                     jobject detour,
+                                     jdetourID* detour_id_ptr) {
+    // TODO
+    return ERR(NOT_IMPLEMENTED);
+  }
+};
 
 class JvmtiFunctions {
  private:
@@ -1063,12 +1096,25 @@ static void CreateArtJvmTiEnv(art::JavaVMExt* vm, /*out*/void** new_jvmtiEnv) {
   gEventHandler.RegisterArtJvmTiEnv(env);
 }
 
+static bool IsDetoursVersion(jint version) {
+  return version ==  DETOURS_VERSION_1_0;
+}
+
+// Creates a jvmtiEnv and returns it with the art::ti::Env that is associated with it. new_art_ti
+// is a pointer to the uninitialized memory for an art::ti::Env.
+static void CreateDetoursEnv(art::JavaVMExt* vm, /*out*/void** env) {
+  *env = new ArtDetoursEnv(vm);
+}
+
 // A hook that the runtime uses to allow plugins to handle GetEnv calls. It returns true and
 // places the return value in 'env' if this library can handle the GetEnv request. Otherwise
 // returns false and does not modify the 'env' pointer.
 static jint GetEnvHandler(art::JavaVMExt* vm, /*out*/void** env, jint version) {
   if (IsJvmtiVersion(version)) {
     CreateArtJvmTiEnv(vm, env);
+    return JNI_OK;
+  } else if (IsDetoursVersion(version)) {
+    CreateDetoursEnv(vm, env);
     return JNI_OK;
   } else {
     printf("version 0x%x is not valid!", version);
@@ -1083,6 +1129,14 @@ extern "C" bool ArtPlugin_Initialize() {
   runtime->AddSystemWeakHolder(&gObjectTagTable);
   return true;
 }
+
+// The actual struct holding all of the entrypoints into the jvmti interface.
+const DetoursInterface gDetoursInterface = {
+  DetoursFunctions::InstallMethodDetour,
+  DetoursFunctions::RemoveMethodDetour,
+  DetoursFunctions::ToDetourObject,
+  DetoursFunctions::FromDetourObject,
+};
 
 // The actual struct holding all of the entrypoints into the jvmti interface.
 const jvmtiInterface_1 gJvmtiInterface = {
