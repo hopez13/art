@@ -473,6 +473,29 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_70d04e4c",
+        "filename": "runtime/openjdkjvmti/jvmti.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1800,
+      "author": {
+        "id": 1094349
+      },
+      "writtenOn": "2016-09-26T23:57:14Z",
+      "side": 1,
+      "message": "These are used to navigate between jdetourID and original method/next method in chain?",
+      "range": {
+        "startLine": 1794,
+        "startChar": 0,
+        "endLine": 1800,
+        "endChar": 20
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65a157aa_f6317859",
         "filename": "runtime/reflection.cc",
         "patchSetId": 1
