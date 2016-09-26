@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5850fca_42db9272",
+        "filename": "runtime/mirror/method_handle_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-26T15:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85656bf7_6c659341",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 33,
+        "endChar": 7
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c546836b_86342ce2",
         "filename": "runtime/mirror/method_handle_impl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-26T15:03:54Z",
       "side": 1,
       "message": "public",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 8
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "858acbd9_41b63247",
+        "filename": "runtime/mirror/method_handle_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-26T15:56:07Z",
+      "side": 1,
+      "message": "Done (reworked).",
+      "parentUuid": "c546836b_86342ce2",
       "range": {
         "startLine": 39,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_cccb5f15",
+        "filename": "runtime/mirror/method_handle_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-26T15:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85656bf7_2c6f9b23",
+      "range": {
+        "startLine": 68,
+        "startChar": 40,
+        "endLine": 68,
+        "endChar": 60
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_ec58638e",
         "filename": "runtime/mirror/method_type-inl.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "85656bf7_0cca9714",
+        "filename": "runtime/mirror/method_type-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-26T15:56:07Z",
+      "side": 1,
+      "message": "Sure. I was using this in the critical path of the invoke-poly instruction so i thought this might be better. Will change.",
+      "parentUuid": "85656bf7_ec58638e",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_ac0b8b84",
         "filename": "runtime/mirror/method_type_test.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-26T15:03:54Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 102
+      },
+      "revId": "0cf3534eb485b85c2d98ecc9bc7f3516e4b30564",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85656bf7_ecce2327",
+        "filename": "runtime/mirror/method_type_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-26T15:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85656bf7_ac0b8b84",
       "range": {
         "startLine": 100,
         "startChar": 0,
