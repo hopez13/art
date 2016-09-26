@@ -22,6 +22,143 @@
       "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_f6133813",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "I think this should be ObjectPtr or ObjectPointer\n\nAlso the file name doesn\u0027t match the class name",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_36db0046",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 14
+      },
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_763f4873",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "I think there\u0027s a constant for the size of a reference somewhere",
+      "range": {
+        "startLine": 34,
+        "startChar": 38,
+        "endLine": 34,
+        "endChar": 40
+      },
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_f6b7b8eb",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "operator\u003d mirror type ?",
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_d6bab4d6",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "That\u0027s good and it\u0027ll be much easier to use than with Decode/Get which IMHO is too wordy for a simple pointer.\n\nCan you also add operator \u003d\u003d(ObjectPointer), \u003d\u003d(MirrorPointer), \u003d\u003d(nullptr) and !\u003d ?",
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_d60c74e7",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "Why not a mask?",
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_9602ecb0",
+        "filename": "runtime/mirror/object_pointer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T22:23:19Z",
+      "side": 1,
+      "message": "Should there be a DCHECK there\u0027s no high 32 bits set?",
+      "revId": "716ee93c8e2fee9900311d59dfe162d4f21c2358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
