@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "65a157aa_16fefc51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-26T22:13:26Z",
+      "side": 1,
+      "message": "80 chars",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 168
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65a157aa_132a8e83",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -201,6 +224,52 @@
     },
     {
       "key": {
+        "uuid": "65a157aa_16a7dc13",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-26T22:13:26Z",
+      "side": 1,
+      "message": "Not in JVMTI style.\n\nUse out arguments and return jvmtiError",
+      "range": {
+        "startLine": 982,
+        "startChar": 0,
+        "endLine": 991,
+        "endChar": 3
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_b6837004",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-26T22:13:26Z",
+      "side": 1,
+      "message": "Fill in reserved slots first please.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 1,
+        "endLine": 1191,
+        "endChar": 35
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65a157aa_f3342ae3",
         "filename": "runtime/openjdkjvmti/jvmti.h",
         "patchSetId": 1
@@ -236,6 +305,29 @@
     },
     {
       "key": {
+        "uuid": "65a157aa_f6317859",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-26T22:13:26Z",
+      "side": 1,
+      "message": "name is somewhat confusing. Add comment or change.",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 1
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65a157aa_530ed64a",
         "filename": "runtime/reflection.h",
         "patchSetId": 1
@@ -265,6 +357,29 @@
       "side": 1,
       "message": "I tried to be consistent with the rest of this file, is there a strong reason to diverge the style?",
       "parentUuid": "65a157aa_530ed64a",
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65a157aa_d6d554db",
+        "filename": "runtime/reflection.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-09-26T22:13:26Z",
+      "side": 1,
+      "message": "I am not really sure from this name what exactly is being invoked. I assume from reading the rest of the CL that it will cause the method that was detoured (so the original method) will be invoked.\n\nPlease add comment or change name.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 100
+      },
       "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
