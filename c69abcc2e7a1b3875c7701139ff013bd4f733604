@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_2a15a8a9",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:47:51Z",
+      "side": 1,
+      "message": "We do *not* lose debugging functionality, because all that code is already included and the macro evaluated.\n\nEnh was happier with the explicit enumeration, and Google-style still is unhappy with it.",
+      "parentUuid": "b0938fd9_4a975439",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8cab3c28",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Agreed, lets just reorder the messages.\n\nI think I\u0027ve seen this particular abort before and was very confused with a class dump at the abort reason.",
       "parentUuid": "b0938fd9_0fe8fede",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8a3f9c11",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0938fd9_caab6475",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
