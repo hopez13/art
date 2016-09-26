@@ -649,6 +649,12 @@ class ArtMethod FINAL {
   DISALLOW_COPY_AND_ASSIGN(ArtMethod);  // Need to use CopyFrom to deal with 32 vs 64 bits.
 };
 
+// Representation of a runtime method detour
+struct ArtDetour {
+  ArtMethod* original = nullptr;
+  ArtMethod* detour = nullptr;
+};
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_ART_METHOD_H_

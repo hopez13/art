@@ -93,6 +93,7 @@
 #include "mirror/stack_trace_element.h"
 #include "mirror/throwable.h"
 #include "monitor.h"
+#include "native/dalvik_system_Detour.h"
 #include "native/dalvik_system_DexFile.h"
 #include "native/dalvik_system_InMemoryDexClassLoader_DexData.h"
 #include "native/dalvik_system_VMDebug.h"
@@ -1370,6 +1371,7 @@ jobject Runtime::GetSystemClassLoader() const {
 }
 
 void Runtime::RegisterRuntimeNativeMethods(JNIEnv* env) {
+  register_dalvik_system_Detour(env);
   register_dalvik_system_DexFile(env);
   register_dalvik_system_InMemoryDexClassLoader_DexData(env);
   register_dalvik_system_VMDebug(env);
