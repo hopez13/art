@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_cf83763a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T17:32:41Z",
+      "side": 1,
+      "message": "Should maybe be statically linked because then nobody else in app_process can use this library without overriding our own InitLogging ?",
+      "revId": "f6a1d7c0446eac9374d9b397bab6772b98510414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
