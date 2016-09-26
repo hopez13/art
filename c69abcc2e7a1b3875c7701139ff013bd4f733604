@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0938fd9_acf63854",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8cab3c28",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "Wow what a mess, relying on destructor order to abort..",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_ac3e38c3",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "nit: indentation is off here",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_2c5b0827",
+        "filename": "test/099-vmdebug/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_6c6510e5",
+        "filename": "test/119-noimage-patchoat/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_8c4a5c4f",
+        "filename": "test/143-string-value/check",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_ac471847",
+        "filename": "test/149-suspend-all-stress/suspend_all.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T16:33:43Z",
+      "side": 1,
+      "message": "????\n\nif (0) instead so at least it compiles?",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
