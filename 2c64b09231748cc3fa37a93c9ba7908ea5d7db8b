@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a56eefe7_3ad001f4",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-26T08:44:58Z",
+      "side": 1,
+      "message": "Why a local? The use of mirror::kUseStringCompression in the places we check is IMO much better.",
+      "range": {
+        "startLine": 1492,
+        "startChar": 0,
+        "endLine": 1492,
+        "endChar": 62
+      },
+      "revId": "2c64b09231748cc3fa37a93c9ba7908ea5d7db8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e549c77c_e7dbdc0f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-26T08:44:58Z",
+      "side": 1,
+      "message": "ditto: I\u0027d drop.",
+      "range": {
+        "startLine": 1653,
+        "startChar": 0,
+        "endLine": 1653,
+        "endChar": 62
+      },
+      "revId": "2c64b09231748cc3fa37a93c9ba7908ea5d7db8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a56eefe7_fab129db",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-26T08:44:58Z",
+      "side": 1,
+      "message": "Check kUseStringCompression.",
+      "range": {
+        "startLine": 1934,
+        "startChar": 0,
+        "endLine": 1958,
+        "endChar": 87
+      },
+      "revId": "2c64b09231748cc3fa37a93c9ba7908ea5d7db8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
