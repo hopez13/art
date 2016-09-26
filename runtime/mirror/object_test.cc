@@ -37,6 +37,7 @@
 #include "iftable-inl.h"
 #include "object-inl.h"
 #include "object_array-inl.h"
+#include "object_pointer.h"
 #include "scoped_thread_state_change.h"
 #include "string-inl.h"
 
@@ -736,6 +737,44 @@ TEST_F(ObjectTest, IdentityHashCode) {
   mirror::Object::SetHashCodeSeed(0);
   int32_t hash_code = mirror::Object::GenerateIdentityHashCode();
   EXPECT_NE(hash_code, 0);
+}
+
+TEST_F(ObjectTest, ObjectPointer) {
+  ScopedObjectAccess soa(Thread::Current());
+  jobject jclass_loader = LoadDex("XandY");
+  StackHandleScope<2> hs(soa.Self());
+  ObjPtr<mirror::Object, /*kPoison*/ true> null_ptr;
+  EXPECT_TRUE(null_ptr.IsNull());
+  EXPECT_TRUE(null_ptr.IsValid());
+  EXPECT_TRUE(null_ptr.Get() == nullptr);
+  null_ptr.AssertValid();
+  Handle<ClassLoader> class_loader(hs.NewHandle(soa.Decode<ClassLoader*>(jclass_loader)));
+  Handle<mirror::Class> h_X(
+      hs.NewHandle(class_linker_->FindClass(soa.Self(), "LX;", class_loader)));
+  ObjPtr<Class, /*kPoison*/ true> X(h_X.Get());
+  EXPECT_TRUE(!X.IsNull());
+  EXPECT_TRUE(X.IsValid());
+  EXPECT_TRUE(X.Get() != nullptr);
+  EXPECT_EQ(h_X.Get(), X.Get());
+  // FindClass may cause thread suspension, it should invalidate X.
+  ObjPtr<Class, /*kPoison*/ true> Y(class_linker_->FindClass(soa.Self(), "LY;", class_loader));
+  EXPECT_TRUE(!Y.IsNull());
+  EXPECT_TRUE(Y.IsValid());
+  EXPECT_TRUE(Y.Get() != nullptr);
+
+  // Should IsNull be safe to call on null ObjPtr? I'll allow it for now.
+  EXPECT_TRUE(!X.IsNull());
+  EXPECT_TRUE(!X.IsValid());
+  // Make X valid again by copying out of handle.
+  X.Assign(h_X.Get());
+  EXPECT_TRUE(!X.IsNull());
+  EXPECT_TRUE(X.IsValid());
+  EXPECT_EQ(h_X.Get(), X.Get());
+
+  // Allow thread suspension to invalidate Y.
+  soa.Self()->AllowThreadSuspension();
+  EXPECT_TRUE(!Y.IsNull());
+  EXPECT_TRUE(!Y.IsValid());
 }
 
 }  // namespace mirror
