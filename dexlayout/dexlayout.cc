@@ -34,6 +34,7 @@
 #include "dex_ir_builder.h"
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
+#include "jit/offline_profiling_info.h"
 #include "os.h"
 #include "utils.h"
 
@@ -48,6 +49,11 @@ struct Options options_;
  * Output file. Defaults to stdout.
  */
 FILE* out_file_ = stdout;
+
+/*
+ * Profile information file.
+ */
+ProfileCompilationInfo* profile_info_ = nullptr;
 
 /*
  * Flags for use with createAccessFlagStr().
@@ -1584,15 +1590,139 @@ static void OutputDexFile(dex_ir::Header& header, const char* file_name) {
 }
 */
 
+static int GetColor(const std::string& name) {
+  using ColorMapType = std::map<const std::string, int>;
+  const ColorMapType kColorMap = {
+    { "ClassDef", 1 },
+    { "ClassData", 3 },
+    { "DirectMethods", 4 },
+    { "VirtualMethods", 5 },
+    { "FieldMethodItem", 6 },
+  };
+  ColorMapType::const_iterator iter = kColorMap.find(name);
+  if (iter != kColorMap.end()) {
+    return iter->second;
+  }
+  return 0;
+}
+
+static void DumpAddressRange(uint32_t from,
+                             uint32_t size,
+                             int group_number,
+                             const std::string& color_name) {
+  const uint32_t size_delta = (size > 0) ? (size - 1) / kPageSize : 0;
+  fprintf(out_file_,
+          "%d %d %d %d %d\n",
+          from / kPageSize,
+          group_number,
+          size_delta,
+          0,
+          GetColor(color_name));
+}
+
+static void DumpAddressRange(const dex_ir::Item* item,
+                             int group_number,
+                             const std::string& color_name) {
+  if (item != nullptr) {
+    DumpAddressRange(item->GetOffset(), item->GetSize(), group_number, color_name);
+  }
+}
+
+/*
+ * Dumps a gnuplot data file showing the parts of the dex_file that belong to each class.
+ * If profiling information is present, it dumps only those classes that are marked as hot.
+ */
+static void DumpAccessPattern(dex_ir::Header* header,
+                              const DexFile* dex_file,
+                              size_t dex_file_index) {
+  std::string out_file_name("layout.df");
+  if (dex_file_index > 0) {
+    out_file_name += std::string(".") + std::to_string(dex_file_index + 1);
+  }
+  out_file_ = fopen(out_file_name.c_str(), "w");
+  const uint32_t class_defs_size = header->GetCollections().ClassDefsSize();
+  for (uint32_t i = 0; i < class_defs_size; i++) {
+    dex_ir::ClassDef* class_def = header->GetCollections().GetClassDef(i);
+    if (profile_info_ && !profile_info_->ContainsClass(*dex_file, i)) {
+      continue;
+    }
+    DumpAddressRange(class_def, i, "ClassDef");
+    // Type id.
+    DumpAddressRange(class_def->ClassType(), i, "ClassType");
+    // TODO(sehr): add name string, data, etc.
+    // Superclass type id.
+    DumpAddressRange(class_def->Superclass(), i, "OneTime");
+    // Interfaces.
+    // TODO(jeffhao): get TypeList from class_def to use Item interface.
+    static constexpr uint32_t kInterfaceSizeKludge = 8;
+    DumpAddressRange(class_def->InterfacesOffset(), kInterfaceSizeKludge, i, "OneTime");
+    // Source file info.
+    DumpAddressRange(class_def->SourceFile(), i, "OneTime");
+    // Annotations.
+    DumpAddressRange(class_def->Annotations(), i, "Annotations");
+    // Class data.
+    dex_ir::ClassData* class_data = class_def->GetClassData();
+    if (class_data != nullptr) {
+      DumpAddressRange(class_data, i, "ClassData");
+      if (class_data->StaticFields()) {
+        for (auto& field_item : *class_data->StaticFields()) {
+          DumpAddressRange(field_item.get(), i, "OneTime");
+          DumpAddressRange(field_item->GetFieldId(), i, "FieldMethodItem");
+        }
+      }
+      if (class_data->InstanceFields()) {
+        for (auto& field_item : *class_data->InstanceFields()) {
+          DumpAddressRange(field_item.get(), i, "OneTime");
+          DumpAddressRange(field_item->GetFieldId(), i, "FieldMethodItem");
+        }
+      }
+      if (class_data->DirectMethods()) {
+        for (auto& method_item : *class_data->DirectMethods()) {
+          DumpAddressRange(method_item.get(), i, "OneTime");
+          const dex_ir::MethodId* method_id = method_item->GetMethodId();
+          DumpAddressRange(method_id, i, "FieldMethodItem");
+          DumpAddressRange(method_id->Class(), i, "OneTime");
+          DumpAddressRange(method_id->Proto(), i, "OneTime");
+          DumpAddressRange(method_id->Name(), i, "OneTime");
+          const dex_ir::CodeItem* code_item = method_item->GetCodeItem();
+          if (code_item != nullptr) {
+            DumpAddressRange(code_item, i, "DirectMethods");
+          }
+        }
+      }
+      if (class_data->VirtualMethods()) {
+        for (auto& method_item : *class_data->VirtualMethods()) {
+          DumpAddressRange(method_item.get(), i, "OneTime");
+          const dex_ir::MethodId* method_id = method_item->GetMethodId();
+          DumpAddressRange(method_id, i, "FieldMethodItem");
+          DumpAddressRange(method_id->Class(), i, "OneTime");
+          DumpAddressRange(method_id->Proto(), i, "OneTime");
+          DumpAddressRange(method_id->Name(), i, "OneTime");
+          const dex_ir::CodeItem* code_item = method_item->GetCodeItem();
+          if (code_item != nullptr) {
+            DumpAddressRange(code_item, i, "VirtualMethods");
+          }
+        }
+      }
+    }
+  }  // for
+  fclose(out_file_);
+}
+
 /*
  * Dumps the requested sections of the file.
  */
-static void ProcessDexFile(const char* file_name, const DexFile* dex_file) {
+static void ProcessDexFile(const char* file_name, const DexFile* dex_file, size_t dex_file_index) {
   if (options_.verbose_) {
     fprintf(out_file_, "Opened '%s', DEX version '%.3s'\n",
             file_name, dex_file->GetHeader().magic_ + 4);
   }
   std::unique_ptr<dex_ir::Header> header(dex_ir::DexIrBuilder(*dex_file));
+
+  if (options_.visualize_pattern_) {
+    DumpAccessPattern(header.get(), dex_file, dex_file_index);
+    return;
+  }
 
   // Headers.
   if (options_.show_file_headers_) {
@@ -1658,7 +1788,7 @@ int ProcessFile(const char* file_name) {
     fprintf(out_file_, "Checksum verified\n");
   } else {
     for (size_t i = 0; i < dex_files.size(); i++) {
-      ProcessDexFile(file_name, dex_files[i].get());
+      ProcessDexFile(file_name, dex_files[i].get(), i);
     }
   }
   return 0;
