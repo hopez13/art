@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_8f896e5e",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:35:49Z",
+      "side": 1,
+      "message": "It seems to screw up with SEVERITY_LAMBDA stuff, because that will replace the LOG(FATAL) below with\n\n [...]\n using ::android::base::0\n [...]\n\nIt would have been broken before if there was a LOG(DEBUG) in this file.",
+      "parentUuid": "b0938fd9_4f6046d7",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8cab3c28",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "?\n\n  if(!return_errors) LOG(FATAL);\n\nCan we just abort directly somehow?\n\n  if(!return_errors) FATAL_ABORT;\n\nThat definitely seems cleaner since LOG(FATAL) is still slightly confusing (it\u0027s not seemingly logging anything; does it just make an empty newline in logcat?).",
       "parentUuid": "b0938fd9_8c125c0e",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_0fe8fede",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-26T17:35:49Z",
+      "side": 1,
+      "message": "Could call Runtime::Abort(), but we usually do this implicitly as part of LOG(FATAL).\n\nThe right thing is probably to re-order the statements. The advantage of LOG(FATAL) is that it will also set the abort message correctly (which looks like it should be \"Failed to register\").",
+      "parentUuid": "b0938fd9_2f84da76",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
