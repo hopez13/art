@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b0938fd9_4f6046d7",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T17:30:01Z",
+      "side": 1,
+      "message": "but why wasn\u0027t it required before?",
+      "parentUuid": "b0938fd9_ec804030",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0938fd9_8cab3c28",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 5
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I could rewrite both lines to be FATAL_WITHOUT_ABORT, and then a conditional LOG(FATAL), if you prefer. This is just inherited...",
       "parentUuid": "b0938fd9_8cab3c28",
+      "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0938fd9_2f84da76",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-26T17:30:01Z",
+      "side": 1,
+      "message": "?\n\n  if(!return_errors) LOG(FATAL);\n\nCan we just abort directly somehow?\n\n  if(!return_errors) FATAL_ABORT;\n\nThat definitely seems cleaner since LOG(FATAL) is still slightly confusing (it\u0027s not seemingly logging anything; does it just make an empty newline in logcat?).",
+      "parentUuid": "b0938fd9_8c125c0e",
       "revId": "c69abcc2e7a1b3875c7701139ff013bd4f733604",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
