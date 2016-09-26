@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_4db81930",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-26T23:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d89b6b_8d12816c",
+      "range": {
+        "startLine": 32,
+        "startChar": 73,
+        "endLine": 32,
+        "endChar": 99
+      },
+      "revId": "e7c35718bd7da31a16d1294e44c3f6a59ec1b838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_2dc5cd9f",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-26T23:28:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d89b6b_cd188992",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "e7c35718bd7da31a16d1294e44c3f6a59ec1b838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_8d284189",
         "filename": "runtime/mirror/obj_ptr.h",
         "patchSetId": 2
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_6de9950a",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-26T23:28:38Z",
+      "side": 1,
+      "message": "Actually, I\u0027ll put the check in the if statement.",
+      "parentUuid": "05d89b6b_8d284189",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 47
+      },
+      "revId": "e7c35718bd7da31a16d1294e44c3f6a59ec1b838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_ad5add25",
         "filename": "runtime/mirror/obj_ptr.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-26T23:17:30Z",
       "side": 1,
       "message": "This has performance impact under non-poisoning?",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 92
+      },
+      "revId": "e7c35718bd7da31a16d1294e44c3f6a59ec1b838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_cdf9a9e1",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-26T23:28:38Z",
+      "side": 1,
+      "message": "I think its broken. I\u0027ll add test.",
+      "parentUuid": "05d89b6b_ad5add25",
       "range": {
         "startLine": 140,
         "startChar": 4,
