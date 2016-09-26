@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_4d7019cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-26T23:12:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "05d89b6b_4d56d960",
+      "revId": "66d281029f47c07f250a11c763315e492f6ae2e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_4d0ff992",
         "filename": "runtime/reflection.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-26T23:04:30Z",
       "side": 1,
       "message": "remove whitespace",
+      "range": {
+        "startLine": 683,
+        "startChar": 71,
+        "endLine": 683,
+        "endChar": 76
+      },
+      "revId": "66d281029f47c07f250a11c763315e492f6ae2e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_2d870dc2",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-26T23:12:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d89b6b_4d0ff992",
       "range": {
         "startLine": 683,
         "startChar": 71,
