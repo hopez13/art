@@ -539,6 +539,60 @@ bool OatFileManager::HasCollisions(const OatFile* oat_file,
   return false;
 }
 
+void OatFileManager::CompileDexFileToOat(const char* dex_location,
+                                         InstructionSet instruction_set,
+                                         const char* oat_location) {
+  bool valid_instruction_set = instruction_set == kRuntimeISA ||
+      instruction_set == Get32BitInstructionSet(kRuntimeISA);
+  if (!valid_instruction_set) {
+    return;
+  }
+
+  if (Runtime::Current()->IsAotCompiler()) {
+    return;
+  }
+
+  // Verify we aren't holding the mutator lock, which could starve GC if we
+  // have to generate or relocate an oat file.
+  Thread* const self = Thread::Current();
+  Locks::mutator_lock_->AssertNotHeld(self);
+
+  OatFileAssistant oat_file_assistant(dex_location,
+                                      oat_location,
+                                      instruction_set,
+                                      /*load_executable*/false);
+
+  // Lock the target oat location to avoid races generating and loading the
+  // oat file.
+  std::string error_msg;
+  if (!oat_file_assistant.Lock(/*out*/&error_msg)) {
+    // Don't worry too much if this fails. If it does fail, it's unlikely we
+    // can generate an oat file anyway.
+    VLOG(class_linker) << "OatFileAssistant::Lock: " << error_msg;
+  }
+
+  if (!oat_file_assistant.IsUpToDate()) {
+    // Update the oat file on disk if we can, based on the --compiler-filter
+    // option derived from the current runtime options.
+    // This may fail, but that's okay. Best effort is all that matters here.
+    switch (oat_file_assistant.MakeUpToDate(/*profile_changed*/false, /*out*/&error_msg)) {
+      case OatFileAssistant::kUpdateFailed:
+        LOG(WARNING) << error_msg;
+        break;
+
+      case OatFileAssistant::kUpdateNotAttempted:
+        // Avoid spamming the logs if we decided not to attempt making the oat
+        // file up to date.
+        VLOG(oat) << error_msg;
+        break;
+
+      case OatFileAssistant::kUpdateSucceeded:
+        // Nothing to do.
+        break;
+    }
+  }
+}
+
 std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
     const char* dex_location,
     const char* oat_location,

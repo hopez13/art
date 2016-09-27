@@ -599,7 +599,7 @@ OatFileAssistant::GenerateOatFile(std::string* error_msg) {
   args.push_back("--oat-fd=" + std::to_string(oat_file->Fd()));
   args.push_back("--oat-location=" + oat_file_name);
 
-  if (!Dex2Oat(args, error_msg)) {
+  if (!Dex2Oat(args, isa_, error_msg)) {
     // Manually delete the oat and vdex files. This ensures there is no garbage
     // left over if the process unexpectedly died.
     vdex_file->Erase();
@@ -628,6 +628,12 @@ OatFileAssistant::GenerateOatFile(std::string* error_msg) {
 
 bool OatFileAssistant::Dex2Oat(const std::vector<std::string>& args,
                                std::string* error_msg) {
+  return Dex2Oat(args, kRuntimeISA, error_msg);
+}
+
+bool OatFileAssistant::Dex2Oat(const std::vector<std::string>& args,
+                               InstructionSet isa,
+                               std::string* error_msg) {
   Runtime* runtime = Runtime::Current();
   std::string image_location = ImageLocation();
   if (image_location.empty()) {
@@ -648,7 +654,12 @@ bool OatFileAssistant::Dex2Oat(const std::vector<std::string>& args,
   if (runtime->IsDebuggable()) {
     argv.push_back("--debuggable");
   }
-  runtime->AddCurrentRuntimeFeaturesAsDex2OatArguments(&argv);
+
+  if (isa == kRuntimeISA) {
+    runtime->AddCurrentRuntimeFeaturesAsDex2OatArguments(&argv);
+  } else {
+    runtime->AddTargetRuntimeFeaturesAsDex2OatArguments(isa, &argv);
+  }
 
   if (!runtime->IsVerificationEnabled()) {
     argv.push_back("--compiler-filter=verify-none");
@@ -670,7 +681,6 @@ bool OatFileAssistant::Dex2Oat(const std::vector<std::string>& args,
 
   std::vector<std::string> compiler_options = runtime->GetCompilerOptions();
   argv.insert(argv.end(), compiler_options.begin(), compiler_options.end());
-
   argv.insert(argv.end(), args.begin(), args.end());
 
   std::string command_line(Join(argv, ' '));

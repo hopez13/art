@@ -299,6 +299,10 @@ class OatFileAssistant {
   static uint32_t CalculateCombinedImageChecksum(InstructionSet isa = kRuntimeISA);
 
  private:
+  static bool Dex2Oat(const std::vector<std::string>& args,
+                      InstructionSet isa,
+                      std::string* error_msg);
+
   struct ImageInfo {
     uint32_t oat_checksum = 0;
     uintptr_t oat_data_begin = 0;

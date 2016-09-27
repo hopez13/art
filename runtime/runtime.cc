@@ -1965,6 +1965,15 @@ void Runtime::AddCurrentRuntimeFeaturesAsDex2OatArguments(std::vector<std::strin
   argv->push_back(feature_string);
 }
 
+void Runtime::AddTargetRuntimeFeaturesAsDex2OatArguments(
+    InstructionSet isa,
+    std::vector<std::string>* argv) const {
+  std::string instruction_set("--instruction-set=");
+  instruction_set += GetInstructionSetString(isa);
+  argv->push_back(instruction_set);
+  argv->push_back("--instruction-set-features=default");
+}
+
 void Runtime::CreateJit() {
   CHECK(!IsAotCompiler());
   if (kIsDebugBuild && GetInstrumentation()->IsForcedInterpretOnly()) {
