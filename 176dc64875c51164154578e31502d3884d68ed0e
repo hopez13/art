@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5afcff4_d2e06489",
+        "filename": "tools/jfuzz/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:59:12Z",
+      "side": 1,
+      "message": "It\u0027s all relative :) Do you mean in a loop?",
+      "range": {
+        "startLine": 65,
+        "startChar": 19,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "176dc64875c51164154578e31502d3884d68ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f59ffe_de6d25f9",
+        "filename": "tools/jfuzz/run_jfuzz_test_nightly.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:59:12Z",
+      "side": 1,
+      "message": "Any python 3 feautre you\u0027re actually using? It might be simpler to deploy the script if you stick to python \u003c 3.",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "176dc64875c51164154578e31502d3884d68ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
