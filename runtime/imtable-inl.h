@@ -20,15 +20,67 @@
 #include "imtable.h"
 
 #include "art_method-inl.h"
+#include "dex_file.h"
+#include "utf.h"
 
 namespace art {
 
+static constexpr bool kImTableHashUseName = true;
+static constexpr bool kImTableHashUseCoefficients = true;
+
+// Magic configuration that minimizes some common runtime calls.
+static constexpr uint32_t kImTableHashCoefficient = 765445;
+
 inline uint32_t ImTable::GetBaseImtHash(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return method->GetDexMethodIndex();
+  if (kImTableHashUseName) {
+    if (method->IsProxyMethod()) {
+      return 0;
+    }
+
+    // While it would be simplest to use PrettyMethod to get a string that is fully qualified and
+    // unique, the string allocations and pretty-printing of types are overhead. Instead, break up
+    // the hash.
+    uint32_t hash;
+
+    const DexFile* dex_file = method->GetDexFile();
+    const DexFile::MethodId& method_id = dex_file->GetMethodId(method->GetDexMethodIndex());
+
+    // First use the class descriptor.
+    hash = ComputeModifiedUtf8Hash(dex_file->GetMethodDeclaringClassDescriptor(method_id));
+
+    // Mix in the method name.
+    hash = 31 * hash + ComputeModifiedUtf8Hash(dex_file->GetMethodName(method_id));
+
+    const DexFile::ProtoId& proto_id = dex_file->GetMethodPrototype(method_id);
+
+    // Mix in the return type.
+    hash = 31 * hash + ComputeModifiedUtf8Hash(
+        dex_file->GetTypeDescriptor(dex_file->GetTypeId(proto_id.return_type_idx_)));
+
+    // Mix in the argument types.
+    // Note: we could consider just using the shorty. This would be faster, at the price of
+    //       potential collisions.
+    const DexFile::TypeList* param_types = dex_file->GetProtoParameters(proto_id);
+    if (param_types != nullptr) {
+      for (size_t i = 0; i != param_types->Size(); ++i) {
+        const DexFile::TypeItem& type = param_types->GetTypeItem(i);
+        hash = 31 * hash + ComputeModifiedUtf8Hash(
+            dex_file->GetTypeDescriptor(dex_file->GetTypeId(type.type_idx_)));
+      }
+    }
+
+    return hash;
+  } else {
+    return method->GetDexMethodIndex();
+  }
 }
 
 inline uint32_t ImTable::GetImtIndex(ArtMethod* method) {
-  return GetBaseImtHash(method) % ImTable::kSize;
+  if (!kImTableHashUseCoefficients) {
+    return GetBaseImtHash(method) % ImTable::kSize;
+  } else {
+    return (kImTableHashCoefficient * GetBaseImtHash(method)) % ImTable::kSize;
+  }
 }
 
 }  // namespace art
