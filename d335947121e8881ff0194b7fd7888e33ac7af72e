@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5c1c7c3_27b1b4fc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7530,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-27T21:49:09Z",
+      "side": 1,
+      "message": "Replace.",
+      "range": {
+        "startLine": 7528,
+        "startChar": 2,
+        "endLine": 7530,
+        "endChar": 3
+      },
+      "revId": "d335947121e8881ff0194b7fd7888e33ac7af72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_aa728b3a",
+        "filename": "runtime/obj_ptr-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-27T21:49:09Z",
+      "side": 1,
+      "message": "Requires thread-inl.h",
+      "range": {
+        "startLine": 37,
+        "startChar": 30,
+        "endLine": 37,
+        "endChar": 39
+      },
+      "revId": "d335947121e8881ff0194b7fd7888e33ac7af72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_470af0c9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-27T21:49:09Z",
+      "side": 1,
+      "message": "I dislike our mixing of -inl and non-inl. Current() is in the -inl file, so anyone using this should include that one - having this defined here makes it harder to remember. Consider moving to -inl...",
+      "range": {
+        "startLine": 480,
+        "startChar": 14,
+        "endLine": 480,
+        "endChar": 23
+      },
+      "revId": "d335947121e8881ff0194b7fd7888e33ac7af72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
