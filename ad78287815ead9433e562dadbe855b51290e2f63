@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_8d2ec994",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "e5c1c7c3_2d407589",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_0d3db917",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_ed23fdaa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_0d3db917",
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_2ab17bfc",
         "filename": "runtime/native/dalvik_system_Detour.cc",
         "patchSetId": 4
@@ -53,6 +95,30 @@
       "writtenOn": "2016-09-27T22:40:26Z",
       "side": 1,
       "message": "minor question/nit: why isn\u0027t there any way to invoke the \u0027detour\u0027 method when you have a Detour object?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 94
+      },
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_edfe5dc6",
+        "filename": "runtime/native/dalvik_system_Detour.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "It\u0027s an interesting question: the \"detour\" objects are indented for forwarding to the original/next detour only. The fact that the \"source\" detour is part of the state is to allow locating the position in the chain without parsing the stack trace but that should be an implementation detail only.",
+      "parentUuid": "e5c1c7c3_2ab17bfc",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_0de65939",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_ea9da36f",
+      "range": {
+        "startLine": 984,
+        "startChar": 0,
+        "endLine": 985,
+        "endChar": 54
+      },
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_caa267a7",
         "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
         "patchSetId": 4
@@ -99,6 +189,30 @@
       "writtenOn": "2016-09-27T22:40:26Z",
       "side": 1,
       "message": "nit alignment",
+      "range": {
+        "startLine": 991,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 63
+      },
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_4df051ed",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_caa267a7",
       "range": {
         "startLine": 991,
         "startChar": 0,
@@ -139,6 +253,30 @@
       "writtenOn": "2016-09-27T22:40:26Z",
       "side": 1,
       "message": "One per line",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 70
+      },
+      "revId": "ad78287815ead9433e562dadbe855b51290e2f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_8d440902",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T23:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_0d84990b",
       "range": {
         "startLine": 683,
         "startChar": 0,
