@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c54be3fb_fb1befe2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T10:54:53Z",
+      "side": 1,
+      "message": "The changes in this file need to guard against kUseStringCompression.",
+      "revId": "01718be7fc18b3bae541e0fbeb7fbcf7e37298d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54be3fb_9b20ab09",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1966,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T10:54:53Z",
+      "side": 1,
+      "message": "Check kUseStringCompression?",
+      "range": {
+        "startLine": 1961,
+        "startChar": 0,
+        "endLine": 1966,
+        "endChar": 36
+      },
+      "revId": "01718be7fc18b3bae541e0fbeb7fbcf7e37298d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "450533c2_17b2d4df",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T10:54:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "01718be7fc18b3bae541e0fbeb7fbcf7e37298d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54be3fb_bb256718",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T10:54:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "01718be7fc18b3bae541e0fbeb7fbcf7e37298d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
