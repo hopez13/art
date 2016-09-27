@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "650077b3_78d981ee",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:51:32Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 55
+      },
+      "revId": "429a0ccbd1c05151e28291149d0a335f62d714a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54be3fb_5b7d43b7",
+        "filename": "runtime/dex_file_annotations.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:51:32Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1086,
+        "startChar": 1,
+        "endLine": 1086,
+        "endChar": 78
+      },
+      "revId": "429a0ccbd1c05151e28291149d0a335f62d714a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54be3fb_9b92eb05",
+        "filename": "runtime/dex_file_annotations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:51:32Z",
+      "side": 1,
+      "message": "nit: you could just declare class MutableHandle; line 34.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "429a0ccbd1c05151e28291149d0a335f62d714a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85656bf7_ecad0388",
         "filename": "runtime/native/java_lang_reflect_Executable.cc",
         "patchSetId": 6
@@ -18,6 +87,29 @@
         "startChar": 20,
         "endLine": 82,
         "endChar": 45
+      },
+      "revId": "429a0ccbd1c05151e28291149d0a335f62d714a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54be3fb_db45d36e",
+        "filename": "runtime/native/java_lang_reflect_Executable.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-27T13:51:32Z",
+      "side": 1,
+      "message": "I\u0027d add a named static constexpr char* foobar \u003d \"V...\" to explain what this is.",
+      "range": {
+        "startLine": 165,
+        "startChar": 63,
+        "endLine": 165,
+        "endChar": 68
       },
       "revId": "429a0ccbd1c05151e28291149d0a335f62d714a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
