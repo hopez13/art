@@ -23,6 +23,13 @@
 namespace art {
 namespace mips {
 
+// Up to how many float-like (float, double) args can be enregistered.
+// The rest of the args must go on the stack.
+constexpr size_t kMaxFloatOrDoubleRegisterArguments = 2u;
+// Up to how many integer-like (pointers, objects, longs, int, short, bool, etc) args can be
+// enregistered. The rest of the args must go on the stack.
+constexpr size_t kMaxIntLikeRegisterArguments = 4u;
+
 static const Register kCoreArgumentRegisters[] = { A0, A1, A2, A3 };
 static const FRegister kFArgumentRegisters[] = { F12, F14 };
 static const DRegister kDArgumentRegisters[] = { D6, D7 };
@@ -170,13 +177,27 @@ const ManagedRegisterEntrySpills& MipsManagedRuntimeCallingConvention::EntrySpil
 }
 // JNI calling convention
 
-MipsJniCallingConvention::MipsJniCallingConvention(bool is_static, bool is_synchronized,
+MipsJniCallingConvention::MipsJniCallingConvention(bool is_static,
+                                                   bool is_synchronized,
+                                                   bool is_critical_native,
                                                    const char* shorty)
-    : JniCallingConvention(is_static, is_synchronized, shorty, kMipsPointerSize) {
-  // Compute padding to ensure longs and doubles are not split in AAPCS. Ignore the 'this' jobject
-  // or jclass for static methods and the JNIEnv. We start at the aligned register A2.
+    : JniCallingConvention(is_static,
+                           is_synchronized,
+                           is_critical_native,
+                           shorty,
+                           kMipsPointerSize) {
+  // Compute padding to ensure longs and doubles are not split in o32.
   size_t padding = 0;
-  for (size_t cur_arg = IsStatic() ? 0 : 1, cur_reg = 2; cur_arg < NumArgs(); cur_arg++) {
+  size_t cur_arg, cur_reg;
+  if (LIKELY(HasExtraArgumentsForJni())) {
+    cur_arg = NumImplicitArgs();
+    cur_reg = 2;
+  } else {
+    cur_arg = 0;
+    cur_reg = 0;
+  }
+
+  for (; cur_arg < NumArgs(); cur_arg++) {
     if (IsParamALongOrDouble(cur_arg)) {
       if ((cur_reg & 1) != 0) {
         padding += 4;
@@ -186,7 +207,20 @@ MipsJniCallingConvention::MipsJniCallingConvention(bool is_static, bool is_synch
     }
     cur_reg++;  // bump the iterator for every argument
   }
-  padding_ = padding;
+  if (cur_reg < kMaxIntLikeRegisterArguments) {
+    padding_ = 0;
+  } else {
+    padding_ = padding;
+  }
+
+  use_fp_arg_registers_ = false;
+  if (is_critical_native) {
+    if (NumArgs() > 0) {
+      if (IsParamAFloatOrDouble(0)) {
+        use_fp_arg_registers_ = true;
+      }
+    }
+  }
 }
 
 uint32_t MipsJniCallingConvention::CoreSpillMask() const {
@@ -202,13 +236,31 @@ ManagedRegister MipsJniCallingConvention::ReturnScratchRegister() const {
 }
 
 size_t MipsJniCallingConvention::FrameSize() {
-  // ArtMethod*, RA and callee save area size, local reference segment state
-  size_t frame_data_size = static_cast<size_t>(kMipsPointerSize) +
-      (2 + CalleeSaveRegisters().size()) * kFramePointerSize;
-  // References plus 2 words for HandleScope header
-  size_t handle_scope_size = HandleScope::SizeOf(kMipsPointerSize, ReferenceCount());
-  // Plus return value spill area size
-  return RoundUp(frame_data_size + handle_scope_size + SizeOfReturnValue(), kStackAlignment);
+  // ArtMethod*, RA and callee save area size, local reference segment state.
+  const size_t method_ptr_size = static_cast<size_t>(kMipsPointerSize);
+  const size_t ra_return_addr_size = kFramePointerSize;
+  const size_t callee_save_area_size = CalleeSaveRegisters().size() * kFramePointerSize;
+
+  size_t frame_data_size = method_ptr_size + ra_return_addr_size + callee_save_area_size;
+
+  if (LIKELY(HasLocalReferenceSegmentState())) {
+    // Local reference segment state.
+    frame_data_size += kFramePointerSize;
+  }
+
+  // References plus 2 words for HandleScope header.
+  const size_t handle_scope_size = HandleScope::SizeOf(kMipsPointerSize, ReferenceCount());
+
+  size_t total_size = frame_data_size;
+  if (LIKELY(HasHandleScope())) {
+    // HandleScope is sometimes excluded.
+    total_size += handle_scope_size;    // Handle scope size.
+  }
+
+  // Plus return value spill area size.
+  total_size += SizeOfReturnValue();
+
+  return RoundUp(total_size, kStackAlignment);
 }
 
 size_t MipsJniCallingConvention::OutArgSize() {
@@ -219,46 +271,53 @@ ArrayRef<const ManagedRegister> MipsJniCallingConvention::CalleeSaveRegisters() 
   return ArrayRef<const ManagedRegister>(kCalleeSaveRegisters);
 }
 
-// JniCallingConvention ABI follows AAPCS where longs and doubles must occur
-// in even register numbers and stack slots
+// JniCallingConvention ABI follows o32 where longs and doubles must occur
+// in even register numbers and stack slots.
 void MipsJniCallingConvention::Next() {
   JniCallingConvention::Next();
-  size_t arg_pos = itr_args_ - NumberOfExtraArgumentsForJni();
-  if ((itr_args_ >= 2) &&
-      (arg_pos < NumArgs()) &&
-      IsParamALongOrDouble(arg_pos)) {
-    // itr_slots_ needs to be an even number, according to AAPCS.
-    if ((itr_slots_ & 0x1u) != 0) {
+
+  if (LIKELY(HasNext())) {  // Avoid CHECK failure for IsCurrentParam
+    // Ensure slot is 8-byte aligned for longs/doubles (o32).
+    if (IsCurrentParamALongOrDouble() && ((itr_slots_ & 0x1u) != 0)) {
+      // itr_slots_ needs to be an even number, according to o32.
       itr_slots_++;
     }
   }
 }
 
 bool MipsJniCallingConvention::IsCurrentParamInRegister() {
-  return itr_slots_ < 4;
+  return itr_slots_ < kMaxIntLikeRegisterArguments;
 }
 
 bool MipsJniCallingConvention::IsCurrentParamOnStack() {
   return !IsCurrentParamInRegister();
 }
 
-static const Register kJniArgumentRegisters[] = {
-  A0, A1, A2, A3
-};
 ManagedRegister MipsJniCallingConvention::CurrentParamRegister() {
-  CHECK_LT(itr_slots_, 4u);
-  int arg_pos = itr_args_ - NumberOfExtraArgumentsForJni();
-  if ((itr_args_ >= 2) && IsParamALongOrDouble(arg_pos)) {
-    CHECK_EQ(itr_slots_, 2u);
-    return MipsManagedRegister::FromRegisterPair(A2_A3);
+  CHECK_LT(itr_slots_, kMaxIntLikeRegisterArguments);
+  if (use_fp_arg_registers_ && (itr_args_ < kMaxFloatOrDoubleRegisterArguments)) {
+    if (IsCurrentParamAFloatOrDouble()) {
+      if (IsCurrentParamADouble()) {
+        return MipsManagedRegister::FromDRegister(kDArgumentRegisters[itr_args_]);
+      } else {
+        return MipsManagedRegister::FromFRegister(kFArgumentRegisters[itr_args_]);
+      }
+    }
+  }
+  if (IsCurrentParamALongOrDouble()) {
+    if (itr_slots_ == 0u) {
+      return MipsManagedRegister::FromRegisterPair(A0_A1);
+    } else {
+      CHECK_EQ(itr_slots_, 2u);
+      return MipsManagedRegister::FromRegisterPair(A2_A3);
+    }
   } else {
-    return
-      MipsManagedRegister::FromCoreRegister(kJniArgumentRegisters[itr_slots_]);
+    return MipsManagedRegister::FromCoreRegister(kCoreArgumentRegisters[itr_slots_]);
   }
 }
 
 FrameOffset MipsJniCallingConvention::CurrentParamStackOffset() {
-  CHECK_GE(itr_slots_, 4u);
+  CHECK_GE(itr_slots_, kMaxIntLikeRegisterArguments);
   size_t offset = displacement_.Int32Value() - OutArgSize() + (itr_slots_ * kFramePointerSize);
   CHECK_LT(offset, OutArgSize());
   return FrameOffset(offset);
