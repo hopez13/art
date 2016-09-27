@@ -358,6 +358,23 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_e76e7c24",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-27T21:16:58Z",
+      "side": 1,
+      "message": "Is there performance for this change?\n\nI am not sure if it\u0027s smart enough to get rid of all the uintptr_t usage, something like a union or switching up the base class based on kPoison might be better.",
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c54be3fb_9b366b05",
         "filename": "runtime/thread-inl.h",
         "patchSetId": 4
