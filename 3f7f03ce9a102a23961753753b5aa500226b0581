@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_b65fc915",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:15:23Z",
+      "side": 1,
+      "message": "AllowThreadSuspension is not called often enough to cause performance problems. I\u0027d rather leave it here have poisoning happen each time AllowThreadSuspension is called.",
+      "parentUuid": "05d89b6b_62e75cfe",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_36d3d9f7",
         "filename": "runtime/thread.h",
         "patchSetId": 4
