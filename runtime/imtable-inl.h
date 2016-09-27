@@ -20,15 +20,32 @@
 #include "imtable.h"
 
 #include "art_method-inl.h"
+#include "utf.h"
 
 namespace art {
 
+static constexpr bool kImTableHashUseName = true;
+static constexpr bool kImTableHashUseCoefficients = true;
+
+// Magic configuration that minimizes some common runtime calls.
+static constexpr uint32_t kImTableHashCoefficient = 28388;
+static constexpr uint32_t kImTableHashSummand = 1;
+
 inline uint32_t ImTable::GetBaseImtHash(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return method->GetDexMethodIndex();
+  if (kImTableHashUseName) {
+    return ComputeModifiedUtf8Hash(PrettyMethod(method, true).c_str());
+  } else {
+    return method->GetDexMethodIndex();
+  }
 }
 
 inline uint32_t ImTable::GetImtIndex(ArtMethod* method) {
-  return GetBaseImtHash(method) % ImTable::kSize;
+  if (!kImTableHashUseCoefficients) {
+    return GetBaseImtHash(method) % ImTable::kSize;
+  } else {
+    return
+        (kImTableHashCoefficient * GetBaseImtHash(method) + kImTableHashSummand) % ImTable::kSize;
+  }
 }
 
 }  // namespace art
