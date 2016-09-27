@@ -76,6 +76,7 @@ art_cc_defaults {
         "optimizing/register_allocator_graph_color.cc",
         "optimizing/register_allocator_linear_scan.cc",
         "optimizing/select_generator.cc",
+        "optimizing/scheduler.cc",
         "optimizing/sharpening.cc",
         "optimizing/side_effects_analysis.cc",
         "optimizing/ssa_builder.cc",
@@ -337,6 +338,7 @@ art_cc_test {
         "jni/jni_cfi_test.cc",
         "optimizing/codegen_test.cc",
         "optimizing/optimizing_cfi_test.cc",
+        "optimizing/scheduler_test.cc",
     ],
 
     codegen: {
