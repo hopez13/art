@@ -214,6 +214,30 @@
       "revId": "8e07553a7571139c0a5775c8aa10018a18cba2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_dc77192a",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1122300
+      },
+      "writtenOn": "2016-09-27T05:47:39Z",
+      "side": 1,
+      "message": "Updated the comment.",
+      "parentUuid": "e5bf07c0_f48df830",
+      "range": {
+        "startLine": 495,
+        "startChar": 21,
+        "endLine": 495,
+        "endChar": 29
+      },
+      "revId": "8e07553a7571139c0a5775c8aa10018a18cba2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
