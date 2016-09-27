@@ -524,6 +524,9 @@ class Runtime {
   }
 
   void AddCurrentRuntimeFeaturesAsDex2OatArguments(std::vector<std::string>* arg_vector) const;
+  void AddTargetRuntimeFeaturesAsDex2OatArguments(
+      InstructionSet isa,
+      std::vector<std::string>* arg_vector) const;
 
   bool ExplicitStackOverflowChecks() const {
     return !implicit_so_checks_;

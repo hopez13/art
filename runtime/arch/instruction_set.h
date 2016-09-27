@@ -142,6 +142,26 @@ static inline bool Is64BitInstructionSet(InstructionSet isa) {
   }
 }
 
+static inline InstructionSet Get32BitInstructionSet(InstructionSet isa) {
+  switch (isa) {
+    case kArm:
+    case kThumb2:
+    case kX86:
+    case kMips:
+      return isa;
+
+    case kArm64:
+      return kArm;
+    case kX86_64:
+      return kX86;
+    case kMips64:
+      return kMips;
+
+    default:
+      InstructionSetAbort(isa);
+  }
+}
+
 static inline PointerSize InstructionSetPointerSize(InstructionSet isa) {
   return Is64BitInstructionSet(isa) ? PointerSize::k64 : PointerSize::k32;
 }

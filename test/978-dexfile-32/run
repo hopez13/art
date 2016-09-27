@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+# Copyright (C) 2016 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This script first runs on a 64-bit and then compiles a 32-bit secondary dex which
+# is tested by a 32-bit VM.
+
+args="--preserve-dalvik-cache"
+
+# Remove --64 if specified in flags, we'll set this explicitly for the first pass.
+while [ -n "$1" ]; do
+  case "$1" in
+    --64)
+      found_64bit="yes"
+      ;;
+    --host)
+      run_on_host="yes"
+      args="$args $1"
+      ;;
+    *)
+      args="$args $1"
+      ;;
+  esac
+  shift
+done
+
+if [ ${found_64bit:-no} == "no" ]; then
+  echo Test only runs on 64-bit platforms.
+  exit 0
+fi
+
+# Create 32-bit dalvik-cache locations
+if [ ${run_on_host:-no} == "yes" ]; then
+  mkdir -p ${DEX_LOCATION}/dalvik-cache/{arm,mips,x86}
+else
+  adb shell mkdir -p ${DEX_LOCATION}/dalvik-cache/{arm,mips,x86}
+fi
+
+# Run in 64-bit first to generate 32-bit oat file.
+${SHELL} ${RUN} --64 ${args}
+if [ $? -ne 0 ]; then
+  echo Failed in the 64-bit phase of the test.
+  exit 1
+fi
+
+# Take checksums of files derived from secondary jar.
+if [ ${run_on_host:-no} == "yes" ]; then
+    sha256sum `find . -name "*32-ex*" -type f` > checksum.before.txt
+else
+    adb shell sha256sum \`find "${DEX_LOCATION}" -name "*32-ex*" -type f\` > checksum.before.txt
+fi
+
+# Run 32-bit phase consuming secondary dex file.
+${SHELL} ${RUN} ${args}
+if [ $? -ne 0 ]; then
+  echo Failed in the 32-bit phase of the test.
+  exit 1
+fi
+
+# Take checksums of files derived from secondary jar.
+if [ ${run_on_host:-no} == "yes" ]; then
+    sha256sum `find . -name "*32-ex*" -type f` > checksum.after.txt
+else
+    adb shell sha256sum \`find "${DEX_LOCATION}" -name "*32-ex*" -type f\` > checksum.after.txt
+fi
+
+cmp checksum.before.txt checksum.after.txt
+if [ $? -ne 0 ]; then
+  echo Failed: Running the 32-bit variant updated or created files.
+  exit 1
+fi

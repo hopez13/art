@@ -106,6 +106,20 @@ static jlongArray ConvertDexFilesToJavaArray(JNIEnv* env,
   return long_array;
 }
 
+static void ThrowIllegalArgumentException(JNIEnv* env, const char* fmt, ...)
+    __attribute__((__format__(__printf__, 2, 3)));
+static void ThrowIllegalArgumentException(JNIEnv* env, const char* fmt, ...)
+{
+  va_list args;
+  va_start(args, fmt);
+  std::string message;
+  StringAppendV(&message, fmt, args);
+  va_end(args);
+
+  ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
+  env->ThrowNew(iae.get(), message.c_str());
+}
+
 // A smart pointer that provides read-only access to a Java string's UTF chars.
 // Unlike libcore's NullableScopedUtfChars, this will *not* throw NullPointerException if
 // passed a null jstring. The correct idiom is:
@@ -362,17 +376,13 @@ static jint GetDexOptNeeded(JNIEnv* env,
 
   const InstructionSet target_instruction_set = GetInstructionSetFromString(instruction_set);
   if (target_instruction_set == kNone) {
-    ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
-    std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set));
-    env->ThrowNew(iae.get(), message.c_str());
+    ThrowIllegalArgumentException(env, "Instruction set %s is invalid.", instruction_set);
     return -1;
   }
 
   CompilerFilter::Filter filter;
   if (!CompilerFilter::ParseCompilerFilter(compiler_filter_name, &filter)) {
-    ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
-    std::string message(StringPrintf("Compiler filter %s is invalid.", compiler_filter_name));
-    env->ThrowNew(iae.get(), message.c_str());
+    ThrowIllegalArgumentException(env, "Compiler filter %s is invalid.", compiler_filter_name);
     return -1;
   }
 
@@ -397,21 +407,19 @@ static jstring DexFile_getDexFileStatus(JNIEnv* env,
     return nullptr;
   }
 
-  ScopedUtfChars instruction_set(env, javaInstructionSet);
+  ScopedUtfChars isa_name(env, javaInstructionSet);
   if (env->ExceptionCheck()) {
     return nullptr;
   }
 
-  const InstructionSet target_instruction_set = GetInstructionSetFromString(
-      instruction_set.c_str());
-  if (target_instruction_set == kNone) {
-    ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
-    std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set.c_str()));
-    env->ThrowNew(iae.get(), message.c_str());
+  const InstructionSet instruction_set = GetInstructionSetFromString(isa_name.c_str());
+  if (instruction_set == kNone) {
+    ThrowIllegalArgumentException(env, "Instruction set %s is invalid.", isa_name.c_str());
     return nullptr;
   }
 
-  OatFileAssistant oat_file_assistant(filename.c_str(), target_instruction_set,
+  OatFileAssistant oat_file_assistant(filename.c_str(),
+                                      instruction_set,
                                       false /* load_executable */);
 
   std::ostringstream status;
@@ -562,22 +570,20 @@ static jstring DexFile_getDexFileOutputPath(JNIEnv* env,
     return nullptr;
   }
 
-  ScopedUtfChars instruction_set(env, javaInstructionSet);
+  ScopedUtfChars isa_name(env, javaInstructionSet);
   if (env->ExceptionCheck()) {
     return nullptr;
   }
 
-  const InstructionSet target_instruction_set = GetInstructionSetFromString(
-      instruction_set.c_str());
-  if (target_instruction_set == kNone) {
-    ScopedLocalRef<jclass> iae(env, env->FindClass("java/lang/IllegalArgumentException"));
-    std::string message(StringPrintf("Instruction set %s is invalid.", instruction_set.c_str()));
-    env->ThrowNew(iae.get(), message.c_str());
+  const InstructionSet instruction_set = GetInstructionSetFromString(
+      isa_name.c_str());
+  if (instruction_set == kNone) {
+    ThrowIllegalArgumentException(env, "Instruction set %s is invalid.", isa_name.c_str());
     return nullptr;
   }
 
   OatFileAssistant oat_file_assistant(filename.c_str(),
-                                      target_instruction_set,
+                                      instruction_set,
                                       false /* load_executable */);
 
   std::unique_ptr<OatFile> best_oat_file = oat_file_assistant.GetBestOatFile();
@@ -586,6 +592,67 @@ static jstring DexFile_getDexFileOutputPath(JNIEnv* env,
   }
 
   return env->NewStringUTF(best_oat_file->GetLocation().c_str());
+}
+
+static jstring DexFile_getDexOptOutputFileName(JNIEnv* env,
+                                               jclass,
+                                               jstring javaDexFilePath,
+                                               jstring javaInstructionSet) {
+  ScopedUtfChars dex_file(env, javaDexFilePath);
+  if (env->ExceptionCheck()) {
+    return nullptr;
+  }
+
+  ScopedUtfChars isa_name(env, javaInstructionSet);
+  if (env->ExceptionCheck()) {
+    return nullptr;
+  }
+
+  const InstructionSet isa = GetInstructionSetFromString(isa_name.c_str());
+  if (isa == kNone) {
+    ThrowIllegalArgumentException(env, "Instruction set %s is invalid.", isa_name.c_str());
+    return nullptr;
+  }
+
+  std::string output;
+  std::string error;
+  if (!OatFileAssistant::DexLocationToOatFilename(dex_file.c_str(), isa, &output, &error)) {
+    ThrowIllegalArgumentException(env, "Path %s is invalid: %s", dex_file.c_str(), error.c_str());
+    return nullptr;
+  }
+
+  return env->NewStringUTF(output.c_str());
+}
+
+static void DexFile_dexOpt(JNIEnv* env,
+                           jclass,
+                           jstring javaDexFilePath,
+                           jstring javaInstructionSet,
+                           jstring javaOatFilePath) {
+  ScopedUtfChars dex_file(env, javaDexFilePath);
+  if (env->ExceptionCheck()) {
+    return;
+  }
+
+  ScopedUtfChars isa_name(env, javaInstructionSet);
+  if (env->ExceptionCheck()) {
+    return;
+  }
+
+  const InstructionSet isa = GetInstructionSetFromString(isa_name.c_str());
+  bool isa_valid = kRuntimeISA == isa || Get32BitInstructionSet(kRuntimeISA) == isa;
+  if (!isa_valid) {
+    ThrowIllegalArgumentException(env, "Instruction set %s is invalid.", isa_name.c_str());
+    return;
+  }
+
+  ScopedUtfChars oatFile(env, javaOatFilePath);
+  if (env->ExceptionCheck()) {
+    return;
+  }
+
+  Runtime* const runtime = Runtime::Current();
+  runtime->GetOatFileManager().CompileDexFileToOat(dex_file.c_str(), isa, oatFile.c_str());
 }
 
 static JNINativeMethod gMethods[] = {
@@ -617,7 +684,10 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(DexFile, getDexFileStatus,
                 "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
   NATIVE_METHOD(DexFile, getDexFileOutputPath,
-                "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+                "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
+  NATIVE_METHOD(DexFile, getDexOptOutputFileName,
+                "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
+  NATIVE_METHOD(DexFile, dexOpt, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"),
 };
 
 void register_dalvik_system_DexFile(JNIEnv* env) {

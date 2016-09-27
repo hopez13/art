@@ -37,6 +37,7 @@ MAIN=""
 OPTIMIZE="y"
 PATCHOAT=""
 PREBUILD="y"
+PRESERVE_DALVIK_CACHE="n"
 QUIET="n"
 RELOCATE="y"
 STRIP_DEX="n"
@@ -130,6 +131,9 @@ while true; do
         shift
     elif [ "x$1" = "x--prebuild" ]; then
         PREBUILD="y"
+        shift
+    elif [ "x$1" = "x--preserve-dalvik-cache" ]; then
+        PRESERVE_DALVIK_CACHE="y"
         shift
     elif [ "x$1" = "x--strip-dex" ]; then
         STRIP_DEX="y"
@@ -425,6 +429,7 @@ fi
 dex2oat_cmdline="true"
 mkdir_locations="${DEX_LOCATION}/dalvik-cache/$ISA"
 strip_cmdline="true"
+clean_dalvik_cache="true"
 
 # Pick a base that will force the app image to get relocated.
 app_image="--base=0x4000 --app-image-file=$DEX_LOCATION/oat/$ISA/$TEST_NAME.art"
@@ -452,6 +457,10 @@ if [ "$PREBUILD" = "y" ]; then
     # Use -k 1m to SIGKILL it a minute later if it hasn't ended.
     dex2oat_cmdline="timeout -k 1m -s SIGRTMIN+2 1m ${dex2oat_cmdline}"
   fi
+fi
+
+if [ "$PRESERVE_DALVIK_CACHE" = "n" ]; then
+    clean_dalvik_cache="rm -rf ${DEX_LOCATION}/dalvik-cache/"
 fi
 
 if [ "$STRIP_DEX" = "y" ]; then
@@ -497,12 +506,10 @@ if [ "$HOST" = "n" ]; then
     adb root > /dev/null
     adb wait-for-device
     if [ "$QUIET" = "n" ]; then
-      adb shell rm -r $DEX_LOCATION
       adb shell mkdir -p $DEX_LOCATION
       adb push $TEST_NAME.jar $DEX_LOCATION
       adb push $TEST_NAME-ex.jar $DEX_LOCATION
     else
-      adb shell rm -r $DEX_LOCATION >/dev/null 2>&1
       adb shell mkdir -p $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME.jar $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME-ex.jar $DEX_LOCATION >/dev/null 2>&1
@@ -522,34 +529,42 @@ if [ "$HOST" = "n" ]; then
     # allowed adb command and there is no way to get the exit status from a adb shell
     # command. Dalvik cache is cleaned before running to make subsequent executions
     # of the script follow the same runtime path.
-    cmdline="cd $DEX_LOCATION && \
-             export ANDROID_DATA=$DEX_LOCATION && \
-             export ANDROID_ADDITIONAL_PUBLIC_LIBRARIES=$PUBLIC_LIBS && \
-             export DEX_LOCATION=$DEX_LOCATION && \
-             export ANDROID_ROOT=$ANDROID_ROOT && \
-             rm -rf ${DEX_LOCATION}/dalvik-cache/ && \
-             mkdir -p ${mkdir_locations} && \
-             export LD_LIBRARY_PATH=$LD_LIBRARY_PATH && \
-             export PATH=$ANDROID_ROOT/bin:$PATH && \
-             $dex2oat_cmdline && \
-             $strip_cmdline && \
-             $dalvikvm_cmdline"
-
     cmdfile=$(tempfile -p "cmd-" -s "-$TEST_NAME")
-    echo "$cmdline" > $cmdfile
+    cat > $cmdfile <<EOF
+cd $DEX_LOCATION
+export ANDROID_DATA=$DEX_LOCATION
+export ANDROID_ADDITIONAL_PUBLIC_LIBRARIES=$PUBLIC_LIBS
+export DEX_LOCATION=$DEX_LOCATION
+export ANDROID_ROOT=$ANDROID_ROOT
+$clean_dalvik_cache
+mkdir -p ${mkdir_locations}
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export PATH=$ANDROID_ROOT/bin:$PATH
+$dex2oat_cmdline
+if [ \$? -ne 0 ]; then
+   echo FAIL dex2oat
+   exit 1
+fi
+$strip_cmdline
+$dalvikvm_cmdline
+EOF
 
     if [ "$DEV_MODE" = "y" ]; then
-      echo $cmdline
+      cat $cmdfile
     fi
 
+    # For tests that might run two or more instances of run-test-jar,
+    # put commands in unique scripts. Ideally, something portable and than
+    # better than $$ and $RANDOM.
+    remote_cmdfile="$DEX_LOCATION/cmdline.$$.sh"
     if [ "$QUIET" = "n" ]; then
-      adb push $cmdfile $DEX_LOCATION/cmdline.sh
+      adb push $cmdfile $remote_cmdfile
     else
-      adb push $cmdfile $DEX_LOCATION/cmdline.sh > /dev/null 2>&1
+      adb push $cmdfile $remote_cmdfile > /dev/null 2>&1
     fi
 
     if [ "$DRY_RUN" != "y" ]; then
-      adb shell sh $DEX_LOCATION/cmdline.sh
+      adb shell sh $remote_cmdfile
     fi
 
     rm -f $cmdfile
@@ -610,7 +625,7 @@ else
 
     cd $ANDROID_BUILD_TOP
 
-    rm -rf ${DEX_LOCATION}/dalvik-cache/
+    $clean_dalvik_cache
     mkdir -p ${mkdir_locations} || exit 1
     $dex2oat_cmdline || { echo "Dex2oat failed." >&2 ; exit 2; }
     $strip_cmdline || { echo "Strip failed." >&2 ; exit 3; }
