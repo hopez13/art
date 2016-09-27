@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05d89b6b_ec69fe1e",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T20:00:37Z",
+      "side": 1,
+      "message": "Can you avoid all the std::string allocations? When I did this it was less than 1% compile time overhead compared to 3+% otherwise.",
+      "range": {
+        "startLine": 35,
+        "startChar": 35,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "c0e10d1de721b103c3c78f8002fe9a73d6a93ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
