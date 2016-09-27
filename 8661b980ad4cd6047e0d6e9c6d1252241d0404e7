@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25f59ffe_fef74170",
+        "filename": "runtime/mirror/method_type_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-09-27T09:11:24Z",
+      "side": 1,
+      "message": "Should this be 4? boot_class_loader, return_clazz, param_classes, param.",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "8661b980ad4cd6047e0d6e9c6d1252241d0404e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
