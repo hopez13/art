@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_76560161",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:13:36Z",
+      "side": 1,
+      "message": "Not 100% since things like\n\nif (sometimes) {\nDoSuspension();\n}\nAccessStaleHandle();\n\nMight pass even though they are not correct. I\u0027ll try to put this at most places that could cause problems.",
+      "parentUuid": "05d89b6b_02a418b4",
+      "range": {
+        "startLine": 2381,
+        "startChar": 0,
+        "endLine": 2381,
+        "endChar": 31
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_a2fd449b",
         "filename": "runtime/mirror/obj_ptr.h",
         "patchSetId": 4
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_3660792a",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:13:36Z",
+      "side": 1,
+      "message": "I think we only access from a single thread so it should be OK, maybe ill delete comment.",
+      "parentUuid": "05d89b6b_a2fd449b",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_82348894",
         "filename": "runtime/mirror/obj_ptr.h",
         "patchSetId": 4
@@ -107,6 +155,30 @@
       "writtenOn": "2016-09-27T17:58:19Z",
       "side": 1,
       "message": "Maybe also print the pointer value as well?",
+      "range": {
+        "startLine": 88,
+        "startChar": 47,
+        "endLine": 88,
+        "endChar": 48
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_f6bf917a",
+        "filename": "runtime/mirror/obj_ptr.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:13:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d89b6b_82348894",
       "range": {
         "startLine": 88,
         "startChar": 47,
@@ -213,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_f68d51e6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:13:36Z",
+      "side": 1,
+      "message": "The test relies on it and I did not disable it for NDEBUG. The current callers are common enough to cause performance problems. For object allocation I will guard it behind kIsDebugBuild.",
+      "parentUuid": "05d89b6b_36d3d9f7",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 3
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05d89b6b_c2cf307c",
         "filename": "runtime/thread.h",
         "patchSetId": 4
@@ -224,6 +320,30 @@
       "writtenOn": "2016-09-27T17:58:19Z",
       "side": 1,
       "message": "Why not put this in the packed struct? And how is the cross compilation no-access enforced?",
+      "range": {
+        "startLine": 1539,
+        "startChar": 47,
+        "endLine": 1539,
+        "endChar": 89
+      },
+      "revId": "3f7f03ce9a102a23961753753b5aa500226b0581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_56f0a555",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-27T18:13:36Z",
+      "side": 1,
+      "message": "Putting stuff in packed struct can change offsets and require more changes. Only things that are access from compiled code / entrypoints should be there IMO.",
+      "parentUuid": "05d89b6b_c2cf307c",
       "range": {
         "startLine": 1539,
         "startChar": 47,
