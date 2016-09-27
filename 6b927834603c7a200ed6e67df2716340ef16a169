@@ -496,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "05d89b6b_e2ec6cb7",
+        "filename": "runtime/openjdkjvmti/jvmti.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1800,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-09-27T17:05:34Z",
+      "side": 1,
+      "message": "These are the equivalent of To/FromReflectedMethod() and they are used to \"convert\" between a JNI/JVMTI type (jdetourID in this case) and a Java object (java.lang.Detour)",
+      "parentUuid": "05d89b6b_70d04e4c",
+      "range": {
+        "startLine": 1794,
+        "startChar": 0,
+        "endLine": 1800,
+        "endChar": 20
+      },
+      "revId": "6b927834603c7a200ed6e67df2716340ef16a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65a157aa_f6317859",
         "filename": "runtime/reflection.cc",
         "patchSetId": 1
