@@ -22,6 +22,30 @@
       "revId": "35db897c9c14c3ddd412f2796954536967ffc709",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05d89b6b_e2b46c88",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-27T17:51:17Z",
+      "side": 1,
+      "message": "Done. It should apply to the kWaitingForGcThreadFlip case as well because if the suspend count is \u003e 1, it wouldn\u0027t resume and run the flip function after the Broadcast call below.",
+      "parentUuid": "c54be3fb_3bd397f7",
+      "range": {
+        "startLine": 444,
+        "startChar": 10,
+        "endLine": 445,
+        "endChar": 46
+      },
+      "revId": "35db897c9c14c3ddd412f2796954536967ffc709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
