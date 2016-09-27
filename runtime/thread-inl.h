@@ -59,6 +59,8 @@ inline void Thread::AllowThreadSuspension() {
   if (UNLIKELY(TestAllFlags())) {
     CheckSuspend();
   }
+  // Invalidate the current thread's object pointers (ObjPtr) to catch possible moving GC bugs due
+  // to missing handles.
   PoisonObjectPointers();
 }
 
@@ -173,6 +175,9 @@ inline void Thread::PassActiveSuspendBarriers() {
 
 inline void Thread::TransitionFromRunnableToSuspended(ThreadState new_state) {
   AssertThreadSuspensionIsAllowable();
+  if (kIsDebugBuild) {
+    PoisonObjectPointers();
+  }
   DCHECK_EQ(this, Thread::Current());
   // Change to non-runnable state, thereby appearing suspended to the system.
   TransitionToSuspendedAndRunCheckpoints(new_state);
