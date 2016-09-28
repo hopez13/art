@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02fa5131_ddab2b70",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:34:38Z",
+      "side": 1,
+      "message": "I\u0027d do that first, as the checks line 47 don\u0027t apply to kUseStringCompression.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_fcdca909",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:34:38Z",
+      "side": 1,
+      "message": "Guard by kUseStringCompression.",
+      "range": {
+        "startLine": 1313,
+        "startChar": 0,
+        "endLine": 1323,
+        "endChar": 20
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
