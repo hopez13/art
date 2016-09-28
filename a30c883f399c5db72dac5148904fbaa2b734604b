@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02fa5131_1d275372",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25283f69_e64a1eac",
+      "range": {
+        "startLine": 13,
+        "startChar": 49,
+        "endLine": 13,
+        "endChar": 54
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2ff5921_7b5e5f4e",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "25283f69_06cf3a24",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2ff5921_7b5e5f4e",
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2ff5921_9b9b6b15",
         "filename": "compiler/intrinsics_enum.h",
         "patchSetId": 5
@@ -53,6 +95,30 @@
       "writtenOn": "2016-09-28T12:48:15Z",
       "side": 1,
       "message": "Unnecessary",
+      "range": {
+        "startLine": 23,
+        "startChar": 36,
+        "endLine": 23,
+        "endChar": 95
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_1c9755f8",
+        "filename": "compiler/intrinsics_enum.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2ff5921_9b9b6b15",
       "range": {
         "startLine": 23,
         "startChar": 36,
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "e2029df6_dc78cdc8",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82172137_9937fb36",
+      "range": {
+        "startLine": 37,
+        "startChar": 38,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_7ce3f997",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -122,6 +212,30 @@
       "writtenOn": "2016-09-28T12:48:15Z",
       "side": 1,
       "message": "Add a named constant for this.",
+      "range": {
+        "startLine": 314,
+        "startChar": 45,
+        "endLine": 314,
+        "endChar": 53
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_3cab3126",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_7ce3f997",
       "range": {
         "startLine": 314,
         "startChar": 45,
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "e2029df6_1cb07590",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_5ce83d70",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 5
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_3cdd71d6",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -168,6 +306,30 @@
       "writtenOn": "2016-09-28T12:48:15Z",
       "side": 1,
       "message": "static_assert",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 5
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_fca4a954",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_3cdd71d6",
       "range": {
         "startLine": 361,
         "startChar": 0,
@@ -203,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "420d292b_973584e0",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_fcf6e954",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 5
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_1ce2b590",
         "filename": "runtime/art_method.h",
         "patchSetId": 5
@@ -214,6 +400,30 @@
       "writtenOn": "2016-09-28T12:48:15Z",
       "side": 1,
       "message": "static_assert",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 5
+      },
+      "revId": "a30c883f399c5db72dac5148904fbaa2b734604b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_dca1ed42",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T13:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_1ce2b590",
       "range": {
         "startLine": 395,
         "startChar": 0,
