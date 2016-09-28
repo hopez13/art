@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2029df6_1cfe354e",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T09:05:34Z",
+      "side": 1,
+      "message": "Do we need to use the expensive PrettyMethod()?\n\nWe could put together hashes from the name, argument types and return type without translating \"Lpackage/Class;\" to package.Class, \"I\" to \"int\", etc., and without doing heap allocations for the std::string.",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "65ffe10738019addd20e47940e5954bf1b40d09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
