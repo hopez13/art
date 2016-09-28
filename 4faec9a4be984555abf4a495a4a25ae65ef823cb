@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5c1c7c3_2b7a1ac1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "jni: MIPS32/MIPS64: ...",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_4b7dd6b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "Bug: 31743474",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_cbaf0632",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "Can you cite the document and section with a brief summary of the padding requirements?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_6b8412bb",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "I think this is doing the same thing as the arm constructor, can you add more comments for why the 2 or the 0, etc?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_ebae4233",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "Can you add some examples here?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_4ba4b651",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "Can you also explain this (citing if necessary), and add some examples here?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_2b705ace",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "I am also concerned if this new code path isn\u0027t opening up some new combinations that aren\u0027t currently tested in our jni compiler tests, which is why I\u0027d like to understand this a little bit better.",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_4eb5e4c6",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T16:12:53Z",
+      "side": 1,
+      "message": "What about float?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
