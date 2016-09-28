@@ -34,6 +34,24 @@
       "revId": "2ed04ff8623c42a5189616bba78af21d97829822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_44dca308",
+        "filename": "tools/jfuzz/run_jfuzz_test_nightly.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-28T18:11:28Z",
+      "side": 1,
+      "message": "Ah, I missed the [0]. In that case document what you are matching (a text sample would help), and why the first is the one used. Also, guarding against missed matches in an elegant way would be nice.",
+      "parentUuid": "e5c1c7c3_213b59d6",
+      "revId": "2ed04ff8623c42a5189616bba78af21d97829822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
