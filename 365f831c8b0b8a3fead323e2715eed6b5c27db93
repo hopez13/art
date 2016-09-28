@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "452ff370_27b27ae0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "LDR",
+      "range": {
+        "startLine": 2079,
+        "startChar": 11,
+        "endLine": 2079,
+        "endChar": 15
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452ff370_07b576c7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "LDR",
+      "range": {
+        "startLine": 2114,
+        "startChar": 11,
+        "endLine": 2114,
+        "endChar": 15
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02fa5131_ddab2b70",
         "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
         "patchSetId": 16
@@ -25,6 +71,145 @@
     },
     {
       "key": {
+        "uuid": "e2029df6_9c5ec574",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "Add a TODO that we should instead implement reading the length+compression from a negative offset (count_offset-data_offset). I think the Thumb2Assembler does not support the T4 encoding of \"LDR (immediate)\" at the moment.",
+      "parentUuid": "02fa5131_ddab2b70",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_7c4d39c5",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "Add a TODO that we should instead implement reading the length+compression from a negative offset (count_offset-data_offset) using LDP and clobbering an extra temporary. Note that \"LDR (immediate)\" does not have a \"signed offset\" encoding.",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 3
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25283f69_4635b244",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "Re-enable, please.",
+      "range": {
+        "startLine": 383,
+        "startChar": 13,
+        "endLine": 383,
+        "endChar": 92
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ff5921_1b463b79",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "If kUseStringCompression, load these directly to temp3, temp4.",
+      "range": {
+        "startLine": 1092,
+        "startChar": 0,
+        "endLine": 1093,
+        "endChar": 41
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62086d1c_985ed574",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "We need to branch earlier, because the CMP at line 1169 needs to be LSR#3 for compressed strings.\n\nAlternatively, we could extract the compression bit to temp4 and use\n\n    __ Lsl(temp1, temp1, temp4);\n\nbefore line 1169 and compensate with\n\n    __ Lsr(temp1, temp1, temp4);\n\nafter the BIC 0xf (not branching for BIC 0x7).",
+      "range": {
+        "startLine": 1174,
+        "startChar": 4,
+        "endLine": 1174,
+        "endChar": 37
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "222675ad_f62960f2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "For compressed strings, we need UXTB (or UBFX ..., #0, #8; or AND ..., #255).",
+      "range": {
+        "startLine": 1186,
+        "startChar": 0,
+        "endLine": 1187,
+        "endChar": 17
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_fcdca909",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 16
@@ -41,6 +226,144 @@
         "startChar": 0,
         "endLine": 1323,
         "endChar": 20
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ff5921_3bc45708",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "Move the ADD just before the compressed_string_loop change the conditional branch to jump to the ADD on the opposite condition. That way we don\u0027t need the unconditional branch here.",
+      "range": {
+        "startLine": 2443,
+        "startChar": 0,
+        "endLine": 2445,
+        "endChar": 34
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25283f69_c6928206",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "If kUseStringCompression, load these directly to temp3, temp5.",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 48
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25283f69_267a76c1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "TBZ; we need to branch earlier as the CMP at line 1351 needs LSR#3 for compressed strings.",
+      "range": {
+        "startLine": 1356,
+        "startChar": 0,
+        "endLine": 1357,
+        "endChar": 35
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62086d1c_98fff5f5",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "TBZ",
+      "range": {
+        "startLine": 1370,
+        "startChar": 0,
+        "endLine": 1371,
+        "endChar": 35
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2126545_fa57095c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1937,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "Move the ADD and change the conditional branch to avoid the unconditional branch.",
+      "range": {
+        "startLine": 1935,
+        "startChar": 0,
+        "endLine": 1937,
+        "endChar": 34
+      },
+      "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ff5921_5b31630e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T14:48:47Z",
+      "side": 1,
+      "message": "TBNZ",
+      "range": {
+        "startLine": 2397,
+        "startChar": 0,
+        "endLine": 2398,
+        "endChar": 37
       },
       "revId": "365f831c8b0b8a3fead323e2715eed6b5c27db93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
