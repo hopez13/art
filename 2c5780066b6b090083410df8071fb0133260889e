@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5c1c7c3_e412ef6c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T18:32:52Z",
+      "side": 1,
+      "message": "Add \n\n  # See NAME_MAX in kernel \u003clinux/limits.h\u003e\n\nfor each constant defined like this",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_442143b9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T18:32:52Z",
+      "side": 1,
+      "message": "It\u0027s going to underestimate the allowed maximum length now\n\nThe file name only should be compared against NAME_MAX (e.g. basename \"some/path/foo.bar\" -\u003e foo.bar)\n\nThe full absolute path (e.g. readlink -f \"foo.bar\" -\u003e /some/path/foo.bar) should be compared against PATH_MAX",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_84217baa",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-09-28T18:32:52Z",
+      "side": 1,
+      "message": "There should be one comparison against the path and another against the basename",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
