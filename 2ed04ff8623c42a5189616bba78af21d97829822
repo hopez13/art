@@ -16,6 +16,24 @@
       "revId": "2ed04ff8623c42a5189616bba78af21d97829822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_213b59d6",
+        "filename": "tools/jfuzz/run_jfuzz_test_nightly.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-28T17:46:28Z",
+      "side": 1,
+      "message": "It\u0027s just first element of list returned by findall. There will be only one directory in each output.",
+      "parentUuid": "e5c1c7c3_611ef16f",
+      "revId": "2ed04ff8623c42a5189616bba78af21d97829822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
