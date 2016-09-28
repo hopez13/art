@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_ae50d85f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-28T16:24:31Z",
+      "side": 1,
+      "message": "I put it here so it doesn\u0027t have to branch in the last if after Bind \u0026done.",
+      "parentUuid": "82172137_99781bb6",
+      "revId": "0717ff04f816d077aecd48a43a6ea7c04be76e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "222675ad_366eb825",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 30
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-28T15:58:46Z",
       "side": 1,
       "message": "CFI; should be just after the JMP copy_loop.",
+      "range": {
+        "startLine": 1820,
+        "startChar": 4,
+        "endLine": 1820,
+        "endChar": 17
+      },
+      "revId": "0717ff04f816d077aecd48a43a6ea7c04be76e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_ee73f00b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-28T16:24:31Z",
+      "side": 1,
+      "message": "if the popl is put after JMP copy_loop, will it be executed if the ecx is zero (jecxz \u0026done)?",
+      "parentUuid": "222675ad_366eb825",
       "range": {
         "startLine": 1820,
         "startChar": 4,
