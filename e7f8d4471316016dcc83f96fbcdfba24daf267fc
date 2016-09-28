@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e5c1c7c3_55128bbd",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-28T21:15:22Z",
+      "side": 1,
+      "message": "Only required in header file",
+      "range": {
+        "startLine": 34,
+        "startChar": 59,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "e7f8d4471316016dcc83f96fbcdfba24daf267fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "452ff370_a763ca0c",
         "filename": "runtime/imtable-inl.h",
         "patchSetId": 5
