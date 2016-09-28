@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82172137_99781bb6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T15:58:46Z",
+      "side": 1,
+      "message": "__ cfi().AdjustCFAOffset(stack_adjust);\n\nAlso, this should be done only if we\u0027re doing the compressed loop, i.e. just before the copy_loop.",
+      "revId": "0717ff04f816d077aecd48a43a6ea7c04be76e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "222675ad_366eb825",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T15:58:46Z",
+      "side": 1,
+      "message": "CFI; should be just after the JMP copy_loop.",
+      "range": {
+        "startLine": 1820,
+        "startChar": 4,
+        "endLine": 1820,
+        "endChar": 17
+      },
+      "revId": "0717ff04f816d077aecd48a43a6ea7c04be76e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
