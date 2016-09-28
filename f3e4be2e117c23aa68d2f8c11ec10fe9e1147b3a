@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_cb8d4690",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "Because I\u0027m not sure. :-)\n\nIn case of something not in Boot CP, classes with issues (e.g., unresolvable superclasses) could do this, maybe.",
+      "parentUuid": "a2126545_ba8f5128",
+      "range": {
+        "startLine": 2614,
+        "startChar": 10,
+        "endLine": 2614,
+        "endChar": 43
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_fcaee981",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -82,6 +106,30 @@
       "writtenOn": "2016-09-28T08:18:45Z",
       "side": 1,
       "message": "DCHECK(result || klass-\u003eGetIfTable() \u003d\u003d nullptr);",
+      "range": {
+        "startLine": 2672,
+        "startChar": 0,
+        "endLine": 2674,
+        "endChar": 5
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_0bd63e4a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "I don\u0027t think yours is correct, but I think neither is mine.",
+      "parentUuid": "e2029df6_fcaee981",
       "range": {
         "startLine": 2672,
         "startChar": 0,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_6bc7f28f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2925,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "Because we do not pro-actively create IMTs. That\u0027s done in FillIMTAndConflictTables (which is only called in the compiler driver - thanks mathieuc).",
+      "parentUuid": "e2029df6_bca86174",
+      "range": {
+        "startLine": 2899,
+        "startChar": 0,
+        "endLine": 2925,
+        "endChar": 3
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_dcab2d70",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -128,6 +200,30 @@
       "writtenOn": "2016-09-28T08:18:45Z",
       "side": 1,
       "message": "Why not imt_dump_?",
+      "range": {
+        "startLine": 2978,
+        "startChar": 6,
+        "endLine": 2978,
+        "endChar": 25
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_ab4f2a35",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "Will change.",
+      "parentUuid": "e2029df6_dcab2d70",
       "range": {
         "startLine": 2978,
         "startChar": 6,
@@ -186,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_4b5f96e5",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3079,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "Well do.",
+      "parentUuid": "e2029df6_9ca5a59e",
+      "range": {
+        "startLine": 3078,
+        "startChar": 65,
+        "endLine": 3079,
+        "endChar": 80
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_7cc09926",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -197,6 +317,30 @@
       "writtenOn": "2016-09-28T08:18:45Z",
       "side": 1,
       "message": "So this is only for the boot image right? We do have app immage, but it\u0027s fine if you don\u0027t want to support it. I\u0027d make it more explicit in the message.",
+      "range": {
+        "startLine": 3081,
+        "startChar": 0,
+        "endLine": 3083,
+        "endChar": 41
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_eb592203",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3083,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:42:28Z",
+      "side": 1,
+      "message": "Yes, boot image, for now. Everything else gets a bit hairier because of classloader setup. Will make clear.",
+      "parentUuid": "e2029df6_7cc09926",
       "range": {
         "startLine": 3081,
         "startChar": 0,
