@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "62086d1c_d89fadb2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T16:31:41Z",
+      "side": 1,
+      "message": "I see, let\u0027s just fix the CFI then and we can submit.",
+      "parentUuid": "e5c1c7c3_ae50d85f",
+      "revId": "0717ff04f816d077aecd48a43a6ea7c04be76e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "222675ad_366eb825",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 30
