@@ -187,22 +187,22 @@ static bool CanExecute(InstructionSet target_isa) {
 }
 
 template <typename Expected>
-static Expected SimulatorExecute(CodeSimulator* simulator, Expected (*f)());
+inline static Expected SimulatorExecute(CodeSimulator* simulator, Expected (*f)());
 
 template <>
-bool SimulatorExecute<bool>(CodeSimulator* simulator, bool (*f)()) {
+inline bool SimulatorExecute<bool>(CodeSimulator* simulator, bool (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnBool();
 }
 
 template <>
-int32_t SimulatorExecute<int32_t>(CodeSimulator* simulator, int32_t (*f)()) {
+inline int32_t SimulatorExecute<int32_t>(CodeSimulator* simulator, int32_t (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnInt32();
 }
 
 template <>
-int64_t SimulatorExecute<int64_t>(CodeSimulator* simulator, int64_t (*f)()) {
+inline int64_t SimulatorExecute<int64_t>(CodeSimulator* simulator, int64_t (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnInt64();
 }
