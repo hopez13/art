@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2126545_baa87174",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T09:36:07Z",
+      "side": 1,
+      "message": "Must not clobber dstBegin. Since we may not have another spare register, we should PUSH EAX, use EAX for the copy and then POP EAX.\n\nAlso add a TODO comment to use LODSB/STOSW (not supported by X86Assembler) with AH initialized to 0.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 14,
+        "endLine": 1799,
+        "endChar": 22
+      },
+      "revId": "ec7426db3f95f324f3599f7ede0a2c425d18a6c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "222675ad_b68f6828",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-28T09:36:07Z",
+      "side": 1,
+      "message": "Must not clobber dstBegin. Use another temporary.\n\nAdd a TODO comment about selecting RAX as the temporary and using LODSB/STOSW.",
+      "range": {
+        "startLine": 1947,
+        "startChar": 14,
+        "endLine": 1947,
+        "endChar": 22
+      },
+      "revId": "ec7426db3f95f324f3599f7ede0a2c425d18a6c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
