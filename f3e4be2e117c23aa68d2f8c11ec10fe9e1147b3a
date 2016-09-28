@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "62086d1c_58c5dd34",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "Make a helper for this to not hardcode the files you\u0027re going to dump (see my comment below about this change only or boot image). You can leave a TODO there.",
+      "range": {
+        "startLine": 2578,
+        "startChar": 0,
+        "endLine": 2578,
+        "endChar": 95
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2126545_da820502",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 2595,
+        "startChar": 10,
+        "endLine": 2596,
+        "endChar": 30
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2126545_ba8f5128",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "why? you have DCHECK in other places.",
+      "range": {
+        "startLine": 2614,
+        "startChar": 10,
+        "endLine": 2614,
+        "endChar": 43
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_fcaee981",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "DCHECK(result || klass-\u003eGetIfTable() \u003d\u003d nullptr);",
+      "range": {
+        "startLine": 2672,
+        "startChar": 0,
+        "endLine": 2674,
+        "endChar": 5
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_bca86174",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "Why not a regular ResolveClass since you have a Runtime?",
+      "range": {
+        "startLine": 2899,
+        "startChar": 0,
+        "endLine": 2925,
+        "endChar": 3
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_dcab2d70",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "Why not imt_dump_?",
+      "range": {
+        "startLine": 2978,
+        "startChar": 6,
+        "endLine": 2978,
+        "endChar": 25
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_73388ad7",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -18,6 +156,52 @@
         "startChar": 34,
         "endLine": 3079,
         "endChar": 35
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_9ca5a59e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3079,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "You may want to give an example on how this file looks like.",
+      "range": {
+        "startLine": 3078,
+        "startChar": 65,
+        "endLine": 3079,
+        "endChar": 80
+      },
+      "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_7cc09926",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3083,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-28T08:18:45Z",
+      "side": 1,
+      "message": "So this is only for the boot image right? We do have app immage, but it\u0027s fine if you don\u0027t want to support it. I\u0027d make it more explicit in the message.",
+      "range": {
+        "startLine": 3081,
+        "startChar": 0,
+        "endLine": 3083,
+        "endChar": 41
       },
       "revId": "f3e4be2e117c23aa68d2f8c11ec10fe9e1147b3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
