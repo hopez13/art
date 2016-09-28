@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_55860b4f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-28T22:03:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_7fede87a",
+      "revId": "a59d9b228b1eda3bf71a81b6201ec64e26086c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_3f1ed080",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_9517e301",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-28T22:03:56Z",
+      "side": 1,
+      "message": "Maybe, but eventually Handle::Get will return ObjPtr.",
+      "parentUuid": "e5c1c7c3_3f1ed080",
+      "range": {
+        "startLine": 673,
+        "startChar": 8,
+        "endLine": 673,
+        "endChar": 18
+      },
+      "revId": "a59d9b228b1eda3bf71a81b6201ec64e26086c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_bf55a0f8",
         "filename": "runtime/reflection.cc",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2016-09-28T19:37:11Z",
       "side": 1,
       "message": "Do we prefer an explicit MakeObjPtr?",
+      "range": {
+        "startLine": 685,
+        "startChar": 11,
+        "endLine": 685,
+        "endChar": 23
+      },
+      "revId": "a59d9b228b1eda3bf71a81b6201ec64e26086c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_b5449f01",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-09-28T22:03:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_bf55a0f8",
       "range": {
         "startLine": 685,
         "startChar": 11,
