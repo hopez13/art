@@ -128,6 +128,29 @@
       "revId": "a59d9b228b1eda3bf71a81b6201ec64e26086c23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_99ff1df6",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-09-28T23:35:53Z",
+      "side": 1,
+      "message": "Is this intended to not be the IfDebug version?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "a59d9b228b1eda3bf71a81b6201ec64e26086c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
