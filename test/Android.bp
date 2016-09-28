@@ -110,6 +110,7 @@ art_cc_defaults {
                 "-Wl,-u,Java_MyClassNatives_sbar",
             ],
             shared_libs: [
+                "liblog",
                 "libcutils",
                 "libdl",
                 "libz",
