@@ -22,6 +22,30 @@
       "revId": "65ffe10738019addd20e47940e5954bf1b40d09a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_0bb11e4e",
+        "filename": "runtime/imtable-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-28T15:33:28Z",
+      "side": 1,
+      "message": "See comment on PS1. I\u0027d rather keep this simple for now. I think we can get a factor of 3 or so faster (just taking Compute...(GetDeclaringClassDescriptor()) takes 10% of this), but we\u0027ll still be three orders of magnitude slower. Is a follow-up OK with you?\n\nI want to try Hash(classname) + method_index, which would lose some stability (wrt/ methods in the interface), but should stay at the 10% mark.",
+      "parentUuid": "e2029df6_1cfe354e",
+      "range": {
+        "startLine": 36,
+        "startChar": 35,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "65ffe10738019addd20e47940e5954bf1b40d09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
