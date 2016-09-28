@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_3a57fe24",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-28T20:38:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_e412ef6c",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_442143b9",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 6
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_3a1ede80",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-28T20:38:12Z",
+      "side": 1,
+      "message": "Vdex name is as long as VDEX_PATH.\n\nI\u0027m now computing the full vdex name explicitly so it\u0027s less confusing.",
+      "parentUuid": "e5c1c7c3_442143b9",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_84217baa",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 6
@@ -47,6 +83,24 @@
       "writtenOn": "2016-09-28T18:32:52Z",
       "side": 1,
       "message": "There should be one comparison against the path and another against the basename",
+      "revId": "2c5780066b6b090083410df8071fb0133260889e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_1a0e8249",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-28T20:38:12Z",
+      "side": 1,
+      "message": "I think this isn\u0027t needed, because PATH_MAX has to be larger then NAME_MAX and we are already checking that DEX_LOCATION is shorter then NAME_MAX.",
+      "parentUuid": "e5c1c7c3_84217baa",
       "revId": "2c5780066b6b090083410df8071fb0133260889e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
