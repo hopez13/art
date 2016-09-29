@@ -21,11 +21,11 @@ import dexfuzz.listeners.BaseListener;
 public class Arm64InterpreterExecutor extends Executor {
 
   public Arm64InterpreterExecutor(BaseListener listener, Device device) {
-    super("ARM64 Interpreter", 30, listener, Architecture.ARM64, device, false);
+    super("ARM64 Interpreter", 30, listener, Architecture.ARM64, device, false, false);
   }
 
   @Override
-  public void execute(String programName) {
+  protected String constructCommand(String programName) {
     StringBuilder commandBuilder = new StringBuilder();
     commandBuilder.append("dalvikvm64 -Xint ");
     if (device.noBootImageAvailable()) {
@@ -33,6 +33,6 @@ public class Arm64InterpreterExecutor extends Executor {
     }
     commandBuilder.append("-cp ").append(testLocation).append("/").append(programName).append(" ");
     commandBuilder.append(executeClass);
-    executionResult = executeCommandWithTimeout(commandBuilder.toString(), true);
+    return commandBuilder.toString();
   }
 }
