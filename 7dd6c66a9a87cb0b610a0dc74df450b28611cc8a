@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2029df6_dc120d64",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T09:10:26Z",
+      "side": 1,
+      "message": "Add a comment like: \"write bss section for GC roots\".",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 675,
+        "endChar": 7
+      },
+      "revId": "7dd6c66a9a87cb0b610a0dc74df450b28611cc8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2126545_faf6e954",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T09:10:26Z",
+      "side": 1,
+      "message": "Add \"Key is the StringReference representing the String, value is the offset of the string in the bss.\"",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 47
+      },
+      "revId": "7dd6c66a9a87cb0b610a0dc74df450b28611cc8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
