@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_bdbc7eb2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-29T17:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "452ff370_27b8ba2f",
+      "revId": "77d385372f1d525c230139866220851ccc7c71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "420d292b_ba9e2d05",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 19
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-29T13:15:57Z",
       "side": 1,
       "message": "uncompressed_string_extract_chars",
+      "range": {
+        "startLine": 1195,
+        "startChar": 11,
+        "endLine": 1195,
+        "endChar": 35
+      },
+      "revId": "77d385372f1d525c230139866220851ccc7c71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_7dd96617",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-29T17:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "420d292b_ba9e2d05",
       "range": {
         "startLine": 1195,
         "startChar": 11,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e5c1c7c3_1d1792b9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-29T17:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "452ff370_47c5ae9e",
+      "range": {
+        "startLine": 1358,
+        "startChar": 4,
+        "endLine": 1358,
+        "endChar": 30
+      },
+      "revId": "77d385372f1d525c230139866220851ccc7c71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2126545_fa6ca9c3",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 19
@@ -76,6 +142,30 @@
       "writtenOn": "2016-09-29T13:15:57Z",
       "side": 1,
       "message": "Unnecessary label. Use \"end\" instead.",
+      "range": {
+        "startLine": 1375,
+        "startChar": 4,
+        "endLine": 1375,
+        "endChar": 36
+      },
+      "revId": "77d385372f1d525c230139866220851ccc7c71c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5c1c7c3_3dfd2e52",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-29T17:38:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2126545_fa6ca9c3",
       "range": {
         "startLine": 1375,
         "startChar": 4,
