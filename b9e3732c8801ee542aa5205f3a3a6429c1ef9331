@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25283f69_06e9fa0a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 7079,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T09:25:37Z",
+      "side": 1,
+      "message": "Could you share the code and add a helper that will return you the right LinkerPatch wheter it\u0027s boot or not? (ditto for other codegens)",
+      "range": {
+        "startLine": 7039,
+        "startChar": 0,
+        "endLine": 7079,
+        "endChar": 5
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_5c783d52",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T09:25:37Z",
+      "side": 1,
+      "message": "Could you put the info in HGraph? Or I think you could even pass it to the code generator constructor. Seems silly to realize what we\u0027re compiling during codegen.",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 32
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ff5921_7b73ff79",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T09:25:37Z",
+      "side": 1,
+      "message": "Are you disabling this because it\u0027s dead code or because it doesn\u0027t work?",
+      "range": {
+        "startLine": 2464,
+        "startChar": 0,
+        "endLine": 2464,
+        "endChar": 35
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
