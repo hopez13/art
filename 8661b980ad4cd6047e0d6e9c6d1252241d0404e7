@@ -22,6 +22,30 @@
       "revId": "8661b980ad4cd6047e0d6e9c6d1252241d0404e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452ff370_27427a3a",
+        "filename": "runtime/mirror/method_type_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-29T12:12:35Z",
+      "side": 1,
+      "message": "It\u0027s 5 :\n\nboot_class_loader\nreturn_class\nparam_classes\nparam x 2 (~Handle doesn\u0027t do anything special - handles allocated by StackHandleScopes remain visible to the GC until ~StackHandleScope.)\n\nI\u0027ll change the CHECK on line 40 to be CHECK_LT(, 3u) though.",
+      "parentUuid": "25f59ffe_fef74170",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "8661b980ad4cd6047e0d6e9c6d1252241d0404e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
