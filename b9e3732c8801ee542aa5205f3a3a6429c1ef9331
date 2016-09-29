@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e2029df6_5feeefae",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T16:05:18Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "62086d1c_9bd36ff6",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 32
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2ff5921_7b73ff79",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 7
