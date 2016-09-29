@@ -21,11 +21,11 @@ import dexfuzz.listeners.BaseListener;
 public class ArmOptimizingBackendExecutor extends Executor {
 
   public ArmOptimizingBackendExecutor(BaseListener listener, Device device) {
-    super("ARM Optimizing Backend", 5, listener, Architecture.ARM, device, true);
+    super("ARM Optimizing Backend", 5, listener, Architecture.ARM, device, true, true);
   }
 
   @Override
-  public void execute(String programName) {
+  protected String constructCommand(String programName) {
     StringBuilder commandBuilder = new StringBuilder();
     commandBuilder.append("dalvikvm32 -Xcompiler-option --compiler-backend=Optimizing ");
     if (device.noBootImageAvailable()) {
@@ -33,6 +33,6 @@ public class ArmOptimizingBackendExecutor extends Executor {
     }
     commandBuilder.append("-cp ").append(testLocation).append("/").append(programName).append(" ");
     commandBuilder.append(executeClass);
-    executionResult = executeCommandWithTimeout(commandBuilder.toString(), true);
+    return commandBuilder.toString();
   }
 }
