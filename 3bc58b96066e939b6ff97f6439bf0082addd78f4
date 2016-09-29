@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62086d1c_5ba03791",
+        "filename": "test/054-uncaught/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-29T09:46:48Z",
+      "side": 1,
+      "message": "What failures did you see without this?\n\nLooking at PrintStream.println(String), I see that it synchronizes on \"this\".",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "3bc58b96066e939b6ff97f6439bf0082addd78f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
