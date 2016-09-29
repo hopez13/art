@@ -32,7 +32,7 @@ class StubTest_ReadBarrierForRoot_Test;
 namespace mirror {
 
 // String Compression
-static constexpr bool kUseStringCompression = false;
+static constexpr bool kUseStringCompression = true;
 
 // C++ mirror of java.lang.String
 class MANAGED String FINAL : public Object {

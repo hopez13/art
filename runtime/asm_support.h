@@ -240,7 +240,8 @@ ADD_TEST_EQ(MIRROR_STRING_COUNT_OFFSET, art::mirror::String::CountOffset().Int32
 #define MIRROR_STRING_VALUE_OFFSET (8 + MIRROR_OBJECT_HEADER_SIZE)
 ADD_TEST_EQ(MIRROR_STRING_VALUE_OFFSET, art::mirror::String::ValueOffset().Int32Value())
 
-
+#define STRING_COMPRESSION_FEATURE 1
+ADD_TEST_EQ(STRING_COMPRESSION_FEATURE, art::mirror::kUseStringCompression)
 
 #if defined(__cplusplus)
 }  // End of CheckAsmSupportOffsets.
