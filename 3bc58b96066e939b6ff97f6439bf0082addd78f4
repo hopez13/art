@@ -22,6 +22,30 @@
       "revId": "3bc58b96066e939b6ff97f6439bf0082addd78f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2029df6_1c275572",
+        "filename": "test/054-uncaught/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-29T10:35:59Z",
+      "side": 1,
+      "message": "See the buildbot failure on fugu email thread:\n\n/b/build/slave/fugu-ndebug/build/art/test/054-uncaught: FAILED!\n \n#################### info\n# This is a miscellaneous test that was imported into the new-at-the-time\n# runtime test framework. The test is intended to exercise basic features,\n# and as such cannot be build on top of junit, since failure of such basic\n# features might disrupt junit.\n# \n# TODO: Real description goes here.\n#################### diffs\n--- expected.txt\t2016-06-08 02:36:33.444996010 -0700\n+++ output.txt\t2016-09-28 17:33:36.089894534 -0700\n@@ -12,8 +12,8 @@\n Uncaught exception THREAD!\n java.lang.NullPointerException: Hi diddly-ho, neighborino.\n \tat Main.catchTheUncaught(Main.java:63)\n-\tat Main$Helper.run(Main.java:74)\n-Test 1\n+\tat Main$Helper.run(Main.java:74)Test 1\n+\n Uncaught exception DEFAULT!\n java.lang.NullPointerException: Hi diddly-ho, neighborino.\n \tat Main.catchTheUncaught(Main.java:63)\n####################",
+      "parentUuid": "62086d1c_5ba03791",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "3bc58b96066e939b6ff97f6439bf0082addd78f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
