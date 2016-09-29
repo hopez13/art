@@ -67,7 +67,7 @@ inline mirror::String* ClassLinker::ResolveString(uint32_t string_idx, ArtMethod
   // MethodVerifier refuses methods with string_idx out of bounds.
   DCHECK_LT(string_idx, declaring_class->GetDexFile().NumStringIds());;
   mirror::String* string =
-        mirror::StringDexCachePair::LookupString(declaring_class->GetDexCacheStrings(),
+        mirror::StringDexCachePair::Lookup(declaring_class->GetDexCacheStrings(),
                                                  string_idx,
                                                  mirror::DexCache::kDexCacheStringCacheSize).Read();
   Thread::PoisonObjectPointersIfDebug();
