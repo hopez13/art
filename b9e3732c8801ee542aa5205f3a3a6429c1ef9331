@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82172137_798f8787",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 7079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-29T12:58:45Z",
+      "side": 1,
+      "message": "I did a different kind of refactoring, see PS8.",
+      "parentUuid": "25283f69_06e9fa0a",
+      "range": {
+        "startLine": 7039,
+        "startChar": 0,
+        "endLine": 7079,
+        "endChar": 5
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_5c783d52",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "62086d1c_9bd36ff6",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-29T12:58:45Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we add that information to the CompilerOptions? The codegen already has access to that.",
+      "parentUuid": "e2029df6_5c783d52",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 32
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2ff5921_7b73ff79",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-29T09:25:37Z",
       "side": 1,
       "message": "Are you disabling this because it\u0027s dead code or because it doesn\u0027t work?",
+      "range": {
+        "startLine": 2464,
+        "startChar": 0,
+        "endLine": 2464,
+        "endChar": 35
+      },
+      "revId": "b9e3732c8801ee542aa5205f3a3a6429c1ef9331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82172137_f9b95734",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-29T12:58:45Z",
+      "side": 1,
+      "message": "Because it doesn\u0027t make sense to emit load literal for a ShifterOperand that specifies a register shift. Load literal is handled above for ad.IsImmediate() if you need it but we\u0027re using Fixups for literals anyway.\n\nI was trying to use\n\n    LDR r0, [PC, IP]\n    STR r0, [PC, IP]\n\nand I was getting a SIGILL for the STR, so I looked it up in the manual and there are no such instructions. And then I found this code path that just didn\u0027t make sense at all.",
+      "parentUuid": "c2ff5921_7b73ff79",
       "range": {
         "startLine": 2464,
         "startChar": 0,

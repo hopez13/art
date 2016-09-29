@@ -22,6 +22,30 @@
       "revId": "6bee25976782a063d6b44f7718a6302761bf6403",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62086d1c_fb85cb0b",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-29T12:58:45Z",
+      "side": 0,
+      "message": "That\u0027s testing the code removed from Thumb2Assembler that didn\u0027t make sense.",
+      "parentUuid": "62086d1c_988ff52f",
+      "range": {
+        "startLine": 1248,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 1
+      },
+      "revId": "6bee25976782a063d6b44f7718a6302761bf6403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
