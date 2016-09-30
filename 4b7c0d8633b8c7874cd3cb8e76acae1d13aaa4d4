@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_24e8c804",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-30T23:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28505ca_7ddc3069",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a28505ca_dd677cb4",
         "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
         "patchSetId": 2
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_8472f470",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-30T23:00:10Z",
+      "side": 1,
+      "message": "I agree. I tried to minimize the changes but we do need to know commands used by each Executor we want to bisect.",
+      "parentUuid": "a28505ca_dd677cb4",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a28505ca_3de5482e",
         "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
         "patchSetId": 2
@@ -64,6 +100,24 @@
       "writtenOn": "2016-09-30T19:17:29Z",
       "side": 1,
       "message": "Runs",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_a44138f4",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-09-30T23:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28505ca_3de5482e",
       "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
