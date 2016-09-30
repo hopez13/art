@@ -70,6 +70,30 @@
       "revId": "3aa171f6e7eaf25b9d425d7a7f0ad1c34ddc6fb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_73469f7a",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-09-30T18:15:08Z",
+      "side": 1,
+      "message": "Handles are expensive compared to object pointers. So if there is no suspend point in between, Y U HATE PERFORMANCE?",
+      "parentUuid": "22b035be_46e972a4",
+      "range": {
+        "startLine": 327,
+        "startChar": 1,
+        "endLine": 327,
+        "endChar": 23
+      },
+      "revId": "3aa171f6e7eaf25b9d425d7a7f0ad1c34ddc6fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
