@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22b035be_46c09226",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-09-30T08:54:59Z",
+      "side": 1,
+      "message": "just curious: why is this not a handle ?",
+      "range": {
+        "startLine": 327,
+        "startChar": 1,
+        "endLine": 327,
+        "endChar": 23
+      },
+      "revId": "3aa171f6e7eaf25b9d425d7a7f0ad1c34ddc6fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
