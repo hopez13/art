@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a28505ca_30580a8b",
+        "filename": "libart_fake/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-09-30T19:42:19Z",
+      "side": 1,
+      "message": "I\u0027m always hesitant to encode this level of build system knowledge into module makefiles, because it leaves a ton of places that need cleaning up later when it is changed.  Can you clarify what you need to accomplish here?  Are you actually trying to avoid installing the translated one, or is it using the wrong directory?  Would putting some logic to correctly define a variable for the fake-libs directory in the build solve your problem?",
+      "revId": "5bc21d1842e22b35a5cff6fd082b7f80176cf11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
