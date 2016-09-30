@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22b035be_86d68ae6",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-30T09:38:41Z",
+      "side": 1,
+      "message": "Since this file is in compiler/ rather than compiler/optimizing/, I would presume it would be shared by any other compiler we would add. Do you mind dropping the word \"optimizing\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 54
+      },
+      "revId": "1ccbe517dbff29a512f48a163d68ae1af6fc41a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_a6d386f5",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-30T09:38:41Z",
+      "side": 1,
+      "message": "This is a bit dangerous for reverts, i.e. removing intrinsics from the end.\n\nAlso, we should bump the image version with this CL.",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "1ccbe517dbff29a512f48a163d68ae1af6fc41a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
