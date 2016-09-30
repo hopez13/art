@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "22b035be_66bfce7c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-30T10:39:08Z",
+      "side": 1,
+      "message": "OK. But instead of introducing additional `if`s, we could just reorder the whole section in lines 1416-1429 with the LEAs in lines 1412-1414.",
+      "parentUuid": "22b035be_46bad28d",
+      "range": {
+        "startLine": 1428,
+        "startChar": 0,
+        "endLine": 1429,
+        "endChar": 25
+      },
+      "revId": "62d689845e4c3e4c2b0ca7866fca8b715a62fd4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22b035be_46641247",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 32
