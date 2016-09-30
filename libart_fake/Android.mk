@@ -25,8 +25,13 @@ LOCAL_SRC_FILES := fake.cc
 LOCAL_SHARED_LIBRARIES := liblog
 
 ifdef TARGET_2ND_ARCH
-    LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/fake-libs
-    LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/fake-libs64
+    ifeq ($(TARGET_TRANSLATE_2ND_ARCH),true)
+        LOCAL_MULTILIB := first
+        LOCAL_MODULE_PATH := $(TARGET_OUT)/fake-libs
+    else
+        LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/fake-libs
+        LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/fake-libs64
+    endif
 else
     LOCAL_MODULE_PATH := $(TARGET_OUT)/fake-libs
 endif
