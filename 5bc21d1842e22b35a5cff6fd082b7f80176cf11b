@@ -16,6 +16,24 @@
       "revId": "5bc21d1842e22b35a5cff6fd082b7f80176cf11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2318518_22bf4e7d",
+        "filename": "libart_fake/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1069991
+      },
+      "writtenOn": "2016-09-30T19:54:57Z",
+      "side": 1,
+      "message": "It\u0027s installed into wrong directory (into fake-libs64 instead of fake-libs) and thus is not found at runtime.\n\nI\u0027m not saying that\u0027s good change, I\u0027m open for any suggestions, my goal here is simple: I want to make sure that x86+arm build works in more-or-less the same way pure x86 build works - except now it\u0027s possible to build same arm libraries.\n\nThis breaks with few packages which assume that TARGET_2ND_ARCH \u003d\u003d 64/32 build.",
+      "parentUuid": "a28505ca_30580a8b",
+      "revId": "5bc21d1842e22b35a5cff6fd082b7f80176cf11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
