@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a28505ca_9d8fb486",
+        "filename": "tools/dexfuzz/src/dexfuzz/ExecutionResult.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-30T19:17:29Z",
+      "side": 1,
+      "message": "minimize changes",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_7ddc3069",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-30T19:17:29Z",
+      "side": 1,
+      "message": "Splits",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_dd677cb4",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-30T19:17:29Z",
+      "side": 1,
+      "message": "I was at first no so happy with the amount of changes needed, but splitting the command construction from the execute method seems cleaner just by itself",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_3de5482e",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-09-30T19:17:29Z",
+      "side": 1,
+      "message": "Runs",
+      "revId": "4b7c0d8633b8c7874cd3cb8e76acae1d13aaa4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
