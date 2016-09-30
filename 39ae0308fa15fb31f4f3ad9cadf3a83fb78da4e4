@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22b035be_a6baa6b3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-30T10:05:31Z",
+      "side": 1,
+      "message": "Change this to \"ls\". (And remove the comment two lines above.)\n\nUnlike ARM, we\u0027re doing the comparison in one go here, without the subtraction at the find_char_diff_2nd_cmp path, so it doesn\u0027t matter whether the comparison is signed or unsigned when string compression is disabled. When it\u0027s enabled, the comparison must be unsigned.",
+      "range": {
+        "startLine": 1354,
+        "startChar": 7,
+        "endLine": 1354,
+        "endChar": 9
+      },
+      "revId": "39ae0308fa15fb31f4f3ad9cadf3a83fb78da4e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
