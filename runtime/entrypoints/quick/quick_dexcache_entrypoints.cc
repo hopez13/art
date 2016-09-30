@@ -60,7 +60,10 @@ extern "C" mirror::Class* artInitializeTypeAndVerifyAccessFromCode(uint32_t type
 extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
-  auto* caller = GetCalleeSaveMethodCaller(self, Runtime::kSaveRefsOnly);
+  auto* caller = GetCalleeSaveMethodCaller(
+      self,
+      (kRuntimeISA == kMips || kRuntimeISA == kMips64) ? Runtime::kSaveRefsOnly
+                                                       : Runtime::kSaveEverything);
   mirror::String* result = ResolveStringFromCode(caller, string_idx);
   if (LIKELY(result != nullptr)) {
     // For AOT code, we need a write barrier for the dex cache that holds the GC roots in the .bss.
