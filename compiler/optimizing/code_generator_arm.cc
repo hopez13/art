@@ -445,16 +445,19 @@ class LoadStringSlowPathARM : public SlowPathCodeARM {
     RestoreLiveRegisters(codegen, locations);
 
     // Store the resolved String to the BSS entry.
-    // TODO: Change art_quick_resolve_string to kSaveEverything and use a temporary for the
-    // .bss entry address in the fast path, so that we can avoid another calculation here.
-    CodeGeneratorARM::PcRelativePatchInfo* labels =
-        arm_codegen->NewPcRelativeStringPatch(load->GetDexFile(), string_index);
-    __ BindTrackedLabel(&labels->movw_label);
-    __ movw(IP, /* placeholder */ 0u);
-    __ BindTrackedLabel(&labels->movt_label);
-    __ movt(IP, /* placeholder */ 0u);
-    __ BindTrackedLabel(&labels->add_pc_label);
-    __ add(IP, IP, ShifterOperand(PC));
+    if (!kUseReadBarrier || kUseBakerReadBarrier) {
+      // The string entry address was preserved in IP thanks to kSaveEverything.
+    } else {
+      // For non-baker read barrier, we need to re-calculate the address of the string entry.
+      CodeGeneratorARM::PcRelativePatchInfo* labels =
+          arm_codegen->NewPcRelativeStringPatch(load->GetDexFile(), string_index);
+      __ BindTrackedLabel(&labels->movw_label);
+      __ movw(IP, /* placeholder */ 0u);
+      __ BindTrackedLabel(&labels->movt_label);
+      __ movt(IP, /* placeholder */ 0u);
+      __ BindTrackedLabel(&labels->add_pc_label);
+      __ add(IP, IP, ShifterOperand(PC));
+    }
     __ str(locations->Out().AsRegister<Register>(), Address(IP));
 
     __ b(GetExitLabel());
@@ -5704,10 +5707,20 @@ void LocationsBuilderARM::VisitLoadString(HLoadString* load) {
 
   HLoadString::LoadKind load_kind = load->GetLoadKind();
   if (load_kind == HLoadString::LoadKind::kDexCacheViaMethod) {
-    locations->SetInAt(0, Location::RequiresRegister());
     locations->SetOut(Location::RegisterLocation(R0));
   } else {
     locations->SetOut(Location::RequiresRegister());
+    if (load_kind == HLoadString::LoadKind::kBssEntry) {
+      if (!kUseReadBarrier || kUseBakerReadBarrier) {
+        // Rely on the pResolveString and/or marking to save everything, including IP.
+        RegisterSet caller_saves = RegisterSet::Empty();
+        InvokeRuntimeCallingConvention calling_convention;
+        caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+        locations->SetCustomSlowPathCallerSaves(caller_saves);
+      } else {
+        // For non-baker read barrier we have a temp-clobbering call.
+      }
+    }
   }
 }
 
@@ -5746,12 +5759,12 @@ void InstructionCodeGeneratorARM::VisitLoadString(HLoadString* load) {
       CodeGeneratorARM::PcRelativePatchInfo* labels =
           codegen_->NewPcRelativeStringPatch(load->GetDexFile(), load->GetStringIndex());
       __ BindTrackedLabel(&labels->movw_label);
-      __ movw(out, /* placeholder */ 0u);
+      __ movw(IP, /* placeholder */ 0u);
       __ BindTrackedLabel(&labels->movt_label);
-      __ movt(out, /* placeholder */ 0u);
+      __ movt(IP, /* placeholder */ 0u);
       __ BindTrackedLabel(&labels->add_pc_label);
-      __ add(out, out, ShifterOperand(PC));
-      GenerateGcRootFieldLoad(load, out_loc, out, 0);
+      __ add(IP, IP, ShifterOperand(PC));
+      GenerateGcRootFieldLoad(load, out_loc, IP, 0);
       SlowPathCode* slow_path = new (GetGraph()->GetArena()) LoadStringSlowPathARM(load);
       codegen_->AddSlowPath(slow_path);
       __ CompareAndBranchIfZero(out, slow_path->GetEntryLabel());
@@ -5765,6 +5778,7 @@ void InstructionCodeGeneratorARM::VisitLoadString(HLoadString* load) {
   // TODO: Consider re-adding the compiler code to do string dex cache lookup again.
   DCHECK(load_kind == HLoadString::LoadKind::kDexCacheViaMethod);
   InvokeRuntimeCallingConvention calling_convention;
+  DCHECK_EQ(calling_convention.GetRegisterAt(0), out);
   __ LoadImmediate(calling_convention.GetRegisterAt(0), load->GetStringIndex());
   codegen_->InvokeRuntime(kQuickResolveString, load, load->GetDexPc());
   CheckEntrypointTypes<kQuickResolveString, void*, uint32_t>();
