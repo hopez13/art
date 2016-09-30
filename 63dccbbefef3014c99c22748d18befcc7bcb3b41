@@ -22,6 +22,30 @@
       "revId": "63dccbbefef3014c99c22748d18befcc7bcb3b41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_06ab7a25",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-09-30T14:10:16Z",
+      "side": 1,
+      "message": "It was necessary for the EmitPcRelativeLinkerPatches() on x86 and x86-64.",
+      "parentUuid": "22b035be_06929a07",
+      "range": {
+        "startLine": 534,
+        "startChar": 0,
+        "endLine": 544,
+        "endChar": 4
+      },
+      "revId": "63dccbbefef3014c99c22748d18befcc7bcb3b41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
