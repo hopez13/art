@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_f8512e2e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T17:30:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22b035be_66bfce7c",
+      "range": {
+        "startLine": 1428,
+        "startChar": 0,
+        "endLine": 1429,
+        "endChar": 25
+      },
+      "revId": "62d689845e4c3e4c2b0ca7866fca8b715a62fd4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22b035be_46641247",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 32
