@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_c27d623e",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Sure, thanks!",
+      "parentUuid": "e2029df6_9f09178d",
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_7f640b47",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Replace with\n\n  // For string compression, calculate the number of bytes to compare (not chars).\n  // This could in theory exceed INT32_MAX, so treat temp0 as unsigned.\n  __ cmp(temp4, ShifterOperand(0));\n  __ it(GE);\n  __ add(temp0, temp0, temp0, GE);",
+      "range": {
+        "startLine": 1119,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 31
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_a215befc",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_7f640b47",
       "range": {
         "startLine": 1119,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_c2124212",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_9f5eb774",
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_5f694f1b",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -70,6 +130,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1143,
+        "startChar": 0,
+        "endLine": 1143,
+        "endChar": 42
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_6241f6f1",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_5f694f1b",
       "range": {
         "startLine": 1143,
         "startChar": 0,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_223bee87",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_1f73c70f",
+      "range": {
+        "startLine": 1148,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 28
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_df543f5a",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -116,6 +224,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Replace with\n\n  // With string compression, we have compared 8 bytes, otherwise 4 chars.\n  __ subs(temp0, temp0, ShifterOperand(mirror::kUseStringCompression ? 8 : 4));\n  __ b(\u0026loop, HI);  // Treating temp0 as unsigned in all cases.",
+      "range": {
+        "startLine": 1150,
+        "startChar": 0,
+        "endLine": 1152,
+        "endChar": 18
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_e2342697",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_df543f5a",
       "range": {
         "startLine": 1150,
         "startChar": 0,
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_02ffca90",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_bf617332",
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_7f4d2bc5",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -156,6 +306,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 21,
+        "endLine": 1155,
+        "endChar": 28
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_62d7b61a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_7f4d2bc5",
       "range": {
         "startLine": 1155,
         "startChar": 21,
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_a20b7ecb",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_5f526f69",
+      "range": {
+        "startLine": 1162,
+        "startChar": 23,
+        "endLine": 1162,
+        "endChar": 30
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_5fbf0f7c",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -202,6 +400,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Replace with \"without string compression, it could be \u003c 1 if a difference is found by the second CMP\"",
+      "range": {
+        "startLine": 1163,
+        "startChar": 6,
+        "endLine": 1163,
+        "endChar": 66
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_42d6321c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_5fbf0f7c",
       "range": {
         "startLine": 1163,
         "startChar": 6,
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_a2e4def9",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_1f4ce7c5",
+      "range": {
+        "startLine": 1166,
+        "startChar": 4,
+        "endLine": 1166,
+        "endChar": 5
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_ff401b8c",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -254,6 +500,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_22c68e62",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_ff401b8c",
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_df3d5f18",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 20
@@ -265,6 +529,30 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Replace with \"(kUseStringCompression ? 3 : 4)\"",
+      "range": {
+        "startLine": 1169,
+        "startChar": 27,
+        "endLine": 1169,
+        "endChar": 28
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_02ad8a9c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_df3d5f18",
       "range": {
         "startLine": 1169,
         "startChar": 27,
@@ -300,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_82aafa7f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2029df6_9f37d736",
+      "range": {
+        "startLine": 1171,
+        "startChar": 0,
+        "endLine": 1172,
+        "endChar": 17
+      },
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2029df6_3fc44308",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 20
@@ -311,6 +623,24 @@
       "writtenOn": "2016-09-29T19:17:03Z",
       "side": 1,
       "message": "Can you \"copy\" my suggestions from ARM String.compareTo() intrinsic?",
+      "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_a2929e59",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1113370
+      },
+      "writtenOn": "2016-09-30T00:55:42Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "e2029df6_3fc44308",
       "revId": "a076fe7b5eb85d05e06e8eff6a77cd2b568e407a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
