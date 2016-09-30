@@ -786,9 +786,9 @@ static void GetSystemProperty(Thread* self,
                            kAndroidHardcodedSystemPropertiesFieldName);
     return;
   }
-  Handle<mirror::ObjectArray<mirror::ObjectArray<mirror::String>>> h_2string_array(
-      hs.NewHandle(reinterpret_cast<mirror::ObjectArray<mirror::ObjectArray<mirror::String>>*>(
-          static_properties->GetObject(h_props_class.Get()))));
+  Handle<mirror::ObjectArray<mirror::ObjectArray<mirror::String>>> h_2string_array(hs.NewHandle(
+      static_properties->GetObject<mirror::ObjectArray<mirror::ObjectArray<mirror::String>>>(
+          h_props_class.Get())));
   if (h_2string_array.Get() == nullptr) {
     AbortTransactionOrFail(self, "Field %s is null", kAndroidHardcodedSystemPropertiesFieldName);
     return;
