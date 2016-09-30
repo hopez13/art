@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22b035be_e6a17e42",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "I\u0027d make this more explicit be enclosing the loop with a if (kIsDebugBuild)",
+      "range": {
+        "startLine": 1369,
+        "startChar": 29,
+        "endLine": 1369,
+        "endChar": 42
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_869e8a05",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "interest",
+      "range": {
+        "startLine": 2149,
+        "startChar": 5,
+        "endLine": 2149,
+        "endChar": 14
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_465e524e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8026,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "Yes: code item.ins_size_",
+      "range": {
+        "startLine": 8024,
+        "startChar": 0,
+        "endLine": 8026,
+        "endChar": 92
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_66634e0f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8042,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "Move this out of the loop, to avoid pushing and popping all the tame.",
+      "range": {
+        "startLine": 8042,
+        "startChar": 0,
+        "endLine": 8042,
+        "endChar": 34
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_06685ae6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8043,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "Move this out of the loop with a mutable handle.",
+      "range": {
+        "startLine": 8043,
+        "startChar": 4,
+        "endLine": 8043,
+        "endChar": 36
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_266d56f7",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "Could you add a templatized DexCachePair helper for all of this? So you can share it with the string dex cache too.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22b035be_e66e5ef1",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-09-30T14:33:01Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 104
+      },
+      "revId": "d06788b70e8596551a57efef8b4106de5f6578af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
