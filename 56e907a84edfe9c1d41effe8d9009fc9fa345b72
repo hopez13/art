@@ -246,6 +246,30 @@
       "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2945d52_ef30bd57",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:08:42Z",
+      "side": 1,
+      "message": "Ill do it in another CL",
+      "parentUuid": "e2945d52_efd35df4",
+      "range": {
+        "startLine": 78,
+        "startChar": 28,
+        "endLine": 78,
+        "endChar": 34
+      },
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
