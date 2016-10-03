@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2945d52_ac7883c7",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T20:28:58Z",
+      "side": 1,
+      "message": "Can this actually happen or is debugging logging.",
+      "range": {
+        "startLine": 190,
+        "startChar": 4,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2945d52_8cf66754",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T20:28:58Z",
+      "side": 1,
+      "message": "I prefer avoiding global variables if possible.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2945d52_acf32363",
+        "filename": "dexlayout/dexlayout_main.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T20:28:58Z",
+      "side": 1,
+      "message": "Should this be 2016?",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
