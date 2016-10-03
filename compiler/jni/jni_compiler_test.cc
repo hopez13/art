@@ -43,8 +43,20 @@ extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_bar(JNIEnv*, jobject, jint
   return count + 1;
 }
 
+extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_bar_1Fast(JNIEnv*, jobject, jint count) {
+  return count + 1;
+}
+
 extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_sbar(JNIEnv*, jclass, jint count) {
   return count + 1;
+}
+
+extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_sbar_1Fast(JNIEnv*, jclass, jint count) {
+  return count + 1;
+}
+
+extern "C" JNIEXPORT jint JNICALL JavaCritical_MyClassNatives_sbar_1Critical(jint count) {
+  return count + 100;
 }
 
 namespace art {
@@ -591,6 +603,12 @@ struct make_jni_test_decorator<R(JNIEnv*, jobject, Args...), fn> {
 #define NORMAL_JNI_ONLY_NULLPTR \
     ({ ASSERT_TRUE(IsCurrentJniNormal()); nullptr; })
 
+// Same as above for (Normal, @FastNative) JNI tests. E.g. if testing virtual methods.
+#define NONCRITICAL_JNI_ONLY_NULLPTR \
+    ({ ASSERT_FALSE(IsCurrentJniCritical()); nullptr; })
+
+// Just a quality-of-life define to indicate any of the JNIs is acceptable.
+#define ANY_JNI_NULLPTR nullptr
 
 int gJava_MyClassNatives_foo_calls[kJniKindCount] = {};
 void Java_MyClassNatives_foo(JNIEnv*, jobject) {
@@ -612,7 +630,7 @@ void JniCompilerTest::CompileAndRunNoArgMethodImpl() {
 JNI_TEST(CompileAndRunNoArgMethod)
 
 void JniCompilerTest::CompileAndRunIntMethodThroughStubImpl() {
-  SetUpForTest(false, "bar", "(I)I", NORMAL_JNI_ONLY_NULLPTR);
+  SetUpForTest(false, "bar", "(I)I", NONCRITICAL_JNI_ONLY_NULLPTR);
   // calling through stub will link with &Java_MyClassNatives_bar
 
   std::string reason;
@@ -628,8 +646,10 @@ void JniCompilerTest::CompileAndRunIntMethodThroughStubImpl() {
 JNI_TEST_NORMAL_ONLY(CompileAndRunIntMethodThroughStub)
 
 void JniCompilerTest::CompileAndRunStaticIntMethodThroughStubImpl() {
-  SetUpForTest(true, "sbar", "(I)I", NORMAL_JNI_ONLY_NULLPTR);
-  // calling through stub will link with &Java_MyClassNatives_sbar
+  SetUpForTest(true, "sbar", "(I)I", NONCRITICAL_JNI_ONLY_NULLPTR);
+  // calling through stub will link with :
+  //   &Java_MyClassNatives_sbar for normal or fast
+  // and &JavaCritical_MyClassNatives_sbar for critical
 
   std::string reason;
   ASSERT_TRUE(Runtime::Current()->GetJavaVM()->
@@ -637,11 +657,13 @@ void JniCompilerTest::CompileAndRunStaticIntMethodThroughStubImpl() {
       << reason;
 
   jint result = env_->CallStaticIntMethod(jklass_, jmethod_, 42);
-  EXPECT_EQ(43, result);
+
+  jint expected = IsCurrentJniCritical() ? (42+100) : 43;
+  EXPECT_EQ(expected, result);
 }
 
-// TODO: Support @FastNative and @CriticalNative through stubs.
-JNI_TEST_NORMAL_ONLY(CompileAndRunStaticIntMethodThroughStub)
+// TODO: No ArtMethod in the JNIstub for criticals, so it will crash.
+JNI_TEST(CompileAndRunStaticIntMethodThroughStub)
 
 int gJava_MyClassNatives_fooI_calls[kJniKindCount] = {};
 jint Java_MyClassNatives_fooI(JNIEnv*, jobject, jint x) {
@@ -1875,7 +1897,7 @@ void JniCompilerTest::WithoutImplementationImpl() {
   // This will lead to error messages in the log.
   ScopedLogSeverity sls(LogSeverity::FATAL);
 
-  SetUpForTest(false, "withoutImplementation", "()V", NORMAL_JNI_ONLY_NULLPTR);
+  SetUpForTest(false, "withoutImplementation", "()V", ANY_JNI_NULLPTR);
 
   env_->CallVoidMethod(jobj_, jmethod_);
 
@@ -1883,9 +1905,8 @@ void JniCompilerTest::WithoutImplementationImpl() {
   EXPECT_TRUE(env_->ExceptionCheck() == JNI_TRUE);
 }
 
-// TODO: Don't test @FastNative here since it goes through a stub lookup (unsupported) which would
-// normally fail with an exception, but fails with an assert.
-JNI_TEST_NORMAL_ONLY(WithoutImplementation)
+// Do not test @CriticalNative because this is a virtual function.
+JNI_TEST(WithoutImplementation)
 
 void JniCompilerTest::WithoutImplementationRefReturnImpl() {
   // This will lead to error messages in the log.
@@ -1902,7 +1923,7 @@ void JniCompilerTest::WithoutImplementationRefReturnImpl() {
   EXPECT_TRUE(env_->ExceptionCheck() == JNI_TRUE);
 }
 
-// TODO: Should work for @FastNative too.
+// TODO: Should work for @FastNative too. It currently doesn't support returning objects.
 JNI_TEST_NORMAL_ONLY(WithoutImplementationRefReturn)
 
 void Java_MyClassNatives_stackArgsIntsFirst(JNIEnv*, jclass, jint i1, jint i2, jint i3,

@@ -31,11 +31,34 @@ extern "C" void* artFindNativeMethod() {
 extern "C" void* artFindNativeMethod(Thread* self) {
   DCHECK_EQ(self, Thread::Current());
 #endif
-  Locks::mutator_lock_->AssertNotHeld(self);  // We come here as Native.
+
+  bool mutator_lock_is_shared_held;
+  bool mutator_lock_is_exclusive_held;
+
+  if (kIsDebugBuild) {
+    // Check the status of the mutator lock before SOA, it will re-acquire lock if not held.
+    mutator_lock_is_shared_held = Locks::mutator_lock_->IsSharedHeld(self);
+    mutator_lock_is_exclusive_held = Locks::mutator_lock_->IsExclusiveHeld(self);
+  }
+
   ScopedObjectAccess soa(self);
 
   ArtMethod* method = self->GetCurrentMethod(nullptr);
   DCHECK(method != nullptr);
+
+  if (kIsDebugBuild) {
+    bool is_fast = method->IsAnnotatedWithFastNative();
+    bool is_critical = method->IsAnnotatedWithCriticalNative();
+
+    if (!is_fast && !is_critical) {
+      // Normal JNI releases mutator lock before calling down.
+      CHECK_EQ(false, mutator_lock_is_shared_held) << PrettyMethod(method);
+      CHECK_EQ(false, mutator_lock_is_exclusive_held) << PrettyMethod(method);
+    } else {
+      // @FastNative and @CriticalNative retain the shared mutator lock.
+      CHECK(mutator_lock_is_shared_held) << PrettyMethod(method);
+    }
+  }
 
   // Lookup symbol address for method, on failure we'll return null with an exception set,
   // otherwise we return the address of the method we found.

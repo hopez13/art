@@ -611,7 +611,11 @@ std::string JniShortName(ArtMethod* m) {
   std::string method_name(m->GetName());
 
   std::string short_name;
-  short_name += "Java_";
+  if (m->IsAnnotatedWithCriticalNative()) {
+    short_name += "JavaCritical_";
+  } else {
+    short_name += "Java_";
+  }
   short_name += MangleForJni(class_name);
   short_name += "_";
   short_name += MangleForJni(method_name);
