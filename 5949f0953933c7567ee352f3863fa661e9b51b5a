@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2945d52_acac03a2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4766,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-03T21:01:29Z",
+      "side": 1,
+      "message": "I think this line should go up to before the if statement because we only need the extra register on R2 and not on R6. kDexCachePcRelative needed the extra register on both R2 and R6.",
+      "range": {
+        "startLine": 4766,
+        "startChar": 0,
+        "endLine": 4766,
+        "endChar": 42
+      },
+      "revId": "5949f0953933c7567ee352f3863fa661e9b51b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
