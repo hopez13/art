@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2945d52_ec4a8b4e",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-03T22:42:03Z",
+      "side": 1,
+      "message": "Just debugging logging, and I removed it.",
+      "parentUuid": "e2945d52_ac7883c7",
+      "range": {
+        "startLine": 190,
+        "startChar": 4,
+        "endLine": 190,
+        "endChar": 40
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2945d52_8cf66754",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e2945d52_754c9ac7",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-03T22:42:03Z",
+      "side": 1,
+      "message": "This turned into a bigger refactoring than I prefer to do in this CL.  Punted to a subsequent one.",
+      "parentUuid": "e2945d52_8cf66754",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2945d52_acf32363",
         "filename": "dexlayout/dexlayout_main.cc",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-03T20:28:58Z",
       "side": 1,
       "message": "Should this be 2016?",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "81cfa53fcfe3f4799a2fa9201c1f98a567f54788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2945d52_55c4fe08",
+        "filename": "dexlayout/dexlayout_main.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-03T22:42:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2945d52_acf32363",
       "range": {
         "startLine": 44,
         "startChar": 33,
