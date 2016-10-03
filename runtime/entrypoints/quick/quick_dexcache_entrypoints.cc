@@ -18,10 +18,18 @@
 #include "callee_save_frame.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "class_linker-inl.h"
+#include "class_table-inl.h"
 #include "dex_file-inl.h"
 #include "gc/accounting/card_table-inl.h"
+#include "gc/heap.h"
+#include "mirror/class-inl.h"
+#include "mirror/class_loader.h"
+#include "mirror/dex_cache.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/object-inl.h"
+#include "mirror/object_reference.h"
+#include "oat_file.h"
+#include "runtime.h"
 
 namespace art {
 
@@ -56,7 +64,33 @@ extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* 
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   auto* caller = GetCalleeSaveMethodCaller(self, Runtime::kSaveRefsOnly);
-  return ResolveStringFromCode(caller, string_idx);
+  mirror::String* result = ResolveStringFromCode(caller, string_idx);
+  if (LIKELY(result != nullptr)) {
+    // For AOT code, we need a write barrier for the dex cache that holds the GC roots in the .bss.
+    const DexFile* dex_file = caller->GetDexFile();
+    if (dex_file != nullptr && dex_file->GetOatDexFile() != nullptr) {
+      struct Visitor {
+        explicit Visitor(const OatFile* oat_file) : oat_file_(oat_file) { }
+        void VisitRoot(mirror::CompressedReference<mirror::Object>* root)
+            REQUIRES_SHARED(Locks::mutator_lock_) {
+          mirror::Object* object = root->AsMirrorPtr();
+          if (object->IsDexCache()) {
+            mirror::DexCache* dex_cache = down_cast<mirror::DexCache*>(object);
+            if (dex_cache->GetDexFile() != nullptr &&
+                dex_cache->GetDexFile()->GetOatDexFile() != nullptr &&
+                dex_cache->GetDexFile()->GetOatDexFile()->GetOatFile() == oat_file_ &&
+                !OatFile::GetBssRoots(dex_cache->GetDexFile()->GetOatDexFile()).empty()) {
+              Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(dex_cache);
+            }
+          }
+        }
+        const OatFile* oat_file_;
+      };
+      Visitor visitor(dex_file->GetOatDexFile()->GetOatFile());
+      caller->GetDeclaringClass()->GetClassLoader()->GetClassTable()->VisitRoots(visitor);
+    }
+  }
+  return result;
 }
 
 }  // namespace art
