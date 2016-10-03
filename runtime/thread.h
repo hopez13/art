@@ -226,6 +226,7 @@ class Thread {
         (state_and_flags.as_struct.flags & kSuspendRequest) != 0;
   }
 
+  ALWAYS_INLINE
   bool ModifySuspendCount(Thread* self, int delta, AtomicInteger* suspend_barrier, bool for_debugger)
       REQUIRES(Locks::thread_suspend_count_lock_);
 
@@ -1217,6 +1218,10 @@ class Thread {
   static void SetSensitiveThreadHook(bool (*is_sensitive_thread_hook)()) {
     is_sensitive_thread_hook_ = is_sensitive_thread_hook;
   }
+
+  bool ModifySuspendCountInternal(Thread* self, int delta, AtomicInteger* suspend_barrier,
+                                  bool for_debugger)
+      REQUIRES(Locks::thread_suspend_count_lock_);
 
   // 32 bits of atomically changed state and flags. Keeping as 32 bits allows and atomic CAS to
   // change from being Suspended to Runnable without a suspend request occurring.
