@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_5c5b5cf7",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28505ca_e1aba7db",
+      "range": {
+        "startLine": 126,
+        "startChar": 45,
+        "endLine": 127,
+        "endChar": 65
+      },
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a28505ca_21c18f93",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-03T18:32:57Z",
       "side": 1,
       "message": "Style...",
+      "range": {
+        "startLine": 1750,
+        "startChar": 31,
+        "endLine": 1751,
+        "endChar": 83
+      },
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_fc2ef03f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28505ca_21c18f93",
       "range": {
         "startLine": 1750,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_7c22e062",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a28505ca_e1e2c721",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 26
+      },
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a28505ca_9c59e402",
         "filename": "runtime/common_runtime_test.h",
         "patchSetId": 1
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "a28505ca_bc186838",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:00:44Z",
+      "side": 1,
+      "message": "Lock annotations for mutator_lock don\u0027t work.",
+      "parentUuid": "a28505ca_9c59e402",
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a28505ca_9c724471",
         "filename": "runtime/obj_ptr.h",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-10-03T19:27:23Z",
       "side": 1,
       "message": "I thought you were going to rename this to something less confusing?",
+      "range": {
+        "startLine": 78,
+        "startChar": 28,
+        "endLine": 78,
+        "endChar": 34
+      },
+      "revId": "56e907a84edfe9c1d41effe8d9009fc9fa345b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_bcee28e5",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T21:00:44Z",
+      "side": 1,
+      "message": "Maybe later? I don\u0027t see why we need to do this yet.",
+      "parentUuid": "a28505ca_9c724471",
       "range": {
         "startLine": 78,
         "startChar": 28,
