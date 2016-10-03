@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22b035be_46ddf266",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-03T08:21:10Z",
+      "side": 1,
+      "message": "s@langString@lang/String@",
+      "range": {
+        "startLine": 1331,
+        "startChar": 26,
+        "endLine": 1331,
+        "endChar": 36
+      },
+      "revId": "523c8ae5ad56a3f323f8635e1005c3995e3fd8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02adf169_e583b63c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-03T08:21:10Z",
+      "side": 1,
+      "message": "The modulo operation in the index calculation is at odds with the preceeding DCHECK.",
+      "range": {
+        "startLine": 98,
+        "startChar": 37,
+        "endLine": 98,
+        "endChar": 38
+      },
+      "revId": "523c8ae5ad56a3f323f8635e1005c3995e3fd8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
