@@ -49,11 +49,11 @@ class ObjPtr {
 
   template <typename Type>
   ALWAYS_INLINE ObjPtr(const ObjPtr<Type>& other) REQUIRES_SHARED(Locks::mutator_lock_)
-      : reference_(Encode(static_cast<MirrorType*>(other.Decode()))) {}
+      : reference_(Encode(static_cast<MirrorType*>(other.Ptr()))) {}
 
   template <typename Type>
   ALWAYS_INLINE ObjPtr& operator=(const ObjPtr& other) {
-    reference_ = Encode(static_cast<MirrorType*>(other.Decode()));
+    reference_ = Encode(static_cast<MirrorType*>(other.Ptr()));
     return *this;
   }
 
@@ -67,7 +67,7 @@ class ObjPtr {
   }
 
   ALWAYS_INLINE MirrorType* operator->() const REQUIRES_SHARED(Locks::mutator_lock_) {
-    return Decode();
+    return Ptr();
   }
 
   ALWAYS_INLINE bool IsNull() const {
@@ -75,7 +75,7 @@ class ObjPtr {
   }
 
   // Decode makes sure that the object pointer is valid.
-  ALWAYS_INLINE MirrorType* Decode() const REQUIRES_SHARED(Locks::mutator_lock_) {
+  ALWAYS_INLINE MirrorType* Ptr() const REQUIRES_SHARED(Locks::mutator_lock_) {
     AssertValid();
     return DecodeUnchecked();
   }
@@ -85,13 +85,13 @@ class ObjPtr {
   ALWAYS_INLINE void AssertValid() const REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE bool operator==(const ObjPtr& ptr) const REQUIRES_SHARED(Locks::mutator_lock_) {
-    return Decode() == ptr.Decode();
+    return Ptr() == ptr.Ptr();
   }
 
   template <typename PointerType>
   ALWAYS_INLINE bool operator==(const PointerType* ptr) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    return Decode() == ptr;
+    return Ptr() == ptr;
   }
 
   ALWAYS_INLINE bool operator==(std::nullptr_t) const {
@@ -99,13 +99,13 @@ class ObjPtr {
   }
 
   ALWAYS_INLINE bool operator!=(const ObjPtr& ptr) const REQUIRES_SHARED(Locks::mutator_lock_) {
-    return Decode() != ptr.Decode();
+    return Ptr() != ptr.Ptr();
   }
 
   template <typename PointerType>
   ALWAYS_INLINE bool operator!=(const PointerType* ptr) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    return Decode() != ptr;
+    return Ptr() != ptr;
   }
 
   ALWAYS_INLINE bool operator!=(std::nullptr_t) const {

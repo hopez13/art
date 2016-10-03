@@ -282,7 +282,7 @@ class Location : public ValueObject {
   }
 
   Kind GetKind() const {
-    return IsConstant() ? kConstant : KindField::Decode(value_);
+    return IsConstant() ? kConstant : KindField::Ptr(value_);
   }
 
   bool Equals(Location other) const {
@@ -374,7 +374,7 @@ class Location : public ValueObject {
 
   Policy GetPolicy() const {
     DCHECK(IsUnallocated());
-    return PolicyField::Decode(GetPayload());
+    return PolicyField::Ptr(GetPayload());
   }
 
   bool RequiresRegisterKind() const {
@@ -397,7 +397,7 @@ class Location : public ValueObject {
       : value_(KindField::Encode(kind) | PayloadField::Encode(payload)) {}
 
   uintptr_t GetPayload() const {
-    return PayloadField::Decode(value_);
+    return PayloadField::Ptr(value_);
   }
 
   typedef BitField<Kind, 0, kBitsForKind> KindField;

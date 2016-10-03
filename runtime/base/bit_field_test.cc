@@ -30,7 +30,7 @@ TEST(BitFields, Test1) {
   ASSERT_EQ(1, TestBitFields::Shift());
   ASSERT_EQ(8, TestBitFields::BitSize());
   ASSERT_EQ(32U, TestBitFields::Encode(16));
-  ASSERT_EQ(16, TestBitFields::Decode(32));
+  ASSERT_EQ(16, TestBitFields::Ptr(32));
   ASSERT_EQ(2U, TestBitFields::Update(1, 16));
 }
 

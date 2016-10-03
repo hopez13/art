@@ -110,7 +110,7 @@ void CustomDisassembler::VisitLoadStoreUnsignedOffset(const Instruction* instr) 
 
 size_t DisassemblerArm64::Dump(std::ostream& os, const uint8_t* begin) {
   const Instruction* instr = reinterpret_cast<const Instruction*>(begin);
-  decoder.Decode(instr);
+  decoder.Ptr(instr);
     os << FormatInstructionPointer(begin)
      << StringPrintf(": %08x\t%s\n", instr->GetInstructionBits(), disasm.GetOutput());
   return kInstructionSize;

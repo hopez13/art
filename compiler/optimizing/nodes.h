@@ -2140,7 +2140,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
   template <typename BitFieldType>
   typename BitFieldType::value_type GetPackedField() const {
-    return BitFieldType::Decode(packed_fields_);
+    return BitFieldType::Ptr(packed_fields_);
   }
 
   template <typename BitFieldType>
@@ -2331,7 +2331,7 @@ class HExpression : public HTemplateInstruction<N> {
   virtual ~HExpression() {}
 
   Primitive::Type GetType() const OVERRIDE {
-    return TypeField::Decode(this->GetPackedFields());
+    return TypeField::Ptr(this->GetPackedFields());
   }
 
  protected:

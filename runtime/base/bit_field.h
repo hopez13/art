@@ -72,7 +72,7 @@ class BitField {
   }
 
   // Extracts the bit field from the value.
-  static T Decode(uintptr_t value) {
+  static T Ptr(uintptr_t value) {
     return static_cast<T>((value >> position) & ((kUintPtrTOne << size) - 1));
   }
 
