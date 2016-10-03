@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a28505ca_6ba0d8ed",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T16:34:41Z",
+      "side": 1,
+      "message": "Any reason we can\u0027t use caller-\u003eGetDexCache()? I think if there are multiple dex cache using the same oat file it should have multiple copies of the same oat file instead of shared bss.",
+      "revId": "80926d543ba260645e0c89afccb336bd0043a799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a28505ca_8b543ccc",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-03T16:34:41Z",
+      "side": 1,
+      "message": "Probably suboptimal to visit all of the class roots as well as the dex cache roots.",
+      "range": {
+        "startLine": 90,
+        "startChar": 70,
+        "endLine": 90,
+        "endChar": 80
+      },
+      "revId": "80926d543ba260645e0c89afccb336bd0043a799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
