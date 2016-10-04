@@ -22,6 +22,30 @@
       "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02a09108_0d27711f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-04T20:28:03Z",
+      "side": 1,
+      "message": "I\u0027d like to avoid it as that would mean mutators would have to contend on the lock when getting the flip function in Thread::TransitionFromRunnableToSuspended(). I think it\u0027s safe to get the flip function without acquiring the lock there because flip function is set while threads are suspended.",
+      "parentUuid": "2204b597_c6f2a2cc",
+      "range": {
+        "startLine": 1008,
+        "startChar": 62,
+        "endLine": 1008,
+        "endChar": 75
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
