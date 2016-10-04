@@ -33,6 +33,7 @@
 
 namespace art {
 
+class ClassLinker;
 template<class T> class Handle;
 class ImtConflictTable;
 union JValue;
@@ -600,11 +601,15 @@ class ArtMethod FINAL {
     return hotness_count_;
   }
 
-  const uint8_t* GetQuickenedInfo() REQUIRES_SHARED(Locks::mutator_lock_);
+  const uint8_t* GetQuickenedInfo(ClassLinker* class_linker) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns the method header for the compiled code containing 'pc'. Note that runtime
   // methods will return null for this method, as they are not oat based.
   const OatQuickMethodHeader* GetOatQuickMethodHeader(uintptr_t pc)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Get the oat code for a method when its class isn't yet initialized
+  const void* GetQuickOatCode(ClassLinker* class_linker)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns whether the method has any compiled code, JIT or AOT.
@@ -669,6 +674,12 @@ class ArtMethod FINAL {
   } ptr_sized_fields_;
 
  private:
+  // Get compiled code for the method, return null if no code
+  // exists. This is unlike GetQuickOatCode() which will return a bridge
+  // or interpreter entrypoint.
+  const void* GetOatMethodQuickCode(ClassLinker* class_linker)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool IsAnnotatedWith(jclass klass, uint32_t visibility);
 
   static constexpr size_t PtrSizedFieldsOffset(PointerSize pointer_size) {

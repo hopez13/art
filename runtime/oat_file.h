@@ -290,6 +290,13 @@ class OatFile {
   static bool GetDexLocationsFromDependencies(const char* dex_dependencies,
                                               std::vector<std::string>* locations);
 
+  // Finds the associated oat class for a dex_file and descriptor. Returns an invalid OatClass on
+  // error and sets found to false.
+  static OatFile::OatClass FindOatClass(const DexFile& dex_file,
+                                        uint16_t class_def_idx,
+                                        bool* found)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  protected:
   OatFile(const std::string& filename, bool executable);
 
