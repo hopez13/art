@@ -45,6 +45,75 @@
       "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22603588_0693fa60",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T18:47:24Z",
+      "side": 1,
+      "message": "Personally I don\u0027t like this very much...",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 599,
+        "endChar": 39
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22603588_691081b4",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T18:47:24Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good idea (the above, not this). It conflates issues, and I don\u0027t think it should be ArtMethod deciding on this.",
+      "range": {
+        "startLine": 678,
+        "startChar": 13,
+        "endLine": 679,
+        "endChar": 30
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22603588_896dbd29",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T18:47:24Z",
+      "side": 1,
+      "message": "Why would this depend on the mutator lock? Deserves a comment.",
+      "range": {
+        "startLine": 295,
+        "startChar": 6,
+        "endLine": 295,
+        "endChar": 44
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
