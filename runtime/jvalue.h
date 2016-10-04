@@ -18,8 +18,11 @@
 #define ART_RUNTIME_JVALUE_H_
 
 #include "base/macros.h"
+#include "base/mutex.h"
 
 #include <stdint.h>
+
+#include "obj_ptr.h"
 
 namespace art {
 namespace mirror {
@@ -54,6 +57,7 @@ union PACKED(4) JValue {
 
   mirror::Object* GetL() const { return l; }
   void SetL(mirror::Object* new_l) { l = new_l; }
+  void SetL(ObjPtr<mirror::Object> new_l) REQUIRES_SHARED(Locks::mutator_lock_);
 
   int16_t GetS() const { return s; }
   void SetS(int16_t new_s) {
