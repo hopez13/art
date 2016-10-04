@@ -36,8 +36,8 @@ class DexLayoutTest : public CommonRuntimeTest {
     dex_file_ = GetLibCoreDexFileNames()[0];
   }
 
-  // Runs test with given arguments.
-  bool Exec(std::string* error_msg) {
+  // Runs FullPlainOutput test.
+  bool FullPlainOutputExec(std::string* error_msg) {
     // TODO: dexdump2 -> dexdump ?
     ScratchFile dexdump_output;
     std::string dexdump_filename = dexdump_output.GetFilename();
@@ -67,6 +67,49 @@ class DexLayoutTest : public CommonRuntimeTest {
     return true;
   }
 
+  // Runs FullPlainOutput test.
+  bool DexFileOutputExec(std::string* error_msg) {
+    ScratchFile dexlayout_output;
+    std::string dexlayout_filename = dexlayout_output.GetFilename();
+    size_t scratch_last_slash = dexlayout_filename.rfind("/");
+    std::string scratch_directory = dexlayout_filename.substr(0, scratch_last_slash + 1);
+    std::string dexlayout = GetTestAndroidRoot() + "/bin/dexlayout";
+    EXPECT_TRUE(OS::FileExists(dexlayout.c_str())) << dexlayout << " should be a valid file path";
+    std::vector<std::string> dexlayout_exec_argv =
+        { dexlayout, "-d", "-f", "-h", "-l", "plain", "-w", scratch_directory, "-o",
+          dexlayout_filename, dex_file_ };
+
+    if (!::art::Exec(dexlayout_exec_argv, error_msg)) {
+      return false;
+    }
+
+    std::vector<std::string> unzip_exec_argv =
+        { "/usr/bin/unzip", dex_file_, "classes.dex", "-d", scratch_directory};
+    if (!::art::Exec(unzip_exec_argv, error_msg)) {
+      return false;
+    }
+
+    size_t dex_file_last_slash = dex_file_.rfind("/");
+    std::string dex_file_name = dex_file_.substr(dex_file_last_slash + 1);
+    std::vector<std::string> diff_exec_argv =
+        { "/usr/bin/diff", scratch_directory + "classes.dex" , scratch_directory + dex_file_name };
+    if (!::art::Exec(diff_exec_argv, error_msg)) {
+      return false;
+    }
+
+    std::vector<std::string> rm_zip_exec_argv = { "/bin/rm", scratch_directory + "classes.dex" };
+    if (!::art::Exec(rm_zip_exec_argv, error_msg)) {
+      return false;
+    }
+
+    std::vector<std::string> rm_out_exec_argv = { "/bin/rm", scratch_directory + dex_file_name };
+    if (!::art::Exec(rm_out_exec_argv, error_msg)) {
+      return false;
+    }
+
+    return true;
+  }
+
   std::string dex_file_;
 };
 
@@ -75,7 +118,14 @@ TEST_F(DexLayoutTest, FullPlainOutput) {
   // Disable test on target.
   TEST_DISABLED_FOR_TARGET();
   std::string error_msg;
-  ASSERT_TRUE(Exec(&error_msg)) << error_msg;
+  ASSERT_TRUE(FullPlainOutputExec(&error_msg)) << error_msg;
+}
+
+TEST_F(DexLayoutTest, DexFileOutput) {
+  // Disable test on target.
+  TEST_DISABLED_FOR_TARGET();
+  std::string error_msg;
+  ASSERT_TRUE(DexFileOutputExec(&error_msg)) << error_msg;
 }
 
 }  // namespace art
