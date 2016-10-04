@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02aa519b_c6d07821",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-04T15:08:40Z",
+      "side": 0,
+      "message": "Nicolas: This assert was preventing the stub lookup previously",
+      "revId": "26c0502b11f5aba672b01fb66a280afbec5edaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
