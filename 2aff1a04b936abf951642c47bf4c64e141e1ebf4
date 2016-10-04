@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22603588_66ff4e90",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T18:30:53Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 70
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22603588_66e8aecd",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T18:30:53Z",
+      "side": 1,
+      "message": "Isn\u0027t it overkill to pass the class-linker when the pointer size is all you need?",
+      "range": {
+        "startLine": 412,
+        "startChar": 31,
+        "endLine": 412,
+        "endChar": 66
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
