@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2e0dd14_2cf273f8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "Left-over code?",
+      "range": {
+        "startLine": 522,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 67
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_acfd43cb",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "check in the verifier that .... ?",
+      "range": {
+        "startLine": 609,
+        "startChar": 33,
+        "endLine": 609,
+        "endChar": 39
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02017189_051d5270",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "Give a name to this to avoid having to look at what ThrowNullPointerExceptionForMethodAccess takes as first argument?",
+      "range": {
+        "startLine": 619,
+        "startChar": 8,
+        "endLine": 619,
+        "endChar": 61
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_8c0287e3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "Looks like a common thing to say on each dex instruction, so not worth putting here?",
+      "range": {
+        "startLine": 627,
+        "startChar": 37,
+        "endLine": 628,
+        "endChar": 43
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_6ce87b06",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "Add a ScopedAssertNoThreadSuspension here, or use the new ObjPtr API introduced by Mathieu. You\u0027re living enough mirror::Object on the stack that I think it\u0027s worth having it.",
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_0cefb70c",
+        "filename": "test/955-methodhandles-smali/smali/Main.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-04T21:34:05Z",
+      "side": 1,
+      "message": "Missing copyright.",
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
