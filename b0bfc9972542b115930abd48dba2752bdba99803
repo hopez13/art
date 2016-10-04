@@ -69,6 +69,30 @@
       "revId": "b0bfc9972542b115930abd48dba2752bdba99803",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_9da3e3ac",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-10-04T00:52:11Z",
+      "side": 1,
+      "message": "Nope, this is because the output of this function is eval\u0027d.  If this is a single $ it will get evaluated immediately during the function, and then again in the eval, which messes up the necessary $ in $PPID.",
+      "parentUuid": "02aa519b_ddf28bcc",
+      "range": {
+        "startLine": 1043,
+        "startChar": 37,
+        "endLine": 1043,
+        "endChar": 38
+      },
+      "revId": "b0bfc9972542b115930abd48dba2752bdba99803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
