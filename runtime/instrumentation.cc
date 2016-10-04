@@ -132,7 +132,7 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
     if ((forced_interpret_only_ || IsDeoptimized(method)) && !method->IsNative()) {
       new_quick_code = GetQuickToInterpreterBridge();
     } else if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
-      new_quick_code = class_linker->GetQuickOatCodeFor(method);
+      new_quick_code = method->GetQuickOatCode(class_linker);
       if (NeedDebugVersionForBootImageCode(method, new_quick_code)) {
         new_quick_code = GetQuickToInterpreterBridge();
       }
@@ -148,7 +148,7 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
       // class, all its static methods code will be set to the instrumentation entry point.
       // For more details, see ClassLinker::FixupStaticTrampolines.
       if (is_class_initialized || !method->IsStatic() || method->IsConstructor()) {
-        new_quick_code = class_linker->GetQuickOatCodeFor(method);
+        new_quick_code = method->GetQuickOatCode(class_linker);
         if (NeedDebugVersionForBootImageCode(method, new_quick_code)) {
           // Oat code should not be used. Don't install instrumentation stub and
           // use interpreter for instrumentation.
@@ -802,7 +802,7 @@ void Instrumentation::Undeoptimize(ArtMethod* method) {
         !method->GetDeclaringClass()->IsInitialized()) {
       UpdateEntrypoints(method, GetQuickResolutionStub());
     } else {
-      const void* quick_code = class_linker->GetQuickOatCodeFor(method);
+      const void* quick_code = method->GetQuickOatCode(class_linker);
       if (NeedDebugVersionForBootImageCode(method, quick_code)) {
         quick_code = GetQuickToInterpreterBridge();
       }
@@ -899,7 +899,7 @@ const void* Instrumentation::GetQuickCodeFor(ArtMethod* method, PointerSize poin
       return code;
     }
   }
-  return runtime->GetClassLinker()->GetQuickOatCodeFor(method);
+  return method->GetQuickOatCode(runtime->GetClassLinker());
 }
 
 void Instrumentation::MethodEnterEventImpl(Thread* thread, mirror::Object* this_object,
