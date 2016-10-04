@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02aa519b_3d204fa4",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-04T00:41:24Z",
+      "side": 1,
+      "message": "Could you make a templated find method for this code, like:\n\ntemplate \u003ctypename T\u003e find(const container\u003cT\u003e\u0026 container) {\n  ...\n}",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 5
+      },
+      "revId": "69b58cf399c3507ca3debf9ec9b2db3c5a0fe7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_9d776392",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-04T00:41:24Z",
+      "side": 1,
+      "message": "If we found the right place to put the std::function stuff I added for the visualizer, we could use it to roll this into a loop, couldn\u0027t we?",
+      "range": {
+        "startLine": 499,
+        "startChar": 2,
+        "endLine": 502,
+        "endChar": 3
+      },
+      "revId": "69b58cf399c3507ca3debf9ec9b2db3c5a0fe7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_1dc11394",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-04T00:41:24Z",
+      "side": 1,
+      "message": "similarly with the std::function stuff here, I think.",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 17
+      },
+      "revId": "69b58cf399c3507ca3debf9ec9b2db3c5a0fe7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
