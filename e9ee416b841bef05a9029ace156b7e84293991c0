@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02aa519b_60daac0d",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-04T01:06:27Z",
+      "side": 1,
+      "message": "Missed these my bad.",
+      "parentUuid": "02aa519b_5dce7bae",
+      "range": {
+        "startLine": 285,
+        "startChar": 38,
+        "endLine": 285,
+        "endChar": 47
+      },
+      "revId": "e9ee416b841bef05a9029ace156b7e84293991c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02aa519b_7d5ed7e9",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-04T00:48:26Z",
       "side": 1,
       "message": "???",
+      "range": {
+        "startLine": 377,
+        "startChar": 11,
+        "endLine": 377,
+        "endChar": 22
+      },
+      "revId": "e9ee416b841bef05a9029ace156b7e84293991c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_60550c53",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-04T01:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aa519b_7d5ed7e9",
       "range": {
         "startLine": 377,
         "startChar": 11,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "02aa519b_8058188d",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-04T01:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aa519b_bd3a1f81",
+      "revId": "e9ee416b841bef05a9029ace156b7e84293991c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02aa519b_bdf7bfba",
         "filename": "runtime/base/bit_field.h",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2016-10-04T00:48:26Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "e9ee416b841bef05a9029ace156b7e84293991c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_a072f408",
+        "filename": "runtime/base/bit_field.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-04T01:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02aa519b_bdf7bfba",
       "range": {
         "startLine": 75,
         "startChar": 11,
