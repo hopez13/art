@@ -23,9 +23,8 @@
 
 #include "base/mutex.h"
 #include "base/stringpiece.h"
+#include "compiler_filter.h"
 #include "dex_file.h"
-#include "invoke_type.h"
-#include "mem_map.h"
 #include "mirror/class.h"
 #include "oat.h"
 #include "os.h"
@@ -289,6 +288,13 @@ class OatFile {
   // locations of multidex files.
   static bool GetDexLocationsFromDependencies(const char* dex_dependencies,
                                               std::vector<std::string>* locations);
+
+  // Finds the associated oat class for a dex_file and descriptor. Returns an invalid OatClass on
+  // error and sets found to false.
+  static OatFile::OatClass FindOatClass(const DexFile& dex_file,
+                                        uint16_t class_def_idx,
+                                        bool* found)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
  protected:
   OatFile(const std::string& filename, bool executable);
