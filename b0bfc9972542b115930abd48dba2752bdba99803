@@ -45,6 +45,30 @@
       "revId": "b0bfc9972542b115930abd48dba2752bdba99803",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02aa519b_ddf28bcc",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-04T00:47:47Z",
+      "side": 1,
+      "message": "I assume this is so that this doesn\u0027t have to be re-evaluated when the value changes in the second run? Can you explain (put a warning comment in)?",
+      "parentUuid": "02aa519b_dd93abb3",
+      "range": {
+        "startLine": 1043,
+        "startChar": 37,
+        "endLine": 1043,
+        "endChar": 38
+      },
+      "revId": "b0bfc9972542b115930abd48dba2752bdba99803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
