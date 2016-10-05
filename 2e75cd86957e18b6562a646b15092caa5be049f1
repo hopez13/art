@@ -46,6 +46,30 @@
       "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_4355a619",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T14:03:11Z",
+      "side": 1,
+      "message": "But you are relying on the Locks::thread_suspend_count_lock_ for the visibility here, aren\u0027t you?",
+      "parentUuid": "02a09108_0d27711f",
+      "range": {
+        "startLine": 1008,
+        "startChar": 62,
+        "endLine": 1008,
+        "endChar": 75
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
