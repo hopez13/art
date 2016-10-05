@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "422fe970_07af367f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-05T09:01:54Z",
+      "side": 1,
+      "message": "Some places in art use UNIMPLEMENTED(FATAL). Possibly easier to find in future.",
+      "range": {
+        "startLine": 683,
+        "startChar": 6,
+        "endLine": 683,
+        "endChar": 9
+      },
+      "revId": "1c5da6688adde43c1c6b7344e0b2c1b176c01af6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
