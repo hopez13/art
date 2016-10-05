@@ -70,6 +70,30 @@
       "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02a09108_acbe167d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-05T17:46:16Z",
+      "side": 1,
+      "message": "I think I am (unless waking up from a futex wait is enough.) It\u0027s GUARDED_BY(Locks::thread_suspend_count_lock_) in that sense. But I\u0027d like to not put GUARDED_BY there to avoid needing to acquire the lock in TransitionFromSuspendedToRunnable to satisfy the annotation constraint where I think it\u0027s safe not to.",
+      "parentUuid": "c21af956_4355a619",
+      "range": {
+        "startLine": 1008,
+        "startChar": 62,
+        "endLine": 1008,
+        "endChar": 75
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
