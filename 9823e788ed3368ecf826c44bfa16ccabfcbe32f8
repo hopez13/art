@@ -16,6 +16,24 @@
       "revId": "9823e788ed3368ecf826c44bfa16ccabfcbe32f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_e313f270",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T14:47:05Z",
+      "side": 1,
+      "message": "You\u0027re right. Sorry, I should\u0027ve been clearer in the commit message - see line 690-699 for the CHECK and a bit more detail.\n\nI\u0027m working on the non-exact invoke change at the moment, ETA is this evening.",
+      "parentUuid": "02a09108_56baa529",
+      "revId": "9823e788ed3368ecf826c44bfa16ccabfcbe32f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
