@@ -46,9 +46,8 @@ struct JNIEnvExt : public JNIEnv {
   void PushFrame(int capacity) REQUIRES_SHARED(Locks::mutator_lock_);
   void PopFrame() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  template<typename T>
-  T AddLocalReference(mirror::Object* obj)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  template<typename T, typename MirrorType>
+  T AddLocalReference(ObjPtr<MirrorType> obj) REQUIRES_SHARED(Locks::mutator_lock_);
 
   static Offset SegmentStateOffset(size_t pointer_size);
   static Offset LocalRefCookieOffset(size_t pointer_size);

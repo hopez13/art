@@ -19,7 +19,9 @@
 
 #include "indirect_reference_table.h"
 
+#include "base/dumpable.h"
 #include "gc_root-inl.h"
+#include "obj_ptr-inl.h"
 #include "runtime-inl.h"
 #include "verify_object-inl.h"
 
@@ -82,23 +84,86 @@ inline bool IndirectReferenceTable::CheckEntry(const char* what, IndirectRef ire
 }
 
 template<ReadBarrierOption kReadBarrierOption>
-inline mirror::Object* IndirectReferenceTable::Get(IndirectRef iref) const {
+inline ObjPtr<mirror::Object> IndirectReferenceTable::Get(IndirectRef iref) const {
   if (!GetChecked(iref)) {
     return nullptr;
   }
   uint32_t idx = ExtractIndex(iref);
-  mirror::Object* obj = table_[idx].GetReference()->Read<kReadBarrierOption>();
-  VerifyObject(obj);
+  ObjPtr<mirror::Object> obj = table_[idx].GetReference()->Read<kReadBarrierOption>();
+  VerifyObject(obj.Ptr());
   return obj;
 }
 
-inline void IndirectReferenceTable::Update(IndirectRef iref, mirror::Object* obj) {
+inline void IndirectReferenceTable::Update(IndirectRef iref, ObjPtr<mirror::Object> obj) {
   if (!GetChecked(iref)) {
     LOG(WARNING) << "IndirectReferenceTable Update failed to find reference " << iref;
     return;
   }
   uint32_t idx = ExtractIndex(iref);
   table_[idx].SetReference(obj);
+}
+
+inline IndirectRef IndirectReferenceTable::Add(uint32_t cookie, ObjPtr<mirror::Object> obj) {
+  IRTSegmentState prevState;
+  prevState.all = cookie;
+  size_t topIndex = segment_state_.parts.topIndex;
+
+  CHECK(obj != nullptr);
+  VerifyObject(obj.Ptr());
+  DCHECK(table_ != nullptr);
+  DCHECK_GE(segment_state_.parts.numHoles, prevState.parts.numHoles);
+
+  if (topIndex == max_entries_) {
+    LOG(FATAL) << "JNI ERROR (app bug): " << kind_ << " table overflow "
+               << "(max=" << max_entries_ << ")\n"
+               << MutatorLockedDumpable<IndirectReferenceTable>(*this);
+  }
+
+  // We know there's enough room in the table.  Now we just need to find
+  // the right spot.  If there's a hole, find it and fill it; otherwise,
+  // add to the end of the list.
+  IndirectRef result;
+  int numHoles = segment_state_.parts.numHoles - prevState.parts.numHoles;
+  size_t index;
+  if (numHoles > 0) {
+    DCHECK_GT(topIndex, 1U);
+    // Find the first hole; likely to be near the end of the list.
+    IrtEntry* pScan = &table_[topIndex - 1];
+    DCHECK(!pScan->GetReference()->IsNull());
+    --pScan;
+    while (!pScan->GetReference()->IsNull()) {
+      DCHECK_GE(pScan, table_ + prevState.parts.topIndex);
+      --pScan;
+    }
+    index = pScan - table_;
+    segment_state_.parts.numHoles--;
+  } else {
+    // Add to the end.
+    index = topIndex++;
+    segment_state_.parts.topIndex = topIndex;
+  }
+  table_[index].Add(obj);
+  result = ToIndirectRef(index);
+  if ((false)) {
+    LOG(INFO) << "+++ added at " << ExtractIndex(result) << " top=" << segment_state_.parts.topIndex
+              << " holes=" << segment_state_.parts.numHoles;
+  }
+
+  DCHECK(result != nullptr);
+  return result;
+}
+
+inline void IrtEntry::Add(ObjPtr<mirror::Object> obj) {
+  ++serial_;
+  if (serial_ == kIRTPrevCount) {
+    serial_ = 0;
+  }
+  references_[serial_] = GcRoot<mirror::Object>(obj);
+}
+
+inline void IrtEntry::SetReference(ObjPtr<mirror::Object> obj) {
+  DCHECK_LT(serial_, kIRTPrevCount);
+  references_[serial_] = GcRoot<mirror::Object>(obj);
 }
 
 }  // namespace art

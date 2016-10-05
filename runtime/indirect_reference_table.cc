@@ -46,32 +46,6 @@ const char* GetIndirectRefKindString(const IndirectRefKind& kind) {
   return "IndirectRefKind Error";
 }
 
-template<typename T>
-class MutatorLockedDumpable {
- public:
-  explicit MutatorLockedDumpable(T& value)
-      REQUIRES_SHARED(Locks::mutator_lock_) : value_(value) {
-  }
-
-  void Dump(std::ostream& os) const REQUIRES_SHARED(Locks::mutator_lock_) {
-    value_.Dump(os);
-  }
-
- private:
-  T& value_;
-
-  DISALLOW_COPY_AND_ASSIGN(MutatorLockedDumpable);
-};
-
-template<typename T>
-std::ostream& operator<<(std::ostream& os, const MutatorLockedDumpable<T>& rhs)
-// TODO: should be REQUIRES_SHARED(Locks::mutator_lock_) however annotalysis
-//       currently fails for this.
-    NO_THREAD_SAFETY_ANALYSIS {
-  rhs.Dump(os);
-  return os;
-}
-
 void IndirectReferenceTable::AbortIfNoCheckJNI(const std::string& msg) {
   // If -Xcheck:jni is on, it'll give a more detailed error before aborting.
   JavaVMExt* vm = Runtime::Current()->GetJavaVM();
@@ -118,62 +92,12 @@ bool IndirectReferenceTable::IsValid() const {
   return table_mem_map_.get() != nullptr;
 }
 
-IndirectRef IndirectReferenceTable::Add(uint32_t cookie, mirror::Object* obj) {
-  IRTSegmentState prevState;
-  prevState.all = cookie;
-  size_t topIndex = segment_state_.parts.topIndex;
-
-  CHECK(obj != nullptr);
-  VerifyObject(obj);
-  DCHECK(table_ != nullptr);
-  DCHECK_GE(segment_state_.parts.numHoles, prevState.parts.numHoles);
-
-  if (topIndex == max_entries_) {
-    LOG(FATAL) << "JNI ERROR (app bug): " << kind_ << " table overflow "
-               << "(max=" << max_entries_ << ")\n"
-               << MutatorLockedDumpable<IndirectReferenceTable>(*this);
-  }
-
-  // We know there's enough room in the table.  Now we just need to find
-  // the right spot.  If there's a hole, find it and fill it; otherwise,
-  // add to the end of the list.
-  IndirectRef result;
-  int numHoles = segment_state_.parts.numHoles - prevState.parts.numHoles;
-  size_t index;
-  if (numHoles > 0) {
-    DCHECK_GT(topIndex, 1U);
-    // Find the first hole; likely to be near the end of the list.
-    IrtEntry* pScan = &table_[topIndex - 1];
-    DCHECK(!pScan->GetReference()->IsNull());
-    --pScan;
-    while (!pScan->GetReference()->IsNull()) {
-      DCHECK_GE(pScan, table_ + prevState.parts.topIndex);
-      --pScan;
-    }
-    index = pScan - table_;
-    segment_state_.parts.numHoles--;
-  } else {
-    // Add to the end.
-    index = topIndex++;
-    segment_state_.parts.topIndex = topIndex;
-  }
-  table_[index].Add(obj);
-  result = ToIndirectRef(index);
-  if ((false)) {
-    LOG(INFO) << "+++ added at " << ExtractIndex(result) << " top=" << segment_state_.parts.topIndex
-              << " holes=" << segment_state_.parts.numHoles;
-  }
-
-  DCHECK(result != nullptr);
-  return result;
-}
-
 void IndirectReferenceTable::AssertEmpty() {
   for (size_t i = 0; i < Capacity(); ++i) {
     if (!table_[i].GetReference()->IsNull()) {
-      ScopedObjectAccess soa(Thread::Current());
       LOG(FATAL) << "Internal Error: non-empty local reference table\n"
                  << MutatorLockedDumpable<IndirectReferenceTable>(*this);
+      UNREACHABLE();
     }
   }
 }
@@ -299,7 +223,7 @@ void IndirectReferenceTable::Dump(std::ostream& os) const {
   os << kind_ << " table dump:\n";
   ReferenceTable::Table entries;
   for (size_t i = 0; i < Capacity(); ++i) {
-    mirror::Object* obj = table_[i].GetReference()->Read<kWithoutReadBarrier>();
+    ObjPtr<mirror::Object> obj = table_[i].GetReference()->Read<kWithoutReadBarrier>();
     if (obj != nullptr) {
       obj = table_[i].GetReference()->Read();
       entries.push_back(GcRoot<mirror::Object>(obj));
