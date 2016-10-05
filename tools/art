@@ -62,6 +62,14 @@ while true; do
   elif [ "$1" = "--perf-report" ]; then
     PERF="report"
     shift
+  elif [ "$1" = "--library-path" ]; then
+    shift
+    if [ "z$1" = "z" ]; then
+      echo "$0 missing argument to --library-path" 1>&2
+      exit 1
+    fi
+    LIBRARY_PATH=$1
+    shift
   elif expr "$1" : "--" >/dev/null 2>&1; then
     echo "unknown option: $1" 1>&2
     exit 1
@@ -75,6 +83,9 @@ PROG_DIR="$(cd "${PROG_NAME%/*}" ; pwd -P)"
 ANDROID_ROOT=$PROG_DIR/..
 LIBDIR=$(find_libdir)
 LD_LIBRARY_PATH=$ANDROID_ROOT/$LIBDIR
+if [ z"$LIBRARY_PATH" != z ]; then
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBRARY_PATH
+fi
 DEBUG_OPTION=""
 
 DELETE_ANDROID_DATA=false
