@@ -140,6 +140,30 @@
       "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_9a2fd1f6",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T20:44:29Z",
+      "side": 1,
+      "message": "Yes, I see the implicit constructor, so we don\u0027t need this particular line changed then?\n\nHowever you should fix ObjPtr::ObjPtr to do a compile-time type check with std::is_base_of, right now it lets you do implicit downcasts which is unsafe.\n\nDowncasting should be the same as the existing mirror downcasting, it should do a runtime check (either regular CHECK or DCHECK) and it should be explicit.",
+      "parentUuid": "7f3c88c0_d454121f",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
