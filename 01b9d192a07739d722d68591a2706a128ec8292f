@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f3c88c0_5134b4fc",
+        "filename": "compiler/optimizing/linear_order.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-05T18:20:43Z",
+      "side": 1,
+      "message": "done a bit half way with a helper for linear_order",
+      "parentUuid": "c21af956_235b4af9",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "01b9d192a07739d722d68591a2706a128ec8292f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c21af956_e35852ff",
         "filename": "compiler/optimizing/linear_order.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "02a09108_ccdc426e",
+        "filename": "compiler/optimizing/linear_order.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-05T18:20:43Z",
+      "side": 1,
+      "message": "Done. Good suggestion. I still have to get used to this new iterator syntax, but this is so much better with so much less code :-)",
+      "parentUuid": "c21af956_e35852ff",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "01b9d192a07739d722d68591a2706a128ec8292f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c21af956_83723e74",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-05T17:27:03Z",
       "side": 1,
       "message": "Remove space.",
+      "range": {
+        "startLine": 136,
+        "startChar": 14,
+        "endLine": 136,
+        "endChar": 15
+      },
+      "revId": "01b9d192a07739d722d68591a2706a128ec8292f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02a09108_ec777e90",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-05T18:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c21af956_83723e74",
       "range": {
         "startLine": 136,
         "startChar": 14,
