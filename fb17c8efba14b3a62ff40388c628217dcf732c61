@@ -22,6 +22,29 @@
       "revId": "fb17c8efba14b3a62ff40388c628217dcf732c61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_03872e4c",
+        "filename": "compiler/optimizing/linear_order.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T18:37:51Z",
+      "side": 1,
+      "message": "Remove \"static\". It\u0027s enough to make the function inline.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "fb17c8efba14b3a62ff40388c628217dcf732c61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
