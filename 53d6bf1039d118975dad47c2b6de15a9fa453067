@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f3c88c0_d4f09256",
+        "filename": "runtime/base/dumpable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3c88c0_b193e05b",
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3c88c0_b4a50ea0",
         "filename": "runtime/indirect_reference_table-inl.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-05T18:35:10Z",
       "side": 1,
       "message": "Very hard to review due to moving to a new file.",
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_f47ef6b2",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:02:08Z",
+      "side": 1,
+      "message": "Unnecessary move, fixed.",
+      "parentUuid": "7f3c88c0_b4a50ea0",
       "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,30 @@
       "side": 1,
       "message": "Do I understand it correctly that you\u0027re asking for an implicit conversion to happen? Otherwise it would be inconvenient to have to write this explicitly everywhere.\n\nHowever, there should be consistency. Why do this for this one case (obviously for convenience), but leave a lot of other places non-templated?",
       "parentUuid": "7f3c88c0_f4ddd603",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_d454121f",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:02:08Z",
+      "side": 1,
+      "message": "A lot of places only use mirror::Object and don\u0027t need casts. I can delete this since there is already an implicit templated ObjPtr constructor.",
+      "parentUuid": "7f3c88c0_34959eec",
       "range": {
         "startLine": 29,
         "startChar": 38,
