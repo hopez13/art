@@ -94,6 +94,53 @@
       "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f85bcca_a27dbe3e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-10-05T21:39:20Z",
+      "side": 1,
+      "message": "If this can never actually be read concurrently with an update, it should be fine to read it without a lock. Whatever communication is used to wake up a thread after suspension (futex wake presumably), or to let the suspending thread know we are suspended, should provide the required synchronization/visibility guarantees.",
+      "parentUuid": "02a09108_acbe167d",
+      "range": {
+        "startLine": 1008,
+        "startChar": 62,
+        "endLine": 1008,
+        "endChar": 75
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f85bcca_22220eab",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-10-05T21:39:20Z",
+      "side": 1,
+      "message": "I think we should always document cases in which this lock is temporarily released by the function, since that may break atomicity in the caller. Hopefully that\u0027s OK here?",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 50
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
