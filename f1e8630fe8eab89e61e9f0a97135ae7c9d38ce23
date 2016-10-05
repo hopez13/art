@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02a09108_e7cafe62",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-05T02:25:13Z",
+      "side": 1,
+      "message": "Bah, this wasn\u0027t supposed to be here. The dependent change just reverted it, though.",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 5
+      },
+      "revId": "f1e8630fe8eab89e61e9f0a97135ae7c9d38ce23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
