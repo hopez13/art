@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5fefc46f_00b7e6cf",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T12:41:32Z",
+      "side": 1,
+      "message": "Removed (cut-and-pasted comment).",
+      "parentUuid": "22603588_66ff4e90",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 70
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22603588_66e8aecd",
         "filename": "runtime/art_method.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-04T18:30:53Z",
       "side": 1,
       "message": "Isn\u0027t it overkill to pass the class-linker when the pointer size is all you need?",
+      "range": {
+        "startLine": 412,
+        "startChar": 31,
+        "endLine": 412,
+        "endChar": 66
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "422fe970_47be8eab",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T12:41:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22603588_66e8aecd",
       "range": {
         "startLine": 412,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3ff4d040_7f676f4d",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T12:41:32Z",
+      "side": 1,
+      "message": "Moved back to ClassLinker::GetQuickOatCodeFor(). Moved the initial checks from GetOatMethodQuickCode() to callers so that ClassLinker::GetQuickOatCodeFor() can call it.",
+      "parentUuid": "22603588_0693fa60",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 599,
+        "endChar": 39
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22603588_691081b4",
         "filename": "runtime/art_method.h",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0225f190_a562de08",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T12:41:32Z",
+      "side": 1,
+      "message": "Moved GetQuickOatCode() back to ClassLinker::GetQuickOatCodeFor() and removed this comment.",
+      "parentUuid": "22603588_691081b4",
+      "range": {
+        "startLine": 678,
+        "startChar": 13,
+        "endLine": 679,
+        "endChar": 30
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22603588_896dbd29",
         "filename": "runtime/oat_file.h",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-04T18:47:24Z",
       "side": 1,
       "message": "Why would this depend on the mutator lock? Deserves a comment.",
+      "range": {
+        "startLine": 295,
+        "startChar": 6,
+        "endLine": 295,
+        "endChar": 44
+      },
+      "revId": "2aff1a04b936abf951642c47bf4c64e141e1ebf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ff4d040_7fc3ef34",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-05T12:41:32Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "22603588_896dbd29",
       "range": {
         "startLine": 295,
         "startChar": 6,
