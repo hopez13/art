@@ -46,6 +46,63 @@
       "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_5a53a969",
+        "filename": "runtime/base/dumpable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T20:48:56Z",
+      "side": 1,
+      "message": "Where are the asserts?\n\nWhy do we even need this empty method that does nothing?",
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_7ab9cd95",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8273,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T20:48:56Z",
+      "side": 1,
+      "message": "What is it \"Getting\" from? Is it something super-common that we can overload MakeObjPtr to accept?",
+      "range": {
+        "startLine": 8273,
+        "startChar": 66,
+        "endLine": 8273,
+        "endChar": 91
+      },
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_3ada25de",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T20:48:56Z",
+      "side": 1,
+      "message": "Why? Why isn\u0027t everything in obj_ptr.h?",
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
