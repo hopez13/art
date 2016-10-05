@@ -16,6 +16,24 @@
       "revId": "f8ac97f94aad9ce2d324c2c7c21dde3abf13315b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df7734bf_d47e7cb3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1998,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T23:28:02Z",
+      "side": 1,
+      "message": "GetObject returns mirror::Object so it needed an AsString",
+      "parentUuid": "df7734bf_94d6c4bb",
+      "revId": "f8ac97f94aad9ce2d324c2c7c21dde3abf13315b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
