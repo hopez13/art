@@ -80,8 +80,15 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
 
   std::string error_str;
   // Map name specific for android_os_Debug.cpp accounting.
+  // Map in low 4gb to simplify accessing literal tables for x86_64.
   MemMap* data_map = MemMap::MapAnonymous(
-      "data-code-cache", nullptr, max_capacity, kProtAll, false, false, &error_str, use_ashmem);
+      "data-code-cache", nullptr,
+      max_capacity,
+      kProtAll,
+      /* low_4gb */ true,
+      false,
+      &error_str,
+      use_ashmem);
   if (data_map == nullptr) {
     std::ostringstream oss;
     oss << "Failed to create read write execute cache: " << error_str << " size=" << max_capacity;
@@ -197,34 +204,40 @@ class ScopedCodeCacheWrite : ScopedTrace {
 
 uint8_t* JitCodeCache::CommitCode(Thread* self,
                                   ArtMethod* method,
-                                  const uint8_t* vmap_table,
+                                  uint8_t* stack_map,
+                                  uint8_t* literal_data,
                                   size_t frame_size_in_bytes,
                                   size_t core_spill_mask,
                                   size_t fp_spill_mask,
                                   const uint8_t* code,
                                   size_t code_size,
-                                  bool osr) {
+                                  bool osr,
+                                  Handle<mirror::ObjectArray<mirror::Object>> literals) {
   uint8_t* result = CommitCodeInternal(self,
                                        method,
-                                       vmap_table,
+                                       stack_map,
+                                       literal_data,
                                        frame_size_in_bytes,
                                        core_spill_mask,
                                        fp_spill_mask,
                                        code,
                                        code_size,
-                                       osr);
+                                       osr,
+                                       literals);
   if (result == nullptr) {
     // Retry.
     GarbageCollectCache(self);
     result = CommitCodeInternal(self,
                                 method,
-                                vmap_table,
+                                stack_map,
+                                literal_data,
                                 frame_size_in_bytes,
                                 core_spill_mask,
                                 fp_spill_mask,
                                 code,
                                 code_size,
-                                osr);
+                                osr,
+                                literals);
   }
   return result;
 }
@@ -243,20 +256,58 @@ static uintptr_t FromCodeToAllocation(const void* code) {
   return reinterpret_cast<uintptr_t>(code) - RoundUp(sizeof(OatQuickMethodHeader), alignment);
 }
 
+static uint32_t ComputeLiteralTableSize(uint32_t number_of_literals) {
+  return sizeof(uint32_t) + number_of_literals * sizeof(GcRoot<mirror::Object>);
+}
+
+static uint32_t GetNumberOfLiterals(const uint8_t* stack_map) {
+  return reinterpret_cast<const uint32_t*>(stack_map)[-1];
+}
+
+static void FillLiteralTable(uint8_t* literal_data,
+                             Handle<mirror::ObjectArray<mirror::Object>> literals)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t length = literals->GetLength();
+  for (uint32_t i = 0; i < length; ++i) {
+    reinterpret_cast<GcRoot<mirror::Object>*>(literal_data)[i] =
+        GcRoot<mirror::Object>(literals->Get(i));
+  }
+  reinterpret_cast<uint32_t*>(literal_data)[length] = length;
+}
+
+static uint8_t* GetLiteralTable(const void* code_ptr, uint32_t* number_of_literals = nullptr) {
+  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+  uint8_t* data = method_header->GetOptimizedCodeInfoPtr();
+  uint32_t literals = GetNumberOfLiterals(data);
+  if (number_of_literals != nullptr) {
+    *number_of_literals = literals;
+  }
+  return data - ComputeLiteralTableSize(literals);
+}
+
+void JitCodeCache::SweepLiteralTables(IsMarkedVisitor* visitor) {
+  MutexLock mu(Thread::Current(), lock_);
+  for (const auto& entry : method_code_map_) {
+    uint32_t number_of_literals = 0;
+    uint8_t* literal_data = GetLiteralTable(entry.first, &number_of_literals);
+    GcRoot<mirror::Object>* roots = reinterpret_cast<GcRoot<mirror::Object>*>(literal_data);
+    for (uint32_t i = 0; i < number_of_literals; ++i) {
+      // This does not need a read barrier because this is called by GC.
+      mirror::Object* object = roots[i].Read<kWithoutReadBarrier>();
+      DCHECK(object->IsString());
+      mirror::Object* new_string = visitor->IsMarked(object);
+      DCHECK(new_string != nullptr);
+      roots[i] = GcRoot<mirror::Object>(new_string);
+    }
+  }
+}
+
 void JitCodeCache::FreeCode(const void* code_ptr, ArtMethod* method ATTRIBUTE_UNUSED) {
   uintptr_t allocation = FromCodeToAllocation(code_ptr);
-  const OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
   // Notify native debugger that we are about to remove the code.
   // It does nothing if we are not using native debugger.
   DeleteJITCodeEntryForAddress(reinterpret_cast<uintptr_t>(code_ptr));
-
-  // Use the offset directly to prevent sanity check that the method is
-  // compiled with optimizing.
-  // TODO(ngeoffray): Clean up.
-  if (method_header->vmap_table_offset_ != 0) {
-    const uint8_t* data = method_header->code_ - method_header->vmap_table_offset_;
-    FreeData(const_cast<uint8_t*>(data));
-  }
+  FreeData(GetLiteralTable(code_ptr));
   FreeCode(reinterpret_cast<uint8_t*>(allocation));
 }
 
@@ -308,13 +359,16 @@ void JitCodeCache::ClearGcRootsInInlineCaches(Thread* self) {
 
 uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
                                           ArtMethod* method,
-                                          const uint8_t* vmap_table,
+                                          uint8_t* stack_map,
+                                          uint8_t* literal_data,
                                           size_t frame_size_in_bytes,
                                           size_t core_spill_mask,
                                           size_t fp_spill_mask,
                                           const uint8_t* code,
                                           size_t code_size,
-                                          bool osr) {
+                                          bool osr,
+                                          Handle<mirror::ObjectArray<mirror::Object>> literals) {
+  DCHECK(stack_map != nullptr);
   size_t alignment = GetInstructionSetAlignment(kRuntimeISA);
   // Ensure the header ends up at expected instruction alignment.
   size_t header_size = RoundUp(sizeof(OatQuickMethodHeader), alignment);
@@ -338,7 +392,7 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
       std::copy(code, code + code_size, code_ptr);
       method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
       new (method_header) OatQuickMethodHeader(
-          (vmap_table == nullptr) ? 0 : code_ptr - vmap_table,
+          code_ptr - stack_map,
           frame_size_in_bytes,
           core_spill_mask,
           fp_spill_mask,
@@ -353,6 +407,8 @@ uint8_t* JitCodeCache::CommitCodeInternal(Thread* self,
   {
     MutexLock mu(self, lock_);
     method_code_map_.Put(code_ptr, method);
+    // Fill the literal table before updating the entry point.
+    FillLiteralTable(literal_data, literals);
     if (osr) {
       number_of_osr_compilations_++;
       osr_code_map_.Put(method, code_ptr);
@@ -408,8 +464,14 @@ void JitCodeCache::ClearData(Thread* self, void* data) {
   FreeData(reinterpret_cast<uint8_t*>(data));
 }
 
-uint8_t* JitCodeCache::ReserveData(Thread* self, size_t size, ArtMethod* method) {
-  size = RoundUp(size, sizeof(void*));
+void JitCodeCache::ReserveData(Thread* self,
+                               size_t stack_map_size,
+                               size_t number_of_literals,
+                               ArtMethod* method,
+                               uint8_t** stack_map_data,
+                               uint8_t** literal_data) {
+  size_t table_size = ComputeLiteralTableSize(number_of_literals);
+  size_t size = RoundUp(stack_map_size + table_size, sizeof(void*));
   uint8_t* result = nullptr;
 
   {
@@ -436,7 +498,8 @@ uint8_t* JitCodeCache::ReserveData(Thread* self, size_t size, ArtMethod* method)
               << " for stack maps of "
               << PrettyMethod(method);
   }
-  return result;
+  *literal_data = result;
+  *stack_map_data = result + table_size;
 }
 
 class MarkCodeVisitor FINAL : public StackVisitor {

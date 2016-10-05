@@ -81,6 +81,7 @@
 #include "intern_table.h"
 #include "interpreter/interpreter.h"
 #include "jit/jit.h"
+#include "jit/jit_code_cache.h"
 #include "jni_internal.h"
 #include "linear_alloc.h"
 #include "mirror/array.h"
@@ -484,6 +485,9 @@ void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
   GetMonitorList()->SweepMonitorList(visitor);
   GetJavaVM()->SweepJniWeakGlobals(visitor);
   GetHeap()->SweepAllocationRecords(visitor);
+  if (GetJit() != nullptr) {
+    GetJit()->GetCodeCache()->SweepLiteralTables(visitor);
+  }
 
   // All other generic system-weak holders.
   for (gc::AbstractSystemWeakHolder* holder : system_weak_holders_) {

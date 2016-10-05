@@ -4283,6 +4283,9 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
     case HLoadString::LoadKind::kDexCacheViaMethod:
       fallback_load = false;
       break;
+    case HLoadString::LoadKind::kJitTableAddress:
+      fallback_load = true;
+      break;
   }
   if (fallback_load) {
     desired_string_load_kind = HLoadString::LoadKind::kDexCacheViaMethod;
