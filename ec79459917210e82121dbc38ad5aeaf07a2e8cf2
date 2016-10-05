@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c21af956_03af2e7f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done. I\u0027ll remove it here but It will come by in the next patchset when i implement non-exact invoke.",
+      "parentUuid": "e2e0dd14_2cf273f8",
+      "range": {
+        "startLine": 522,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 67
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2e0dd14_acfd43cb",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-04T21:34:05Z",
       "side": 1,
       "message": "check in the verifier that .... ?",
+      "range": {
+        "startLine": 609,
+        "startChar": 33,
+        "endLine": 609,
+        "endChar": 39
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_63a622aa",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2e0dd14_acfd43cb",
       "range": {
         "startLine": 609,
         "startChar": 33,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "22283569_e6805efe",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02017189_051d5270",
+      "range": {
+        "startLine": 619,
+        "startChar": 8,
+        "endLine": 619,
+        "endChar": 61
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2e0dd14_8c0287e3",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-04T21:34:05Z",
       "side": 1,
       "message": "Looks like a common thing to say on each dex instruction, so not worth putting here?",
+      "range": {
+        "startLine": 627,
+        "startChar": 37,
+        "endLine": 628,
+        "endChar": 43
+      },
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_83bf9eab",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2e0dd14_8c0287e3",
       "range": {
         "startLine": 627,
         "startChar": 37,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "c21af956_a3c49a3a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done. Note that I can\u0027t use ScopedAssertNoThreadSuspension because i\u0027ll need to end the assert before we make the call do DoCallCommon. It\u0027s a bit ugly but at least it\u0027s a -Wthread-safety-analysis compile time failure if we make a mistake there.",
+      "parentUuid": "e2e0dd14_6ce87b06",
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2e0dd14_0cefb70c",
         "filename": "test/955-methodhandles-smali/smali/Main.smali",
         "patchSetId": 1
@@ -122,6 +236,24 @@
       "writtenOn": "2016-10-04T21:34:05Z",
       "side": 1,
       "message": "Missing copyright.",
+      "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21af956_23ac2a88",
+        "filename": "test/955-methodhandles-smali/smali/Main.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-05T08:35:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2e0dd14_0cefb70c",
       "revId": "ec79459917210e82121dbc38ad5aeaf07a2e8cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
