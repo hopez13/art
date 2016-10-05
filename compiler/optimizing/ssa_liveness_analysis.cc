@@ -18,12 +18,17 @@
 
 #include "base/bit_vector-inl.h"
 #include "code_generator.h"
+#include "linear_order.h"
 #include "nodes.h"
 
 namespace art {
 
 void SsaLivenessAnalysis::Analyze() {
-  graph_->Linearize();
+  // Compute the linear order directly in the graph's data structure
+  // (there are no more following graph mutations).
+  LinearizeGraph(graph_, graph_->GetArena(), &graph_->linear_order_);
+
+  // Liveness analysis.
   NumberInstructions();
   ComputeLiveness();
 }
@@ -40,7 +45,7 @@ void SsaLivenessAnalysis::NumberInstructions() {
   // to differentiate between the start and end of an instruction. Adding 2 to
   // the lifetime position for each instruction ensures the start of an
   // instruction is different than the end of the previous instruction.
-  for (HLinearOrderIterator it(*graph_); !it.Done(); it.Advance()) {
+  for (HLinearOrderIterator it(graph_->GetLinearOrder()); !it.Done(); it.Advance()) {
     HBasicBlock* block = it.Current();
     block->SetLifetimeStart(lifetime_position);
 
@@ -83,7 +88,7 @@ void SsaLivenessAnalysis::NumberInstructions() {
 }
 
 void SsaLivenessAnalysis::ComputeLiveness() {
-  for (HLinearOrderIterator it(*graph_); !it.Done(); it.Advance()) {
+  for (HLinearOrderIterator it(graph_->GetLinearOrder()); !it.Done(); it.Advance()) {
     HBasicBlock* block = it.Current();
     block_infos_[block->GetBlockId()] =
         new (graph_->GetArena()) BlockInfo(graph_->GetArena(), *block, number_of_ssa_values_);
@@ -136,7 +141,7 @@ static void RecursivelyProcessInputs(HInstruction* current,
 void SsaLivenessAnalysis::ComputeLiveRanges() {
   // Do a post order visit, adding inputs of instructions live in the block where
   // that instruction is defined, and killing instructions that are being visited.
-  for (HLinearPostOrderIterator it(*graph_); !it.Done(); it.Advance()) {
+  for (HLinearPostOrderIterator it(graph_->GetLinearOrder()); !it.Done(); it.Advance()) {
     HBasicBlock* block = it.Current();
 
     BitVector* kill = GetKillSet(*block);
