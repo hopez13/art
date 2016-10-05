@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02a09108_764b6154",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-05T14:13:36Z",
+      "side": 1,
+      "message": "This will leave loop_test accessing released memory, but I am guessing the second CL fixes that (you could have seen that in my pending CL that does exactly this by the way).",
+      "range": {
+        "startLine": 160,
+        "startChar": 2,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "ebe167422f6197b9df0698bbeb944a0e4eea5f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
