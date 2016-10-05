@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02a09108_56baa529",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T14:43:46Z",
+      "side": 1,
+      "message": "Where is the auto-boxing happening for #invoke , it seems like this is #invokeExact semantics?",
+      "revId": "9823e788ed3368ecf826c44bfa16ccabfcbe32f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
