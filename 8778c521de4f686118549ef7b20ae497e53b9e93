@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "7f3c88c0_5a62890c",
+        "filename": "runtime/base/dumpable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:51:43Z",
+      "side": 1,
+      "message": "See inl",
+      "parentUuid": "7f3c88c0_5a53a969",
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3c88c0_7ab9cd95",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -89,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "7f3c88c0_daa2f946",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8273,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:51:43Z",
+      "side": 1,
+      "message": "Clean thsi up later.",
+      "parentUuid": "7f3c88c0_7ab9cd95",
+      "range": {
+        "startLine": 8273,
+        "startChar": 66,
+        "endLine": 8273,
+        "endChar": 91
+      },
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3c88c0_3ada25de",
         "filename": "runtime/indirect_reference_table-inl.h",
         "patchSetId": 2
@@ -100,6 +142,24 @@
       "writtenOn": "2016-10-05T20:48:56Z",
       "side": 1,
       "message": "Why? Why isn\u0027t everything in obj_ptr.h?",
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_9a8591bb",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:51:43Z",
+      "side": 1,
+      "message": "Requires Thread::Current and stuff.",
+      "parentUuid": "7f3c88c0_3ada25de",
       "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
