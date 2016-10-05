@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02a09108_99f1de5d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-05T16:07:47Z",
+      "side": 1,
+      "message": "note that this CL was already restricting the scope of the arena, but I should probably not have hidden this in the linear order restructuring (I just made memory usage and labeling more clear at the same go).\n\nI will merge this with the emergency cascade that happened since then.",
+      "revId": "0889601ceba1bd09fda7f49cbd89efc18e7fad6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
