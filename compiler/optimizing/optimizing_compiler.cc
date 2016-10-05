@@ -114,6 +114,7 @@ class CodeVectorAllocator FINAL : public CodeAllocator {
 
   size_t GetSize() const { return size_; }
   const ArenaVector<uint8_t>& GetMemory() const { return memory_; }
+  uint8_t* GetData() { return memory_.data(); }
 
  private:
   ArenaVector<uint8_t> memory_;
@@ -1090,7 +1091,7 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                                     jit::JitCodeCache* code_cache,
                                     ArtMethod* method,
                                     bool osr) {
-  StackHandleScope<2> hs(self);
+  StackHandleScope<3> hs(self);
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(
       method->GetDeclaringClass()->GetClassLoader()));
   Handle<mirror::DexCache> dex_cache(hs.NewHandle(method->GetDexCache()));
@@ -1136,22 +1137,34 @@ bool OptimizingCompiler::JitCompile(Thread* self,
   }
 
   size_t stack_map_size = codegen->ComputeStackMapsSize();
-  uint8_t* stack_map_data = code_cache->ReserveData(self, stack_map_size, method);
-  if (stack_map_data == nullptr) {
+  size_t number_of_literals = codegen->GetNumberOfLiterals();
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  Handle<mirror::ObjectArray<mirror::Object>> literals(
+      hs.NewHandle(mirror::ObjectArray<mirror::Object>::Alloc(
+          self, class_linker->GetClassRoot(ClassLinker::kObjectArrayClass), number_of_literals)));
+  uint8_t* stack_map_data = nullptr;
+  uint8_t* literal_data = nullptr;
+  code_cache->ReserveData(
+      self, stack_map_size, number_of_literals, method, &stack_map_data, &literal_data);
+  if (stack_map_data == nullptr || literal_data == nullptr) {
     return false;
   }
   MaybeRecordStat(MethodCompilationStat::kCompiled);
   codegen->BuildStackMaps(MemoryRegion(stack_map_data, stack_map_size), *code_item);
+  codegen->EmitLiterals(code_allocator.GetData(), literals, literal_data, dex_cache);
+
   const void* code = code_cache->CommitCode(
       self,
       method,
       stack_map_data,
+      literal_data,
       codegen->HasEmptyFrame() ? 0 : codegen->GetFrameSize(),
       codegen->GetCoreSpillMask(),
       codegen->GetFpuSpillMask(),
       code_allocator.GetMemory().data(),
       code_allocator.GetSize(),
-      osr);
+      osr,
+      literals);
 
   if (code == nullptr) {
     code_cache->ClearData(self, stack_map_data);

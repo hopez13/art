@@ -5660,7 +5660,9 @@ class HLoadString FINAL : public HInstruction {
     // all other types are unavailable.
     kDexCacheViaMethod,
 
-    kLast = kDexCacheViaMethod
+    kJitTableAddress,
+
+    kLast = kJitTableAddress,
   };
 
   HLoadString(HCurrentMethod* current_method,
@@ -5718,7 +5720,8 @@ class HLoadString FINAL : public HInstruction {
     LoadKind load_kind = GetLoadKind();
     if (load_kind == LoadKind::kBootImageLinkTimeAddress ||
         load_kind == LoadKind::kBootImageLinkTimePcRelative ||
-        load_kind == LoadKind::kBootImageAddress) {
+        load_kind == LoadKind::kBootImageAddress ||
+        load_kind == LoadKind::kJitTableAddress) {
       return false;
     }
     return !IsInDexCache();
@@ -5771,7 +5774,8 @@ class HLoadString FINAL : public HInstruction {
     return load_kind == LoadKind::kBootImageLinkTimeAddress ||
         load_kind == LoadKind::kBootImageLinkTimePcRelative ||
         load_kind == LoadKind::kBssEntry ||
-        load_kind == LoadKind::kDexCacheViaMethod;
+        load_kind == LoadKind::kDexCacheViaMethod ||
+        load_kind == LoadKind::kJitTableAddress;
   }
 
   static bool HasAddress(LoadKind load_kind) {

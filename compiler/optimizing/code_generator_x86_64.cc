@@ -1074,7 +1074,8 @@ CodeGeneratorX86_64::CodeGeneratorX86_64(HGraph* graph,
         simple_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
         type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
-        fixups_to_jump_tables_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)) {
+        fixups_to_jump_tables_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+        jit_string_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)) {
   AddAllocatedRegister(Location::RegisterLocation(kFakeReturnRegister));
 }
 
@@ -5438,6 +5439,8 @@ HLoadString::LoadKind CodeGeneratorX86_64::GetSupportedLoadStringKind(
       break;
     case HLoadString::LoadKind::kDexCacheViaMethod:
       break;
+    case HLoadString::LoadKind::kJitTableAddress:
+      break;
   }
   return desired_string_load_kind;
 }
@@ -5455,6 +5458,14 @@ void LocationsBuilderX86_64::VisitLoadString(HLoadString* load) {
   } else {
     locations->SetOut(Location::RequiresRegister());
   }
+}
+
+Label* CodeGeneratorX86_64::NewJitTableStringPatch(const DexFile& dex_file, uint32_t dex_index) {
+  jit_string_entries_.Overwrite(StringReference(&dex_file, dex_index), /* placeholder */ 0u);
+  // Add a patch entry and return the label.
+  jit_string_patches_.emplace_back(dex_file, dex_index);
+  PatchInfo<Label>* info = &jit_string_patches_.back();
+  return &info->label;
 }
 
 void InstructionCodeGeneratorX86_64::VisitLoadString(HLoadString* load) {
@@ -5486,6 +5497,15 @@ void InstructionCodeGeneratorX86_64::VisitLoadString(HLoadString* load) {
       __ testl(out, out);
       __ j(kEqual, slow_path->GetEntryLabel());
       __ Bind(slow_path->GetExitLabel());
+      return;
+    }
+    case HLoadString::LoadKind::kJitTableAddress: {
+      Address address = Address::Absolute(CodeGeneratorX86_64::kDummy32BitOffset,
+                                          /* no_rip */ true);
+      Label* fixup_label = codegen_->NewJitTableStringPatch(
+          load->GetDexFile(), load->GetStringIndex());
+      // /* GcRoot<mirror::Class> */ out = *address  /* PC-relative */
+      GenerateGcRootFieldLoad(load, out_loc, address, fixup_label);
       return;
     }
     default:
@@ -6812,6 +6832,20 @@ void CodeGeneratorX86_64::MoveInt64ToAddress(const Address& addr_low,
     __ movl(addr_low, Immediate(low_v));
     MaybeRecordImplicitNullCheck(instruction);
     __ movl(addr_high, Immediate(high_v));
+  }
+}
+
+void CodeGeneratorX86_64::EmitLiteralPatches(uint8_t* code, const uint8_t* literal_data) {
+  for (const PatchInfo<Label>& info : jit_string_patches_) {
+    const auto& it = jit_string_entries_.find(StringReference(&info.dex_file, info.index));
+    DCHECK(it != jit_string_entries_.end());
+    size_t index_in_table = it->second;
+    uint32_t code_offset = info.label.Position() - kLabelPositionToLiteralOffsetAdjustment;
+    uintptr_t address =
+        reinterpret_cast<uintptr_t>(literal_data) + index_in_table * sizeof(GcRoot<mirror::Object>);
+    typedef __attribute__((__aligned__(1))) uint32_t unaligned_uint32_t;
+    reinterpret_cast<unaligned_uint32_t*>(code + code_offset)[0] =
+       dchecked_integral_cast<uint32_t>(address);
   }
 }
 
