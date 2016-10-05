@@ -17,6 +17,7 @@
 #include "register_allocation_resolver.h"
 
 #include "code_generator.h"
+#include "linear_order.h"
 #include "ssa_liveness_analysis.h"
 
 namespace art {
@@ -141,7 +142,9 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
   }
 
   // Resolve non-linear control flow across branches. Order does not matter.
-  for (HLinearOrderIterator it(*codegen_->GetGraph()); !it.Done(); it.Advance()) {
+  for (HLinearOrderIterator it(codegen_->GetGraph()->GetLinearOrder());
+       !it.Done();
+       it.Advance()) {
     HBasicBlock* block = it.Current();
     if (block->IsCatchBlock() ||
         (block->IsLoopHeader() && block->GetLoopInformation()->IsIrreducible())) {
@@ -172,7 +175,9 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
   }
 
   // Resolve phi inputs. Order does not matter.
-  for (HLinearOrderIterator it(*codegen_->GetGraph()); !it.Done(); it.Advance()) {
+  for (HLinearOrderIterator it(codegen_->GetGraph()->GetLinearOrder());
+       !it.Done();
+       it.Advance()) {
     HBasicBlock* current = it.Current();
     if (current->IsCatchBlock()) {
       // Catch phi values are set at runtime by the exception delivery mechanism.

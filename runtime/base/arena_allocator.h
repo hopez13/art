@@ -39,7 +39,7 @@ class MemStats;
 template <typename T>
 class ArenaAllocatorAdapter;
 
-static constexpr bool kArenaAllocatorCountAllocations = false;
+static constexpr bool kArenaAllocatorCountAllocations = true;  // BIK
 
 // Type of allocation for memory tuning.
 enum ArenaAllocKind {
@@ -80,6 +80,7 @@ enum ArenaAllocKind {
   kArenaAllocDCE,
   kArenaAllocLSE,
   kArenaAllocLICM,
+  kArenaAllocLoopOptimization,
   kArenaAllocSsaLiveness,
   kArenaAllocSsaPhiElimination,
   kArenaAllocReferenceTypePropagation,
