@@ -76,7 +76,9 @@ class LoopOptimizationTest : public CommonCompilerTest {
   void PerformAnalysis() {
     graph_->BuildDominatorTree();
     iva_->Run();
-    loop_opt_->Run();
+    // Do not release the loop hierarchy.
+    loop_opt_->loop_allocator_ = &allocator_;
+    loop_opt_->LocalRun();
   }
 
   /** Constructs string representation of computed loop hierarchy. */

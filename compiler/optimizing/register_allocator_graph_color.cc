@@ -17,6 +17,7 @@
 #include "register_allocator_graph_color.h"
 
 #include "code_generator.h"
+#include "linear_order.h"
 #include "register_allocation_resolver.h"
 #include "ssa_liveness_analysis.h"
 #include "thread-inl.h"
@@ -757,7 +758,9 @@ bool RegisterAllocatorGraphColor::Validate(bool log_fatal_on_failure) {
 }
 
 void RegisterAllocatorGraphColor::ProcessInstructions() {
-  for (HLinearPostOrderIterator it(*codegen_->GetGraph()); !it.Done(); it.Advance()) {
+  for (HLinearPostOrderIterator it(codegen_->GetGraph()->GetLinearOrder());
+       !it.Done();
+       it.Advance()) {
     HBasicBlock* block = it.Current();
 
     // Note that we currently depend on this ordering, since some helper
