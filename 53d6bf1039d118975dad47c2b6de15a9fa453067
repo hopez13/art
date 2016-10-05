@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f3c88c0_b193e05b",
+        "filename": "runtime/base/dumpable.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T18:35:10Z",
+      "side": 1,
+      "message": "Can you add asserts here?",
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_b4a50ea0",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T18:35:10Z",
+      "side": 1,
+      "message": "Very hard to review due to moving to a new file.",
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_f4ddd603",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-05T18:35:10Z",
+      "side": 1,
+      "message": "minor: why does it matter? we should have a up_cast operation for ObjPtr .",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
