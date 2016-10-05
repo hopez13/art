@@ -56,6 +56,30 @@
       "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_34959eec",
+        "filename": "runtime/jni_env_ext-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-05T18:48:07Z",
+      "side": 1,
+      "message": "Do I understand it correctly that you\u0027re asking for an implicit conversion to happen? Otherwise it would be inconvenient to have to write this explicitly everywhere.\n\nHowever, there should be consistency. Why do this for this one case (obviously for convenience), but leave a lot of other places non-templated?",
+      "parentUuid": "7f3c88c0_f4ddd603",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "53d6bf1039d118975dad47c2b6de15a9fa453067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
