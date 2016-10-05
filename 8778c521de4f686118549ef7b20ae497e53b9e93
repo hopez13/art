@@ -22,6 +22,30 @@
       "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3c88c0_97de8c2b",
+        "filename": "runtime/base/dumpable.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-05T20:35:58Z",
+      "side": 1,
+      "message": "True, we could move the class into the inl file. Probably not worth it unless there are more callers though.",
+      "parentUuid": "7f3c88c0_f79f18b2",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "8778c521de4f686118549ef7b20ae497e53b9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
