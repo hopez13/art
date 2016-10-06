@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe360ef_a1009aac",
+        "filename": "runtime/openjdkjvmti/object_tagging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T19:37:11Z",
+      "side": 1,
+      "message": "Read\u003ckWithoutReadBarrier\u003e",
+      "range": {
+        "startLine": 105,
+        "startChar": 54,
+        "endLine": 105,
+        "endChar": 58
+      },
+      "revId": "6dee92eb2ebddbea7e147c7a82b193e113b6421f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
