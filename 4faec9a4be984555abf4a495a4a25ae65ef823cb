@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_8706262e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_2b7a1ac1",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_4b7dd6b7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-28T16:12:53Z",
       "side": 1,
       "message": "Bug: 31743474",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_e703a21c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_4b7dd6b7",
       "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_87258619",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_cbaf0632",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_6b8412bb",
         "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-09-28T16:12:53Z",
       "side": 1,
       "message": "I think this is doing the same thing as the arm constructor, can you add more comments for why the 2 or the 0, etc?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_acc30301",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_6b8412bb",
       "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "0225f190_65d466de",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_ebae4233",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_4ba4b651",
         "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2016-09-28T16:12:53Z",
       "side": 1,
       "message": "Can you also explain this (citing if necessary), and add some examples here?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2e0dd14_8c9607f9",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c1c7c3_4ba4b651",
       "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_e732825b",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "Should I add few more test cases in jni_compiler_test to cover those situations?",
+      "parentUuid": "e5c1c7c3_2b705ace",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5c1c7c3_4eb5e4c6",
         "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
         "patchSetId": 1
@@ -132,6 +258,24 @@
       "writtenOn": "2016-09-28T16:12:53Z",
       "side": 1,
       "message": "What about float?",
+      "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_c72f7ef5",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-06T14:34:05Z",
+      "side": 1,
+      "message": "I\u0027ve added a comment about that.",
+      "parentUuid": "e5c1c7c3_4eb5e4c6",
       "revId": "4faec9a4be984555abf4a495a4a25ae65ef823cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
