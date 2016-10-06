@@ -141,6 +141,30 @@
       "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df7734bf_17863673",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-06T01:03:19Z",
+      "side": 1,
+      "message": "Added a comment. The existing call sites look OK to me.",
+      "parentUuid": "9f85bcca_22220eab",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 50
+      },
+      "revId": "2e75cd86957e18b6562a646b15092caa5be049f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
