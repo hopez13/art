@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe360ef_af5c01f0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3374,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-06T21:20:46Z",
+      "side": 1,
+      "message": "I think you could just put this into DecodeJObject or have an overload DecodeJObjectAs, it\u0027s repeating a lot and it would be shorter/simpler as a single helper.",
+      "range": {
+        "startLine": 3374,
+        "startChar": 16,
+        "endLine": 3374,
+        "endChar": 29
+      },
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_2f70f168",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-06T21:20:46Z",
+      "side": 1,
+      "message": "?\n\nWhy not just add an implicit constructor for nullptr_t in ObjPtr? Does that still give a type error?",
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_2f42b1f8",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-06T21:20:46Z",
+      "side": 1,
+      "message": "Can this do a  DCHECK(IsAssignableFrom) somehow? It always bothered me the old down_cast was not safe.",
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
