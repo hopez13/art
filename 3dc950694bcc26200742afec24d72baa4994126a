@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f23f0ed_c7bf7e13",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 803,
+        "startChar": 19,
+        "endLine": 803,
+        "endChar": 72
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f2d68d5_29b2ad9a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "I\u0027d move this to line 740 (you want to protect the passed mirror::Objects.",
+      "range": {
+        "startLine": 764,
+        "startChar": 0,
+        "endLine": 765,
+        "endChar": 83
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff1878be_25f76eec",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "I would put mirror::Object in handles here. The method is big enough.",
+      "range": {
+        "startLine": 102,
+        "startChar": 31,
+        "endLine": 111,
+        "endChar": 80
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff1878be_650166e1",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f285cc7_6a5db71c",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 139,
+        "startChar": 36,
+        "endLine": 140,
+        "endChar": 53
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f1ee4a6_28a58b0c",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "Consistency: do else if ?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 6
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffef98c0_cdbfa913",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-06T15:51:33Z",
+      "side": 1,
+      "message": "Is that a known term?",
+      "range": {
+        "startLine": 175,
+        "startChar": 17,
+        "endLine": 175,
+        "endChar": 27
+      },
+      "revId": "3dc950694bcc26200742afec24d72baa4994126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
