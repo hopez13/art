@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bfe360ef_6f7bd915",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T20:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe360ef_a483483f",
+      "range": {
+        "startLine": 436,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 80
+      },
+      "revId": "6c0c0405c118f05f73b9fbfdf2830ddbb2c2afc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe360ef_8441ecf2",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bfe360ef_0feb356b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T20:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe360ef_8441ecf2",
+      "range": {
+        "startLine": 1952,
+        "startChar": 100,
+        "endLine": 1952,
+        "endChar": 107
+      },
+      "revId": "6c0c0405c118f05f73b9fbfdf2830ddbb2c2afc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe360ef_a4e7c8ff",
         "filename": "runtime/obj_ptr.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-06T20:34:30Z",
       "side": 1,
       "message": "Should there be a DCHECK that the object is actually an instance of MirrorType?",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 47
+      },
+      "revId": "6c0c0405c118f05f73b9fbfdf2830ddbb2c2afc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_ef88c9d4",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T20:55:53Z",
+      "side": 1,
+      "message": "What do you mean, like IsDexCache, etc? That would be hard unless we add a template version.",
+      "parentUuid": "bfe360ef_a4e7c8ff",
       "range": {
         "startLine": 138,
         "startChar": 4,
