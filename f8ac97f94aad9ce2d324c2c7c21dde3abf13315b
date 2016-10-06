@@ -34,6 +34,24 @@
       "revId": "f8ac97f94aad9ce2d324c2c7c21dde3abf13315b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df7734bf_57a58e0a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1998,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-06T00:28:00Z",
+      "side": 1,
+      "message": "Oh I see, this was using implicit downcast before..",
+      "parentUuid": "df7734bf_d47e7cb3",
+      "revId": "f8ac97f94aad9ce2d324c2c7c21dde3abf13315b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
