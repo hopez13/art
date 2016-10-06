@@ -177,6 +177,11 @@ define create-core-oat-target-rules
 
   ifeq ($(1),optimizing)
     core_compile_options += --compiler-backend=Optimizing
+    # TODO(VIXL): The ARM VIXL backend is still work in progress. Therefore for now we do not
+    # compile the core image with the Optimizing backend when ART_USE_VIXL_ARM_BACKEND is defined.
+    ifdef ART_USE_VIXL_ARM_BACKEND
+      core_compile_options += --compiler-filter=interpret-only
+    endif
     # With the optimizing compiler, we want to rerun dex2oat whenever there is
     # a dex2oat change to catch regressions early.
     core_dex2oat_dependency := $(DEX2OAT)
