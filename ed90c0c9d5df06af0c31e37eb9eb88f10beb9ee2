@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f23f0ed_8738e6d6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-06T15:26:56Z",
+      "side": 1,
+      "message": "Perhaps good to comment on this path for wider operands.",
+      "range": {
+        "startLine": 722,
+        "startChar": 3,
+        "endLine": 722,
+        "endChar": 31
+      },
+      "revId": "ed90c0c9d5df06af0c31e37eb9eb88f10beb9ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f2d68d5_499a811d",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-06T15:26:56Z",
+      "side": 1,
+      "message": "s/unmolested/unchanged/",
+      "range": {
+        "startLine": 175,
+        "startChar": 17,
+        "endLine": 175,
+        "endChar": 27
+      },
+      "revId": "ed90c0c9d5df06af0c31e37eb9eb88f10beb9ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
