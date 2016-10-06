@@ -434,7 +434,7 @@ void ImageWriter::PrepareDexCacheArraySlots() {
   ReaderMutexLock mu(self, *class_linker->DexLock());
   for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
     mirror::DexCache* dex_cache =
-        down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root));
+        down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root).Ptr());
     if (dex_cache == nullptr || IsInBootImage(dex_cache)) {
       continue;
     }
@@ -1006,7 +1006,7 @@ ObjectArray<Object>* ImageWriter::CreateImageRoots(size_t oat_index) const {
     // Count number of dex caches not in the boot image.
     for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
       mirror::DexCache* dex_cache =
-          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root));
+          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root).Ptr());
       if (dex_cache == nullptr) {
         continue;
       }
@@ -1025,7 +1025,7 @@ ObjectArray<Object>* ImageWriter::CreateImageRoots(size_t oat_index) const {
     // Re-count number of non image dex caches.
     for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
       mirror::DexCache* dex_cache =
-          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root));
+          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root).Ptr());
       if (dex_cache == nullptr) {
         continue;
       }
@@ -1039,7 +1039,7 @@ ObjectArray<Object>* ImageWriter::CreateImageRoots(size_t oat_index) const {
     size_t i = 0;
     for (const ClassLinker::DexCacheData& data : class_linker->GetDexCachesData()) {
       mirror::DexCache* dex_cache =
-          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root));
+          down_cast<mirror::DexCache*>(self->DecodeJObject(data.weak_root).Ptr());
       if (dex_cache == nullptr) {
         continue;
       }
