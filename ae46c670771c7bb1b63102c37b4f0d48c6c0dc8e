@@ -22,6 +22,30 @@
       "revId": "ae46c670771c7bb1b63102c37b4f0d48c6c0dc8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f9fc479_e0612208",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T22:44:31Z",
+      "side": 1,
+      "message": "There is circular dependencies since\nobject_reference requires obj_ptr and obj_ptr requires kHeapReferenceSize. I added static assert in object_reference.h to deal with that.",
+      "parentUuid": "7f9e487e_a1967e3d",
+      "range": {
+        "startLine": 176,
+        "startChar": 52,
+        "endLine": 176,
+        "endChar": 60
+      },
+      "revId": "ae46c670771c7bb1b63102c37b4f0d48c6c0dc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
