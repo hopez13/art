@@ -22,6 +22,30 @@
       "revId": "a51d8b77a8b0d2466e8d931bd5de552465fb6961",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_5b3c237d",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-06T17:53:38Z",
+      "side": 1,
+      "message": "I fixed it here: https://android-review.googlesource.com/#/c/285102/\n\nNote that the field can be const, but it cannot be a pointer to a const HandleScope (because GetTopHandleScope itself doesn\u0027t return a pointer to a const handle scope).",
+      "parentUuid": "3f23f0ed_87b3c6e0",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 29
+      },
+      "revId": "a51d8b77a8b0d2466e8d931bd5de552465fb6961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
