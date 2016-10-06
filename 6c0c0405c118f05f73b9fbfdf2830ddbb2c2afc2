@@ -140,6 +140,30 @@
       "revId": "6c0c0405c118f05f73b9fbfdf2830ddbb2c2afc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_2f447173",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-06T20:59:20Z",
+      "side": 1,
+      "message": "Yes, would be complex (some static function on the mirror type is probably the easiest, implementation-wise). Was only for discussion...",
+      "parentUuid": "bfe360ef_ef88c9d4",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 47
+      },
+      "revId": "6c0c0405c118f05f73b9fbfdf2830ddbb2c2afc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
