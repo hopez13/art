@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bfe360ef_8a2733b9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3374,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T21:44:50Z",
+      "side": 1,
+      "message": "True, or just use auto.",
+      "parentUuid": "bfe360ef_af5c01f0",
+      "range": {
+        "startLine": 3374,
+        "startChar": 16,
+        "endLine": 3374,
+        "endChar": 29
+      },
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe360ef_2f70f168",
         "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "bfe360ef_ca113b5e",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T21:44:50Z",
+      "side": 1,
+      "message": "There is one, I think the ? operator gets confused though since it doesnt know which type to use.",
+      "parentUuid": "bfe360ef_2f70f168",
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe360ef_2f42b1f8",
         "filename": "runtime/obj_ptr.h",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2016-10-06T21:20:46Z",
       "side": 1,
       "message": "Can this do a  DCHECK(IsAssignableFrom) somehow? It always bothered me the old down_cast was not safe.",
+      "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe360ef_6a92e74d",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-06T21:44:50Z",
+      "side": 1,
+      "message": "Not easily, maybe worth doing later. But we would still need an unchecked version for a few cases.",
+      "parentUuid": "bfe360ef_2f42b1f8",
       "revId": "c4f3925490a73da8dc74884a1deb965d4ecaf14e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
