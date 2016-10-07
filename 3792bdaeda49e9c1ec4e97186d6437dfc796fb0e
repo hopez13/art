@@ -93,6 +93,30 @@
       "revId": "3792bdaeda49e9c1ec4e97186d6437dfc796fb0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3ac856_1090f2fb",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-10-07T22:51:15Z",
+      "side": 1,
+      "message": "I think this is good enough to prevent the memcpy recognition. But it\u0027s not entirely correct, since a perverse, but conforming, compiler could still, for example, load *src_bytes a byte at a time. If those bytes were concurrently updated by a word-sized write, I could still observe \"word-tearing\", as some byte reads would see the before value, and some could see the after value.",
+      "parentUuid": "7f3ac856_6ab38b03",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 39
+      },
+      "revId": "3792bdaeda49e9c1ec4e97186d6437dfc796fb0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
