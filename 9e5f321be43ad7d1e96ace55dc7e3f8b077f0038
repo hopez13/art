@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fec880a_3aa625ab",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-07T15:16:04Z",
+      "side": 0,
+      "message": "FYI, these were intentional, so that the exposed API in the header is small...",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2583,
+        "endChar": 11
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
