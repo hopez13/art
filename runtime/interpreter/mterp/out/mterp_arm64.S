@@ -300,6 +300,51 @@ codes.
   ldr     xIBASE, [xSELF, #THREAD_CURRENT_IBASE_OFFSET]
 .endm
 
+/*
+ * cfi support macros.
+ */
+.macro ENTRY name
+    .type \name, #function
+    .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
+    .global \name
+    /* Cache alignment for function entry */
+    .balign 16
+\name:
+    .cfi_startproc
+.endm
+
+.macro END name
+    .cfi_endproc
+    .size \name, .-\name
+.endm
+
+.macro SAVE_TWO_REGS reg1, reg2, offset
+    stp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_rel_offset \reg1, (\offset)
+    .cfi_rel_offset \reg2, (\offset) + 8
+.endm
+
+.macro RESTORE_TWO_REGS reg1, reg2, offset
+    ldp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+.endm
+
+.macro SAVE_TWO_REGS_INCREASE_FRAME reg1, reg2, frame_adjustment
+    stp \reg1, \reg2, [sp, #-(\frame_adjustment)]!
+    .cfi_adjust_cfa_offset (\frame_adjustment)
+    .cfi_rel_offset \reg1, 0
+    .cfi_rel_offset \reg2, 8
+.endm
+
+.macro RESTORE_TWO_REGS_DECREASE_FRAME reg1, reg2, frame_adjustment
+    ldp \reg1, \reg2, [sp], #(\frame_adjustment)
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+    .cfi_adjust_cfa_offset -(\frame_adjustment)
+.endm
+
+
 /* File: arm64/entry.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
@@ -328,17 +373,12 @@ codes.
  *  x3  JValue* result_register
  *
  */
-    .global ExecuteMterpImpl
-    .type   ExecuteMterpImpl, %function
-    .balign 16
-
-ExecuteMterpImpl:
-    .cfi_startproc
-    stp     xPROFILE, x27, [sp, #-80]!
-    stp     xIBASE, xREFS, [sp, #16]
-    stp     xSELF, xINST, [sp, #32]
-    stp     xPC, xFP, [sp, #48]
-    stp     fp, lr, [sp, #64]
+ENTRY ExecuteMterpImpl
+    SAVE_TWO_REGS_INCREASE_FRAME xPROFILE, x27, 80
+    SAVE_TWO_REGS xIBASE, xREFS 16
+    SAVE_TWO_REGS xSELF, xINST, 32
+    SAVE_TWO_REGS xPC, xFP, 48
+    SAVE_TWO_REGS fp, lr, 64
     add     fp, sp, #64
 
     /* Remember the return register */
@@ -6862,24 +6902,16 @@ artMterpAsmInstructionStart = .L_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_op_unused_fa: /* 0xfa */
-/* File: arm64/op_unused_fa.S */
-/* File: arm64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
-  b MterpFallback
+.L_op_invoke_polymorphic: /* 0xfa */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
     .balign 128
-.L_op_unused_fb: /* 0xfb */
-/* File: arm64/op_unused_fb.S */
-/* File: arm64/unused.S */
-/*
- * Bail to reference interpreter to throw.
- */
-  b MterpFallback
+.L_op_invoke_polymorphic_range: /* 0xfb */
+/* Transfer stub to alternate interpreter */
+    b    MterpFallback
 
 
 /* ------------------------------ */
@@ -7234,11 +7266,11 @@ MterpDone:
  */
     cmp     wPROFILE, #0
     bgt     MterpProfileActive                      // if > 0, we may have some counts to report.
-    ldp     fp, lr, [sp, #64]
-    ldp     xPC, xFP, [sp, #48]
-    ldp     xSELF, xINST, [sp, #32]
-    ldp     xIBASE, xREFS, [sp, #16]
-    ldp     xPROFILE, x27, [sp], #80
+    RESTORE_TWO_REGS fp, lr, 64
+    RESTORE_TWO_REGS xPC, xFP, 48
+    RESTORE_TWO_REGS xSELF, xINST, 32
+    RESTORE_TWO_REGS xIBASE, xREFS, 16
+    RESTORE_TWO_REGS_DECREASE_FRAME xPROFILE, x27, 80
     ret
 
 MterpProfileActive:
@@ -7250,15 +7282,14 @@ MterpProfileActive:
     strh    wPROFILE, [x1, #SHADOWFRAME_HOTNESS_COUNTDOWN_OFFSET]
     bl      MterpAddHotnessBatch                    // (method, shadow_frame, self)
     mov     x0, xINST                               // restore return value
-    ldp     fp, lr, [sp, #64]
-    ldp     xPC, xFP, [sp, #48]
-    ldp     xSELF, xINST, [sp, #32]
-    ldp     xIBASE, xREFS, [sp, #16]
-    ldp     xPROFILE, x27, [sp], #80
+    RESTORE_TWO_REGS fp, lr, 64
+    RESTORE_TWO_REGS xPC, xFP, 48
+    RESTORE_TWO_REGS xSELF, xINST, 32
+    RESTORE_TWO_REGS xIBASE, xREFS, 16
+    RESTORE_TWO_REGS_DECREASE_FRAME xPROFILE, x27, 80
     ret
 
-    .cfi_endproc
-    .size   ExecuteMterpImpl, .-ExecuteMterpImpl
+END ExecuteMterpImpl
 
 
 
@@ -11519,7 +11550,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_fa: /* 0xfa */
+.L_ALT_op_invoke_polymorphic: /* 0xfa */
 /* File: arm64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
@@ -11536,7 +11567,7 @@ artMterpAsmAltInstructionStart = .L_ALT_op_nop
 
 /* ------------------------------ */
     .balign 128
-.L_ALT_op_unused_fb: /* 0xfb */
+.L_ALT_op_invoke_polymorphic_range: /* 0xfb */
 /* File: arm64/alt_stub.S */
 /*
  * Inter-instruction transfer stub.  Call out to MterpCheckBefore to handle
