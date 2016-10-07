@@ -46,6 +46,29 @@
       "revId": "3792bdaeda49e9c1ec4e97186d6437dfc796fb0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3ac856_2a30239b",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-10-07T22:01:18Z",
+      "side": 1,
+      "message": "We also want the load to be a relaxed atomic load, right? Part of the problem is that a pointer in the source may be getting overwritten while we\u0027re copying.",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 39
+      },
+      "revId": "3792bdaeda49e9c1ec4e97186d6437dfc796fb0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
