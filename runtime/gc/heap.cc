@@ -21,6 +21,7 @@
 #include <unwind.h>  // For GC verification.
 #include <vector>
 
+#include "allocation_listener.h"
 #include "art_field-inl.h"
 #include "base/allocator.h"
 #include "base/arena_allocator.h"
@@ -4222,6 +4223,28 @@ void Heap::GetBootImagesSize(uint32_t* boot_image_begin,
     *boot_oat_end = std::max(*boot_oat_end, oat_begin + oat_size);
   }
 }
+void Heap::SetAllocationListener(AllocationListener* l) {
+  AllocationListener* old;
+  do {
+    old = alloc_listener_.LoadSequentiallyConsistent();
+  } while (!alloc_listener_.CompareExchangeStrongSequentiallyConsistent(old, l));
+
+  if (old == nullptr) {
+    Runtime::Current()->GetInstrumentation()->InstrumentQuickAllocEntryPoints();
+  }
+}
+
+void Heap::RemoveAllocationListener() {
+  AllocationListener* old;
+  do {
+    old = alloc_listener_.LoadSequentiallyConsistent();
+  } while (!alloc_listener_.CompareExchangeStrongSequentiallyConsistent(old, nullptr));
+
+  if (old != nullptr) {
+    Runtime::Current()->GetInstrumentation()->InstrumentQuickAllocEntryPoints();
+  }
+}
+
 
 }  // namespace gc
 }  // namespace art
