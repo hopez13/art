@@ -662,6 +662,8 @@ class Runtime {
   void AddSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
   void RemoveSystemWeakHolder(gc::AbstractSystemWeakHolder* holder);
 
+  void AttachAgent(const std::string& agent_arg);
+
  private:
   static void InitPlatformSignalHandlers();
 

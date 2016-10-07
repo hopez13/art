@@ -1299,6 +1299,27 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   return true;
 }
 
+// Attach a new agent and add it to the list of runtime agents
+void Runtime::AttachAgent(const std::string& agent_arg) {
+  ti::Agent agent(agent_arg);
+
+  int res = 0;
+  std::string err;
+  ti::Agent::LoadError result = agent.Attach(&res, &err);
+
+  if (result == ti::Agent::kNoError) {
+    agents_.push_back(std::move(agent));
+  } else if (result == ti::Agent::kInitializationError) {
+    // Fail-fast if we can't initialize the agent
+    LOG(FATAL) << err;
+  } else {
+    // Log the erorr and throw IOException
+    LOG(ERROR) << err;
+    ScopedObjectAccess soa(Thread::Current());
+    ThrowWrappedIOException("%s", err.c_str());
+  }
+}
+
 void Runtime::InitNativeMethods() {
   VLOG(startup) << "Runtime::InitNativeMethods entering";
   Thread* self = Thread::Current();
