@@ -476,6 +476,34 @@ static jobjectArray VMDebug_getRuntimeStatsInternal(JNIEnv* env, jclass) {
   return result;
 }
 
+static void VMDebug_attachAgent(JNIEnv* env, jclass, jstring path) {
+  if (path == nullptr) {
+    ScopedObjectAccess soa(env);
+    ThrowNullPointerException("path is null");
+    return;
+  }
+
+  std::string filename;
+
+  {
+    ScopedUtfChars chars(env, path);
+    if (env->ExceptionCheck()) {
+      return;
+    }
+    filename = chars.c_str();
+  }
+
+  JavaVM* java_vm = nullptr;
+  if(env->GetJavaVM(&java_vm)) {
+    LOG(INFO) << "Can't get the JavaVM";
+    return;
+  }
+
+  // TODO: once we decide on the threading model for agents,
+  //   revisit this and make sure we're doing this on the right thread
+  Runtime::Current()->AttachAgent(filename);
+}
+
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, countInstancesOfClass, "(Ljava/lang/Class;Z)J"),
   NATIVE_METHOD(VMDebug, countInstancesOfClasses, "([Ljava/lang/Class;Z)[J"),
@@ -508,7 +536,8 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, stopMethodTracing, "()V"),
   NATIVE_METHOD(VMDebug, threadCpuTimeNanos, "!()J"),
   NATIVE_METHOD(VMDebug, getRuntimeStatInternal, "(I)Ljava/lang/String;"),
-  NATIVE_METHOD(VMDebug, getRuntimeStatsInternal, "()[Ljava/lang/String;")
+  NATIVE_METHOD(VMDebug, getRuntimeStatsInternal, "()[Ljava/lang/String;"),
+  NATIVE_METHOD(VMDebug, attachAgent, "(Ljava/lang/String;)V"),
 };
 
 void register_dalvik_system_VMDebug(JNIEnv* env) {

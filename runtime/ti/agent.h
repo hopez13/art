@@ -27,9 +27,12 @@
 namespace art {
 namespace ti {
 
-using AgentOnLoadFunction = jint (*)(JavaVM*, const char*, void*);
-using AgentOnAttachFunction = jint (*)(JavaVM*, const char*, void*);
+using AgentCommonLoadFunction = jint (*)(JavaVM*, const char*, void*);
+using AgentOnLoadFunction = AgentCommonLoadFunction;
+using AgentOnAttachFunction = AgentCommonLoadFunction;
 using AgentOnUnloadFunction = void (*)(JavaVM*);
+
+// TODO: consider splitting ti::Agent into command line, agent and shared library handler classes
 
 class Agent {
  public:
@@ -56,60 +59,38 @@ class Agent {
     return !GetArgs().empty();
   }
 
-  // TODO We need to acquire some locks probably.
-  LoadError Load(/*out*/jint* call_res, /*out*/std::string* error_msg);
+  LoadError Load(/*out*/jint* call_res, /*out*/std::string* error_msg) {
+    LOG(INFO) << "Loading agent: " << name_ << " " << args_;
+    return DoLoadHelper(call_res, error_msg, false);
+  }
 
   // TODO We need to acquire some locks probably.
   void Unload();
 
   // Tries to attach the agent using its OnAttach method. Returns true on success.
-  // TODO We need to acquire some locks probably.
-  LoadError Attach(std::string* error_msg) {
-    // TODO
-    *error_msg = "Attach has not yet been implemented!";
-    return kLoadingError;
+  LoadError Attach(/*out*/jint* call_res, /*out*/std::string* error_msg) {
+    LOG(INFO) << "Attaching agent: " << name_ << " " << args_;
+    return DoLoadHelper(call_res, error_msg, true);
   }
 
-  static Agent Create(std::string arg);
+  Agent(std::string arg);
 
-  static Agent Create(std::string name, std::string args) {
-    return Agent(name, args);
-  }
+  Agent(const Agent& other);
+  Agent& operator=(const Agent& other);
+
+  Agent(Agent&& other);
+  Agent& operator=(Agent&& other);
 
   ~Agent();
 
-  // We need move constructor and copy for vectors
-  Agent(const Agent& other);
-
-  Agent(Agent&& other)
-      : name_(other.name_),
-        args_(other.args_),
-        dlopen_handle_(nullptr),
-        onload_(nullptr),
-        onattach_(nullptr),
-        onunload_(nullptr) {
-    other.dlopen_handle_ = nullptr;
-    other.onload_ = nullptr;
-    other.onattach_ = nullptr;
-    other.onunload_ = nullptr;
-  }
-
-  // We don't need an operator=
-  void operator=(const Agent&) = delete;
-
  private:
-  Agent(std::string name, std::string args)
-      : name_(name),
-        args_(args),
-        dlopen_handle_(nullptr),
-        onload_(nullptr),
-        onattach_(nullptr),
-        onunload_(nullptr) { }
-
   LoadError DoDlOpen(/*out*/std::string* error_msg);
 
-  const std::string name_;
-  const std::string args_;
+  LoadError DoLoadHelper(/*out*/jint* call_res, /*out*/std::string* error_msg,
+                        bool attaching);
+
+  std::string name_;
+  std::string args_;
   void* dlopen_handle_;
 
   // The entrypoints.
