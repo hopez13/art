@@ -30,6 +30,7 @@
 #include "904-object-allocation/tracking.h"
 #include "905-object-free/tracking_free.h"
 #include "906-iterate-heap/iterate_heap.h"
+#include "908-attach-agent/attach.h"
 
 namespace art {
 
@@ -52,6 +53,7 @@ AgentLib agents[] = {
   { "904-object-allocation", Test904ObjectAllocation::OnLoad, nullptr },
   { "905-object-free", Test905ObjectFree::OnLoad, nullptr },
   { "906-iterate-heap", Test906IterateHeap::OnLoad, nullptr },
+  { "908-attach-agent", nullptr, Test908AttachAgent::OnAttach },
 };
 
 static AgentLib* FindAgent(char* name) {
@@ -100,7 +102,6 @@ extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm, char* options, void* 
   }
   return lib->load(vm, remaining_options, reserved);
 }
-
 
 extern "C" JNIEXPORT jint JNICALL Agent_OnAttach(JavaVM* vm, char* options, void* reserved) {
   char* remaining_options = nullptr;
