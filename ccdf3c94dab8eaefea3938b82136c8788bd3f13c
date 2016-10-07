@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fec880a_3ad745ba",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-07T15:39:54Z",
+      "side": 1,
+      "message": "method seems misplaced (before the instance members).",
+      "revId": "ccdf3c94dab8eaefea3938b82136c8788bd3f13c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fec880a_1a7801b3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5507,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-07T15:39:54Z",
+      "side": 1,
+      "message": "is this a comment or left over old code? ;-)",
+      "range": {
+        "startLine": 5507,
+        "startChar": 53,
+        "endLine": 5507,
+        "endChar": 54
+      },
+      "revId": "ccdf3c94dab8eaefea3938b82136c8788bd3f13c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
