@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f23f0ed_0abebb7e",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "Why rename the variables from target_instruction_set/instruction_set to instruction_set/isa_name?\n\nIf it\u0027s worth doing here, is it worth doing other places in this file, such as line 376?",
+      "range": {
+        "startLine": 414,
+        "startChar": 2,
+        "endLine": 414,
+        "endChar": 87
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_4adf13cd",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "Should this switch be inside AddTargetRuntimeFeaturesAsDex2OatArguments? What happens if you call AddTargetRuntimeFeaturesAsDex2OatArguments with kRuntimeISA?",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 3
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_aacccf31",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "Please document what this function does.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 302,
+        "endChar": 52
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_2ae0df8a",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "Move this down with the other static method declarations.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 302,
+        "endChar": 58
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_aaf32f61",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "No error message?",
+      "range": {
+        "startLine": 547,
+        "startChar": 2,
+        "endLine": 549,
+        "endChar": 3
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_8af0eb55",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-07T14:57:41Z",
+      "side": 1,
+      "message": "This is duplicating code, right? Can that code be shared instead?",
+      "range": {
+        "startLine": 567,
+        "startChar": 1,
+        "endLine": 593,
+        "endChar": 3
+      },
+      "revId": "95e4d9e86c04db9f6ba1b142100990fd899da519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
