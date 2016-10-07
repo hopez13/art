@@ -282,6 +282,17 @@ MterpDone:
     cmp     rPROFILE, #0
     bgt     MterpProfileActive                      @ if > 0, we may have some counts to report.
     ldmfd   sp!, {r3-r10,fp,pc}                     @ restore 10 regs and return
+    .cfi_restore r3
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+    .cfi_restore r9
+    .cfi_restore r9
+    .cfi_restore r10
+    .cfi_restore fp
+    .cfi_restore pc
+    .cfi_adjust_cfa_offset -40
 
 MterpProfileActive:
     mov     rINST, r0                               @ stash return value
@@ -293,7 +304,17 @@ MterpProfileActive:
     bl      MterpAddHotnessBatch                    @ (method, shadow_frame, self)
     mov     r0, rINST                               @ restore return value
     ldmfd   sp!, {r3-r10,fp,pc}                     @ restore 10 regs and return
+    .cfi_restore r3
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+    .cfi_restore r9
+    .cfi_restore r9
+    .cfi_restore r10
+    .cfi_restore fp
+    .cfi_restore pc
+    .cfi_adjust_cfa_offset -40
 
-    .fnend
-    .size   ExecuteMterpImpl, .-ExecuteMterpImpl
+    END ExecuteMterpImpl
 

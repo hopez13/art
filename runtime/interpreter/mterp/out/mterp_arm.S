@@ -295,6 +295,55 @@ unspecified registers or condition codes.
   ldr     rIBASE, [rSELF, #THREAD_CURRENT_IBASE_OFFSET]
 .endm
 
+/*
+ * cfi support macros.
+ */
+.macro ENTRY name
+    .arm
+    .type \name, #function
+    .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
+    .global \name
+    /* Cache alignment for function entry */
+    .balign 16
+\name:
+    .cfi_startproc
+    .fnstart
+.endm
+
+.macro END name
+    .fnend
+    .cfi_endproc
+    .size \name, .-\name
+.endm
+
+.macro SAVE_TWO_REGS reg1, reg2, offset
+    stp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_rel_offset \reg1, (\offset)
+    .cfi_rel_offset \reg2, (\offset) + 8
+.endm
+
+.macro RESTORE_TWO_REGS reg1, reg2, offset
+    ldp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+.endm
+
+.macro SAVE_TWO_REGS_INCREASE_FRAME reg1, reg2, frame_adjustment
+    stp \reg1, \reg2, [sp, #-(\frame_adjustment)]!
+    .cfi_adjust_cfa_offset (\frame_adjustment)
+    .cfi_rel_offset \reg1, 0
+    .cfi_rel_offset \reg2, 8
+.endm
+
+.macro RESTORE_TWO_REGS_DECREASE_FRAME reg1, reg2, frame_adjustment
+    ldp \reg1, \reg2, [sp], #(\frame_adjustment)
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+    .cfi_adjust_cfa_offset -(\frame_adjustment)
+.endm
+
+  
+
 /* File: arm/entry.S */
 /*
  * Copyright (C) 2016 The Android Open Source Project
@@ -329,10 +378,19 @@ unspecified registers or condition codes.
  *
  */
 
-ExecuteMterpImpl:
-    .fnstart
-    .save {r3-r10,fp,lr}
+ENTRY ExecuteMterpImpl
     stmfd   sp!, {r3-r10,fp,lr}         @ save 10 regs, (r3 just to align 64)
+    .cfi_adjust_cfa_offset 40
+    .cfi_rel_offset r3, 0
+    .cfi_rel_offset r4, 4
+    .cfi_rel_offset r5, 8
+    .cfi_rel_offset r6, 12
+    .cfi_rel_offset r7, 16
+    .cfi_rel_offset r8, 20
+    .cfi_rel_offset r9, 24
+    .cfi_rel_offset r10, 28
+    .cfi_rel_offset fp, 32
+    .cfi_rel_offset lr, 36
 
     /* Remember the return register */
     str     r3, [r2, #SHADOWFRAME_RESULT_REGISTER_OFFSET]
@@ -12115,6 +12173,17 @@ MterpDone:
     cmp     rPROFILE, #0
     bgt     MterpProfileActive                      @ if > 0, we may have some counts to report.
     ldmfd   sp!, {r3-r10,fp,pc}                     @ restore 10 regs and return
+    .cfi_restore r3
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+    .cfi_restore r9
+    .cfi_restore r9
+    .cfi_restore r10
+    .cfi_restore fp
+    .cfi_restore pc
+    .cfi_adjust_cfa_offset -40
 
 MterpProfileActive:
     mov     rINST, r0                               @ stash return value
@@ -12126,8 +12195,18 @@ MterpProfileActive:
     bl      MterpAddHotnessBatch                    @ (method, shadow_frame, self)
     mov     r0, rINST                               @ restore return value
     ldmfd   sp!, {r3-r10,fp,pc}                     @ restore 10 regs and return
+    .cfi_restore r3
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+    .cfi_restore r9
+    .cfi_restore r9
+    .cfi_restore r10
+    .cfi_restore fp
+    .cfi_restore pc
+    .cfi_adjust_cfa_offset -40
 
-    .fnend
-    .size   ExecuteMterpImpl, .-ExecuteMterpImpl
+    END ExecuteMterpImpl
 
 

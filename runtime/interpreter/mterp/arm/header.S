@@ -287,3 +287,52 @@ unspecified registers or condition codes.
 .macro REFRESH_IBASE
   ldr     rIBASE, [rSELF, #THREAD_CURRENT_IBASE_OFFSET]
 .endm
+
+/*
+ * cfi support macros.
+ */
+.macro ENTRY name
+    .arm
+    .type \name, #function
+    .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
+    .global \name
+    /* Cache alignment for function entry */
+    .balign 16
+\name:
+    .cfi_startproc
+    .fnstart
+.endm
+
+.macro END name
+    .fnend
+    .cfi_endproc
+    .size \name, .-\name
+.endm
+
+.macro SAVE_TWO_REGS reg1, reg2, offset
+    stp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_rel_offset \reg1, (\offset)
+    .cfi_rel_offset \reg2, (\offset) + 8
+.endm
+
+.macro RESTORE_TWO_REGS reg1, reg2, offset
+    ldp \reg1, \reg2, [sp, #(\offset)]
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+.endm
+
+.macro SAVE_TWO_REGS_INCREASE_FRAME reg1, reg2, frame_adjustment
+    stp \reg1, \reg2, [sp, #-(\frame_adjustment)]!
+    .cfi_adjust_cfa_offset (\frame_adjustment)
+    .cfi_rel_offset \reg1, 0
+    .cfi_rel_offset \reg2, 8
+.endm
+
+.macro RESTORE_TWO_REGS_DECREASE_FRAME reg1, reg2, frame_adjustment
+    ldp \reg1, \reg2, [sp], #(\frame_adjustment)
+    .cfi_restore \reg1
+    .cfi_restore \reg2
+    .cfi_adjust_cfa_offset -(\frame_adjustment)
+.endm
+
+  
