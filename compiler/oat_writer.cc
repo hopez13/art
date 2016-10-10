@@ -288,6 +288,7 @@ class OatWriter::OatDexFile {
 OatWriter::OatWriter(bool compiling_boot_image, TimingLogger* timings)
   : write_state_(WriteState::kAddingDexFileSources),
     timings_(timings),
+    profile_info_(nullptr),
     raw_dex_files_(),
     zip_archives_(),
     zipped_dex_files_(),
@@ -598,6 +599,11 @@ class OatWriter::DexMethodVisitor {
       class_def_index_ = DexFile::kDexNoIndex;
     }
     return true;
+  }
+
+  virtual bool SkipClass(const DexFile* dex_file ATTRIBUTE_UNUSED,
+                         size_t class_def_index ATTRIBUTE_UNUSED) {
+    return false;
   }
 
   size_t GetOffset() const {
@@ -997,14 +1003,16 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
 class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
  public:
   WriteCodeMethodVisitor(OatWriter* writer, OutputStream* out, const size_t file_offset,
-                         size_t relative_offset) SHARED_LOCK_FUNCTION(Locks::mutator_lock_)
+                         size_t relative_offset, bool first_pass)
+      SHARED_LOCK_FUNCTION(Locks::mutator_lock_)
     : OatDexMethodVisitor(writer, relative_offset),
       out_(out),
       file_offset_(file_offset),
       soa_(Thread::Current()),
       no_thread_suspension_("OatWriter patching"),
       class_linker_(Runtime::Current()->GetClassLinker()),
-      dex_cache_(nullptr) {
+      dex_cache_(nullptr),
+      first_pass_(first_pass) {
     patched_code_.reserve(16 * KB);
     if (writer_->HasBootImage()) {
       // If we're creating the image, the address space must be ready so that we can apply patches.
@@ -1036,6 +1044,13 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
       }
     }
     return result;
+  }
+
+  bool SkipClass(const DexFile* dex_file, size_t class_def_index)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    bool contains_class = writer_->profile_info_ == nullptr ? true :
+        writer_->profile_info_->ContainsClass(*dex_file, class_def_index);
+    return first_pass_ != contains_class;
   }
 
   bool VisitMethod(size_t class_def_method_index, const ClassDataItemIterator& it)
@@ -1182,6 +1197,7 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
   ClassLinker* const class_linker_;
   mirror::DexCache* dex_cache_;
   std::vector<uint8_t> patched_code_;
+  bool first_pass_;
 
   void ReportWriteFailure(const char* what, const ClassDataItemIterator& it) {
     PLOG(ERROR) << "Failed to write " << what << " for "
@@ -1410,6 +1426,9 @@ bool OatWriter::VisitDexMethods(DexMethodVisitor* visitor) {
   for (const DexFile* dex_file : *dex_files_) {
     const size_t class_def_count = dex_file->NumClassDefs();
     for (size_t class_def_index = 0; class_def_index != class_def_count; ++class_def_index) {
+      if (visitor->SkipClass(dex_file, class_def_index)) {
+        continue;
+      }
       if (UNLIKELY(!visitor->StartClass(dex_file, class_def_index))) {
         return false;
       }
@@ -1889,15 +1908,18 @@ size_t OatWriter::WriteCode(OutputStream* out, const size_t file_offset, size_t 
 size_t OatWriter::WriteCodeDexFiles(OutputStream* out,
                                     const size_t file_offset,
                                     size_t relative_offset) {
-  #define VISIT(VisitorType)                                              \
-    do {                                                                  \
-      VisitorType visitor(this, out, file_offset, relative_offset);       \
-      if (UNLIKELY(!VisitDexMethods(&visitor))) {                         \
-        return 0;                                                         \
-      }                                                                   \
-      relative_offset = visitor.GetOffset();                              \
+  #define VISIT(VisitorType)                                                        \
+    do {                                                                            \
+      VisitorType visitor(this, out, file_offset, relative_offset, first_pass);     \
+      if (UNLIKELY(!VisitDexMethods(&visitor))) {                                   \
+        return 0;                                                                   \
+      }                                                                             \
+      relative_offset = visitor.GetOffset();                                        \
     } while (false)
 
+  bool first_pass = true;
+  VISIT(WriteCodeMethodVisitor);
+  first_pass = false;
   VISIT(WriteCodeMethodVisitor);
 
   #undef VISIT

@@ -1812,6 +1812,7 @@ class Dex2Oat FINAL {
         std::unique_ptr<OatWriter>& oat_writer = oat_writers_[i];
 
         oat_writer->AddMethodDebugInfos(debug::MakeTrampolineInfos(oat_writer->GetOatHeader()));
+        oat_writer->SetProfileCompilationInfo(profile_compilation_info_.get());
 
         // We need to mirror the layout of the ELF file in the compressed debug-info.
         // Therefore PrepareDebugInfo() relies on the SetLoadedSectionSizes() call further above.

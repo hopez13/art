@@ -23,6 +23,7 @@
 
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
+#include "jit/offline_profiling_info.h"
 #include "linker/relative_patcher.h"  // For linker::RelativePatcherTargetProvider.
 #include "mem_map.h"
 #include "method_reference.h"
@@ -213,6 +214,10 @@ class OatWriter {
     method_info_.insert(method_info_.end(), infos.begin(), infos.end());
   }
 
+  void SetProfileCompilationInfo(ProfileCompilationInfo* profile_compilation_info) {
+    profile_info_ = profile_compilation_info;
+  }
+
   ArrayRef<const debug::MethodDebugInfo> GetMethodDebugInfo() const {
     return ArrayRef<const debug::MethodDebugInfo>(method_info_);
   }
@@ -298,6 +303,7 @@ class OatWriter {
 
   WriteState write_state_;
   TimingLogger* timings_;
+  ProfileCompilationInfo* profile_info_;
 
   std::vector<std::unique_ptr<File>> raw_dex_files_;
   std::vector<std::unique_ptr<ZipArchive>> zip_archives_;
