@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9f98ca_f3d76842",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4230,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-10-10T18:06:45Z",
+      "side": 1,
+      "message": "Might want to put this in a helper (GetAndOverwrite?)",
+      "range": {
+        "startLine": 4227,
+        "startChar": 0,
+        "endLine": 4230,
+        "endChar": 81
+      },
+      "revId": "57e83c99dedd4e75f3546ee880d95d15ebabe350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_b34160f6",
+        "filename": "test/904-object-allocation/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-10-10T18:06:45Z",
+      "side": 1,
+      "message": "Not entirely sure but couldn\u0027t we remove the alloc here and other places since it doesn\u0027t survive (IIRC we have some optimization like that)? Would (and should) that cause the event to be skipped?\n\nWe could get around this by just adding a native call that is a no-op and calling it with all of these.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "57e83c99dedd4e75f3546ee880d95d15ebabe350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
