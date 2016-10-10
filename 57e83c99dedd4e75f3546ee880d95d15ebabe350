@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "ff9f98ca_b6482e32",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-10T18:46:32Z",
+      "side": 1,
+      "message": "Two reasons:\n\n1) It\u0027s our early-return style.\n2) Future safety. It\u0027s guaranteed correct no matter what you add after this.",
+      "parentUuid": "ff9f98ca_96337215",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 11
+      },
+      "revId": "57e83c99dedd4e75f3546ee880d95d15ebabe350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_b34160f6",
         "filename": "test/904-object-allocation/src/Main.java",
         "patchSetId": 1
