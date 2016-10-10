@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9f98ca_1382f403",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 1,
+      "message": "The Java method is static. Please use jclass for readability.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 13,
+        "endLine": 2145,
+        "endChar": 20
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_f3912849",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 1,
+      "message": "Doesn\u0027t mips have declspec naked to do this?",
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_73a6d8ab",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 1,
+      "message": "Can you leave some comments about what it\u0027s trying to test here?",
+      "range": {
+        "startLine": 2157,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 15
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_10978a4a",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 1,
+      "message": "use NORMAL_JNI_ONLY_NOWRAP here",
+      "range": {
+        "startLine": 2166,
+        "startChar": 40,
+        "endLine": 2166,
+        "endChar": 89
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_f37ac810",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 1,
+      "message": "Since you\u0027re fixing this can you fix it so it works for every single variant (normal, @fastnative, @criticalnative) ?\n\nI think we can just use a macro to copy the implementation 3 times with different symbols.",
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9f98ca_53a3dc99",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 0,
+      "message": "Why would this matter if it was compiled with clang or not? The ABI should be the same regardless.",
+      "range": {
+        "startLine": 2149,
+        "startChar": 0,
+        "endLine": 2152,
+        "endChar": 36
+      },
+      "revId": "5065b09332328477d489b8ce26c3a1381e6f8d49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_50bab2d5",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-10T17:17:17Z",
+      "side": 0,
+      "message": "Was CURRENT_JNI_WRAPPER the reason this was not working?",
+      "range": {
+        "startLine": 2167,
+        "startChar": 15,
+        "endLine": 2167,
+        "endChar": 34
+      },
+      "revId": "5065b09332328477d489b8ce26c3a1381e6f8d49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
