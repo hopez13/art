@@ -413,7 +413,9 @@ const JNIInvokeInterface gJniInvokeInterface = {
   JII::AttachCurrentThreadAsDaemon
 };
 
-JavaVMExt::JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options)
+JavaVMExt::JavaVMExt(Runtime* runtime,
+                     const RuntimeArgumentMap& runtime_options,
+                     std::string* error_msg)
     : runtime_(runtime),
       check_jni_abort_hook_(nullptr),
       check_jni_abort_hook_data_(nullptr),
@@ -423,11 +425,11 @@ JavaVMExt::JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options
                        || VLOG_IS_ON(third_party_jni)),
       trace_(runtime_options.GetOrDefault(RuntimeArgumentMap::JniTrace)),
       globals_lock_("JNI global reference table lock"),
-      globals_(gGlobalsInitial, gGlobalsMax, kGlobal),
+      globals_(gGlobalsInitial, gGlobalsMax, kGlobal, error_msg),
       libraries_(new Libraries),
       unchecked_functions_(&gJniInvokeInterface),
       weak_globals_lock_("JNI weak global reference table lock", kJniWeakGlobalsLock),
-      weak_globals_(kWeakGlobalsInitial, kWeakGlobalsMax, kWeakGlobal),
+      weak_globals_(kWeakGlobalsInitial, kWeakGlobalsMax, kWeakGlobal, error_msg),
       allow_accessing_weak_globals_(true),
       weak_globals_add_condition_("weak globals add condition", weak_globals_lock_),
       env_hooks_() {
@@ -436,6 +438,19 @@ JavaVMExt::JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options
 }
 
 JavaVMExt::~JavaVMExt() {
+}
+
+// Checking "globals" and "weak_globals" usually requires locks, but we
+// don't need the locks to check for validity when constructing the
+// object. Use NO_THREAD_SAFETY_ANALYSIS for this.
+std::unique_ptr<JavaVMExt> JavaVMExt::Create(Runtime* runtime,
+                                             const RuntimeArgumentMap& runtime_options,
+                                             std::string* error_msg) NO_THREAD_SAFETY_ANALYSIS {
+  std::unique_ptr<JavaVMExt> java_vm(new JavaVMExt(runtime, runtime_options, error_msg));
+  if (java_vm && java_vm->globals_.IsValid() && java_vm->weak_globals_.IsValid()) {
+    return java_vm;
+  }
+  return nullptr;
 }
 
 jint JavaVMExt::HandleGetEnv(/*out*/void** env, jint version) {
