@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff7e008_7bbdffcb",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T11:00:51Z",
+      "side": 1,
+      "message": "WrongMethodTypeException.\n\n(On the other hand I don\u0027t see the usefulness of these comments. They\u0027re just repeating the method names).",
+      "range": {
+        "startLine": 223,
+        "startChar": 3,
+        "endLine": 223,
+        "endChar": 8
+      },
+      "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff54cfe_beddb968",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T11:00:51Z",
+      "side": 1,
+      "message": "I\u0027d be good to have a way to prevent any uses after that line of callsite_type and target_type. Mathieu just added the ObjPtr API, maybe it\u0027s easy to hook that in?",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 46
+      },
+      "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
