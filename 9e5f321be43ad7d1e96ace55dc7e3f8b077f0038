@@ -22,6 +22,30 @@
       "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ceb243de",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-11T12:26:27Z",
+      "side": 0,
+      "message": "Is this something that should be preserved?\n\nThe signature changed to identify special names in one place and the special name is represented by an enum. Seems marginally better here than doing multiple strcmp\u0027s?",
+      "parentUuid": "7fec880a_3aa625ab",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2583,
+        "endChar": 11
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
