@@ -43,7 +43,10 @@ using GetEnvHook = jint (*)(JavaVMExt* vm, /*out*/void** new_env, jint version);
 
 class JavaVMExt : public JavaVM {
  public:
-  JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options);
+  // WARNING: Construction of the JavaVMExt may fail. If error_msg is set by
+  // the constructor, then construction has failed and the JavaVMExt will be
+  // in an invalid state.
+  JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options, std::string* error_msg);
   ~JavaVMExt();
 
   bool ForceCopy() const {

@@ -1,0 +1,2 @@
+This test verifies the proper exception is thrown launching a thread when the
+number of available file descriptors in the process has been reached.

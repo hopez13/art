@@ -1109,7 +1109,12 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     }
   }
 
-  java_vm_ = new JavaVMExt(this, runtime_options);
+  std::string error_msg;
+  java_vm_ = new JavaVMExt(this, runtime_options, &error_msg);
+  if (!error_msg.empty()) {
+    LOG(ERROR) << "Could not initialize JavaVMExt: " << error_msg;
+    return false;
+  }
 
   // Add the JniEnv handler.
   // TODO Refactor this stuff.
@@ -1133,7 +1138,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   CHECK_GE(GetHeap()->GetContinuousSpaces().size(), 1U);
   class_linker_ = new ClassLinker(intern_table_);
   if (GetHeap()->HasBootImageSpace()) {
-    std::string error_msg;
     bool result = class_linker_->InitFromBootImage(&error_msg);
     if (!result) {
       LOG(ERROR) << "Could not initialize from image: " << error_msg;
@@ -1184,7 +1188,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                    &boot_class_path);
     }
     instruction_set_ = runtime_options.GetOrDefault(Opt::ImageInstructionSet);
-    std::string error_msg;
     if (!class_linker_->InitWithoutImage(std::move(boot_class_path), &error_msg)) {
       LOG(ERROR) << "Could not initialize without image: " << error_msg;
       return false;

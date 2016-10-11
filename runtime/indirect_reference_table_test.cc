@@ -50,7 +50,9 @@ TEST_F(IndirectReferenceTableTest, BasicTest) {
   ScopedObjectAccess soa(Thread::Current());
   static const size_t kTableInitial = 10;
   static const size_t kTableMax = 20;
-  IndirectReferenceTable irt(kTableInitial, kTableMax, kGlobal);
+  std::string error_msg;
+  IndirectReferenceTable irt(kTableInitial, kTableMax, kGlobal, &error_msg);
+  ASSERT_TRUE(error_msg.empty()) << error_msg;
 
   mirror::Class* c = class_linker_->FindSystemClass(soa.Self(), "Ljava/lang/Object;");
   ASSERT_TRUE(c != nullptr);

@@ -34,7 +34,7 @@ class JavaVMExt;
 static constexpr size_t kLocalsMax = 512;
 
 struct JNIEnvExt : public JNIEnv {
-  static JNIEnvExt* Create(Thread* self, JavaVMExt* vm);
+  static JNIEnvExt* Create(Thread* self, JavaVMExt* vm, std::string* error_msg);
 
   ~JNIEnvExt();
 
@@ -106,7 +106,7 @@ struct JNIEnvExt : public JNIEnv {
  private:
   // The constructor should not be called directly. It may leave the object in an erronuous state,
   // and the result needs to be checked.
-  JNIEnvExt(Thread* self, JavaVMExt* vm);
+  JNIEnvExt(Thread* self, JavaVMExt* vm, std::string* error_msg);
 
   // All locked objects, with the (Java caller) stack frame that locked them. Used in CheckJNI
   // to ensure that only monitors locked in this native frame are being unlocked, and that at

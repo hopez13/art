@@ -2290,7 +2290,9 @@ TEST_F(JniInternalTest, IndirectReferenceTableOffsets) {
   // The segment_state_ field is private, and we want to avoid friend declaration. So we'll check
   // by modifying memory.
   // The parameters don't really matter here.
-  IndirectReferenceTable irt(5, 5, IndirectRefKind::kGlobal, true);
+  std::string error_msg;
+  IndirectReferenceTable irt(5, 5, IndirectRefKind::kGlobal, &error_msg);
+  ASSERT_TRUE(error_msg.empty()) << error_msg;
   uint32_t old_state = irt.GetSegmentState();
 
   // Write some new state directly. We invert parts of old_state to ensure a new value.
