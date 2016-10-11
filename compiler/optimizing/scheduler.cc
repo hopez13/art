@@ -20,6 +20,10 @@
 #include "prepare_for_register_allocation.h"
 #include "scheduler.h"
 
+#ifdef ART_ENABLE_CODEGEN_arm
+#include "scheduler_arm.h"
+#endif
+
 #ifdef ART_ENABLE_CODEGEN_arm64
 #include "scheduler_arm64.h"
 #endif
@@ -471,18 +475,30 @@ bool HScheduler::IsSchedulingBarrier(const HInstruction* instr) const {
 
 void HInstructionScheduling::Run(bool only_optimize_loop_blocks,
                                  bool schedule_randomly) {
+#if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
+  CriticalPathSchedulingNodeSelector critical_path_selector;
+  RandomSchedulingNodeSelector random_selector(static_cast<int>(NanoTime()));
+  SchedulingNodeSelector* selector = schedule_randomly
+      ? static_cast<SchedulingNodeSelector*>(&random_selector)
+      : static_cast<SchedulingNodeSelector*>(&critical_path_selector);
+#else
   // Avoid compilation error when compiling for svelte.
   UNUSED(only_optimize_loop_blocks);
   UNUSED(schedule_randomly);
+#endif
+
   switch (instruction_set_) {
+#ifdef ART_ENABLE_CODEGEN_arm
+    case kArm:
+    case kThumb2: {
+      arm::HSchedulerARM scheduler(graph_->GetArena(), selector);
+      scheduler.SetOnlyOptimizeLoopBlocks(only_optimize_loop_blocks);
+      scheduler.Schedule(graph_);
+      break;
+    }
+#endif
 #ifdef ART_ENABLE_CODEGEN_arm64
     case kArm64: {
-      CriticalPathSchedulingNodeSelector critical_path_selector;
-      RandomSchedulingNodeSelector random_selector(static_cast<int>(NanoTime()));
-      SchedulingNodeSelector* selector = schedule_randomly
-          ? static_cast<SchedulingNodeSelector*>(&random_selector)
-          : static_cast<SchedulingNodeSelector*>(&critical_path_selector);
-
       arm64::HSchedulerARM64 scheduler(graph_->GetArena(), selector);
       scheduler.SetOnlyOptimizeLoopBlocks(only_optimize_loop_blocks);
       scheduler.Schedule(graph_);

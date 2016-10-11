@@ -26,6 +26,7 @@
 #include "intrinsics_arm.h"
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
+#include "scheduler_arm.h"
 #include "thread.h"
 #include "utils/arm/assembler_arm.h"
 #include "utils/arm/managed_register_arm.h"
@@ -2074,6 +2075,11 @@ void InstructionCodeGeneratorARM::VisitInvokeStaticOrDirect(HInvokeStaticOrDirec
   codegen_->RecordPcInfo(invoke, invoke->GetDexPc());
 }
 
+void SchedulingLatencyVisitorARM::VisitInvoke(HInvoke* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmCallInternalLatency;
+  last_visited_latency_ = kArmCallLatency;
+}
+
 void LocationsBuilderARM::HandleInvoke(HInvoke* invoke) {
   InvokeDexCallingConventionVisitorARM calling_convention_visitor;
   CodeGenerator::CreateCommonInvokeLocationSummary(invoke, &calling_convention_visitor);
@@ -2677,6 +2683,93 @@ void InstructionCodeGeneratorARM::VisitTypeConversion(HTypeConversion* conversio
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitTypeConversion(HTypeConversion* conversion) {
+  Primitive::Type result_type = conversion->GetResultType();
+  Primitive::Type input_type = conversion->GetInputType();
+  switch (result_type) {
+    case Primitive::kPrimByte:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimChar:
+      last_visited_latency_ = kArmIntegerOpLatency;
+      return;
+
+    case Primitive::kPrimInt:
+      if (Primitive::IsIntegralType(input_type)) {
+        last_visited_latency_ = kArmIntegerOpLatency;
+      } else {
+        last_visited_latency_ = kArmFloatingPointOpLatency;
+        last_visited_internal_latency_ = kArmFloatingPointOpLatency;
+      }
+      return;
+
+    case Primitive::kPrimLong:
+      if (Primitive::IsIntegralType(input_type)) {
+        last_visited_latency_ = kArmIntegerOpLatency;
+        last_visited_internal_latency_ = kArmIntegerOpLatency;
+      } else {
+        last_visited_latency_ = kArmCallLatency;
+        last_visited_internal_latency_ = kArmCallInternalLatency;
+      }
+      return;
+
+    case Primitive::kPrimFloat:
+      switch (input_type) {
+        case Primitive::kPrimBoolean:
+        case Primitive::kPrimByte:
+        case Primitive::kPrimShort:
+        case Primitive::kPrimInt:
+        case Primitive::kPrimChar:
+          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = kArmFloatingPointOpLatency;
+          return;
+
+        case Primitive::kPrimLong:
+          last_visited_latency_ = kArmCallLatency;
+          last_visited_internal_latency_ = kArmCallInternalLatency;
+          return;
+
+        case Primitive::kPrimDouble:
+          last_visited_latency_ = kArmFloatingPointOpLatency;
+          return;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type
+                     << " to " << result_type;
+      };
+      break;
+
+    case Primitive::kPrimDouble:
+      switch (input_type) {
+        case Primitive::kPrimBoolean:
+        case Primitive::kPrimByte:
+        case Primitive::kPrimShort:
+        case Primitive::kPrimInt:
+        case Primitive::kPrimChar:
+          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = kArmFloatingPointOpLatency;
+          return;
+
+        case Primitive::kPrimLong:
+          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = 4 * kArmFloatingPointOpLatency;
+          return;
+
+        case Primitive::kPrimFloat:
+          last_visited_latency_ = kArmFloatingPointOpLatency;
+          return;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type
+                     << " to " << result_type;
+      };
+      break;
+
+    default:
+      LOG(FATAL) << "Unexpected type conversion from " << input_type
+                 << " to " << result_type;
+  }
+}
+
 void LocationsBuilderARM::VisitAdd(HAdd* add) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(add, LocationSummary::kNoCall);
@@ -2756,6 +2849,27 @@ void InstructionCodeGeneratorARM::VisitAdd(HAdd* add) {
 
     default:
       LOG(FATAL) << "Unexpected add type " << add->GetResultType();
+  }
+}
+
+void SchedulingLatencyVisitorARM::VisitBinaryOperation(HBinaryOperation* instr) {
+  switch (instr->GetResultType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimInt:
+      last_visited_latency_ = kArmIntegerOpLatency;
+      return;
+    case Primitive::kPrimLong:
+      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_internal_latency_ = kArmIntegerOpLatency;
+      return;
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble:
+      last_visited_latency_ = kArmFloatingPointOpLatency;
+      return;
+    default:
+      LOG(FATAL) << "Unexpected type " << instr->GetResultType();
   }
 }
 
@@ -2925,6 +3039,24 @@ void InstructionCodeGeneratorARM::VisitMul(HMul* mul) {
       break;
     }
 
+    default:
+      LOG(FATAL) << "Unexpected mul type " << mul->GetResultType();
+  }
+}
+
+void SchedulingLatencyVisitorARM::VisitMul(HMul* mul) {
+  switch (mul->GetResultType()) {
+    case Primitive::kPrimInt:
+      last_visited_latency_ = kArmMulIntegerLatency;
+      break;
+    case Primitive::kPrimLong:
+      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 3 * kArmMulIntegerLatency;
+      break;
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble:
+      last_visited_latency_ = kArmMulFloatingPointLatency;
+      break;
     default:
       LOG(FATAL) << "Unexpected mul type " << mul->GetResultType();
   }
@@ -3111,6 +3243,26 @@ void LocationsBuilderARM::VisitDiv(HDiv* div) {
       break;
     }
 
+    default:
+      LOG(FATAL) << "Unexpected div type " << div->GetResultType();
+  }
+}
+
+void SchedulingLatencyVisitorARM::VisitDiv(HDiv* div) {
+  switch (div->GetResultType()) {
+    case Primitive::kPrimInt:
+      last_visited_latency_ = kArmDivIntegerLatency;
+      break;
+    case Primitive::kPrimLong:
+      last_visited_latency_ = kArmCallLatency;
+      last_visited_internal_latency_ = kArmCallInternalLatency;
+      break;
+    case Primitive::kPrimFloat:
+      last_visited_latency_ = kArmDivFloatingPointLatency;
+      break;
+    case Primitive::kPrimDouble:
+      last_visited_latency_ = kArmDivDoubleLatency;
+      break;
     default:
       LOG(FATAL) << "Unexpected div type " << div->GetResultType();
   }
@@ -3306,6 +3458,16 @@ void InstructionCodeGeneratorARM::VisitRem(HRem* rem) {
 
     default:
       LOG(FATAL) << "Unexpected rem type " << type;
+  }
+}
+
+void SchedulingLatencyVisitorARM::VisitRem(HRem* rem) {
+  if (rem->GetResultType() == Primitive::kPrimInt) {
+    last_visited_latency_ = kArmMulIntegerLatency;
+    last_visited_internal_latency_ = kArmDivIntegerLatency;
+  } else {
+    last_visited_latency_ = kArmCallLatency;
+    last_visited_internal_latency_ = kArmCallInternalLatency;
   }
 }
 
@@ -3738,6 +3900,15 @@ void InstructionCodeGeneratorARM::VisitNewInstance(HNewInstance* instruction) {
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitNewInstance(HNewInstance* instruction) {
+  if (instruction->IsStringAlloc()) {
+    last_visited_internal_latency_ = 2 + kArmMemoryLoadLatency + kArmCallInternalLatency;
+  } else {
+    last_visited_internal_latency_ = kArmCallInternalLatency;
+  }
+  last_visited_latency_ = kArmCallLatency;
+}
+
 void LocationsBuilderARM::VisitNewArray(HNewArray* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);
@@ -3755,6 +3926,11 @@ void InstructionCodeGeneratorARM::VisitNewArray(HNewArray* instruction) {
   // of poisoning the reference.
   codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());
   CheckEntrypointTypes<kQuickAllocArrayWithAccessCheck, void*, uint32_t, int32_t, ArtMethod*>();
+}
+
+void SchedulingLatencyVisitorARM::VisitNewArray(HNewArray* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmIntegerOpLatency + kArmCallInternalLatency;
+  last_visited_latency_ = kArmCallLatency;
 }
 
 void LocationsBuilderARM::VisitParameterValue(HParameterValue* instruction) {
@@ -4385,12 +4561,20 @@ void InstructionCodeGeneratorARM::VisitInstanceFieldGet(HInstanceFieldGet* instr
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
+void SchedulingLatencyVisitorARM::VisitInstanceFieldGet(HInstanceFieldGet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmMemoryLoadLatency;
+}
+
 void LocationsBuilderARM::VisitStaticFieldGet(HStaticFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
 void InstructionCodeGeneratorARM::VisitStaticFieldGet(HStaticFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
+}
+
+void SchedulingLatencyVisitorARM::VisitStaticFieldGet(HStaticFieldGet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmMemoryLoadLatency;
 }
 
 void LocationsBuilderARM::VisitStaticFieldSet(HStaticFieldSet* instruction) {
@@ -4831,6 +5015,14 @@ void InstructionCodeGeneratorARM::VisitArrayGet(HArrayGet* instruction) {
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
+  if (!instruction->GetArray()->IsIntermediateAddress()) {
+    // Take the intermediate address computation into account.
+    last_visited_internal_latency_ = kArmIntegerOpLatency;
+  }
+  last_visited_latency_ = kArmMemoryLoadLatency;
+}
+
 void LocationsBuilderARM::VisitArraySet(HArraySet* instruction) {
   Primitive::Type value_type = instruction->GetComponentType();
 
@@ -5102,6 +5294,10 @@ void InstructionCodeGeneratorARM::VisitArraySet(HArraySet* instruction) {
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitArraySet(HArraySet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmMemoryStoreLatency;
+}
+
 void LocationsBuilderARM::VisitArrayLength(HArrayLength* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
@@ -5120,6 +5316,10 @@ void InstructionCodeGeneratorARM::VisitArrayLength(HArrayLength* instruction) {
   if (mirror::kUseStringCompression && instruction->IsStringLength()) {
     __ bic(out, out, ShifterOperand(1u << 31));
   }
+}
+
+void SchedulingLatencyVisitorARM::VisitArrayLength(HArrayLength* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmMemoryLoadLatency;
 }
 
 void LocationsBuilderARM::VisitIntermediateAddress(HIntermediateAddress* instruction) {
@@ -5153,6 +5353,13 @@ void InstructionCodeGeneratorARM::VisitIntermediateAddress(HIntermediateAddress*
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitIntermediateAddress(
+    HIntermediateAddress* ATTRIBUTE_UNUSED) {
+  // Although the code generated is a simple `add` instruction, we found through empirical results
+  // that spacing it from its use in memory accesses was beneficial.
+  last_visited_latency_ = kArmIntegerOpLatency + 2;
+}
+
 void LocationsBuilderARM::VisitBoundsCheck(HBoundsCheck* instruction) {
   RegisterSet caller_saves = RegisterSet::Empty();
   InvokeRuntimeCallingConvention calling_convention;
@@ -5161,6 +5368,12 @@ void LocationsBuilderARM::VisitBoundsCheck(HBoundsCheck* instruction) {
   LocationSummary* locations = codegen_->CreateThrowingSlowPathLocations(instruction, caller_saves);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
+}
+
+void SchedulingLatencyVisitorARM::VisitBoundsCheck(HBoundsCheck* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmIntegerOpLatency;
+  // Users do not use any data results.
+  last_visited_latency_ = 0;
 }
 
 void InstructionCodeGeneratorARM::VisitBoundsCheck(HBoundsCheck* instruction) {
@@ -5219,6 +5432,20 @@ void InstructionCodeGeneratorARM::VisitSuspendCheck(HSuspendCheck* instruction) 
     return;
   }
   GenerateSuspendCheck(instruction, nullptr);
+}
+
+void SchedulingLatencyVisitorARM::VisitSuspendCheck(HSuspendCheck* instruction) {
+  HBasicBlock* block = instruction->GetBlock();
+  if (block->GetLoopInformation() != nullptr) {
+    // The back edge will generate the suspend check.
+    return;
+  }
+  if (block->IsEntryBlock() && instruction->GetNext()->IsGoto()) {
+    // The goto will generate the suspend check.
+    return;
+  }
+  last_visited_internal_latency_ = kArmMemoryLoadLatency + 3 * kArmIntegerOpLatency;
+  last_visited_latency_ = 0;
 }
 
 void InstructionCodeGeneratorARM::GenerateSuspendCheck(HSuspendCheck* instruction,
@@ -5793,6 +6020,11 @@ void InstructionCodeGeneratorARM::VisitLoadString(HLoadString* load) {
   CheckEntrypointTypes<kQuickResolveString, void*, uint32_t>();
 }
 
+void SchedulingLatencyVisitorARM::VisitLoadString(HLoadString* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmLoadStringInternalLatency;
+  last_visited_latency_ = kArmMemoryLoadLatency;
+}
+
 static int32_t GetExceptionTlsOffset() {
   return Thread::ExceptionOffset<kArmPointerSize>().Int32Value();
 }
@@ -6024,6 +6256,11 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
   if (slow_path != nullptr) {
     __ Bind(slow_path->GetExitLabel());
   }
+}
+
+void SchedulingLatencyVisitorARM::VisitInstanceOf(HInstanceOf* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmCallInternalLatency;
+  last_visited_latency_ = kArmIntegerOpLatency;
 }
 
 void LocationsBuilderARM::VisitCheckCast(HCheckCast* instruction) {
@@ -6330,6 +6567,11 @@ void InstructionCodeGeneratorARM::VisitBitwiseNegatedRight(HBitwiseNegatedRight*
         UNREACHABLE();
     }
   }
+}
+
+void SchedulingLatencyVisitorARM::VisitBitwiseNegatedRight(
+    HBitwiseNegatedRight* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmIntegerOpLatency;
 }
 
 void InstructionCodeGeneratorARM::GenerateAndConst(Register out, Register first, uint32_t value) {
@@ -7174,6 +7416,10 @@ void InstructionCodeGeneratorARM::VisitMultiplyAccumulate(HMultiplyAccumulate* i
   }
 }
 
+void SchedulingLatencyVisitorARM::VisitMultiplyAccumulate(HMultiplyAccumulate* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArmMulIntegerLatency;
+}
+
 void LocationsBuilderARM::VisitBoundType(HBoundType* instruction ATTRIBUTE_UNUSED) {
   // Nothing to do, this should be removed during prepare for register allocator.
   LOG(FATAL) << "Unreachable";
@@ -7283,6 +7529,12 @@ void InstructionCodeGeneratorARM::VisitArmDexCacheArraysBase(HArmDexCacheArraysB
   __ movt(base_reg, /* placeholder */ 0u);
   __ BindTrackedLabel(&labels->add_pc_label);
   __ add(base_reg, base_reg, ShifterOperand(PC));
+}
+
+void SchedulingLatencyVisitorARM::VisitArmDexCacheArraysBase(
+    HArmDexCacheArraysBase* base ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kArmIntegerOpLatency;
+  last_visited_latency_ = 2 * kArmIntegerOpLatency;
 }
 
 void CodeGeneratorARM::MoveFromReturnRegister(Location trg, Primitive::Type type) {

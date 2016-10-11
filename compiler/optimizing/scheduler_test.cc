@@ -24,6 +24,10 @@
 #include "register_allocator.h"
 #include "scheduler.h"
 
+#ifdef ART_ENABLE_CODEGEN_arm
+#include "scheduler_arm.h"
+#endif
+
 #ifdef ART_ENABLE_CODEGEN_arm64
 #include "scheduler_arm64.h"
 #endif
