@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff9f98ca_b9ee5aae",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-11T21:52:48Z",
+      "side": 1,
+      "message": "I\u0027ll get rid of it soon.",
+      "parentUuid": "ff9f98ca_3681d937",
+      "range": {
+        "startLine": 895,
+        "startChar": 2,
+        "endLine": 895,
+        "endChar": 51
+      },
+      "revId": "9ca0d0edf64c132f85ee2418e992e3891c072b4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_f6d2b122",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-10T22:48:05Z",
       "side": 1,
       "message": "How does this make sense? Why make the outer one take a void*, when you have to cast it anyways?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 0,
+        "endLine": 1239,
+        "endChar": 73
+      },
+      "revId": "9ca0d0edf64c132f85ee2418e992e3891c072b4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_71396fd9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-11T21:52:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff9f98ca_f6d2b122",
       "range": {
         "startLine": 1237,
         "startChar": 0,
