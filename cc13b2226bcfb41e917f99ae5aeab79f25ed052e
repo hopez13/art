@@ -22,6 +22,30 @@
       "revId": "cc13b2226bcfb41e917f99ae5aeab79f25ed052e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_ec6be416",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-11T21:56:52Z",
+      "side": 1,
+      "message": "It means a single check for whether we really have to send events or not, rather than for each freed object.",
+      "parentUuid": "1f7aac68_7197af49",
+      "range": {
+        "startLine": 98,
+        "startChar": 15,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "cc13b2226bcfb41e917f99ae5aeab79f25ed052e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
