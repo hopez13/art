@@ -1,0 +1,832 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c6576f4_c980f1fd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 281,
+        "startChar": 5,
+        "endLine": 281,
+        "endChar": 62
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c606ae6_aaa6cfa9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Why is that not just:\nIsAotCompiler() return false;\nIsCompilingOsr() return false;\nreturn resolved_method-\u003eGetSingleImplementation()\n\n?",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 17
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c6576f4_898af917",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "This is odd.",
+      "range": {
+        "startLine": 337,
+        "startChar": 38,
+        "endLine": 337,
+        "endChar": 69
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ae31375a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Unused? (would make sense given you\u0027re not returning the right thing :)).",
+      "range": {
+        "startLine": 478,
+        "startChar": 15,
+        "endLine": 478,
+        "endChar": 34
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_0e23ab17",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Isn\u0027t a HPArameterValue always in the entry block?",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5bfe40_27933a53",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "false?",
+      "range": {
+        "startLine": 490,
+        "startChar": 11,
+        "endLine": 490,
+        "endChar": 15
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c547a0d_c624621e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "true?",
+      "range": {
+        "startLine": 493,
+        "startChar": 9,
+        "endLine": 493,
+        "endChar": 14
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c6576f4_e983b507",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Return",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c606ae6_8aa30b9a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "ArenasSet.",
+      "range": {
+        "startLine": 670,
+        "startChar": 7,
+        "endLine": 670,
+        "endChar": 20
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5bfe40_e7ac028e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Is that correct? That means they\u0027ll be gvn\u0027ed, but it looks to me you can only GVN within suspend points.",
+      "range": {
+        "startLine": 2852,
+        "startChar": 42,
+        "endLine": 2852,
+        "endChar": 58
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_8e079b7a",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Looks like SetSingleImplementation implemented this\u003e",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 17
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_4e6bf317",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "This lock is actually dead.",
+      "range": {
+        "startLine": 622,
+        "startChar": 16,
+        "endLine": 622,
+        "endChar": 49
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c6576f4_499e415b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Share it with the other call? If you cannot (maybe due to status flag?) please add comments.",
+      "range": {
+        "startLine": 5238,
+        "startChar": 0,
+        "endLine": 5239,
+        "endChar": 31
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_6eb8ef91",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5717,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Need a high-level comment.",
+      "range": {
+        "startLine": 5717,
+        "startChar": 1,
+        "endLine": 5717,
+        "endChar": 21
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc3022eb_6ceb5ba1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5782,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Why do you need a context?",
+      "range": {
+        "startLine": 5782,
+        "startChar": 0,
+        "endLine": 5782,
+        "endChar": 56
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c56f215_a8a6dba9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "How about passing super_class here?",
+      "range": {
+        "startLine": 5804,
+        "startChar": 26,
+        "endLine": 5804,
+        "endChar": 31
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_8e60bb2e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5805,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "nit: I wouldn\u0027t pass this, it\u0027s only used in DCHECKS that could be done at the call site.",
+      "range": {
+        "startLine": 5805,
+        "startChar": 0,
+        "endLine": 5805,
+        "endChar": 30
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc3022eb_2ccc3361",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5859,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 5859,
+        "startChar": 35,
+        "endLine": 5859,
+        "endChar": 38
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ce56c35e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5885,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "implementation",
+      "range": {
+        "startLine": 5885,
+        "startChar": 45,
+        "endLine": 5885,
+        "endChar": 59
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ee429f94",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "IsAotCompiler is dex2oat. So this comment is more about \"no need to go further, as the AotCompiler doesn\u0027t run any code.\"",
+      "range": {
+        "startLine": 5931,
+        "startChar": 54,
+        "endLine": 5932,
+        "endChar": 35
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ce3fe30c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Can\u0027t you do for (const auto\u0026 entry : dependents) ?",
+      "range": {
+        "startLine": 5941,
+        "startChar": 8,
+        "endLine": 5941,
+        "endChar": 76
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c6576f4_e9acd58d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "How can that happen?",
+      "range": {
+        "startLine": 8793,
+        "startChar": 44,
+        "endLine": 8793,
+        "endChar": 67
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc27a6af_ada6dda9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 8803,
+        "startChar": 42,
+        "endLine": 8803,
+        "endChar": 66
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_0e75ebef",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "How about moving CHA related things to its own class, and make it a proper first class entity in Runtime?",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 76
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ee597f8e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "implementation",
+      "range": {
+        "startLine": 1216,
+        "startChar": 12,
+        "endLine": 1216,
+        "endChar": 26
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c421e4d_cfa91d7c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Should be guarded by cha_lock.",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 86
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c6576f4_a9a6dda9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "You can DCHECK that, the JIT doesn\u0027t run for dex2oat.",
+      "range": {
+        "startLine": 355,
+        "startChar": 10,
+        "endLine": 355,
+        "endChar": 46
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c606ae6_cadb430c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "How about moving this out of the internal lock?",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 5
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c56f215_28cc2b61",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 5
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_2ec2e7ff",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "drop that flag and just assume there\u0027s none if the implmenetation_list is empty?",
+      "range": {
+        "startLine": 102,
+        "startChar": 22,
+        "endLine": 102,
+        "endChar": 54
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c547a0d_466bd217",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 103,
+        "startChar": 22,
+        "endLine": 103,
+        "endChar": 84
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_cec8031d",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Could you check somewhere that a single implementation never conflicts with an intrinsic?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 86
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c421e4d_8fa3159a",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc2d2e96_4bc76541",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "Add a comment what gets inlined here and would require to be ivnalidated.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_aed5b7b2",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "comment.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 5
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c56f215_e8b5f3c7",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-11T13:10:52Z",
+      "side": 1,
+      "message": "The boot classpath jitting?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 28
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
