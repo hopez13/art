@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ee3cdfcb",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 1,
+      "message": "JitRoots?",
+      "range": {
+        "startLine": 335,
+        "startChar": 20,
+        "endLine": 335,
+        "endChar": 28
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_6e17cf60",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5692,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 1,
+      "message": "Sharpening does not currently allow such fallback because it determines the address for kDexCacheAddress before calling GetSupportedLoadStringKind().",
+      "range": {
+        "startLine": 5691,
+        "startChar": 0,
+        "endLine": 5692,
+        "endChar": 53
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc27a6af_4df09989",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 5725,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs an environment, we\u0027re using it only when the string is already resolved and then we don\u0027t have the slow path with a call.",
+      "range": {
+        "startLine": 5725,
+        "startChar": 21,
+        "endLine": 5725,
+        "endChar": 47
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ee217fbd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 1,
+      "message": "Can we avoid this temporary storage? For example by writing directly to the literal_data?\n(Note: Missing OOM check.)",
+      "range": {
+        "startLine": 1142,
+        "startChar": 0,
+        "endLine": 1144,
+        "endChar": 98
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_0e284b87",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 1,
+      "message": "Since we allocate the JIT code and data areas together and within 1GiB, we could use a PC-relative addressing mode on x86-64 if we reserve both data and code area before patching.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 68
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

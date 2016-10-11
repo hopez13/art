@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ae2b7799",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-11T17:14:48Z",
+      "side": 0,
+      "message": "Why are you removing this?\n\nNote that without --force-determinism we do not resolve strings in CompilerDriver::PreCompile().",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 31
+      },
+      "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
