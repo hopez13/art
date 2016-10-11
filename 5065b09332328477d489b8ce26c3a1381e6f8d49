@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1f7aac68_a2301354",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-11T23:26:17Z",
+      "side": 0,
+      "message": "Got it, that\u0027s unfortunate. It even does this with declspec naked?",
+      "parentUuid": "7f0f28e3_39154f4a",
+      "range": {
+        "startLine": 2149,
+        "startChar": 0,
+        "endLine": 2152,
+        "endChar": 36
+      },
+      "revId": "5065b09332328477d489b8ce26c3a1381e6f8d49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_50bab2d5",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 4

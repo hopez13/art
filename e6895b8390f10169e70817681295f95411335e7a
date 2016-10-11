@@ -210,6 +210,24 @@
       "revId": "e6895b8390f10169e70817681295f95411335e7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_22fb235e",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-11T23:26:17Z",
+      "side": 1,
+      "message": "If you use CURRENT_JNI_WRAPPER then don\u0027t need a second test or a second JNI handler because it will automatically inject a dummy JNIEnv/jclass parameter there",
+      "parentUuid": "1c2b9a7f_ae3c9718",
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
