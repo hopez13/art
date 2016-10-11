@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f7aac68_c266ef4f",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2174,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-11T23:26:17Z",
+      "side": 1,
+      "message": "JNI_TEST_CRITICAL so it also tests @CriticalNative.\n\nHowever right now it goes through a wrapper that injects extra checks and also dummy parameters (for critical native).\n\nIs going through function wrapper ok or does it need to directly go to the jni handler?",
+      "range": {
+        "startLine": 2174,
+        "startChar": 0,
+        "endLine": 2174,
+        "endChar": 8
+      },
+      "revId": "4caa5b0822a1b9470d1db96066c1ffa45bb5acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
