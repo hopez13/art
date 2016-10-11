@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f7aac68_30b37804",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:31:33Z",
+      "side": 1,
+      "message": "please add link to design doc (or slide deck at the minimum)",
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c6576f4_c980f1fd",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -180,6 +197,23 @@
         "endLine": 125,
         "endChar": 12
       },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_5d448c46",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:31:33Z",
+      "side": 1,
+      "message": "typo (virtual)",
       "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -732,6 +766,23 @@
         "endLine": 74,
         "endChar": 86
       },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_eb7af110",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:31:33Z",
+      "side": 1,
+      "message": "is this a sizeof anything? can we do better than a hard coded value?",
       "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
