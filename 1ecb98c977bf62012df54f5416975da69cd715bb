@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f7aac68_709a50c3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:14:11Z",
+      "side": 1,
+      "message": "Sounds like a good idea. Done.",
+      "parentUuid": "3c5bfe40_a78dea33",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 238,
+        "endChar": 44
+      },
+      "revId": "1ecb98c977bf62012df54f5416975da69cd715bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e984b69",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-11T12:00:16Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 308,
+        "startChar": 44,
+        "endLine": 308,
+        "endChar": 71
+      },
+      "revId": "1ecb98c977bf62012df54f5416975da69cd715bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_d0fb24d5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:14:11Z",
+      "side": 1,
+      "message": "The const ness was leaking too much into some of the other places, and this is more consistent with how we pass info around in most places",
+      "parentUuid": "1c2b9a7f_0e984b69",
       "range": {
         "startLine": 308,
         "startChar": 44,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1f7aac68_b0ddc868",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:14:11Z",
+      "side": 1,
+      "message": "Yes, on second read that was not very informative :_)\nChanged.",
+      "parentUuid": "1c2b9a7f_6e990f71",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 36
+      },
+      "revId": "1ecb98c977bf62012df54f5416975da69cd715bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_eeacdf8d",
         "filename": "test/618-checker-induction/src/Main.java",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1f7aac68_50e8f407",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:14:11Z",
+      "side": 1,
+      "message": "It is expressed as MUL (10 x 10), we test that the value is correct below",
+      "parentUuid": "1c2b9a7f_eeacdf8d",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 47
+      },
+      "revId": "1ecb98c977bf62012df54f5416975da69cd715bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_cea9237c",
         "filename": "test/618-checker-induction/src/Main.java",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-11T12:00:16Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 47
+      },
+      "revId": "1ecb98c977bf62012df54f5416975da69cd715bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7aac68_70f5f0da",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-11T18:14:11Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "1c2b9a7f_cea9237c",
       "range": {
         "startLine": 217,
         "startChar": 0,
