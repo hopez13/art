@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ff54cfe_fe2101a7",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-11T13:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff9f98ca_1382f403",
+      "range": {
+        "startLine": 2145,
+        "startChar": 13,
+        "endLine": 2145,
+        "endChar": 20
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_f3912849",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1c2b9a7f_ae8db733",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-11T13:22:59Z",
+      "side": 1,
+      "message": "Used __attribute__((naked)) instead original solution.",
+      "parentUuid": "ff9f98ca_f3912849",
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_73a6d8ab",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 4
@@ -53,6 +95,30 @@
       "writtenOn": "2016-10-10T17:17:17Z",
       "side": 1,
       "message": "Can you leave some comments about what it\u0027s trying to test here?",
+      "range": {
+        "startLine": 2157,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 15
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c547a0d_e6275e20",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-11T13:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff9f98ca_73a6d8ab",
       "range": {
         "startLine": 2157,
         "startChar": 0,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "1c2b9a7f_2e930753",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-11T13:22:59Z",
+      "side": 1,
+      "message": "I\u0027ve put CURRENT_JNI_WRAPPER because I also enabled @FastNative versions of this test.",
+      "parentUuid": "ff9f98ca_10978a4a",
+      "range": {
+        "startLine": 2166,
+        "startChar": 40,
+        "endLine": 2166,
+        "endChar": 89
+      },
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff9f98ca_f37ac810",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 4
@@ -99,6 +189,24 @@
       "writtenOn": "2016-10-10T17:17:17Z",
       "side": 1,
       "message": "Since you\u0027re fixing this can you fix it so it works for every single variant (normal, @fastnative, @criticalnative) ?\n\nI think we can just use a macro to copy the implementation 3 times with different symbols.",
+      "revId": "e6895b8390f10169e70817681295f95411335e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c2b9a7f_ae3c9718",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-11T13:22:59Z",
+      "side": 1,
+      "message": "Enabled @FastNative. To test this issue for @CriticalNative we need two more arguments (there are no JNIEnv and jobject so all 7 int arguments will be passed in registers). Should I add one more (almost identical) test just for @CriticalNative?",
+      "parentUuid": "ff9f98ca_f37ac810",
       "revId": "e6895b8390f10169e70817681295f95411335e7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
