@@ -209,6 +209,7 @@ class InductionVarRange {
   Value SubValue(Value v1, Value v2) const;
   Value MulValue(Value v1, Value v2) const;
   Value DivValue(Value v1, Value v2) const;
+  Value XorValue(Value v1, Value v2) const;
   Value MergeVal(Value v1, Value v2, bool is_min) const;
 
   /**

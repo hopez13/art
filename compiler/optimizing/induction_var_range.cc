@@ -525,6 +525,9 @@ InductionVarRange::Value InductionVarRange::GetVal(HInductionVarAnalysis::Induct
             return GetMul(info->op_a, info->op_b, trip, in_body, is_min);
           case HInductionVarAnalysis::kDiv:
             return GetDiv(info->op_a, info->op_b, trip, in_body, is_min);
+          case HInductionVarAnalysis::kXor:
+            return XorValue(GetVal(info->op_a, trip, in_body, is_min),
+                            GetVal(info->op_b, trip, in_body, is_min));
           case HInductionVarAnalysis::kFetch:
             return GetFetch(info->fetch, trip, in_body, is_min);
           case HInductionVarAnalysis::kTripCountInLoop:
@@ -700,6 +703,13 @@ InductionVarRange::Value InductionVarRange::DivValue(Value v1, Value v2) const {
     if (IsSafeDiv(v1.b_constant, v2.b_constant)) {
       return Value(v1.b_constant / v2.b_constant);
     }
+  }
+  return Value();
+}
+
+InductionVarRange::Value InductionVarRange::XorValue(Value v1, Value v2) const {
+  if (v1.is_known && v2.is_known && v1.a_constant == 0 && v2.a_constant == 0) {
+    return Value(v1.b_constant ^ v2.b_constant);
   }
   return Value();
 }
