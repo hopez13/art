@@ -64,6 +64,7 @@ class HInductionVarAnalysis : public HOptimization {
     kNeg,
     kMul,
     kDiv,
+    kXor,
     kFetch,
     // Trip-counts.
     kTripCountInLoop,        // valid in full loop; loop is finite
@@ -172,6 +173,12 @@ class HInductionVarAnalysis : public HOptimization {
                              HInstruction* y,
                              InductionOp op,
                              bool is_first_call);
+  InductionInfo* SolveXor(HLoopInformation* loop,
+                          HInstruction* entry_phi,
+                          HInstruction* instruction,
+                          HInstruction* x,
+                          HInstruction* y,
+                          bool is_first_call);
   InductionInfo* SolveCnv(HTypeConversion* conversion);
 
   // Trip count information.
@@ -219,8 +226,8 @@ class HInductionVarAnalysis : public HOptimization {
   // Temporary book-keeping during the analysis.
   uint32_t global_depth_;
   ArenaVector<HInstruction*> stack_;
-  ArenaVector<HInstruction*> scc_;
   ArenaSafeMap<HInstruction*, NodeInfo> map_;
+  ArenaVector<HInstruction*> scc_;
   ArenaSafeMap<HInstruction*, InductionInfo*> cycle_;
   Primitive::Type type_;
 

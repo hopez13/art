@@ -506,6 +506,45 @@ TEST_F(InductionVarAnalysisTest, FindIdiomaticPeriodicInduction) {
   EXPECT_STREQ("periodic((1), (0)):PrimInt", GetInductionInfo(sub, 0).c_str());
 }
 
+TEST_F(InductionVarAnalysisTest, FindXorPeriodicInduction) {
+  // Setup:
+  // k = 0;
+  // for (int i = 0; i < 100; i++) {
+  //   a[k] = 0;
+  //   k = k ^ 1;
+  // }
+  BuildLoopNest(1);
+  HPhi* k = InsertLoopPhi(0, 0);
+  k->AddInput(constant0_);
+
+  HInstruction* store = InsertArrayStore(k, 0);
+  HInstruction *x = InsertInstruction(
+      new (&allocator_) HXor(Primitive::kPrimInt, k, constant1_), 0);
+  k->AddInput(x);
+  PerformInductionVarAnalysis();
+
+  EXPECT_STREQ("periodic((0), (1)):PrimInt", GetInductionInfo(store->InputAt(1), 0).c_str());
+  EXPECT_STREQ("periodic((1), (0)):PrimInt", GetInductionInfo(x, 0).c_str());
+}
+
+TEST_F(InductionVarAnalysisTest, FindXor100PeriodicInduction) {
+  // Setup:
+  // k = 100;
+  // for (int i = 0; i < 100; i++) {
+  //   k = k ^ 100;
+  // }
+  BuildLoopNest(1);
+  HPhi* k = InsertLoopPhi(0, 0);
+  k->AddInput(constant100_);
+
+  HInstruction *x = InsertInstruction(
+      new (&allocator_) HXor(Primitive::kPrimInt, k, constant100_), 0);
+  k->AddInput(x);
+  PerformInductionVarAnalysis();
+
+  EXPECT_STREQ("periodic(((100) ^ (100)), (100)):PrimInt", GetInductionInfo(x, 0).c_str());
+}
+
 TEST_F(InductionVarAnalysisTest, FindDerivedPeriodicInduction) {
   // Setup:
   // k = 0;
