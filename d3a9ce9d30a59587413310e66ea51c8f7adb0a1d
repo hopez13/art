@@ -22,6 +22,30 @@
       "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_408a4ed1",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T12:41:25Z",
+      "side": 0,
+      "message": "Ah that got missed during a refactoring. I\u0027ll bring it back and add the comment about the determinism.\n\nAlso, where do we test non-determinism boot image compilation? All my tests pass even after removing this ResolveString.",
+      "parentUuid": "1c2b9a7f_ae2b7799",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 31
+      },
+      "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

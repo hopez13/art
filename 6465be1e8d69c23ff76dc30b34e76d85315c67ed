@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_208f4ae1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 5725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T12:41:25Z",
+      "side": 1,
+      "message": "Yup, that\u0027s what the code here is doing: return false to NeedsEnvironment if the load kind is kJitTableAddress :)",
+      "parentUuid": "fc27a6af_4df09989",
+      "range": {
+        "startLine": 5725,
+        "startChar": 21,
+        "endLine": 5725,
+        "endChar": 47
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_ee217fbd",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -134,6 +158,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_e0eba267",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T12:41:25Z",
+      "side": 1,
+      "message": "We cannot avoid the temporary storage for now (I\u0027ll add a comment). The literal_data will only be visited by GC once the OatQuickMethodHeader is registered within the jit code cache. That only happens during CommitCode (called in this method line 1160).\n\nWe can think of how to turn this around, and make the literal_data allocation visible to the GC in a safe way with regards to the jit code cache collection. But I think such a change would deserve its own CL.",
+      "parentUuid": "1c2b9a7f_ee217fbd",
+      "range": {
+        "startLine": 1142,
+        "startChar": 0,
+        "endLine": 1144,
+        "endChar": 98
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e284b87",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -145,6 +193,30 @@
       "writtenOn": "2016-10-11T17:14:48Z",
       "side": 1,
       "message": "Since we allocate the JIT code and data areas together and within 1GiB, we could use a PC-relative addressing mode on x86-64 if we reserve both data and code area before patching.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 68
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_809456f2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T12:41:25Z",
+      "side": 1,
+      "message": "Good point.\n\nProblem is reserving the code area before patching implies more ScopedCodeCacheWrite windows. Or a refactoring of the code generators to understand there\u0027s one buffer where things are emitted, and one final buffer.\n\nI\u0027ll add that as a comment.",
+      "parentUuid": "1c2b9a7f_0e284b87",
       "range": {
         "startLine": 83,
         "startChar": 2,
@@ -280,6 +352,30 @@
       "side": 1,
       "message": "I think we should add a comment about the rationale somewhere.",
       "parentUuid": "1f7aac68_ecd84448",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 3
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_60995226",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T12:41:25Z",
+      "side": 1,
+      "message": "Will do. Note that this is still under discussion.",
+      "parentUuid": "1f7aac68_c770c134",
       "range": {
         "startLine": 488,
         "startChar": 0,
