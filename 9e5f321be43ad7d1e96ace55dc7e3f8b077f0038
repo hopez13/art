@@ -70,6 +70,30 @@
       "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_8070d601",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-12T10:43:31Z",
+      "side": 0,
+      "message": "Removed and changed FindMethodName back to static.",
+      "parentUuid": "1f7aac68_05763cfb",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2583,
+        "endChar": 11
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
