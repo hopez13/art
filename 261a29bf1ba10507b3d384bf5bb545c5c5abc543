@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c37d20c_a0aeba99",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T20:57:38Z",
+      "side": 1,
+      "message": "Could you add a high-level comment about what is_first_call means?\n\nWould it be simpler (and helping not having to understand what it means) to avoid the flag and just let the caller do the second call?",
+      "range": {
+        "startLine": 181,
+        "startChar": 31,
+        "endLine": 181,
+        "endChar": 44
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_00bcc6ce",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T20:57:38Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 521,
+        "startChar": 15,
+        "endLine": 521,
+        "endChar": 16
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca28e7a_2328ea87",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T20:57:38Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 540,
+        "startChar": 15,
+        "endLine": 540,
+        "endChar": 16
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cc1f61c_29444d71",
+        "filename": "test/530-checker-loops2/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T20:57:38Z",
+      "side": 1,
+      "message": "Missing braces.",
+      "range": {
+        "startLine": 940,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 22
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
