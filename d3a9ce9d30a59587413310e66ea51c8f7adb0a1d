@@ -46,6 +46,30 @@
       "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcac0670_85c1a298",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-12T12:57:24Z",
+      "side": 0,
+      "message": "Did you try to boot a device with WITH_DEXPREOPT\u003dfalse?",
+      "parentUuid": "5c37d20c_408a4ed1",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 31
+      },
+      "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
