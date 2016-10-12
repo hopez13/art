@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c99da37_c7b814dd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4253,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-12T20:42:57Z",
+      "side": 1,
+      "message": "Thanks. Will fix in follow-up.",
+      "parentUuid": "5c37d20c_20c3ca55",
+      "range": {
+        "startLine": 4253,
+        "startChar": 46,
+        "endLine": 4253,
+        "endChar": 56
+      },
+      "revId": "27fa96c285c4aa2f64e9bb63a3f38ffdc98c282a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_80c8d66e",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c73b6d0_02f2705e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-12T20:42:57Z",
+      "side": 1,
+      "message": "Yes, when we know that there are no calls made, we could delete it. Right now this is pretty special-purpose, and so it seemed easier to not reason about this (similar to allocation records).",
+      "parentUuid": "5c37d20c_80c8d66e",
+      "range": {
+        "startLine": 790,
+        "startChar": 36,
+        "endLine": 791,
+        "endChar": 89
+      },
+      "revId": "27fa96c285c4aa2f64e9bb63a3f38ffdc98c282a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_60cdd27c",
         "filename": "runtime/openjdkjvmti/events.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-12T20:29:49Z",
       "side": 1,
       "message": "Why is that not stack allocated?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "27fa96c285c4aa2f64e9bb63a3f38ffdc98c282a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c64320a_b263d03a",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-12T20:42:57Z",
+      "side": 1,
+      "message": "To make it an implementation detail and allow a forward.",
+      "parentUuid": "5c37d20c_60cdd27c",
       "range": {
         "startLine": 105,
         "startChar": 2,
