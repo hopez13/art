@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc7ec69b_fbfcc79a",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-12T21:10:40Z",
+      "side": 1,
+      "message": "I followed what I had in L175 (it avoids a lot of duplicate code in the callee, or possibly two calls in the caller). I added a comment for both cases for now though.",
+      "parentUuid": "5c37d20c_a0aeba99",
+      "range": {
+        "startLine": 181,
+        "startChar": 31,
+        "endLine": 181,
+        "endChar": 44
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_00bcc6ce",
         "filename": "compiler/optimizing/induction_var_analysis_test.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T20:57:38Z",
       "side": 1,
       "message": "misplaced",
+      "range": {
+        "startLine": 521,
+        "startChar": 15,
+        "endLine": 521,
+        "endChar": 16
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc744ebe_3c28f587",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-12T21:10:40Z",
+      "side": 1,
+      "message": "Apologies. An old preference keeps surfacing :\u003d)",
+      "parentUuid": "5c37d20c_00bcc6ce",
       "range": {
         "startLine": 521,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fc95e6fb_0625a017",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-12T21:10:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca28e7a_2328ea87",
+      "range": {
+        "startLine": 540,
+        "startChar": 15,
+        "endLine": 540,
+        "endChar": 16
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cc1f61c_29444d71",
         "filename": "test/530-checker-loops2/src/Main.java",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-12T20:57:38Z",
       "side": 1,
       "message": "Missing braces.",
+      "range": {
+        "startLine": 940,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 22
+      },
+      "revId": "261a29bf1ba10507b3d384bf5bb545c5c5abc543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c6eaae8_e30d00f5",
+        "filename": "test/530-checker-loops2/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-12T21:10:40Z",
+      "side": 1,
+      "message": "Done. Also for the few cases above.",
+      "parentUuid": "7cc1f61c_29444d71",
       "range": {
         "startLine": 940,
         "startChar": 0,
