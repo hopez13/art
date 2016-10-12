@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c286ac7_f33c021a",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-12T18:03:09Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll move the comment. This change is just the basic plumbing and we\u0027ll need to revisit the threading model for agents before starting to sprinkle locks around, thus the TODO comment.\n\nNote that the attaching is not going to be fully functional until we sort out the experiments/jvmti plugin story as well.",
+      "parentUuid": "dc63c225_14025470",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 70
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_e08442c0",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T12:59:01Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 617,
+        "startChar": 9,
+        "endLine": 617,
+        "endChar": 14
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c286ac7_936ca6fc",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-12T18:03:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_e08442c0",
       "range": {
         "startLine": 617,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9c286ac7_f379a2b8",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-12T18:03:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cc1f61c_e956355e",
+      "range": {
+        "startLine": 624,
+        "startChar": 9,
+        "endLine": 624,
+        "endChar": 15
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_c0a65e5d",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9c286ac7_933946db",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-12T18:03:09Z",
+      "side": 1,
+      "message": "If an agent initialization fails, which should be a rare situation, we might be in an inconsistent state and fast-failing seems a better option than propagating an exception.\n\nThe existing agent load path does the same thing (see the startup agents path right above)",
+      "parentUuid": "5c37d20c_c0a65e5d",
+      "range": {
+        "startLine": 1313,
+        "startChar": 0,
+        "endLine": 1314,
+        "endChar": 22
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_a0a35a4b",
         "filename": "runtime/ti/agent.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-12T12:59:01Z",
       "side": 1,
       "message": "out arguments should be last.",
+      "range": {
+        "startLine": 89,
+        "startChar": 25,
+        "endLine": 90,
+        "endChar": 39
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c286ac7_d333bef6",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-12T18:03:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_a0a35a4b",
       "range": {
         "startLine": 89,
         "startChar": 25,
