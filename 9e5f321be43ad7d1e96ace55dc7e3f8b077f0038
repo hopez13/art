@@ -94,6 +94,30 @@
       "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c286ac7_0ada3b3d",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-12T15:44:30Z",
+      "side": 0,
+      "message": "I wasn\u0027t implying it should be removed. I just didn\u0027t see a need to expose them in the header. Both functions using this in their signature could be .cc only.",
+      "parentUuid": "5c37d20c_8070d601",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2583,
+        "endChar": 11
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
