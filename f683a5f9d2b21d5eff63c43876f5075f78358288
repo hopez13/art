@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_603dd2de",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-10-12T13:26:22Z",
+      "side": 1,
+      "message": "I haven\u0027t checked this recently but won\u0027t the environmental uses of the interval inside the loop (SuspendCheck, BoundsChecks, etc) prevent us from doing this?",
+      "parentUuid": "39b223c6_28c1ab4d",
+      "revId": "f683a5f9d2b21d5eff63c43876f5075f78358288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea77c70c_869f2af9",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
