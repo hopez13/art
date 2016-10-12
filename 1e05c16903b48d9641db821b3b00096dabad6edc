@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "3cb77eb7_87d8c610",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Ok, I see. I think this needs to be separated from this CHA change. Basically for such invokes we want everything that dominates it up until the branching point to be dead and do a HDeoptimize.\n\nSo IMO it\u0027s fine for now if you add this CHA HDeoptimize at the call site. You\u0027re only going to add the HDeoptimize if you inline, and we assume what we decide on inlining is always beneficial.",
+      "parentUuid": "1f7aac68_7dc3089f",
+      "range": {
+        "startLine": 281,
+        "startChar": 5,
+        "endLine": 281,
+        "endChar": 62
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c606ae6_aaa6cfa9",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -178,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_c0b5bec8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "One needs to do the rtp. The place where we pass false is because the rtp is done afterwards. So here, yes, you need to pass true.\n\nMaybe we should clean this up and remove the flag. Just explicitly do the rtp, there are only 2 callers of TryInlineAndReplace anyway.",
+      "parentUuid": "1f7aac68_9ddf0428",
+      "range": {
+        "startLine": 337,
+        "startChar": 38,
+        "endLine": 337,
+        "endChar": 69
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_ae31375a",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -225,6 +273,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_a0b23adc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Mind doing it in another CL? So this CL only focuses on basic CHA?",
+      "parentUuid": "1f7aac68_ddaa5c84",
+      "range": {
+        "startLine": 478,
+        "startChar": 15,
+        "endLine": 478,
+        "endChar": 34
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e23ab17",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -260,6 +332,30 @@
       "side": 1,
       "message": "I wanted to make sure it\u0027s a parameter of the outermost_graph since the pre-existence condition is only true for that method. I\u0027ll add some comment.\n\nMaybe we should just do guard elimination after all inlining is done, say in the final simplifying pass. The guard needs to know receiver though which is lost after inlining. This is a place where we can easily prune out some parameter receiver guards.",
       "parentUuid": "1c2b9a7f_0e23ab17",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_40eb6ea0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "So an HGraph has only HParameterValue for itself. Inlined methods don\u0027t add HParameterValue, they just get replaced with their actual arguments.",
+      "parentUuid": "1f7aac68_407f3faf",
       "range": {
         "startLine": 484,
         "startChar": 6,
@@ -530,6 +626,30 @@
       "side": 1,
       "message": "CanBeMoved() is not overridden and still returns false so it should not be gvn\u0027ed. It doesn\u0027t write to heap so there is no side effects.",
       "parentUuid": "3c5bfe40_e7ac028e",
+      "range": {
+        "startLine": 2852,
+        "startChar": 42,
+        "endLine": 2852,
+        "endChar": 58
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb272c6_08938752",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "I think you can do CanBeMoved and the side effects only depend on GC.\n\nBut let\u0027s do that in another change. Can you at least put the CanBeMoved()  { return false; } here, and add a comment?",
+      "parentUuid": "1f7aac68_8004f726",
       "range": {
         "startLine": 2852,
         "startChar": 42,
@@ -1482,6 +1602,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_20f0ea88",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Ah yes, so the dependency makes sure even if we manage to eliminate the CHA guard, we will need to update the entrypoint of the method to not call the wronly optimize method. Correct?\n\nCould you please add a comment for this method about this distinction?",
+      "parentUuid": "1f7aac68_13fbe35d",
+      "range": {
+        "startLine": 102,
+        "startChar": 22,
+        "endLine": 102,
+        "endChar": 54
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c547a0d_466bd217",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 3
@@ -1605,6 +1749,24 @@
       "side": 1,
       "message": "We just need 4 bytes for our purpose regardless of architecture. Frame size calculation will automatically do alignment for the final frame size.",
       "parentUuid": "1f7aac68_eb7af110",
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_80e576cd",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "I\u0027d add that as a comment.",
+      "parentUuid": "1f7aac68_932a9395",
       "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
