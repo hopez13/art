@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c37d20c_00532636",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-12T13:17:48Z",
+      "side": 1,
+      "message": "Maybe we should CHECK() that this succeeds? (Rather than wait for the next allocation to abort because there\u0027s a pending OOME.)",
+      "revId": "e3df9dd89da21a08d7c914c469be8491947dda01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
