@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "9c286ac7_f3c1a297",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-10-12T18:08:08Z",
+      "side": 1,
+      "message": "NB The spec says that agent loading on Runtime startup is fatal but specifically says that failure to attach to an already started runtime is not.",
+      "parentUuid": "9c286ac7_933946db",
+      "range": {
+        "startLine": 1313,
+        "startChar": 0,
+        "endLine": 1314,
+        "endChar": 22
+      },
+      "revId": "ae1e18a213397a9e8292c96ea59dc605cff4d4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_a0a35a4b",
         "filename": "runtime/ti/agent.h",
         "patchSetId": 2
