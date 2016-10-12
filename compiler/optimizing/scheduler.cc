@@ -28,6 +28,10 @@
 #include "scheduler_arm64.h"
 #endif
 
+#ifdef ART_ENABLE_CODEGEN_x86_64
+#include "scheduler_x86_64.h"
+#endif
+
 namespace art {
 
 void SchedulingGraph::AddDependency(SchedulingNode* node,
@@ -475,7 +479,9 @@ bool HScheduler::IsSchedulingBarrier(const HInstruction* instr) const {
 
 void HInstructionScheduling::Run(bool only_optimize_loop_blocks,
                                  bool schedule_randomly) {
-#if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
+#if defined(ART_ENABLE_CODEGEN_arm) || \
+  defined(ART_ENABLE_CODEGEN_arm64) || \
+  defined(ART_ENABLE_CODEGEN_x86_64)
   CriticalPathSchedulingNodeSelector critical_path_selector;
   RandomSchedulingNodeSelector random_selector(static_cast<int>(NanoTime()));
   SchedulingNodeSelector* selector = schedule_randomly
@@ -500,6 +506,14 @@ void HInstructionScheduling::Run(bool only_optimize_loop_blocks,
 #ifdef ART_ENABLE_CODEGEN_arm64
     case kArm64: {
       arm64::HSchedulerARM64 scheduler(graph_->GetArena(), selector);
+      scheduler.SetOnlyOptimizeLoopBlocks(only_optimize_loop_blocks);
+      scheduler.Schedule(graph_);
+      break;
+    }
+#endif
+#ifdef ART_ENABLE_CODEGEN_x86_64
+    case kX86_64: {
+      x86_64::HSchedulerX86_64 scheduler(graph_->GetArena(), selector);
       scheduler.SetOnlyOptimizeLoopBlocks(only_optimize_loop_blocks);
       scheduler.Schedule(graph_);
       break;

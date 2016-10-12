@@ -26,6 +26,7 @@
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/object_reference.h"
+#include "scheduler_x86_64.h"
 #include "thread.h"
 #include "utils/assembler.h"
 #include "utils/stack_checks.h"
@@ -2188,6 +2189,11 @@ void InstructionCodeGeneratorX86_64::VisitInvokeStaticOrDirect(HInvokeStaticOrDi
   codegen_->RecordPcInfo(invoke, invoke->GetDexPc());
 }
 
+void SchedulingLatencyVisitorX86_64::VisitInvoke(HInvoke* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kX86_64CallInternalLatency;
+  last_visited_latency_ = kX86_64CallLatency;
+}
+
 void LocationsBuilderX86_64::HandleInvoke(HInvoke* invoke) {
   InvokeDexCallingConventionVisitorX86_64 calling_convention_visitor;
   CodeGenerator::CreateCommonInvokeLocationSummary(invoke, &calling_convention_visitor);
@@ -2864,6 +2870,15 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitTypeConversion(HTypeConversion* instr) {
+  if (Primitive::IsFloatingPointType(instr->GetResultType()) ||
+      Primitive::IsFloatingPointType(instr->GetInputType())) {
+    last_visited_latency_ = kX86_64TypeConversionFloatingPointIntegerLatency;
+  } else {
+    last_visited_latency_ = kX86_64IntegerOpLatency;
+  }
+}
+
 void LocationsBuilderX86_64::VisitAdd(HAdd* add) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(add, LocationSummary::kNoCall);
@@ -2986,6 +3001,12 @@ void InstructionCodeGeneratorX86_64::VisitAdd(HAdd* add) {
     default:
       LOG(FATAL) << "Unexpected add type " << add->GetResultType();
   }
+}
+
+void SchedulingLatencyVisitorX86_64::VisitBinaryOperation(HBinaryOperation* instr) {
+  last_visited_latency_ =
+      Primitive::IsFloatingPointType(instr->GetResultType()) ? kX86_64FloatingPointOpLatency
+                                                             : kX86_64IntegerOpLatency;
 }
 
 void LocationsBuilderX86_64::VisitSub(HSub* sub) {
@@ -3201,6 +3222,12 @@ void InstructionCodeGeneratorX86_64::VisitMul(HMul* mul) {
     default:
       LOG(FATAL) << "Unexpected mul type " << mul->GetResultType();
   }
+}
+
+void SchedulingLatencyVisitorX86_64::VisitMul(HMul* instr) {
+  last_visited_latency_ = Primitive::IsFloatingPointType(instr->GetResultType())
+      ? kX86_64MulFloatingPointLatency
+      : kX86_64MulIntegerLatency;
 }
 
 void InstructionCodeGeneratorX86_64::PushOntoFPStack(Location source, uint32_t temp_offset,
@@ -3614,6 +3641,26 @@ void InstructionCodeGeneratorX86_64::VisitDiv(HDiv* div) {
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitDiv(HDiv* instr) {
+  switch (instr->GetResultType()) {
+    case Primitive::kPrimInt:
+      last_visited_latency_ = kX86_64DivIntegerLatency;
+      break;
+    case Primitive::kPrimLong:
+      last_visited_latency_ = kX86_64DivLongLatency;
+      break;
+    case Primitive::kPrimFloat:
+      last_visited_latency_ = kX86_64DivFloatingPointLatency;
+      break;
+    case Primitive::kPrimDouble:
+      last_visited_latency_ = kX86_64DivDoubleLatency;
+      break;
+    default:
+      LOG(FATAL) << "Unexpected type " << instr->GetResultType();
+      UNREACHABLE();
+  }
+}
+
 void LocationsBuilderX86_64::VisitRem(HRem* rem) {
   Primitive::Type type = rem->GetResultType();
   LocationSummary* locations =
@@ -3664,6 +3711,40 @@ void InstructionCodeGeneratorX86_64::VisitRem(HRem* rem) {
     }
     default:
       LOG(FATAL) << "Unexpected rem type " << rem->GetResultType();
+  }
+}
+
+void SchedulingLatencyVisitorX86_64::VisitRem(HRem* instruction) {
+  if (Primitive::IsFloatingPointType(instruction->GetResultType())) {
+    last_visited_internal_latency_ = kX86_64CallInternalLatency;
+    last_visited_latency_ = kX86_64CallLatency;
+  } else {
+    // Follow the code path used by code generation.
+    if (instruction->GetRight()->IsConstant()) {
+      int64_t imm = Int64FromConstant(instruction->GetRight()->AsConstant());
+
+      if (imm == 0) {
+        last_visited_internal_latency_ = 0;
+        last_visited_latency_ = 0;
+      } else if (imm == 1 || imm == -1) {
+        last_visited_internal_latency_ = 0;
+        last_visited_latency_ = kX86_64IntegerOpLatency;
+      } else if (IsPowerOfTwo(AbsOrMin(imm))) {
+        last_visited_internal_latency_ = 4 * kX86_64IntegerOpLatency;
+        last_visited_latency_ = kX86_64IntegerOpLatency;
+      } else {
+        DCHECK(imm <= -2 || imm >= 2);
+        last_visited_internal_latency_ = 4 * kX86_64IntegerOpLatency;
+        last_visited_latency_ = kX86_64MulIntegerLatency;
+      }
+    } else {
+      if (instruction->IsDiv()) {
+        last_visited_latency_ = kX86_64DivIntegerLatency;
+      } else {
+        last_visited_internal_latency_ = kX86_64DivIntegerLatency;
+        last_visited_latency_ = kX86_64MulIntegerLatency;
+      }
+    }
   }
 }
 
@@ -3901,6 +3982,15 @@ void InstructionCodeGeneratorX86_64::VisitNewInstance(HNewInstance* instruction)
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitNewInstance(HNewInstance* instruction) {
+  if (instruction->IsStringAlloc()) {
+    last_visited_internal_latency_ = 2 + kX86_64MemoryLoadLatency + kX86_64CallInternalLatency;
+  } else {
+    last_visited_internal_latency_ = kX86_64CallInternalLatency;
+  }
+  last_visited_latency_ = kX86_64CallLatency;
+}
+
 void LocationsBuilderX86_64::VisitNewArray(HNewArray* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);
@@ -3921,6 +4011,11 @@ void InstructionCodeGeneratorX86_64::VisitNewArray(HNewArray* instruction) {
   CheckEntrypointTypes<kQuickAllocArrayWithAccessCheck, void*, uint32_t, int32_t, ArtMethod*>();
 
   DCHECK(!codegen_->IsLeafMethod());
+}
+
+void SchedulingLatencyVisitorX86_64::VisitNewArray(HNewArray* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kX86_64IntegerOpLatency + kX86_64CallInternalLatency;
+  last_visited_latency_ = kX86_64CallLatency;
 }
 
 void LocationsBuilderX86_64::VisitParameterValue(HParameterValue* instruction) {
@@ -4355,12 +4450,20 @@ void InstructionCodeGeneratorX86_64::VisitInstanceFieldGet(HInstanceFieldGet* in
   HandleFieldGet(instruction, instruction->GetFieldInfo());
 }
 
+void SchedulingLatencyVisitorX86_64::VisitInstanceFieldGet(HInstanceFieldGet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kX86_64MemoryLoadLatency;
+}
+
 void LocationsBuilderX86_64::VisitStaticFieldGet(HStaticFieldGet* instruction) {
   HandleFieldGet(instruction);
 }
 
 void InstructionCodeGeneratorX86_64::VisitStaticFieldGet(HStaticFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
+}
+
+void SchedulingLatencyVisitorX86_64::VisitStaticFieldGet(HStaticFieldGet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kX86_64MemoryLoadLatency;
 }
 
 void LocationsBuilderX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
@@ -4622,6 +4725,10 @@ void InstructionCodeGeneratorX86_64::VisitArrayGet(HArrayGet* instruction) {
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitArrayGet(HArrayGet* instruction ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kX86_64MemoryLoadLatency;
+}
+
 void LocationsBuilderX86_64::VisitArraySet(HArraySet* instruction) {
   Primitive::Type value_type = instruction->GetComponentType();
 
@@ -4853,6 +4960,10 @@ void InstructionCodeGeneratorX86_64::VisitArraySet(HArraySet* instruction) {
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitArraySet(HArraySet* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kX86_64MemoryStoreLatency;
+}
+
 void LocationsBuilderX86_64::VisitArrayLength(HArrayLength* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
@@ -4877,6 +4988,10 @@ void InstructionCodeGeneratorX86_64::VisitArrayLength(HArrayLength* instruction)
   if (mirror::kUseStringCompression && instruction->IsStringLength()) {
     __ andl(out, Immediate(INT32_MAX));
   }
+}
+
+void SchedulingLatencyVisitorX86_64::VisitArrayLength(HArrayLength* ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kX86_64MemoryLoadLatency;
 }
 
 void LocationsBuilderX86_64::VisitBoundsCheck(HBoundsCheck* instruction) {
@@ -4951,6 +5066,12 @@ void InstructionCodeGeneratorX86_64::VisitBoundsCheck(HBoundsCheck* instruction)
   }
 }
 
+void SchedulingLatencyVisitorX86_64::VisitBoundsCheck(HBoundsCheck* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kX86_64IntegerOpLatency;
+  // Users do not use any data results.
+  last_visited_latency_ = 0;
+}
+
 void CodeGeneratorX86_64::MarkGCCard(CpuRegister temp,
                                      CpuRegister card,
                                      CpuRegister object,
@@ -4997,6 +5118,20 @@ void InstructionCodeGeneratorX86_64::VisitSuspendCheck(HSuspendCheck* instructio
     return;
   }
   GenerateSuspendCheck(instruction, nullptr);
+}
+
+void SchedulingLatencyVisitorX86_64::VisitSuspendCheck(HSuspendCheck* instruction) {
+  HBasicBlock* block = instruction->GetBlock();
+  if (block->GetLoopInformation() != nullptr) {
+    // The back edge will generate the suspend check.
+    return;
+  }
+  if (block->IsEntryBlock() && instruction->GetNext()->IsGoto()) {
+    // The goto will generate the suspend check.
+    return;
+  }
+  last_visited_internal_latency_ = kX86_64MemoryLoadLatency + 3 * kX86_64IntegerOpLatency;
+  last_visited_latency_ = 0;
 }
 
 void InstructionCodeGeneratorX86_64::GenerateSuspendCheck(HSuspendCheck* instruction,
@@ -5517,6 +5652,11 @@ void InstructionCodeGeneratorX86_64::VisitLoadString(HLoadString* load) {
   CheckEntrypointTypes<kQuickResolveString, void*, uint32_t>();
 }
 
+void SchedulingLatencyVisitorX86_64::VisitLoadString(HLoadString* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kX86_64LoadStringInternalLatency;
+  last_visited_latency_ = kX86_64MemoryLoadLatency;
+}
+
 static Address GetExceptionTlsAddress() {
   return Address::Absolute(Thread::ExceptionOffset<kX86_64PointerSize>().Int32Value(),
                            /* no_rip */ true);
@@ -5780,6 +5920,11 @@ void InstructionCodeGeneratorX86_64::VisitInstanceOf(HInstanceOf* instruction) {
   if (slow_path != nullptr) {
     __ Bind(slow_path->GetExitLabel());
   }
+}
+
+void SchedulingLatencyVisitorX86_64::VisitInstanceOf(HInstanceOf* ATTRIBUTE_UNUSED) {
+  last_visited_internal_latency_ = kX86_64CallLatency;
+  last_visited_latency_ = kX86_64IntegerOpLatency;
 }
 
 void LocationsBuilderX86_64::VisitCheckCast(HCheckCast* instruction) {

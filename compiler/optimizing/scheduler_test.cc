@@ -32,6 +32,10 @@
 #include "scheduler_arm64.h"
 #endif
 
+#ifdef ART_ENABLE_CODEGEN_x86_64
+#include "scheduler_x86_64.h"
+#endif
+
 namespace art {
 
 // Return all combinations of ISA and code generator that are executable on
