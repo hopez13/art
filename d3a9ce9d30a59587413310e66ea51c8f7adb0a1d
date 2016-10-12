@@ -70,6 +70,30 @@
       "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_e09d6208",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T13:01:06Z",
+      "side": 0,
+      "message": "No, but it\u0027d be great to not rely on device booting. So maybe the run-test no-image configuration just does that?",
+      "parentUuid": "fcac0670_85c1a298",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 31
+      },
+      "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
