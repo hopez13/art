@@ -1129,7 +1129,10 @@ void CodeGeneratorARM::GenerateFrameEntry() {
   int adjust = GetFrameSize() - FrameEntrySpillSize();
   __ AddConstant(SP, -adjust);
   __ cfi().AdjustCFAOffset(adjust);
-  __ StoreToOffset(kStoreWord, kMethodRegisterArgument, SP, 0);
+
+  if (RequiresCurrentMethod()) {
+    __ StoreToOffset(kStoreWord, kMethodRegisterArgument, SP, 0);
+  }
 }
 
 void CodeGeneratorARM::GenerateFrameExit() {
