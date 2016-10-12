@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c37d20c_60eaf29a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Can you also explain why?",
+      "range": {
+        "startLine": 5185,
+        "startChar": 0,
+        "endLine": 5185,
+        "endChar": 60
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_c0de5efe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "auto\u0026?",
+      "range": {
+        "startLine": 5946,
+        "startChar": 19,
+        "endLine": 5946,
+        "endChar": 23
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_a0db5a0c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "I think you can scope the cha_lock? And release it before taking the internal lock?",
+      "range": {
+        "startLine": 369,
+        "startChar": 4,
+        "endLine": 388,
+        "endChar": 5
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_00d96613",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Actually, the intrinsic flag is misleading as it will take the last few bits to store the intrinsic id. So you\u0027d need to static_assert with kAccFlagsNotUsedByIntrinsic or kAccMaxIntrinsic.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 78
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_20190ae9",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Also add a comment why you want to be suspended?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 62
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_e0d562d9",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "We have ensureJitted shared across tests, you should use this.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_40140eb3",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-12T09:14:10Z",
+      "side": 1,
+      "message": "Drop, ensureJitted will ensure the methods you\u0027re interested in are jitted.",
+      "range": {
+        "startLine": 141,
+        "startChar": 3,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
