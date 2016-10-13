@@ -2395,117 +2395,158 @@ END art_quick_deoptimize_from_compiled_code
     /*
      * String's indexOf.
      *
-     * TODO: Not very optimized.
      * On entry:
      *    x0:   string object (known non-null)
      *    w1:   char to match (known <= 0xFFFF)
      *    w2:   Starting offset in string data
+     *
+     * We detect a character match in a set of characters by evaluating the expression
+     *    (x ^ (x - 0x0001000100010001)) & 0x8000800080008000 (uncompressed string), or
+     *    (x ^ (x - 0x0101010101010101)) & 0x8080808080808080 (compressed string),
+     * where the lowest set bit indicates the first match position, 0 means no match.
+     * At the beginning we align the read address down and compensate by clearing the
+     * low bits of the "SUB mask" (0x0001000100010001 or 0x0101010101010101) as needed
+     * to ignore matches in the early characters.
      */
 ENTRY art_quick_indexof
+#if (STRING_COMPRESSION_FEATURE)
+    ldr   w7, [x0, #MIRROR_STRING_COUNT_OFFSET]
+#else
     ldr   w3, [x0, #MIRROR_STRING_COUNT_OFFSET]
+#endif
     add   x0, x0, #MIRROR_STRING_VALUE_OFFSET
+    bic   w2, w2, w2, asr #31             /* start = max(0, start) */
 #if (STRING_COMPRESSION_FEATURE)
-    /* w4 holds count (with flag) and w3 holds actual length */
-    mov   w4, w3
-    and   w3, w3, #2147483647
+    lsr   w3, w7, #1                      /* Extract the length. */
 #endif
-    /* Clamp start to [0..count] */
-    cmp   w2, #0
-    csel  w2, wzr, w2, lt
-    cmp   w2, w3
-    csel  w2, w3, w2, gt
 
-    /* Save a copy to compute result */
-    mov   x5, x0
+    /* Compute iteration count, check if we're past the end of the string. */
+    subs  w4, w3, w2
+    ble   .Lstring_indexof_nomatch
+
+    orr   w1, w1, w1, lsl #16             /* Replicate low 16 bits of w1 to the high 16 bits. */
 
 #if (STRING_COMPRESSION_FEATURE)
-    tbnz  w4, #31, .Lstring_indexof_compressed
+    tbz   w7, #0, .Lstring_indexof_compressed
 #endif
-    /* Build pointer to start of data to compare and pre-bias */
-    add   x0, x0, x2, lsl #1
-    sub   x0, x0, #2
-    /* Compute iteration count */
-    sub   w2, w3, w2
+
+#if ((MIRROR_STRING_VALUE_OFFSET) & 7) != 0
+#  error "Expecting 8 byte aligned value offset."  /* For correct alignment handling below. */
+#endif
+    ubfiz w5, w2, #4, #2                  /* Extract the alignment adjustment times 16. */
+    add   x0, x0, x2, lsl #1              /* Build pointer to start of data to compare. */
+    mov   x7, #0x0001000100010001         /* Initialize the "SUB mask". */
+    orr   x1, x1, x1, lsl #32             /* Replicate low 32 bits of x1 to the high 32 bits. */
+    lsl   x6, x7, x5                      /* Calculate the "SUB mask" for first loop iteration. */
+    add   w2, w4, w5, lsr #4              /* Adjust iteration count for the alignment. */
+    bic   x0, x0, #7                      /* Align x0 down to 8 bytes. */
 
     /*
      * At this point we have:
-     *  x0: start of the data to test
-     *  w1: char to compare
-     *  w2: iteration count
-     *  x5: original start of string data
+     *   x0: start of the data to search, aligned down to 8 bytes.
+     *   x1: char to compare replicated 4 times.
+     *   w2: the number of chars to compare.
+     *   w3: string length, needed for result calculation together with w2.
+     *   x4, x5: free registers.
+     *   x6: the "SUB mask" ignoring early characters in the first iteration.
+     *   x7: the "SUB mask" for detecting matches.
      */
 
+    /* First iteration is unrolled to ignore matches in the early chars loaded due to aligment. */
+    ldr   x4, [x0], #8
+    eor   x4, x4, x1
+    sub   x5, x4, x6                      /* Ignore matches in the chars before the start. */
+    /* Rather than jump to the middle of the loop below, fully unroll the first iteration. */
+    eor   x4, x4, x5
+    ands  x4, x4, #0x8000800080008000
+    bne   .Lstring_indexof_match
     subs  w2, w2, #4
-    b.lt  .Lindexof_remainder
+    bls   .Lstring_indexof_nomatch
 
-.Lindexof_loop4:
-    ldrh  w6, [x0, #2]!
-    ldrh  w7, [x0, #2]!
-    ldrh  wIP0, [x0, #2]!
-    ldrh  wIP1, [x0, #2]!
-    cmp   w6, w1
-    b.eq  .Lmatch_0
-    cmp   w7, w1
-    b.eq  .Lmatch_1
-    cmp   wIP0, w1
-    b.eq  .Lmatch_2
-    cmp   wIP1, w1
-    b.eq  .Lmatch_3
+.Lstring_indexof_loop4:
+    ldr   x4, [x0], #8
+    eor   x4, x4, x1
+    sub   x5, x4, x7
+    eor   x4, x4, x5
+    ands  x4, x4, #0x8000800080008000
+    bne   .Lstring_indexof_match
     subs  w2, w2, #4
-    b.ge  .Lindexof_loop4
-
-.Lindexof_remainder:
-    adds  w2, w2, #4
-    b.eq  .Lindexof_nomatch
-
-.Lindexof_loop1:
-    ldrh  w6, [x0, #2]!
-    cmp   w6, w1
-    b.eq  .Lmatch_3
-    subs  w2, w2, #1
-    b.ne  .Lindexof_loop1
-
-.Lindexof_nomatch:
+    bhi   .Lstring_indexof_loop4
+.Lstring_indexof_nomatch:
     mov   x0, #-1
     ret
 
-.Lmatch_0:
-    sub   x0, x0, #6
-    sub   x0, x0, x5
-    asr   x0, x0, #1
+.Lstring_indexof_match:
+    /* Calculate the number of remaining characters in the string after the match. */
+    rbit  x4, x4
+    clz   x4, x4                          /* Possible values: 15, 31, 47, 63. */
+    subs  w2, w2, w4, lsr #4              /* Subtract the number of chars before match. */
+    /* If the character we're searching for is `(char)0`, we could have matched the padding. */
+    bls   .Lstring_indexof_nomatch
+    sub   w0, w3, w2                      /* The result is the length minus remaining chars. */
     ret
-.Lmatch_1:
-    sub   x0, x0, #4
-    sub   x0, x0, x5
-    asr   x0, x0, #1
-    ret
-.Lmatch_2:
-    sub   x0, x0, #2
-    sub   x0, x0, x5
-    asr   x0, x0, #1
-    ret
-.Lmatch_3:
-    sub   x0, x0, x5
-    asr   x0, x0, #1
-    ret
+
 #if (STRING_COMPRESSION_FEATURE)
-   /*
-    * Comparing compressed string character-per-character with
-    * input character
-    */
 .Lstring_indexof_compressed:
-    add   x0, x0, x2
-    sub   x0, x0, #1
-    sub   w2, w3, w2
-.Lstring_indexof_compressed_loop:
-    subs  w2, w2, #1
-    b.lt  .Lindexof_nomatch
-    ldrb  w6, [x0, #1]!
-    cmp   w6, w1
-    b.eq  .Lstring_indexof_compressed_matched
-    b     .Lstring_indexof_compressed_loop
-.Lstring_indexof_compressed_matched:
-    sub   x0, x0, x5
+    /* Check for non-ASCII search char, the 16 bits have already been replicated. */
+    tst   w1, #0xff80                     /* Check for non-ASCII search char. */
+    bne   .Lstring_indexof_compressed_nomatch
+
+#if ((MIRROR_STRING_VALUE_OFFSET) & 7) != 0
+#  error "Expecting 8 byte aligned value offset."  /* For correct alignment handling below. */
+#endif
+    add   w1, w1, w1, lsl #8              /* Replicate two 8-bit chars in w1 to the other slots. */
+    ubfiz w5, w2, #3, #3                  /* Extract the alignment adjustment and multiply by 8. */
+    add   x0, x0, x2                      /* Build pointer to start of data to compare. */
+    mov   x7, #0x0101010101010101         /* Override the "SUB mask". */
+    orr   x1, x1, x1, lsl #32             /* Replicate low 32 bits of x1 to the high 32 bits. */
+    lsl   x6, x7, x5                      /* Calculate the "SUB mask" for first loop iteration. */
+    add   w2, w4, w5, lsr #3              /* Adjust iteration count for the alignment. */
+    bic   x0, x0, #7                      /* Align x0 down to 8 bytes. */
+
+    /*
+     * At this point we have:
+     *   x0: start of the data to search, aligned down to 8 bytes.
+     *   x1: char to compare replicated or 8 times.
+     *   w2: the number of compressed chars to compare.
+     *   w3: string length, needed for result calculation together with w2.
+     *   x4, x5: free registers.
+     *   x6: the "SUB mask" ignoring early characters in the first iteration.
+     *   x7: the "SUB mask" for detecting matches.
+     */
+
+    /* First iteration is unrolled to ignore matches in the early chars loaded due to aligment. */
+    ldr   x4, [x0], #8
+    eor   x4, x4, x1
+    sub   x5, x4, x6                      /* Ignore matches in the chars before the start. */
+    /* Rather than jump to the middle of the loop below, fully unroll the first iteration. */
+    eor   x4, x4, x5
+    ands  x4, x4, #0x8080808080808080
+    bne   .Lstring_indexof_compressed_match
+    subs  w2, w2, #8
+    bls   .Lstring_indexof_compressed_nomatch
+
+.Lstring_indexof_compressed_loop8:
+    ldr   x4, [x0], #8
+    eor   x4, x4, x1
+    sub   x5, x4, x7
+    eor   x4, x4, x5
+    ands  x4, x4, #0x8080808080808080
+    bne   .Lstring_indexof_compressed_match
+    subs  w2, w2, #8
+    bhi   .Lstring_indexof_compressed_loop8
+.Lstring_indexof_compressed_nomatch:
+    mov   x0, #-1
+    ret
+
+.Lstring_indexof_compressed_match:
+    /* Calculate the number of remaining characters in the string after the match. */
+    rbit  x4, x4
+    clz   x4, x4                          /* Possible values: 7, 15, 23, 31, 39, 47, 55, 63. */
+    subs  w2, w2, w4, lsr #3              /* Subtract the number of bytes before match. */
+    /* If the character we're searching for is `(char)0`, we could have matched the padding. */
+    bls   .Lstring_indexof_nomatch
+    sub   x0, x3, x2                      /* The result is the length minus remaining chars. */
     ret
 #endif
 END art_quick_indexof
