@@ -94,6 +94,30 @@
       "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb272c6_c8e9ef0c",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-13T13:43:17Z",
+      "side": 0,
+      "message": "Yes, I checked on host that \"art/test/run-test --no-image ...\" will create its own core image without \"--force-determinism\".",
+      "parentUuid": "5c37d20c_e09d6208",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 31
+      },
+      "revId": "d3a9ce9d30a59587413310e66ea51c8f7adb0a1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
