@@ -93,6 +93,30 @@
       "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_a35884f9",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-13T18:00:49Z",
+      "side": 1,
+      "message": "(To expand on this a bit more, i\u0027m using Handles for a lot of these things now since there are a few places the thread could get suspended here and above, for example while resolving a method type or when performing a boxing conversion. We can revisit this later if it turns out to be a performance issue.\n\nThe only AssertNoThreadSuspension here is one that covers the creation of a shadow frame, and that\u0027s present in all other places where the SF is created as well.)",
+      "parentUuid": "5c37d20c_8352a0db",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 46
+      },
+      "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
