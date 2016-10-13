@@ -104,7 +104,7 @@ static void ReportInvalidJNINativeMethod(const ScopedObjectAccess& soa,
                                          bool return_errors)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   LOG(return_errors ? ::android::base::ERROR : ::android::base::FATAL)
-      << "Failed to register native method in " << PrettyDescriptor(c)
+      << "Failed to register native method in " << mirror::Class::PrettyDescriptor(c)
       << " in " << c->GetDexCache()->GetLocation()->ToModifiedUtf8()
       << ": " << kind << " is null at index " << idx;
   soa.Self()->ThrowNewExceptionF("Ljava/lang/NoSuchMethodError;",
@@ -235,7 +235,7 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
 static void ThrowAIOOBE(ScopedObjectAccess& soa, mirror::Array* array, jsize start,
                         jsize length, const char* identifier)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  std::string type(PrettyTypeOf(array));
+  std::string type(array->PrettyTypeOf());
   soa.Self()->ThrowNewExceptionF("Ljava/lang/ArrayIndexOutOfBoundsException;",
                                  "%s offset=%d length=%d %s.length=%d",
                                  type.c_str(), start, length, identifier, array->GetLength());
@@ -277,7 +277,7 @@ int ThrowNewException(JNIEnv* env, jclass exception_class, const char* msg, jobj
   if (mid == nullptr) {
     ScopedObjectAccess soa(env);
     LOG(ERROR) << "No <init>" << signature << " in "
-        << PrettyClass(soa.Decode<mirror::Class>(exception_class));
+        << mirror::Class::PrettyClass(soa.Decode<mirror::Class>(exception_class));
     return JNI_ERR;
   }
 
@@ -480,11 +480,11 @@ class JNI {
     jmethodID mid = env->GetMethodID(exception_class.get(), "printStackTrace", "()V");
     if (mid == nullptr) {
       LOG(WARNING) << "JNI WARNING: no printStackTrace()V in "
-                   << PrettyTypeOf(old_exception.Get());
+                   << mirror::Object::PrettyTypeOf(old_exception.Get());
     } else {
       env->CallVoidMethod(exception.get(), mid);
       if (soa.Self()->IsExceptionPending()) {
-        LOG(WARNING) << "JNI WARNING: " << PrettyTypeOf(soa.Self()->GetException())
+        LOG(WARNING) << "JNI WARNING: " << mirror::Object::PrettyTypeOf(soa.Self()->GetException())
                      << " thrown while calling printStackTrace";
         soa.Self()->ClearException();
       }
@@ -1835,7 +1835,7 @@ class JNI {
     ScopedObjectAccess soa(env);
     ObjPtr<mirror::Object> obj = soa.Decode<mirror::Object>(java_array);
     if (UNLIKELY(!obj->IsArrayInstance())) {
-      soa.Vm()->JniAbortF("GetArrayLength", "not an array: %s", PrettyTypeOf(obj).c_str());
+      soa.Vm()->JniAbortF("GetArrayLength", "not an array: %s", obj->PrettyTypeOf().c_str());
       return 0;
     }
     mirror::Array* array = obj->AsArray();
@@ -1903,7 +1903,7 @@ class JNI {
       mirror::Class* element_class = soa.Decode<mirror::Class>(element_jclass).Ptr();
       if (UNLIKELY(element_class->IsPrimitive())) {
         soa.Vm()->JniAbortF("NewObjectArray", "not an object type: %s",
-                            PrettyDescriptor(element_class).c_str());
+                            mirror::Class::PrettyDescriptor(element_class).c_str());
         return nullptr;
       }
       ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
@@ -1923,8 +1923,8 @@ class JNI {
         if (UNLIKELY(!element_class->IsAssignableFrom(initial_object->GetClass()))) {
           soa.Vm()->JniAbortF("NewObjectArray", "cannot assign object of type '%s' to array with "
                               "element type of '%s'",
-                              PrettyDescriptor(initial_object->GetClass()).c_str(),
-                              PrettyDescriptor(element_class).c_str());
+                              mirror::Class::PrettyDescriptor(initial_object->GetClass()).c_str(),
+                              mirror::Class::PrettyDescriptor(element_class).c_str());
           return nullptr;
         } else {
           for (jsize i = 0; i < length; ++i) {
@@ -1946,7 +1946,7 @@ class JNI {
     ObjPtr<mirror::Array> array = soa.Decode<mirror::Array>(java_array);
     if (UNLIKELY(!array->GetClass()->IsPrimitiveArray())) {
       soa.Vm()->JniAbortF("GetPrimitiveArrayCritical", "expected primitive array, given %s",
-                          PrettyDescriptor(array->GetClass()).c_str());
+                          mirror::Class::PrettyDescriptor(array->GetClass()).c_str());
       return nullptr;
     }
     gc::Heap* heap = Runtime::Current()->GetHeap();
@@ -1974,7 +1974,7 @@ class JNI {
     ObjPtr<mirror::Array> array = soa.Decode<mirror::Array>(java_array);
     if (UNLIKELY(!array->GetClass()->IsPrimitiveArray())) {
       soa.Vm()->JniAbortF("ReleasePrimitiveArrayCritical", "expected primitive array, given %s",
-                          PrettyDescriptor(array->GetClass()).c_str());
+                          mirror::Class::PrettyDescriptor(array->GetClass()).c_str());
       return;
     }
     const size_t component_size = array->GetClass()->GetComponentSize();
@@ -2155,7 +2155,7 @@ class JNI {
     ObjPtr<mirror::Class> c = soa.Decode<mirror::Class>(java_class);
     if (UNLIKELY(method_count == 0)) {
       LOG(WARNING) << "JNI RegisterNativeMethods: attempt to register 0 native methods for "
-          << PrettyDescriptor(c);
+          << mirror::Class::PrettyDescriptor(c);
       return JNI_OK;
     }
     CHECK_NON_NULL_ARGUMENT_FN_NAME("RegisterNatives", methods, JNI_ERR);
@@ -2243,20 +2243,20 @@ class JNI {
             mirror::Class::kDumpClassFullDetail);
         LOG(return_errors ? ::android::base::ERROR : ::android::base::FATAL)
             << "Failed to register native method "
-            << PrettyDescriptor(c) << "." << name << sig << " in "
+            << mirror::Class::PrettyDescriptor(c) << "." << name << sig << " in "
             << c->GetDexCache()->GetLocation()->ToModifiedUtf8();
         ThrowNoSuchMethodError(soa, c.Ptr(), name, sig, "static or non-static");
         return JNI_ERR;
       } else if (!m->IsNative()) {
         LOG(return_errors ? ::android::base::ERROR : ::android::base::FATAL)
             << "Failed to register non-native method "
-            << PrettyDescriptor(c) << "." << name << sig
+            << mirror::Class::PrettyDescriptor(c) << "." << name << sig
             << " as native";
         ThrowNoSuchMethodError(soa, c.Ptr(), name, sig, "native");
         return JNI_ERR;
       }
 
-      VLOG(jni) << "[Registering JNI native method " << PrettyMethod(m) << "]";
+      VLOG(jni) << "[Registering JNI native method " << ArtMethod::PrettyMethod(m) << "]";
 
       is_fast = is_fast || m->IsFastNative();  // Merge with @FastNative state.
       m->RegisterNative(fnPtr, is_fast);
@@ -2269,7 +2269,7 @@ class JNI {
     ScopedObjectAccess soa(env);
     ObjPtr<mirror::Class> c = soa.Decode<mirror::Class>(java_class);
 
-    VLOG(jni) << "[Unregistering JNI native methods for " << PrettyClass(c) << "]";
+    VLOG(jni) << "[Unregistering JNI native methods for " << mirror::Class::PrettyClass(c) << "]";
 
     size_t unregistered_count = 0;
     auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
@@ -2282,7 +2282,7 @@ class JNI {
 
     if (unregistered_count == 0) {
       LOG(WARNING) << "JNI UnregisterNatives: attempt to unregister native methods of class '"
-          << PrettyDescriptor(c) << "' that contains no native methods";
+          << mirror::Class::PrettyDescriptor(c) << "' that contains no native methods";
     }
     return JNI_OK;
   }
@@ -2421,8 +2421,9 @@ class JNI {
       soa.Vm()->JniAbortF(fn_name,
                           "attempt to %s %s primitive array elements with an object of type %s",
                           operation,
-                          PrettyDescriptor(ArtArrayT::GetArrayClass()->GetComponentType()).c_str(),
-                          PrettyDescriptor(array->GetClass()).c_str());
+                          mirror::Class::PrettyDescriptor(
+                              ArtArrayT::GetArrayClass()->GetComponentType()).c_str(),
+                          mirror::Class::PrettyDescriptor(array->GetClass()).c_str());
       return nullptr;
     }
     DCHECK_EQ(sizeof(ElementT), array->GetClass()->GetComponentSize());

@@ -957,11 +957,11 @@ bool DoFilledNewArray(const Instruction* inst, const ShadowFrame& shadow_frame,
   if (UNLIKELY(component_class->IsPrimitive() && !is_primitive_int_component)) {
     if (component_class->IsPrimitiveLong() || component_class->IsPrimitiveDouble()) {
       ThrowRuntimeException("Bad filled array request for type %s",
-                            PrettyDescriptor(component_class).c_str());
+                            Class::PrettyDescriptor(component_class).c_str());
     } else {
       self->ThrowNewExceptionF("Ljava/lang/InternalError;",
                                "Found type %s; filled-new-array not implemented for anything but 'int'",
-                               PrettyDescriptor(component_class).c_str());
+                               Class::PrettyDescriptor(component_class).c_str());
     }
     return false;
   }

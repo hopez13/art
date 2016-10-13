@@ -59,7 +59,7 @@ void VerificationResults::ProcessVerifiedMethod(verifier::MethodVerifier* method
   if (it != verified_methods_.end()) {
     // TODO: Investigate why are we doing the work again for this method and try to avoid it.
     LOG(WARNING) << "Method processed more than once: "
-        << PrettyMethod(ref.dex_method_index, *ref.dex_file);
+        << ref.dex_file->PrettyMethod(ref.dex_method_index);
     if (!Runtime::Current()->UseJitCompilation()) {
       DCHECK_EQ(it->second->GetDevirtMap().size(), verified_method->GetDevirtMap().size());
       DCHECK_EQ(it->second->GetSafeCastSet().size(), verified_method->GetSafeCastSet().size());

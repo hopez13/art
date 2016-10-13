@@ -127,33 +127,34 @@ TEST_F(UtilsTest, PrettyTypeOf) {
 
 TEST_F(UtilsTest, PrettyClass) {
   ScopedObjectAccess soa(Thread::Current());
-  EXPECT_EQ("null", PrettyClass(nullptr));
+  EXPECT_EQ("null", Class::PrettyClass(nullptr));
   mirror::Class* c = class_linker_->FindSystemClass(soa.Self(), "[Ljava/lang/String;");
   ASSERT_TRUE(c != nullptr);
   mirror::Object* o = mirror::ObjectArray<mirror::String>::Alloc(soa.Self(), c, 0);
-  EXPECT_EQ("java.lang.Class<java.lang.String[]>", PrettyClass(o->GetClass()));
+  EXPECT_EQ("java.lang.Class<java.lang.String[]>", Class::PrettyClass(o->GetClass()));
 }
 
 TEST_F(UtilsTest, PrettyClassAndClassLoader) {
   ScopedObjectAccess soa(Thread::Current());
-  EXPECT_EQ("null", PrettyClassAndClassLoader(nullptr));
+  EXPECT_EQ("null", Class::PrettyClassAndClassLoader(nullptr));
   mirror::Class* c = class_linker_->FindSystemClass(soa.Self(), "[Ljava/lang/String;");
   ASSERT_TRUE(c != nullptr);
   mirror::Object* o = mirror::ObjectArray<mirror::String>::Alloc(soa.Self(), c, 0);
-  EXPECT_EQ("java.lang.Class<java.lang.String[],null>", PrettyClassAndClassLoader(o->GetClass()));
+  EXPECT_EQ("java.lang.Class<java.lang.String[],null>",
+            Class::PrettyClassAndClassLoader(o->GetClass()));
 }
 
 TEST_F(UtilsTest, PrettyField) {
   ScopedObjectAccess soa(Thread::Current());
-  EXPECT_EQ("null", PrettyField(nullptr));
+  EXPECT_EQ("null", ArtMethod::PrettyField(nullptr));
 
   mirror::Class* java_lang_String = class_linker_->FindSystemClass(soa.Self(),
                                                                    "Ljava/lang/String;");
 
   ArtField* f;
   f = java_lang_String->FindDeclaredInstanceField("count", "I");
-  EXPECT_EQ("int java.lang.String.count", PrettyField(f));
-  EXPECT_EQ("java.lang.String.count", PrettyField(f, false));
+  EXPECT_EQ("int java.lang.String.count", f->PrettyField());
+  EXPECT_EQ("java.lang.String.count", f->PrettyField(false));
 }
 
 TEST_F(UtilsTest, PrettySize) {

@@ -247,8 +247,8 @@ mirror::Object* ProcessEncodedAnnotation(Handle<mirror::Class> klass, const uint
   Handle<mirror::Class> annotation_class(hs.NewHandle(
       class_linker->ResolveType(klass->GetDexFile(), type_index, klass.Get())));
   if (annotation_class.Get() == nullptr) {
-    LOG(INFO) << "Unable to resolve " << PrettyClass(klass.Get()) << " annotation class "
-              << type_index;
+    LOG(INFO) << "Unable to resolve " << mirror::Class::PrettyClass(klass.Get())
+              << " annotation class " << type_index;
     DCHECK(Thread::Current()->IsExceptionPending());
     Thread::Current()->ClearException();
     return nullptr;
@@ -1316,7 +1316,7 @@ int32_t GetLineNumFromPC(const DexFile* dex_file, ArtMethod* method, uint32_t re
   }
 
   const DexFile::CodeItem* code_item = dex_file->GetCodeItem(method->GetCodeItemOffset());
-  DCHECK(code_item != nullptr) << PrettyMethod(method) << " " << dex_file->GetLocation();
+  DCHECK(code_item != nullptr) << ArtMethod::PrettyMethod(method) << " " << dex_file->GetLocation();
 
   // A method with no line number info should return -1
   DexFile::LineNumFromPcContext context(rel_pc, -1);

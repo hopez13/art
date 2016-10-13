@@ -38,7 +38,7 @@ extern uint32_t JniMethodFastStart(Thread* self) {
 
   if (kIsDebugBuild) {
     ArtMethod* native_method = *self->GetManagedStack()->GetTopQuickFrame();
-    CHECK(native_method->IsAnnotatedWithFastNative()) << PrettyMethod(native_method);
+    CHECK(native_method->IsAnnotatedWithFastNative()) << ArtMethod::PrettyMethod(native_method);
   }
 
   return saved_local_ref_cookie;
@@ -101,7 +101,7 @@ extern void JniMethodFastEnd(uint32_t saved_local_ref_cookie, Thread* self) {
 
   if (kIsDebugBuild) {
     ArtMethod* native_method = *self->GetManagedStack()->GetTopQuickFrame();
-    CHECK(native_method->IsAnnotatedWithFastNative()) << PrettyMethod(native_method);
+    CHECK(native_method->IsAnnotatedWithFastNative()) << ArtMethod::PrettyMethod(native_method);
   }
 
   if (UNLIKELY(self->TestAllFlags())) {

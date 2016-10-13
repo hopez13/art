@@ -332,9 +332,9 @@ class ClassLinkerTest : public CommonRuntimeTest {
       EXPECT_FALSE(method.IsDirect());
       EXPECT_TRUE(method.IsCopied());
       EXPECT_TRUE(method.GetDeclaringClass()->IsInterface())
-          << "declaring class: " << PrettyClass(method.GetDeclaringClass());
+          << "declaring class: " << Class::PrettyClass(method.GetDeclaringClass());
       EXPECT_TRUE(method.GetDeclaringClass()->IsAssignableFrom(klass.Get()))
-          << "declaring class: " << PrettyClass(method.GetDeclaringClass());
+          << "declaring class: " << Class::PrettyClass(method.GetDeclaringClass());
     }
 
     for (size_t i = 0; i < klass->NumInstanceFields(); i++) {
@@ -366,8 +366,7 @@ class ClassLinkerTest : public CommonRuntimeTest {
         if (current_ref_offset.Uint32Value() == end_ref_offset.Uint32Value()) {
           // While Reference.referent is not primitive, the ClassLinker
           // treats it as such so that the garbage collector won't scan it.
-          EXPECT_EQ(PrettyField(field),
-                    "java.lang.Object java.lang.ref.Reference.referent");
+          EXPECT_EQ(field->PrettyField(), "java.lang.Object java.lang.ref.Reference.referent");
         } else {
           current_ref_offset = MemberOffset(current_ref_offset.Uint32Value() +
                                             sizeof(mirror::HeapReference<mirror::Object>));

@@ -164,7 +164,7 @@ inline Array* Array::Alloc(Thread* self, Class* array_class, int32_t component_c
   // 32-bit.
   if (UNLIKELY(size == 0)) {
     self->ThrowOutOfMemoryError(StringPrintf("%s of length %d would overflow",
-                                             PrettyDescriptor(array_class).c_str(),
+                                             Class::PrettyDescriptor(array_class).c_str(),
                                              component_count).c_str());
     return nullptr;
   }

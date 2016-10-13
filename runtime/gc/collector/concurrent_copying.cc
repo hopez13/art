@@ -394,8 +394,8 @@ class ConcurrentCopying::VerifyGrayImmuneObjectsVisitor {
         CHECK(Runtime::Current()->GetHeap()->GetLargeObjectsSpace()->IsZygoteLargeObject(
             Thread::Current(), ref))
             << "Non gray object references non immune, non zygote large object "<< ref << " "
-            << PrettyTypeOf(ref) << " in holder " << holder << " " << PrettyTypeOf(holder)
-            << " offset=" << offset.Uint32Value();
+            << mirror::Object::PrettyTypeOf(ref) << " in holder " << holder << " "
+            << mirror::Object::PrettyTypeOf(holder) << " offset=" << offset.Uint32Value();
       } else {
         // Make sure the large object class is immune since we will never scan the large object.
         CHECK(collector_->immune_spaces_.ContainsObject(
@@ -860,7 +860,7 @@ void ConcurrentCopying::ExpandGcMarkStack() {
 
 void ConcurrentCopying::PushOntoMarkStack(mirror::Object* to_ref) {
   CHECK_EQ(is_mark_stack_push_disallowed_.LoadRelaxed(), 0)
-      << " " << to_ref << " " << PrettyTypeOf(to_ref);
+      << " " << to_ref << " " << mirror::Object::PrettyTypeOf(to_ref);
   Thread* self = Thread::Current();  // TODO: pass self as an argument from call sites?
   CHECK(thread_running_gc_ != nullptr);
   MarkStackMode mark_stack_mode = mark_stack_mode_.LoadRelaxed();
@@ -949,7 +949,7 @@ class ConcurrentCopying::VerifyNoFromSpaceRefsVisitor : public SingleRootVisitor
     collector_->AssertToSpaceInvariant(nullptr, MemberOffset(0), ref);
     if (kUseBakerReadBarrier) {
       CHECK_EQ(ref->GetReadBarrierPointer(), ReadBarrier::WhitePtr())
-          << "Ref " << ref << " " << PrettyTypeOf(ref)
+          << "Ref " << ref << " " << ref->PrettyTypeOf()
           << " has non-white rb_ptr ";
     }
   }
@@ -1447,10 +1447,10 @@ void ConcurrentCopying::CheckEmptyMarkStack() {
           mirror::Object* obj = mark_stack->PopBack();
           if (kUseBakerReadBarrier) {
             mirror::Object* rb_ptr = obj->GetReadBarrierPointer();
-            LOG(INFO) << "On mark queue : " << obj << " " << PrettyTypeOf(obj) << " rb_ptr=" << rb_ptr
-                      << " is_marked=" << IsMarked(obj);
+            LOG(INFO) << "On mark queue : " << obj << " " << obj->PrettyTypeOf() << " rb_ptr="
+                      << rb_ptr << " is_marked=" << IsMarked(obj);
           } else {
-            LOG(INFO) << "On mark queue : " << obj << " " << PrettyTypeOf(obj)
+            LOG(INFO) << "On mark queue : " << obj << " " << obj->PrettyTypeOf()
                       << " is_marked=" << IsMarked(obj);
           }
         }
@@ -1623,7 +1623,7 @@ void ConcurrentCopying::AssertToSpaceInvariant(mirror::Object* obj, MemberOffset
         LogFromSpaceRefHolder(obj, offset);
       }
       ref->GetLockWord(false).Dump(LOG_STREAM(FATAL_WITHOUT_ABORT));
-      CHECK(false) << "Found from-space ref " << ref << " " << PrettyTypeOf(ref);
+      CHECK(false) << "Found from-space ref " << ref << " " << ref->PrettyTypeOf();
     } else {
       AssertToSpaceInvariantInNonMovingSpace(obj, ref);
     }
@@ -1670,12 +1670,14 @@ void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
         // No info.
       } else if (gc_root_source->HasArtField()) {
         ArtField* field = gc_root_source->GetArtField();
-        LOG(FATAL_WITHOUT_ABORT) << "gc root in field " << field << " " << PrettyField(field);
+        LOG(FATAL_WITHOUT_ABORT) << "gc root in field " << field << " "
+                                 << ArtField::PrettyField(field);
         RootPrinter root_printer;
         field->VisitRoots(root_printer);
       } else if (gc_root_source->HasArtMethod()) {
         ArtMethod* method = gc_root_source->GetArtMethod();
-        LOG(FATAL_WITHOUT_ABORT) << "gc root in method " << method << " " << PrettyMethod(method);
+        LOG(FATAL_WITHOUT_ABORT) << "gc root in method " << method << " "
+                                 << ArtMethod::PrettyMethod(method);
         RootPrinter root_printer;
         method->VisitRoots(root_printer, kRuntimePointerSize);
       }
@@ -1683,7 +1685,7 @@ void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
       region_space_->DumpNonFreeRegions(LOG_STREAM(FATAL_WITHOUT_ABORT));
       PrintFileToLog("/proc/self/maps", LogSeverity::FATAL_WITHOUT_ABORT);
       MemMap::DumpMaps(LOG_STREAM(FATAL_WITHOUT_ABORT), true);
-      CHECK(false) << "Found from-space ref " << ref << " " << PrettyTypeOf(ref);
+      CHECK(false) << "Found from-space ref " << ref << " " << ref->PrettyTypeOf();
     } else {
       AssertToSpaceInvariantInNonMovingSpace(nullptr, ref);
     }
@@ -1692,10 +1694,10 @@ void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
 
 void ConcurrentCopying::LogFromSpaceRefHolder(mirror::Object* obj, MemberOffset offset) {
   if (kUseBakerReadBarrier) {
-    LOG(INFO) << "holder=" << obj << " " << PrettyTypeOf(obj)
+    LOG(INFO) << "holder=" << obj << " " << obj->PrettyTypeOf()
               << " holder rb_ptr=" << obj->GetReadBarrierPointer();
   } else {
-    LOG(INFO) << "holder=" << obj << " " << PrettyTypeOf(obj);
+    LOG(INFO) << "holder=" << obj << " " << obj->PrettyTypeOf();
   }
   if (region_space_->IsInFromSpace(obj)) {
     LOG(INFO) << "holder is in the from-space.";

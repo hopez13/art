@@ -101,6 +101,8 @@
 
 namespace art {
 
+using mirror::Class;
+
 static constexpr bool kSanityCheckObjects = kIsDebugBuild;
 static constexpr bool kVerifyArtMethodDeclaringClasses = kIsDebugBuild;
 
@@ -149,7 +151,7 @@ static void HandleEarlierVerifyError(Thread* self, ClassLinker* class_linker, mi
     const char* descriptor = obj->AsClass()->GetDescriptor(&temp);
 
     if (HasInitWithString(self, class_linker, descriptor)) {
-      self->ThrowNewException(descriptor, PrettyDescriptor(c).c_str());
+      self->ThrowNewException(descriptor, Class::PrettyDescriptor(c).c_str());
     } else {
       self->ThrowNewException(descriptor, nullptr);
     }
@@ -175,15 +177,16 @@ void ClassLinker::ThrowEarlierClassFailure(mirror::Class* c, bool wrap_in_no_cla
     if (c->GetVerifyError() != nullptr) {
       mirror::Object* verify_error = c->GetVerifyError();
       if (verify_error->IsClass()) {
-        extra = PrettyDescriptor(verify_error->AsClass());
+        extra = Class::PrettyDescriptor(verify_error->AsClass());
       } else {
         extra = verify_error->AsThrowable()->Dump();
       }
     }
-    LOG(INFO) << "Rejecting re-init on previously-failed class " << PrettyClass(c) << ": " << extra;
+    LOG(INFO) << "Rejecting re-init on previously-failed class " << Class::PrettyClass(c)
+              << ": " << extra;
   }
 
-  CHECK(c->IsErroneous()) << PrettyClass(c) << " " << c->GetStatus();
+  CHECK(c->IsErroneous()) << Class::PrettyClass(c) << " " << c->GetStatus();
   Thread* self = Thread::Current();
   if (runtime->IsAotCompiler()) {
     // At compile time, accurate errors and NCDFE are disabled to speed compilation.
@@ -199,7 +202,7 @@ void ClassLinker::ThrowEarlierClassFailure(mirror::Class* c, bool wrap_in_no_cla
       // the top-level exception must be a NoClassDefFoundError. The potentially already pending
       // exception will be a cause.
       self->ThrowNewWrappedException("Ljava/lang/NoClassDefFoundError;",
-                                     PrettyDescriptor(c).c_str());
+                                     Class::PrettyDescriptor(c).c_str());
     }
   }
 }
@@ -294,7 +297,7 @@ static void ShuffleForward(size_t* current_field_idx,
       *field_offset = MemberOffset(RoundUp(field_offset->Uint32Value(), n));
       AddFieldGap(old_offset.Uint32Value(), field_offset->Uint32Value(), gaps);
     }
-    CHECK(type != Primitive::kPrimNot) << PrettyField(field);  // should be primitive types
+    CHECK(type != Primitive::kPrimNot) << field->PrettyField();  // should be primitive types
     grouped_and_sorted_fields->pop_front();
     if (!gaps->empty() && gaps->top().size >= n) {
       FieldGap gap = gaps->top();
@@ -780,11 +783,11 @@ static void SanityCheckArtMethod(ArtMethod* m,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (m->IsRuntimeMethod()) {
     mirror::Class* declaring_class = m->GetDeclaringClassUnchecked();
-    CHECK(declaring_class == nullptr) << declaring_class << " " << PrettyMethod(m);
+    CHECK(declaring_class == nullptr) << declaring_class << " " << ArtMethod::PrettyMethod(m);
   } else if (m->IsCopied()) {
-    CHECK(m->GetDeclaringClass() != nullptr) << PrettyMethod(m);
+    CHECK(m->GetDeclaringClass() != nullptr) << ArtMethod::PrettyMethod(m);
   } else if (expected_class != nullptr) {
-    CHECK_EQ(m->GetDeclaringClassUnchecked(), expected_class) << PrettyMethod(m);
+    CHECK_EQ(m->GetDeclaringClassUnchecked(), expected_class) << ArtMethod::PrettyMethod(m);
   }
   if (!spaces.empty()) {
     bool contains = false;
@@ -1012,7 +1015,7 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
         spaces[i]->GetLiveBitmap()->Walk(CheckTrampolines, &data);
         if (data.error) {
           ArtMethod* m = data.m;
-          LOG(ERROR) << "Found a broken ArtMethod: " << PrettyMethod(m);
+          LOG(ERROR) << "Found a broken ArtMethod: " << ArtMethod::PrettyMethod(m);
           *error_msg = "Found an ArtMethod with a bad entrypoint";
           return false;
         }
@@ -1099,7 +1102,7 @@ static mirror::String* GetDexPathListElementName(ScopedObjectAccessUnchecked& so
   DCHECK(dex_file_field != nullptr);
   DCHECK(dex_file_name_field != nullptr);
   DCHECK(element != nullptr);
-  CHECK_EQ(dex_file_field->GetDeclaringClass(), element->GetClass()) << PrettyTypeOf(element);
+  CHECK_EQ(dex_file_field->GetDeclaringClass(), element->GetClass()) << element->PrettyTypeOf();
   ObjPtr<mirror::Object> dex_file = dex_file_field->GetObject(element);
   if (dex_file == nullptr) {
     return nullptr;
@@ -1127,7 +1130,8 @@ static bool FlattenPathClassLoader(mirror::ClassLoader* class_loader,
   while (!ClassLinker::IsBootClassLoader(soa, class_loader)) {
     if (soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_PathClassLoader) !=
         class_loader->GetClass()) {
-      *error_msg = StringPrintf("Unknown class loader type %s", PrettyTypeOf(class_loader).c_str());
+      *error_msg = StringPrintf("Unknown class loader type %s",
+                                class_loader->PrettyTypeOf().c_str());
       // Unsupported class loader.
       return false;
     }
@@ -1215,7 +1219,7 @@ class VerifyClassInTableArtMethodVisitor : public ArtMethodVisitor {
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::classlinker_classes_lock_) {
     mirror::Class* klass = method->GetDeclaringClass();
     if (klass != nullptr && !Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(klass)) {
-      CHECK_EQ(table_->LookupByDescriptor(klass), klass) << PrettyClass(klass);
+      CHECK_EQ(table_->LookupByDescriptor(klass), klass) << Class::PrettyClass(klass);
     }
   }
 
@@ -1416,7 +1420,7 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
             if (num_dex_caches > 1) {
               mirror::Class* existing = table->LookupByDescriptor(klass);
               if (existing != nullptr) {
-                DCHECK_EQ(existing, klass) << PrettyClass(klass);
+                DCHECK_EQ(existing, klass) << Class::PrettyClass(klass);
               } else {
                 table->Insert(klass);
               }
@@ -1425,22 +1429,22 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
             }
             // Double checked VLOG to avoid overhead.
             if (VLOG_IS_ON(image)) {
-              VLOG(image) << PrettyClass(klass) << " " << klass->GetStatus();
+              VLOG(image) << Class::PrettyClass(klass) << " " << klass->GetStatus();
               if (!klass->IsArrayClass()) {
                 VLOG(image) << "From " << klass->GetDexCache()->GetDexFile()->GetBaseLocation();
               }
               VLOG(image) << "Direct methods";
               for (ArtMethod& m : klass->GetDirectMethods(kRuntimePointerSize)) {
-                VLOG(image) << PrettyMethod(&m);
+                VLOG(image) << ArtMethod::PrettyMethod(&m);
               }
               VLOG(image) << "Virtual methods";
               for (ArtMethod& m : klass->GetVirtualMethods(kRuntimePointerSize)) {
-                VLOG(image) << PrettyMethod(&m);
+                VLOG(image) << ArtMethod::PrettyMethod(&m);
               }
             }
           } else {
             DCHECK(klass == nullptr || heap->ObjectIsInBootImageSpace(klass))
-                << klass << " " << PrettyClass(klass);
+                << klass << " " << Class::PrettyClass(klass);
           }
         }
       }
@@ -1477,7 +1481,7 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
                     !IsQuickGenericJniStub(code) &&
                     !IsQuickToInterpreterBridge(code) &&
                     !m.IsNative()) {
-                  DCHECK_EQ(code, oat_code) << PrettyMethod(&m);
+                  DCHECK_EQ(code, oat_code) << ArtMethod::PrettyMethod(&m);
                 }
               }
               for (ArtMethod& m : klass->GetVirtualMethods(kRuntimePointerSize)) {
@@ -1487,7 +1491,7 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
                     !IsQuickGenericJniStub(code) &&
                     !IsQuickToInterpreterBridge(code) &&
                     !m.IsNative()) {
-                  DCHECK_EQ(code, oat_code) << PrettyMethod(&m);
+                  DCHECK_EQ(code, oat_code) << ArtMethod::PrettyMethod(&m);
                 }
               }
             }
@@ -1529,7 +1533,7 @@ class UpdateClassLoaderAndResolvedStringsVisitor {
         DCHECK(
             space_->GetImageHeader().GetImageSection(ImageHeader::kSectionDexCacheArrays).Contains(
                 reinterpret_cast<uint8_t*>(strings) - space_->Begin()))
-            << "String dex cache array for " << PrettyClass(klass) << " is not in app image";
+            << "String dex cache array for " << Class::PrettyClass(klass) << " is not in app image";
         // Dex caches have already been updated, so take the strings pointer from there.
         mirror::StringDexCacheType* new_strings = klass->GetDexCache()->GetStrings();
         DCHECK_NE(strings, new_strings);
@@ -2341,7 +2345,7 @@ mirror::Class* ClassLinker::EnsureResolved(Thread* self,
     return nullptr;
   }
   // Return the loaded class.  No exceptions should be pending.
-  CHECK(klass->IsResolved()) << PrettyClass(klass);
+  CHECK(klass->IsResolved()) << Class::PrettyClass(klass);
   self->AssertNoPendingException();
   return klass;
 }
@@ -2778,7 +2782,7 @@ uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
 
 // Special case to get oat code without overwriting a trampoline.
 const void* ClassLinker::GetQuickOatCodeFor(ArtMethod* method) {
-  CHECK(method->IsInvokable()) << PrettyMethod(method);
+  CHECK(method->IsInvokable()) << ArtMethod::PrettyMethod(method);
   if (method->IsProxyMethod()) {
     return GetQuickProxyInvokeHandler();
   }
@@ -2837,7 +2841,7 @@ bool ClassLinker::ShouldUseInterpreterEntrypoint(ArtMethod* method, const void* 
 }
 
 void ClassLinker::FixupStaticTrampolines(mirror::Class* klass) {
-  DCHECK(klass->IsInitialized()) << PrettyDescriptor(klass);
+  DCHECK(klass->IsInitialized()) << Class::PrettyDescriptor(klass);
   if (klass->NumDirectMethods() == 0) {
     return;  // No direct methods => no static methods.
   }
@@ -2853,7 +2857,7 @@ void ClassLinker::FixupStaticTrampolines(mirror::Class* klass) {
   CHECK(dex_class_def != nullptr);
   const uint8_t* class_data = dex_file.GetClassData(*dex_class_def);
   // There should always be class data if there were direct methods.
-  CHECK(class_data != nullptr) << PrettyDescriptor(klass);
+  CHECK(class_data != nullptr) << Class::PrettyDescriptor(klass);
   ClassDataItemIterator it(dex_file, class_data);
   // Skip fields
   while (it.HasNextStaticField()) {
@@ -3092,7 +3096,7 @@ void ClassLinker::LoadClassMembers(Thread* self,
     }
     if (UNLIKELY(num_sfields != it.NumStaticFields()) ||
         UNLIKELY(num_ifields != it.NumInstanceFields())) {
-      LOG(WARNING) << "Duplicate fields in class " << PrettyDescriptor(klass.Get())
+      LOG(WARNING) << "Duplicate fields in class " << Class::PrettyDescriptor(klass.Get())
           << " (unique static fields: " << num_sfields << "/" << it.NumStaticFields()
           << ", unique instance fields: " << num_ifields << "/" << it.NumInstanceFields() << ")";
       // NOTE: Not shrinking the over-allocated sfields/ifields, just setting size.
@@ -3208,7 +3212,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     } else {
       if (UNLIKELY((access_flags & kAccConstructor) == 0)) {
         LOG(WARNING) << method_name << " didn't have expected constructor access flag in class "
-            << PrettyDescriptor(klass.Get()) << " in dex file " << dex_file.GetLocation();
+            << Class::PrettyDescriptor(klass.Get()) << " in dex file " << dex_file.GetLocation();
         access_flags |= kAccConstructor;
       }
     }
@@ -3730,8 +3734,8 @@ void ClassLinker::AddImageClassesToClassTable(std::vector<gc::space::ImageSpace*
           size_t hash = ComputeModifiedUtf8Hash(descriptor);
           mirror::Class* existing = class_table->Lookup(descriptor, hash);
           if (existing != nullptr) {
-            CHECK_EQ(existing, klass) << PrettyClassAndClassLoader(existing) << " != "
-                << PrettyClassAndClassLoader(klass);
+            CHECK_EQ(existing, klass) << Class::PrettyClassAndClassLoader(existing) << " != "
+                << Class::PrettyClassAndClassLoader(klass);
           } else {
             class_table->Insert(klass);
             if (log_new_class_table_roots_) {
@@ -3843,8 +3847,8 @@ bool ClassLinker::AttemptSupertypeVerification(Thread* self,
   // If we got this far then we have a hard failure.
   std::string error_msg =
       StringPrintf("Rejecting class %s that attempts to sub-type erroneous class %s",
-                   PrettyDescriptor(klass.Get()).c_str(),
-                   PrettyDescriptor(supertype.Get()).c_str());
+                   Class::PrettyDescriptor(klass.Get()).c_str(),
+                   Class::PrettyDescriptor(supertype.Get()).c_str());
   LOG(WARNING) << error_msg  << " in " << klass->GetDexCache()->GetLocation()->ToModifiedUtf8();
   StackHandleScope<1> hs(self);
   Handle<mirror::Throwable> cause(hs.NewHandle(self->GetException()));
@@ -3880,8 +3884,9 @@ void ClassLinker::VerifyClass(Thread* self,
         old_status == mirror::Class::kStatusVerifyingAtRuntime) {
       lock.WaitIgnoringInterrupts();
       CHECK(klass->IsErroneous() || (klass->GetStatus() > old_status))
-          << "Class '" << PrettyClass(klass.Get()) << "' performed an illegal verification state "
-          << "transition from " << old_status << " to " << klass->GetStatus();
+          << "Class '" << Class::PrettyClass(klass.Get())
+          << "' performed an illegal verification state transition from " << old_status
+          << " to " << klass->GetStatus();
       old_status = klass->GetStatus();
     }
 
@@ -3905,7 +3910,7 @@ void ClassLinker::VerifyClass(Thread* self,
       mirror::Class::SetStatus(klass, mirror::Class::kStatusVerifying, self);
     } else {
       CHECK_EQ(klass->GetStatus(), mirror::Class::kStatusRetryVerificationAtRuntime)
-            << PrettyClass(klass.Get());
+            << Class::PrettyClass(klass.Get());
       CHECK(!Runtime::Current()->IsAotCompiler());
       mirror::Class::SetStatus(klass, mirror::Class::kStatusVerifyingAtRuntime, self);
     }
@@ -3994,9 +3999,10 @@ void ClassLinker::VerifyClass(Thread* self,
 
   if (preverified || verifier_failure != verifier::MethodVerifier::kHardFailure) {
     if (!preverified && verifier_failure != verifier::MethodVerifier::kNoFailure) {
-      VLOG(class_linker) << "Soft verification failure in class " << PrettyDescriptor(klass.Get())
-          << " in " << klass->GetDexCache()->GetLocation()->ToModifiedUtf8()
-          << " because: " << error_msg;
+      VLOG(class_linker) << "Soft verification failure in class "
+                         << Class::PrettyDescriptor(klass.Get())
+                         << " in " << klass->GetDexCache()->GetLocation()->ToModifiedUtf8()
+                         << " because: " << error_msg;
     }
     self->AssertNoPendingException();
     // Make sure all classes referenced by catch blocks are resolved.
@@ -4027,7 +4033,7 @@ void ClassLinker::VerifyClass(Thread* self,
       }
     }
   } else {
-    VLOG(verifier) << "Verification failed on class " << PrettyDescriptor(klass.Get())
+    VLOG(verifier) << "Verification failed on class " << Class::PrettyDescriptor(klass.Get())
                   << " in " << klass->GetDexCache()->GetLocation()->ToModifiedUtf8()
                   << " because: " << error_msg;
     self->AssertNoPendingException();
@@ -4143,7 +4149,7 @@ bool ClassLinker::VerifyClassUsingOatFile(const DexFile& dex_file,
   }
   std::string temp;
   LOG(FATAL) << "Unexpected class status: " << oat_file_class_status
-             << " " << dex_file.GetLocation() << " " << PrettyClass(klass) << " "
+             << " " << dex_file.GetLocation() << " " << Class::PrettyClass(klass) << " "
              << klass->GetDescriptor(&temp);
   UNREACHABLE();
 }
@@ -4244,7 +4250,7 @@ mirror::Class* ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRunnable& 
   // They have as many virtual methods as the array
   auto h_methods = hs.NewHandle(soa.Decode<mirror::ObjectArray<mirror::Method>>(methods));
   DCHECK_EQ(h_methods->GetClass(), mirror::Method::ArrayClass())
-      << PrettyClass(h_methods->GetClass());
+      << Class::PrettyClass(h_methods->GetClass());
   const size_t num_virtual_methods = h_methods->GetLength();
 
   // Create the methods array.
@@ -4324,11 +4330,11 @@ mirror::Class* ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRunnable& 
     Handle<mirror::String> decoded_name = hs2.NewHandle(soa.Decode<mirror::String>(name));
     std::string interfaces_field_name(StringPrintf("java.lang.Class[] %s.interfaces",
                                                    decoded_name->ToModifiedUtf8().c_str()));
-    CHECK_EQ(PrettyField(klass->GetStaticField(0)), interfaces_field_name);
+    CHECK_EQ(ArtField::PrettyField(klass->GetStaticField(0)), interfaces_field_name);
 
     std::string throws_field_name(StringPrintf("java.lang.Class[][] %s.throws",
                                                decoded_name->ToModifiedUtf8().c_str()));
-    CHECK_EQ(PrettyField(klass->GetStaticField(1)), throws_field_name);
+    CHECK_EQ(ArtField::PrettyField(klass->GetStaticField(1)), throws_field_name);
 
     CHECK_EQ(klass.Get()->GetInterfaces(),
              soa.Decode<mirror::ObjectArray<mirror::Class>>(interfaces));
@@ -4502,7 +4508,8 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
       return false;
     }
 
-    CHECK(klass->IsResolved()) << PrettyClass(klass.Get()) << ": state=" << klass->GetStatus();
+    CHECK(klass->IsResolved()) << Class::PrettyClass(klass.Get()) << ": state="
+                               << klass->GetStatus();
 
     if (!klass->IsVerified()) {
       VerifyClass(self, klass);
@@ -4516,7 +4523,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
           if (self->IsExceptionPending()) {
             // Check that it's a VerifyError.
             DCHECK_EQ("java.lang.Class<java.lang.VerifyError>",
-                      PrettyClass(self->GetException()->GetClass()));
+                      Class::PrettyClass(self->GetException()->GetClass()));
           } else {
             // Check that another thread attempted initialization.
             DCHECK_NE(0, klass->GetClinitThreadId());
@@ -4569,7 +4576,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     }
     self->AllowThreadSuspension();
 
-    CHECK_EQ(klass->GetStatus(), mirror::Class::kStatusVerified) << PrettyClass(klass.Get())
+    CHECK_EQ(klass->GetStatus(), mirror::Class::kStatusVerified) << Class::PrettyClass(klass.Get())
         << " self.tid=" << self->GetTid() << " clinit.tid=" << klass->GetClinitThreadId();
 
     // From here out other threads may observe that we're initializing and so changes of state
@@ -4594,7 +4601,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
         // the super class became erroneous due to initialization.
         CHECK(handle_scope_super->IsErroneous() && self->IsExceptionPending())
             << "Super class initialization failed for "
-            << PrettyDescriptor(handle_scope_super.Get())
+            << Class::PrettyDescriptor(handle_scope_super.Get())
             << " that has unexpected status " << handle_scope_super->GetStatus()
             << "\nPending exception:\n"
             << (self->GetException() != nullptr ? self->GetException()->Dump() : "");
@@ -4709,7 +4716,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     } else if (Runtime::Current()->IsTransactionAborted()) {
       // The exception thrown when the transaction aborted has been caught and cleared
       // so we need to throw it again now.
-      VLOG(compiler) << "Return from class initializer of " << PrettyDescriptor(klass.Get())
+      VLOG(compiler) << "Return from class initializer of " << Class::PrettyDescriptor(klass.Get())
                      << " without exception while transaction was aborted: re-throw it now.";
       Runtime::Current()->ThrowTransactionAbortError(self);
       mirror::Class::SetStatus(klass, mirror::Class::kStatusError, self);
@@ -4811,14 +4818,14 @@ bool ClassLinker::WaitForInitializeClass(Handle<mirror::Class> klass,
       // The caller wants an exception, but it was thrown in a
       // different thread.  Synthesize one here.
       ThrowNoClassDefFoundError("<clinit> failed for class %s; see exception in other thread",
-                                PrettyDescriptor(klass.Get()).c_str());
+                                Class::PrettyDescriptor(klass.Get()).c_str());
       VlogClassInitializationFailure(klass);
       return false;
     }
     if (klass->IsInitialized()) {
       return true;
     }
-    LOG(FATAL) << "Unexpected class status. " << PrettyClass(klass.Get()) << " is "
+    LOG(FATAL) << "Unexpected class status. " << Class::PrettyClass(klass.Get()) << " is "
         << klass->GetStatus();
   }
   UNREACHABLE();
@@ -4835,15 +4842,15 @@ static void ThrowSignatureCheckResolveReturnTypeException(Handle<mirror::Class> 
   const DexFile::MethodId& method_id = dex_file->GetMethodId(m->GetDexMethodIndex());
   const DexFile::ProtoId& proto_id = dex_file->GetMethodPrototype(method_id);
   uint16_t return_type_idx = proto_id.return_type_idx_;
-  std::string return_type = PrettyType(return_type_idx, *dex_file);
-  std::string class_loader = PrettyTypeOf(m->GetDeclaringClass()->GetClassLoader());
+  std::string return_type = dex_file->PrettyType(return_type_idx);
+  std::string class_loader = mirror::Object::PrettyTypeOf(m->GetDeclaringClass()->GetClassLoader());
   ThrowWrappedLinkageError(klass.Get(),
                            "While checking class %s method %s signature against %s %s: "
                            "Failed to resolve return type %s with %s",
-                           PrettyDescriptor(klass.Get()).c_str(),
-                           PrettyMethod(method).c_str(),
+                           Class::PrettyDescriptor(klass.Get()).c_str(),
+                           ArtMethod::PrettyMethod(method).c_str(),
                            super_klass->IsInterface() ? "interface" : "superclass",
-                           PrettyDescriptor(super_klass.Get()).c_str(),
+                           Class::PrettyDescriptor(super_klass.Get()).c_str(),
                            return_type.c_str(), class_loader.c_str());
 }
 
@@ -4857,15 +4864,15 @@ static void ThrowSignatureCheckResolveArgException(Handle<mirror::Class> klass,
   DCHECK(Thread::Current()->IsExceptionPending());
   DCHECK(!m->IsProxyMethod());
   const DexFile* dex_file = m->GetDexFile();
-  std::string arg_type = PrettyType(arg_type_idx, *dex_file);
-  std::string class_loader = PrettyTypeOf(m->GetDeclaringClass()->GetClassLoader());
+  std::string arg_type = dex_file->PrettyType(arg_type_idx);
+  std::string class_loader = mirror::Object::PrettyTypeOf(m->GetDeclaringClass()->GetClassLoader());
   ThrowWrappedLinkageError(klass.Get(),
                            "While checking class %s method %s signature against %s %s: "
                            "Failed to resolve arg %u type %s with %s",
-                           PrettyDescriptor(klass.Get()).c_str(),
-                           PrettyMethod(method).c_str(),
+                           Class::PrettyDescriptor(klass.Get()).c_str(),
+                           ArtMethod::PrettyMethod(method).c_str(),
                            super_klass->IsInterface() ? "interface" : "superclass",
-                           PrettyDescriptor(super_klass.Get()).c_str(),
+                           Class::PrettyDescriptor(super_klass.Get()).c_str(),
                            index, arg_type.c_str(), class_loader.c_str());
 }
 
@@ -4876,10 +4883,10 @@ static void ThrowSignatureMismatch(Handle<mirror::Class> klass,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ThrowLinkageError(klass.Get(),
                     "Class %s method %s resolves differently in %s %s: %s",
-                    PrettyDescriptor(klass.Get()).c_str(),
-                    PrettyMethod(method).c_str(),
+                    Class::PrettyDescriptor(klass.Get()).c_str(),
+                    ArtMethod::PrettyMethod(method).c_str(),
                     super_klass->IsInterface() ? "interface" : "superclass",
-                    PrettyDescriptor(super_klass.Get()).c_str(),
+                    Class::PrettyDescriptor(super_klass.Get()).c_str(),
                     error_msg.c_str());
 }
 
@@ -4907,9 +4914,11 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     if (UNLIKELY(other_return_type != return_type.Get())) {
       ThrowSignatureMismatch(klass, super_klass, method1,
                              StringPrintf("Return types mismatch: %s(%p) vs %s(%p)",
-                                          PrettyClassAndClassLoader(return_type.Get()).c_str(),
+                                          Class::PrettyClassAndClassLoader(
+                                              return_type.Get()).c_str(),
                                           return_type.Get(),
-                                          PrettyClassAndClassLoader(other_return_type).c_str(),
+                                          Class::PrettyClassAndClassLoader(
+                                              other_return_type).c_str(),
                                           other_return_type));
       return false;
     }
@@ -4920,7 +4929,7 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     if (types2 != nullptr && types2->Size() != 0) {
       ThrowSignatureMismatch(klass, super_klass, method1,
                              StringPrintf("Type list mismatch with %s",
-                                          PrettyMethod(method2, true).c_str()));
+                                          ArtMethod::PrettyMethod(method2, true).c_str()));
       return false;
     }
     return true;
@@ -4928,7 +4937,7 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     if (types1->Size() != 0) {
       ThrowSignatureMismatch(klass, super_klass, method1,
                              StringPrintf("Type list mismatch with %s",
-                                          PrettyMethod(method2, true).c_str()));
+                                          ArtMethod::PrettyMethod(method2, true).c_str()));
       return false;
     }
     return true;
@@ -4937,7 +4946,7 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
   if (UNLIKELY(num_types != types2->Size())) {
     ThrowSignatureMismatch(klass, super_klass, method1,
                            StringPrintf("Type list mismatch with %s",
-                                        PrettyMethod(method2, true).c_str()));
+                                        ArtMethod::PrettyMethod(method2, true).c_str()));
     return false;
   }
   for (uint32_t i = 0; i < num_types; ++i) {
@@ -4962,9 +4971,11 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
       ThrowSignatureMismatch(klass, super_klass, method1,
                              StringPrintf("Parameter %u type mismatch: %s(%p) vs %s(%p)",
                                           i,
-                                          PrettyClassAndClassLoader(param_type.Get()).c_str(),
+                                          Class::PrettyClassAndClassLoader(
+                                              param_type.Get()).c_str(),
                                           param_type.Get(),
-                                          PrettyClassAndClassLoader(other_param_type).c_str(),
+                                          Class::PrettyClassAndClassLoader(
+                                              other_param_type).c_str(),
                                           other_param_type));
       return false;
     }
@@ -5030,7 +5041,7 @@ bool ClassLinker::EnsureInitialized(Thread* self, Handle<mirror::Class> c, bool 
   const bool success = InitializeClass(self, c, can_init_fields, can_init_parents);
   if (!success) {
     if (can_init_fields && can_init_parents) {
-      CHECK(self->IsExceptionPending()) << PrettyClass(c.Get());
+      CHECK(self->IsExceptionPending()) << Class::PrettyClass(c.Get());
     }
   } else {
     self->AssertNoPendingException();
@@ -5171,7 +5182,7 @@ bool ClassLinker::LinkClass(Thread* self,
   if (!klass->IsTemp() || (!init_done_ && klass->GetClassSize() == class_size)) {
     // We don't need to retire this class as it has no embedded tables or it was created the
     // correct size during class linker initialization.
-    CHECK_EQ(klass->GetClassSize(), class_size) << PrettyDescriptor(klass.Get());
+    CHECK_EQ(klass->GetClassSize(), class_size) << Class::PrettyDescriptor(klass.Get());
 
     if (klass->ShouldHaveEmbeddedVTable()) {
       klass->PopulateEmbeddedVTable(image_pointer_size_);
@@ -5418,13 +5429,13 @@ static bool CheckSuperClassChange(Handle<mirror::Class> klass,
             LOG(WARNING) << "Incompatible structural change detected: " <<
                 StringPrintf(
                     "Structural change of %s is hazardous (%s at compile time, %s at runtime): %s",
-                    PrettyType(super_class_def->class_idx_, dex_file).c_str(),
+                    dex_file.PrettyType(super_class_def->class_idx_).c_str(),
                     class_oat_file->GetLocation().c_str(),
                     loaded_super_oat_file->GetLocation().c_str(),
                     error_msg.c_str());
             ThrowIncompatibleClassChangeError(klass.Get(),
                 "Structural change of %s is hazardous (%s at compile time, %s at runtime): %s",
-                PrettyType(super_class_def->class_idx_, dex_file).c_str(),
+                dex_file.PrettyType(super_class_def->class_idx_).c_str(),
                 class_oat_file->GetLocation().c_str(),
                 loaded_super_oat_file->GetLocation().c_str(),
                 error_msg.c_str());
@@ -5451,7 +5462,7 @@ bool ClassLinker::LoadSuperAndInterfaces(Handle<mirror::Class> klass, const DexF
     if (super_class_idx == class_def.class_idx_) {
       ThrowClassCircularityError(klass.Get(),
                                  "Class %s extends itself",
-                                 PrettyDescriptor(klass.Get()).c_str());
+                                 Class::PrettyDescriptor(klass.Get()).c_str());
       return false;
     }
 
@@ -5463,8 +5474,8 @@ bool ClassLinker::LoadSuperAndInterfaces(Handle<mirror::Class> klass, const DexF
     // Verify
     if (!klass->CanAccess(super_class)) {
       ThrowIllegalAccessError(klass.Get(), "Class %s extended by class %s is inaccessible",
-                              PrettyDescriptor(super_class).c_str(),
-                              PrettyDescriptor(klass.Get()).c_str());
+                              Class::PrettyDescriptor(super_class).c_str(),
+                              Class::PrettyDescriptor(klass.Get()).c_str());
       return false;
     }
     CHECK(super_class->IsResolved());
@@ -5489,8 +5500,8 @@ bool ClassLinker::LoadSuperAndInterfaces(Handle<mirror::Class> klass, const DexF
         // TODO: the RI seemed to ignore this in my testing.
         ThrowIllegalAccessError(klass.Get(),
                                 "Interface %s implemented by class %s is inaccessible",
-                                PrettyDescriptor(interface).c_str(),
-                                PrettyDescriptor(klass.Get()).c_str());
+                                Class::PrettyDescriptor(interface).c_str(),
+                                Class::PrettyDescriptor(klass.Get()).c_str());
         return false;
       }
     }
@@ -5512,22 +5523,22 @@ bool ClassLinker::LinkSuperClass(Handle<mirror::Class> klass) {
   }
   if (super == nullptr) {
     ThrowLinkageError(klass.Get(), "No superclass defined for class %s",
-                      PrettyDescriptor(klass.Get()).c_str());
+                      Class::PrettyDescriptor(klass.Get()).c_str());
     return false;
   }
   // Verify
   if (super->IsFinal() || super->IsInterface()) {
     ThrowIncompatibleClassChangeError(klass.Get(),
                                       "Superclass %s of %s is %s",
-                                      PrettyDescriptor(super).c_str(),
-                                      PrettyDescriptor(klass.Get()).c_str(),
+                                      Class::PrettyDescriptor(super).c_str(),
+                                      Class::PrettyDescriptor(klass.Get()).c_str(),
                                       super->IsFinal() ? "declared final" : "an interface");
     return false;
   }
   if (!klass->CanAccess(super)) {
     ThrowIllegalAccessError(klass.Get(), "Superclass %s is inaccessible to class %s",
-                            PrettyDescriptor(super).c_str(),
-                            PrettyDescriptor(klass.Get()).c_str());
+                            Class::PrettyDescriptor(super).c_str(),
+                            Class::PrettyDescriptor(klass.Get()).c_str());
     return false;
   }
 
@@ -5552,7 +5563,7 @@ bool ClassLinker::LinkSuperClass(Handle<mirror::Class> klass) {
   if (init_done_ && super == GetClassRoot(kJavaLangRefReference)) {
     ThrowLinkageError(klass.Get(),
                       "Class %s attempts to subclass java.lang.ref.Reference, which is not allowed",
-                      PrettyDescriptor(klass.Get()).c_str());
+                      Class::PrettyDescriptor(klass.Get()).c_str());
     return false;
   }
 
@@ -5594,7 +5605,7 @@ class MethodNameAndSignatureComparator FINAL : public ValueObject {
       REQUIRES_SHARED(Locks::mutator_lock_) :
       dex_file_(method->GetDexFile()), mid_(&dex_file_->GetMethodId(method->GetDexMethodIndex())),
       name_(nullptr), name_len_(0) {
-    DCHECK(!method->IsProxyMethod()) << PrettyMethod(method);
+    DCHECK(!method->IsProxyMethod()) << ArtMethod::PrettyMethod(method);
   }
 
   const char* GetName() {
@@ -5606,7 +5617,7 @@ class MethodNameAndSignatureComparator FINAL : public ValueObject {
 
   bool HasSameNameAndSignature(ArtMethod* other)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK(!other->IsProxyMethod()) << PrettyMethod(other);
+    DCHECK(!other->IsProxyMethod()) << ArtMethod::PrettyMethod(other);
     const DexFile* other_dex_file = other->GetDexFile();
     const DexFile::MethodId& other_mid = other_dex_file->GetMethodId(other->GetDexMethodIndex());
     if (dex_file_ == other_dex_file) {
@@ -5769,7 +5780,7 @@ X86_OPTNONE bool ClassLinker::LinkVirtualMethods(
     } else {
       DCHECK(super_class->IsAbstract() && !super_class->IsArrayClass());
       auto* super_vtable = super_class->GetVTable();
-      CHECK(super_vtable != nullptr) << PrettyClass(super_class.Get());
+      CHECK(super_vtable != nullptr) << Class::PrettyClass(super_class.Get());
       // We might need to change vtable if we have new virtual methods or new interfaces (since that
       // might give us new default methods). See comment above.
       if (num_virtual_methods == 0 && super_class->GetIfTableCount() == klass->GetIfTableCount()) {
@@ -5827,14 +5838,14 @@ X86_OPTNONE bool ClassLinker::LinkVirtualMethods(
                                    super_method->GetAccessFlags())) {
           if (super_method->IsFinal()) {
             ThrowLinkageError(klass.Get(), "Method %s overrides final method in class %s",
-                              PrettyMethod(virtual_method).c_str(),
+                              ArtMethod::PrettyMethod(virtual_method).c_str(),
                               super_method->GetDeclaringClassDescriptor());
             return false;
           }
           vtable->SetElementPtrSize(j, virtual_method, image_pointer_size_);
           virtual_method->SetMethodIndex(j);
         } else {
-          LOG(WARNING) << "Before Android 4.1, method " << PrettyMethod(virtual_method)
+          LOG(WARNING) << "Before Android 4.1, method " << ArtMethod::PrettyMethod(virtual_method)
                        << " would have incorrectly overridden the package-private method in "
                        << PrettyDescriptor(super_method->GetDeclaringClassDescriptor());
         }
@@ -5881,9 +5892,10 @@ X86_OPTNONE bool ClassLinker::LinkVirtualMethods(
               // then.
               default_translations->insert(
                   {j, ClassLinker::MethodTranslation::CreateTranslatedMethod(default_method)});
-              VLOG(class_linker) << "Method " << PrettyMethod(super_method)
-                                 << " overridden by default " << PrettyMethod(default_method)
-                                 << " in " << PrettyClass(klass.Get());
+              VLOG(class_linker) << "Method " << ArtMethod::PrettyMethod(super_method)
+                                 << " overridden by default "
+                                 << ArtMethod::PrettyMethod(default_method)
+                                 << " in " << Class::PrettyClass(klass.Get());
             }
             break;
           }
@@ -6045,7 +6057,8 @@ ClassLinker::DefaultMethodSearchResult ClassLinker::FindDefaultMethodImplementat
         // The verifier should have caught the non-public method for dex version 37. Just warn and
         // skip it since this is from before default-methods so we don't really need to care that it
         // has code.
-        LOG(WARNING) << "Interface method " << PrettyMethod(current_method) << " is not public! "
+        LOG(WARNING) << "Interface method " << ArtMethod::PrettyMethod(current_method)
+                     << " is not public! "
                      << "This will be a fatal error in subsequent versions of android. "
                      << "Continuing anyway.";
       }
@@ -6062,9 +6075,9 @@ ClassLinker::DefaultMethodSearchResult ClassLinker::FindDefaultMethodImplementat
                                         iface,
                                         image_pointer_size_)) {
           VLOG(class_linker) << "Conflicting default method implementations found: "
-                             << PrettyMethod(current_method) << " and "
-                             << PrettyMethod(*out_default_method) << " in class "
-                             << PrettyClass(klass.Get()) << " conflict.";
+                             << ArtMethod::PrettyMethod(current_method) << " and "
+                             << ArtMethod::PrettyMethod(*out_default_method) << " in class "
+                             << Class::PrettyClass(klass.Get()) << " conflict.";
           *out_default_method = nullptr;
           return DefaultMethodSearchResult::kDefaultConflict;
         } else {
@@ -6087,18 +6100,20 @@ ClassLinker::DefaultMethodSearchResult ClassLinker::FindDefaultMethodImplementat
           // We should now finish traversing the graph to find if we have default methods that
           // conflict.
         } else {
-          VLOG(class_linker) << "A default method '" << PrettyMethod(current_method) << "' was "
-                            << "skipped because it was overridden by an abstract method in a "
-                            << "subinterface on class '" << PrettyClass(klass.Get()) << "'";
+          VLOG(class_linker) << "A default method '" << ArtMethod::PrettyMethod(current_method)
+                             << "' was "
+                             << "skipped because it was overridden by an abstract method in a "
+                             << "subinterface on class '" << Class::PrettyClass(klass.Get()) << "'";
         }
       }
       break;
     }
   }
   if (*out_default_method != nullptr) {
-    VLOG(class_linker) << "Default method '" << PrettyMethod(*out_default_method) << "' selected "
-                       << "as the implementation for '" << PrettyMethod(target_method) << "' "
-                       << "in '" << PrettyClass(klass.Get()) << "'";
+    VLOG(class_linker) << "Default method '" << ArtMethod::PrettyMethod(*out_default_method)
+                       << "' selected "
+                       << "as the implementation for '" << ArtMethod::PrettyMethod(target_method)
+                       << "' in '" << Class::PrettyClass(klass.Get()) << "'";
     return DefaultMethodSearchResult::kDefaultFound;
   } else {
     return DefaultMethodSearchResult::kAbstractFound;
@@ -6176,8 +6191,8 @@ void ClassLinker::SetIMTRef(ArtMethod* unimplemented_method,
 }
 
 void ClassLinker::FillIMTAndConflictTables(mirror::Class* klass) {
-  DCHECK(klass->ShouldHaveImt()) << PrettyClass(klass);
-  DCHECK(!klass->IsTemp()) << PrettyClass(klass);
+  DCHECK(klass->ShouldHaveImt()) << Class::PrettyClass(klass);
+  DCHECK(!klass->IsTemp()) << Class::PrettyClass(klass);
   ArtMethod* imt_data[ImTable::kSize];
   Runtime* const runtime = Runtime::Current();
   ArtMethod* const unimplemented_method = runtime->GetImtUnimplementedMethod();
@@ -6438,8 +6453,8 @@ static size_t FillIfTable(mirror::IfTable* iftable,
       for (int32_t j = 0; j < ifcount; j++) {
         mirror::Class* super_interface = interface->GetIfTable()->GetInterface(j);
         DCHECK(ContainsElement(classes_in_iftable, super_interface))
-            << "Iftable does not contain " << PrettyClass(super_interface)
-            << ", a superinterface of " << PrettyClass(interface);
+            << "Iftable does not contain " << Class::PrettyClass(super_interface)
+            << ", a superinterface of " << Class::PrettyClass(interface);
       }
     }
   }
@@ -6451,8 +6466,9 @@ static size_t FillIfTable(mirror::IfTable* iftable,
         mirror::Class* if_b = iftable->GetInterface(j);
         // !(if_a <: if_b)
         CHECK(!if_b->IsAssignableFrom(if_a))
-            << "Bad interface order: " << PrettyClass(if_a) << " (index " << i << ") extends "
-            << PrettyClass(if_b) << " (index " << j << ") and so should be after it in the "
+            << "Bad interface order: " << Class::PrettyClass(if_a) << " (index " << i
+            << ") extends "
+            << Class::PrettyClass(if_b) << " (index " << j << ") and so should be after it in the "
             << "interface list.";
       }
     }
@@ -6501,7 +6517,7 @@ bool ClassLinker::SetupInterfaceLookupTable(Thread* self, Handle<mirror::Class> 
       std::string temp;
       ThrowIncompatibleClassChangeError(klass.Get(),
                                         "Class %s implements non-interface class %s",
-                                        PrettyDescriptor(klass.Get()).c_str(),
+                                        Class::PrettyDescriptor(klass.Get()).c_str(),
                                         PrettyDescriptor(interface->GetDescriptor(&temp)).c_str());
       return false;
     }
@@ -6594,16 +6610,17 @@ static void CheckClassOwnsVTableEntries(Thread* self,
     CHECK(m != nullptr);
 
     CHECK_EQ(m->GetMethodIndexDuringLinking(), i)
-        << PrettyMethod(m) << " has an unexpected method index for its spot in the vtable for class"
-        << PrettyClass(klass.Get());
+        << ArtMethod::PrettyMethod(m)
+        << " has an unexpected method index for its spot in the vtable for class"
+        << Class::PrettyClass(klass.Get());
     ArraySlice<ArtMethod> virtuals = klass->GetVirtualMethodsSliceUnchecked(pointer_size);
     auto is_same_method = [m] (const ArtMethod& meth) {
       return &meth == m;
     };
     CHECK((super_vtable_length > i && superclass->GetVTableEntry(i, pointer_size) == m) ||
           std::find_if(virtuals.begin(), virtuals.end(), is_same_method) != virtuals.end())
-        << PrettyMethod(m) << " does not seem to be owned by current class "
-        << PrettyClass(klass.Get()) << " or any of its superclasses!";
+        << ArtMethod::PrettyMethod(m) << " does not seem to be owned by current class "
+        << Class::PrettyClass(klass.Get()) << " or any of its superclasses!";
   }
 }
 
@@ -6631,8 +6648,9 @@ static void CheckVTableHasNoDuplicates(Thread* self,
             !name_comparator.HasSameNameAndSignature(
                 other_entry->GetInterfaceMethodIfProxy(pointer_size)))
           << "vtable entries " << i << " and " << j << " are identical for "
-          << PrettyClass(klass.Get()) << " in method " << PrettyMethod(vtable_entry) << " and "
-          << PrettyMethod(other_entry);
+          << Class::PrettyClass(klass.Get()) << " in method "
+          << ArtMethod::PrettyMethod(vtable_entry)
+          << " and " << ArtMethod::PrettyMethod(other_entry);
     }
   }
 }
@@ -6829,7 +6847,8 @@ bool ClassLinker::LinkInterfaceMethods(
               self->EndAssertNoThreadSuspension(old_cause);
               ThrowIllegalAccessError(klass.Get(),
                   "Method '%s' implementing interface method '%s' is not public",
-                  PrettyMethod(vtable_method).c_str(), PrettyMethod(interface_method).c_str());
+                  ArtMethod::PrettyMethod(vtable_method).c_str(),
+                  ArtMethod::PrettyMethod(interface_method).c_str());
               return false;
             } else if (UNLIKELY(vtable_method->IsOverridableByDefaultMethod())) {
               // We might have a newer, better, default method for this, so we just skip it. If we
@@ -6888,8 +6907,10 @@ bool ClassLinker::LinkInterfaceMethods(
             // illegal states, incorrect vtable size, and incorrect or inconsistent iftable entries)
             // in this class and any subclasses.
             DCHECK(vtable_impl == nullptr || vtable_impl == supers_method)
-                << "vtable_impl was " << PrettyMethod(vtable_impl) << " and not 'nullptr' or "
-                << PrettyMethod(supers_method) << " as expected. IFTable appears to be corrupt!";
+                << "vtable_impl was " << ArtMethod::PrettyMethod(vtable_impl)
+                << " and not 'nullptr' or "
+                << ArtMethod::PrettyMethod(supers_method)
+                << " as expected. IFTable appears to be corrupt!";
             vtable_impl = supers_method;
           }
         }
@@ -6989,7 +7010,7 @@ bool ClassLinker::LinkInterfaceMethods(
             ArtMethod* miranda_method = FindSameNameAndSignature(interface_name_comparator,
                                                                  miranda_methods);
             if (miranda_method == nullptr) {
-              DCHECK(interface_method->IsAbstract()) << PrettyMethod(interface_method);
+              DCHECK(interface_method->IsAbstract()) << ArtMethod::PrettyMethod(interface_method);
               miranda_method = reinterpret_cast<ArtMethod*>(allocator.Alloc(method_size));
               CHECK(miranda_method != nullptr);
               // Point the interface table at a phantom slot.
@@ -7021,7 +7042,8 @@ bool ClassLinker::LinkInterfaceMethods(
   if (has_new_virtuals) {
     DCHECK(!is_interface || (default_methods.empty() && miranda_methods.empty()))
         << "Interfaces should only have default-conflict methods appended to them.";
-    VLOG(class_linker) << PrettyClass(klass.Get()) << ": miranda_methods=" << miranda_methods.size()
+    VLOG(class_linker) << Class::PrettyClass(klass.Get()) << ": miranda_methods="
+                       << miranda_methods.size()
                        << " default_methods=" << default_methods.size()
                        << " overriding_default_methods=" << overriding_default_methods.size()
                        << " default_conflict_methods=" << default_conflict_methods.size()
@@ -7154,7 +7176,7 @@ bool ClassLinker::LinkInterfaceMethods(
           auto translated_method_it = move_table.find(new_method);
           CHECK(translated_method_it != move_table.end())
               << "We must have a translation for methods added to the classes methods_ array! We "
-              << "could not find the ArtMethod added for " << PrettyMethod(new_method);
+              << "could not find the ArtMethod added for " << ArtMethod::PrettyMethod(new_method);
           ArtMethod* new_vtable_method = translated_method_it->second;
           // Leave the declaring class alone the method's dex_code_item_offset_ and dex_method_index_
           // fields are references into the dex file the method was defined in. Since the ArtMethod
@@ -7226,11 +7248,11 @@ bool ClassLinker::LinkInterfaceMethods(
         for (size_t j = 0, count = iftable->GetMethodArrayCount(i); j < count; ++j) {
           auto* method_array = iftable->GetMethodArray(i);
           auto* m = method_array->GetElementPtrSize<ArtMethod*>(j, image_pointer_size_);
-          DCHECK(m != nullptr) << PrettyClass(klass.Get());
+          DCHECK(m != nullptr) << Class::PrettyClass(klass.Get());
           auto it = move_table.find(m);
           if (it != move_table.end()) {
             auto* new_m = it->second;
-            DCHECK(new_m != nullptr) << PrettyClass(klass.Get());
+            DCHECK(new_m != nullptr) << Class::PrettyClass(klass.Get());
             method_array->SetElementPtrSize(j, new_m, image_pointer_size_);
           }
         }
@@ -7258,7 +7280,7 @@ bool ClassLinker::LinkInterfaceMethods(
                            [m] (ArtMethod& meth) {
                              return &meth == m;
                            }) != m->GetDeclaringClass()->GetMethods(image_pointer_size_).end())
-            << "Obsolete methods " << PrettyMethod(m) << " is in dex cache!";
+            << "Obsolete methods " << ArtMethod::PrettyMethod(m) << " is in dex cache!";
       }
     }
     // Put some random garbage in old methods to help find stale pointers.
@@ -7341,12 +7363,12 @@ bool ClassLinker::LinkFields(Thread* self,
     mirror::Class* super_class = klass->GetSuperClass();
     if (super_class != nullptr) {
       CHECK(super_class->IsResolved())
-          << PrettyClass(klass.Get()) << " " << PrettyClass(super_class);
+          << Class::PrettyClass(klass.Get()) << " " << Class::PrettyClass(super_class);
       field_offset = MemberOffset(super_class->GetObjectSize());
     }
   }
 
-  CHECK_EQ(num_fields == 0, fields == nullptr) << PrettyClass(klass.Get());
+  CHECK_EQ(num_fields == 0, fields == nullptr) << Class::PrettyClass(klass.Get());
 
   // we want a relatively stable order so that adding new fields
   // minimizes disruption of C++ version such as Class and Method.
@@ -7412,9 +7434,9 @@ bool ClassLinker::LinkFields(Thread* self,
   if (!is_static && klass->DescriptorEquals("Ljava/lang/ref/Reference;")) {
     // We know there are no non-reference fields in the Reference classes, and we know
     // that 'referent' is alphabetically last, so this is easy...
-    CHECK_EQ(num_reference_fields, num_fields) << PrettyClass(klass.Get());
+    CHECK_EQ(num_reference_fields, num_fields) << Class::PrettyClass(klass.Get());
     CHECK_STREQ(fields->At(num_fields - 1).GetName(), "referent")
-        << PrettyClass(klass.Get());
+        << Class::PrettyClass(klass.Get());
     --num_reference_fields;
   }
 
@@ -7443,11 +7465,11 @@ bool ClassLinker::LinkFields(Thread* self,
         cur_super = cur_super->GetSuperClass();
       }
       if (super_class == nullptr) {
-        CHECK_EQ(total_reference_instance_fields, 1u) << PrettyDescriptor(klass.Get());
+        CHECK_EQ(total_reference_instance_fields, 1u) << Class::PrettyDescriptor(klass.Get());
       } else {
         // Check that there is at least num_reference_fields other than Object.class.
         CHECK_GE(total_reference_instance_fields, 1u + num_reference_fields)
-            << PrettyClass(klass.Get());
+            << Class::PrettyClass(klass.Get());
       }
     }
     if (!klass->IsVariableSize()) {
@@ -7475,8 +7497,8 @@ bool ClassLinker::LinkFields(Thread* self,
     for (size_t i = 0; i < num_fields; i++) {
       ArtField* field = &fields->At(i);
       VLOG(class_linker) << "LinkFields: " << (is_static ? "static" : "instance")
-          << " class=" << PrettyClass(klass.Get()) << " field=" << PrettyField(field) << " offset="
-          << field->GetOffsetDuringLinking();
+          << " class=" << Class::PrettyClass(klass.Get()) << " field=" << field->PrettyField()
+          << " offset=" << field->GetOffsetDuringLinking();
       if (i != 0) {
         ArtField* const prev_field = &fields->At(i - 1);
         // NOTE: The field names can be the same. This is not possible in the Java language
@@ -7638,7 +7660,7 @@ mirror::Class* ClassLinker::ResolveType(const DexFile& dex_file,
     }
   }
   DCHECK((resolved == nullptr) || resolved->IsResolved() || resolved->IsErroneous())
-      << PrettyDescriptor(resolved) << " " << resolved->GetStatus();
+      << Class::PrettyDescriptor(resolved) << " " << resolved->GetStatus();
   return resolved;
 }
 
@@ -7703,7 +7725,7 @@ ArtMethod* ClassLinker::ResolveMethod(const DexFile& dex_file,
       if (UNLIKELY(!klass->IsInterface())) {
         ThrowIncompatibleClassChangeError(klass,
                                           "Found class %s, but interface was expected",
-                                          PrettyDescriptor(klass).c_str());
+                                          Class::PrettyDescriptor(klass).c_str());
         return nullptr;
       } else {
         resolved = klass->FindInterfaceMethod(dex_cache.Get(), method_idx, image_pointer_size_);
@@ -7869,7 +7891,8 @@ ArtMethod* ClassLinker::ResolveMethodWithoutInvokeType(const DexFile& dex_file,
     return nullptr;
   }
   if (klass->IsInterface()) {
-    LOG(FATAL) << "ResolveAmbiguousMethod: unexpected method in interface: " << PrettyClass(klass);
+    LOG(FATAL) << "ResolveAmbiguousMethod: unexpected method in interface: "
+               << Class::PrettyClass(klass);
     return nullptr;
   }
 
