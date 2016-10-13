@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cc1f61c_c97d71b7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "StoreSToOffset is one of the helpers we recently discussed removing in a (near) future patch because there are options in VIXL (like Vstr, in this case) that negate their utility.\n\nThis is, I think, the exception in this initial patch where we\u0027ve just used VIXL directly instead of trying to minimize the diff between this and code_generator_arm.",
+      "parentUuid": "1c2b9a7f_4e61b306",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 43
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_2e666720",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb0fabd_065cda1e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "As above. Vstr does everything we need.",
+      "parentUuid": "1c2b9a7f_2e666720",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dc63c225_54c7ac0e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "7c6576f4_89bc39b0",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 37
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_ce6c83fd",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Same question regarding CodeGeneratorARMVIXL::RestoreFloatingPointRegister.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 43
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcc9ae46_4b450570",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "As above, Vldr does everything RestoreFloatingPointRegister used to.",
+      "parentUuid": "1c2b9a7f_ce6c83fd",
       "range": {
         "startLine": 159,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9c314a19_8200dadf",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "dc3022eb_8c2e87f8",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 37
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c421e4d_6feb51a1",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Isn\u0027t this already covered by line 192?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 37
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcc9ae46_6b4a4181",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "3c421e4d_6feb51a1",
       "range": {
         "startLine": 193,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "fcac0670_e8b2abdd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_0e3debde",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 73
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_ce1ec37d",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Out of curiosity, how do you plan to do this?  Are you thinking about exercising this in a test, or maybe instrumenting the generated code?",
+      "range": {
+        "startLine": 250,
+        "startChar": 11,
+        "endLine": 250,
+        "endChar": 58
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_c0365e9b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "I think we would try to exercise this in a test.\n\nWe will track it as part our \"parity with current backend\" effort (made up of essentially everything marked TODO(VIXL), which I have added here. in addition to performance and related profiling).",
+      "parentUuid": "1c2b9a7f_ce1ec37d",
       "range": {
         "startLine": 250,
         "startChar": 11,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_006686bb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_8e28bb9d",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 42
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_ee13bf65",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Nit: Fits on a single line.",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 66
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_e06282a5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_ee13bf65",
       "range": {
         "startLine": 684,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_4071ae6d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_ce42433c",
+      "range": {
+        "startLine": 752,
+        "startChar": 79,
+        "endLine": 752,
+        "endChar": 83
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_8e4c3b6e",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Was this left intentionally?",
+      "range": {
+        "startLine": 788,
+        "startChar": 58,
+        "endLine": 788,
+        "endChar": 65
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_20762a67",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "No, it\u0027s not needed.",
+      "parentUuid": "1c2b9a7f_8e4c3b6e",
       "range": {
         "startLine": 788,
         "startChar": 58,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_806bb67d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3022eb_6c00fb10",
+      "range": {
+        "startLine": 806,
+        "startChar": 2,
+        "endLine": 806,
+        "endChar": 8
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_6e7b4f7f",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Doesn\u0027t this need ATTRIBUTE_UNUSED?",
+      "range": {
+        "startLine": 824,
+        "startChar": 49,
+        "endLine": 824,
+        "endChar": 70
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cc1f61c_e97ab5bc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Yes. And I thought missing that would cause a compilation error..",
+      "parentUuid": "1c2b9a7f_6e7b4f7f",
       "range": {
         "startLine": 824,
         "startChar": 49,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "1cb0fabd_467bb27e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_0e7a8b77",
+      "range": {
+        "startLine": 825,
+        "startChar": 29,
+        "endLine": 825,
+        "endChar": 35
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_4e809367",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -358,6 +718,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Nit: 0u",
+      "range": {
+        "startLine": 830,
+        "startChar": 4,
+        "endLine": 830,
+        "endChar": 5
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_a0819a39",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_4e809367",
       "range": {
         "startLine": 830,
         "startChar": 4,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_007fa635",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_2e754789",
+      "range": {
+        "startLine": 831,
+        "startChar": 4,
+        "endLine": 831,
+        "endChar": 5
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c56f215_e8429394",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -404,6 +812,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "So, I assume VIXL now deduces the width of the operation (F32 or F64) from the inputs and/or outputs?",
+      "range": {
+        "startLine": 914,
+        "startChar": 9,
+        "endLine": 914,
+        "endChar": 13
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_401a4e2f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Yes. And not just Vcmp. You can take a look at the last VIXL release to see other members of the FP interface that benefit from this.",
+      "parentUuid": "5c56f215_e8429394",
       "range": {
         "startLine": 914,
         "startChar": 9,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "1cb0fabd_267a3678",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_40b36e9f",
+      "range": {
+        "startLine": 2614,
+        "startChar": 32,
+        "endLine": 2614,
+        "endChar": 45
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_20b8ea77",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -450,6 +906,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2640,
+        "startChar": 32,
+        "endLine": 2640,
+        "endChar": 45
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb272c6_c8a6cf5d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2640,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_20b8ea77",
       "range": {
         "startLine": 2640,
         "startChar": 32,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "9ccdca7b_82239a15",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_8066161e",
+      "range": {
+        "startLine": 2814,
+        "startChar": 19,
+        "endLine": 2814,
+        "endChar": 70
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_402eceb1",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -496,6 +1000,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Should this be temporarily set to `false`?",
+      "range": {
+        "startLine": 3123,
+        "startChar": 51,
+        "endLine": 3123,
+        "endChar": 55
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_60295244",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3123,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Technically, yes.\n\nElsewhere, we have left the empty `if (kReadBarrier..)` paths in place as stubs for supporting them later. What do you think to this approach?",
+      "parentUuid": "5c37d20c_402eceb1",
       "range": {
         "startLine": 3123,
         "startChar": 51,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "bcc9ae46_eb55d11a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3147,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cc1f61c_e93f150c",
+      "range": {
+        "startLine": 3145,
+        "startChar": 0,
+        "endLine": 3147,
+        "endChar": 45
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_c0213ebe",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -542,6 +1094,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Nit: Ditto.",
+      "range": {
+        "startLine": 3175,
+        "startChar": 0,
+        "endLine": 3178,
+        "endChar": 60
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb0fabd_c66ec2bc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3178,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_c0213ebe",
       "range": {
         "startLine": 3175,
         "startChar": 0,
@@ -571,6 +1147,24 @@
     },
     {
       "key": {
+        "uuid": "fcac0670_48141fb3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_002cc6b0",
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bca28e7a_a39dba08",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -582,6 +1176,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Nit: One argument per line.",
+      "range": {
+        "startLine": 3288,
+        "startChar": 6,
+        "endLine": 3288,
+        "endChar": 49
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cc1f61c_898779c3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3288,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca28e7a_a39dba08",
       "range": {
         "startLine": 3288,
         "startChar": 6,
@@ -611,6 +1229,24 @@
     },
     {
       "key": {
+        "uuid": "5cb272c6_a89d9b08",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3318,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cb77eb7_e71e627d",
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_6e4fcfc1",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -622,6 +1258,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "This does not seem to be used outside of compiler/optimizing/code_generator_arm_vixl.cc; move it there?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 51
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb0fabd_a665c6d7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_6e4fcfc1",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -657,6 +1317,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_83cc6063",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_0e4e0bc2",
+      "range": {
+        "startLine": 73,
+        "startChar": 88,
+        "endLine": 73,
+        "endChar": 94
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_8e39db28",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -668,6 +1352,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Nit: `requires_read_barrier`.",
+      "range": {
+        "startLine": 329,
+        "startChar": 37,
+        "endLine": 329,
+        "endChar": 58
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc63c225_14e6d4a8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_8e39db28",
       "range": {
         "startLine": 329,
         "startChar": 37,
@@ -703,6 +1411,30 @@
     },
     {
       "key": {
+        "uuid": "9c314a19_e2c9e6a5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_4e8f73e0",
+      "range": {
+        "startLine": 419,
+        "startChar": 29,
+        "endLine": 419,
+        "endChar": 35
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_2ee547cb",
         "filename": "compiler/optimizing/common_arm.h",
         "patchSetId": 1
@@ -714,6 +1446,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "\u003c\u003c reg_code;",
+      "range": {
+        "startLine": 78,
+        "startChar": 28,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_63d15cf7",
+        "filename": "compiler/optimizing/common_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_2ee547cb",
       "range": {
         "startLine": 78,
         "startChar": 28,
@@ -749,6 +1505,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_a3b244dc",
+        "filename": "compiler/optimizing/common_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_8ed55bda",
+      "range": {
+        "startLine": 171,
+        "startChar": 16,
+        "endLine": 171,
+        "endChar": 32
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_4e19b3e7",
         "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
         "patchSetId": 1
@@ -772,6 +1552,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_e3072c79",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "I will add a comment.\n\nWe prefer Str to Add/Stm where the resulting code is smaller.",
+      "parentUuid": "1c2b9a7f_4e19b3e7",
+      "range": {
+        "startLine": 349,
+        "startChar": 21,
+        "endLine": 349,
+        "endChar": 38
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_6e66af53",
         "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
         "patchSetId": 1
@@ -783,6 +1587,30 @@
       "writtenOn": "2016-10-12T13:42:21Z",
       "side": 1,
       "message": "Maybe DCHECK that `base` is not a member of `regs`?",
+      "range": {
+        "startLine": 358,
+        "startChar": 8,
+        "endLine": 358,
+        "endChar": 12
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_030b3087",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-13T10:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2b9a7f_6e66af53",
       "range": {
         "startLine": 358,
         "startChar": 8,
