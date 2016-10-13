@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7cc1f61c_e95875fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-13T15:11:35Z",
+      "side": 1,
+      "message": "Which part of the code was broken before?",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "75d649ddba6e4ab66e0838942fe9e09e1906f20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_a3a9a47c",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 1
@@ -60,6 +83,30 @@
       "side": 1,
       "message": "ARM needs 8-byte alignment of thread_local_pos for TLAB, when I added 1 entrypoint only it lost the 8-byte alignment\n\nAndreas said to shuffle some fields around to fix it.",
       "parentUuid": "5c37d20c_e3a3ac98",
+      "range": {
+        "startLine": 1505,
+        "startChar": 0,
+        "endLine": 1510,
+        "endChar": 32
+      },
+      "revId": "75d649ddba6e4ab66e0838942fe9e09e1906f20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcac0670_eba3854a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-13T15:11:35Z",
+      "side": 1,
+      "message": "Do we have a static_assert somewhere?",
+      "parentUuid": "bcbc4ecf_df564e5e",
       "range": {
         "startLine": 1505,
         "startChar": 0,
