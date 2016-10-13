@@ -522,7 +522,9 @@ static CompiledMethod* ArtJniCompileMethodInternal(CompilerDriver* driver,
       // Pass result.
       jni_end = is_synchronized
                     ? QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniMethodEndWithReferenceSynchronized)
-                    : QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniMethodEndWithReference);
+                    : (is_fast_native
+                           ? QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniMethodFastEndWithReference)
+                           : QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniMethodEndWithReference));
       SetNativeParameter(jni_asm.get(), end_jni_conv.get(), end_jni_conv->ReturnRegister());
       end_jni_conv->Next();
     } else {
