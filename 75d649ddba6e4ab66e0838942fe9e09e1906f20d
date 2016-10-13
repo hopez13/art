@@ -118,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "fc73265a_10180a2f",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-13T22:38:53Z",
+      "side": 1,
+      "message": "Also let me know if you want it done in this CL or a successive CL because Andreas usually says refactorings in the same CL make it harder to code review.",
+      "parentUuid": "fc73265a_109b2ac6",
+      "revId": "75d649ddba6e4ab66e0838942fe9e09e1906f20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_e3a3ac98",
         "filename": "runtime/thread.h",
         "patchSetId": 1
