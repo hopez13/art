@@ -1,0 +1,6 @@
+java.lang.VerifyError: Verifier rejected class A: void A.<init>() failed to verify: void A.<init>(): void A.<init>(): couldn't find method java.lang.invoke.MethodHandle.notInvoke ([Ljava/lang/Object;)Ljava/lang/Object;
+java.lang.VerifyError: Verifier rejected class B: void B.<init>() failed to verify: void B.<init>(): void B.<init>(): tried to get class from non-reference register v0 (type=Precise Low-half Constant: 0)
+java.lang.VerifyError: Verifier rejected class C: void C.<init>() failed to verify: void C.<init>(): void C.<init>(): Rejecting invocation, expected 2 arguments, found 2 or more.
+java.lang.VerifyError: Verifier rejected class D: void D.<init>() failed to verify: void D.<init>(): void D.<init>(): 'this' argument 'Precise Reference: java.lang.String' not instance of 'Reference: java.lang.invoke.MethodHandle'
+java.lang.VerifyError: Verifier rejected class E: void E.<init>() failed to verify: void E.<init>(): void E.<init>(): invoke type (METHOD_POLYMORPHIC) does not match method type of java.lang.Object Main.invoke(java.lang.Object[])
+java.lang.VerifyError: Verifier rejected class F: void F.<init>() failed to verify: void F.<init>(): invoke-polymorphic receiver is not a MethodHandle: LMain;
