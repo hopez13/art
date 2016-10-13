@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c37d20c_438d388f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T16:18:33Z",
+      "side": 1,
+      "message": "You don\u0027t need this, as `DCHECK_EQ` prints its operands if they are not equal (and aborts the program).",
+      "range": {
+        "startLine": 799,
+        "startChar": 75,
+        "endLine": 799,
+        "endChar": 98
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c7a72f7_085c2751",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T16:18:33Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 1537,
+        "startChar": 0,
+        "endLine": 1537,
+        "endChar": 49
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ccdca7b_c20a02db",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T16:18:33Z",
+      "side": 1,
+      "message": "Nit: Ditto.",
+      "range": {
+        "startLine": 1585,
+        "startChar": 0,
+        "endLine": 1585,
+        "endChar": 49
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcac0670_ab4fcd88",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T16:18:33Z",
+      "side": 1,
+      "message": "Actually, this was meant to be actual (though temporary) code in my suggestion. You could add \"and remove the following assertion\" at the end of the comment from line 3276 to make that clearer.",
+      "range": {
+        "startLine": 3277,
+        "startChar": 0,
+        "endLine": 3278,
+        "endChar": 73
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_039b30c5",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T16:18:33Z",
+      "side": 1,
+      "message": "I\u0027d suggest:\n\n  // Prefer Str to Add/Stm in ArmVIXLAssembler::StoreRegisterList and\n  // ArmVIXLAssembler::LoadRegisterList where this generates less code (size).",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 63
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
