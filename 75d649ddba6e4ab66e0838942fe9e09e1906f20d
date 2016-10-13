@@ -100,6 +100,24 @@
     },
     {
       "key": {
+        "uuid": "fc73265a_109b2ac6",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-13T22:38:12Z",
+      "side": 1,
+      "message": "I could factor those out into a helper function something like this\n\n  template \u003cPointerSize kPointerSize\u003e\n  ThreadOffset\u003ckPointerSize\u003e GetJniEntrypointOffset(bool is_fast, bool start_or_end, bool reference_return, bool synchronized) {\n    // giant if-else here\n  }\n\nIf that would be an appropriately better way?",
+      "parentUuid": "dc63c225_d47bbc45",
+      "revId": "75d649ddba6e4ab66e0838942fe9e09e1906f20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_e3a3ac98",
         "filename": "runtime/thread.h",
         "patchSetId": 1
