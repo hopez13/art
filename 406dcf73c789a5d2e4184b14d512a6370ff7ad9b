@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_d6948247",
+        "filename": "runtime/jvalue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbc4ecf_d6a00241",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 49
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbc4ecf_966f6af0",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T22:38:17Z",
       "side": 1,
       "message": "Use the new kHeapReferenceSize?",
+      "range": {
+        "startLine": 555,
+        "startChar": 29,
+        "endLine": 555,
+        "endChar": 58
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_f6917e54",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbc4ecf_966f6af0",
       "range": {
         "startLine": 555,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_19a46b10",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbc4ecf_16527a0f",
+      "range": {
+        "startLine": 899,
+        "startChar": 4,
+        "endLine": 899,
+        "endChar": 23
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbc4ecf_b639c6da",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-12T22:38:17Z",
       "side": 1,
       "message": "Any reason this can\u0027t be ObjPtr\u003cClass\u003e?",
+      "range": {
+        "startLine": 1298,
+        "startChar": 27,
+        "endLine": 1298,
+        "endChar": 38
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_39804767",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "For the image writer, the image being written to is not necessarily in low 4GB. There is an assertion that ObjPtr is in low 4GB currently.",
+      "parentUuid": "bcbc4ecf_b639c6da",
       "range": {
         "startLine": 1298,
         "startChar": 27,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_d96833b0",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbc4ecf_767ace78",
+      "range": {
+        "startLine": 281,
+        "startChar": 26,
+        "endLine": 281,
+        "endChar": 27
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbc4ecf_f665fed6",
         "filename": "runtime/reflection_test.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-12T22:38:17Z",
       "side": 1,
       "message": "Use ObjPtr\u003cmirror::Class\u003e?",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 18
+      },
+      "revId": "406dcf73c789a5d2e4184b14d512a6370ff7ad9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_198d4b90",
+        "filename": "runtime/reflection_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbc4ecf_f665fed6",
       "range": {
         "startLine": 104,
         "startChar": 4,
