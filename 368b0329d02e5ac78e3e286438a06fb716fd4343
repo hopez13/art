@@ -708,6 +708,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_c3f4a84d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T12:38:08Z",
+      "side": 1,
+      "message": "Ah, I forgot about this one; thanks Vladimir.",
+      "parentUuid": "1cb0fabd_a960392e",
+      "range": {
+        "startLine": 824,
+        "startChar": 49,
+        "endLine": 824,
+        "endChar": 70
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e7a8b77",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
