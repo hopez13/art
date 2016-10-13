@@ -117,6 +117,30 @@
       "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc63c225_341af02e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-13T22:25:13Z",
+      "side": 1,
+      "message": "I actually think you don\u0027t need it. The other places use AssertNoThreadSuspension because they are holding references in some native arrays. This is not the case for this code, where the arguments to put to the ShadowFrame are from another ShadowFrame.",
+      "parentUuid": "5c37d20c_a35884f9",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 46
+      },
+      "revId": "56d07d5ff1c77d903ebe544392666d605af87fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
