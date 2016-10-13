@@ -22,6 +22,30 @@
       "revId": "4caa5b0822a1b9470d1db96066c1ffa45bb5acad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_23f0f488",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2174,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-10-13T09:09:50Z",
+      "side": 1,
+      "message": "Done. I didn\u0027t know that it will inject a dummy parameters here. Those dummy parameters are necessary for this test, otherwise it wouldn\u0027t work.",
+      "parentUuid": "1f7aac68_c266ef4f",
+      "range": {
+        "startLine": 2174,
+        "startChar": 0,
+        "endLine": 2174,
+        "endChar": 8
+      },
+      "revId": "4caa5b0822a1b9470d1db96066c1ffa45bb5acad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
