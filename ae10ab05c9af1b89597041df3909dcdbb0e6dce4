@@ -22,6 +22,30 @@
       "revId": "ae10ab05c9af1b89597041df3909dcdbb0e6dce4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_fc4f9d87",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T00:05:23Z",
+      "side": 1,
+      "message": "Was going to add HandleWrapper for AddFinalizerReference but it was not necessary, will revert that change.",
+      "parentUuid": "bcbc4ecf_fcd23dc7",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "ae10ab05c9af1b89597041df3909dcdbb0e6dce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
