@@ -118,6 +118,30 @@
       "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c37d20c_c3aca88e",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-13T08:33:23Z",
+      "side": 0,
+      "message": "One of the methods your comment refers to needs access to private state in the DexFileVerifier: CheckConstructorProperties(). Hence it\u0027s presence in the header file. By using the enum, that enum needs to be declared or forward declared in the header file.\n\nAn overall mistake in this change is trying to address some of the string copies and string format processing on the error paths. This is why FindMethodName moved to the class declaration, to write the error message directly. The caller could also have passed \u0026failure_reason_ as the error message argument. Depending on feedback we can push them out to minimize the churn.",
+      "parentUuid": "9c286ac7_0ada3b3d",
+      "range": {
+        "startLine": 2583,
+        "startChar": 0,
+        "endLine": 2583,
+        "endChar": 11
+      },
+      "revId": "9e5f321be43ad7d1e96ace55dc7e3f8b077f0038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
