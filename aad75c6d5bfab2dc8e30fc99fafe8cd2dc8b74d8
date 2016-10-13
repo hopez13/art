@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcafeeab_e156c201",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-13T18:37:04Z",
+      "side": 1,
+      "message": "The class loader is null for a boot image class. We can assume class_loader is non-null here because we don\u0027t do bss string gc roots for a boot image oat, correct? Worth asserting that?",
+      "range": {
+        "startLine": 71,
+        "startChar": 27,
+        "endLine": 71,
+        "endChar": 39
+      },
+      "revId": "aad75c6d5bfab2dc8e30fc99fafe8cd2dc8b74d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
