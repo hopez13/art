@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_59a183a5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "Ok, I just changed to always do it regardless of profiling info.",
+      "parentUuid": "3cb77eb7_87d8c610",
+      "range": {
+        "startLine": 281,
+        "startChar": 5,
+        "endLine": 281,
+        "endChar": 62
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c606ae6_aaa6cfa9",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -297,6 +321,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_1c99b971",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "Ok, just took it out.",
+      "parentUuid": "5c37d20c_a0b23adc",
+      "range": {
+        "startLine": 478,
+        "startChar": 15,
+        "endLine": 478,
+        "endChar": 34
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e23ab17",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -356,6 +404,30 @@
       "side": 1,
       "message": "So an HGraph has only HParameterValue for itself. Inlined methods don\u0027t add HParameterValue, they just get replaced with their actual arguments.",
       "parentUuid": "1f7aac68_407f3faf",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_dca661ab",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "That\u0027s for the final graph. It\u0027s still possible for a parameter to be on callee_graph?\nAnyway, I\u0027ll do the elimination in a separate CL so we can do it right.",
+      "parentUuid": "5c37d20c_40eb6ea0",
       "range": {
         "startLine": 484,
         "startChar": 6,
@@ -650,6 +722,30 @@
       "side": 1,
       "message": "I think you can do CanBeMoved and the side effects only depend on GC.\n\nBut let\u0027s do that in another change. Can you at least put the CanBeMoved()  { return false; } here, and add a comment?",
       "parentUuid": "1f7aac68_8004f726",
+      "range": {
+        "startLine": 2852,
+        "startChar": 42,
+        "endLine": 2852,
+        "endChar": 58
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_bcb285dc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb272c6_08938752",
       "range": {
         "startLine": 2852,
         "startChar": 42,
@@ -1626,6 +1722,30 @@
     },
     {
       "key": {
+        "uuid": "bcbc4ecf_5c66d120",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "Added comments.",
+      "parentUuid": "5c37d20c_20f0ea88",
+      "range": {
+        "startLine": 102,
+        "startChar": 22,
+        "endLine": 102,
+        "endChar": 54
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c547a0d_466bd217",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 3
@@ -1766,6 +1886,24 @@
       "writtenOn": "2016-10-12T09:14:10Z",
       "side": 1,
       "message": "I\u0027d add that as a comment.",
+      "parentUuid": "1f7aac68_932a9395",
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_3c575500",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-13T10:56:54Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "1f7aac68_932a9395",
       "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
