@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ccdca7b_e29aa6bf",
+        "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-13T13:09:11Z",
+      "side": 1,
+      "message": "Storing to stack without creating the stack frame? You should fix the code_generator_arm64.cc to emit a SUB SP, frame_size.",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "bd39392e2bfce1b3e42e147eb53fc7fb5b944b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
