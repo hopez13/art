@@ -660,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_0364d041",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T12:10:09Z",
+      "side": 1,
+      "message": "That\u0027s odd.  I\u0027ll have a look at it.",
+      "parentUuid": "7cc1f61c_e97ab5bc",
+      "range": {
+        "startLine": 824,
+        "startChar": 49,
+        "endLine": 824,
+        "endChar": 70
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_0e7a8b77",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -848,6 +872,30 @@
     },
     {
       "key": {
+        "uuid": "5c37d20c_43b89891",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T12:10:09Z",
+      "side": 1,
+      "message": "Thanks.  That\u0027s nice!",
+      "parentUuid": "5c37d20c_401a4e2f",
+      "range": {
+        "startLine": 914,
+        "startChar": 9,
+        "endLine": 914,
+        "endChar": 13
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_40b36e9f",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -1024,6 +1072,30 @@
       "side": 1,
       "message": "Technically, yes.\n\nElsewhere, we have left the empty `if (kReadBarrier..)` paths in place as stubs for supporting them later. What do you think to this approach?",
       "parentUuid": "5c37d20c_402eceb1",
+      "range": {
+        "startLine": 3123,
+        "startChar": 51,
+        "endLine": 3123,
+        "endChar": 55
+      },
+      "revId": "368b0329d02e5ac78e3e286438a06fb716fd4343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cb0fabd_a907d979",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-13T12:10:09Z",
+      "side": 1,
+      "message": "I see.  I think it\u0027s fine to keep it as-is then.",
+      "parentUuid": "5c37d20c_60295244",
       "range": {
         "startLine": 3123,
         "startChar": 51,
