@@ -181,25 +181,6 @@ void InternTable::AddImagesStringsToTable(const std::vector<gc::space::ImageSpac
     const ImageSection& section = header->GetImageSection(ImageHeader::kSectionInternedStrings);
     if (section.Size() > 0) {
       AddTableFromMemoryLocked(image_space->Begin() + section.Offset());
-    } else {
-      // TODO: Delete this logic?
-      mirror::Object* root = header->GetImageRoot(ImageHeader::kDexCaches);
-      mirror::ObjectArray<mirror::DexCache>* dex_caches = root->AsObjectArray<mirror::DexCache>();
-      for (int32_t i = 0; i < dex_caches->GetLength(); ++i) {
-        mirror::DexCache* dex_cache = dex_caches->Get(i);
-        const size_t num_strings = dex_cache->NumStrings();
-        for (size_t j = 0; j < num_strings; ++j) {
-          mirror::String* image_string = dex_cache->GetResolvedString(j);
-          if (image_string != nullptr) {
-            mirror::String* found = LookupStrongLocked(image_string);
-            if (found == nullptr) {
-              InsertStrong(image_string);
-            } else {
-              DCHECK_EQ(found, image_string);
-            }
-          }
-        }
-      }
     }
   }
   images_added_to_intern_table_ = true;
