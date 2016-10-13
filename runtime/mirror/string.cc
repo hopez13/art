@@ -93,10 +93,15 @@ String* String::AllocFromStrings(Thread* self, Handle<String> string, Handle<Str
   int32_t length = string->GetLength();
   int32_t length2 = string2->GetLength();
   gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
+<<<<<<< fc7798ba8201ae44c5c11384232be7c51afd3727
   const bool compressible = kUseStringCompression &&
       (string->IsCompressed() && string2->IsCompressed());
   const int32_t length_with_flag = compressible ? String::GetFlaggedCount(length + length2)
                                                 : (length + length2);
+=======
+  const bool compressible = kUseStringCompression && (string->IsCompressed() && string2->IsCompressed());
+  const int32_t length_with_flag = String::GetFlaggedCount(length + length2, compressible);
+>>>>>>> [WIP] Change string compression encoding.
 
   SetStringCountVisitor visitor(length_with_flag);
   ObjPtr<String> new_string = Alloc<true>(self, length_with_flag, allocator_type, visitor);
@@ -132,8 +137,7 @@ String* String::AllocFromUtf16(Thread* self, int32_t utf16_length, const uint16_
   gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
   const bool compressible = kUseStringCompression &&
                             String::AllASCII<uint16_t>(utf16_data_in, utf16_length);
-  int32_t length_with_flag = (compressible) ? String::GetFlaggedCount(utf16_length)
-                                            : utf16_length;
+  int32_t length_with_flag = String::GetFlaggedCount(utf16_length, compressible);
   SetStringCountVisitor visitor(length_with_flag);
   ObjPtr<String> string = Alloc<true>(self, length_with_flag, allocator_type, visitor);
   if (UNLIKELY(string == nullptr)) {
@@ -169,8 +173,7 @@ String* String::AllocFromModifiedUtf8(Thread* self,
                                       int32_t utf8_length) {
   gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
   const bool compressible = kUseStringCompression && (utf16_length == utf8_length);
-  const int32_t utf16_length_with_flag = (compressible) ? String::GetFlaggedCount(utf16_length)
-                                                        : utf16_length;
+  const int32_t utf16_length_with_flag = String::GetFlaggedCount(utf16_length, compressible);
   SetStringCountVisitor visitor(utf16_length_with_flag);
   ObjPtr<String> string = Alloc<true>(self, utf16_length_with_flag, allocator_type, visitor);
   if (UNLIKELY(string == nullptr)) {

@@ -1702,119 +1702,244 @@ END art_quick_ushr_long
      *    r2:   Starting offset in string data
      */
 ENTRY art_quick_indexof
-    push {r4, r10-r11, lr} @ 4 words of callee saves
-    .cfi_adjust_cfa_offset 16
-    .cfi_rel_offset r4, 0
-    .cfi_rel_offset r10, 4
-    .cfi_rel_offset r11, 8
-    .cfi_rel_offset lr, 12
     ldr   r3, [r0, #MIRROR_STRING_COUNT_OFFSET]
     add   r0, #MIRROR_STRING_VALUE_OFFSET
+    bic   r2, r2, r2, asr #31  /* start = max(0, start) */
+
 #if (STRING_COMPRESSION_FEATURE)
-    /* r4 count (with flag) and r3 holds actual length */
-    mov   r4, r3
-    bic   r3, #2147483648
+    /* Extract length and branch to a specialized comparison if compressed. */
+    lsrs  r3, r3, #1
+    bcc   .Lstring_indexof_compressed
 #endif
-    /* Clamp start to [0..count] */
-    cmp   r2, #0
-    it    lt
-    movlt r2, #0
-    cmp   r2, r3
-    it    gt
-    movgt r2, r3
 
-    /* Save a copy in r12 to later compute result */
-    mov   r12, r0
+    /* Compute iteration count and check if we're past the end of the string */
+    subs  r3, r3, r2
+    ble   .Lstring_indexof_nomatch
 
-    /* Build pointer to start of data to compare and pre-bias */
-#if (STRING_COMPRESSION_FEATURE)
-    cmp   r4, #0
-    blt   .Lstring_indexof_compressed
-#endif
-    add   r0, r0, r2, lsl #1
-    sub   r0, #2
+    /* Build pointer to start of data to compare */
+    add   r12, r0, r2, lsl #1
 
-    /* Compute iteration count */
-    sub   r2, r3, r2
+    /* Pre-bias the start of the string data for easier result calculation */
+    add   r0, #2
+
+    /* Align read address to 4 bytes and do one comparison if needed */
+    lsrs  r2, #1
+    bcc   .Lstring_indexof_aligned
+    ldrh  r2, [r12], #2
+    subs  r3, #1
+    cmp   r2, r1
+    beq   .Lstring_indexof_match_1_no_frame
+.Lstring_indexof_aligned:
 
     /*
      * At this point we have:
-     *   r0: start of data to test
+     *   r0: pre-biased start of string data
      *   r1: char to compare
-     *   r2: iteration count
-     *   r4: compression style (used temporarily)
-     *   r12: original start of string data
-     *   r3, r4, r10, r11 available for loading string data
+     *   r3: iteration count, possibly zero if the read alignment processed the only char
+     *   r12: start of data to test, aligned to 4 bytes
+     *   r2: available for loading string data
      */
 
+    subs  r3, #4
+    blt   .Lstring_indexof_remainder
+
+    /* Copy the char to the high part for faster comparison */
+    add   r1, r1, r1, lsl #16
+
+    push {r4-r7}  @ 4 words of callee saves
+    .cfi_adjust_cfa_offset 16
+    .cfi_rel_offset r4, 0
+    .cfi_rel_offset r5, 4
+    .cfi_rel_offset r6, 8
+    .cfi_rel_offset r7, 12
+
+.Lstring_indexof_loop4:
+    ldrd  r4, r5, [r12], #8
+    eor   r4, r1
+    eor   r5, r1
+    /*
+     * To check if a 32-bit `x` contains one or more 16-bit zeros, we can check if
+     *     `(((x - 0x00010001) ^ x) & 0x80008000) != 0`
+     */
+    sub   r6, r4, #0x00010001
+    sub   r7, r5, #0x00010001
+    eor   r4, r6
+    eor   r5, r7
+    /* Do the `& 0x80008000` check for both r4 and r5 at the same time. */
+    orr   r2, r4, r5
+    ands  r2, #0x80008000
+    bne   .Lstring_indexof_match_1_to_4
     subs  r2, #4
-    blt   .Lindexof_remainder
+    bge   .Lstring_indexof_loop4
 
-.Lindexof_loop4:
-    ldrh  r3, [r0, #2]!
-    ldrh  r4, [r0, #2]!
-    ldrh  r10, [r0, #2]!
-    ldrh  r11, [r0, #2]!
-    cmp   r3, r1
-    beq   .Lmatch_0
-    cmp   r4, r1
-    beq   .Lmatch_1
-    cmp   r10, r1
-    beq   .Lmatch_2
-    cmp   r11, r1
-    beq   .Lmatch_3
-    subs  r2, #4
-    bge   .Lindexof_loop4
+    .cfi_remember_state
+    pop {r4-r7}
+    .cfi_adjust_cfa_offset -16
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
 
-.Lindexof_remainder:
-    adds  r2, #4
-    beq   .Lindexof_nomatch
+    /* Keep only one 16-bit char, so that we can now compare one character at a time. */
+    lsr   r1, #16
 
-.Lindexof_loop1:
-    ldrh  r3, [r0, #2]!
-    cmp   r3, r1
-    beq   .Lmatch_3
-    subs  r2, #1
-    bne   .Lindexof_loop1
+.Lstring_indexof_remainder:
+    adds  r3, #4
+    beq   .Lstring_indexof_nomatch
 
-.Lindexof_nomatch:
+.Lstring_indexof_loop1:
+    ldrh  r2, [r12], #2
+    cmp   r2, r1
+    beq   .Lstring_indexof_match_1_no_frame
+    subs  r3, #1
+    bne   .Lstring_indexof_loop1
+
+.Lstring_indexof_nomatch:
     mov   r0, #-1
-    pop {r4, r10-r11, pc}
+    bx    lr
 
-.Lmatch_0:
-    sub   r0, #6
-    sub   r0, r12
-    asr   r0, r0, #1
-    pop {r4, r10-r11, pc}
-.Lmatch_1:
-    sub   r0, #4
-    sub   r0, r12
-    asr   r0, r0, #1
-    pop {r4, r10-r11, pc}
-.Lmatch_2:
-    sub   r0, #2
-    sub   r0, r12
-    asr   r0, r0, #1
-    pop {r4, r10-r11, pc}
-.Lmatch_3:
-    sub   r0, r12
-    asr   r0, r0, #1
-    pop {r4, r10-r11, pc}
+.Lstring_indexof_match_1_to_4:
+    .cfi_restore_state
+    /*
+     * At this point, `r4 & 0x80008000` contains flags for match in the first 2 chars,
+     * `r5 & 0x80008000` contains flags for match in the second pair and
+     * `r2 = (r4 | r5) & 0x80008000`. If there is a match in the first two characters,
+     * we need to use `r4` to find it and adjust `r12` 4 bytes back. Otherwise, we should
+     * use the `r5` but we can actually use `r2` as `(r5 & 0x80008000) == r2` in this case
+     * because `(r4 & 0x80008000) == 0`.
+     */
+    ands  r4, #0x80008000
+    beq   .Lstring_indexof_match_1_to_2
+    mov   r2, r4
+    sub   r12, #4
+.Lstring_indexof_match_1_to_2:
+    pop {r4-r7}
+    .cfi_adjust_cfa_offset -16
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+    /* Now we need to adjust `r12` 2 bytes back if the match was in the first character. */
+    and  r2, #0x8000
+    sub  r12, r12, r2, lsr #14
+.Lstring_indexof_match_1_no_frame:
+    sub   r0, r12, r0
+    lsrs  r0, #1
+    bx    lr
+
 #if (STRING_COMPRESSION_FEATURE)
 .Lstring_indexof_compressed:
-    add   r0, r0, r2
-    sub   r0, #1
-    sub   r2, r3, r2
-.Lstring_indexof_compressed_loop:
-    subs  r2, #1
-    blt   .Lindexof_nomatch
-    ldrb  r3, [r0, #1]!
-    cmp   r3, r1
-    beq   .Lstring_indexof_compressed_matched
-    b     .Lstring_indexof_compressed_loop
-.Lstring_indexof_compressed_matched:
-    sub   r0, r12
-    pop {r4, r10-r11, pc}
+    /* Compute iteration count and check if we're past the end of the string */
+    subs  r3, r3, r2
+    ble   .Lstring_indexof_nomatch
+
+    /* Build pointer to start of data to compare */
+    add   r12, r0, r2
+
+    /* Pre-bias the start of the string data for easier result calculation */
+    add   r0, #1
+
+    /* For short comparisons, do not bother with an optimized loop */
+    cmp   r3, #(8 + 3)  /* Enough for alignment and one 8-character loop iteration */
+    blt   .Lstring_indexof_compressed_loop1
+
+    /* Align read address to 4 bytes and do some comparison if needed */
+    tst   r12, #3
+    bne   .Lstring_indexof_compressed_aligned
+.Lstring_indexof_compressed_align_loop:
+    ldrb  r2, [r12], #1
+    cmp   r2, r1
+    beq   .Lstring_indexof_compressed_match_1_no_frame
+    tst   r12, #3
+    bne   .Lstring_indexof_compressed_aligned
+
+.Lstring_indexof_compressed_aligned:
+
+    /* Check if the character is ASCII */
+    lsrs  r2, r1, #7
+    bne   .Lstring_indexof_nomatch
+
+    /*
+     * At this point we have:
+     *   r0: pre-biased start of string data
+     *   r1: char to compare, guaranteed ASCII
+     *   r3: iteration count, at least 8
+     *   r12: start of data to test, aligned to 4 bytes
+     *   r2: available for loading string data
+     */
+
+    /* Copy the char to all bytes for faster comparison */
+    add   r1, r1, r1, lsl #16
+    sub   r3, #8  /* Interleave with adjusting the iteration count */
+    add   r1, r1, r1, lsl #16
+
+    push {r4-r7}  @ 4 words of callee saves
+    .cfi_adjust_cfa_offset 16
+    .cfi_rel_offset r4, 0
+    .cfi_rel_offset r5, 4
+    .cfi_rel_offset r6, 8
+    .cfi_rel_offset r7, 12
+
+.Lstring_indexof_compressed_loop8:
+    ldrd  r4, r5, [r12], #8
+    eor   r4, r1
+    eor   r5, r1
+    /*
+     * To check if a 32-bit `x` contains one or more 8-bit zeros, we can check if
+     *     `(((x - 0x01010101) ^ x) & 0x80808080) != 0`
+     */
+    sub   r6, r4, #0x01010101
+    sub   r7, r5, #0x01010101
+    eor   r4, r6
+    eor   r5, r7
+    /* Do the `& 0x80808080` check for both r4 and r5 at the same time. */
+    orr   r2, r4, r5
+    ands  r2, #0x80808080
+    bne   .Lstring_indexof_compressed_match_1_to_8
+    subs  r3, #8
+    bge   .Lstring_indexof_loop4
+
+    .cfi_remember_state
+    pop {r4-r7}
+    .cfi_adjust_cfa_offset -16
+    .cfi_restore r4
+    .cfi_restore r5
+    .cfi_restore r6
+    .cfi_restore r7
+
+    add   r3, #8
+    beq   .Lstring_indexof_compressed_nomatch
+
+    /* Keep only one 8-bit char, so that we can now compare one character at a time. */
+    lsr   r1, #24
+
+.Lstring_indexof_compressed_loop1:
+    ldrb  r2, [r12], #1
+    cmp   r2, r1
+    beq   .Lstring_indexof_compressed_match_1_no_frame
+    subs  r3, #1
+    bne   .Lstring_indexof_compressed_loop1
+.Lstring_indexof_compressed_nomatch:
+    mov   r0, #-1
+    bx    lr
+
+.Lstring_indexof_compressed_match_1_to_8:
+    .cfi_restore_state
+    /* Similar to the uncompressed state, check if the match was in the first or second 4 chars. */
+    tst   r4, #0x80808080
+    beq   .Lstring_indexof_compressed_match_1_to_4
+    mov   r2, r4
+    sub   r12, #4
+.Lstring_indexof_compressed_match_1_to_4:
+    /* Now we need to adjust `r12` 0-3 bytes back depending on which character was a match. */
+    rbit  r2, r2
+    clz   r2, r2       /* Possible values: 7, 15, 23, 31 */
+    rsb   r2, r2, #31  /* Possible values: 24, 16, 8, 0 */
+    sub   r12, r12, r2, lsr #3
+
+.Lstring_indexof_compressed_match_1_no_frame:
+    sub   r0, r12, r0
+    bx    lr
 #endif
 END art_quick_indexof
 
