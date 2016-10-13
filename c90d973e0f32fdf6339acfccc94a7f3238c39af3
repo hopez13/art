@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cdb9a69_17345ede",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-13T21:13:42Z",
+      "side": 1,
+      "message": "!\u003d ?",
+      "range": {
+        "startLine": 249,
+        "startChar": 25,
+        "endLine": 249,
+        "endChar": 27
+      },
+      "revId": "c90d973e0f32fdf6339acfccc94a7f3238c39af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cdb9a69_1798dec5",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-13T21:13:42Z",
+      "side": 1,
+      "message": "Why skip the full_count \u003d\u003d 0 case?",
+      "range": {
+        "startLine": 225,
+        "startChar": 8,
+        "endLine": 225,
+        "endChar": 30
+      },
+      "revId": "c90d973e0f32fdf6339acfccc94a7f3238c39af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
