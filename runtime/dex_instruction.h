@@ -137,31 +137,32 @@ class Instruction {
   };
 
   enum Flags {
-    kBranch              = 0x0000001,  // conditional or unconditional branch
-    kContinue            = 0x0000002,  // flow can continue to next statement
-    kSwitch              = 0x0000004,  // switch statement
-    kThrow               = 0x0000008,  // could cause an exception to be thrown
-    kReturn              = 0x0000010,  // returns, no additional statements
-    kInvoke              = 0x0000020,  // a flavor of invoke
-    kUnconditional       = 0x0000040,  // unconditional branch
-    kAdd                 = 0x0000080,  // addition
-    kSubtract            = 0x0000100,  // subtract
-    kMultiply            = 0x0000200,  // multiply
-    kDivide              = 0x0000400,  // division
-    kRemainder           = 0x0000800,  // remainder
-    kAnd                 = 0x0001000,  // and
-    kOr                  = 0x0002000,  // or
-    kXor                 = 0x0004000,  // xor
-    kShl                 = 0x0008000,  // shl
-    kShr                 = 0x0010000,  // shr
-    kUshr                = 0x0020000,  // ushr
-    kCast                = 0x0040000,  // cast
-    kStore               = 0x0080000,  // store opcode
-    kLoad                = 0x0100000,  // load opcode
-    kClobber             = 0x0200000,  // clobbers memory in a big way (not just a write)
-    kRegCFieldOrConstant = 0x0400000,  // is the third virtual register a field or literal constant (vC)
-    kRegBFieldOrConstant = 0x0800000,  // is the second virtual register a field or literal constant (vB)
-    kExperimental        = 0x1000000,  // is an experimental opcode
+    kBranch               = 0x0000001,  // conditional or unconditional branch
+    kContinue             = 0x0000002,  // flow can continue to next statement
+    kSwitch               = 0x0000004,  // switch statement
+    kThrow                = 0x0000008,  // could cause an exception to be thrown
+    kReturn               = 0x0000010,  // returns, no additional statements
+    kInvoke               = 0x0000020,  // a flavor of invoke
+    kUnconditional        = 0x0000040,  // unconditional branch
+    kAdd                  = 0x0000080,  // addition
+    kSubtract             = 0x0000100,  // subtract
+    kMultiply             = 0x0000200,  // multiply
+    kDivide               = 0x0000400,  // division
+    kRemainder            = 0x0000800,  // remainder
+    kAnd                  = 0x0001000,  // and
+    kOr                   = 0x0002000,  // or
+    kXor                  = 0x0004000,  // xor
+    kShl                  = 0x0008000,  // shl
+    kShr                  = 0x0010000,  // shr
+    kUshr                 = 0x0020000,  // ushr
+    kCast                 = 0x0040000,  // cast
+    kStore                = 0x0080000,  // store opcode
+    kLoad                 = 0x0100000,  // load opcode
+    kClobber              = 0x0200000,  // clobbers memory in a big way (not just a write)
+    kRegCFieldOrConstant  = 0x0400000,  // is the third virtual register a field or literal constant (vC)
+    kRegBFieldOrConstant  = 0x0800000,  // is the second virtual register a field or literal constant (vB)
+    kExperimental         = 0x1000000,  // is an experimental opcode
+    kSignaturePolymorphic = 0x2000000,  // signature polymorphic
   };
 
   enum VerifyFlag {
@@ -562,6 +563,11 @@ class Instruction {
   // Determine if this instruction is experimental.
   bool IsExperimental() const {
     return (kInstructionFlags[Opcode()] & kExperimental) != 0;
+  }
+
+  // Determine if this instruction is signature polymorphic invoke.
+  bool IsInvokePolymorphic() const {
+    return (kInstructionFlags[Opcode()] & kSignaturePolymorphic) != 0;
   }
 
   int GetVerifyTypeArgumentA() const {
