@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb272c6_28fbeba4",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-13T22:25:13Z",
+      "side": 1,
+      "message": "I don\u0027t think this will work. You need to use ScopedStackedShadowFramePusher to make sure the GC will see the shadow frame under construction when this code is being suspended during PerformArgumentConverstions.\n\nAnd confirming: you don\u0027t need the no suspension asserts above.",
+      "range": {
+        "startLine": 767,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 77
+      },
+      "revId": "a7aba06b5c294ac304a60fed3964ff4357e5a990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
