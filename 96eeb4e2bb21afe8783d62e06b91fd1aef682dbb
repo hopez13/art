@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c37d20c_03d97013",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-13T09:19:32Z",
+      "side": 1,
+      "message": "When they need the current method, they also need the environment.",
+      "range": {
+        "startLine": 2096,
+        "startChar": 46,
+        "endLine": 2096,
+        "endChar": 95
+      },
+      "revId": "96eeb4e2bb21afe8783d62e06b91fd1aef682dbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
