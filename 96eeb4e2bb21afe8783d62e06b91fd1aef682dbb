@@ -46,6 +46,30 @@
       "revId": "96eeb4e2bb21afe8783d62e06b91fd1aef682dbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcac0670_08870771",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-13T09:32:22Z",
+      "side": 1,
+      "message": "Indeed, that is the current situation.\n\nAs discussed, I want to protect ourselves from having an optimization where a HLoadClass/HLoadString doesn\u0027t need the environment, but loads from the dex cache.\n\nAlso, we eventually will get rid of HCurrentMethod, as we plan on having none of the three instructions mentioned go through the dex cache for compiled code.",
+      "parentUuid": "5c37d20c_03d97013",
+      "range": {
+        "startLine": 2096,
+        "startChar": 46,
+        "endLine": 2096,
+        "endChar": 95
+      },
+      "revId": "96eeb4e2bb21afe8783d62e06b91fd1aef682dbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
