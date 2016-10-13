@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcafeeab_db53b369",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2864,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "Must, should, or ought to? The name alone is very ambiguous, and the comment does unfortunately not help much. Please be more precise what the semantics of having this flag are.",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_db9df35d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "this block of code should probably be a helper method",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_bb92274c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "Set?",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_9b976b3c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "remove \"Basically\"",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_db1853e7",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "this loop could use some more doc",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_5b256316",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "how about a cha_test.cc file that does some basic unit testing on its methods; you may have to mock some stuff",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc6d8244_04997671",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "please add class-level documentation, this is a good place to describe function and locking issues (like your new cha_lock_)",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6a8e2b_e32e12f9",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "describe what it returns in more detail, perhaps a more descriptive typedef will already help",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c78fafe_266bd618",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "use a typedef for this large type?",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_fb6f8f52",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "You use returns, add, remove, and update. Use one form consistently",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_fbfc2f57",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "this is a monster decl that could benefit from some typedefs in cha (see my comments there too)",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_5b57a35a",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "what exactly is this testing? would this test pass if we had no cha? if so, can we make a checker test on something [probably hard]; if not, document better where what is tested",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcafeeab_9b740bf5",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-13T16:33:51Z",
+      "side": 1,
+      "message": "constructs like this make me very nervous. are we setting up a chance for flakiness?",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
