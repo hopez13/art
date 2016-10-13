@@ -22,6 +22,30 @@
       "revId": "aea9bfb051bb197fdfb63d56ff0f3d63b36eb499",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbc4ecf_e2bb78d6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-13T02:30:27Z",
+      "side": 1,
+      "message": "Output needs to be in handles",
+      "parentUuid": "bcbc4ecf_62f688bf",
+      "range": {
+        "startLine": 940,
+        "startChar": 38,
+        "endLine": 940,
+        "endChar": 41
+      },
+      "revId": "aea9bfb051bb197fdfb63d56ff0f3d63b36eb499",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
