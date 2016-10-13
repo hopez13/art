@@ -350,7 +350,7 @@ static void PreloadDexCachesResolveField(Handle<mirror::DexCache> dex_cache, uin
   if (field == nullptr) {
     return;
   }
-  // LOG(INFO) << "VMRuntime.preloadDexCaches resolved field " << PrettyField(field);
+  // LOG(INFO) << "VMRuntime.preloadDexCaches resolved field " << field->PrettyField();
   dex_cache->SetResolvedField(field_idx, field, kRuntimePointerSize);
 }
 

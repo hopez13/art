@@ -208,7 +208,7 @@ void ReferenceProcessor::DelayReferenceReferent(mirror::Class* klass, mirror::Re
     } else if (klass->IsPhantomReferenceClass()) {
       phantom_reference_queue_.AtomicEnqueueIfNotEnqueued(self, ref);
     } else {
-      LOG(FATAL) << "Invalid reference type " << PrettyClass(klass) << " " << std::hex
+      LOG(FATAL) << "Invalid reference type " << klass->PrettyClass() << " " << std::hex
                  << klass->GetAccessFlags();
     }
   }

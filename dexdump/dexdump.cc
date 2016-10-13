@@ -42,6 +42,7 @@
 #include <sstream>
 #include <vector>
 
+#include "dex_cfg.h"
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
 #include "utils.h"
