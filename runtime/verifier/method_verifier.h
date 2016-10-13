@@ -63,7 +63,8 @@ enum MethodType {
   METHOD_STATIC,      // static
   METHOD_VIRTUAL,     // virtual
   METHOD_SUPER,       // super
-  METHOD_INTERFACE    // interface
+  METHOD_INTERFACE,   // interface
+  METHOD_POLYMORPHIC  // polymorphic
 };
 std::ostream& operator<<(std::ostream& os, const MethodType& rhs);
 
@@ -512,6 +513,8 @@ class MethodVerifier {
   // - vA holds word count, vC holds index of first reg.
   bool CheckVarArgRangeRegs(uint32_t vA, uint32_t vC);
 
+  bool CheckSignaturePolymorphicMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Extract the relative offset from a branch instruction.
   // Returns "false" on failure (e.g. this isn't a branch instruction).
   bool GetBranchOffset(uint32_t cur_offset, int32_t* pOffset, bool* pConditional,
@@ -674,6 +677,9 @@ class MethodVerifier {
   // resolved.
   void VerifyInvocationArgsUnresolvedMethod(const Instruction* inst, MethodType method_type,
                                             bool is_range)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ArtMethod* VerifyInvocationArgsPolymorphicSignature(const Instruction* inst, bool is_range)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <class T>
