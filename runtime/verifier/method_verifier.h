@@ -63,7 +63,8 @@ enum MethodType {
   METHOD_STATIC,      // static
   METHOD_VIRTUAL,     // virtual
   METHOD_SUPER,       // super
-  METHOD_INTERFACE    // interface
+  METHOD_INTERFACE,   // interface
+  METHOD_POLYMORPHIC  // polymorphic
 };
 std::ostream& operator<<(std::ostream& os, const MethodType& rhs);
 
@@ -511,6 +512,9 @@ class MethodVerifier {
   // or filled-new-array/range.
   // - vA holds word count, vC holds index of first reg.
   bool CheckVarArgRangeRegs(uint32_t vA, uint32_t vC);
+
+  // Checks the method matches the expectations required to be signature polymorphic.
+  bool CheckSignaturePolymorphicMethod(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Extract the relative offset from a branch instruction.
   // Returns "false" on failure (e.g. this isn't a branch instruction).

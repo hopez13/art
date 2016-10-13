@@ -245,6 +245,11 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & kAccSynthetic) != 0;
   }
 
+  bool IsSignaturePolymorphic() {
+    constexpr uint32_t mask = kAccVarargs | kAccNative;
+    return (GetAccessFlags() & mask) == mask;
+  }
+
   template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsProxyMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
