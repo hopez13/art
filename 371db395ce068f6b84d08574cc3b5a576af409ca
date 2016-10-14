@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3cd3fe97_07aab66f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-14T10:28:10Z",
+      "side": 1,
+      "message": "What extra context do you need? If they are empty, don\u0027t write them. Period.\n\nSome have probably been empty since the multi-image change. For example grepping for these sections and image location in the boot image oatdump we had\n\n    IMAGE LOCATION: out/target/product/flounder/dex_bootjars/system/framework/boot-ims-common.art\n    IMAGE SECTION SectionInternedStrings: size\u003d4040 range\u003d40432-44472\n    IMAGE SECTION SectionClassTable: size\u003d40 range\u003d44472-44512\n    IMAGE LOCATION: out/target/product/flounder/dex_bootjars/system/framework/boot-apache-xml.art\n    IMAGE SECTION SectionInternedStrings: size\u003d40 range\u003d66776-66816\n    IMAGE SECTION SectionClassTable: size\u003d40 range\u003d66816-66856\n\nwhere size\u003d40 indicates just the basic fields and 0 entries, see HashSet\u003c\u003e::WriteToMemory(). App images can theoretically also have empty tables.",
+      "parentUuid": "bca52e1d_8b9d0d5f",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "371db395ce068f6b84d08574cc3b5a576af409ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_c1cbc649",
         "filename": "runtime/intern_table.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T18:00:47Z",
       "side": 1,
       "message": "Can also delete this?",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 35
+      },
+      "revId": "371db395ce068f6b84d08574cc3b5a576af409ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_83017e6e",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-14T10:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcafeeab_c1cbc649",
       "range": {
         "startLine": 36,
         "startChar": 6,
