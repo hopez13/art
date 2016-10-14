@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c2bff7f_37ec7aa0",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T22:08:53Z",
+      "side": 1,
+      "message": "Does this happen often? We could have a ConcurrentObjPtr that only lets you view it when the lock is held as an additional safety requirement.\n\nNot sure if the thread incrementing generation logic would still work the same.",
+      "range": {
+        "startLine": 108,
+        "startChar": 15,
+        "endLine": 108,
+        "endChar": 72
+      },
+      "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c2bff7f_f705d276",
+        "filename": "runtime/gc/reference_queue_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T22:08:53Z",
+      "side": 1,
+      "message": "Can you change these to be std::set\u003cObjPtr\u003cmirror::Reference\u003e\u003e instead?",
+      "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
