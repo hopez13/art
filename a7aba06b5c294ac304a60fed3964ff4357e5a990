@@ -22,6 +22,30 @@
       "revId": "a7aba06b5c294ac304a60fed3964ff4357e5a990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ccc7af8_26841610",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-14T08:16:20Z",
+      "side": 1,
+      "message": "Oh, I see.. makes sense. We might be suspended after we\u0027ve pushed one or more references that aren\u0027t present in the old shadow frame to the new shadow frame. Done.",
+      "parentUuid": "5cb272c6_28fbeba4",
+      "range": {
+        "startLine": 767,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 77
+      },
+      "revId": "a7aba06b5c294ac304a60fed3964ff4357e5a990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
