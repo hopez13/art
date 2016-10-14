@@ -31,6 +31,26 @@ public class Main {
     }
   }
 
+  /// CHECK-START: void Main.deadSingleLoop() loop_optimization (before)
+  /// CHECK-DAG: Phi loop:{{B\d+}} outer_loop:none
+  //
+  /// CHECK-START: void Main.deadSingleLoop() loop_optimization (after)
+  /// CHECK-NOT: Phi loop:{{B\d+}} outer_loop:none
+  static void deadSingleLoopN(int n) {
+    for (int i = 0; i < n; i++) {
+    }
+  }
+
+  /// CHECK-START: void Main.potentialInfLoop() loop_optimization (before)
+  /// CHECK-DAG: Phi loop:{{B\d+}} outer_loop:none
+  //
+  /// CHECK-START: void Main.potentialInfLoop() loop_optimization (after)
+  /// CHECK-DAG: Phi loop:{{B\d+}} outer_loop:none
+  static void potentialInfLoop(int n) {
+    for (int i = 0; i <= n; i++) {  // loops forever when n = MAX_INT
+    }
+  }
+
   /// CHECK-START: void Main.deadNestedLoops() loop_optimization (before)
   /// CHECK-DAG: Phi loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: Phi loop:{{B\d+}}      outer_loop:<<Loop>>
@@ -299,10 +319,33 @@ public class Main {
     return i;
   }
 
-  // If ever replaced by closed form, last value should be correct!
-  static int periodicReturned() {
+  /// CHECK-START: int Main.periodicReturned9() loop_optimization (before)
+  /// CHECK-DAG: <<Phi1:i\d+>> Phi               loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Phi2:i\d+>> Phi               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               Return [<<Phi2>>] loop:none
+  //
+  /// CHECK-START: int Main.periodicReturned9() loop_optimization (after)
+  /// CHECK-NOT:               Phi    loop:{{B\d+}} outer_loop:none
+  /// CHECK-DAG:               Return loop:none
+  static int periodicReturned9() {
     int k = 0;
     for (int i = 0; i < 9; i++) {
+      k = 1 - k;
+    }
+    return k;
+  }
+
+  /// CHECK-START: int Main.periodicReturned10() loop_optimization (before)
+  /// CHECK-DAG: <<Phi1:i\d+>> Phi               loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Phi2:i\d+>> Phi               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               Return [<<Phi2>>] loop:none
+  //
+  /// CHECK-START: int Main.periodicReturned10() loop_optimization (after)
+  /// CHECK-NOT:               Phi    loop:{{B\d+}} outer_loop:none
+  /// CHECK-DAG:               Return loop:none
+  static int periodicReturned10() {
+    int k = 0;
+    for (int i = 0; i < 10; i++) {
       k = 1 - k;
     }
     return k;
@@ -326,7 +369,14 @@ public class Main {
     return i;
   }
 
-  // If ever replaced by closed form, last value should be correct!
+  /// CHECK-START: int Main.periodicReturnedN(int) loop_optimization (before)
+  /// CHECK-DAG: <<Phi1:i\d+>> Phi               loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Phi2:i\d+>> Phi               loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:               Return [<<Phi2>>] loop:none
+  //
+  /// CHECK-START: int Main.periodicReturnedN(int) loop_optimization (after)
+  /// CHECK-NOT:               Phi    loop:{{B\d+}} outer_loop:none
+  /// CHECK-DAG:               Return loop:none
   static int periodicReturnedN(int n) {
     int k = 0;
     for (int i = 0; i < n; i++) {
@@ -469,6 +519,8 @@ public class Main {
 
   public static void main(String[] args) {
     deadSingleLoop();
+    deadSingleLoopN(4);
+    potentialInfLoop(4);
     deadNestedLoops();
     deadNestedAndFollowingLoops();
 
@@ -512,7 +564,8 @@ public class Main {
     }
 
     expectEquals(10, mainIndexReturned());
-    expectEquals(1, periodicReturned());
+    expectEquals(1, periodicReturned9());
+    expectEquals(0, periodicReturned10());
     expectEquals(21, getSum21());
     for (int n = -4; n < 4; n++) {
       int tc = (n <= 0) ? 0 : n;
