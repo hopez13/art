@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_3a20fdc1",
+        "filename": "runtime/openjdkjvmti/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-14T23:32:43Z",
+      "side": 1,
+      "message": "It\u0027s the local IRT bug that is tracking this, that\u0027s why it\u0027s listed in the commit message.\n\nI don\u0027t want to add a constexpr when it\u0027s not working at all the other way around. Instead I factored this to be minimal, so that it can be easily reverted.",
+      "parentUuid": "3c2bff7f_f7b032c5",
+      "revId": "7c245e7f011f3342b58aadc0bfa61463c8080e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c2bff7f_97b7aeb9",
         "filename": "test/907-get-loaded-classes/get_loaded_classes.cc",
         "patchSetId": 1
