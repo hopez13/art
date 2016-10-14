@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc73265a_991f3e79",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 0,
+      "message": "Didn\u0027t this already have the \"Too many open files\" in the error message?\n\nI suppose it might\u0027ve been unclear that it was the JNIEnv allocation that was failing though (to non-Art developers)?",
+      "revId": "74a69eda053486e2d563f888a689586c5cfa7217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

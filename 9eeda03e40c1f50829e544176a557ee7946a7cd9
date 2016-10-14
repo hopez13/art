@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc73265a_397acaad",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "What if the error message is null, can it just abort with the old messages then?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73265a_19610e08",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "Can you leave the old IsValid method here?\n\nI think that\u0027s a much clearer pattern to use then checking if the error message is non-empty.\n\n  //example\n  IndirectReferenceTable irt(\u0026error_msg);\n  if (!irt.IsValid()) {\n     LOG(ERROR) \u003c\u003c error_msg;\n   }",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73265a_b9655a14",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "nit: one parameter per line",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73265a_194a6e80",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "Can you add a separate method for this?\n\n   std::unique_ptr\u003cJavaVMExt\u003e Create(Runtime* runtime, ...)\n\nand it will return null if it fails to initialize?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73265a_b93ebae2",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "comments?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc73265a_99565e25",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T15:01:10Z",
+      "side": 1,
+      "message": "Why even have it if it\u0027s going to be unused?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
