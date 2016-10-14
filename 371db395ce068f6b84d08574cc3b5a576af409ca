@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_c3c6d611",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T11:37:09Z",
+      "side": 1,
+      "message": "OK. What surprises me is that you\u0027re removing a lot of dead code, and it\u0027s unclear why it\u0027s now dead.",
+      "parentUuid": "3cd3fe97_07aab66f",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "371db395ce068f6b84d08574cc3b5a576af409ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_c1cbc649",
         "filename": "runtime/intern_table.cc",
         "patchSetId": 2
