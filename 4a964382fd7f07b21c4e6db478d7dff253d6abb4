@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f1c6cae_86546a1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_071b568b",
+      "range": {
+        "startLine": 17,
+        "startChar": 62,
+        "endLine": 17,
+        "endChar": 80
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffef98c0_8d11215f",
         "filename": "tools/ahat/src/HeapTable.java",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Blank line?",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f2d68d5_a9a5fd51",
+        "filename": "tools/ahat/src/HeapTable.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffef98c0_8d11215f",
       "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_07e35628",
+        "filename": "tools/ahat/src/NativeAllocationsHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1c6cae_86a2aa45",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f2d68d5_099089fb",
         "filename": "tools/ahat/src/ObjectHandler.java",
         "patchSetId": 1
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "3f0a105e_cfc83da4",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f2d68d5_099089fb",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff52093_6bc30103",
         "filename": "tools/ahat/src/ObjectHandler.java",
         "patchSetId": 1
@@ -87,6 +165,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Snapshot argument is now unused, here and in similar places elsewhere in this file.",
+      "range": {
+        "startLine": 137,
+        "startChar": 41,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_271bfa34",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Removed unused snapshot argument. Here and in similar places elsewhere in ahat.",
+      "parentUuid": "bff52093_6bc30103",
       "range": {
         "startLine": 137,
         "startChar": 41,
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_07207659",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "For now, just preserve the previous behavior: don\u0027t show this section at all if there are no soft reverse references.",
+      "parentUuid": "1f1c6cae_e69f1e00",
+      "range": {
+        "startLine": 176,
+        "startChar": 8,
+        "endLine": 176,
+        "endChar": 47
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_c7001e13",
         "filename": "tools/ahat/src/ObjectHandler.java",
         "patchSetId": 1
@@ -139,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_6725f269",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Yes. The space was accidentally introduced in a previous change. It should be removed.",
+      "parentUuid": "3f23f0ed_c7001e13",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1c6cae_c69ca20e",
         "filename": "tools/ahat/src/RootedHandler.java",
         "patchSetId": 1
@@ -150,6 +294,24 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Blank space?",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_472a6e3b",
+        "filename": "tools/ahat/src/RootedHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1c6cae_c69ca20e",
       "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -179,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_870bc6df",
+        "filename": "tools/ahat/src/Sort.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "It could be listed as null in an hprof file, so we should handle this case. Fortunately, every case we assume it is not null is when we are calling getClassName. Add new methods to AhatInstance and Site.ObjectsInfo called getClassName that do the null check.",
+      "parentUuid": "ff1878be_45626ada",
+      "range": {
+        "startLine": 175,
+        "startChar": 23,
+        "endLine": 175,
+        "endChar": 31
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffef98c0_0d2d319c",
         "filename": "tools/ahat/src/Summarizer.java",
         "patchSetId": 1
@@ -196,6 +382,24 @@
     },
     {
       "key": {
+        "uuid": "bff52093_8b7bcdc1",
+        "filename": "tools/ahat/src/Summarizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffef98c0_0d2d319c",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f285cc7_6a101764",
         "filename": "tools/ahat/src/Summarizer.java",
         "patchSetId": 1
@@ -207,6 +411,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "If we are taking care of null explicitly, there\u0027s no need to use DocString.format. We can use DocString.text instead.",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 50
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_0747d608",
+        "filename": "tools/ahat/src/Summarizer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f285cc7_6a101764",
       "range": {
         "startLine": 112,
         "startChar": 11,
@@ -242,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "5ccef2f0_28cceb2e",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "I put a doc that contains only an \u0027@see\u0027 tag.",
+      "parentUuid": "3f23f0ed_8711065f",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffef98c0_6d22f5ab",
         "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
         "patchSetId": 1
@@ -253,6 +505,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Document somewhere that initialize for AhatArrayInstance is only called with an ArrayInstance. And similar for ClassObj and ClassInstance.",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_e33792ff",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "It\u0027s a little awkward. I\u0027ll leave this as is for now.",
+      "parentUuid": "ffef98c0_6d22f5ab",
       "range": {
         "startLine": 31,
         "startChar": 26,
@@ -288,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "9c7dca55_c2fa82d1",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff52093_8bc90d22",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1c6cae_466c32fe",
         "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
         "patchSetId": 1
@@ -299,6 +599,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "whitespace",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_c72c9e4c",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1c6cae_466c32fe",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -334,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "9cd86ab1_2a433f9b",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1ee4a6_0806c72b",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff1878be_6574c68c",
         "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
         "patchSetId": 1
@@ -351,6 +699,24 @@
     },
     {
       "key": {
+        "uuid": "1ccc7af8_265a5683",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff1878be_6574c68c",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_e71e026d",
         "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
         "patchSetId": 1
@@ -362,6 +728,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "\"class instance fields\", rather than \"field values\".",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ccc7af8_06575a5b",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_e71e026d",
       "range": {
         "startLine": 70,
         "startChar": 16,
@@ -397,6 +787,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_c33c16e5",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0a105e_8f9c75bf",
+      "range": {
+        "startLine": 72,
+        "startChar": 29,
+        "endLine": 72,
+        "endChar": 35
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f1ee4a6_a814db4e",
         "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
         "patchSetId": 1
@@ -408,6 +822,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "this",
+      "range": {
+        "startLine": 77,
+        "startChar": 21,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_23224ac2",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1ee4a6_a814db4e",
       "range": {
         "startLine": 77,
         "startChar": 21,
@@ -443,6 +881,30 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_07f236c9",
+        "filename": "tools/ahat/src/heapdump/AhatClassInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f1ee4a6_8811175f",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 4
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_27281a8c",
         "filename": "tools/ahat/src/heapdump/AhatHeap.java",
         "patchSetId": 1
@@ -454,6 +916,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Do we have to keep this artifact of the perflib API around?",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 21
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_031f4e7a",
+        "filename": "tools/ahat/src/heapdump/AhatHeap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Using a HashMap\u003cAhatHeap, Long\u003e to keep track of sizes by heap turns out to take an inordinate amount of memory, which impacts startup time significantly. Switching to use long[] for the map based on this index helps, so we\u0027ll keep the index around.",
+      "parentUuid": "3f23f0ed_27281a8c",
       "range": {
         "startLine": 22,
         "startChar": 1,
@@ -483,6 +969,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_632c42b2",
+        "filename": "tools/ahat/src/heapdump/AhatHeap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done.\n\nFor now we\u0027ll continue to assume heap names are unique.",
+      "parentUuid": "3f23f0ed_072d169c",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_672212ac",
         "filename": "tools/ahat/src/heapdump/AhatHeap.java",
         "patchSetId": 1
@@ -494,6 +998,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "No longer necessary, because AhatHeap objects are unique.",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 60,
+        "endChar": 28
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_47fc2e9c",
+        "filename": "tools/ahat/src/heapdump/AhatHeap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_672212ac",
       "range": {
         "startLine": 51,
         "startChar": 1,
@@ -523,6 +1051,24 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_67f7b2b9",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_47270eba",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dff8148c_4cdf3fcd",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -534,6 +1080,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "whitespace",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f0a105e_af997980",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dff8148c_4cdf3fcd",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -569,6 +1139,30 @@
     },
     {
       "key": {
+        "uuid": "1f1c6cae_c6902251",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0a105e_6f0151e1",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 4
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_e73562dd",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -580,6 +1174,24 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "s",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_a3163a61",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_e73562dd",
       "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -603,6 +1215,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_831b3e89",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_c732def2",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_2753fa13",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -620,6 +1250,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_e3103267",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_2753fa13",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_0758762c",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -631,6 +1279,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "ns",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 11
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c82d683_e14866b8",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_0758762c",
       "range": {
         "startLine": 125,
         "startChar": 10,
@@ -666,6 +1338,30 @@
     },
     {
       "key": {
+        "uuid": "9cd86ab1_6a3d3713",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffef98c0_6d5dd51c",
+      "range": {
+        "startLine": 139,
+        "startChar": 25,
+        "endLine": 139,
+        "endChar": 39
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f2d68d5_a97e9db1",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -677,6 +1373,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Documentation needed.",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_c3153655",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f2d68d5_a97e9db1",
       "range": {
         "startLine": 145,
         "startChar": 2,
@@ -712,6 +1432,30 @@
     },
     {
       "key": {
+        "uuid": "3f23f0ed_27bf7acd",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_675df21c",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 40
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_47626eda",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -723,6 +1467,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Needs documentation.",
+      "range": {
+        "startLine": 183,
+        "startChar": 1,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_230b6a3a",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_47626eda",
       "range": {
         "startLine": 183,
         "startChar": 1,
@@ -758,6 +1526,30 @@
     },
     {
       "key": {
+        "uuid": "7c82d683_014e2ac1",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Apparently not. I\u0027ll use a succinct comment instead.",
+      "parentUuid": "5f1ee4a6_48271fba",
+      "range": {
+        "startLine": 225,
+        "startChar": 25,
+        "endLine": 225,
+        "endChar": 46
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_a746ca4e",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -769,6 +1561,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "We have comments like this a few places. Is this helpful or necessary? Is there a more concise way to indicate what\u0027s going on?",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 61
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_63056222",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_a746ca4e",
       "range": {
         "startLine": 246,
         "startChar": 2,
@@ -804,6 +1620,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_e309523b",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "No. It\u0027s nice to have the wrapper for convenience and test.",
+      "parentUuid": "5f1ee4a6_8838f7d6",
+      "range": {
+        "startLine": 294,
+        "startChar": 1,
+        "endLine": 294,
+        "endChar": 42
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff52093_ebd6d1bb",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 1
@@ -815,6 +1655,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "We should do this at initialize: for each object we reference, if we are the next instance to gc root for that object, set a \"nextFieldDescriptionToGcRoot\".\n\nI think this is worth doing in the CL.",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 415,
+        "endChar": 45
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_27a65ac1",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff52093_ebd6d1bb",
       "range": {
         "startLine": 413,
         "startChar": 2,
@@ -850,6 +1714,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_c30ed640",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_277ada7b",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 45
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f0a105e_eff421e2",
         "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
         "patchSetId": 1
@@ -867,6 +1755,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_23140a4e",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0a105e_eff421e2",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_6774d28c",
         "filename": "tools/ahat/src/heapdump/FieldValue.java",
         "patchSetId": 1
@@ -878,6 +1784,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "whitespace",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffef98c0_ed2f053e",
+        "filename": "tools/ahat/src/heapdump/FieldValue.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_6774d28c",
       "range": {
         "startLine": 22,
         "startChar": 29,
@@ -913,6 +1843,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_03110e5e",
+        "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "obsolete.",
+      "parentUuid": "3f23f0ed_4779ce82",
+      "range": {
+        "startLine": 40,
+        "startChar": 38,
+        "endLine": 41,
+        "endChar": 61
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_a76d2ac3",
         "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
         "patchSetId": 1
@@ -924,6 +1878,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "needs documentation",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_631e026e",
+        "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "obsolete.",
+      "parentUuid": "3f23f0ed_a76d2ac3",
       "range": {
         "startLine": 51,
         "startChar": 1,
@@ -959,6 +1937,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_431b067c",
+        "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "obsolete.",
+      "parentUuid": "3f23f0ed_876aa6a6",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f0a105e_2fde2964",
         "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
         "patchSetId": 1
@@ -976,6 +1978,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_a328fa8c",
+        "filename": "tools/ahat/src/heapdump/InitializeHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "obsolete.",
+      "parentUuid": "3f0a105e_2fde2964",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f285cc7_8a110b5f",
         "filename": "tools/ahat/src/heapdump/Site.java",
         "patchSetId": 1
@@ -987,6 +2007,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "Can we use or enable asserts somehow?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 7
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f23f0ed_a7008aac",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "This assertion removed.",
+      "parentUuid": "9f285cc7_8a110b5f",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -1022,6 +2066,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_832dfe9c",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_27a5ba0c",
+      "range": {
+        "startLine": 182,
+        "startChar": 1,
+        "endLine": 182,
+        "endChar": 16
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f23f0ed_47b42e3b",
         "filename": "tools/ahat/src/heapdump/Value.java",
         "patchSetId": 1
@@ -1033,6 +2101,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "is either an AhatInstance or a boxed java primitive type?",
+      "range": {
+        "startLine": 31,
+        "startChar": 34,
+        "endLine": 31,
+        "endChar": 54
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_e322f2aa",
+        "filename": "tools/ahat/src/heapdump/Value.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f23f0ed_47b42e3b",
       "range": {
         "startLine": 31,
         "startChar": 34,
@@ -1068,6 +2160,30 @@
     },
     {
       "key": {
+        "uuid": "3cd3fe97_c7c6de11",
+        "filename": "tools/ahat/src/heapdump/Value.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f285cc7_ca1b037b",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bff52093_6bdae1de",
         "filename": "tools/ahat/test/OverviewHandlerTest.java",
         "patchSetId": 1
@@ -1079,6 +2195,30 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "A lot of these HandlerTests use the same structure. Can we share the code across these tests rather than duplicating code?",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1c6cae_4980c5fc",
+        "filename": "tools/ahat/test/OverviewHandlerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff52093_6bdae1de",
       "range": {
         "startLine": 27,
         "startChar": 13,
@@ -1108,6 +2248,24 @@
     },
     {
       "key": {
+        "uuid": "7c82d683_21cc0e2f",
+        "filename": "tools/ahat/test/TestDump.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff52093_4bdf25cd",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffef98c0_6daf95ec",
         "filename": "tools/ahat/test/TestDump.java",
         "patchSetId": 1
@@ -1119,6 +2277,24 @@
       "writtenOn": "2016-10-06T15:27:30Z",
       "side": 1,
       "message": "s",
+      "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ccef2f0_a8e0db8d",
+        "filename": "tools/ahat/test/TestDump.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-14T15:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffef98c0_6daf95ec",
       "revId": "4a964382fd7f07b21c4e6db478d7dff253d6abb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
