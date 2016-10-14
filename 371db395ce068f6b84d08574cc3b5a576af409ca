@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bca52e1d_8b9d0d5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T08:36:31Z",
+      "side": 1,
+      "message": "Could you put some more context in the description? What made them empty? Or have they always been empty?\n\nAlso, is that for boot image or app image or both?",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "371db395ce068f6b84d08574cc3b5a576af409ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_c1cbc649",
         "filename": "runtime/intern_table.cc",
         "patchSetId": 2
