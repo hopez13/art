@@ -22,6 +22,30 @@
       "revId": "aad75c6d5bfab2dc8e30fc99fafe8cd2dc8b74d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_83fa1ed0",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-14T16:54:05Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/289243",
+      "parentUuid": "bcafeeab_e156c201",
+      "range": {
+        "startLine": 71,
+        "startChar": 27,
+        "endLine": 71,
+        "endChar": 39
+      },
+      "revId": "aad75c6d5bfab2dc8e30fc99fafe8cd2dc8b74d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
