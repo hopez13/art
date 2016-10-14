@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_23dfeafb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2867,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "DependsOnGC.",
+      "range": {
+        "startLine": 2867,
+        "startChar": 54,
+        "endLine": 2867,
+        "endChar": 58
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_db9df35d",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
@@ -64,6 +87,29 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "remove \"Basically\"",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca52e1d_4ba4c5a1",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "If it\u0027s native, it\u0027s not abstract, so you\u0027re not using the native entry point for keeping the single implementation, right?",
+      "range": {
+        "startLine": 209,
+        "startChar": 7,
+        "endLine": 210,
+        "endChar": 38
+      },
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +201,29 @@
     },
     {
       "key": {
+        "uuid": "fcc886e8_45bdcaa9",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 36,
+        "startChar": 61,
+        "endLine": 36,
+        "endChar": 74
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_fb6f8f52",
         "filename": "runtime/cha.h",
         "patchSetId": 5
@@ -166,6 +235,98 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "You use returns, add, remove, and update. Use one form consistently",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cd3fe97_c7d09ef6",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "UpdateAfterLoadingOf ?",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 13
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_63d9e213",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "Private?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 81
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cd3fe97_87c6a642",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "Add a comment why you need the pair: one is for invalidating the entrypoint of the ArtMethod, the other is for invalidating code in the stack (that is potentially not the entrypoint of its corresponding ArtMethod).",
+      "range": {
+        "startLine": 70,
+        "startChar": 18,
+        "endLine": 70,
+        "endChar": 64
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc886e8_a5eabe9a",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "*",
+      "range": {
+        "startLine": 674,
+        "startChar": 24,
+        "endLine": 674,
+        "endChar": 25
+      },
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -189,6 +350,52 @@
     },
     {
       "key": {
+        "uuid": "bca52e1d_abc1e92e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 39
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_a313daca",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "Any reason this is in class linker instead of Runtime?",
+      "range": {
+        "startLine": 1204,
+        "startChar": 0,
+        "endLine": 1204,
+        "endChar": 30
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_5b57a35a",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 5
@@ -206,6 +413,52 @@
     },
     {
       "key": {
+        "uuid": "dcc102c4_44082e89",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "This isn\u0027t true, we do run interpret-only tests.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcc102c4_a465a246",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "I think you can get rid of this now.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 28
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_9b740bf5",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 5
@@ -217,6 +470,24 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "constructs like this make me very nervous. are we setting up a chance for flakiness?",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca52e1d_8bc6ad42",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:49:48Z",
+      "side": 1,
+      "message": "Yeah, we could have a handshake to make sure the thread is where we want it to be.",
+      "parentUuid": "bcafeeab_9b740bf5",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
