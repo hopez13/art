@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c2bff7f_d756561b",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-14T22:24:37Z",
+      "side": 1,
+      "message": "Not really, this is only used by GC.",
+      "parentUuid": "3c2bff7f_37ec7aa0",
+      "range": {
+        "startLine": 108,
+        "startChar": 15,
+        "endLine": 108,
+        "endChar": 72
+      },
+      "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c2bff7f_f705d276",
         "filename": "runtime/gc/reference_queue_test.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-14T22:08:53Z",
       "side": 1,
       "message": "Can you change these to be std::set\u003cObjPtr\u003cmirror::Reference\u003e\u003e instead?",
+      "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c2bff7f_9750ce1d",
+        "filename": "runtime/gc/reference_queue_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-14T22:24:37Z",
+      "side": 1,
+      "message": "I do not currently have an operator for comparing ObjPtr, do you think that is worth adding?",
+      "parentUuid": "3c2bff7f_f705d276",
       "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
