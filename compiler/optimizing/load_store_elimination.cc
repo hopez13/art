@@ -168,7 +168,9 @@ class HeapLocation : public ArenaObject<kArenaAllocMisc> {
   const int16_t declaring_class_def_index_;  // declaring class's def's dex index.
   bool value_killed_by_loop_side_effects_;   // value of this location may be killed by loop
                                              // side effects because this location is stored
-                                             // into inside a loop.
+                                             // into inside a loop. This gives
+                                             // better info on whether a singleton's location
+                                             // value may be killed by loop side effects.
 
   DISALLOW_COPY_AND_ASSIGN(HeapLocation);
 };
@@ -420,8 +422,20 @@ class HeapLocationCollector : public HGraphVisitor {
   void VisitInstanceFieldSet(HInstanceFieldSet* instruction) OVERRIDE {
     HeapLocation* location = VisitFieldAccess(instruction->InputAt(0), instruction->GetFieldInfo());
     has_heap_stores_ = true;
-    if (instruction->GetBlock()->GetLoopInformation() != nullptr) {
-      location->SetValueKilledByLoopSideEffects(true);
+    if (location->GetReferenceInfo()->IsSingleton()) {
+      // For a singleton, we want to track better whether it's location value may be
+      // killed by loop side effects.
+      HLoopInformation* loop_info = instruction->GetBlock()->GetLoopInformation();
+      if (loop_info != nullptr) {
+        HInstruction* ref = location->GetReferenceInfo()->GetReference();
+        DCHECK(ref->IsNewInstance());
+        if (loop_info->IsDefinedOutOfTheLoop(ref)) {
+          // ref's location value may be killed by this loop's side effects.
+          location->SetValueKilledByLoopSideEffects(true);
+        }
+      }
+    } else {
+      DCHECK_EQ(location->IsValueKilledByLoopSideEffects(), true);
     }
   }
 
@@ -810,9 +824,6 @@ class LSEVisitor : public HGraphVisitor {
         if (loop_info != nullptr) {
           // instruction is a store in the loop so the loop must does write.
           DCHECK(side_effects_.GetLoopEffects(loop_info->GetHeader()).DoesAnyWrite());
-          // If it's a singleton, IsValueKilledByLoopSideEffects() must be true.
-          DCHECK(!ref_info->IsSingleton() ||
-                 heap_location_collector_.GetHeapLocation(idx)->IsValueKilledByLoopSideEffects());
 
           if (loop_info->IsDefinedOutOfTheLoop(original_ref)) {
             DCHECK(original_ref->GetBlock()->Dominates(loop_info->GetPreHeader()));
