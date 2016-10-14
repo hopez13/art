@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cd86ab1_8a9d0b5f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T08:31:50Z",
+      "side": 1,
+      "message": "You should scope this in a nested block, otherwise it will remain on the thread\u0027s data structures until you leave this invoke-polymorphic call.",
+      "range": {
+        "startLine": 763,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 85
+      },
+      "revId": "a34292f8507e4dfabbb85d9c6c78cbb63de3dafd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
