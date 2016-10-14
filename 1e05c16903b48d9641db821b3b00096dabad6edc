@@ -440,6 +440,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_a3eaba9a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T09:24:17Z",
+      "side": 1,
+      "message": "No it\u0027s not possible for parameters of a callee graph to be in the outer graph. See https://cs.corp.google.com/android/art/compiler/optimizing/nodes.cc?rcl\u003defb862ab20a56c49e57a7ea16a1b732ce130c185\u0026l\u003d2125.",
+      "parentUuid": "bcbc4ecf_dca661ab",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5bfe40_27933a53",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
