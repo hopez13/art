@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c2bff7f_f7b032c5",
+        "filename": "runtime/openjdkjvmti/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T22:04:29Z",
+      "side": 1,
+      "message": "Might be nice to have it guarded by a global constant here.\n\nDefinitely add a comment with a FIXME and a bug#.",
+      "revId": "7c245e7f011f3342b58aadc0bfa61463c8080e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c2bff7f_97b7aeb9",
+        "filename": "test/907-get-loaded-classes/get_loaded_classes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-14T22:04:29Z",
+      "side": 1,
+      "message": "Guard by the same global constant as in the other file? and a FIXME+bug# ?",
+      "revId": "7c245e7f011f3342b58aadc0bfa61463c8080e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
