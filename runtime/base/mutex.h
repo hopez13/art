@@ -68,6 +68,7 @@ enum LockLevel {
   kMarkSweepMarkStackLock,
   kTransactionLogLock,
   kJniWeakGlobalsLock,
+  kJniGlobalsLock,
   kReferenceQueueSoftReferencesLock,
   kReferenceQueuePhantomReferencesLock,
   kReferenceQueueFinalizerReferencesLock,
