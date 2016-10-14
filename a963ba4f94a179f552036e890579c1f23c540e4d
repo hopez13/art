@@ -396,6 +396,29 @@
     },
     {
       "key": {
+        "uuid": "9cd86ab1_4a2f93f5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-14T13:30:27Z",
+      "side": 1,
+      "message": "This entry might be in the CHA data structures. You need to remove it there too.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 94
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_5b57a35a",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 5
