@@ -187,13 +187,7 @@ static const uint32_t IRT_FIRST_SEGMENT = 0;
  * reduce the amortized cost of adding global references.
  *
  */
-union IRTSegmentState {
-  uint32_t          all;
-  struct {
-    uint32_t      topIndex:16;            /* index of first unused entry */
-    uint32_t      numHoles:16;            /* #of holes in entire table */
-  } parts;
-};
+using IRTSegmentState = uint32_t;
 
 // Try to choose kIRTPrevCount so that sizeof(IrtEntry) is a power of 2.
 // Contains multiple entries but only one active one, this helps us detect use after free errors
@@ -259,7 +253,10 @@ class IndirectReferenceTable {
  public:
   // WARNING: When using with abort_on_error = false, the object may be in a partially
   //          initialized state. Use IsValid() to check.
-  IndirectReferenceTable(size_t max_count, IndirectRefKind kind, bool abort_on_error = true);
+  IndirectReferenceTable(size_t max_count,
+                         IndirectRefKind kind,
+                         bool resizable = false,
+                         bool abort_on_error = true);
 
   ~IndirectReferenceTable();
 
@@ -271,7 +268,7 @@ class IndirectReferenceTable {
    * Returns nullptr if the table is full (max entries reached, or alloc
    * failed during expansion).
    */
-  IndirectRef Add(uint32_t cookie, ObjPtr<mirror::Object> obj)
+  IndirectRef Add(IRTSegmentState cookie, ObjPtr<mirror::Object> obj)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   /*
@@ -306,7 +303,7 @@ class IndirectReferenceTable {
    *
    * Returns "false" if nothing was removed.
    */
-  bool Remove(uint32_t cookie, IndirectRef iref);
+  bool Remove(IRTSegmentState cookie, IndirectRef iref);
 
   void AssertEmpty() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -317,7 +314,7 @@ class IndirectReferenceTable {
    * so may be larger than the actual number of "live" entries.
    */
   size_t Capacity() const {
-    return segment_state_.parts.topIndex;
+    return segment_state_;
   }
 
   // Note IrtIterator does not have a read barrier as it's used to visit roots.
@@ -332,13 +329,11 @@ class IndirectReferenceTable {
   void VisitRoots(RootVisitor* visitor, const RootInfo& root_info)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  uint32_t GetSegmentState() const {
-    return segment_state_.all;
+  IRTSegmentState GetSegmentState() const {
+    return segment_state_;
   }
 
-  void SetSegmentState(uint32_t new_state) {
-    segment_state_.all = new_state;
-  }
+  void SetSegmentState(IRTSegmentState new_state);
 
   static Offset SegmentStateOffset(size_t pointer_size ATTRIBUTE_UNUSED) {
     // Note: Currently segment_state_ is at offset 0. We're testing the expected value in
@@ -368,12 +363,17 @@ class IndirectReferenceTable {
     return reinterpret_cast<IndirectRef>(uref);
   }
 
+  // Resize the backing table. Currently must be larger than the current size.
+  bool Resize(size_t new_size, std::string* error_msg);
+
+  void RecoverHoles(IRTSegmentState from);
+
   // Abort if check_jni is not enabled. Otherwise, just log as an error.
   static void AbortIfNoCheckJNI(const std::string& msg);
 
   /* extra debugging checks */
   bool GetChecked(IndirectRef) const REQUIRES_SHARED(Locks::mutator_lock_);
-  bool CheckEntry(const char*, IndirectRef, int) const;
+  bool CheckEntry(const char*, IndirectRef, uint32_t) const;
 
   /* semi-public - read/write by jni down calls */
   IRTSegmentState segment_state_;
@@ -385,8 +385,19 @@ class IndirectReferenceTable {
   IrtEntry* table_;
   /* bit mask, ORed into all irefs */
   const IndirectRefKind kind_;
+
   /* max #of entries allowed */
-  const size_t max_entries_;
+  size_t max_entries_;
+
+  // Some values to retain old behavior with holes.
+  // TODO: Consider other data structures for compact tables, e.g., free lists.
+  size_t current_num_holes_;
+  uint32_t last_known_prev_top_index_;
+  uint32_t hole_at_or_above_;
+
+  // Whether the table may be resized. As there are no locks used, it is the caller's responsibility
+  // to ensure thread-safety.
+  bool resizable_;
 };
 
 }  // namespace art

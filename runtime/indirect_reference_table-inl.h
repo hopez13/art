@@ -43,8 +43,8 @@ inline bool IndirectReferenceTable::GetChecked(IndirectRef iref) const {
                                    iref));
     return false;
   }
-  const int topIndex = segment_state_.parts.topIndex;
-  int idx = ExtractIndex(iref);
+  const uint32_t topIndex = segment_state_;
+  uint32_t idx = ExtractIndex(iref);
   if (UNLIKELY(idx >= topIndex)) {
     std::string msg = StringPrintf(
         "JNI ERROR (app bug): accessed stale %s %p  (index %d in a table of size %d)",
@@ -68,7 +68,9 @@ inline bool IndirectReferenceTable::GetChecked(IndirectRef iref) const {
 }
 
 // Make sure that the entry at "idx" is correctly paired with "iref".
-inline bool IndirectReferenceTable::CheckEntry(const char* what, IndirectRef iref, int idx) const {
+inline bool IndirectReferenceTable::CheckEntry(const char* what,
+                                               IndirectRef iref,
+                                               uint32_t idx) const {
   IndirectRef checkRef = ToIndirectRef(idx);
   if (UNLIKELY(checkRef != iref)) {
     std::string msg = StringPrintf(

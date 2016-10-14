@@ -32,6 +32,7 @@
 namespace art {
 
 static constexpr bool kDumpStackOnNonLocalReference = false;
+static constexpr bool kDebugIRT = false;
 
 const char* GetIndirectRefKindString(const IndirectRefKind& kind) {
   switch (kind) {
@@ -60,9 +61,14 @@ void IndirectReferenceTable::AbortIfNoCheckJNI(const std::string& msg) {
 
 IndirectReferenceTable::IndirectReferenceTable(size_t max_count,
                                                IndirectRefKind desired_kind,
+                                               bool resizable,
                                                bool abort_on_error)
     : kind_(desired_kind),
-      max_entries_(max_count) {
+      max_entries_(max_count),
+      current_num_holes_(0),
+      last_known_prev_top_index_(0),
+      hole_at_or_above_(0),
+      resizable_(resizable) {
   CHECK_NE(desired_kind, kHandleScopeOrInvalid);
 
   std::string error_str;
@@ -81,7 +87,7 @@ IndirectReferenceTable::IndirectReferenceTable(size_t max_count,
     return;
   }
   table_ = reinterpret_cast<IrtEntry*>(table_mem_map_->Begin());
-  segment_state_.all = IRT_FIRST_SEGMENT;
+  segment_state_ = IRT_FIRST_SEGMENT;
 }
 
 IndirectReferenceTable::~IndirectReferenceTable() {
@@ -91,50 +97,140 @@ bool IndirectReferenceTable::IsValid() const {
   return table_mem_map_.get() != nullptr;
 }
 
-IndirectRef IndirectReferenceTable::Add(uint32_t cookie, ObjPtr<mirror::Object> obj) {
-  IRTSegmentState prevState;
-  prevState.all = cookie;
-  size_t topIndex = segment_state_.parts.topIndex;
+void IndirectReferenceTable::RecoverHoles(uint32_t prev_state) {
+  if (prev_state != last_known_prev_top_index_ || hole_at_or_above_ >= segment_state_) {
+    size_t topIndex = segment_state_;
+
+    size_t count = 0;
+    for (size_t index = prev_state; index != topIndex; ++index) {
+      if (table_[index].GetReference()->IsNull()) {
+        count++;
+      }
+    }
+
+    if (kDebugIRT) {
+      LOG(INFO) << "+++ Recovered holes: "
+                << "Last-known prev=" << last_known_prev_top_index_
+                << " Current prev=" << prev_state
+                << " Current topIndex=" << topIndex
+                << " Old num_holes=" << current_num_holes_
+                << " New num_holes=" << count;
+    }
+
+    current_num_holes_ = count;
+    last_known_prev_top_index_ = prev_state;
+
+    if (current_num_holes_ > 0) {
+      hole_at_or_above_ = prev_state;
+    } else {
+      hole_at_or_above_ = 0;
+    }
+  } else if (kDebugIRT) {
+    LOG(INFO) << "No need to recover holes, last-prev-state==prev-state==" << prev_state;
+  }
+}
+
+ALWAYS_INLINE
+static inline void CheckHoleCount(IrtEntry* table,
+                                  size_t exp_num_holes,
+                                  uint32_t prev_state,
+                                  uint32_t topIndex) {
+  if (kIsDebugBuild) {
+    size_t count = 0;
+    for (size_t index = prev_state; index != topIndex; ++index) {
+      if (table[index].GetReference()->IsNull()) {
+        count++;
+      }
+    }
+    CHECK_EQ(exp_num_holes, count) << "prevState=" << prev_state << " topIndex=" << topIndex;
+  }
+}
+
+bool IndirectReferenceTable::Resize(size_t new_size, std::string* error_msg) {
+  CHECK_GT(new_size, max_entries_);
+
+  const size_t table_bytes = new_size * sizeof(IrtEntry);
+  std::unique_ptr<MemMap> new_map(MemMap::MapAnonymous("indirect ref table",
+                                                       nullptr,
+                                                       table_bytes,
+                                                       PROT_READ | PROT_WRITE,
+                                                       false,
+                                                       false,
+                                                       error_msg));
+  if (new_map == nullptr) {
+    return false;
+  }
+
+  memcpy(new_map->Begin(), table_mem_map_->Begin(), table_mem_map_->Size());
+  table_mem_map_ = std::move(new_map);
+  table_ = reinterpret_cast<IrtEntry*>(table_mem_map_->Begin());
+  max_entries_ = new_size;
+
+  return true;
+}
+
+IndirectRef IndirectReferenceTable::Add(IRTSegmentState cookie, ObjPtr<mirror::Object> obj) {
+  if (kDebugIRT) {
+    LOG(INFO) << "+++ Add: cookie=" << cookie << " last_prev=" << last_known_prev_top_index_
+              << " topIndex=" << segment_state_
+              << " holes=" << current_num_holes_;
+  }
+
+  size_t topIndex = segment_state_;
 
   CHECK(obj != nullptr);
   VerifyObject(obj);
   DCHECK(table_ != nullptr);
-  DCHECK_GE(segment_state_.parts.numHoles, prevState.parts.numHoles);
 
   if (topIndex == max_entries_) {
-    LOG(FATAL) << "JNI ERROR (app bug): " << kind_ << " table overflow "
-               << "(max=" << max_entries_ << ")\n"
-               << MutatorLockedDumpable<IndirectReferenceTable>(*this);
+    if (!resizable_) {
+      LOG(FATAL) << "JNI ERROR (app bug): " << kind_ << " table overflow "
+                 << "(max=" << max_entries_ << ")\n"
+                 << MutatorLockedDumpable<IndirectReferenceTable>(*this);
+      UNREACHABLE();
+    }
+
+    // Try to double space.
+    std::string error_msg;
+    if (!Resize(max_entries_ * 2, &error_msg)) {
+      LOG(FATAL) << "JNI ERROR (app bug): " << kind_ << " table overflow "
+                 << "(max=" << max_entries_ << ")" << std::endl
+                 << MutatorLockedDumpable<IndirectReferenceTable>(*this)
+                 << " Resizing failed: " << error_msg;
+      UNREACHABLE();
+    }
   }
+
+  RecoverHoles(cookie);
+  CheckHoleCount(table_, current_num_holes_, cookie, topIndex);
 
   // We know there's enough room in the table.  Now we just need to find
   // the right spot.  If there's a hole, find it and fill it; otherwise,
   // add to the end of the list.
   IndirectRef result;
-  int numHoles = segment_state_.parts.numHoles - prevState.parts.numHoles;
   size_t index;
-  if (numHoles > 0) {
+  if (current_num_holes_ > 0) {
     DCHECK_GT(topIndex, 1U);
     // Find the first hole; likely to be near the end of the list.
     IrtEntry* pScan = &table_[topIndex - 1];
     DCHECK(!pScan->GetReference()->IsNull());
     --pScan;
     while (!pScan->GetReference()->IsNull()) {
-      DCHECK_GE(pScan, table_ + prevState.parts.topIndex);
+      DCHECK_GE(pScan, table_ + cookie);
       --pScan;
     }
     index = pScan - table_;
-    segment_state_.parts.numHoles--;
+    current_num_holes_--;
   } else {
     // Add to the end.
     index = topIndex++;
-    segment_state_.parts.topIndex = topIndex;
+    segment_state_ = topIndex;
   }
   table_[index].Add(obj);
   result = ToIndirectRef(index);
-  if ((false)) {
-    LOG(INFO) << "+++ added at " << ExtractIndex(result) << " top=" << segment_state_.parts.topIndex
-              << " holes=" << segment_state_.parts.numHoles;
+  if (kDebugIRT) {
+    LOG(INFO) << "+++ added at " << ExtractIndex(result) << " top=" << segment_state_
+              << " holes=" << current_num_holes_;
   }
 
   DCHECK(result != nullptr);
@@ -159,14 +255,20 @@ void IndirectReferenceTable::AssertEmpty() {
 // This method is not called when a local frame is popped; this is only used
 // for explicit single removals.
 // Returns "false" if nothing was removed.
-bool IndirectReferenceTable::Remove(uint32_t cookie, IndirectRef iref) {
-  IRTSegmentState prevState;
-  prevState.all = cookie;
-  int topIndex = segment_state_.parts.topIndex;
-  int bottomIndex = prevState.parts.topIndex;
+bool IndirectReferenceTable::Remove(IRTSegmentState cookie, IndirectRef iref) {
+  if (kDebugIRT) {
+    LOG(INFO) << "+++ Remove: cookie=" << cookie << " last_prev=" << last_known_prev_top_index_
+              << " topIndex=" << segment_state_
+              << " holes=" << current_num_holes_;
+  }
+
+  uint32_t topIndex = segment_state_;
+  uint32_t bottomIndex = cookie;
+
+  RecoverHoles(bottomIndex);
+  CheckHoleCount(table_, current_num_holes_, bottomIndex, topIndex);
 
   DCHECK(table_ != nullptr);
-  DCHECK_GE(segment_state_.parts.numHoles, prevState.parts.numHoles);
 
   if (GetIndirectRefKind(iref) == kHandleScopeOrInvalid) {
     auto* self = Thread::Current();
@@ -183,7 +285,7 @@ bool IndirectReferenceTable::Remove(uint32_t cookie, IndirectRef iref) {
       return true;
     }
   }
-  const int idx = ExtractIndex(iref);
+  const uint32_t idx = ExtractIndex(iref);
   if (idx < bottomIndex) {
     // Wrong segment.
     LOG(WARNING) << "Attempt to remove index outside index area (" << idx
@@ -205,10 +307,10 @@ bool IndirectReferenceTable::Remove(uint32_t cookie, IndirectRef iref) {
     }
 
     *table_[idx].GetReference() = GcRoot<mirror::Object>(nullptr);
-    int numHoles = segment_state_.parts.numHoles - prevState.parts.numHoles;
-    if (numHoles != 0) {
-      while (--topIndex > bottomIndex && numHoles != 0) {
-        if ((false)) {
+    if (current_num_holes_ != 0) {
+      while (--topIndex > bottomIndex && current_num_holes_ != 0) {
+        if (kDebugIRT) {
+          ScopedObjectAccess soa(Thread::Current());
           LOG(INFO) << "+++ checking for hole at " << topIndex - 1
                     << " (cookie=" << cookie << ") val="
                     << table_[topIndex - 1].GetReference()->Read<kWithoutReadBarrier>();
@@ -216,16 +318,17 @@ bool IndirectReferenceTable::Remove(uint32_t cookie, IndirectRef iref) {
         if (!table_[topIndex - 1].GetReference()->IsNull()) {
           break;
         }
-        if ((false)) {
+        if (kDebugIRT) {
           LOG(INFO) << "+++ ate hole at " << (topIndex - 1);
         }
-        numHoles--;
+        current_num_holes_--;
       }
-      segment_state_.parts.numHoles = numHoles + prevState.parts.numHoles;
-      segment_state_.parts.topIndex = topIndex;
+      segment_state_ = topIndex;
+
+      CheckHoleCount(table_, current_num_holes_, cookie, topIndex);
     } else {
-      segment_state_.parts.topIndex = topIndex-1;
-      if ((false)) {
+      segment_state_ = topIndex-1;
+      if (kDebugIRT) {
         LOG(INFO) << "+++ ate last entry " << topIndex - 1;
       }
     }
@@ -241,10 +344,13 @@ bool IndirectReferenceTable::Remove(uint32_t cookie, IndirectRef iref) {
     }
 
     *table_[idx].GetReference() = GcRoot<mirror::Object>(nullptr);
-    segment_state_.parts.numHoles++;
-    if ((false)) {
-      LOG(INFO) << "+++ left hole at " << idx << ", holes=" << segment_state_.parts.numHoles;
+    current_num_holes_++;
+    CheckHoleCount(table_, current_num_holes_, cookie, topIndex);
+    if (kDebugIRT) {
+      LOG(INFO) << "+++ left hole at " << idx << ", holes=" << current_num_holes_;
     }
+    // Mark the new hole in this segment.
+    hole_at_or_above_ = bottomIndex;
   }
 
   return true;
@@ -279,6 +385,13 @@ void IndirectReferenceTable::Dump(std::ostream& os) const {
     }
   }
   ReferenceTable::Dump(os, entries);
+}
+
+void IndirectReferenceTable::SetSegmentState(IRTSegmentState new_state) {
+  if (kDebugIRT) {
+    LOG(INFO) << "Setting segment state: " << segment_state_ << " -> " << new_state;
+  }
+  segment_state_ = new_state;
 }
 
 }  // namespace art

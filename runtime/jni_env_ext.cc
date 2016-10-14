@@ -69,7 +69,7 @@ JNIEnvExt::JNIEnvExt(Thread* self_in, JavaVMExt* vm_in)
     : self(self_in),
       vm(vm_in),
       local_ref_cookie(IRT_FIRST_SEGMENT),
-      locals(kLocalsInitial, kLocal, false),
+      locals(kLocalsInitial, kLocal, true, false),
       check_jni(false),
       runtime_deleted(false),
       critical(0),
