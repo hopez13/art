@@ -22,6 +22,30 @@
       "revId": "aa8b60c23a2229159cbd5fde831de8d6d57e50d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_c039d4ee",
+        "filename": "runtime/openjdkjvmti/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-15T01:18:31Z",
+      "side": 1,
+      "message": "Follow-up easy-to-revert change does that.",
+      "parentUuid": "5c6993e3_a08940b2",
+      "range": {
+        "startLine": 180,
+        "startChar": 45,
+        "endLine": 180,
+        "endChar": 62
+      },
+      "revId": "aa8b60c23a2229159cbd5fde831de8d6d57e50d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
