@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c6993e3_a08940b2",
+        "filename": "runtime/openjdkjvmti/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-15T01:06:05Z",
+      "side": 1,
+      "message": "I thought this needed to be global ref?",
+      "range": {
+        "startLine": 180,
+        "startChar": 45,
+        "endLine": 180,
+        "endChar": 62
+      },
+      "revId": "aa8b60c23a2229159cbd5fde831de8d6d57e50d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
