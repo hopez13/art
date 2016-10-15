@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_fd8eff49",
+        "filename": "runtime/dex_cfg.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-15T00:27:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6993e3_171b9498",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "41cf92bab245b3d2e489e296db65a87b86dd23df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c6993e3_97afa4c9",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-14T23:00:50Z",
       "side": 1,
       "message": "Is the this necessary?",
+      "range": {
+        "startLine": 46,
+        "startChar": 67,
+        "endLine": 46,
+        "endChar": 71
+      },
+      "revId": "41cf92bab245b3d2e489e296db65a87b86dd23df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_5a4cd13e",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-15T00:27:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6993e3_97afa4c9",
       "range": {
         "startLine": 46,
         "startChar": 67,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_da3f817c",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-15T00:27:38Z",
+      "side": 1,
+      "message": "Done, here and one below.",
+      "parentUuid": "5c6993e3_f7cb80a8",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 87
+      },
+      "revId": "41cf92bab245b3d2e489e296db65a87b86dd23df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c6993e3_f7e8603b",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-14T23:00:50Z",
       "side": 1,
       "message": "Seems like a common pattern, maybe we could add method_reference.cc and add PrettyPrint to MethodReference.",
+      "range": {
+        "startLine": 171,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 76
+      },
+      "revId": "41cf92bab245b3d2e489e296db65a87b86dd23df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_5d592ba7",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-15T00:27:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6993e3_f7e8603b",
       "range": {
         "startLine": 171,
         "startChar": 24,
