@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcbe0e35_26a1b8f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-17T14:34:59Z",
+      "side": 1,
+      "message": "... and performance. using sendfile should be considerably faster since there\u0027s no transition to userspace for every buffer.",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "69ac225a44fe383b3bc43a2cae302f4dc0852615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
