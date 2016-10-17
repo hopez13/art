@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcbe0e35_4615d4f6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-17T15:38:43Z",
+      "side": 1,
+      "message": "Optional suggestion - possibly more readable without the ! as both branches have code and are small.",
+      "range": {
+        "startLine": 686,
+        "startChar": 10,
+        "endLine": 686,
+        "endChar": 11
+      },
+      "revId": "840733954614656932695fd5953e71675388b282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
