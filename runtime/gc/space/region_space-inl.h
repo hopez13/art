@@ -244,12 +244,21 @@ void RegionSpace::WalkInternal(ObjectCallback* callback, void* arg) {
       uint8_t* pos = r->Begin();
       uint8_t* top = r->Top();
       while (pos < top) {
-        mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
-        if (obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+        Hole* hole = reinterpret_cast<Hole*>(pos);
+        if (hole->IsEnd()) {
+          break;  // Reached the end.
+        } else if (hole->IsHole()) {
+          // Found a hole (dead objects). Skip it.
+          pos += hole->Size();
+          DCHECK_GT(pos, r->Begin());
+          DCHECK_GE(top, pos);
+        } else {
+          // Found a live object.
+          mirror::Object* obj = reinterpret_cast<mirror::Object*>(pos);
           callback(obj, arg);
           pos = reinterpret_cast<uint8_t*>(GetNextObject(obj));
-        } else {
-          break;
+          DCHECK_GT(pos, r->Begin());
+          DCHECK_GE(top, pos);
         }
       }
     }

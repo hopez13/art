@@ -139,6 +139,8 @@ class SpaceBitmap {
   static void SweepWalk(const SpaceBitmap& live, const SpaceBitmap& mark, uintptr_t base,
                         uintptr_t max, SweepCallback* thunk, void* arg);
 
+  mirror::Object* FindFirstMarked(uintptr_t find_begin, uintptr_t find_end) const;
+
   void CopyFrom(SpaceBitmap* source_bitmap);
 
   // Starting address of our internal storage.
@@ -196,6 +198,14 @@ class SpaceBitmap {
 
   template<bool kSetBit>
   bool Modify(const mirror::Object* obj);
+
+  // Visit the live objects in the range [visit_begin, visit_end). If kReturnOnFirstMarked is true,
+  // return early after the first marked callback. Otherwise, continue until the end.
+  // TODO: Use lock annotations when clang is fixed.
+  // REQUIRES(Locks::heap_bitmap_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+  template <bool kReturnOnFirstMarked, typename Visitor>
+  void VisitMarkedRangeInternal(uintptr_t visit_begin, uintptr_t visit_end, const Visitor& visitor)
+      const NO_THREAD_SAFETY_ANALYSIS;
 
   // Backing storage for bitmap.
   std::unique_ptr<MemMap> mem_map_;
