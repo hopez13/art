@@ -118,6 +118,30 @@
       "revId": "043eb9a4496cacaffe60f381c5686c989cb5d701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_a0fdbb01",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-17T16:46:27Z",
+      "side": 1,
+      "message": "is_gc_marking is already checked by the JNI stub at this point.",
+      "parentUuid": "bcbe0e35_a6e0088e",
+      "range": {
+        "startLine": 32,
+        "startChar": 47,
+        "endLine": 32,
+        "endChar": 57
+      },
+      "revId": "043eb9a4496cacaffe60f381c5686c989cb5d701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
