@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcbe0e35_26a7f85a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:13:17Z",
+      "side": 1,
+      "message": "Maybe just say what the code does?\n\nA singleton defined in the loop...\nA singleton defined out of the loop...",
+      "range": {
+        "startLine": 426,
+        "startChar": 26,
+        "endLine": 427,
+        "endChar": 36
+      },
+      "revId": "90644e44179c7f1cbde2d9d4efe6b79e5f0b95d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_c6b1c495",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:13:17Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 66
+      },
+      "revId": "90644e44179c7f1cbde2d9d4efe6b79e5f0b95d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
