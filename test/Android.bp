@@ -247,6 +247,7 @@ art_cc_defaults {
         "902-hello-transformation/transform.cc",
         "903-hello-tagging/tagging.cc",
         "904-object-allocation/tracking.cc",
+        "904b-object-allocation-failing/tracking.cc",
         "905-object-free/tracking_free.cc",
         "906-iterate-heap/iterate_heap.cc",
     ],

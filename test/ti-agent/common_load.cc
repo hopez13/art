@@ -28,6 +28,7 @@
 #include "902-hello-transformation/transform.h"
 #include "903-hello-tagging/tagging.h"
 #include "904-object-allocation/tracking.h"
+#include "904b-object-allocation-failing/tracking.h"
 #include "905-object-free/tracking_free.h"
 #include "906-iterate-heap/iterate_heap.h"
 
@@ -50,6 +51,7 @@ AgentLib agents[] = {
   { "902-hello-transformation", Test902HelloTransformation::OnLoad, nullptr },
   { "903-hello-tagging", Test903HelloTagging::OnLoad, nullptr },
   { "904-object-allocation", Test904ObjectAllocation::OnLoad, nullptr },
+  { "904b-object-allocation-failing", Test904bObjectAllocationFailing::OnLoad, nullptr },
   { "905-object-free", Test905ObjectFree::OnLoad, nullptr },
   { "906-iterate-heap", Test906IterateHeap::OnLoad, nullptr },
 };

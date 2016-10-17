@@ -271,6 +271,7 @@ TEST_ART_BROKEN_TARGET_TESTS := \
   902-hello-transformation \
   903-hello-tagging \
   904-object-allocation \
+  904b-object-allocation-failing \
   905-object-free \
   906-iterate-heap \
 
