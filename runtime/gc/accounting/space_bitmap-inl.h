@@ -155,6 +155,22 @@ inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin, uin
 #endif
 }
 
+template<size_t kAlignment>
+inline mirror::Object* SpaceBitmap<kAlignment>::FindFirstMarked(uintptr_t find_begin,
+                                                                uintptr_t find_end) const {
+  DCHECK_LE(find_begin, find_end);
+  DCHECK_LE(heap_begin_, find_begin);
+  DCHECK_LE(find_end, HeapLimit());
+  // TODO: implement a faster version.
+  for (uintptr_t i = find_begin; i < find_end; i += kAlignment) {
+    mirror::Object* obj = reinterpret_cast<mirror::Object*>(i);
+    if (Test(obj)) {
+      return obj;
+    }
+  }
+  return reinterpret_cast<mirror::Object*>(find_end);
+}
+
 template<size_t kAlignment> template<bool kSetBit>
 inline bool SpaceBitmap<kAlignment>::Modify(const mirror::Object* obj) {
   uintptr_t addr = reinterpret_cast<uintptr_t>(obj);

@@ -139,6 +139,8 @@ class SpaceBitmap {
   static void SweepWalk(const SpaceBitmap& live, const SpaceBitmap& mark, uintptr_t base,
                         uintptr_t max, SweepCallback* thunk, void* arg);
 
+  mirror::Object* FindFirstMarked(uintptr_t find_begin, uintptr_t find_end) const;
+
   void CopyFrom(SpaceBitmap* source_bitmap);
 
   // Starting address of our internal storage.

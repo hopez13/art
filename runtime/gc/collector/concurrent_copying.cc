@@ -1585,7 +1585,7 @@ void ConcurrentCopying::ReclaimPhase() {
 
   {
     TimingLogger::ScopedTiming split4("ClearFromSpace", GetTimings());
-    region_space_->ClearFromSpace();
+    region_space_->ClearFromSpace(region_space_bitmap_);
   }
 
   {
