@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcbe0e35_26f53847",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Personal preference, but maybe this reads better on a while loop? Not feeling strongly though.",
+      "range": {
+        "startLine": 811,
+        "startChar": 7,
+        "endLine": 811,
+        "endChar": 61
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_06f2bc5e",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 820,
+        "startChar": 6,
+        "endLine": 820,
+        "endChar": 81
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_66ef3077",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "I\u0027d add a comment why graph can be null.",
+      "range": {
+        "startLine": 823,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 27
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_46ecb480",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 827,
+        "startChar": 99,
+        "endLine": 827,
+        "endChar": 103
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_a68928de",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 834,
+        "startChar": 97,
+        "endLine": 834,
+        "endChar": 102
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc5a8f66_5a951518",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 838,
+        "startChar": 94,
+        "endLine": 838,
+        "endChar": 102
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_868eace1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Is that an unrelated bug fix?",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 33
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_e6932008",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "potentialInfiniteLoop?",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_067bdcc2",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-17T09:08:37Z",
+      "side": 1,
+      "message": "Actually, thinking about your comment on a different CL that we already check at runtime the return value, I still think it would be worthwhile to check it in checker. Who knows if there is still some computation left?",
+      "range": {
+        "startLine": 329,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 47
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
