@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_e36f9220",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_438d388f",
+      "range": {
+        "startLine": 799,
+        "startChar": 75,
+        "endLine": 799,
+        "endChar": 98
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c7a72f7_085c2751",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T16:18:33Z",
       "side": 1,
       "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 1537,
+        "startChar": 0,
+        "endLine": 1537,
+        "endChar": 49
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_c37416f6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c7a72f7_085c2751",
       "range": {
         "startLine": 1537,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_03574e5b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccdca7b_c20a02db",
+      "range": {
+        "startLine": 1585,
+        "startChar": 0,
+        "endLine": 1585,
+        "endChar": 49
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcac0670_ab4fcd88",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_63644243",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3278,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "I\u0027ll make this a TODO_VIXL32(FATAL), if that\u0027s ok with you, as that\u0027s how we\u0027re tracking unimplemented code paths/features needed for parity with the current backend.",
+      "parentUuid": "fcac0670_ab4fcd88",
+      "range": {
+        "startLine": 3277,
+        "startChar": 0,
+        "endLine": 3278,
+        "endChar": 73
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_039b30c5",
         "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
         "patchSetId": 2
@@ -105,6 +201,54 @@
       "writtenOn": "2016-10-13T16:18:33Z",
       "side": 1,
       "message": "I\u0027d suggest:\n\n  // Prefer Str to Add/Stm in ArmVIXLAssembler::StoreRegisterList and\n  // ArmVIXLAssembler::LoadRegisterList where this generates less code (size).",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 63
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_43614631",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_039b30c5",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 63
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_a34e3ac2",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-10-17T12:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c37d20c_039b30c5",
       "range": {
         "startLine": 349,
         "startChar": 0,
