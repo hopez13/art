@@ -488,6 +488,8 @@ CodeGeneratorARMVIXL::CodeGeneratorARMVIXL(HGraph* graph,
       isa_features_(isa_features) {
   // Always save the LR register to mimic Quick.
   AddAllocatedRegister(Location::RegisterLocation(LR));
+  GetVIXLAssembler()->GetScratchVRegisterList()->Combine(d15);
+  GetVIXLAssembler()->GetScratchVRegisterList()->Combine(d31);
 }
 
 #define __ reinterpret_cast<ArmVIXLAssembler*>(GetAssembler())->GetVIXLAssembler()->
@@ -511,6 +513,11 @@ void CodeGeneratorARMVIXL::SetupBlockedRegisters() const {
 
   // Reserve temp register.
   blocked_core_registers_[IP] = true;
+
+  // Registers s30-s31 (d15) are left to VIXL for scratch registers.
+  // (They are given to the `MacroAssembler` in `CodeGeneratorARMVIXL::CodeGeneratorARMVIXL`.)
+  blocked_fpu_registers_[30] = true;
+  blocked_fpu_registers_[31] = true;
 
   if (GetGraph()->IsDebuggable()) {
     // Stubs do not save callee-save floating point registers. If the graph
@@ -2178,6 +2185,91 @@ void InstructionCodeGeneratorARMVIXL::VisitNot(HNot* not_) {
   }
 }
 
+void LocationsBuilderARMVIXL::VisitCompare(HCompare* compare) {
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(compare, LocationSummary::kNoCall);
+  switch (compare->InputAt(0)->GetType()) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimInt:
+    case Primitive::kPrimLong: {
+      locations->SetInAt(0, Location::RequiresRegister());
+      locations->SetInAt(1, Location::RequiresRegister());
+      // Output overlaps because it is written before doing the low comparison.
+      locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
+      break;
+    }
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble: {
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetInAt(1, ArithmeticZeroOrFpuRegister(compare->InputAt(1)));
+      locations->SetOut(Location::RequiresRegister());
+      break;
+    }
+    default:
+      LOG(FATAL) << "Unexpected type for compare operation " << compare->InputAt(0)->GetType();
+  }
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitCompare(HCompare* compare) {
+  LocationSummary* locations = compare->GetLocations();
+  vixl32::Register out = OutputRegister(compare);
+  Location left = locations->InAt(0);
+  Location right = locations->InAt(1);
+
+  vixl32::Label less, greater, done;
+  Primitive::Type type = compare->InputAt(0)->GetType();
+  vixl32::Condition less_cond = eq;
+  switch (type) {
+    case Primitive::kPrimBoolean:
+    case Primitive::kPrimByte:
+    case Primitive::kPrimShort:
+    case Primitive::kPrimChar:
+    case Primitive::kPrimInt: {
+      __ Mov(out, 0);
+      __ Cmp(RegisterFrom(left), RegisterFrom(right));  // Signed compare.
+      less_cond = lt;
+      break;
+    }
+    case Primitive::kPrimLong: {
+      __ Cmp(HighRegisterFrom(left), HighRegisterFrom(right));  // Signed compare.
+      __ B(lt, &less);
+      __ B(gt, &greater);
+      // Do LoadImmediate before the last `cmp`, as LoadImmediate might affect the status flags.
+      __ Mov(out, 0);
+      __ Cmp(LowRegisterFrom(left), LowRegisterFrom(right));  // Unsigned compare.
+      less_cond = lo;
+      break;
+    }
+    case Primitive::kPrimFloat:
+    case Primitive::kPrimDouble: {
+      __ Mov(out, 0);
+      GenerateVcmp(compare);
+      // To branch on the FP compare result we transfer FPSCR to APSR (encoded as PC in VMRS).
+      __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
+      less_cond = ARMFPCondition(kCondLT, compare->IsGtBias());
+      break;
+    }
+    default:
+      LOG(FATAL) << "Unexpected compare type " << type;
+      UNREACHABLE();
+  }
+
+  __ B(eq, &done);
+  __ B(less_cond, &less);
+
+  __ Bind(&greater);
+  __ Mov(out, 1);
+  __ B(&done);
+
+  __ Bind(&less);
+  __ Mov(out, -1);
+
+  __ Bind(&done);
+}
+
 void LocationsBuilderARMVIXL::VisitPhi(HPhi* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
@@ -2665,6 +2757,17 @@ void InstructionCodeGeneratorARMVIXL::HandleFieldSet(HInstruction* instruction,
   }
 }
 
+Location LocationsBuilderARMVIXL::ArithmeticZeroOrFpuRegister(HInstruction* input) {
+  DCHECK(input->GetType() == Primitive::kPrimDouble || input->GetType() == Primitive::kPrimFloat)
+      << input->GetType();
+  if ((input->IsFloatConstant() && (input->AsFloatConstant()->IsArithmeticZero())) ||
+      (input->IsDoubleConstant() && (input->AsDoubleConstant()->IsArithmeticZero()))) {
+    return Location::ConstantLocation(input->AsConstant());
+  } else {
+    return Location::RequiresFpuRegister();
+  }
+}
+
 void LocationsBuilderARMVIXL::HandleFieldGet(HInstruction* instruction,
                                              const FieldInfo& field_info) {
   DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
@@ -3008,7 +3111,17 @@ void ParallelMoveResolverARMVIXL::EmitMove(size_t index) {
   } else if (source.IsFpuRegister()) {
     TODO_VIXL32(FATAL);
   } else if (source.IsDoubleStackSlot()) {
-    TODO_VIXL32(FATAL);
+    if (destination.IsDoubleStackSlot()) {
+      vixl32::DRegister temp = temps.AcquireD();
+      GetAssembler()->LoadDFromOffset(temp, sp, source.GetStackIndex());
+      GetAssembler()->StoreDToOffset(temp, sp, destination.GetStackIndex());
+    } else if (destination.IsRegisterPair()) {
+      DCHECK(ExpectedPairLayout(destination));
+      GetAssembler()->LoadFromOffset(
+          kLoadWordPair, LowRegisterFrom(destination), sp, source.GetStackIndex());
+    } else {
+      TODO_VIXL32(FATAL);
+    }
   } else if (source.IsRegisterPair()) {
     if (destination.IsRegisterPair()) {
       __ Mov(LowRegisterFrom(destination), LowRegisterFrom(source));
@@ -3087,18 +3200,75 @@ void ParallelMoveResolverARMVIXL::EmitMove(size_t index) {
   }
 }
 
-void ParallelMoveResolverARMVIXL::Exchange(Register reg ATTRIBUTE_UNUSED,
-                                           int mem ATTRIBUTE_UNUSED) {
-  TODO_VIXL32(FATAL);
+void ParallelMoveResolverARMVIXL::Exchange(vixl32::Register reg, int mem) {
+  UseScratchRegisterScope temps(GetAssembler()->GetVIXLAssembler());
+  vixl32::Register temp = temps.Acquire();
+  __ Mov(temp, reg);
+  GetAssembler()->LoadFromOffset(kLoadWord, reg, sp, mem);
+  GetAssembler()->StoreToOffset(kStoreWord, temp, sp, mem);
 }
 
-void ParallelMoveResolverARMVIXL::Exchange(int mem1 ATTRIBUTE_UNUSED,
-                                           int mem2 ATTRIBUTE_UNUSED) {
-  TODO_VIXL32(FATAL);
+void ParallelMoveResolverARMVIXL::Exchange(int mem1, int mem2) {
+  // TODO(VIXL32): Double check the performance of this implementation.
+  UseScratchRegisterScope temps(GetAssembler()->GetVIXLAssembler());
+  vixl32::Register temp = temps.Acquire();
+  vixl32::SRegister temp_s = temps.AcquireS();
+
+  __ Ldr(temp, MemOperand(sp, mem1));
+  __ Vldr(temp_s, MemOperand(sp, mem2));
+  __ Str(temp, MemOperand(sp, mem2));
+  __ Vstr(temp_s, MemOperand(sp, mem1));
 }
 
-void ParallelMoveResolverARMVIXL::EmitSwap(size_t index ATTRIBUTE_UNUSED) {
-  TODO_VIXL32(FATAL);
+void ParallelMoveResolverARMVIXL::EmitSwap(size_t index) {
+  MoveOperands* move = moves_[index];
+  Location source = move->GetSource();
+  Location destination = move->GetDestination();
+  UseScratchRegisterScope temps(GetAssembler()->GetVIXLAssembler());
+
+  if (source.IsRegister() && destination.IsRegister()) {
+    vixl32::Register temp = temps.Acquire();
+    __ Mov(temp, RegisterFrom(destination));
+    __ Mov(RegisterFrom(destination), RegisterFrom(source));
+    __ Mov(RegisterFrom(source), temp);
+  } else if (source.IsRegister() && destination.IsStackSlot()) {
+    Exchange(RegisterFrom(source), destination.GetStackIndex());
+  } else if (source.IsStackSlot() && destination.IsRegister()) {
+    Exchange(RegisterFrom(destination), source.GetStackIndex());
+  } else if (source.IsStackSlot() && destination.IsStackSlot()) {
+    TODO_VIXL32(FATAL);
+  } else if (source.IsFpuRegister() && destination.IsFpuRegister()) {
+    TODO_VIXL32(FATAL);
+  } else if (source.IsRegisterPair() && destination.IsRegisterPair()) {
+    vixl32::DRegister temp1 = temps.AcquireD();
+    __ Vmov(temp1, LowRegisterFrom(source), HighRegisterFrom(source));
+    __ Mov(LowRegisterFrom(source), LowRegisterFrom(destination));
+    __ Mov(HighRegisterFrom(source), HighRegisterFrom(destination));
+    __ Vmov(LowRegisterFrom(destination), HighRegisterFrom(destination), temp1);
+  } else if (source.IsRegisterPair() || destination.IsRegisterPair()) {
+    vixl32::Register low_reg = LowRegisterFrom(source.IsRegisterPair() ? source : destination);
+    int mem = source.IsRegisterPair() ? destination.GetStackIndex() : source.GetStackIndex();
+    DCHECK(ExpectedPairLayout(source.IsRegisterPair() ? source : destination));
+    vixl32::DRegister temp = temps.AcquireD();
+    __ Vmov(temp, low_reg, vixl32::Register(low_reg.GetCode() + 1));
+    GetAssembler()->LoadFromOffset(kLoadWordPair, low_reg, sp, mem);
+    GetAssembler()->StoreDToOffset(temp, sp, mem);
+  } else if (source.IsFpuRegisterPair() && destination.IsFpuRegisterPair()) {
+    TODO_VIXL32(FATAL);
+  } else if (source.IsFpuRegisterPair() || destination.IsFpuRegisterPair()) {
+    TODO_VIXL32(FATAL);
+  } else if (source.IsFpuRegister() || destination.IsFpuRegister()) {
+    TODO_VIXL32(FATAL);
+  } else if (source.IsDoubleStackSlot() && destination.IsDoubleStackSlot()) {
+    vixl32::DRegister temp1 = temps.AcquireD();
+    vixl32::DRegister temp2 = temps.AcquireD();
+    __ Vldr(temp1, MemOperand(sp, source.GetStackIndex()));
+    __ Vldr(temp2, MemOperand(sp, destination.GetStackIndex()));
+    __ Vstr(temp1, MemOperand(sp, destination.GetStackIndex()));
+    __ Vstr(temp2, MemOperand(sp, source.GetStackIndex()));
+  } else {
+    LOG(FATAL) << "Unimplemented" << source << " <-> " << destination;
+  }
 }
 
 void ParallelMoveResolverARMVIXL::SpillScratch(int reg ATTRIBUTE_UNUSED) {
