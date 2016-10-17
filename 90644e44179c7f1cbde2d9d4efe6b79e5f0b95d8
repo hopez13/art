@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_20020b26",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T16:46:11Z",
+      "side": 1,
+      "message": "This comment is correct, but it would be cleaner if you describe both cases. When defined outside the loop, the loop side effects may kill it. But when defined inside the loop, it reaches all uses safely. (at least that is what I am getting here)",
+      "revId": "90644e44179c7f1cbde2d9d4efe6b79e5f0b95d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_c6b1c495",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -42,6 +59,23 @@
         "endLine": 438,
         "endChar": 66
       },
+      "revId": "90644e44179c7f1cbde2d9d4efe6b79e5f0b95d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_e00bb33e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T16:46:11Z",
+      "side": 1,
+      "message": "brilliant test case! :-)",
       "revId": "90644e44179c7f1cbde2d9d4efe6b79e5f0b95d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
