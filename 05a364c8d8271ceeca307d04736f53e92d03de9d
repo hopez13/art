@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c6993e3_6c579fe5",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-17T15:34:42Z",
+      "side": 1,
+      "message": "I don\u0027t think this CHECK does anything.\n\nRegular operator \u0027new\u0027 will abort (technically it throws which aborts) if allocation fails, new (nothrow) will return null if allocation fails.\n\nLock allocation is done with regular \u0027new\u0027 operator.",
+      "revId": "05a364c8d8271ceeca307d04736f53e92d03de9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
