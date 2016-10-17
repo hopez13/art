@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_c67424f6",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "error_msg should not be null. Would it help to state that explicitly in the comments or add a CHECK for it?\n\nI do not want abort to be called in the constructor. What to do about the error should be the responsibility of the caller, not this constructor.",
+      "parentUuid": "fc73265a_397acaad",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc73265a_19610e08",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-14T15:01:10Z",
       "side": 1,
       "message": "Can you leave the old IsValid method here?\n\nI think that\u0027s a much clearer pattern to use then checking if the error message is non-empty.\n\n  //example\n  IndirectReferenceTable irt(\u0026error_msg);\n  if (!irt.IsValid()) {\n     LOG(ERROR) \u003c\u003c error_msg;\n   }",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca52e1d_6b2c21b2",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "The nice thing about using the error_msg to tell if the object is valid is there is no question about lock safety. Are locks required to call IsValid? What if it\u0027s called right after the object is constructed?\n\nOn the other hand, I can see how calling IsValid explicitly makes the code easier to follow. I switched to using IsValid. I would be interested in your thoughts on whether it is an improvement overall, given the question about locking.",
+      "parentUuid": "fc73265a_19610e08",
       "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_66645043",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc73265a_b9655a14",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc73265a_194a6e80",
         "filename": "runtime/java_vm_ext.h",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-14T15:01:10Z",
       "side": 1,
       "message": "Can you add a separate method for this?\n\n   std::unique_ptr\u003cJavaVMExt\u003e Create(Runtime* runtime, ...)\n\nand it will return null if it fails to initialize?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_267ed8b2",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "Good catch, thanks.",
+      "parentUuid": "fc73265a_194a6e80",
       "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "bcbe0e35_4685d4b8",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "Can you elaborate on what you\u0027re looking for? Is it better now?",
+      "parentUuid": "fc73265a_b93ebae2",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc73265a_99565e25",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2016-10-14T15:01:10Z",
       "side": 1,
       "message": "Why even have it if it\u0027s going to be unused?",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_06575c5b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 1,
+      "message": "I am preserving the existing behavior of ignoring the error message. I think its worth considering whether the error should be returned or propagated from here, but I would prefer to leave that for a later CL.",
+      "parentUuid": "fc73265a_99565e25",
       "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

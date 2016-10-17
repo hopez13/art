@@ -16,6 +16,24 @@
       "revId": "74a69eda053486e2d563f888a689586c5cfa7217",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcbe0e35_e66fa020",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-17T09:33:17Z",
+      "side": 0,
+      "message": "This put the \"Too many open files\" in a LOG message. The goal of my change is to instead propagate that error to the exception message that is thrown at the Java level when we fail to create the JNIEnv.",
+      "parentUuid": "fc73265a_991f3e79",
+      "revId": "74a69eda053486e2d563f888a689586c5cfa7217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
