@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_6045635e",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "With a while loop, it is harder to limit scope of p, which is why I picked for",
+      "parentUuid": "bcbe0e35_26f53847",
+      "range": {
+        "startLine": 811,
+        "startChar": 7,
+        "endLine": 811,
+        "endChar": 61
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_06f2bc5e",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-17T09:08:37Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 820,
+        "startChar": 6,
+        "endLine": 820,
+        "endChar": 81
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_005a6741",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbe0e35_06f2bc5e",
       "range": {
         "startLine": 820,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_c0530f29",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbe0e35_66ef3077",
+      "range": {
+        "startLine": 823,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 27
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_46ecb480",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-17T09:08:37Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 827,
+        "startChar": 99,
+        "endLine": 827,
+        "endChar": 103
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_e050931e",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbe0e35_46ecb480",
       "range": {
         "startLine": 827,
         "startChar": 99,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_806d17e9",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbe0e35_a68928de",
+      "range": {
+        "startLine": 834,
+        "startChar": 97,
+        "endLine": 834,
+        "endChar": 102
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc5a8f66_5a951518",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-17T09:08:37Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 838,
+        "startChar": 94,
+        "endLine": 838,
+        "endChar": 102
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_a0729bc5",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc5a8f66_5a951518",
       "range": {
         "startLine": 838,
         "startChar": 94,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_8cdf9324",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Not a bug fix, but a minor optimization (I realized this could never happen for anything but inner loops). Can do it in a new CL if you feel strong about it, it does not matter for this CL (or any other :-)",
+      "parentUuid": "bcbe0e35_868eace1",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 33
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_e6932008",
         "filename": "test/618-checker-induction/src/Main.java",
         "patchSetId": 3
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "5c6993e3_602ec3aa",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbe0e35_e6932008",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_067bdcc2",
         "filename": "test/618-checker-induction/src/Main.java",
         "patchSetId": 3
@@ -197,6 +389,30 @@
       "writtenOn": "2016-10-17T09:08:37Z",
       "side": 1,
       "message": "Actually, thinking about your comment on a different CL that we already check at runtime the return value, I still think it would be worthwhile to check it in checker. Who knows if there is still some computation left?",
+      "range": {
+        "startLine": 329,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 47
+      },
+      "revId": "c4d5854c29f36dc2c4f0cd691df98a8eeeff0654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_b672e100",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-17T18:30:06Z",
+      "side": 1,
+      "message": "Ok, I want to avoid relying too much on the exact expression, but I added it for all constant cases, since those should be always the same after constant folding.",
+      "parentUuid": "bcbe0e35_067bdcc2",
       "range": {
         "startLine": 329,
         "startChar": 0,
