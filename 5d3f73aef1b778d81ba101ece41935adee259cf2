@@ -81,6 +81,24 @@
       "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6993e3_8c831325",
+        "filename": "runtime/gc/reference_queue_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-17T15:38:29Z",
+      "side": 1,
+      "message": "I don\u0027t see why not.\n\nAs-is pointer comparison is unspecified behavior unless it\u0027s a pointer into the same array. For ObjPtr I think you can do well-defined comparison by casting it to uintptr_t first before comparing.\n\nSee C++14 5.9/3-4",
+      "parentUuid": "3c2bff7f_9750ce1d",
+      "revId": "5d3f73aef1b778d81ba101ece41935adee259cf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
