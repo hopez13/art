@@ -61,15 +61,19 @@ inline bool SpaceBitmap<kAlignment>::Test(const mirror::Object* obj) const {
   return (bitmap_begin_[OffsetToIndex(offset)].LoadRelaxed() & OffsetToMask(offset)) != 0;
 }
 
-template<size_t kAlignment> template<typename Visitor>
-inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin, uintptr_t visit_end,
-                                                      const Visitor& visitor) const {
+template<size_t kAlignment> template<bool kReturnOnFirstMarked, typename Visitor>
+inline void SpaceBitmap<kAlignment>::VisitMarkedRangeInternal(uintptr_t visit_begin,
+                                                              uintptr_t visit_end,
+                                                              const Visitor& visitor) const {
   DCHECK_LE(visit_begin, visit_end);
 #if 0
   for (uintptr_t i = visit_begin; i < visit_end; i += kAlignment) {
     mirror::Object* obj = reinterpret_cast<mirror::Object*>(i);
     if (Test(obj)) {
       visitor(obj);
+      if (kReturnOnFirstMarked) {
+        return;
+      }
     }
   }
 #else
@@ -110,6 +114,9 @@ inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin, uin
         const size_t shift = CTZ(left_edge);
         mirror::Object* obj = reinterpret_cast<mirror::Object*>(ptr_base + shift * kAlignment);
         visitor(obj);
+        if (kReturnOnFirstMarked) {
+          return;
+        }
         left_edge ^= (static_cast<uintptr_t>(1)) << shift;
       } while (left_edge != 0);
     }
@@ -123,6 +130,9 @@ inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin, uin
           const size_t shift = CTZ(w);
           mirror::Object* obj = reinterpret_cast<mirror::Object*>(ptr_base + shift * kAlignment);
           visitor(obj);
+          if (kReturnOnFirstMarked) {
+            return;
+          }
           w ^= (static_cast<uintptr_t>(1)) << shift;
         } while (w != 0);
       }
@@ -149,10 +159,34 @@ inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin, uin
       const size_t shift = CTZ(right_edge);
       mirror::Object* obj = reinterpret_cast<mirror::Object*>(ptr_base + shift * kAlignment);
       visitor(obj);
+      if (kReturnOnFirstMarked) {
+        return;
+      }
       right_edge ^= (static_cast<uintptr_t>(1)) << shift;
     } while (right_edge != 0);
   }
 #endif
+}
+
+template<size_t kAlignment> template<typename Visitor>
+inline void SpaceBitmap<kAlignment>::VisitMarkedRange(uintptr_t visit_begin,
+                                                      uintptr_t visit_end,
+                                                      const Visitor& visitor) const {
+  VisitMarkedRangeInternal</*kReturnOnFirstMarked*/false>(visit_begin,
+                                                          visit_end,
+                                                          visitor);
+}
+
+template<size_t kAlignment>
+inline mirror::Object* SpaceBitmap<kAlignment>::FindFirstMarked(uintptr_t find_begin,
+                                                                uintptr_t find_end) const {
+  mirror::Object* ret = reinterpret_cast<mirror::Object*>(find_end);
+  VisitMarkedRangeInternal</*kReturnOnFirstMarked*/true>(find_begin,
+                                                         find_end,
+                                                         [&](mirror::Object* obj) {
+                                                           ret = obj;
+                                                         });
+  return ret;
 }
 
 template<size_t kAlignment> template<bool kSetBit>

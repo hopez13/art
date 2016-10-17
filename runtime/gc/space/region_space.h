@@ -208,7 +208,9 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
   size_t FromSpaceSize() REQUIRES(!region_lock_);
   size_t UnevacFromSpaceSize() REQUIRES(!region_lock_);
   size_t ToSpaceSize() REQUIRES(!region_lock_);
-  void ClearFromSpace() REQUIRES(!region_lock_);
+  void ClearFromSpace(accounting::SpaceBitmap<kObjectAlignment>* region_space_bitmap)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!region_lock_);
 
   void AddLiveBytes(mirror::Object* ref, size_t alloc_size) {
     Region* reg = RefToRegionUnlocked(ref);
@@ -381,6 +383,9 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
       type_ = RegionType::kRegionTypeToSpace;
     }
 
+    void MakeUnevacFromSpaceWalkable(accounting::SpaceBitmap<kObjectAlignment>* region_space_bitmap)
+        REQUIRES_SHARED(Locks::mutator_lock_);
+
     ALWAYS_INLINE bool ShouldBeEvacuated();
 
     void AddLiveBytes(size_t live_bytes) {
@@ -474,6 +479,43 @@ class RegionSpace FINAL : public ContinuousMemMapAllocSpace {
 
     friend class RegionSpace;
   };
+
+  // The header for a hole (dead object(s)) between live objects inside an unevac-from-space region.
+  struct Hole {
+    // The special sentinel value to indicate a hole to distinguish it from Object::klass_.
+    static constexpr uintptr_t kHoleTag = 0xdead0bef;
+
+    bool IsHole() const REQUIRES_SHARED(Locks::mutator_lock_) {
+      // This handles heap unpoisoning.
+      return reinterpret_cast<uintptr_t>(tag.AsMirrorPtr()) == kHoleTag;
+    }
+
+    bool IsEnd() const REQUIRES_SHARED(Locks::mutator_lock_) {
+      // This handles heap unpoisoning.
+      return tag.AsMirrorPtr() == nullptr;
+    }
+
+    size_t Size() const REQUIRES_SHARED(Locks::mutator_lock_) {
+      DCHECK(IsHole());
+      return static_cast<size_t>(size);
+    }
+
+    void Write(size_t hole_size) REQUIRES_SHARED(Locks::mutator_lock_) {
+      DCHECK_EQ(OFFSETOF_MEMBER(Hole, tag), mirror::Object::ClassOffset().Uint32Value())
+          << "The tag offset must match the Object::klass_ offset";
+      DCHECK(tag.AsMirrorPtr() != nullptr);
+      tag.Assign(reinterpret_cast<mirror::Class*>(kHoleTag));
+      DCHECK_EQ(hole_size, static_cast<size_t>(static_cast<uint32_t>(hole_size)))
+          << "The hole size must be smaller than 4 GB";
+      size = static_cast<uint32_t>(hole_size);
+    }
+
+    // Equal to kHoleTag if this is a hole, not if this is a live object.
+    mirror::HeapReference<mirror::Class> tag;
+    uint32_t size;  // The size of the hole in bytes.
+  };
+  static_assert(sizeof(Hole) <= kAlignment,
+                "Hole must be smaller than kAlignment");
 
   Region* RefToRegion(mirror::Object* ref) REQUIRES(!region_lock_) {
     MutexLock mu(Thread::Current(), region_lock_);

@@ -207,7 +207,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table, bool forc
   evac_region_ = &full_region_;
 }
 
-void RegionSpace::ClearFromSpace() {
+void RegionSpace::ClearFromSpace(accounting::SpaceBitmap<kObjectAlignment>* region_space_bitmap) {
   MutexLock mu(Thread::Current(), region_lock_);
   for (size_t i = 0; i < num_regions_; ++i) {
     Region* r = &regions_[i];
@@ -215,6 +215,7 @@ void RegionSpace::ClearFromSpace() {
       r->Clear();
       --num_non_free_regions_;
     } else if (r->IsInUnevacFromSpace()) {
+      r->MakeUnevacFromSpaceWalkable(region_space_bitmap);
       r->SetUnevacFromSpaceAsToSpace();
     }
   }
@@ -407,6 +408,41 @@ void RegionSpace::Region::Dump(std::ostream& os) const {
      << " objects_allocated=" << objects_allocated_
      << " alloc_time=" << alloc_time_ << " live_bytes=" << live_bytes_
      << " is_newly_allocated=" << is_newly_allocated_ << " is_a_tlab=" << is_a_tlab_ << " thread=" << thread_ << "\n";
+}
+
+void RegionSpace::Region::MakeUnevacFromSpaceWalkable(
+    accounting::SpaceBitmap<kObjectAlignment>* region_space_bitmap) {
+  DCHECK(!IsFree() && IsInUnevacFromSpace());
+  DCHECK_EQ(LiveBytes(), 0U);
+  // Walk the region and write the hole headers.
+  uintptr_t cur = reinterpret_cast<uintptr_t>(Begin());
+  uintptr_t end = reinterpret_cast<uintptr_t>(Top());
+  while (cur < end) {
+    DCHECK_ALIGNED(cur, space::RegionSpace::kAlignment);
+    mirror::Object* obj = reinterpret_cast<mirror::Object*>(cur);
+    if (!region_space_bitmap->Test(obj)) {
+      // Found a hole (a dead object). Write the dead object marker.
+      Hole* hole = reinterpret_cast<Hole*>(cur);
+      uintptr_t find_begin = cur + space::RegionSpace::kAlignment;
+      uintptr_t find_end = end;
+      mirror::Object* next_obj = region_space_bitmap->FindFirstMarked(find_begin, find_end);
+      uintptr_t next = reinterpret_cast<uintptr_t>(next_obj);
+      size_t hole_size = static_cast<size_t>(next - cur);
+      hole->Write(hole_size);
+      if (next == find_end) {
+        break;  // Reached the end. Done.
+      }
+      cur = next;
+    } else {
+      // Found a live object. Skip it.
+      // Disable the read barrier in SizeOf for performance, which is safe.
+      size_t obj_size = obj->SizeOf<kDefaultVerifyFlags, kWithoutReadBarrier>();
+      size_t alloc_size = RoundUp(obj_size, space::RegionSpace::kAlignment);
+      // Add to the live bytes.
+      AddLiveBytes(alloc_size);
+      cur = cur + static_cast<uintptr_t>(alloc_size);
+    }
+  }
 }
 
 }  // namespace space

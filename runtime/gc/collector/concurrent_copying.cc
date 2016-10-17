@@ -1325,15 +1325,12 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
         << " " << to_ref << " " << to_ref->GetReadBarrierPointer()
         << " is_marked=" << IsMarked(to_ref);
   }
-  bool add_to_live_bytes = false;
   if (region_space_->IsInUnevacFromSpace(to_ref)) {
     // Mark the bitmap only in the GC thread here so that we don't need a CAS.
     if (!kUseBakerReadBarrier || !region_space_bitmap_->Set(to_ref)) {
       // It may be already marked if we accidentally pushed the same object twice due to the racy
       // bitmap read in MarkUnevacFromSpaceRegion.
       Scan(to_ref);
-      // Only add to the live bytes if the object was not already marked.
-      add_to_live_bytes = true;
     }
   } else {
     Scan(to_ref);
@@ -1366,15 +1363,6 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   DCHECK(!kUseBakerReadBarrier);
 #endif
 
-  if (add_to_live_bytes) {
-    // Add to the live bytes per unevacuated from space. Note this code is always run by the
-    // GC-running thread (no synchronization required).
-    DCHECK(region_space_bitmap_->Test(to_ref));
-    // Disable the read barrier in SizeOf for performance, which is safe.
-    size_t obj_size = to_ref->SizeOf<kDefaultVerifyFlags, kWithoutReadBarrier>();
-    size_t alloc_size = RoundUp(obj_size, space::RegionSpace::kAlignment);
-    region_space_->AddLiveBytes(to_ref, alloc_size);
-  }
   if (ReadBarrier::kEnableToSpaceInvariantChecks || kIsDebugBuild) {
     AssertToSpaceInvariantObjectVisitor visitor(this);
     visitor(to_ref);
@@ -1585,7 +1573,7 @@ void ConcurrentCopying::ReclaimPhase() {
 
   {
     TimingLogger::ScopedTiming split4("ClearFromSpace", GetTimings());
-    region_space_->ClearFromSpace();
+    region_space_->ClearFromSpace(region_space_bitmap_);
   }
 
   {

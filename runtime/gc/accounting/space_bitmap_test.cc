@@ -153,6 +153,22 @@ void RunTest() NO_THREAD_SAFETY_ANALYSIS {
       }
 
       EXPECT_EQ(count, manual);
+
+      mirror::Object* first_marked_obj = space_bitmap->FindFirstMarked(
+          reinterpret_cast<uintptr_t>(heap_begin) + offset,
+          reinterpret_cast<uintptr_t>(heap_begin) + end);
+
+      mirror::Object* manual_first_marked_obj = reinterpret_cast<mirror::Object*>(
+          heap_begin + end);
+      for (uintptr_t k = offset; k < end; k += kAlignment) {
+        mirror::Object* obj = reinterpret_cast<mirror::Object*>(heap_begin + k);
+        if (space_bitmap->Test(obj)) {
+          manual_first_marked_obj = obj;
+          break;
+        }
+      }
+
+      EXPECT_EQ(first_marked_obj, manual_first_marked_obj);
     }
   }
 }
