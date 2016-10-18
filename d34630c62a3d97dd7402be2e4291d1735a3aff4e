@@ -448,6 +448,29 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_8852a64f",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-18T18:20:34Z",
+      "side": 1,
+      "message": "There is only 18 bits for tableIndex, is that OK?",
+      "range": {
+        "startLine": 362,
+        "startChar": 44,
+        "endLine": 362,
+        "endChar": 54
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_6d95cc18",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
