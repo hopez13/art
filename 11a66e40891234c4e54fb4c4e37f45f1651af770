@@ -22,6 +22,30 @@
       "revId": "11a66e40891234c4e54fb4c4e37f45f1651af770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_7718fb59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T15:15:23Z",
+      "side": 1,
+      "message": "It was designed as the duty of whoever installed it (similar to AllocationRecord). Mathieu suggested the heap destructor fallback, but it turns out if the installer keeps the reference, then things are out-of-order.",
+      "parentUuid": "dcaf43ab_3be6176d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "11a66e40891234c4e54fb4c4e37f45f1651af770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
