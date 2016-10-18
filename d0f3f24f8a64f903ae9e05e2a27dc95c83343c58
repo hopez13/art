@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_6df78c1e",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-18T17:31:30Z",
+      "side": 1,
+      "message": "please add test to art/test/dexdump/\n\n(1) dex file with new opcode\n(2) lst txt xml for (1)",
+      "revId": "d0f3f24f8a64f903ae9e05e2a27dc95c83343c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_ad3a14fa",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-18T17:31:30Z",
+      "side": 1,
+      "message": "initialize explicitly",
+      "range": {
+        "startLine": 787,
+        "startChar": 20,
+        "endLine": 787,
+        "endChar": 21
+      },
+      "revId": "d0f3f24f8a64f903ae9e05e2a27dc95c83343c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
