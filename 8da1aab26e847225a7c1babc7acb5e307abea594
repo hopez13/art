@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dcf58392_edb7fcb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-18T17:11:53Z",
+      "side": 1,
+      "message": "Where is this code?\n\nCan you show a deadlock thread dump (stack traces)?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 104
+      },
+      "revId": "8da1aab26e847225a7c1babc7acb5e307abea594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_b73c2389",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
