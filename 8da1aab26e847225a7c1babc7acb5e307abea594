@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_b73c2389",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T15:45:07Z",
+      "side": 1,
+      "message": "Functions should be annotated in the header with REQUIRES(!...)",
+      "range": {
+        "startLine": 2019,
+        "startChar": 11,
+        "endLine": 2019,
+        "endChar": 53
+      },
+      "revId": "8da1aab26e847225a7c1babc7acb5e307abea594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
