@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "7cb817f6_188a45fd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-18T18:19:30Z",
+      "side": 1,
+      "message": "Sure; I agree this is better.",
+      "parentUuid": "bcbe0e35_63644243",
+      "range": {
+        "startLine": 3277,
+        "startChar": 0,
+        "endLine": 3278,
+        "endChar": 73
+      },
+      "revId": "8e901eb3088523ba3f6b7cba52e333670f16842c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_039b30c5",
         "filename": "compiler/utils/arm/assembler_arm_vixl.cc",
         "patchSetId": 2
