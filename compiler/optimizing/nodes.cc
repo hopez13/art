@@ -1354,14 +1354,7 @@ std::ostream& operator<<(std::ostream& os, const HInstruction::InstructionKind& 
   return os;
 }
 
-void HInstruction::MoveBefore(HInstruction* cursor) {
-  DCHECK(!IsPhi());
-  DCHECK(!IsControlFlow());
-  DCHECK(CanBeMoved() ||
-         // HShouldDeoptimizeFlag can only be moved by CHAGuardOptimization.
-         IsShouldDeoptimizeFlag());
-  DCHECK(!cursor->IsPhi());
-
+void HInstruction::MoveBeforeUnchecked(HInstruction* cursor) {
   next_->previous_ = previous_;
   if (previous_ != nullptr) {
     previous_->next_ = next_;
@@ -1382,6 +1375,24 @@ void HInstruction::MoveBefore(HInstruction* cursor) {
   if (block_->instructions_.first_instruction_ == cursor) {
     block_->instructions_.first_instruction_ = this;
   }
+}
+
+void HInstruction::MoveBefore(HInstruction* cursor) {
+  DCHECK(!IsPhi());
+  DCHECK(!IsControlFlow());
+  DCHECK(CanBeMoved() ||
+         // HShouldDeoptimizeFlag can only be moved by CHAGuardOptimization.
+         IsShouldDeoptimizeFlag());
+  DCHECK(!cursor->IsPhi());
+  MoveBeforeUnchecked(cursor);
+}
+
+void HInstruction::LocalMoveAfter(HInstruction* cursor) {
+  DCHECK_EQ(block_, cursor->block_);  // Must be a local move: i.e. inside one basic block.
+  DCHECK_NE(cursor, cursor->block_->GetLastInstruction());
+  DCHECK(!IsControlFlow());
+  DCHECK(!cursor->IsControlFlow());
+  MoveBeforeUnchecked(cursor->next_);
 }
 
 void HInstruction::MoveBeforeFirstUserAndOutOfLoops() {

@@ -84,6 +84,7 @@ const char* const ArenaAllocatorStatsImpl<kCount>::kAllocNames[] = {
   "Verifier     ",
   "CallingConv  ",
   "CHA          ",
+  "Scheduling   ",
 };
 
 template <bool kCount>
