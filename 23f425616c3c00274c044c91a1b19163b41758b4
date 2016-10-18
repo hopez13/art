@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_77a75ba4",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-18T16:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcaf43ab_7be25f8c",
+      "range": {
+        "startLine": 841,
+        "startChar": 26,
+        "endLine": 842,
+        "endChar": 74
+      },
+      "revId": "23f425616c3c00274c044c91a1b19163b41758b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcaf43ab_9bcc0b1d",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-18T12:17:00Z",
       "side": 1,
       "message": "Maybe add a helper for that, shared with line 816?",
+      "range": {
+        "startLine": 865,
+        "startChar": 3,
+        "endLine": 865,
+        "endChar": 83
+      },
+      "revId": "23f425616c3c00274c044c91a1b19163b41758b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_b798a360",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-18T16:00:38Z",
+      "side": 1,
+      "message": "THis was not needed for this CL yet. Reverting to old code.",
+      "parentUuid": "dcaf43ab_9bcc0b1d",
       "range": {
         "startLine": 865,
         "startChar": 3,
