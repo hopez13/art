@@ -16,6 +16,24 @@
       "revId": "157c77eb9a5d6a7fe6ebcc29afa7f1913a877c87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_602958b7",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T01:48:56Z",
+      "side": 1,
+      "message": "I was considering it, but thought there could be weird corner cases like shutdown?",
+      "parentUuid": "dcf58392_e086e89e",
+      "revId": "157c77eb9a5d6a7fe6ebcc29afa7f1913a877c87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
