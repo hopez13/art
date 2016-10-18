@@ -314,6 +314,23 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_2382b54c",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:43:35Z",
+      "side": 1,
+      "message": "I also see no calls anywhere to make this smaller, I think this also needs to shrink occasionally to free up space. Either in GC or when you call remove and the capacity/used ratio is too much.",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_edcedc3f",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -581,6 +598,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_43c0a188",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:43:35Z",
+      "side": 1,
+      "message": "I think if it was\n\n    struct IRTSegmentState {\n          uint32_t topIndex;\n    };\n\nthen most of the code would be the same as before",
+      "parentUuid": "dcf58392_43f70170",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cd8200e6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -779,6 +814,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_03d69951",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:43:35Z",
+      "side": 1,
+      "message": "I don\u0027t think that matters, anything in private is an implementation detail, that\u0027s just how C++ is. Why not document it here anyway?",
+      "parentUuid": "dcf58392_c3de51c4",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cdb040c6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -814,6 +867,30 @@
       "side": 1,
       "message": "That isn\u0027t as simple as you think. What is the lock? What you technically want is to store the Thread* here, and compare the Thread that\u0027s making modifications.",
       "parentUuid": "dcf58392_cdb040c6",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 29
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_c3b2d132",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:43:35Z",
+      "side": 1,
+      "message": "For global/weak its just the actual mutex lock.\n\nFor local IRTs then yes we\u0027d want to compare the thread, but I\u0027m less worried about that.",
+      "parentUuid": "dcf58392_a396a5d4",
       "range": {
         "startLine": 398,
         "startChar": 0,
