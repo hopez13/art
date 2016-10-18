@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_e3338d56",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:36:05Z",
+      "side": 1,
+      "message": "This is only used by a test and the jni stub lookup code.\n\nThere\u0027s not a strong reason for it to be in ArtMethod because I don\u0027t think the rest of the runtime ever cares about the short/long JNI name.",
+      "revId": "c0e0df0ca4b2e028e69711a0ccc1539d3af67335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

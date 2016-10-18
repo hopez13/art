@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_c365b13a",
+        "filename": "runtime/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:36:05Z",
+      "side": 0,
+      "message": "I don\u0027t know about everyone else, but I was under the impression people use these functions a lot directly from gdb. I know I certainly do.\n\nIt\u0027s much easier to remember to use Art::Pretty?? and look into utils.h when debugging then having to dig across 10 different files.\n\nSo I would recommend leaving these here even if it just calls the code in the new refactored locations, it will make debugging easier.",
+      "revId": "38a4223fcc0493553d9ad324a1dc145869eb663a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
