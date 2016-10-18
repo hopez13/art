@@ -95,6 +95,7 @@ enum ArenaAllocKind {
   kArenaAllocVerifier,
   kArenaAllocCallingConvention,
   kArenaAllocCHA,
+  kArenaAllocScheduling,
   kNumArenaAllocKinds
 };
 

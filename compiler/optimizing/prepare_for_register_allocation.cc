@@ -167,12 +167,8 @@ void PrepareForRegisterAllocation::VisitNewInstance(HNewInstance* instruction) {
   }
 }
 
-bool PrepareForRegisterAllocation::CanEmitConditionAt(HCondition* condition,
-                                                      HInstruction* user) const {
-  if (condition->GetNext() != user) {
-    return false;
-  }
-
+bool PrepareForRegisterAllocation::CouldEmitConditionBefore(const HCondition* condition,
+                                                            const HInstruction* user) {
   if (user->IsIf() || user->IsDeoptimize()) {
     return true;
   }
@@ -182,6 +178,11 @@ bool PrepareForRegisterAllocation::CanEmitConditionAt(HCondition* condition,
   }
 
   return false;
+}
+
+bool PrepareForRegisterAllocation::CanEmitConditionAt(const HCondition* condition,
+                                                      const HInstruction* user) {
+  return (condition->GetNext() == user) && CouldEmitConditionBefore(condition, user);
 }
 
 void PrepareForRegisterAllocation::VisitCondition(HCondition* condition) {
