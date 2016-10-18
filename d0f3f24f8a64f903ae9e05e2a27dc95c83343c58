@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7cb817f6_b88fd908",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-18T18:26:06Z",
+      "side": 1,
+      "message": "you should probably add a new test as Aart suggests.\n\nNOTE: Even if adding a test was infeasible (say), this line should read something like: \"make; tested manually using foo and then bar\". It should never be \"None\".",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "d0f3f24f8a64f903ae9e05e2a27dc95c83343c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_6df78c1e",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 2
