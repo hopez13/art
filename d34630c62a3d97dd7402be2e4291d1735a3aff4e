@@ -495,6 +495,29 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_08bcf6bc",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T18:26:39Z",
+      "side": 1,
+      "message": "kind_ is 2 bits, serialChunk is 2 bits on non-debug, 3 bits on debug\n\nwe should be using 28 bits here and not 18.\n\nEasy fix.",
+      "range": {
+        "startLine": 362,
+        "startChar": 63,
+        "endLine": 362,
+        "endChar": 68
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_6d95cc18",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
