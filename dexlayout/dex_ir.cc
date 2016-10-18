@@ -165,6 +165,12 @@ static bool GetIdFromInstruction(Collections& collections,
     case Instruction::kIndexNone:
     case Instruction::kIndexVtableOffset:
     case Instruction::kIndexFieldOffset:
+    case Instruction::kIndexMethodAndProtoRef:
+      if (index < collections.MethodIdsSize()) {
+        method_ids->push_back(collections.GetMethodId(index));
+        return true;
+      }
+      break;
     default:
       break;
   }  // switch
