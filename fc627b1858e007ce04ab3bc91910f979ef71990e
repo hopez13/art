@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcaf43ab_3b573770",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-18T12:07:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcaf43ab_bb622753",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 44
+      },
+      "revId": "fc627b1858e007ce04ab3bc91910f979ef71990e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcaf43ab_7b4dbfdd",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dcaf43ab_1b547b67",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-18T12:07:58Z",
+      "side": 1,
+      "message": "Yes, because super_class is a SuperClass of referrer_class, and called_method will always be declared by super_class (or one of super_classes super_classes.\n\nDid you want a CHECK or DCHECK here ? We\u0027ll need to add an analogous check on lines 571-593 of FindMethodFromCode (entrypoint_utils-inl.h)",
+      "parentUuid": "dcaf43ab_7b4dbfdd",
+      "range": {
+        "startLine": 691,
+        "startChar": 37,
+        "endLine": 691,
+        "endChar": 51
+      },
+      "revId": "fc627b1858e007ce04ab3bc91910f979ef71990e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cadbfb1_beeb3989",
         "filename": "test/956-methodhandles/info.txt",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-18T10:13:01Z",
       "side": 1,
       "message": "Drop.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "fc627b1858e007ce04ab3bc91910f979ef71990e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcaf43ab_fb3f8f1f",
+        "filename": "test/956-methodhandles/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-18T12:07:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cadbfb1_beeb3989",
       "range": {
         "startLine": 1,
         "startChar": 0,
