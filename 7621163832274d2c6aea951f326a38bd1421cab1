@@ -16,6 +16,47 @@
       "revId": "7621163832274d2c6aea951f326a38bd1421cab1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_de9bc45b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-18T20:21:10Z",
+      "side": 1,
+      "message": "I think so, as I understand, we don\u0027t need a fence/barrier for a relaxed CAS.",
+      "parentUuid": "dcaf43ab_bb76a7b8",
+      "revId": "7621163832274d2c6aea951f326a38bd1421cab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_f9897a08",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-18T20:21:10Z",
+      "side": 1,
+      "message": "I think we don\u0027t need fences (acquire/release) in this relaxed CAS. Is that what clang emits? Use ldxr/stxr (without fences) instead?",
+      "range": {
+        "startLine": 763,
+        "startChar": 7,
+        "endLine": 763,
+        "endChar": 12
+      },
+      "revId": "7621163832274d2c6aea951f326a38bd1421cab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
