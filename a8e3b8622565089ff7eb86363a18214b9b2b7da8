@@ -22,6 +22,30 @@
       "revId": "a8e3b8622565089ff7eb86363a18214b9b2b7da8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_0abfceb4",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T17:07:06Z",
+      "side": 1,
+      "message": "I wanted to prepare for the follow-up, and not have to go through these files again.",
+      "parentUuid": "dcf58392_aaeafabf",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "a8e3b8622565089ff7eb86363a18214b9b2b7da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
