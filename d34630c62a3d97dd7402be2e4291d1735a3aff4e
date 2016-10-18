@@ -349,6 +349,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_fee4c0f4",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T20:13:58Z",
+      "side": 1,
+      "message": "madvise away is not sufficient on 32-bit because it eats up the virtual address space.",
+      "parentUuid": "dcf58392_c303f1b7",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_edcedc3f",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -699,6 +717,23 @@
       "side": 1,
       "message": "I wanted to keep things structured similarly right now, so that Add and Remove functionality is in one place. If you prefer, I\u0027ll break it up now.",
       "parentUuid": "dcf58392_cd8200e6",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_deb464da",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T20:13:58Z",
+      "side": 1,
+      "message": "Why did you remove it from the .h file? It likely won\u0027t get inlined into the jni entrypoint if it\u0027s in a separate CC file.",
       "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
