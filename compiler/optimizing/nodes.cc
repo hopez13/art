@@ -1372,6 +1372,30 @@ void HInstruction::MoveBefore(HInstruction* cursor) {
   }
 }
 
+void HInstruction::LocalMoveAfter(HInstruction* cursor) {
+  DCHECK_EQ(block_, cursor->block_);  // Must be a local move: i.e. inside one basic block.
+  DCHECK_NE(cursor, cursor->block_->GetLastInstruction());
+  DCHECK(!IsControlFlow());
+  DCHECK(!cursor->IsControlFlow());
+
+  if (previous_ != nullptr) {
+    previous_->next_ = next_;
+  }
+  next_->previous_ = previous_;
+  if (block_->instructions_.first_instruction_ == this) {
+    block_->instructions_.first_instruction_ = next_;
+  }
+  DCHECK_NE(block_->instructions_.last_instruction_, this);
+
+  next_ = cursor->next_;
+  if (next_ != nullptr) {
+    next_->previous_ = this;
+  }
+  previous_ = cursor;
+  cursor->next_ = this;
+  block_ = cursor->block_;
+}
+
 void HInstruction::MoveBeforeFirstUserAndOutOfLoops() {
   DCHECK(!CanThrow());
   DCHECK(!HasSideEffects());
