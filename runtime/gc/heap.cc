@@ -2016,7 +2016,8 @@ void Heap::GetReferringObjects(VariableSizedHandleScope& scope,
   VisitObjects(&ReferringObjectsFinder::Callback, &finder);
 }
 
-void Heap::CollectGarbage(bool clear_soft_references) {
+void Heap::CollectGarbage(bool clear_soft_references) REQUIRES(!Locks::clamp_growth_limit_GC_lock_) {
+  MutexLock mu(Thread::Current(), *Locks::clamp_growth_limit_GC_lock_);
   // Even if we waited for a GC we still need to do another GC since weaks allocated during the
   // last GC will not have necessarily been cleared.
   CollectGarbageInternal(gc_plan_.back(), kGcCauseExplicit, clear_soft_references);
@@ -3663,7 +3664,8 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   }
 }
 
-void Heap::ClampGrowthLimit() {
+void Heap::ClampGrowthLimit() REQUIRES(!Locks::clamp_growth_limit_GC_lock_) {
+  MutexLock mu_clamp_GC(Thread::Current(), *Locks::clamp_growth_limit_GC_lock_);
   // Use heap bitmap lock to guard against races with BindLiveToMarkBitmap.
   ScopedObjectAccess soa(Thread::Current());
   WriterMutexLock mu(soa.Self(), *Locks::heap_bitmap_lock_);
