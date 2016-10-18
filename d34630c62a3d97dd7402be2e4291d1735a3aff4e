@@ -652,6 +652,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_1e238c6d",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T20:04:32Z",
+      "side": 1,
+      "message": "What do you mean by that?\n\nEverything should use \"IRTSegmentState\" instead of uint32_t wherever we currently have a cookie.\n\nHowever I wouldn\u0027t bother with that kind of a cleanup right now since it\u0027s not really worth it for this change.\n\nYou did update a few places to do it already and they\u0027re better off for it.\n\n\n------\n\nWhether it\u0027s using a typedef or a struct doesn\u0027t seem like it matters too much, in fact with a struct it makes it harder to mix it up with a uint32_t since we can\u0027t just convert between one and the other interchangeably.",
+      "parentUuid": "dcf58392_23111502",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cd8200e6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -951,6 +969,30 @@
       "side": 1,
       "message": "Plan is to not allow resizing for global/weaks, at least with this CL. There will be a kind CHECK in the constructor.",
       "parentUuid": "dcf58392_c3b2d132",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 29
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_9e781c70",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T20:04:32Z",
+      "side": 1,
+      "message": "It\u0027s not thread safe to add/remove regardless of resizing.",
+      "parentUuid": "dcf58392_03e5f9ee",
       "range": {
         "startLine": 398,
         "startChar": 0,
