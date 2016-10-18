@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "dcaf43ab_1b8a3bfd",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-18T14:35:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6993e3_2c13e73f",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc73265a_19610e08",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "IsValid can be documented as being constructed correctly, and not needing any thread checks because it should just be an IsValid const that only reads other const fields.\n\nI\u0027m not sure that as-is an IRT can ever into an invalid state (after the constructor). The most that can happen is that the capacity is full but that\u0027s still valid its just that more adds will fail.\n\n\n-------------------\n\nThe other more complicated way is to do something like\n\n   static IndirectReferenceTable* Create(void* storage, ....) {\n        auto ptr \u003d new (storage) IndirectReferenceTable(....);\n        if (ptr.check_some_field \u003d\u003d false) { \n          return nullptr;\n        }\n        return ptr;\n   }\n   // also need to call the destructor explicitly then. ugh.\n\nand then that still lets us use in-place storage, but I don\u0027t really like this because then the thread.h would  have to change to use char[sizeof(IRT)] as the storage and a bunch of helpers would have to be exposed instead of accessing it directly as a field.",
       "parentUuid": "bca52e1d_6b2c21b2",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcaf43ab_fb954f1c",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-18T14:35:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c6993e3_2c9c47a6",
       "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -278,6 +314,24 @@
       "side": 1,
       "message": "Isn\u0027t this the same OutOfMemory type of situation? When new thread is allocated it fails to make JNIEnvExt and so can\u0027t fully create a new Thread?",
       "parentUuid": "bcbe0e35_06575c5b",
+      "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcaf43ab_1b70fbf7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-18T14:35:24Z",
+      "side": 1,
+      "message": "This case corresponds to the case where AttachCurrentThread is called. In that case, we return a JNI error code to indicate an error occurred. As I understand it, the JNI spec says we could additionally throw a Java exception in this case, but the existing behavior was to return a JNI error code without throwing an exception. I would prefer to preserve that existing behavior for now.",
+      "parentUuid": "5c6993e3_cc034be6",
       "revId": "9eeda03e40c1f50829e544176a557ee7946a7cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
