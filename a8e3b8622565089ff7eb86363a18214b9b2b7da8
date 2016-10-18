@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_aaeafabf",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-18T17:04:01Z",
+      "side": 1,
+      "message": "Why did you rename this? The constructor is still max_count",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "a8e3b8622565089ff7eb86363a18214b9b2b7da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
