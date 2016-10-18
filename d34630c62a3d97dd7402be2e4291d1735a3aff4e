@@ -331,6 +331,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_c303f1b7",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:55:04Z",
+      "side": 1,
+      "message": "See the comment in the header. Only upwards right now. That is kinda OK, because we\u0027ll madvise away the free parts. Any resizing downwards is follow-up work.",
+      "parentUuid": "dcf58392_2382b54c",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_edcedc3f",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -616,6 +634,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_23111502",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:55:04Z",
+      "side": 1,
+      "message": "I *dislike* that we give a wrong interface to the outside. I want the caller to not pretend that the state is a uint32_t if it isn\u0027t.",
+      "parentUuid": "dcf58392_43c0a188",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cd8200e6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -891,6 +927,30 @@
       "side": 1,
       "message": "For global/weak its just the actual mutex lock.\n\nFor local IRTs then yes we\u0027d want to compare the thread, but I\u0027m less worried about that.",
       "parentUuid": "dcf58392_a396a5d4",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 29
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_03e5f9ee",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:55:04Z",
+      "side": 1,
+      "message": "Plan is to not allow resizing for global/weaks, at least with this CL. There will be a kind CHECK in the constructor.",
+      "parentUuid": "dcf58392_c3b2d132",
       "range": {
         "startLine": 398,
         "startChar": 0,
