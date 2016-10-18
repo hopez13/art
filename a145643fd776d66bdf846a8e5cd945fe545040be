@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_7ed0d008",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-18T20:21:10Z",
+      "side": 1,
+      "message": "Do we need this code because this is for a long rather than an object?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 0,
+        "endLine": 1248,
+        "endChar": 3
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
