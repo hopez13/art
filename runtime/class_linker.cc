@@ -5627,27 +5627,28 @@ X86_OPTNONE bool ClassLinker::LinkVirtualMethods(
     for (size_t j = 0; j < super_vtable_length; ++j) {
       // Search the hash table to see if we are overridden by any method.
       ArtMethod* super_method = vtable->GetElementPtrSize<ArtMethod*>(j, image_pointer_size_);
+      if (!klass->CanAccessMember(super_method->GetDeclaringClass(),
+                                  super_method->GetAccessFlags())) {
+        VLOG(class_linker) << "Before Android 4.1, the package-private method "
+                           << PrettyMethod(super_method) << " in "
+                           << PrettyDescriptor(super_method->GetDeclaringClassDescriptor())
+                           << " might have been incorrectly overridden.";
+        continue;
+      }
       MethodNameAndSignatureComparator super_method_name_comparator(
           super_method->GetInterfaceMethodIfProxy(image_pointer_size_));
       uint32_t hash_index = hash_table.FindAndRemove(&super_method_name_comparator);
       if (hash_index != hash_table.GetNotFoundIndex()) {
         ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(
             hash_index, image_pointer_size_);
-        if (klass->CanAccessMember(super_method->GetDeclaringClass(),
-                                   super_method->GetAccessFlags())) {
-          if (super_method->IsFinal()) {
-            ThrowLinkageError(klass.Get(), "Method %s overrides final method in class %s",
-                              PrettyMethod(virtual_method).c_str(),
-                              super_method->GetDeclaringClassDescriptor());
-            return false;
-          }
-          vtable->SetElementPtrSize(j, virtual_method, image_pointer_size_);
-          virtual_method->SetMethodIndex(j);
-        } else {
-          LOG(WARNING) << "Before Android 4.1, method " << PrettyMethod(virtual_method)
-                       << " would have incorrectly overridden the package-private method in "
-                       << PrettyDescriptor(super_method->GetDeclaringClassDescriptor());
+        if (super_method->IsFinal()) {
+          ThrowLinkageError(klass.Get(), "Method %s overrides final method in class %s",
+                            PrettyMethod(virtual_method).c_str(),
+                            super_method->GetDeclaringClassDescriptor());
+          return false;
         }
+        vtable->SetElementPtrSize(j, virtual_method, image_pointer_size_);
+        virtual_method->SetMethodIndex(j);
       } else if (super_method->IsOverridableByDefaultMethod()) {
         // We didn't directly override this method but we might through default methods...
         // Check for default method update.
@@ -6435,14 +6436,20 @@ static void CheckVTableHasNoDuplicates(Thread* self,
     }
     MethodNameAndSignatureComparator name_comparator(
         vtable_entry->GetInterfaceMethodIfProxy(pointer_size));
-    for (int32_t j = i+1; j < num_entries; j++) {
+    for (int32_t j = i + 1; j < num_entries; j++) {
       ArtMethod* other_entry = vtable->GetElementPtrSize<ArtMethod*>(j, pointer_size);
+      if (!klass->CanAccessMember(other_entry->GetDeclaringClass(),
+                                  other_entry->GetAccessFlags())) {
+        continue;
+      }
       CHECK(vtable_entry != other_entry &&
             !name_comparator.HasSameNameAndSignature(
                 other_entry->GetInterfaceMethodIfProxy(pointer_size)))
           << "vtable entries " << i << " and " << j << " are identical for "
-          << PrettyClass(klass.Get()) << " in method " << PrettyMethod(vtable_entry) << " and "
-          << PrettyMethod(other_entry);
+          << PrettyClass(klass.Get()) << " in method " << PrettyMethod(vtable_entry) << " (0x"
+          << std::hex << reinterpret_cast<uintptr_t>(vtable_entry) << ") and "
+          << PrettyMethod(other_entry) << "  (0x" << std::hex
+          << reinterpret_cast<uintptr_t>(other_entry) << ")";
     }
   }
 }
