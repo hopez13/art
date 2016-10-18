@@ -168,6 +168,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_48f8bea7",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "Not for prev_state. But for the current state. We will always try to recover holes when the table is empty. Considering that the thread code is adding the thread as a local ref, I think this is not important in practice (also, the loop is empty in that case).",
+      "parentUuid": "dcf58392_ad8cd4c2",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_2dfd8400",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -179,6 +197,24 @@
       "writtenOn": "2016-10-18T18:14:48Z",
       "side": 1,
       "message": "I\u0027m not really sure I understand the hole_at_or_above logic?\n\nUnlike in Remove where it actually sets it to a real index that is a hole, if hole_at_or_above_ \u003d\u003d prev_state then it\u0027s not set to a real hole. I\u0027m not sure I understand the need for that extra possible semantic value?\n\nIn other words why does it need to be so complicated instead of just saying\n\n   size_t new_hole_at_or_above \u003d 0;\n   for each hole@index between prev_state and top_index do:\n      new_hole_at_or_above \u003d index\n\n   current_num_holes_ \u003d new_hole_at_or_above\n\n?",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_28bf32b5",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "You don\u0027t need to set it to an actual hole. If you did, then you\u0027d have to keep it correct, which means another scan in Add() when filling the hole.\n\nInstead, it \"just\" denotes the segment that any current_num_holes_ hole is in, which must be invalidated when that segment is popped.",
+      "parentUuid": "dcf58392_2dfd8400",
       "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -254,6 +290,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_08935642",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "I wanted it separate for test clarity, but sure, can do.",
+      "parentUuid": "dcf58392_0d3a488b",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 5
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_edcedc3f",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -265,6 +325,24 @@
       "writtenOn": "2016-10-18T18:14:48Z",
       "side": 1,
       "message": "Why isn\u0027t it just using new(nothrow) ? Is it for the name? If it\u0027s for the name, I want to know if it\u0027s a global/weak/local table specifically and not that it\u0027s merely an IRT.\n\nThis will waste most of the page if it never grows past 512, I assume that\u0027s OK?",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_a3c7c52f",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "Note that IrtEntry is storing right now 16B. So you\u0027re not wasting padding.\n\nAnd yes, it\u0027s for the ashmem naming, so it can be attributed. Specific naming makes sense, but shouldn\u0027t be in this CL.",
+      "parentUuid": "dcf58392_edcedc3f",
       "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -311,6 +389,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_a3dea5f5",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "No, EnsureLocalCapacity isn\u0027t fixed, yet. That\u0027s a dependent change.",
+      "parentUuid": "dcf58392_cdba0075",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_edd89cd7",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -345,6 +441,24 @@
       "writtenOn": "2016-10-18T18:14:48Z",
       "side": 1,
       "message": "These names are very confusing, but I see they are the original names.\n\nCan you at least add a comment for them explaining that it\u0027s an upper/lower bound and also if its inclusive/exclusive?",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_03cfb93d",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "I\u0027ll clean things up.",
+      "parentUuid": "dcf58392_6d45cc5e",
       "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -414,6 +528,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_e31eedd4",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "Yes. Please note the RFC state, for the final CL I\u0027ll update the blob.",
+      "parentUuid": "dcf58392_cab4a6da",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_6ad01209",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -431,6 +563,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_43f70170",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "Ugh, that will require broader changes, or a memset in the functions here. I\u0027ll see what I can do.",
+      "parentUuid": "dcf58392_6ad01209",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cd8200e6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -442,6 +592,24 @@
       "writtenOn": "2016-10-18T18:14:48Z",
       "side": 1,
       "message": "This could be a subclass that allows resizing or templates (or both).\n\nSubclasses probably make more sense if we had lock annotations, otherwise it doesn\u0027t matter.",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_a3634557",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "I wanted to keep things structured similarly right now, so that Add and Remove functionality is in one place. If you prefer, I\u0027ll break it up now.",
+      "parentUuid": "dcf58392_cd8200e6",
       "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -518,6 +686,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_c330114d",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "Yes, that\u0027s my intent. I don\u0027t know why serialChunk was ever this large.",
+      "parentUuid": "dcf58392_08bcf6bc",
+      "range": {
+        "startLine": 362,
+        "startChar": 63,
+        "endLine": 362,
+        "endChar": 68
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_6d95cc18",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -569,6 +761,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_c3de51c4",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "I want this to be opaque here, it\u0027s an implementation detail. There will be a comment blurb in the cc file.",
+      "parentUuid": "dcf58392_4d11f076",
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_cdb040c6",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 1
@@ -580,6 +790,30 @@
       "writtenOn": "2016-10-18T18:14:48Z",
       "side": 1,
       "message": "I am not a fan of this, I would prefer if we had lock annotations or at least lock asserts everywhere it made sense.",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 29
+      },
+      "revId": "d34630c62a3d97dd7402be2e4291d1735a3aff4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_a396a5d4",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-18T18:34:50Z",
+      "side": 1,
+      "message": "That isn\u0027t as simple as you think. What is the lock? What you technically want is to store the Thread* here, and compare the Thread that\u0027s making modifications.",
+      "parentUuid": "dcf58392_cdb040c6",
       "range": {
         "startLine": 398,
         "startChar": 0,
