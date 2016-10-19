@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc352f64_a223fed7",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "kLogPrefix",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc352f64_c22882b6",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "4 space indent, or indent relative to the first line.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 19
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_08356708",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "Please add comments on what all those classes and fields mean.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 2
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_e810d375",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 34
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_c8150f64",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "Put that in the else branch.",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 23
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf273e7_8fc955b6",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "Could you add comments on which minimum version of the kernel / perf you need to enable these features?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_882837b5",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "4 space indent.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 6
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_683e23f3",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T14:45:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "3c3f2f4c06b802b2630e7975aebc63b2fe9ef5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
