@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_bc1a36e0",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T17:37:16Z",
+      "side": 1,
+      "message": "What code does this optimization refer to? We don\u0027t do the double-store (storing null to the reference array when storing a non-reference to a vreg) for non-moving collectors?",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 93
+      },
+      "revId": "c449e8b79aaaf156ce055524c41474cc1200ed5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
