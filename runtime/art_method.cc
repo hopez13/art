@@ -340,6 +340,7 @@ bool ArtMethod::IsOverridableByDefaultMethod() {
 bool ArtMethod::IsAnnotatedWithFastNative() {
   return IsAnnotatedWith(WellKnownClasses::dalvik_annotation_optimization_FastNative,
                          DexFile::kDexVisibilityBuild);
+
 }
 
 bool ArtMethod::IsAnnotatedWithCriticalNative() {
