@@ -23,6 +23,7 @@
 
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
+#include "jit/offline_profiling_info.h"
 #include "linker/relative_patcher.h"  // For linker::RelativePatcherTargetProvider.
 #include "mem_map.h"
 #include "method_reference.h"
@@ -110,7 +111,8 @@ class OatWriter {
     kDefault = kCreate
   };
 
-  OatWriter(bool compiling_boot_image, TimingLogger* timings);
+  OatWriter(
+      bool compiling_boot_image, TimingLogger* timings, bool layout, ProfileCompilationInfo* info);
 
   // To produce a valid oat file, the user must first add sources with any combination of
   //   - AddDexFileSource(),
@@ -258,6 +260,7 @@ class OatWriter {
   bool WriteDexFiles(OutputStream* out, File* file);
   bool WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
   bool SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
+  bool LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file);
   bool WriteDexFile(OutputStream* out,
                     File* file,
                     OatDexFile* oat_dex_file,
@@ -418,6 +421,9 @@ class OatWriter {
 
   // The locations of absolute patches relative to the start of the executable section.
   dchecked_vector<uintptr_t> absolute_patch_locations_;
+
+  const bool dexlayout_;
+  ProfileCompilationInfo* profile_compilation_info_;
 
   DISALLOW_COPY_AND_ASSIGN(OatWriter);
 };
