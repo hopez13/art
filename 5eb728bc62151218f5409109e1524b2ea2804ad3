@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c0657a0_68698316",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Nit: Baker (here and in other code generators).",
+      "range": {
+        "startLine": 461,
+        "startChar": 17,
+        "endLine": 461,
+        "endChar": 22
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_0870c7f7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5739,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 5739,
+        "startChar": 19,
+        "endLine": 5739,
+        "endChar": 24
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_68062384",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 8
@@ -19,6 +65,69 @@
         "endLine": 386,
         "endChar": 36
       },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_889a77f9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Maybe add an explanation similar to the one from compiler/optimizing/code_generator_arm.cc, lines 5729–5730?",
+      "range": {
+        "startLine": 4304,
+        "startChar": 15,
+        "endLine": 4304,
+        "endChar": 19
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_08c207ec",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Why do we save R12 (IP) here? Is this for padding reasons?",
+      "range": {
+        "startLine": 1111,
+        "startChar": 16,
+        "endLine": 1111,
+        "endChar": 19
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c15cbc1_09fd6949",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1982,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Maybe augment the documentation to warn that `reg` should not be `r12` (`ip`)?",
       "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +203,52 @@
     },
     {
       "key": {
+        "uuid": "7c0657a0_88ccb71c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 404,
+        "startChar": 18,
+        "endLine": 404,
+        "endChar": 21
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf273e7_aff1b92b",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 415,
+        "startChar": 18,
+        "endLine": 415,
+        "endChar": 21
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_a862db52",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 8
@@ -105,6 +260,30 @@
       "writtenOn": "2016-10-19T10:33:27Z",
       "side": 1,
       "message": "Maybe add a specific helper for this, with a comment? For example GetCalleeSaveMethodCallerOfResolveString?",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 83
+      },
+      "revId": "5eb728bc62151218f5409109e1524b2ea2804ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_48dfdfc0",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-19T13:34:16Z",
+      "side": 1,
+      "message": "Also, maybe add a TODO in the LoadString parts of the MIPS code generators?",
+      "parentUuid": "7c0657a0_a862db52",
       "range": {
         "startLine": 65,
         "startChar": 6,
