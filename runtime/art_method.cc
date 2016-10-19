@@ -337,9 +337,22 @@ bool ArtMethod::IsOverridableByDefaultMethod() {
   return GetDeclaringClass()->IsInterface();
 }
 
+bool ArtMethod::IsMethodHandleInvoke() const {
+  Thread* self = Thread::Current();
+  ScopedObjectAccessUnchecked soa(self);
+  return this == soa.DecodeMethod(WellKnownClasses::java_lang_invoke_MethodHandle_invoke);
+}
+
+bool ArtMethod::IsMethodHandleInvokeExact() const {
+  Thread* self = Thread::Current();
+  ScopedObjectAccessUnchecked soa(self);
+  return this == soa.DecodeMethod(WellKnownClasses::java_lang_invoke_MethodHandle_invokeExact);
+}
+
 bool ArtMethod::IsAnnotatedWithFastNative() {
   return IsAnnotatedWith(WellKnownClasses::dalvik_annotation_optimization_FastNative,
                          DexFile::kDexVisibilityBuild);
+
 }
 
 bool ArtMethod::IsAnnotatedWithCriticalNative() {

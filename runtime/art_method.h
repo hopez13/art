@@ -277,6 +277,12 @@ class ArtMethod FINAL {
   // Returns true if this method could be overridden by a default method.
   bool IsOverridableByDefaultMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns true if this method is signature polymorphic method MethodHandle.Invoke().
+  bool IsMethodHandleInvoke() const REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Returns true if this method is signature polymorphic method MethodHandle.InvokeExact().
+  bool IsMethodHandleInvokeExact() const REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool CheckIncompatibleClassChange(InvokeType type) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Throws the error that would result from trying to invoke this method (i.e.

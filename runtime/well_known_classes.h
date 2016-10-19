@@ -99,6 +99,8 @@ struct WellKnownClasses {
   static jmethodID java_lang_Daemons_stop;
   static jmethodID java_lang_Double_valueOf;
   static jmethodID java_lang_Float_valueOf;
+  static jmethodID java_lang_invoke_MethodHandle_invoke;
+  static jmethodID java_lang_invoke_MethodHandle_invokeExact;
   static jmethodID java_lang_Integer_valueOf;
   static jmethodID java_lang_Long_valueOf;
   static jmethodID java_lang_ref_FinalizerReference_add;
