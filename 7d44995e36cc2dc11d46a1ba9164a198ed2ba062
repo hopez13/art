@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_9c949a91",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T17:50:11Z",
+      "side": 1,
+      "message": "The stack trace includes CollectGarbageInternal but not this function?\n\nI think surrounding ClampGrowthLimit with ScopedGCCriticalSection may be cleaner rather than GC always holding the clamp_growth_limit_GC_lock_ while running a GC. As ClampGrowthLimit only happens once per app launch, I think it\u0027s fine.",
+      "range": {
+        "startLine": 2019,
+        "startChar": 11,
+        "endLine": 2019,
+        "endChar": 25
+      },
+      "revId": "7d44995e36cc2dc11d46a1ba9164a198ed2ba062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
