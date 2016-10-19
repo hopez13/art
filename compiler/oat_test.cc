@@ -188,6 +188,8 @@ class OatTest : public CommonCompilerTest {
                                          compiler_driver_->GetInstructionSetFeatures(),
                                          &key_value_store,
                                          verify,
+                                         /* dexlayout */ false,
+                                         /* profile_compilation_info */ nullptr,
                                          &opened_dex_files_map,
                                          &opened_dex_files)) {
       return false;

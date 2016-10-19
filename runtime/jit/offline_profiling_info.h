@@ -77,6 +77,8 @@ class ProfileCompilationInfo {
 
   bool Equals(const ProfileCompilationInfo& other);
 
+  bool Empty() { return info_.empty(); }
+
   static std::string GetProfileDexFileKey(const std::string& dex_location);
 
   // Returns the class descriptors for all of the classes in the profiles' class sets.
@@ -86,6 +88,9 @@ class ProfileCompilationInfo {
 
   // Clears the resolved classes from the current object.
   void ClearResolvedClasses();
+
+  // Shifts class indexes to the beginning after setting new layout for dex file.
+  void FixProfileAfterLayout();
 
   static bool GenerateTestProfile(int fd,
                                   uint16_t number_of_dex_files,

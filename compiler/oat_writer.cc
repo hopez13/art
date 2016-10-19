@@ -30,6 +30,7 @@
 #include "class_linker.h"
 #include "compiled_class.h"
 #include "compiled_method.h"
+#include "dexlayout.h"
 #include "debug/method_debug_info.h"
 #include "dex/verification_results.h"
 #include "dex_file-inl.h"
@@ -346,7 +347,9 @@ OatWriter::OatWriter(bool compiling_boot_image, TimingLogger* timings)
     size_oat_class_method_bitmaps_(0),
     size_oat_class_method_offsets_(0),
     relative_patcher_(nullptr),
-    absolute_patch_locations_() {
+    absolute_patch_locations_(),
+    dexlayout_(false),
+    profile_compilation_info_(nullptr) {
 }
 
 bool OatWriter::AddDexFileSource(const char* filename,
@@ -452,9 +455,13 @@ bool OatWriter::WriteAndOpenDexFiles(
     const InstructionSetFeatures* instruction_set_features,
     SafeMap<std::string, std::string>* key_value_store,
     bool verify,
+    bool dexlayout,
+    ProfileCompilationInfo* profile_compilation_info,
     /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
     /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files) {
   CHECK(write_state_ == WriteState::kAddingDexFileSources);
+  dexlayout_ = dexlayout;
+  profile_compilation_info_ = profile_compilation_info;
 
   // Record the ELF rodata section offset, i.e. the beginning of the OAT data.
   if (!RecordOatDataOffset(oat_rodata)) {
@@ -2090,7 +2097,11 @@ bool OatWriter::WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_
   if (!SeekToDexFile(out, file, oat_dex_file)) {
     return false;
   }
-  if (oat_dex_file->source_.IsZipEntry()) {
+  if (dexlayout_) {
+    if (!LayoutAndWriteDexFile(out, oat_dex_file)) {
+      return false;
+    }
+  } else if (oat_dex_file->source_.IsZipEntry()) {
     if (!WriteDexFile(out, file, oat_dex_file, oat_dex_file->source_.GetZipEntry())) {
       return false;
     }
@@ -2152,6 +2163,36 @@ bool OatWriter::SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex
     oat_size_ = start_offset;
   }
   oat_dex_file->dex_file_offset_ = start_offset;
+  return true;
+}
+
+bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file) {
+  TimingLogger::ScopedTiming split("Dex Layout", timings_);
+  std::string error_msg;
+  std::string location(oat_dex_file->GetLocation());
+  std::unique_ptr<const DexFile> dex_file;
+  if (oat_dex_file->source_.IsZipEntry()) {
+    ZipEntry* zip_entry = oat_dex_file->source_.GetZipEntry();
+    std::unique_ptr<MemMap> mem_map(
+        zip_entry->ExtractToMemMap(location.c_str(), "classes.dex", &error_msg));
+    dex_file = DexFile::Open(
+        location, zip_entry->GetCrc32(), std::move(mem_map), true, true, &error_msg);
+  } else {
+    DCHECK(oat_dex_file->source_.IsRawFile());
+    File* raw_file = oat_dex_file->source_.GetRawFile();
+    dex_file = DexFile::OpenDex(raw_file->Fd(), location, true, &error_msg);
+  }
+  Options options;
+  memset(&options, 0, sizeof(options));
+  options.output_to_memmap_ = true;
+  DexLayout dex_layout(options, profile_compilation_info_, nullptr);
+  dex_layout.ProcessDexFile(location.c_str(), dex_file.get(), 0);
+  std::unique_ptr<MemMap> mem_map(dex_layout.GetAndReleaseMemMap());
+  if (!WriteDexFile(out, oat_dex_file, mem_map->Begin())) {
+    return false;
+  }
+  // Set the checksum of the new oat dex file to be the original file's checksum.
+  oat_dex_file->dex_file_location_checksum_ = dex_file->GetLocationChecksum();
   return true;
 }
 

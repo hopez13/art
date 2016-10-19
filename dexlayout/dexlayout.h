@@ -26,8 +26,13 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "dex_ir.h"
+#include "mem_map.h"
+
 namespace art {
 
+class DexFile;
+class Instruction;
 class ProfileCompilationInfo;
 
 /* Supported output formats. */
@@ -38,11 +43,13 @@ enum OutputFormat {
 
 /* Command-line options. */
 struct Options {
+  bool dump_;
   bool build_dex_ir_;
   bool checksum_only_;
   bool disassemble_;
   bool exports_only_;
   bool ignore_bad_checksum_;
+  bool output_to_memmap_;
   bool show_annotations_;
   bool show_file_headers_;
   bool show_section_headers_;
@@ -54,11 +61,55 @@ struct Options {
   const char* profile_file_name_;
 };
 
-/* Prototypes. */
-extern struct Options options_;
-extern FILE* out_file_;
-extern ProfileCompilationInfo* profile_info_;
-int ProcessFile(const char* file_name);
+class DexLayout {
+ public:
+  DexLayout(Options& options, ProfileCompilationInfo* info, FILE* out_file,
+            dex_ir::Header* header = nullptr)
+      : options_(options), info_(info), out_file_(out_file), header_(header) { }
+
+  int ProcessFile(const char* file_name);
+  void ProcessDexFile(const char* file_name, const DexFile* dex_file, size_t dex_file_index);
+
+  dex_ir::Header* GetHeader() const { return header_; }
+  void SetHeader(dex_ir::Header* header) { header_ = header; }
+
+  MemMap* GetAndReleaseMemMap() { return mem_map_.release(); }
+
+ private:
+  void DumpAnnotationSetItem(dex_ir::AnnotationSetItem* set_item);
+  void DumpBytecodes(uint32_t idx, const dex_ir::CodeItem* code, uint32_t code_offset);
+  void DumpCatches(const dex_ir::CodeItem* code);
+  void DumpClass(int idx, char** last_package);
+  void DumpClassAnnotations(int idx);
+  void DumpClassDef(int idx);
+  void DumpCode(uint32_t idx, const dex_ir::CodeItem* code, uint32_t code_offset);
+  void DumpEncodedAnnotation(dex_ir::EncodedAnnotation* annotation);
+  void DumpEncodedValue(const dex_ir::EncodedValue* data);
+  void DumpFileHeader();
+  void DumpIField(uint32_t idx, uint32_t flags, int i);
+  void DumpInstruction(const dex_ir::CodeItem* code, uint32_t code_offset, uint32_t insn_idx,
+                       uint32_t insn_width, const Instruction* dec_insn);
+  void DumpInterface(const dex_ir::TypeId* type_item, int i);
+  void DumpLocalInfo(const dex_ir::CodeItem* code);
+  void DumpMethod(uint32_t idx, uint32_t flags, const dex_ir::CodeItem* code, int i);
+  void DumpPositionInfo(const dex_ir::CodeItem* code);
+  void DumpSField(uint32_t idx, uint32_t flags, int i, dex_ir::EncodedValue* init);
+
+  void DumpDexFile();
+  void LayoutOutputFile(const DexFile* dex_file);
+  void OutputDexFile(const std::string& dex_file_location);
+
+  void DumpCFG(const DexFile* dex_file, int idx);
+  void DumpCFG(const DexFile* dex_file, uint32_t dex_method_idx, const DexFile::CodeItem* code);
+
+  Options& options_;
+  ProfileCompilationInfo* info_;
+  FILE* out_file_;
+  dex_ir::Header* header_;
+  std::unique_ptr<MemMap> mem_map_;
+
+  DISALLOW_COPY_AND_ASSIGN(DexLayout);
+};
 
 }  // namespace art
 

@@ -270,6 +270,7 @@ NO_RETURN static void Usage(const char* fmt, ...) {
                 "|balanced"
                 "|speed-profile"
                 "|speed"
+                "|layout-profile"
                 "|everything-profile"
                 "|everything):");
   UsageError("      select compiler filter.");
@@ -541,7 +542,7 @@ class Dex2Oat FINAL {
       no_inline_from_dex_files_(),
       dump_stats_(false),
       dump_passes_(false),
-      dump_timing_(false),
+      dump_timing_(true),
       dump_slow_timing_(kIsDebugBuild),
       swap_fd_(kInvalidFd),
       app_image_fd_(kInvalidFd),
@@ -1478,9 +1479,14 @@ class Dex2Oat FINAL {
             instruction_set_features_.get(),
             key_value_store_.get(),
             /* verify */ true,
+            compiler_options_->GetCompilerFilter() == CompilerFilter::kLayoutProfile,
+            profile_compilation_info_.get(),
             &opened_dex_files_map,
             &opened_dex_files)) {
           return false;
+        }
+        if (compiler_options_->GetCompilerFilter() == CompilerFilter::kLayoutProfile) {
+          profile_compilation_info_->FixProfileAfterLayout();
         }
         dex_files_per_oat_file_.push_back(MakeNonOwningPointerVector(opened_dex_files));
         if (opened_dex_files_map != nullptr) {

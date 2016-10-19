@@ -23,6 +23,7 @@
 
 #include "base/array_ref.h"
 #include "base/dchecked_vector.h"
+#include "jit/offline_profiling_info.h"
 #include "linker/relative_patcher.h"  // For linker::RelativePatcherTargetProvider.
 #include "mem_map.h"
 #include "method_reference.h"
@@ -149,6 +150,7 @@ class OatWriter {
   // Write raw dex files to the vdex file, mmap the file and open the dex files from it.
   // Supporting data structures are written into the .rodata section of the oat file.
   // The `verify` setting dictates whether the dex file verifier should check the dex files.
+  // The `dexlayout` setting controls whether dex files should be laid out according to profile.
   // This is generally the case, and should only be false for tests.
   bool WriteAndOpenDexFiles(File* vdex_file,
                             OutputStream* oat_rodata,
@@ -156,6 +158,8 @@ class OatWriter {
                             const InstructionSetFeatures* instruction_set_features,
                             SafeMap<std::string, std::string>* key_value_store,
                             bool verify,
+                            bool dexlayout,
+                            ProfileCompilationInfo* profile_compilation_info,
                             /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
   bool WriteQuickeningInfo(OutputStream* vdex_out);
@@ -258,6 +262,7 @@ class OatWriter {
   bool WriteDexFiles(OutputStream* out, File* file);
   bool WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
   bool SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
+  bool LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file);
   bool WriteDexFile(OutputStream* out,
                     File* file,
                     OatDexFile* oat_dex_file,
@@ -418,6 +423,9 @@ class OatWriter {
 
   // The locations of absolute patches relative to the start of the executable section.
   dchecked_vector<uintptr_t> absolute_patch_locations_;
+
+  bool dexlayout_;
+  ProfileCompilationInfo* profile_compilation_info_;
 
   DISALLOW_COPY_AND_ASSIGN(OatWriter);
 };
