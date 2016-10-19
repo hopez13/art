@@ -578,7 +578,7 @@ bool DexFileVerifier::CheckClassDataItemMethod(uint32_t idx,
       (reinterpret_cast<const DexFile::MethodId*>(begin_ + header_->method_ids_off_) + idx)->
           class_idx_;
   if (class_type_index != my_class_index) {
-    ErrorStringPrintf("Method's class index unexpected, %" PRIu16 "vs %" PRIu16,
+    ErrorStringPrintf("Method's class index unexpected, %" PRIu16 " vs %" PRIu16,
                       my_class_index,
                       class_type_index);
     return false;

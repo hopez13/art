@@ -669,6 +669,16 @@ void ProfileCompilationInfo::ClearResolvedClasses() {
   }
 }
 
+void ProfileCompilationInfo::UpdateProfileAfterLayout() {
+  for (auto& pair : info_) {
+    size_t class_set_size = pair.second.class_set.size();
+    pair.second.class_set.clear();
+    for (size_t i = 0; i < class_set_size; i++) {
+      pair.second.class_set.insert(i);
+    }
+  }
+}
+
 // Naive implementation to generate a random profile file suitable for testing.
 bool ProfileCompilationInfo::GenerateTestProfile(int fd,
                                                  uint16_t number_of_dex_files,
