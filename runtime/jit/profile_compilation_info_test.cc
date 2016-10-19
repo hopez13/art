@@ -113,7 +113,7 @@ TEST_F(ProfileCompilationInfoTest, SaveArtMethods) {
   {
     ScopedObjectAccess soa(self);
     for (ArtMethod* m : main_methods) {
-      ASSERT_TRUE(info1.ContainsMethod(MethodReference(m->GetDexFile(), m->GetDexMethodIndex())));
+      ASSERT_TRUE(info1.ContainsMethod(*m->GetDexFile(), m->GetDexMethodIndex()));
     }
   }
 
@@ -129,10 +129,10 @@ TEST_F(ProfileCompilationInfoTest, SaveArtMethods) {
   {
     ScopedObjectAccess soa(self);
     for (ArtMethod* m : main_methods) {
-      ASSERT_TRUE(info2.ContainsMethod(MethodReference(m->GetDexFile(), m->GetDexMethodIndex())));
+      ASSERT_TRUE(info2.ContainsMethod(*m->GetDexFile(), m->GetDexMethodIndex()));
     }
     for (ArtMethod* m : second_methods) {
-      ASSERT_TRUE(info2.ContainsMethod(MethodReference(m->GetDexFile(), m->GetDexMethodIndex())));
+      ASSERT_TRUE(info2.ContainsMethod(*m->GetDexFile(), m->GetDexMethodIndex()));
     }
   }
 }

@@ -270,6 +270,7 @@ NO_RETURN static void Usage(const char* fmt, ...) {
                 "|balanced"
                 "|speed-profile"
                 "|speed"
+                "|layout-profile"
                 "|everything-profile"
                 "|everything):");
   UsageError("      select compiler filter.");
@@ -1482,6 +1483,9 @@ class Dex2Oat FINAL {
             &opened_dex_files)) {
           return false;
         }
+        if (compiler_options_->GetCompilerFilter() == CompilerFilter::kLayoutProfile) {
+          profile_compilation_info_->UpdateProfileAfterLayout();
+        }
         dex_files_per_oat_file_.push_back(MakeNonOwningPointerVector(opened_dex_files));
         if (opened_dex_files_map != nullptr) {
           opened_dex_files_maps_.push_back(std::move(opened_dex_files_map));
@@ -2265,7 +2269,9 @@ class Dex2Oat FINAL {
                                                      compiler_options_.get(),
                                                      oat_file.get()));
       elf_writers_.back()->Start();
-      oat_writers_.emplace_back(new OatWriter(IsBootImage(), timings_));
+      bool dexlayout = compiler_options_->GetCompilerFilter() == CompilerFilter::kLayoutProfile;
+      oat_writers_.emplace_back(
+          new OatWriter(IsBootImage(), timings_, dexlayout, profile_compilation_info_.get()));
     }
   }
 

@@ -956,7 +956,8 @@ bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_r
     // Return true, and let the other filters decide if the method should be compiled.
     return true;
   }
-  bool result = profile_compilation_info_->ContainsMethod(method_ref);
+  bool result = profile_compilation_info_->ContainsMethod(*method_ref.dex_file,
+                                                          method_ref.dex_method_index);
 
   if (kDebugProfileGuidedCompilation) {
     LOG(INFO) << "[ProfileGuidedCompilation] "

@@ -557,14 +557,14 @@ static bool ChecksumMatch(const DexFile& dex_file, uint32_t checksum) {
   return kDebugIgnoreChecksum || dex_file.GetLocationChecksum() == checksum;
 }
 
-bool ProfileCompilationInfo::ContainsMethod(const MethodReference& method_ref) const {
-  auto info_it = info_.find(GetProfileDexFileKey(method_ref.dex_file->GetLocation()));
+bool ProfileCompilationInfo::ContainsMethod(const DexFile& dex_file, uint16_t method_idx) const {
+  auto info_it = info_.find(GetProfileDexFileKey(dex_file.GetLocation()));
   if (info_it != info_.end()) {
-    if (!ChecksumMatch(*method_ref.dex_file, info_it->second.checksum)) {
+    if (!ChecksumMatch(dex_file, info_it->second.checksum)) {
       return false;
     }
     const std::set<uint16_t>& methods = info_it->second.method_set;
-    return methods.find(method_ref.dex_method_index) != methods.end();
+    return methods.find(method_idx) != methods.end();
   }
   return false;
 }
@@ -666,6 +666,16 @@ std::set<DexCacheResolvedClasses> ProfileCompilationInfo::GetResolvedClasses() c
 void ProfileCompilationInfo::ClearResolvedClasses() {
   for (auto& pair : info_) {
     pair.second.class_set.clear();
+  }
+}
+
+void ProfileCompilationInfo::UpdateProfileAfterLayout() {
+  for (auto& pair : info_) {
+    size_t class_set_size = pair.second.class_set.size();
+    pair.second.class_set.clear();
+    for (size_t i = 0; i < class_set_size; i++) {
+      pair.second.class_set.insert(i);
+    }
   }
 }
 

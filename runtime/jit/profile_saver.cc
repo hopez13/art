@@ -674,7 +674,7 @@ bool ProfileSaver::HasSeenMethod(const std::string& profile,
   if (instance_ != nullptr) {
     ProfileCompilationInfo* info = instance_->GetCachedProfiledInfo(profile);
     if (info != nullptr) {
-      return info->ContainsMethod(MethodReference(dex_file, method_idx));
+      return info->ContainsMethod(*dex_file, method_idx);
     }
   }
   return false;
