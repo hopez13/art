@@ -1491,6 +1491,9 @@ class Dex2Oat FINAL {
             &opened_dex_files)) {
           return false;
         }
+        if (compiler_options_->GetCompilerFilter() == CompilerFilter::kLayoutProfile) {
+          profile_compilation_info_->UpdateProfileAfterLayout();
+        }
         dex_files_per_oat_file_.push_back(MakeNonOwningPointerVector(opened_dex_files));
         if (opened_dex_files_map != nullptr) {
           opened_dex_files_maps_.push_back(std::move(opened_dex_files_map));
