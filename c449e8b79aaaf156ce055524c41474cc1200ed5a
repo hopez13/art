@@ -22,6 +22,30 @@
       "revId": "c449e8b79aaaf156ce055524c41474cc1200ed5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_bc84f6a3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-19T17:53:02Z",
+      "side": 1,
+      "message": "Look at SetVReg[Primitive] in stack.h. The comments are from there and I also put it on the AssignRegister side.\n\nIf it\u0027s a non-moving collector then it skips clearing the reference array element for that vreg.\n\nBasically in rare cases the primitive value \u003d\u003d the reference value, and in that case it\u0027s indistinguishable from a real reference. For non-moving collectors that seems not to matter (it just adds an extra root) much because it won\u0027t have to rewrite the value.\n\nFor moving collectors it\u0027s a problem since if we moved it then the primitive value would incorrectly change.",
+      "parentUuid": "dcf58392_bc1a36e0",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 93
+      },
+      "revId": "c449e8b79aaaf156ce055524c41474cc1200ed5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
