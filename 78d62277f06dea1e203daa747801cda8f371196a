@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_e8bc53a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T09:06:38Z",
+      "side": 1,
+      "message": "Is that correct? From there, we don\u0027t know if the subclass is overriding the package private method.",
+      "range": {
+        "startLine": 5630,
+        "startChar": 0,
+        "endLine": 5637,
+        "endChar": 7
+      },
+      "revId": "78d62277f06dea1e203daa747801cda8f371196a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
