@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fce08714_8c3e0721",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-19T11:25:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_684d03de",
+      "range": {
+        "startLine": 12,
+        "startChar": 59,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "6fdb46b0d374f03d7942225207c99026e6e6f0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_28570b70",
         "filename": "build/Android.common_test.mk",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-19T10:39:16Z",
       "side": 1,
       "message": "This will be an issue with long file names, see https://android-review.googlesource.com/#/c/278171/.",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "6fdb46b0d374f03d7942225207c99026e6e6f0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcdd835f_2b8a59a6",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-19T11:25:04Z",
+      "side": 1,
+      "message": "I hate my life.",
+      "parentUuid": "7c0657a0_28570b70",
       "range": {
         "startLine": 26,
         "startChar": 2,
