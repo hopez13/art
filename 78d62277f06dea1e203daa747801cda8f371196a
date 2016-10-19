@@ -46,6 +46,30 @@
       "revId": "78d62277f06dea1e203daa747801cda8f371196a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_48fa3fce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T20:54:47Z",
+      "side": 1,
+      "message": "Oh I see. Yeah, the VLOG is only for us and I don\u0027t think we care anymore.\n\nI\u0027d suggest adding what you just said here as a comment in the \"if\" block.\n\n(Also, the \"FindAndRemove\" bit line 5640 being the actual problem, I suggest adding comments there why we\u0027re removing it).",
+      "parentUuid": "dcf58392_5c54f211",
+      "range": {
+        "startLine": 5630,
+        "startChar": 0,
+        "endLine": 5637,
+        "endChar": 7
+      },
+      "revId": "78d62277f06dea1e203daa747801cda8f371196a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
