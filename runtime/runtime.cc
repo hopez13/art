@@ -508,6 +508,18 @@ bool Runtime::ParseOptions(const RuntimeOptions& raw_options,
   return true;
 }
 
+// Callback to allow mutex to check whether the runtime is shutting down.
+static bool RuntimeStartedTest() NO_THREAD_SAFETY_ANALYSIS {
+  Runtime* runtime = Runtime::Current();
+  return runtime != nullptr && runtime->IsStarted();
+}
+
+// Callback to allow mutex to check whether the runtime is shutting down.
+static bool RuntimeShutdownTest() NO_THREAD_SAFETY_ANALYSIS {
+  Runtime* runtime = Runtime::Current();
+  return runtime == nullptr || runtime->IsShuttingDownLocked();
+}
+
 bool Runtime::Create(RuntimeArgumentMap&& runtime_options) {
   // TODO: acquire a static mutex on Runtime to avoid racing.
   if (Runtime::instance_ != nullptr) {
@@ -521,6 +533,7 @@ bool Runtime::Create(RuntimeArgumentMap&& runtime_options) {
     instance_ = nullptr;
     return false;
   }
+  Locks::SetClientCallbacks(RuntimeStartedTest, RuntimeShutdownTest);
   return true;
 }
 
