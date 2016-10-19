@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ce13fe5_be019922",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1126253
+      },
+      "writtenOn": "2016-10-19T05:41:42Z",
+      "side": 1,
+      "message": "Main thread: (a) waiting Locks::heap_bitmap_lock_\n\"com.android.mms\" sysTid\u003d8768\n  #00 pc 000173f4  /system/lib/libc.so (syscall+28)\n  #01 pc 000b5b61  /system/lib/libart.so (_ZN3art17ReaderWriterMutex13ExclusiveLockEPNS_6ThreadE+200)\n  #02 pc 00196a25  /system/lib/libart.so (_ZN3art2gc4Heap16ClampGrowthLimitEv+436)   --------------(a)\n  #03 pc 005d917f  /system/framework/arm/boot-core-libart.oat (offset 0x47b000) (dalvik.system.VMRuntime.clampGrowt\nhLimit+74)\n  #04 pc 0172ae9f  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.app.ActivityThread.handleBi\nndApplication+4098)\n  #05 pc 01724595  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.app.ActivityThread.-wrap2+4\n8)\n#06 pc 01721561  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.app.ActivityThread$H.handle\nMessage+3892)\n  #07 pc 0171e1eb  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.os.Handler.dispatchMessage+\n110)\n  #08 pc 01ced55d  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.os.Looper.loop+1928)\n  #09 pc 017326df  /system/framework/arm/boot-framework.oat (offset 0x16aa000) (android.app.ActivityThread.main+754\n)\n\nvoid Heap::ClampGrowthLimit() {\n  // Use heap bitmap lock to guard against races with BindLiveToMarkBitmap.\n  ScopedObjectAccess soa(Thread::Current());\n  WriterMutexLock mu(soa.Self(), *Locks::heap_bitmap_lock_);   --------------(a)\n..\n}\n\nHeapTaskDaemon thread: (b) checking thread state is not kRunnable\n\"HeapTaskDaemon\" sysTid\u003d8779\n  #00 pc 0004a7a8  /system/lib/libc.so (sched_yield+12)\n  #01 pc 0033beb9  /system/lib/libart.so (_ZN3art10ThreadList13RunCheckpointEPNS_7ClosureE+1560)         ------------------  (b)\n  #02 pc 00173e8f  /system/lib/libart.so (_ZN3art2gc9collector9MarkSweep19MarkRootsCheckpointEPNS_6ThreadEb+86)\n  #03 pc 00174635  /system/lib/libart.so (_ZN3art2gc9collector9MarkSweep9MarkRootsEPNS_6ThreadE+140)\n  #04 pc 0017380b  /system/lib/libart.so (_ZN3art2gc9collector9MarkSweep12MarkingPhaseEv+122)\n  #05 pc 001736ad  /system/lib/libart.so (_ZN3art2gc9collector9MarkSweep9RunPhasesEv+144)\n  #06 pc 0016e435  /system/lib/libart.so (_ZN3art2gc9collector16GarbageCollector3RunENS0_7GcCauseEb+248)\n  #07 pc 0019194d  /system/lib/libart.so (_ZN3art2gc4Heap22CollectGarbageInternalENS0_9collector6GcTypeENS0_7GcCauseEb+2364)\n  #08 pc 0019722d  /system/lib/libart.so (_ZN3art2gc4Heap12ConcurrentGCEPNS_6ThreadEb+68)\n  #09 pc 0019bd63  /system/lib/libart.so (_ZN3art2gc4Heap16ConcurrentGCTask3RunEPNS_6ThreadE+18)\n\nsize_t ThreadList::RunCheckpoint(Closure* checkpoint_function) {\n...\n      do {\n        ThreadSuspendSleep(kThreadSuspendInitialSleepUs);     \n      } while (!thread-\u003eIsSuspended());                    ----------------- (b)\n...\n}",
+      "parentUuid": "dcf58392_edb7fcb7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 104
+      },
+      "revId": "8da1aab26e847225a7c1babc7acb5e307abea594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_b73c2389",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
