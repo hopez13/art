@@ -70,6 +70,54 @@
       "revId": "78d62277f06dea1e203daa747801cda8f371196a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_922e3eec",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5637,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-10-19T21:55:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_48fa3fce",
+      "range": {
+        "startLine": 5630,
+        "startChar": 0,
+        "endLine": 5637,
+        "endChar": 7
+      },
+      "revId": "78d62277f06dea1e203daa747801cda8f371196a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_5234d63f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5637,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-10-19T21:55:20Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "7c0657a0_48fa3fce",
+      "range": {
+        "startLine": 5630,
+        "startChar": 0,
+        "endLine": 5637,
+        "endChar": 7
+      },
+      "revId": "78d62277f06dea1e203daa747801cda8f371196a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
