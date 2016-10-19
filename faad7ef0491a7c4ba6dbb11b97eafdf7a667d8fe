@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_5fbfc4b3",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-19T18:38:02Z",
+      "side": 1,
+      "message": "Don\u0027t think there is a way for this in ART.\n\nBTW, style-wise, do not use implicit bool-cast-style conditionals.",
+      "parentUuid": "dcf58392_9fbdaca3",
+      "range": {
+        "startLine": 503,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 40
+      },
+      "revId": "faad7ef0491a7c4ba6dbb11b97eafdf7a667d8fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_dceaa2f4",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I\u0027m aware of the log spamming issue but:\n\n1. This only happens when someone initiates an agent loading\n2. It\u0027s valuable for agent writers, who can\u0027t depend on VLOG(module)",
       "parentUuid": "dcf58392_1c19ca3c",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 60
+      },
+      "revId": "faad7ef0491a7c4ba6dbb11b97eafdf7a667d8fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_9fdacc33",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-19T18:38:02Z",
+      "side": 1,
+      "message": "VLOG, please. Agent writers already know that their agents are being loaded.",
+      "parentUuid": "dcf58392_9f964c27",
       "range": {
         "startLine": 63,
         "startChar": 0,
