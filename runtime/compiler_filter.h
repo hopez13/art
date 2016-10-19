@@ -40,6 +40,7 @@ class CompilerFilter FINAL {
     kBalanced,            // Good performance return on compilation investment.
     kSpeedProfile,        // Maximize runtime performance based on profile.
     kSpeed,               // Maximize runtime performance.
+    kLayoutProfile,       // Temporary filter for dexlayout. Will be merged with kSpeedProfile.
     kEverythingProfile,   // Compile everything capable of being compiled based on profile.
     kEverything,          // Compile everything capable of being compiled.
   };
