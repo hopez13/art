@@ -23,7 +23,10 @@ include art/build/Android.common_path.mk
 ifneq ($(TMPDIR),)
 ART_HOST_TEST_DIR := $(TMPDIR)/test-art-$(shell echo $$PPID)
 else
-ART_HOST_TEST_DIR := /tmp/$(USER)/test-art-$(shell echo $$PPID)
+# Use a munged version of ANDROID_BUILD_TOP as one of the path components
+# for the test output. This allows us to run tests from multiple repositories
+# at the same time.
+ART_HOST_TEST_DIR := /tmp/$(USER)/test-art-$(shell echo ${ANDROID_BUILD_TOP} | sed -e 's/\//-/g')
 endif
 
 # List of known broken tests that we won't attempt to execute. The test name must be the full
