@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf58392_3a6806cf",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "Is memset not usable here even if this isn\u0027t an object or a heap space?",
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_fa84be5a",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "Is this multiplication necessary? Aren\u0027t page_begin/page_end actual addresses where a diff would be the byte size?",
+      "range": {
+        "startLine": 140,
+        "startChar": 46,
+        "endLine": 140,
+        "endChar": 68
+      },
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_9a093a11",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "Can you add a comment along the line of: it\u0027s safe (not racy) to clear here without suspending threads because the bitmap is consulted by the region space walk which can happen only when gc isn\u0027t running.",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 36
+      },
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_faf95ed8",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1602,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "We clear the field but not the bitmap itself (we do it in BindBitmaps above.) Clarify this comment?",
+      "range": {
+        "startLine": 1602,
+        "startChar": 4,
+        "endLine": 1602,
+        "endChar": 37
+      },
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_5a07d2f4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2494,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "We don\u0027t have sticky CC (yet). Remove \"in case the next GC is young gen.\" ?",
+      "range": {
+        "startLine": 2494,
+        "startChar": 11,
+        "endLine": 2494,
+        "endChar": 24
+      },
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_baefd603",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-19T19:20:48Z",
+      "side": 1,
+      "message": "Change this to something more sensible?",
+      "range": {
+        "startLine": 63,
+        "startChar": 49,
+        "endLine": 63,
+        "endChar": 63
+      },
+      "revId": "afca8e071cae3f665e1f8ff9f143c0066712f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
