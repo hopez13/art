@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c0657a0_08cfa73d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T09:31:28Z",
+      "side": 1,
+      "message": "Add a comment on what this update is.",
+      "range": {
+        "startLine": 656,
+        "startChar": 57,
+        "endLine": 657,
+        "endChar": 30
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_28d26be7",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-19T09:31:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand this name. Why isn\u0027t it atomic_update_field?",
+      "range": {
+        "startLine": 522,
+        "startChar": 9,
+        "endLine": 522,
+        "endChar": 28
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_7ed0d008",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 4
