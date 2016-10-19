@@ -77,6 +77,8 @@ class ProfileCompilationInfo {
 
   bool Equals(const ProfileCompilationInfo& other);
 
+  bool Empty() const { return info_.empty(); }
+
   static std::string GetProfileDexFileKey(const std::string& dex_location);
 
   // Returns the class descriptors for all of the classes in the profiles' class sets.
@@ -86,6 +88,13 @@ class ProfileCompilationInfo {
 
   // Clears the resolved classes from the current object.
   void ClearResolvedClasses();
+
+  // Modifies the in-memory profile, making all classes in the profile have the lowest indexes.
+  // Class indexes in the profile will range from 0 to N-1, where N is the number of classes in the
+  // profile. N remains constant throughout this pass. This is intended to be used only after
+  // dexlayout, to update the profile to the new dex layout. The modified profile is not written
+  // back to file.
+  void UpdateProfileAfterLayout();
 
   static bool GenerateTestProfile(int fd,
                                   uint16_t number_of_dex_files,
