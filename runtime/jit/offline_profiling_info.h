@@ -77,6 +77,8 @@ class ProfileCompilationInfo {
 
   bool Equals(const ProfileCompilationInfo& other);
 
+  bool Empty() const { return info_.empty(); }
+
   static std::string GetProfileDexFileKey(const std::string& dex_location);
 
   // Returns the class descriptors for all of the classes in the profiles' class sets.

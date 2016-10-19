@@ -356,7 +356,7 @@ void VisualizeDexLayout(dex_ir::Header* header,
   for (uint32_t class_index = 0; class_index < class_defs_size; class_index++) {
     dex_ir::ClassDef* class_def = header->GetCollections().GetClassDef(class_index);
     uint16_t type_idx = class_def->ClassType()->GetIndex();
-    if (profile_info_ != nullptr && !profile_info_->ContainsClass(*dex_file, type_idx)) {
+    if (profile_info != nullptr && !profile_info->ContainsClass(*dex_file, type_idx)) {
       continue;
     }
     dumper->DumpAddressRange(class_def, class_index);
