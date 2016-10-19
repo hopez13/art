@@ -477,6 +477,11 @@ bool OatWriter::WriteAndOpenDexFiles(
                                         key_value_store);
   oat_size_ = InitOatDexFiles(oat_data_offset);
 
+  // Disable checksum verification if performing dex layout. It will be verified by dex layout.
+  if (profile_compilation_info_ != nullptr) {
+    verify = false;
+  }
+
   ChecksumUpdatingOutputStream checksum_updating_rodata(oat_rodata, oat_header_.get());
 
   if (kIsVdexEnabled) {
