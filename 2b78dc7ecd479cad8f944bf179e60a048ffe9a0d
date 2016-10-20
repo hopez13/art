@@ -88,6 +88,24 @@
       "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_7fcfd0b7",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-20T22:09:12Z",
+      "side": 1,
+      "message": "There\u0027s a call to LogHelper::LogLineLowStack passing FATAL_WITHOUT_ABORT.  As you may remember the reason we don\u0027t need ::android::base in most cases is a macro expansion involving SEVERITY_LAMBDA.  That\u0027s not here for a naked function call.",
+      "parentUuid": "3c777f48_69207e5f",
+      "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
