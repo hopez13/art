@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3c777f48_d87ce263",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-20T18:43:45Z",
+      "side": 1,
+      "message": "I\u0027m fine either way.",
+      "parentUuid": "5cba7338_6fe6f16d",
+      "range": {
+        "startLine": 522,
+        "startChar": 9,
+        "endLine": 522,
+        "endChar": 28
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_7ed0d008",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 4
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Good question.  I\u0027m not sure this is actually needed.  Andreas, what do you think?",
       "parentUuid": "dcf58392_7ed0d008",
+      "range": {
+        "startLine": 1237,
+        "startChar": 0,
+        "endLine": 1248,
+        "endChar": 3
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_5820f25e",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-20T18:43:45Z",
+      "side": 1,
+      "message": "I\u0027m guessing it\u0027s a simple copy-and-paste error. Remove it?",
+      "parentUuid": "fca887f5_0c5e572c",
       "range": {
         "startLine": 1237,
         "startChar": 0,
