@@ -274,8 +274,6 @@ static inline constexpr bool ValidPointerSize(size_t pointer_size) {
   return pointer_size == 4 || pointer_size == 8;
 }
 
-void DumpMethodCFG(const DexFile* dex_file, uint32_t dex_method_idx, std::ostream& os);
-
 static inline const void* EntryPointToCodePointer(const void* entry_point) {
   uintptr_t code = reinterpret_cast<uintptr_t>(entry_point);
   // TODO: Make this Thumb2 specific. It is benign on other architectures as code is always at
