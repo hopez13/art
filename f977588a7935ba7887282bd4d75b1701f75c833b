@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcdd835f_0e356b08",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-20T09:57:30Z",
+      "side": 1,
+      "message": "Not required. I tried building without it, moving the REQUIRES... to the defintition below.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 77
+      },
+      "revId": "f977588a7935ba7887282bd4d75b1701f75c833b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_c8acef8b",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-20T09:57:30Z",
+      "side": 1,
+      "message": "GcRoot\u003cT\u003e is a template argument-dependent type and we need to tell the compiler to treat \"Read\" as a template rather than a field or function. Otherwise, on encountering the \"\u003c\" token, the compiler would treat \"Read\" as a field.",
+      "range": {
+        "startLine": 180,
+        "startChar": 7,
+        "endLine": 181,
+        "endChar": 17
+      },
+      "revId": "f977588a7935ba7887282bd4d75b1701f75c833b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
