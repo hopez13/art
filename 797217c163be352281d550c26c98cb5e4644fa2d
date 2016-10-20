@@ -46,6 +46,30 @@
       "revId": "797217c163be352281d550c26c98cb5e4644fa2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_8b2831b5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5544,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-20T16:47:53Z",
+      "side": 1,
+      "message": "Why would sharpening know more about the class status?",
+      "parentUuid": "3c777f48_68071fc7",
+      "range": {
+        "startLine": 5544,
+        "startChar": 0,
+        "endLine": 5544,
+        "endChar": 76
+      },
+      "revId": "797217c163be352281d550c26c98cb5e4644fa2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
