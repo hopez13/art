@@ -16,6 +16,24 @@
       "revId": "c9457d7f5fca0d8636c2483604758b248356354b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_cec978b5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-20T20:14:05Z",
+      "side": 1,
+      "message": "OK, I agree and have moved it up.  I don\u0027t like the way the singleton pattern is being implemented here (revealing the new Runtime instance to clients before Init is finished), but that\u0027s a topic for a future CL.",
+      "parentUuid": "3c777f48_e31ed078",
+      "revId": "c9457d7f5fca0d8636c2483604758b248356354b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
