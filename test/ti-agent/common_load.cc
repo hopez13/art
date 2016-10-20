@@ -29,6 +29,7 @@
 #include "903-hello-tagging/tagging.h"
 #include "904-object-allocation/tracking.h"
 #include "905-object-free/tracking_free.h"
+#include "905b-tagging-regression/tagging_regression.h"
 #include "906-iterate-heap/iterate_heap.h"
 
 namespace art {
@@ -51,6 +52,7 @@ AgentLib agents[] = {
   { "903-hello-tagging", Test903HelloTagging::OnLoad, nullptr },
   { "904-object-allocation", Test904ObjectAllocation::OnLoad, nullptr },
   { "905-object-free", Test905ObjectFree::OnLoad, nullptr },
+  { "905b-tagging-regression", Test905bTaggingRegression::OnLoad, nullptr },
   { "906-iterate-heap", Test906IterateHeap::OnLoad, nullptr },
 };
 

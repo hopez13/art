@@ -270,6 +270,7 @@ TEST_ART_BROKEN_TARGET_TESTS := \
   903-hello-tagging \
   904-object-allocation \
   905-object-free \
+  905b-tagging-regression \
   906-iterate-heap \
   907-get-loaded-classes \
 

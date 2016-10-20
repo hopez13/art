@@ -248,6 +248,7 @@ art_cc_defaults {
         "903-hello-tagging/tagging.cc",
         "904-object-allocation/tracking.cc",
         "905-object-free/tracking_free.cc",
+        "905b-tagging-regression/tagging_regression.cc",
         "906-iterate-heap/iterate_heap.cc",
         "907-get-loaded-classes/get_loaded_classes.cc",
     ],
