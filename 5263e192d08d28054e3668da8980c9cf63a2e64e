@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c913fcf_c173645a",
+        "filename": "runtime/dex_cfg.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T23:34:54Z",
+      "side": 1,
+      "message": "kBase64Map[] is now defined in two places; perhaps factor this out in another head file, shared by both?",
+      "revId": "5263e192d08d28054e3668da8980c9cf63a2e64e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_c19a844c",
+        "filename": "runtime/dex_cfg.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T23:34:54Z",
+      "side": 1,
+      "message": "same for the shared methods defined in two places now",
+      "revId": "5263e192d08d28054e3668da8980c9cf63a2e64e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
