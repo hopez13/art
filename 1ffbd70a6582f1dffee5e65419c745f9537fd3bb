@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_2bbb85a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "Nit: Could you please sort this list?\n\nAlso, I think you forgot to add \"053-wait-some\".",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c15cbc1_e96c55ec",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "Could you add a comment about these new lines?  I understand that the first one is directly related to lines 517–520, but I\u0027m not sure about the second one; is this a second D register reserved for the code generator?",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 62
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_e36c72ec",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2224,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "Maybe initialize to `vixl32::kNever`?",
+      "range": {
+        "startLine": 2224,
+        "startChar": 32,
+        "endLine": 2224,
+        "endChar": 34
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcdd835f_ae6097bc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "There is no LoadImmediate call in this current code; I\u0027d suggest this:\n\n  Emit move to `out` before the last `Cmp`, as `Mov` might affect the status flags.",
+      "range": {
+        "startLine": 2240,
+        "startChar": 9,
+        "endLine": 2240,
+        "endChar": 96
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_8bcb913c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2761,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "Primitive::IsFloatingPointType(input-\u003eGetType())",
+      "range": {
+        "startLine": 2761,
+        "startChar": 9,
+        "endLine": 2761,
+        "endChar": 96
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fca887f5_ec230bd7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "Maybe retain the assertions from the original code generator:\n\n  DCHECK_NE(RegisterFrom(source), temp);\n  DCHECK_NE(RegisterFrom(destination), temp);\n\n?",
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_6361a2ed",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T12:48:44Z",
+      "side": 1,
+      "message": "`temp`?",
+      "range": {
+        "startLine": 3243,
+        "startChar": 22,
+        "endLine": 3243,
+        "endChar": 27
+      },
+      "revId": "1ffbd70a6582f1dffee5e65419c745f9537fd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
