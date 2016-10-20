@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc10cfcf_4ab35338",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5544,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-20T09:45:08Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need this flag. The builder is responsible for putting the clinit checks. If the class is initialized already, the clinit check is not added to the graph.",
+      "range": {
+        "startLine": 5544,
+        "startChar": 0,
+        "endLine": 5544,
+        "endChar": 76
+      },
+      "revId": "797217c163be352281d550c26c98cb5e4644fa2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
