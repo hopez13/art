@@ -94,7 +94,9 @@ HInductionVarAnalysis::HInductionVarAnalysis(HGraph* graph)
              graph->GetArena()->Adapter(kArenaAllocInductionVarAnalysis)),
       type_(Primitive::kPrimVoid),
       induction_(std::less<HLoopInformation*>(),
-                 graph->GetArena()->Adapter(kArenaAllocInductionVarAnalysis)) {
+                 graph->GetArena()->Adapter(kArenaAllocInductionVarAnalysis)),
+      cycles_(std::less<HPhi*>(),
+              graph->GetArena()->Adapter(kArenaAllocInductionVarAnalysis)) {
 }
 
 void HInductionVarAnalysis::Run() {
@@ -263,6 +265,9 @@ void HInductionVarAnalysis::ClassifyNonTrivial(HLoopInformation* loop) {
     return;
   }
 
+  // Store interesting cycle.
+  AssignCycle(phi->AsPhi());
+
   // Singleton is wrap-around induction if all internal links have the same meaning.
   if (size == 1) {
     InductionInfo* update = TransferPhi(loop, phi, /* input_index */ 1);
@@ -366,6 +371,7 @@ HInductionVarAnalysis::InductionInfo* HInductionVarAnalysis::TransferAddSub(Indu
   // can be combined with an invariant to yield a similar result. Even two linear inputs can
   // be combined. All other combinations fail, however.
   if (a != nullptr && b != nullptr) {
+    type_ = Narrowest(type_, Narrowest(a->type, b->type));
     if (a->induction_class == kInvariant && b->induction_class == kInvariant) {
       return CreateInvariantOp(op, a, b);
     } else if (a->induction_class == kLinear && b->induction_class == kLinear) {
@@ -402,6 +408,7 @@ HInductionVarAnalysis::InductionInfo* HInductionVarAnalysis::TransferMul(Inducti
   // can be multiplied with an invariant to yield a similar but multiplied result.
   // Two non-invariant inputs cannot be multiplied, however.
   if (a != nullptr && b != nullptr) {
+    type_ = Narrowest(type_, Narrowest(a->type, b->type));
     if (a->induction_class == kInvariant && b->induction_class == kInvariant) {
       return CreateInvariantOp(kMul, a, b);
     } else if (a->induction_class == kInvariant) {
@@ -442,6 +449,7 @@ HInductionVarAnalysis::InductionInfo* HInductionVarAnalysis::TransferNeg(Inducti
   // Transfer over a unary negation: an invariant, linear, wrap-around, or periodic input
   // yields a similar but negated induction as result.
   if (a != nullptr) {
+    type_ = Narrowest(type_, a->type);
     if (a->induction_class == kInvariant) {
       return CreateInvariantOp(kNeg, nullptr, a);
     }
@@ -939,6 +947,23 @@ HInductionVarAnalysis::InductionInfo* HInductionVarAnalysis::CreateSimplifiedInv
     }
   }
   return new (graph_->GetArena()) InductionInfo(kInvariant, op, a, b, nullptr, b->type);
+}
+
+
+void HInductionVarAnalysis::AssignCycle(HPhi* phi) {
+  ArenaSet<HInstruction*>* set = &cycles_.Put(phi, ArenaSet<HInstruction*>(
+      graph_->GetArena()->Adapter(kArenaAllocInductionVarAnalysis)))->second;
+  for (HInstruction* i : scc_) {
+    set->insert(i);
+  }
+}
+
+ArenaSet<HInstruction*>* HInductionVarAnalysis::LookupCycle(HPhi* phi) {
+  auto it = cycles_.find(phi);
+  if (it != cycles_.end()) {
+    return &it->second;
+  }
+  return nullptr;
 }
 
 bool HInductionVarAnalysis::IsExact(InductionInfo* info, int64_t* value) {
