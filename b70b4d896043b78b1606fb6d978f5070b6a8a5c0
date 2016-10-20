@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c777f48_dfc924b5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2944,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_6be29d8c",
+      "range": {
+        "startLine": 2944,
+        "startChar": 0,
+        "endLine": 2944,
+        "endChar": 4
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c15cbc1_89a039dc",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-20T21:22:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 3656,
+        "startChar": 0,
+        "endLine": 3656,
+        "endChar": 4
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_bfc4589c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3656,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c15cbc1_89a039dc",
       "range": {
         "startLine": 3656,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3c777f48_bf8d3882",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3748,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_ab7e55d1",
+      "range": {
+        "startLine": 3748,
+        "startChar": 0,
+        "endLine": 3748,
+        "endChar": 4
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc352f64_82991a66",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-20T21:22:28Z",
       "side": 1,
       "message": "You should break the line here, align the \"Primitive\" with the \"0\" and align the \"?\" and \":\" 4 spaces right from the \"Primitive\". Alternatively, add a helper function for the expression.",
+      "range": {
+        "startLine": 4357,
+        "startChar": 34,
+        "endLine": 4357,
+        "endChar": 35
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_7f88306f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4357,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc352f64_82991a66",
       "range": {
         "startLine": 4357,
         "startChar": 34,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3c777f48_9f85dc56",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4364,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf663e5_2375ea79",
+      "range": {
+        "startLine": 4364,
+        "startChar": 34,
+        "endLine": 4364,
+        "endChar": 35
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_ebf7ad1e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-20T21:22:28Z",
       "side": 1,
       "message": "Align 4 spaces right from the \"Primitive\".",
+      "range": {
+        "startLine": 4378,
+        "startChar": 10,
+        "endLine": 4378,
+        "endChar": 11
+      },
+      "revId": "b70b4d896043b78b1606fb6d978f5070b6a8a5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_1fc00c88",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4378,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-10-20T22:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_ebf7ad1e",
       "range": {
         "startLine": 4378,
         "startChar": 10,
