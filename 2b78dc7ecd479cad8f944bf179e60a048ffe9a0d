@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c777f48_aecaec57",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T20:21:59Z",
+      "side": 1,
+      "message": "how come we don\u0027t need android::base here, but we need it everywhere else?",
+      "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
