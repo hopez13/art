@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c777f48_e31ed078",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T17:22:14Z",
+      "side": 1,
+      "message": "I like the new name, it certainly conveys better what is being tested here. One question, between L524 and L532, we have a runtime, but no callbacks yet. So, the usage in mutex thinks it is *not* safe to call abort yet (no callback yet). Does that mean that the fatal logs in Init() are not handled as fatal? Does it make sense to move setting the callback up for that reason?",
+      "revId": "c9457d7f5fca0d8636c2483604758b248356354b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
