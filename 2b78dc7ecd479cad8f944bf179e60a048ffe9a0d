@@ -34,6 +34,42 @@
       "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_8957ea3f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-20T20:42:21Z",
+      "side": 1,
+      "message": "Removed all but for FATAL_WITHOUT_ABORT.",
+      "parentUuid": "3c777f48_a9ae6664",
+      "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_e951ce4d",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-10-20T20:42:21Z",
+      "side": 1,
+      "message": "See Andreas\u0027 comment.",
+      "parentUuid": "3c777f48_aecaec57",
+      "revId": "2b78dc7ecd479cad8f944bf179e60a048ffe9a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
