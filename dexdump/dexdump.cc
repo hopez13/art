@@ -42,9 +42,9 @@
 #include <sstream>
 #include <vector>
 
+#include "dexdump_cfg.h"
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
-#include "utils.h"
 
 namespace art {
 
@@ -1328,7 +1328,7 @@ static void dumpCfg(const DexFile* dex_file,
   if (code_item != nullptr) {
     std::ostringstream oss;
     DumpMethodCFG(dex_file, dex_method_idx, oss);
-    fprintf(gOutFile, "%s", oss.str().c_str());
+    fputs(oss.str().c_str(), gOutFile);
   }
 }
 
