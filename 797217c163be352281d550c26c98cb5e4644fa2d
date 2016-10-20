@@ -22,6 +22,30 @@
       "revId": "797217c163be352281d550c26c98cb5e4644fa2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_68071fc7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5544,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-20T16:47:07Z",
+      "side": 1,
+      "message": "Since sharpening happens after building that can leave extra clinit checks though?",
+      "parentUuid": "bc10cfcf_4ab35338",
+      "range": {
+        "startLine": 5544,
+        "startChar": 0,
+        "endLine": 5544,
+        "endChar": 76
+      },
+      "revId": "797217c163be352281d550c26c98cb5e4644fa2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
