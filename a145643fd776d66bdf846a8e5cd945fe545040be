@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcdd835f_8e015bb5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T14:34:54Z",
+      "side": 1,
+      "message": "Sure, will do in next patch set.",
+      "parentUuid": "7c0657a0_08cfa73d",
+      "range": {
+        "startLine": 656,
+        "startChar": 57,
+        "endLine": 657,
+        "endChar": 30
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_28d26be7",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5cba7338_6fe6f16d",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T14:34:54Z",
+      "side": 1,
+      "message": "I chose this name based on the `kAlwaysUpdateField` template parameter of the `art::ReadBarrier::Barrier` method.  The documentation of this method says:\n\n  // It\u0027s up to the implementation whether the given field gets updated whereas the return value\n  // must be an updated reference unless kAlwaysUpdateField is true.\n\nI\u0027m considering renaming this as `update_field` here (for the Baker read barrier case only); what do you (Nicolas and Hiroshi) think?",
+      "parentUuid": "7c0657a0_28d26be7",
+      "range": {
+        "startLine": 522,
+        "startChar": 9,
+        "endLine": 522,
+        "endChar": 28
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf58392_7ed0d008",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-18T20:21:10Z",
       "side": 1,
       "message": "Do we need this code because this is for a long rather than an object?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 0,
+        "endLine": 1248,
+        "endChar": 3
+      },
+      "revId": "a145643fd776d66bdf846a8e5cd945fe545040be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fca887f5_0c5e572c",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-20T14:34:54Z",
+      "side": 1,
+      "message": "Good question.  I\u0027m not sure this is actually needed.  Andreas, what do you think?",
+      "parentUuid": "dcf58392_7ed0d008",
       "range": {
         "startLine": 1237,
         "startChar": 0,
