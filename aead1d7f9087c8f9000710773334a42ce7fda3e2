@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c777f48_0810dbc1",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T16:12:59Z",
+      "side": 1,
+      "message": "thanks",
+      "revId": "aead1d7f9087c8f9000710773334a42ce7fda3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_a862e752",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-20T16:12:59Z",
+      "side": 1,
+      "message": "why did you move this down? the common style in this file is to keep this right after the case (k3rc below violates this too though, feel free to fix that one too)",
+      "revId": "aead1d7f9087c8f9000710773334a42ce7fda3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
