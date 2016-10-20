@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c777f48_faf74e1e",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "I\u0027d also assert that it\u0027s a trivial type, otherwise casting it to uint32_t is illegal.",
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_1a16da6f",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "Why don\u0027t you just change local_ref_cookie to be an IRTSegmentState ?",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_fe1f2180",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "Now that it\u0027s part of the public interface, \"Resizable\" is a bit misleading.\n\nUsually containers come in two types: mutable (resizeable) and immutable (fixed).\n\nThat refers though to their size(), i.e. how many elements it contains, and not whether or not their capacity() can grow beyond the initial capacity\n\nSo I suggest something like \"ResizableCapacity\" or anything else less misleading.",
+      "range": {
+        "startLine": 235,
+        "startChar": 13,
+        "endLine": 235,
+        "endChar": 22
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_5adb0263",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "Since this is an enum class perhaps \"kYes\", \"kNo\" is enough since it always will be preceded be Resizable::\n\nso it\u0027s a bit redundant to see \"Resizable::kResizable\" as opposed to \"Resizable::kYes\"",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 17
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_5e0f354d",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "see L235",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 44
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_5a51c21f",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "3 bits makes it 24 bytes per entry instead of 16 which pushes out the size to be more than a page, also changes alignment to 8 instead of 16, etc.\n\nI don\u0027t see why it needs to change, why not just leave the old isDebug ? 3 else 2 check?",
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_5a68e2cf",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "Why is it shifting 2 instead of 1 everywhere?",
+      "range": {
+        "startLine": 333,
+        "startChar": 33,
+        "endLine": 333,
+        "endChar": 35
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_ba8d4682",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "std::numeric_limits::max",
+      "range": {
+        "startLine": 341,
+        "startChar": 35,
+        "endLine": 341,
+        "endChar": 38
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_7a883e6f",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "BitSizeOf(table_index)",
+      "range": {
+        "startLine": 348,
+        "startChar": 35,
+        "endLine": 348,
+        "endChar": 37
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c777f48_9a85ea56",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "BitSizeOf(table_index)",
+      "range": {
+        "startLine": 351,
+        "startChar": 39,
+        "endLine": 351,
+        "endChar": 41
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_7e515120",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "modulo",
+      "range": {
+        "startLine": 378,
+        "startChar": 30,
+        "endLine": 378,
+        "endChar": 36
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_1e5a0d42",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-20T23:14:55Z",
+      "side": 1,
+      "message": "capacity",
+      "range": {
+        "startLine": 387,
+        "startChar": 22,
+        "endLine": 387,
+        "endChar": 23
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
