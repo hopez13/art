@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3c913fcf_85c5e1f5",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1094349
+      },
+      "writtenOn": "2016-10-21T18:25:16Z",
+      "side": 1,
+      "message": "Just out of curiosity, when does concurrent copy happen relative to when Sweep is called? Does this apply to background app only?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "17ce6f4b530eb18f1ae5734ba2c0258752cae2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_ab77757d",
         "filename": "runtime/openjdkjvmti/object_tagging.cc",
         "patchSetId": 1
