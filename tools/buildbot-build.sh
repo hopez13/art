@@ -19,9 +19,32 @@ if [ ! -d art ]; then
   exit 1
 fi
 
-out_dir=${OUT_DIR-out}
+if [ -z $ANDROID_BUILD_TOP ]; then
+  echo "Run source build/envsetup.sh first"
+  exit 1
+fi
+
+# Get all the android functions like "get_build_var"
+source ${ANDROID_BUILD_TOP}/build/envsetup.sh
+
+out_dir=$OUT_DIR
+if [ -z $out_dir ]; then
+  out_dir="$(get_build_var OUT_DIR)"
+fi
+
+# Get a build var such as HOST_OUT, TARGET_OUT, etc, replacing the "out/" with our own "$out_dir/"
+get_out_var() {
+  # the build system's configured OUT_DIR, usually "out"
+  local out_dir_build="$(get_build_var OUT_DIR)"
+  local value="$(get_build_var "$1")"
+  echo "${out_dir}${value#$out_dir_build}"
+}
+
+HOST_OUT="$(get_out_var HOST_OUT)"
+TARGET_OUT="$(get_out_var TARGET_OUT)"
+
 java_libraries_dir=${out_dir}/target/common/obj/JAVA_LIBRARIES
-common_targets="vogar core-tests apache-harmony-jdwp-tests-hostdex jsr166-tests mockito-target ${out_dir}/host/linux-x86/bin/jack"
+common_targets="vogar core-tests apache-harmony-jdwp-tests-hostdex jsr166-tests mockito-target $HOST_OUT/bin/jack"
 mode="target"
 j_arg="-j$(nproc)"
 showcommands=
@@ -55,15 +78,17 @@ if [[ $repo == *"depot_tools"* ]]; then
   echo "include build/core/main.mk" > Makefile
 fi
 
+
+
 if [[ $mode == "host" ]]; then
   make_command="make $j_arg $showcommands build-art-host-tests $common_targets"
-  make_command+=" ${out_dir}/host/linux-x86/lib/libjavacoretests.so "
-  make_command+=" ${out_dir}/host/linux-x86/lib64/libjavacoretests.so"
+  make_command+=" $HOST_OUT/lib/libjavacoretests.so "
+  make_command+=" $HOST_OUT/lib64/libjavacoretests.so"
 elif [[ $mode == "target" ]]; then
   make_command="make $j_arg $showcommands build-art-target-tests $common_targets"
   make_command+=" libjavacrypto libjavacoretests libnetd_client linker toybox toolbox sh"
-  make_command+=" ${out_dir}/host/linux-x86/bin/adb libstdc++ "
-  make_command+=" ${out_dir}/target/product/${TARGET_PRODUCT}/system/etc/public.libraries.txt"
+  make_command+=" $HOST_OUT/bin/adb libstdc++ "
+  make_command+=" $TARGET_OUT/etc/public.libraries.txt"
 fi
 
 echo "Executing $make_command"
