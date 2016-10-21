@@ -47,6 +47,8 @@
 namespace openjdkjvmti {
 
 void ObjectTagTable::UpdateTable() {
+  update_since_last_sweep_ = true;
+
   auto WithReadBarrierUpdater = [&](const art::GcRoot<art::mirror::Object>& original_root,
                                     art::mirror::Object* original_obj ATTRIBUTE_UNUSED)
      REQUIRES_SHARED(art::Locks::mutator_lock_) {
@@ -84,7 +86,7 @@ bool ObjectTagTable::RemoveLocked(art::Thread* self, art::mirror::Object* obj, j
     return true;
   }
 
-  if (art::kUseReadBarrier && self->GetIsGcMarking()) {
+  if (art::kUseReadBarrier && self->GetIsGcMarking() && !update_since_last_sweep_) {
     // Update the table.
     UpdateTable();
 
@@ -111,7 +113,7 @@ bool ObjectTagTable::SetLocked(art::Thread* self, art::mirror::Object* obj, jlon
     return true;
   }
 
-  if (art::kUseReadBarrier && self->GetIsGcMarking()) {
+  if (art::kUseReadBarrier && self->GetIsGcMarking() && !update_since_last_sweep_) {
     // Update the table.
     UpdateTable();
 
@@ -131,6 +133,7 @@ void ObjectTagTable::Sweep(art::IsMarkedVisitor* visitor) {
   } else {
     SweepImpl<false>(visitor);
   }
+  update_since_last_sweep_ = false;
 }
 
 template <bool kHandleNull>
