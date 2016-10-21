@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_d8f6f572",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-21T16:53:52Z",
+      "side": 1,
+      "message": "You could remove the iterator here:\nit \u003d tagged_objects_.erase(it);",
+      "revId": "17ce6f4b530eb18f1ae5734ba2c0258752cae2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_8b7cb162",
         "filename": "runtime/openjdkjvmti/object_tagging.h",
         "patchSetId": 1
