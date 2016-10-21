@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_3bd8b008",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-10-21T19:56:50Z",
+      "side": 1,
+      "message": "As far as I can tell, there is no requirement to source build/envsetup.sh before running this script for any reason other than to get ANDROID_BUILD_TOP, which is not used, so it seems strange to require build/envsetup.sh first.  The whole point to using get_build_var is so that you don\u0027t need envsetup.sh/lunch before running the script.",
+      "parentUuid": "3c913fcf_a8e554f0",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_c824607c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
