@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_ab77757d",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-21T12:18:14Z",
+      "side": 1,
+      "message": "things",
+      "range": {
+        "startLine": 136,
+        "startChar": 65,
+        "endLine": 136,
+        "endChar": 71
+      },
+      "revId": "17ce6f4b530eb18f1ae5734ba2c0258752cae2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_8b7cb162",
+        "filename": "runtime/openjdkjvmti/object_tagging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-21T12:18:14Z",
+      "side": 1,
+      "message": "Premature optimization? If this change about just changing the data structure, could you do this optimization in a follow-up CL?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 32
+      },
+      "revId": "17ce6f4b530eb18f1ae5734ba2c0258752cae2f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
