@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "5c2fd370_071f36d2",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-10-21T20:47:40Z",
+      "side": 1,
+      "message": "None of that is necessary, it will all default to sane values.  You only need to set anything you want to override from the defaults (full-eng release)",
+      "parentUuid": "5c2fd370_8795e61d",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_c824607c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
