@@ -32,9 +32,10 @@ function cparg {
   done
 }
 
-DEPS="core-tests jsr166-tests mockito-target"
+TEST_DEPS="core-tests jsr166-tests mockito-target"
+BENCHMARK_DEPS="benchmarks"
 
-for lib in $DEPS
+for lib in $TEST_DEPS $BENCHMARK_DEPS
 do
   if [ ! -f "${JAVA_LIBRARIES}/${lib}_intermediates/classes.jack" ]; then
     echo "${lib} is missing. Before running, you must run art/tools/buildbot-build.sh"
@@ -49,10 +50,16 @@ if [ "$ANDROID_SERIAL" = "emulator-5554" ]; then
   emulator="yes"
 fi
 
+# Don't run benchmarks by default.
+run_benchmarks=false
+
+# Run all the tests by default.
+run_tests=true
+
 # Use JIT compiling by default.
 use_jit=true
 
-# Packages that currently work correctly with the expectation files.
+# Test packages that currently work correctly with the expectation files.
 working_packages=("dalvik.system"
                   "libcore.icu"
                   "libcore.io"
@@ -86,7 +93,13 @@ working_packages=("dalvik.system"
 # changes in case of failures.
 # "org.apache.harmony.security"
 
-vogar_args=$@
+# Benchmark packages that currently work correctly.
+working_benchmark_packages=(
+  "benchmarks"
+  "benchmarks.regression"
+)
+
+vogar_args="$@"
 while true; do
   if [[ "$1" == "--mode=device" ]]; then
     vogar_args="$vogar_args --device-dir=/data/local/tmp"
@@ -110,6 +123,16 @@ while true; do
     vogar_args=${vogar_args/$1}
     vogar_args="$vogar_args --vm-arg -XXlib:libartd.so"
     shift
+  elif [[ "$1" == "--no-tests" ]]; then
+    # Skip running the tests.
+    vogar_args=${vogar_args/$1}
+    run_tests=false
+    shift
+  elif [[ "$1" == "--benchmarks" ]]; then
+    # Enable running the benchmarks
+    vogar_args=${vogar_args/$1}
+    run_benchmarks=true
+    shift
   elif [[ "$1" == "" ]]; then
     break
   else
@@ -131,7 +154,20 @@ if $use_jit; then
 fi
 vogar_args="$vogar_args --vm-arg -Xusejit:$use_jit"
 
+if ! $run_tests && ! $run_benchmarks; then
+  echo "Nothing to do: Omit --no-tests or specify --benchmarks"
+fi
+
 # Run the tests using vogar.
-echo "Running tests for the following test packages:"
-echo ${working_packages[@]} | tr " " "\n"
-vogar $vogar_args $expectations $(cparg $DEPS) ${working_packages[@]}
+if $run_tests; then
+  echo "Running tests for the following test packages:"
+  echo ${working_packages[@]} | tr " " "\n"
+  vogar $vogar_args $expectations $(cparg $TEST_DEPS) ${working_packages[@]}
+fi
+
+# Run the benchmarks using vogar.
+if $run_benchmarks; then
+  echo "Running benchmarks for the following benchmark packages:"
+  echo ${working_benchmark_packages[@]} | tr " " "\n"
+  vogar --benchmark $vogar_args $(cparg $BENCHMARK_DEPS) ${working_benchmark_packages[@]}
+fi
