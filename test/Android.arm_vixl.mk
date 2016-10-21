@@ -18,6 +18,8 @@
 TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   003-omnibus-opcodes \
   004-ThreadStress \
+  020-string \
+  021-string2 \
   028-array-write \
   037-inherit \
   042-new-instance \
@@ -27,12 +29,14 @@ TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   083-compiler-regressions \
   096-array-copy-concurrent-gc \
   099-vmdebug \
+  100-reflect2 \
   103-string-append \
   114-ParallelGC \
   122-npe \
   123-inline-execute2 \
   129-ThreadGetId \
   137-cfi \
+  141-class-unload \
   144-static-field-sigquit \
   201-built-in-except-detail-messages \
   412-new-array \
@@ -56,12 +60,10 @@ TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   535-regression-const-val \
   536-checker-intrinsic-optimization \
   538-checker-embed-constants \
-  550-checker-multiply-accumulate \
   552-checker-primitive-typeprop \
   552-checker-sharpening \
   555-UnsafeGetLong-regression \
   562-checker-no-intermediate \
-  564-checker-negbitwise \
   570-checker-osr \
   570-checker-select \
   574-irreducible-and-constant-area \
@@ -70,3 +72,4 @@ TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   602-deoptimizeable \
   700-LoadArgRegs \
   800-smali \
+  957-methodhandle-transforms \
