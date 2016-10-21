@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_3b3ef0f1",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-21T20:15:22Z",
+      "side": 1,
+      "message": "get_build_var is not exported by envsetup.sh\n\n  aosp_master$ declare -x -F get_build_var\n  aosp_master$\n\nThat is why we need to re-source envsetup.sh again in this script [even if it was already sourced prior by the user of the script].\n\n------------\n\nI think you are right we could try to look for $PWD/build/envsetup.sh and just source it, however it still needs to lunch into the right thing somehow (and maybe it\u0027s a missing step that we check that lunch was actually ran?) or the right target build won\u0027t be selected.",
+      "parentUuid": "3c913fcf_3bd8b008",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_c824607c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
