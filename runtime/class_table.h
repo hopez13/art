@@ -107,6 +107,12 @@ class ClassTable {
       REQUIRES(!lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  template<class Visitor>
+  void VisitBssRoots(const Visitor& visitor)
+      NO_THREAD_SAFETY_ANALYSIS
+      REQUIRES(!lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Stops visit if the visitor returns false.
   template <typename Visitor>
   bool Visit(Visitor& visitor)

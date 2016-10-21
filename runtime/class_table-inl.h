@@ -33,11 +33,6 @@ void ClassTable::VisitRoots(Visitor& visitor) {
   for (GcRoot<mirror::Object>& root : strong_roots_) {
     visitor.VisitRoot(root.AddressWithoutBarrier());
   }
-  for (const OatFile* oat_file : oat_files_) {
-    for (GcRoot<mirror::Object>& root : oat_file->GetBssGcRoots()) {
-      visitor.VisitRootIfNonNull(root.AddressWithoutBarrier());
-    }
-  }
 }
 
 template<class Visitor>
@@ -51,6 +46,10 @@ void ClassTable::VisitRoots(const Visitor& visitor) {
   for (GcRoot<mirror::Object>& root : strong_roots_) {
     visitor.VisitRoot(root.AddressWithoutBarrier());
   }
+}
+
+template<class Visitor>
+void ClassTable::VisitBssRoots(const Visitor& visitor) {
   for (const OatFile* oat_file : oat_files_) {
     for (GcRoot<mirror::Object>& root : oat_file->GetBssGcRoots()) {
       visitor.VisitRootIfNonNull(root.AddressWithoutBarrier());

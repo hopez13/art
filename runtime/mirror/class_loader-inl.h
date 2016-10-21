@@ -33,10 +33,11 @@ template <bool kVisitClasses,
 inline void ClassLoader::VisitReferences(ObjPtr<mirror::Class> klass, const Visitor& visitor) {
   // Visit instance fields first.
   VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
-  if (kVisitClasses) {
-    // Visit classes loaded after.
-    ClassTable* const class_table = GetClassTable();
-    if (class_table != nullptr) {
+  ClassTable* const class_table = GetClassTable();
+  if (class_table != nullptr) {
+    class_table->VisitBssRoots(visitor);
+    if (kVisitClasses) {
+      // Visit classes loaded after.
       class_table->VisitRoots(visitor);
     }
   }
