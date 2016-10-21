@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_a8e554f0",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-21T19:49:23Z",
+      "side": 1,
+      "message": "It\u0027s also possible to run this script and not run build/envsetup.sh first, I\u0027ve accidentally tried running scripts like that countless times, it\u0027s always safer to have *at least* the ANDROID_BUILD_TOP check.\n\nIn which case ANDROID_BUILD_TOP will just expand to empty and the rest of this stuff will fail with more obscure messages.\n\n----------------------------\n\n(Actually I don\u0027t really like the above check (L17), it can succeed arbitrarily in any directory that happens to have art in it, but it\u0027s better than nothing)\n\nHappy to replace it with an even more robust option if you prefer, something like -z $ANDROID_BUILD_TOP \u0026\u0026 PWD \u003d\u003d ANDROID_BUILD_TOP\n\nOr we can just cd into the ANDROID_BUILD_TOP directory as the first step, it seems pretty arbitrary to require execution from the root.",
+      "parentUuid": "3c913fcf_8875f87b",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_c824607c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-21T19:39:44Z",
       "side": 1,
       "message": "This isn\u0027t necessary, get_build_var TARGET_OUT will already respect $OUT_DIR",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_48b5b0d2",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-21T19:49:23Z",
+      "side": 1,
+      "message": "Thanks for spotting this!",
+      "parentUuid": "3c913fcf_c824607c",
       "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
