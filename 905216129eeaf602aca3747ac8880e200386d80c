@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_8bcf1168",
+        "filename": "test/621-checker-new-instance/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-21T13:46:10Z",
+      "side": 1,
+      "message": "Add a prepare_for_register_allocation (before) with a CHECK: LoadClass.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "905216129eeaf602aca3747ac8880e200386d80c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
