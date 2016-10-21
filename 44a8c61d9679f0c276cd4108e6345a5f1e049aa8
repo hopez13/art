@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcfa47f1_702b58dd",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-21T22:32:48Z",
+      "side": 1,
+      "message": "Leftover from before, seems unnecessary now.",
+      "parentUuid": "3c913fcf_7b2958fc",
+      "range": {
+        "startLine": 166,
+        "startChar": 19,
+        "endLine": 166,
+        "endChar": 25
+      },
+      "revId": "44a8c61d9679f0c276cd4108e6345a5f1e049aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_e8c59c49",
         "filename": "runtime/openjdkjvmti/object_tagging.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3ca3ff16_22023626",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-21T22:32:48Z",
+      "side": 1,
+      "message": "Hope is that our libcxx implementation is stable in this respect...",
+      "parentUuid": "3c913fcf_e8c59c49",
+      "range": {
+        "startLine": 177,
+        "startChar": 28,
+        "endLine": 177,
+        "endChar": 35
+      },
+      "revId": "44a8c61d9679f0c276cd4108e6345a5f1e049aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_7b007864",
         "filename": "runtime/openjdkjvmti/object_tagging.cc",
         "patchSetId": 2
@@ -59,6 +107,24 @@
       "writtenOn": "2016-10-21T20:03:04Z",
       "side": 1,
       "message": "Could use continue instead of updated_iterator boolean.",
+      "revId": "44a8c61d9679f0c276cd4108e6345a5f1e049aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c1b9b2a_1e16710b",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-21T22:32:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c913fcf_7b007864",
       "revId": "44a8c61d9679f0c276cd4108e6345a5f1e049aa8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
