@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "5c2fd370_a7d2eab9",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-21T20:56:32Z",
+      "side": 1,
+      "message": "Well I\u0027m happy whatever makes the most sense here, I just did the initial minimum fix here for correctness. I think we also need Nicolas\u0027s insight as well since he is our buildbot overlord.",
+      "parentUuid": "5c2fd370_071f36d2",
+      "revId": "840226308fc1effdfae2393d6ea6380b48c2c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_c824607c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
