@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_ee957b1c",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-21T15:06:43Z",
+      "side": 1,
+      "message": "I don\u0027t think current jit-code-cache has such behavior which moves a jitted method to another place in the code cache. But if we are going to introduce such behavior in ART in the future, this event can help log such behavior to help the profiler to map the samples from different places to the jitted method correctly.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 56
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
