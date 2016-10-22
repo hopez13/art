@@ -22,6 +22,30 @@
       "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_2ec5d3f3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-22T12:38:32Z",
+      "side": 1,
+      "message": "Which is required, as the bots don\u0027t do envsetup.",
+      "parentUuid": "dcf74308_6fdb7963",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
