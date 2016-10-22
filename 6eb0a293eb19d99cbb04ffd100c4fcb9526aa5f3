@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_bb6e8071",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "local_ref_cookie is. But I did not want to change the signature of the methods here, considering they are exposed to assembly/compiled code.",
+      "parentUuid": "3c777f48_1a16da6f",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_fe1f2180",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2016-10-20T23:14:55Z",
       "side": 1,
       "message": "Now that it\u0027s part of the public interface, \"Resizable\" is a bit misleading.\n\nUsually containers come in two types: mutable (resizeable) and immutable (fixed).\n\nThat refers though to their size(), i.e. how many elements it contains, and not whether or not their capacity() can grow beyond the initial capacity\n\nSo I suggest something like \"ResizableCapacity\" or anything else less misleading.",
+      "range": {
+        "startLine": 235,
+        "startChar": 13,
+        "endLine": 235,
+        "endChar": 22
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_9b8aa4fb",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c913fcf_fe1f2180",
       "range": {
         "startLine": 235,
         "startChar": 13,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_bb95a01d",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c777f48_5adb0263",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 17
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_5e0f354d",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
@@ -99,6 +171,30 @@
       "writtenOn": "2016-10-20T23:14:55Z",
       "side": 1,
       "message": "see L235",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 44
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_db9a6c4c",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c913fcf_5e0f354d",
       "range": {
         "startLine": 247,
         "startChar": 35,
@@ -128,6 +224,24 @@
     },
     {
       "key": {
+        "uuid": "3c913fcf_bbbcc0a5",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "I didn\u0027t see a reason to change the encoding between debug and non-debug, that sounded like an unnecessary complication.\n\nYou need 3 bits to encode the serial in debug builds. Saving one in non-debug doesn\u0027t sound important, considering there are still 27 bits left for the table index.",
+      "parentUuid": "3c777f48_5a51c21f",
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c777f48_5a68e2cf",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
@@ -139,6 +253,30 @@
       "writtenOn": "2016-10-20T23:14:55Z",
       "side": 1,
       "message": "Why is it shifting 2 instead of 1 everywhere?",
+      "range": {
+        "startLine": 333,
+        "startChar": 33,
+        "endLine": 333,
+        "endChar": 35
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c913fcf_fbc64833",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Typo. Thanks. Done",
+      "parentUuid": "3c777f48_5a68e2cf",
       "range": {
         "startLine": 333,
         "startChar": 33,
@@ -174,6 +312,30 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_4e6b13a0",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c777f48_ba8d4682",
+      "range": {
+        "startLine": 341,
+        "startChar": 35,
+        "endLine": 341,
+        "endChar": 38
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c777f48_7a883e6f",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
@@ -197,6 +359,30 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_6e725793",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c777f48_7a883e6f",
+      "range": {
+        "startLine": 348,
+        "startChar": 35,
+        "endLine": 348,
+        "endChar": 37
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c777f48_9a85ea56",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
@@ -208,6 +394,30 @@
       "writtenOn": "2016-10-20T23:14:55Z",
       "side": 1,
       "message": "BitSizeOf(table_index)",
+      "range": {
+        "startLine": 351,
+        "startChar": 39,
+        "endLine": 351,
+        "endChar": 41
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_4e19533c",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-22T01:47:47Z",
+      "side": 1,
+      "message": "No. That\u0027s the size of an IndirectRef.",
+      "parentUuid": "3c777f48_9a85ea56",
       "range": {
         "startLine": 351,
         "startChar": 39,
