@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf663e5_86670c63",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-22T11:52:29Z",
+      "side": 1,
+      "message": "loop phi?",
+      "range": {
+        "startLine": 246,
+        "startChar": 52,
+        "endLine": 246,
+        "endChar": 62
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcdd835f_34d2b6e7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-22T11:52:29Z",
+      "side": 1,
+      "message": "Why do you need this check? Protecting from dead code being removed between the induction analysis and the loop optimization?",
+      "range": {
+        "startLine": 266,
+        "startChar": 13,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_4eb8077c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-22T11:52:29Z",
+      "side": 1,
+      "message": "These methods did not change right?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 1
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ced7706_d35b860f",
+        "filename": "test/530-checker-loops2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-22T11:52:29Z",
+      "side": 1,
+      "message": "woot!",
+      "range": {
+        "startLine": 902,
+        "startChar": 1,
+        "endLine": 902,
+        "endChar": 27
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
