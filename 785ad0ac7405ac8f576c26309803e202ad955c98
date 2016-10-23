@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_ce7997ed",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-23T13:15:46Z",
+      "side": 1,
+      "message": "I think we need a CLREX instruction here only when the comparison on line 792 failed; if it succeeded, the STXR instruction from line 794 would release the exclusive monitor. Will fix in next patch set.",
+      "range": {
+        "startLine": 797,
+        "startChar": 7,
+        "endLine": 797,
+        "endChar": 12
+      },
+      "revId": "785ad0ac7405ac8f576c26309803e202ad955c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
