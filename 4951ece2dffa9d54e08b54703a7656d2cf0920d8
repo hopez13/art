@@ -22,6 +22,30 @@
       "revId": "4951ece2dffa9d54e08b54703a7656d2cf0920d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c15cbc1_4c3b6f01",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-24T13:30:00Z",
+      "side": 1,
+      "message": "I thought this was a little clearer, especially with the comment on line 127-128. I see these as three cases, one of which has two sub-cases.\n\nThe three cases are :\n(1) both references.\n(2) both primitives\n(3) one reference and one primitve.\n\ndoes that make sense ?",
+      "parentUuid": "7c0657a0_ae1ae391",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "4951ece2dffa9d54e08b54703a7656d2cf0920d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
