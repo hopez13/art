@@ -430,6 +430,30 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_d79b3300",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "Then sizeof(IndirectRef), no hardcoding magic #s please.",
+      "parentUuid": "bc0a8fd0_4e19533c",
+      "range": {
+        "startLine": 351,
+        "startChar": 39,
+        "endLine": 351,
+        "endChar": 41
+      },
+      "revId": "6eb0a293eb19d99cbb04ffd100c4fcb9526aa5f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c913fcf_7e515120",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 2
