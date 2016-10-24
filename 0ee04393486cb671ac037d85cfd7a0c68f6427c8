@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_ccd903da",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "I made intrinsics and cha mutual exclusive on the flag by only use it for non-final virtual methods. intrinsics now only use it for static method or methods of final classes.",
+      "parentUuid": "3cd3fe97_27b6dad3",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 78
+      },
+      "revId": "0ee04393486cb671ac037d85cfd7a0c68f6427c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c37d20c_20190ae9",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 4
