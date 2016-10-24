@@ -108,6 +108,7 @@ class ClassLinker {
     kJavaLangThrowable,
     kJavaLangClassNotFoundException,
     kJavaLangStackTraceElement,
+    kDalvikSystemEmulatedStackFrame,
     kPrimitiveBoolean,
     kPrimitiveByte,
     kPrimitiveChar,

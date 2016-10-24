@@ -27,6 +27,7 @@
 #include "method_handles-inl.h"
 #include "mirror/array-inl.h"
 #include "mirror/class.h"
+#include "mirror/emulated_stack_frame.h"
 #include "mirror/method_handle_impl.h"
 #include "reflection.h"
 #include "reflection-inl.h"
@@ -518,13 +519,16 @@ static inline bool DoCallPolymorphic(ArtMethod* called_method,
                                      uint32_t (&arg)[Instruction::kMaxVarArgRegs],
                                      uint32_t vregC) ALWAYS_INLINE;
 
-REQUIRES_SHARED(Locks::mutator_lock_)
+template <bool is_range> REQUIRES_SHARED(Locks::mutator_lock_)
 static inline bool DoCallTransform(ArtMethod* called_method,
                                    Handle<mirror::MethodType> callsite_type,
+                                   Handle<mirror::MethodType> callee_type,
                                    Thread* self,
                                    ShadowFrame& shadow_frame,
                                    Handle<mirror::MethodHandleImpl> receiver,
-                                   JValue* result) ALWAYS_INLINE;
+                                   JValue* result,
+                                   uint32_t (&arg)[Instruction::kMaxVarArgRegs],
+                                   uint32_t vregC) ALWAYS_INLINE;
 
 REQUIRES_SHARED(Locks::mutator_lock_)
 inline void PerformCall(Thread* self,
@@ -729,12 +733,15 @@ inline bool DoInvokePolymorphic(Thread* self, ShadowFrame& shadow_frame,
     }
 
     if (handle_kind == kInvokeTransform) {
-      return DoCallTransform(called_method,
-                             callsite_type,
-                             self,
-                             shadow_frame,
-                             method_handle /* receiver */,
-                             result);
+      return DoCallTransform<is_range>(called_method,
+                                       callsite_type,
+                                       handle_type,
+                                       self,
+                                       shadow_frame,
+                                       method_handle /* receiver */,
+                                       result,
+                                       arg,
+                                       receiver_vregC);
     } else {
       return DoCallPolymorphic<is_range>(called_method,
                                          callsite_type,
@@ -899,18 +906,15 @@ static inline bool DoCallPolymorphic(ArtMethod* called_method,
       // case, we'll have to unmarshal the EmulatedStackFrame into the
       // new_shadow_frame and perform argument conversions on it.
       if (IsCallerTransformer(callsite_type)) {
-        // The emulated stack frame will be the first ahnd only argument
+        // The emulated stack frame will be the first and only argument
         // when we're coming through from a transformer.
-        //
-        // TODO(narayan): This should be a mirror::EmulatedStackFrame after that
-        // type is introduced.
-        ObjPtr<mirror::Object> emulated_stack_frame(
-            shadow_frame.GetVRegReference(first_src_reg));
-        if (!ConvertAndCopyArgumentsFromEmulatedStackFrame<is_range>(self,
-                                                                     emulated_stack_frame,
-                                                                     target_type,
-                                                                     first_dest_reg,
-                                                                     new_shadow_frame)) {
+        ObjPtr<mirror::EmulatedStackFrame> emulated_stack_frame(
+            reinterpret_cast<mirror::EmulatedStackFrame*>(
+                shadow_frame.GetVRegReference(first_src_reg)));
+        if (!emulated_stack_frame->WriteToShadowFrame(self,
+                                                      target_type,
+                                                      first_dest_reg,
+                                                      new_shadow_frame)) {
           DCHECK(self->IsExceptionPending());
           result->SetL(0);
           return false;
@@ -937,13 +941,17 @@ static inline bool DoCallPolymorphic(ArtMethod* called_method,
   return !self->IsExceptionPending();
 }
 
+template <bool is_range>
 static inline bool DoCallTransform(ArtMethod* called_method,
                                    Handle<mirror::MethodType> callsite_type,
+                                   Handle<mirror::MethodType> callee_type,
                                    Thread* self,
                                    ShadowFrame& shadow_frame,
                                    Handle<mirror::MethodHandleImpl> receiver,
-                                   JValue* result) {
-  // This can be fixed, because the method we're calling here
+                                   JValue* result,
+                                   uint32_t (&arg)[Instruction::kMaxVarArgRegs],
+                                   uint32_t first_src_reg) {
+  // This can be fixed to two, because the method we're calling here
   // (MethodHandle.transformInternal) doesn't have any locals and the signature
   // is known :
   //
@@ -963,18 +971,25 @@ static inline bool DoCallTransform(ArtMethod* called_method,
       CREATE_SHADOW_FRAME(kNumRegsForTransform, &shadow_frame, called_method, /* dex pc */ 0);
   ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
 
-  // TODO(narayan): Perform argument conversions first (if this is an inexact invoke), and
-  // then construct an argument list object that's passed through to the
-  // method. Note that the ArgumentList reference is currently a nullptr.
-  //
-  // NOTE(narayan): If the caller is a transformer method (i.e, there is only
-  // one argument and its type is EmulatedStackFrame), we can directly pass that
-  // through without having to do any additional work.
-  UNUSED(callsite_type);
+  StackHandleScope<1> hs(self);
+  MutableHandle<mirror::EmulatedStackFrame> sf(hs.NewHandle<mirror::EmulatedStackFrame>(nullptr));
+  if (IsCallerTransformer(callsite_type)) {
+    // If we're entering this transformer from another transformer, we can pass
+    // through the handle directly to the callee, instead of having to transform
+    sf.Assign(reinterpret_cast<mirror::EmulatedStackFrame*>(
+        shadow_frame.GetVRegReference(first_src_reg)));
+  } else {
+    sf.Assign(mirror::EmulatedStackFrame::CreateFromShadowFrameAndArgs<is_range>(
+        self,
+        callsite_type,
+        callee_type,
+        shadow_frame,
+        first_src_reg,
+        arg));
+  }
 
   new_shadow_frame->SetVRegReference(0, receiver.Get());
-  // TODO(narayan): This is the EmulatedStackFrame, currently nullptr.
-  new_shadow_frame->SetVRegReference(1, nullptr);
+  new_shadow_frame->SetVRegReference(1, sf.Get());
 
   PerformCall(self,
               code_item,
