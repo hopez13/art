@@ -75,6 +75,9 @@ extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* 
         !dex_file->GetOatDexFile()->GetOatFile()->GetBssGcRoots().empty()) {
       mirror::ClassLoader* class_loader = caller->GetDeclaringClass()->GetClassLoader();
       DCHECK(class_loader != nullptr);  // We do not use .bss GC roots for boot image.
+      DCHECK(
+          !class_loader->GetClassTable()->InsertOatFile(dex_file->GetOatDexFile()->GetOatFile()))
+          << dex_file->GetOatDexFile()->GetOatFile()->GetLocation();
       // Note that we emit the barrier before the compiled code stores the string as GC root.
       // This is OK as there is no suspend point point in between.
       Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
