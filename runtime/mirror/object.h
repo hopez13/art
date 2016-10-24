@@ -541,7 +541,7 @@ class MANAGED LOCKABLE Object {
 
   // Used by object_test.
   static void SetHashCodeSeed(uint32_t new_seed);
-  // Generate an identity hash code. Public for object test.
+  // Generate an identity hash code. Public for object test.adb r
   static uint32_t GenerateIdentityHashCode();
 
   // Returns a human-readable form of the name of the *class* of the given object.

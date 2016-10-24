@@ -486,9 +486,14 @@ void ConcurrentCopying::GrayAllDirtyImmuneObjects() {
     // Table is non null for boot image and zygote spaces. It is only null for application image
     // spaces.
     if (table != nullptr) {
-      // TODO: Add preclean outside the pause.
-      table->ClearCards();
+      // TODO: Consider add preclean outside the pause.
+      table->ProcessCards();
       table->VisitObjects(GrayImmuneObjectVisitor::Callback, &visitor);
+      // Since the cards are recorded in the mod-union table and this is paused, we can clear
+      // the cards for the space (to madvise).
+      TimingLogger::ScopedTiming split2("(Paused)ClearCards", GetTimings());
+      card_table->ClearCardRange(space->Begin(),
+                                 AlignDown(space->End(), accounting::CardTable::kCardSize));
     } else {
       // TODO: Consider having a mark bitmap for app image spaces and avoid scanning during the
       // pause because app image spaces are all dirty pages anyways.
@@ -2321,13 +2326,19 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(mirror::Object* ref) {
 
 void ConcurrentCopying::FinishPhase() {
   Thread* const self = Thread::Current();
+  gc::Heap* const heap = Runtime::Current()->GetHeap();
   {
     MutexLock mu(self, mark_stack_lock_);
     CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
   }
-  region_space_ = nullptr;
   {
-    MutexLock mu(Thread::Current(), skipped_blocks_lock_);
+    TimingLogger::ScopedTiming split("ClearRegionSpaceCards", GetTimings());
+    // We do not currently use the region space cards at all, madvise them away to save ram.
+    heap->GetCardTable()->ClearCardRange(region_space_->Begin(), region_space_->End());
+    region_space_ = nullptr;
+  }
+  {
+    MutexLock mu(self, skipped_blocks_lock_);
     skipped_blocks_map_.clear();
   }
   {
@@ -2339,7 +2350,6 @@ void ConcurrentCopying::FinishPhase() {
     if (kUseBakerReadBarrier && kFilterModUnionCards) {
       TimingLogger::ScopedTiming split("FilterModUnionCards", GetTimings());
       ReaderMutexLock mu2(self, *Locks::heap_bitmap_lock_);
-      gc::Heap* const heap = Runtime::Current()->GetHeap();
       for (space::ContinuousSpace* space : immune_spaces_.GetSpaces()) {
         DCHECK(space->IsImageSpace() || space->IsZygoteSpace());
         accounting::ModUnionTable* table = heap->FindModUnionTableFromSpace(space);
@@ -2351,7 +2361,7 @@ void ConcurrentCopying::FinishPhase() {
     }
     if (kUseBakerReadBarrier) {
       TimingLogger::ScopedTiming split("EmptyRBMarkBitStack", GetTimings());
-      DCHECK(rb_mark_bit_stack_.get() != nullptr);
+      DCHECK(rb_mark_bit_stack_ != nullptr);
       const auto* limit = rb_mark_bit_stack_->End();
       for (StackReference<mirror::Object>* it = rb_mark_bit_stack_->Begin(); it != limit; ++it) {
         CHECK(it->AsMirrorPtr()->AtomicSetMarkBit(1, 0));
