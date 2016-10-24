@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_6e074bc7",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T17:30:45Z",
+      "side": 1,
+      "message": "method_header-\u003eGetCode() - oat_file_.Begin()\n\nMaybe we should have a helper variable for the limit instead of the is_vmap_out_of_range.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 90,
+        "endLine": 1043,
+        "endChar": 106
+      },
+      "revId": "4a63b59e19e6ac75ca0b6b6feb411186fc836165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
