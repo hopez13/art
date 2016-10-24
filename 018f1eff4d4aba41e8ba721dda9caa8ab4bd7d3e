@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_db9c5f56",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T21:21:45Z",
+      "side": 1,
+      "message": "Isn\u0027t cleaning up the copy/move semantics of ti::Agent part of this CL?",
+      "parentUuid": "c1d3dce9_9827bd29",
+      "range": {
+        "startLine": 410,
+        "startChar": 19,
+        "endLine": 410,
+        "endChar": 38
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_72e0f8e5",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 8
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "No. If you wanted this properly shared and not \"just\" aliased, you would have fixed up the type of the fields.",
       "parentUuid": "c1d3dce9_35c9fab2",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_c6880205",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T21:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d3dce9_58f39585",
       "range": {
         "startLine": 31,
         "startChar": 0,
