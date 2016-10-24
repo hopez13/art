@@ -956,7 +956,7 @@ static void GenCas(LocationSummary* locations, Primitive::Type type, CodeGenerat
   // } while (tmp == 0 && failure([r_ptr] <- r_new_value));
   // result = tmp != 0;
 
-  Label loop_head;
+  Label loop_head, exit_loop;
   __ Bind(&loop_head);
 
   // TODO: When `type == Primitive::kPrimNot`, add a read barrier for
@@ -971,12 +971,16 @@ static void GenCas(LocationSummary* locations, Primitive::Type type, CodeGenerat
 
   __ subs(tmp_lo, tmp_lo, ShifterOperand(expected_lo));
 
-  __ it(EQ, ItState::kItT);
-  __ strex(tmp_lo, value_lo, tmp_ptr, EQ);
-  __ cmp(tmp_lo, ShifterOperand(1), EQ);
+  __ it(NE);
+  __ clrex(NE);
 
+  __ b(&exit_loop, NE);
+
+  __ strex(tmp_lo, value_lo, tmp_ptr);
+  __ cmp(tmp_lo, ShifterOperand(1));
   __ b(&loop_head, EQ);
 
+  __ Bind(&exit_loop);
   __ dmb(ISH);
 
   __ rsbs(out, tmp_lo, ShifterOperand(1));
