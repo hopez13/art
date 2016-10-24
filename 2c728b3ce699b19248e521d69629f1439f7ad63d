@@ -46,6 +46,30 @@
       "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_b2898040",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T19:31:27Z",
+      "side": 1,
+      "message": "Ok, so should I just have it check for the TARGET_VARIANT, TARGET_PRODUCT env variables only?",
+      "parentUuid": "7c0657a0_2ec5d3f3",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
