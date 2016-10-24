@@ -118,6 +118,7 @@ class OatWriter {
   //   - AddRawDexFileSource().
   // Then the user must call in order
   //   - WriteAndOpenDexFiles()
+  //   - Initialize()
   //   - PrepareLayout(),
   //   - WriteRodata(),
   //   - WriteCode(),
@@ -154,14 +155,20 @@ class OatWriter {
                             bool verify,
                             /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
+  bool WriteQuickeningInfo(OutputStream* vdex_out);
   bool WriteVerifierDeps(OutputStream* vdex_out, verifier::VerifierDeps* verifier_deps);
   bool WriteVdexHeader(OutputStream* vdex_out);
+  // Initialize the writer with the given parameters.
+  void Initialize(const CompilerDriver* compiler,
+                  ImageWriter* image_writer,
+                  const std::vector<const DexFile*>& dex_files) {
+    compiler_driver_ = compiler;
+    image_writer_ = image_writer;
+    dex_files_ = &dex_files;
+  }
 
   // Prepare layout of remaining data.
-  void PrepareLayout(const CompilerDriver* compiler,
-                     ImageWriter* image_writer,
-                     const std::vector<const DexFile*>& dex_files,
-                     linker::MultiOatRelativePatcher* relative_patcher);
+  void PrepareLayout(linker::MultiOatRelativePatcher* relative_patcher);
   // Write the rest of .rodata section (ClassOffsets[], OatClass[], maps).
   bool WriteRodata(OutputStream* out);
   // Write the code to the .text section.
@@ -221,6 +228,10 @@ class OatWriter {
     return compiler_driver_;
   }
 
+  uint32_t GetVdexSize() const {
+    return vdex_size_;
+  }
+
  private:
   class DexFileSource;
   class OatClass;
@@ -239,6 +250,7 @@ class OatWriter {
   class InitImageMethodVisitor;
   class WriteCodeMethodVisitor;
   class WriteMapMethodVisitor;
+  class WriteQuickeningInfoMethodVisitor;
 
   // Visit all the methods in all the compiled dex files in their definition order
   // with a given DexMethodVisitor.
@@ -325,6 +337,9 @@ class OatWriter {
   // Offset of section holding VerifierDeps inside Vdex.
   size_t vdex_verifier_deps_offset_;
 
+  // Offset of section holding quickening info inside Vdex.
+  size_t vdex_quickening_info_offset_;
+
   // Size required for Oat data structures.
   size_t oat_size_;
 
@@ -368,6 +383,8 @@ class OatWriter {
   uint32_t size_dex_file_;
   uint32_t size_verifier_deps_;
   uint32_t size_verifier_deps_alignment_;
+  uint32_t size_quickening_info_;
+  uint32_t size_quickening_info_alignment_;
   uint32_t size_interpreter_to_interpreter_bridge_;
   uint32_t size_interpreter_to_compiled_code_bridge_;
   uint32_t size_jni_dlsym_lookup_;

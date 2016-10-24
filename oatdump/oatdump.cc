@@ -1031,7 +1031,7 @@ class OatDumper {
       }
       uint32_t vmap_table_offset = oat_method.GetVmapTableOffset();
       vios->Stream() << StringPrintf("(offset=0x%08x)\n", vmap_table_offset);
-      if (vmap_table_offset > oat_file_.Size()) {
+      if (!kIsVdexEnabled && vmap_table_offset > oat_file_.Size()) {
         vios->Stream() << StringPrintf("WARNING: "
                                        "vmap table offset 0x%08x is past end of file 0x%08zx. "
                                        "vmap table offset was loaded from offset 0x%08x.\n",
