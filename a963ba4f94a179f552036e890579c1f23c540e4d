@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_daa0f978",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2864,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Added more comments about how this flag is used.",
+      "parentUuid": "bcafeeab_db53b369",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcbe0e35_23dfeafb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2016-10-14T09:49:48Z",
       "side": 1,
       "message": "DependsOnGC.",
+      "range": {
+        "startLine": 2867,
+        "startChar": 54,
+        "endLine": 2867,
+        "endChar": 58
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_9a0311b9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2867,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "It seems to carry a different meaning from DependsOnGC. It can be modified by suspension (not GC) and we\u0027ll have special rules about guard elimination/movement. It\u0027s a special kind of dependency. A guard needs to exist after receiver\u0027s definition, but before that receiver\u0027s devirtualized call. I would just treat it specially instead of being part of side effects.\n\nI saw HDeoptimize does CanTriggerGC. Can you explain why? HDeoptimize can trigger gc but it won\u0027t return back to the calling method so it doesn\u0027t seem to matter.",
+      "parentUuid": "bcbe0e35_23dfeafb",
       "range": {
         "startLine": 2867,
         "startChar": 54,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_2093c642",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Moved to SetShouldDeoptimizeFlag().",
+      "parentUuid": "bcafeeab_db9df35d",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_bb92274c",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_403d32da",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcafeeab_bb92274c",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_9b976b3c",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
@@ -87,6 +165,24 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "remove \"Basically\"",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_403a528c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcafeeab_9b976b3c",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_60df8e25",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "I took this part of comment out. Change the comment to:\n    // Native method\u0027s invocation overhead is already high and it\n    // cannot be inlined. It\u0027s not worthwhile to devirtualize the\n    // call which can add a deoptimization point.",
+      "parentUuid": "bca52e1d_4ba4c5a1",
+      "range": {
+        "startLine": 209,
+        "startChar": 7,
+        "endLine": 210,
+        "endChar": 38
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_db1853e7",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
@@ -127,6 +247,24 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "this loop could use some more doc",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_a0d9763f",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcafeeab_db1853e7",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -150,6 +288,24 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_6c6ed774",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Added one that tests dependency manipulating methods. Other methods are more difficult to test and are tested in the run-test test case.",
+      "parentUuid": "bcafeeab_5b256316",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc6d8244_04997671",
         "filename": "runtime/cha.h",
         "patchSetId": 5
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_2c78cf34",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc6d8244_04997671",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6a8e2b_e32e12f9",
         "filename": "runtime/cha.h",
         "patchSetId": 5
@@ -178,6 +352,24 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "describe what it returns in more detail, perhaps a more descriptive typedef will already help",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_0057aa41",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Added more comments for the typedef.",
+      "parentUuid": "bc6a8e2b_e32e12f9",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -224,6 +416,48 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_003e8af1",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c78fafe_266bd618",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_5df879a7",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "I left it public since I have a cha_test.cc to test this method now.",
+      "parentUuid": "fcc886e8_45bdcaa9",
+      "range": {
+        "startLine": 36,
+        "startChar": 61,
+        "endLine": 36,
+        "endChar": 74
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_fb6f8f52",
         "filename": "runtime/cha.h",
         "patchSetId": 5
@@ -235,6 +469,24 @@
       "writtenOn": "2016-10-13T16:33:51Z",
       "side": 1,
       "message": "You use returns, add, remove, and update. Use one form consistently",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_7da8d576",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Changed returns to return.",
+      "parentUuid": "bcafeeab_fb6f8f52",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -287,6 +539,54 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_bdcb5d5c",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cd3fe97_c7d09ef6",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 13
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_5d5199d5",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Linker needs to call this.",
+      "parentUuid": "bcbe0e35_63d9e213",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 81
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cd3fe97_87c6a642",
         "filename": "runtime/cha.h",
         "patchSetId": 5
@@ -298,6 +598,30 @@
       "writtenOn": "2016-10-14T09:49:48Z",
       "side": 1,
       "message": "Add a comment why you need the pair: one is for invalidating the entrypoint of the ArtMethod, the other is for invalidating code in the stack (that is potentially not the entrypoint of its corresponding ArtMethod).",
+      "range": {
+        "startLine": 70,
+        "startChar": 18,
+        "endLine": 70,
+        "endChar": 64
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_200c6657",
+        "filename": "runtime/cha.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cd3fe97_87c6a642",
       "range": {
         "startLine": 70,
         "startChar": 18,
@@ -333,6 +657,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_c3c76c2f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc886e8_a5eabe9a",
+      "range": {
+        "startLine": 674,
+        "startChar": 24,
+        "endLine": 674,
+        "endChar": 25
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_fbfc2f57",
         "filename": "runtime/class_linker.h",
         "patchSetId": 5
@@ -350,6 +698,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_a395001b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Should have removed. It\u0027s in cha.h now.",
+      "parentUuid": "bcafeeab_fbfc2f57",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bca52e1d_abc1e92e",
         "filename": "runtime/class_linker.h",
         "patchSetId": 5
@@ -361,6 +727,30 @@
       "writtenOn": "2016-10-14T09:49:48Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 39
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_03aa145b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca52e1d_abc1e92e",
       "range": {
         "startLine": 1188,
         "startChar": 0,
@@ -396,6 +786,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_23a1107b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Moved to Runtime.",
+      "parentUuid": "bcbe0e35_a313daca",
+      "range": {
+        "startLine": 1204,
+        "startChar": 0,
+        "endLine": 1204,
+        "endChar": 30
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cd86ab1_4a2f93f5",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -407,6 +821,30 @@
       "writtenOn": "2016-10-14T13:30:27Z",
       "side": 1,
       "message": "This entry might be in the CHA data structures. You need to remove it there too.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 94
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_a3f7c01c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd86ab1_4a2f93f5",
       "range": {
         "startLine": 254,
         "startChar": 0,
@@ -436,6 +874,24 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_a3efc003",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Added more comments about what this is testing. I tried to make this pass under optimizing/jit/interpreter. Currently checker part is difficult since this is under jit.",
+      "parentUuid": "bcafeeab_5b57a35a",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcc102c4_44082e89",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 5
@@ -459,6 +915,30 @@
     },
     {
       "key": {
+        "uuid": "dcf58392_43dedc54",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Added sIsOptimizing to distinguish various cases.",
+      "parentUuid": "dcc102c4_44082e89",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcc102c4_a465a246",
         "filename": "test/616-cha/src/Main.java",
         "patchSetId": 5
@@ -470,6 +950,30 @@
       "writtenOn": "2016-10-14T09:49:48Z",
       "side": 1,
       "message": "I think you can get rid of this now.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 28
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_036b34a0",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcc102c4_a465a246",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -510,6 +1014,42 @@
       "writtenOn": "2016-10-14T09:49:48Z",
       "side": 1,
       "message": "Yeah, we could have a handshake to make sure the thread is where we want it to be.",
+      "parentUuid": "bcafeeab_9b740bf5",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_268abefc",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca52e1d_8bc6ad42",
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf58392_468d4a14",
+        "filename": "test/616-cha/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "Not really flakiness. Just opens up more opportunities to hit the scenario to be tested. I modified it and it\u0027s guaranteed to hit the scenario I want to test now.",
       "parentUuid": "bcafeeab_9b740bf5",
       "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
