@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1d3dce9_785d3992",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T20:55:26Z",
+      "side": 1,
+      "message": "No support for multiple listeners?",
+      "range": {
+        "startLine": 163,
+        "startChar": 56,
+        "endLine": 163,
+        "endChar": 74
+      },
+      "revId": "f3f4f1586bfa1f47d298121680f4d15b5d8bb23a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_b852c17c",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T20:55:26Z",
+      "side": 1,
+      "message": "Is reporting pauses really what we want? JVMTI_EVENT_GARBAGE_COLLECTION_START seems to indicate reporting the whole GC. Add comment?",
+      "range": {
+        "startLine": 198,
+        "startChar": 37,
+        "endLine": 198,
+        "endChar": 73
+      },
+      "revId": "f3f4f1586bfa1f47d298121680f4d15b5d8bb23a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
