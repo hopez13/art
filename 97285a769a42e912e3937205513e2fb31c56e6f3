@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_6ee4eb25",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "Check empty() instead. It should not matter for an empty ArrayRef\u003c\u003e whether the data() is null.",
+      "range": {
+        "startLine": 778,
+        "startChar": 42,
+        "endLine": 778,
+        "endChar": 59
+      },
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_4ee12714",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 915,
+        "startChar": 42,
+        "endLine": 915,
+        "endChar": 59
+      },
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce08714_f23fa01f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1399,
+        "startChar": 62,
+        "endLine": 1399,
+        "endChar": 79
+      },
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2123d89f_751e687a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1672,
+        "startChar": 40,
+        "endLine": 1672,
+        "endChar": 57
+      },
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_ee569be7",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "This sequential representation is slow to search through without the oat file (i.e. touching lots of pages if everything is quickened). I think we should aim for quick retrieval even without the oat file. Another goal (not for this CL) would be to allow quickening even those methods that we do compile.",
+      "range": {
+        "startLine": 1678,
+        "startChar": 8,
+        "endLine": 1679,
+        "endChar": 39
+      },
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_ce0d171b",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "Add comment about WriteQuickeningInfo()?",
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_063afce2",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "Isn\u0027t this rather weak? Shouldn\u0027t we check\n\n    kIsVdexEnabled ? vmap_table_offset \u003e\u003d vdex_file_.Size()\n                   : vmap_table_offset \u003e\u003d method_header-\u003eGetCode() - oat_file_.Begin()\n\n? (Assuming we have access to the vdex_file_.)",
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_4efa47ce",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T15:58:19Z",
+      "side": 1,
+      "message": "We should theoretically bump the vdex version for this. But maybe we don\u0027t want to do that just yet?",
+      "revId": "97285a769a42e912e3937205513e2fb31c56e6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
