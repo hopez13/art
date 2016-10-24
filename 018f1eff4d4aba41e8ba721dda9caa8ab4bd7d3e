@@ -22,6 +22,184 @@
       "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_923a3c89",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 410,
+        "startChar": 19,
+        "endLine": 410,
+        "endChar": 38
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_72e0f8e5",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "I should have asked before? Why is this here?",
+      "range": {
+        "startLine": 507,
+        "startChar": 2,
+        "endLine": 511,
+        "endChar": 3
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_b2e500f2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "Typo",
+      "range": {
+        "startLine": 1318,
+        "startChar": 13,
+        "endLine": 1318,
+        "endChar": 23
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_95278629",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "Indent off.",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_75f8e25e",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "I do *not* think this is a good idea. Saving a few characters for less visibility. Leave them copied, or remove the copied definitions.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_750f82a2",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "How is this valid? Who owns the handle?\n\nAlex: honestly, why are we trying this optimization? Why not vector\u003cunique_ptr\u003cAgent\u003e\u003e?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_1562b655",
+        "filename": "test/908-attach-agent/attach.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "Needs to be moved, 908 exists now.",
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_b52baada",
+        "filename": "test/ti-agent/common_load.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T19:58:06Z",
+      "side": 1,
+      "message": "Why would you add this here?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
