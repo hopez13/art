@@ -114,6 +114,781 @@
       "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_aa882f03",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 47,
+        "startChar": 42,
+        "endLine": 47,
+        "endChar": 43
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "613cf0f2_3f6e4773",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "return ContainsElement(node-\u003eGetDataPredecessors(), other);",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41b0ccbe_06785a34",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "return ContainsElement(node-\u003eGetOtherPredecessors(), other);",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_aba1097d",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Is a trailing separator OK?\n\nI usually do\n\n  const char* separator \u003d \"\";\n  for (...) {\n    stream \u003c\u003c separator \u003c\u003c ...;\n    separator \u003d \",\";\n  }",
+      "range": {
+        "startLine": 199,
+        "startChar": 42,
+        "endLine": 199,
+        "endChar": 45
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_4bbc25a4",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Command line option?",
+      "range": {
+        "startLine": 225,
+        "startChar": 23,
+        "endLine": 225,
+        "endChar": 46
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_0bc61d36",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "I don\u0027t like static variables. Can this be supplied externally?",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 38
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_2bcbd93c",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Drop the pointer. Just\n\n  initial_candidates.assign(candidates_.begin(), candidates_.end());\n\ninstead of the `new` below.",
+      "range": {
+        "startLine": 282,
+        "startChar": 2,
+        "endLine": 282,
+        "endChar": 31
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_4a973326",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "This looks like it should be handled by the PopHighestPriorityNode(). (Otherwise the \"random\" scheduler isn\u0027t actually that random.)",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 3
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "613cf0f2_1f73835d",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Maybe `switch (instruction-\u003eGetKind())`?",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_ebacf16e",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "unsupported instruction set?",
+      "range": {
+        "startLine": 474,
+        "startChar": 48,
+        "endLine": 474,
+        "endChar": 54
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_cec5174a",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "The figure below shows `n1` being selected.",
+      "range": {
+        "startLine": 120,
+        "startChar": 31,
+        "endLine": 120,
+        "endChar": 33
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_eea7bba4",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "kArenaAllocScheduling",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 61
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_c69864c6",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 14
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011c1460_77978a26",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "I\u0027d prefer\n\n  ArrayRef\u003cSchedulingNode*\u003e GetDataPredecessors() { ... }\n  ArrayRef\u003cconst SchedulingNode*\u003e GetDataPredecessors() const { ... }",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 53
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2123d89f_359d90a2",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 54
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c7a1f69_d91437b8",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "I assume this should not be negative. So, size_t or uint32_t, the latter is preferable to keep compiler memory usage as low as possible. Same for other fields below and setters/getters above.",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 5
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_8ecf1f68",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "represents",
+      "range": {
+        "startLine": 204,
+        "startChar": 10,
+        "endLine": 204,
+        "endChar": 19
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_6eb50bd3",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "zero",
+      "range": {
+        "startLine": 205,
+        "startChar": 18,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41260cae_96ad8cd1",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "End the sentence with a period.",
+      "range": {
+        "startLine": 213,
+        "startChar": 60,
+        "endLine": 213,
+        "endChar": 61
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_a68d6882",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const HInstruction* const",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_2ebf13b5",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "I\u0027d go with 4, 2 isn\u0027t worth the reserve() call.",
+      "range": {
+        "startLine": 235,
+        "startChar": 54,
+        "endLine": 235,
+        "endChar": 55
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_0ebc4fbc",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "kArenaAllocScheduling",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 36
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_4b974526",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 16
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "813d64bf_b082b84b",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 272,
+        "startChar": 59,
+        "endLine": 272,
+        "endChar": 60
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_4b6e6574",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const SchedulingNode*",
+      "range": {
+        "startLine": 274,
+        "startChar": 34,
+        "endLine": 274,
+        "endChar": 77
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_6b73215d",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 276,
+        "startChar": 35,
+        "endLine": 276,
+        "endChar": 78
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011c1460_17cbb63c",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Do we really need to expose this internal map?",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_eba71191",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 302,
+        "startChar": 23,
+        "endLine": 302,
+        "endChar": 35
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_ca81e3e3",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 304,
+        "startChar": 19,
+        "endLine": 304,
+        "endChar": 20
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "813d64bf_907fb481",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 306,
+        "startChar": 17,
+        "endLine": 306,
+        "endChar": 18
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_ea7e271f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "range": {
+        "startLine": 324,
+        "startChar": 50,
+        "endLine": 324,
+        "endChar": 51
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21ad986a_c581dae3",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Alternatively, you could let the subclasses hold the container of nodes and have two functions:\n\n  virtual void AddCandidate(SchedulingNode* candidate) \u003d 0;\n  virtual SchedulingNode* PopHighestPriorityCandidate() \u003d 0;\n\n(Return `null` from `PopHighestPriorityCandidate()` to indicate we\u0027re done.; or count the number of scheduled instructions.)\nThat way, each subclass can choose a suitable container, for example a heap with its own comparator.",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011c1460_d7ac1e6f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "`static` instead of `const`; maybe `protected`?\n\n(Unless you take the alternative design above.)",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_8a8bebff",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "Add top-level `const`s.",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 34
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c9c045_cbaa555a",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-24T21:04:59Z",
+      "side": 1,
+      "message": "const",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
