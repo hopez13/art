@@ -464,6 +464,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_4c9c33f5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-24T23:45:55Z",
+      "side": 1,
+      "message": "I know it\u0027s not possible for the outer graph. But if we do this elimination on callee graph (*before* it\u0027s inlined into outer graph), we must be careful since a callee graph\u0027s parameter may not really be a parameter on the outer graph.\n\nI\u0027ll do this in another CL anyway.",
+      "parentUuid": "bcbe0e35_a3eaba9a",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5bfe40_27933a53",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
