@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_352d7aab",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "Why not? \n\nSeriously, as an optimization is nice but not really critical, but the main reason emplacing is used here is that it avoids the inconvenient questions about copy/move semantics of the ti::Agent type (as I noted in agent.h that\u0027s one area that could be improved further)",
+      "parentUuid": "c1d3dce9_923a3c89",
+      "range": {
+        "startLine": 410,
+        "startChar": 19,
+        "endLine": 410,
+        "endChar": 38
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_72e0f8e5",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 8
@@ -83,6 +107,30 @@
       "writtenOn": "2016-10-24T19:58:06Z",
       "side": 1,
       "message": "I should have asked before? Why is this here?",
+      "range": {
+        "startLine": 507,
+        "startChar": 2,
+        "endLine": 511,
+        "endChar": 3
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_953b06e6",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "Good catch, removed (left over from an early iteration)",
+      "parentUuid": "c1d3dce9_72e0f8e5",
       "range": {
         "startLine": 507,
         "startChar": 2,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_5547de6b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d3dce9_b2e500f2",
+      "range": {
+        "startLine": 1318,
+        "startChar": 13,
+        "endLine": 1318,
+        "endChar": 23
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_95278629",
         "filename": "runtime/ti/agent.cc",
         "patchSetId": 8
@@ -129,6 +201,30 @@
       "writtenOn": "2016-10-24T19:58:06Z",
       "side": 1,
       "message": "Indent off.",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_1512b63b",
+        "filename": "runtime/ti/agent.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1d3dce9_95278629",
       "range": {
         "startLine": 58,
         "startChar": 22,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_35c9fab2",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "This is done to have a common type that can be used in the shared DoLoadHelper() method, not to save typing in the definitions.",
+      "parentUuid": "c1d3dce9_75f8e25e",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_750f82a2",
         "filename": "runtime/ti/agent.h",
         "patchSetId": 8
@@ -187,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c1d3dce9_750d4218",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "Good question. Actual agents can not be copied, but when ti::Agent is used as argument wrapper it can. This is checked in the implementation of the copy assignment, but the real solution is to split into specialized types that fulfill a single role (vector\u003cunique_ptr\u003cAgent\u003e\u003e would be just a band-aid IMO)",
+      "parentUuid": "c1d3dce9_750f82a2",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_1562b655",
         "filename": "test/908-attach-agent/attach.h",
         "patchSetId": 8
@@ -198,6 +342,24 @@
       "writtenOn": "2016-10-24T19:58:06Z",
       "side": 1,
       "message": "Needs to be moved, 908 exists now.",
+      "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_55f11eeb",
+        "filename": "test/908-attach-agent/attach.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2016-10-24T20:33:51Z",
+      "side": 1,
+      "message": "I just checked the master branch and I don\u0027t see a 908?",
+      "parentUuid": "c1d3dce9_1562b655",
       "revId": "018f1eff4d4aba41e8ba721dda9caa8ab4bd7d3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
