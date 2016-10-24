@@ -22,6 +22,168 @@
       "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_2e3dd3da",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "Actually, could this help with code cache GC? If the compiled code gets deleted, could we do a kMove with nullptr? Meaining later compilations using the same address will be correclty reported?\n\nNote that currently, we disable code cache GC under perf.",
+      "parentUuid": "7c0657a0_ee957b1c",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 56
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_0e3a0fe3",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "Odd, the jitted code will run on lots of threads. Won\u0027t this value here skew the display?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 73
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc352f64_85b36437",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "Mention what ART jit does?",
+      "range": {
+        "startLine": 159,
+        "startChar": 30,
+        "endLine": 159,
+        "endChar": 100
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_ee457b62",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "Mention that\u0027s it\u0027s currently unused by the ART JIT. Do you plan on implementing it?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 76
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_6e33cb11",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "where?",
+      "range": {
+        "startLine": 65,
+        "startChar": 15,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_4e300703",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "... report. Source code can...",
+      "range": {
+        "startLine": 66,
+        "startChar": 76,
+        "endLine": 66,
+        "endChar": 77
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41260cae_76cf9013",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T13:16:41Z",
+      "side": 1,
+      "message": "Nit: one line.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
