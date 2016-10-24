@@ -57,6 +57,52 @@
       "revId": "3b11651ee70ab0c55ac6fa61eff87e6cb268f2eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011c1460_77bc2aa4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T19:43:29Z",
+      "side": 1,
+      "message": "Add a comment about why you need to insert them (eg \"otherwise we do not register the dex cache...\")?",
+      "range": {
+        "startLine": 1788,
+        "startChar": 0,
+        "endLine": 1789,
+        "endChar": 43
+      },
+      "revId": "3b11651ee70ab0c55ac6fa61eff87e6cb268f2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1bcbc99_4a6e5374",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T19:43:29Z",
+      "side": 1,
+      "message": "Add a \"\u003c\u003c\" message to explaoin what this DCHECK is about?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 68
+      },
+      "revId": "3b11651ee70ab0c55ac6fa61eff87e6cb268f2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
