@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "fce08714_f210c075",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T18:01:14Z",
+      "side": 1,
+      "message": "Up to you. But if we start with a DCHECK, and forget to update it, we\u0027re just creating a time bomb. Maybe you should make LookupCycle aware that some of its entries are dead, and not return them?",
+      "parentUuid": "bc0a8fd0_f728f7b5",
+      "range": {
+        "startLine": 266,
+        "startChar": 13,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_4eb8077c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
