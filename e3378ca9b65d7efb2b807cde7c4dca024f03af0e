@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "610a305f_2f6e2973",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "Why not just put these in constructor?",
+      "range": {
+        "startLine": 87,
+        "startChar": 29,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_efb9c1ae",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "Why do we need to manually specify the enum values?",
+      "range": {
+        "startLine": 118,
+        "startChar": 24,
+        "endLine": 118,
+        "endChar": 27
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_0fea4595",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "What is the point of keeping this as an array? We presumably don\u0027t need that.",
+      "range": {
+        "startLine": 215,
+        "startChar": 25,
+        "endLine": 215,
+        "endChar": 36
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_8fd595d2",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "Could be on same line",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 362,
+        "endChar": 15
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_0f0fe5a2",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "Same line?",
+      "range": {
+        "startLine": 406,
+        "startChar": 2,
+        "endLine": 406,
+        "endChar": 15
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_4fcbad3b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T23:37:24Z",
+      "side": 1,
+      "message": "Seems wordy, you don\u0027t like GetKind?",
+      "range": {
+        "startLine": 1863,
+        "startChar": 49,
+        "endLine": 1863,
+        "endChar": 67
+      },
+      "revId": "e3378ca9b65d7efb2b807cde7c4dca024f03af0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
