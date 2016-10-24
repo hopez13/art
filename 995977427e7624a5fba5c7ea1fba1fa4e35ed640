@@ -1,0 +1,445 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc0a8fd0_d7d97342",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 131,
+        "startChar": 25,
+        "endLine": 131,
+        "endChar": 33
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_017fca1c",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "nit: CountNullEntries",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 24
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_8173da5b",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "Very elegant and intuitive, thank you!",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 68
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_e1d8a609",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "I suppose it\u0027ll constantly go into this branch whenever we pop a 0-entry frame?\n\nBut it won\u0027t matter because the scanning times will instantly finish (since there\u0027s only 0 entries).\n\nProbably should add a comment about this somewhere here.",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_5761e3ec",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "Is this accurate for weaks?",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_5788c36e",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "This implies can\u0027t call DeleteLocalRef for something created prior to a PushFrame.\n\nI think we should call out the semantics here as well as the efficiency requirements",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_97d9bb85",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 87,
+        "startChar": 13,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_d7a173e3",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "Why does this matter?\n\nIt says it\u0027s not a real pointer on L50-51",
+      "range": {
+        "startLine": 88,
+        "startChar": 17,
+        "endLine": 90,
+        "endChar": 55
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_97b09b2b",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": ": here will probably be more clear the rest of the sentences elaborate on this sentence",
+      "range": {
+        "startLine": 92,
+        "startChar": 70,
+        "endLine": 92,
+        "endChar": 71
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_77ad07cf",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "Is this 2x still right?",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 95,
+        "endChar": 18
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_37fa6fcd",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "(Unrelated to your code)\n\nI don\u0027t like this, it overloads handlescope and invalid? Why don\u0027t we have -1 or 4, etc for handle scope?",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_7704e7ee",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "nit align \u003d by column",
+      "range": {
+        "startLine": 108,
+        "startChar": 11,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_b7f4bfdb",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "not new code but if its not too much trouble, make this into a kKindMask or similar? \n\n   (1 \u003c\u003c kKindBits) - 1",
+      "range": {
+        "startLine": 115,
+        "startChar": 74,
+        "endLine": 115,
+        "endChar": 78
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_f76597cb",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "bits for the top index.",
+      "range": {
+        "startLine": 142,
+        "startChar": 67,
+        "endLine": 142,
+        "endChar": 71
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_576ba39f",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "within",
+      "range": {
+        "startLine": 143,
+        "startChar": 23,
+        "endLine": 143,
+        "endChar": 27
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_b782ff1f",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "add a static_assert for this please. IsPowerOfTwo in bit_utils",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_b7295f54",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "nit: use uref \u003e\u003e (kKindBits + kSerialBits) or (uref \u003e\u003e kKindBits) \u003e\u003e kSerialBits to avoid having to think about whether \u003e\u003e is left associative or right associative",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_172f6b56",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "nit: magic 32s",
+      "range": {
+        "startLine": 349,
+        "startChar": 47,
+        "endLine": 349,
+        "endChar": 49
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_378d4fbe",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "modulo",
+      "range": {
+        "startLine": 384,
+        "startChar": 30,
+        "endLine": 384,
+        "endChar": 36
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_17964bd6",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "table\u0027s capacity",
+      "range": {
+        "startLine": 393,
+        "startChar": 17,
+        "endLine": 393,
+        "endChar": 22
+      },
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_c1248226",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2321,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T18:17:11Z",
+      "side": 1,
+      "message": "nit: can probably just add \u003d\u003d and !\u003d to the state.",
+      "revId": "995977427e7624a5fba5c7ea1fba1fa4e35ed640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
