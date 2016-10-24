@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "610a305f_ef71c1ff",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T23:55:50Z",
+      "side": 1,
+      "message": ", where the strong (local/global) references are part of the GC root set (but not weak global references).",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 50,
+        "endChar": 41
+      },
+      "revId": "16d1c90fa034c1eb9a4d319a84010ea183550cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_af9059d9",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T23:55:50Z",
+      "side": 1,
+      "message": "grammar: within seems more correct here",
+      "range": {
+        "startLine": 134,
+        "startChar": 23,
+        "endLine": 134,
+        "endChar": 27
+      },
+      "revId": "16d1c90fa034c1eb9a4d319a84010ea183550cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_0f47e593",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T23:55:50Z",
+      "side": 1,
+      "message": "nit: can you use the name of the field here so its more clear?",
+      "range": {
+        "startLine": 343,
+        "startChar": 57,
+        "endLine": 343,
+        "endChar": 66
+      },
+      "revId": "16d1c90fa034c1eb9a4d319a84010ea183550cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_2f10e973",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T23:55:50Z",
+      "side": 1,
+      "message": "Can you fix this please? module is a typo, it\u0027s modulo",
+      "range": {
+        "startLine": 406,
+        "startChar": 30,
+        "endLine": 406,
+        "endChar": 36
+      },
+      "revId": "16d1c90fa034c1eb9a4d319a84010ea183550cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_0f152564",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T23:55:50Z",
+      "side": 1,
+      "message": "table\u0027s capacity",
+      "range": {
+        "startLine": 415,
+        "startChar": 17,
+        "endLine": 415,
+        "endChar": 22
+      },
+      "revId": "16d1c90fa034c1eb9a4d319a84010ea183550cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
