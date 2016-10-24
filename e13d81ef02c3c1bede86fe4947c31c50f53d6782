@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_f728f7b5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-24T17:25:58Z",
+      "side": 1,
+      "message": "Most stored induction information becomes \"stale\" after a while (and we update the information that we need in phases that incrementally change the IR). So I am okay doing this as a DCHECK for now and see if our assumption goes wrong somewhere (and then deal with it properly)....",
+      "parentUuid": "7c0657a0_aefc239b",
+      "range": {
+        "startLine": 266,
+        "startChar": 13,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "e13d81ef02c3c1bede86fe4947c31c50f53d6782",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_4eb8077c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
