@@ -1143,7 +1143,7 @@ static void GenCas(LocationSummary* locations, Primitive::Type type, CodeGenerat
   // } while (tmp_value == 0 && failure([tmp_ptr] <- r_new_value));
   // result = tmp_value != 0;
 
-  vixl::aarch64::Label loop_head, exit_loop;
+  vixl::aarch64::Label loop_head, comparison_failed, exit_loop;
   __ Bind(&loop_head);
   // TODO: When `type == Primitive::kPrimNot`, add a read barrier for
   // the reference stored in the object before attempting the CAS,
@@ -1155,9 +1155,12 @@ static void GenCas(LocationSummary* locations, Primitive::Type type, CodeGenerat
   DCHECK(!(type == Primitive::kPrimNot && kEmitCompilerReadBarrier));
   __ Ldaxr(tmp_value, MemOperand(tmp_ptr));
   __ Cmp(tmp_value, expected);
-  __ B(&exit_loop, ne);
+  __ B(&comparison_failed, ne);
   __ Stlxr(tmp_32, value, MemOperand(tmp_ptr));
   __ Cbnz(tmp_32, &loop_head);
+  __ B(&exit_loop);
+  __ Bind(&comparison_failed);
+  __ Clrex();
   __ Bind(&exit_loop);
   __ Cset(out, eq);
 
