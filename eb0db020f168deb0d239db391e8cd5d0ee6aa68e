@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0657a0_eed9fb41",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-24T17:54:34Z",
+      "side": 1,
+      "message": "Is `vixl::aarch32::LeaveFlags` the equivalent of `art::arm::kCcKeep`?  If so, the current code seems correct (with respect to the current version of VIXL in AOSP).",
+      "range": {
+        "startLine": 2979,
+        "startChar": 0,
+        "endLine": 2980,
+        "endChar": 53
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0657a0_cede3728",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-24T17:54:34Z",
+      "side": 1,
+      "message": "Maybe add a TODO (in compiler/utils/arm/assembler_arm_shared.h or in compiler/utils/arm/assembler_arm_vixl.h) to (eventuelly) replace `art::arm::SetCc` with `vixl::aarch32::FlagsUpdate`?",
+      "range": {
+        "startLine": 3251,
+        "startChar": 59,
+        "endLine": 3251,
+        "endChar": 64
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
