@@ -568,3 +568,11 @@ TEST_ART_TARGET_SYNC_DEPS :=
 #   m art-boot-image ART_BOOT_IMAGE_EXTRA_ARGS=--dump-init-failures=fails.txt
 .PHONY: art-boot-image
 art-boot-image: $(DEFAULT_DEX_PREOPT_BUILT_IMAGE_FILENAME)
+
+# Helpers for the testing job images.
+DEX2OATS := $(HOST_OUT_EXECUTABLES)/dex2oats
+DEX2OATDS := $(HOST_OUT_EXECUTABLES)/dex2oatds
+PROFMAN := $(HOST_OUT_EXECUTABLES)/profman
+
+.PHONY: art-job-images
+art-job-images: $(DEFAULT_DEX_PREOPT_BUILT_IMAGE_FILENAME) $(2ND_DEFAULT_DEX_PREOPT_BUILT_IMAGE_FILENAME) $(DEX2OATS) $(DEX2OATDS) $(PROFMAN)
