@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a18a68d9_e18186e3",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T18:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_8ef6ff1f",
+      "revId": "235a14dfbecdfc21f88deafda168f9b26aaba183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_aef1c32b",
         "filename": "runtime/openjdkjvmti/object_tagging.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-24T12:42:05Z",
       "side": 1,
       "message": "ditto",
+      "revId": "235a14dfbecdfc21f88deafda168f9b26aaba183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_a18b7eff",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T18:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_aef1c32b",
       "revId": "235a14dfbecdfc21f88deafda168f9b26aaba183",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a18a68d9_e1af4661",
+        "filename": "runtime/openjdkjvmti/object_tagging.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T18:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fce08714_4f3db182",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 35
+      },
+      "revId": "235a14dfbecdfc21f88deafda168f9b26aaba183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2123d89f_d531bc50",
         "filename": "runtime/openjdkjvmti/object_tagging.h",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2016-10-24T12:42:05Z",
       "side": 1,
       "message": "I\u0027d add a comment: Update the table by doing read barriers on each entry and updating the entry with the potential new object.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 37
+      },
+      "revId": "235a14dfbecdfc21f88deafda168f9b26aaba183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18a68d9_610a5694",
+        "filename": "runtime/openjdkjvmti/object_tagging.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-24T18:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2123d89f_d531bc50",
       "range": {
         "startLine": 101,
         "startChar": 0,
