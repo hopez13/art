@@ -94,6 +94,30 @@
       "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc352f64_a5ca2858",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-24T19:34:49Z",
+      "side": 1,
+      "message": "The buildbot currently only defines those:\nTARGET_BUILD_TYPE\nTARGET_BUILD_VARIANT\nTARGET_PRODUCT\nANDROID_BUILD_TOP\nANDROID_PRODUCT_OUT",
+      "parentUuid": "c1d3dce9_b2898040",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
