@@ -118,6 +118,30 @@
       "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1d3dce9_f202a8b5",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-10-24T19:36:58Z",
+      "side": 1,
+      "message": "Colin,\n\u003e You can just set TARGET_PRODUCT and TARGET_VARIANT to build without using lunch, so there still isn\u0027t any strict requirement to source build/envsetup.sh before running this script.  You do need to source it inside the script, but if you are requiring running from the top of the build that is easy.\n\nIs what you said last time. So you\u0027re saying it will build without any env variables at all?\n\nNicolas,\nI can remove this check entirely although maybe we want to check for 1 or more of them for sanity?\n\nAlso since you\u0027re saying we already define ANDROID_BUILD_TOP for the buildbot, then it seems like this script would work as-is.",
+      "parentUuid": "bc352f64_a5ca2858",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "2c728b3ce699b19248e521d69629f1439f7ad63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
