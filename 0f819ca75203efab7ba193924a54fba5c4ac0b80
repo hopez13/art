@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_37854f55",
+        "filename": "test/621-checker-new-instance/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T17:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_aeb0a396",
+      "revId": "0f819ca75203efab7ba193924a54fba5c4ac0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_6ebbcb7a",
         "filename": "test/621-checker-new-instance/src/Main.java",
         "patchSetId": 8
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "bc0a8fd0_f7ee3707",
+        "filename": "test/621-checker-new-instance/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T17:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_6ebbcb7a",
+      "range": {
+        "startLine": 39,
+        "startChar": 41,
+        "endLine": 39,
+        "endChar": 43
+      },
+      "revId": "0f819ca75203efab7ba193924a54fba5c4ac0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2123d89f_55736c5c",
         "filename": "test/621-checker-new-instance/src/Main.java",
         "patchSetId": 8
@@ -53,6 +95,30 @@
       "writtenOn": "2016-10-22T11:42:58Z",
       "side": 1,
       "message": "May be a problem if you actually execute some code in main. Consider just writing to a static?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "0f819ca75203efab7ba193924a54fba5c4ac0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0a8fd0_97825b4b",
+        "filename": "test/621-checker-new-instance/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-24T17:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2123d89f_55736c5c",
       "range": {
         "startLine": 46,
         "startChar": 8,
