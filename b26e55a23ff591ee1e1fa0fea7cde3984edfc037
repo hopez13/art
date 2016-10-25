@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1c7c880_19892b07",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "617f90e7_4778ce35",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 62
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1898840_c9713100",
         "filename": "runtime/cha.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "Should you check if the method is final too?",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 25
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_1388eca9",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "a1898840_c9713100",
       "range": {
         "startLine": 238,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "819f2479_40d32eec",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0195f44b_8cb90782",
+      "range": {
+        "startLine": 33,
+        "startChar": 43,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1bb48d0_d9711300",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "I\u0027d put this at the end. We eventually want to do this for AOT code.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a19ee87a_41c452f8",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Moved to the end. Actually even for AOT, it\u0027s going to be based on profiling info (except boot image) instead of analyzing all available class files.",
+      "parentUuid": "a1bb48d0_d9711300",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_937cfc29",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1cd9c7a_e28aa6a3",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_33a52889",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e191c062_abdf89be",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 49,
+        "endChar": 61
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0195f44b_acb6c38e",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "The",
+      "range": {
+        "startLine": 51,
+        "startChar": 45,
+        "endLine": 51,
+        "endChar": 46
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_13a22c81",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0195f44b_acb6c38e",
       "range": {
         "startLine": 51,
         "startChar": 45,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_d3c0341c",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e191c062_cbdcd5cc",
+      "range": {
+        "startLine": 52,
+        "startChar": 37,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817ac4f4_28300b1f",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -197,6 +389,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "After a new class gets linked, if that new class is now invalidating the status of single implementation methods, ...",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_13534c84",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Officially it\u0027s not linked yet since it\u0027s status is not resolved yet. I changed it to:\n * When single-implementation info is updated at the end of class linking,\n * and if method A\u0027s single-implementation status is invalidated, ...",
+      "parentUuid": "817ac4f4_28300b1f",
       "range": {
         "startLine": 55,
         "startChar": 3,
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_d345d4b2",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "817ac4f4_48253fdc",
+      "range": {
+        "startLine": 58,
+        "startChar": 54,
+        "endLine": 58,
+        "endChar": 59
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "211918c1_65f32634",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -243,6 +483,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "to be invalidated.",
+      "range": {
+        "startLine": 58,
+        "startChar": 63,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_b3aff833",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "211918c1_65f32634",
       "range": {
         "startLine": 58,
         "startChar": 63,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_13b7ccbb",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1bb48d0_199d4bf4",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 41
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817ac4f4_682a03ad",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -289,6 +577,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "taken",
+      "range": {
+        "startLine": 74,
+        "startChar": 27,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_73ba8076",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "817ac4f4_682a03ad",
       "range": {
         "startLine": 74,
         "startChar": 27,
@@ -324,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_33c408f8",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1898840_89673943",
+      "range": {
+        "startLine": 79,
+        "startChar": 26,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e191c062_0b741df4",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -335,6 +671,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "... we need to know both the ArtMethod and the method header. If the ArtMethod has the method header as the entyrpoint, we update the entry point to the interpreter bridge. We will also deoptimize frames that are currently executing the code of the method header.",
+      "range": {
+        "startLine": 83,
+        "startChar": 38,
+        "endLine": 83,
+        "endChar": 46
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_33dd28c6",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e191c062_0b741df4",
       "range": {
         "startLine": 83,
         "startChar": 38,
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_13da2cce",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1bb48d0_99907bda",
+      "range": {
+        "startLine": 87,
+        "startChar": 55,
+        "endLine": 87,
+        "endChar": 82
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c184bc26_cadcc3cc",
         "filename": "runtime/cha.h",
         "patchSetId": 6
@@ -381,6 +765,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 41
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_538e64ba",
+        "filename": "runtime/cha.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c184bc26_cadcc3cc",
       "range": {
         "startLine": 106,
         "startChar": 0,
@@ -416,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_533c24f6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "cha_lock_ is needed during class linking so I don\u0027t want code cache gc to block class linking for long.\n\nActually we don\u0027t need JitCodeCache::lock_ for real code freeing part (which may have contention on malloc lock). All we need is updating used_memory_for_code_ under JitCodeCache::lock_ in the end. I just made the change and consider this as an improvement since we moved some code out of JitCodeCache::lock_.",
+      "parentUuid": "e191c062_0b9dfdf3",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 78
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1898840_09426983",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -427,6 +859,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "I wouldn\u0027t bother using arenas here. The jit code cache internal data structures are already eg, std::vector not maintained by arenas.",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 72
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_1338ec8f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1898840_09426983",
       "range": {
         "startLine": 275,
         "startChar": 0,
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_56041279",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "A little confused. I\u0027m using the highest bit so it\u0027s not related to alignment?\nAlso we don\u0027t do CHA for AOT code  yet.",
+      "parentUuid": "617f90e7_47ed2e9b",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 67
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1cd9c7a_22100e74",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 6
@@ -473,6 +953,30 @@
       "writtenOn": "2016-10-25T14:46:18Z",
       "side": 1,
       "message": "Do you need the scope here?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 3
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_f6579e73",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-25T23:32:16Z",
+      "side": 1,
+      "message": "No. Fixed.",
+      "parentUuid": "c1cd9c7a_22100e74",
       "range": {
         "startLine": 164,
         "startChar": 2,
