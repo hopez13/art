@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a1898840_6946856e",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-10-25T16:07:38Z",
+      "side": 1,
+      "message": "maybe a byte array? reads better and don\u0027t need the extra //JitD comment.",
+      "range": {
+        "startLine": 123,
+        "startChar": 33,
+        "endLine": 123,
+        "endChar": 55
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_ee957b1c",
         "filename": "compiler/jit/jit_logger.cc",
         "patchSetId": 5
@@ -42,6 +65,29 @@
         "startChar": 0,
         "endLine": 138,
         "endChar": 56
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0195f44b_2ca2d336",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-10-25T16:07:38Z",
+      "side": 1,
+      "message": "what does this refer to? The id of the the actual JIT-compiler thread?",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 157,
+        "endChar": 22
       },
       "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -111,6 +157,52 @@
         "startChar": 0,
         "endLine": 172,
         "endChar": 76
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_a7642a3f",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-10-25T16:07:38Z",
+      "side": 1,
+      "message": "What if Open fails? does it make sense to continue with the Write? Document why if so.",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 23
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_a78d0abf",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-10-25T16:07:38Z",
+      "side": 1,
+      "message": "What if it fails? You should log errors here and maybe stop the progress.",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 10
       },
       "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
