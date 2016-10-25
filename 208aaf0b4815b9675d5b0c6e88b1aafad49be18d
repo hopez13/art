@@ -22,6 +22,30 @@
       "revId": "208aaf0b4815b9675d5b0c6e88b1aafad49be18d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_76b4aed8",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-10-25T21:28:50Z",
+      "side": 1,
+      "message": "Yes, that should be fine. I\u0027ll do it in another CL probably.",
+      "parentUuid": "e1c8e09a_d3df1422",
+      "range": {
+        "startLine": 1512,
+        "startChar": 24,
+        "endLine": 1512,
+        "endChar": 46
+      },
+      "revId": "208aaf0b4815b9675d5b0c6e88b1aafad49be18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
