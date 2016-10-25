@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1c8e09a_93507c4b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-25T18:25:54Z",
+      "side": 1,
+      "message": "I assume we can\u0027t do it\u0027s, it(NE) and it(EQ) and avoid this b instruction?",
+      "range": {
+        "startLine": 810,
+        "startChar": 4,
+        "endLine": 810,
+        "endChar": 25
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
