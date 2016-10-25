@@ -15,6 +15,8 @@
  */
 
 #include "licm.h"
+
+#include "base/iteration_range.h"
 #include "side_effects_analysis.h"
 
 namespace art {
@@ -90,8 +92,7 @@ void LICM::Run() {
   }
 
   // Post order visit to visit inner loops before outer loops.
-  for (HPostOrderIterator it(*graph_); !it.Done(); it.Advance()) {
-    HBasicBlock* block = it.Current();
+  for (HBasicBlock* block : ReverseRange(graph_->GetReversePostOrder())) {
     if (!block->IsLoopHeader()) {
       // Only visit the loop when we reach the header.
       continue;

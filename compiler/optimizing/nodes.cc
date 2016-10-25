@@ -22,6 +22,7 @@
 #include "ssa_builder.h"
 #include "base/bit_vector-inl.h"
 #include "base/bit_utils.h"
+#include "base/iteration_range.h"
 #include "base/stl_util.h"
 #include "intrinsics.h"
 #include "mirror/class-inl.h"
@@ -446,8 +447,7 @@ GraphAnalysisResult HGraph::AnalyzeLoops() const {
   // We iterate post order to ensure we visit inner loops before outer loops.
   // `PopulateRecursive` needs this guarantee to know whether a natural loop
   // contains an irreducible loop.
-  for (HPostOrderIterator it(*this); !it.Done(); it.Advance()) {
-    HBasicBlock* block = it.Current();
+  for (HBasicBlock* block : ReverseRange(GetReversePostOrder())) {
     if (block->IsLoopHeader()) {
       if (block->IsCatchBlock()) {
         // TODO: Dealing with exceptional back edges could be tricky because

@@ -18,6 +18,7 @@
 
 #include "base/array_ref.h"
 #include "base/bit_vector-inl.h"
+#include "base/iteration_range.h"
 #include "ssa_phi_elimination.h"
 
 namespace art {
@@ -300,8 +301,7 @@ bool HDeadCodeElimination::RemoveDeadBlocks() {
   // Remove all dead blocks. Iterate in post order because removal needs the
   // block's chain of dominators and nested loops need to be updated from the
   // inside out.
-  for (HPostOrderIterator it(*graph_); !it.Done(); it.Advance()) {
-    HBasicBlock* block  = it.Current();
+  for (HBasicBlock* block : ReverseRange(graph_->GetReversePostOrder())) {
     int id = block->GetBlockId();
     if (!live_blocks.IsBitSet(id)) {
       MaybeRecordDeadBlock(block);
@@ -332,8 +332,7 @@ bool HDeadCodeElimination::RemoveDeadBlocks() {
 void HDeadCodeElimination::RemoveDeadInstructions() {
   // Process basic blocks in post-order in the dominator tree, so that
   // a dead instruction depending on another dead instruction is removed.
-  for (HPostOrderIterator b(*graph_); !b.Done(); b.Advance()) {
-    HBasicBlock* block = b.Current();
+  for (HBasicBlock* block : ReverseRange(graph_->GetReversePostOrder())) {
     // Traverse this block's instructions in backward order and remove
     // the unused ones.
     HBackwardInstructionIterator i(block->GetInstructions());

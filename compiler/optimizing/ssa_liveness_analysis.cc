@@ -17,6 +17,7 @@
 #include "ssa_liveness_analysis.h"
 
 #include "base/bit_vector-inl.h"
+#include "base/iteration_range.h"
 #include "code_generator.h"
 #include "linear_order.h"
 #include "nodes.h"
@@ -256,15 +257,13 @@ void SsaLivenessAnalysis::ComputeLiveInAndLiveOutSets() {
   do {
     changed = false;
 
-    for (HPostOrderIterator it(*graph_); !it.Done(); it.Advance()) {
-      const HBasicBlock& block = *it.Current();
-
+    for (const HBasicBlock* block : ReverseRange(graph_->GetReversePostOrder())) {
       // The live_in set depends on the kill set (which does not
       // change in this loop), and the live_out set.  If the live_out
       // set does not change, there is no need to update the live_in set.
-      if (UpdateLiveOut(block) && UpdateLiveIn(block)) {
+      if (UpdateLiveOut(*block) && UpdateLiveIn(*block)) {
         if (kIsDebugBuild) {
-          CheckNoLiveInIrreducibleLoop(block);
+          CheckNoLiveInIrreducibleLoop(*block);
         }
         changed = true;
       }

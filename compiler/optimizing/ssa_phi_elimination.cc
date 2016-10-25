@@ -19,6 +19,7 @@
 #include "base/arena_containers.h"
 #include "base/arena_bit_vector.h"
 #include "base/bit_vector-inl.h"
+#include "base/iteration_range.h"
 
 namespace art {
 
@@ -84,8 +85,7 @@ void SsaDeadPhiElimination::EliminateDeadPhis() {
   // Remove phis that are not live. Visit in post order so that phis
   // that are not inputs of loop phis can be removed when they have
   // no users left (dead phis might use dead phis).
-  for (HPostOrderIterator it(*graph_); !it.Done(); it.Advance()) {
-    HBasicBlock* block = it.Current();
+  for (HBasicBlock* block : ReverseRange(graph_->GetReversePostOrder())) {
     HInstruction* current = block->GetFirstPhi();
     HInstruction* next = nullptr;
     HPhi* phi;

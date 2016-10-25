@@ -17,6 +17,7 @@
 #ifndef ART_COMPILER_OPTIMIZING_LINEAR_ORDER_H_
 #define ART_COMPILER_OPTIMIZING_LINEAR_ORDER_H_
 
+#include "base/iteration_range.h"
 #include "nodes.h"
 
 namespace art {
@@ -37,7 +38,7 @@ void LinearizeGraph(const HGraph* graph,
                     ArenaVector<HBasicBlock*>* linear_order);
 
 inline auto LinearPostOrder(const ArenaVector<HBasicBlock*>& linear_order) {
-  return MakeIterationRange(linear_order.rbegin(), linear_order.rend());
+  return ReverseRange(linear_order);
 }
 
 }  // namespace art
