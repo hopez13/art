@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0195f44b_ac52434e",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T17:12:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "617f90e7_879006da",
+      "revId": "0e66bd063da9304b76fc83eee5e8efed27125f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_e787029b",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2016-10-25T16:17:50Z",
       "side": 1,
       "message": "Do you have tests for these?",
+      "range": {
+        "startLine": 885,
+        "startChar": 0,
+        "endLine": 894,
+        "endChar": 7
+      },
+      "revId": "0e66bd063da9304b76fc83eee5e8efed27125f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "211918c1_a517de08",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T17:12:59Z",
+      "side": 1,
+      "message": "Removed. Belongs in follow up that does conversions.",
+      "parentUuid": "617f90e7_e787029b",
       "range": {
         "startLine": 885,
         "startChar": 0,
