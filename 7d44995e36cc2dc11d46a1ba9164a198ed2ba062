@@ -22,6 +22,30 @@
       "revId": "7d44995e36cc2dc11d46a1ba9164a198ed2ba062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c67d39f_27515a21",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1126253
+      },
+      "writtenOn": "2016-10-25T13:31:54Z",
+      "side": 1,
+      "message": "Yes, I modified the patch set from your suggestion.\nIt can be built build pass on branch n-release-generic-fs.",
+      "parentUuid": "dcf58392_9c949a91",
+      "range": {
+        "startLine": 2019,
+        "startChar": 11,
+        "endLine": 2019,
+        "endChar": 25
+      },
+      "revId": "7d44995e36cc2dc11d46a1ba9164a198ed2ba062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
