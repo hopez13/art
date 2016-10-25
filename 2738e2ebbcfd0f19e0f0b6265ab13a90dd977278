@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "411c4caf_667e8ed4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-10-25T10:31:52Z",
+      "side": 1,
+      "message": "I think it is a performance issue. \n\nIf we don\u0027t use an explicit CLREX we should still be correct, but the exclusive monitor will probably be cleared by a later operation (context switch, dummt strex, ...)",
+      "parentUuid": "c1d3dce9_121acc92",
+      "revId": "2738e2ebbcfd0f19e0f0b6265ab13a90dd977278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d3dce9_b235000c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -35,6 +53,29 @@
         "startChar": 26,
         "endLine": 13,
         "endChar": 32
+      },
+      "revId": "2738e2ebbcfd0f19e0f0b6265ab13a90dd977278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf663e5_665ad043",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-10-25T10:31:52Z",
+      "side": 1,
+      "message": "micro-architectures ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 13
       },
       "revId": "2738e2ebbcfd0f19e0f0b6265ab13a90dd977278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
