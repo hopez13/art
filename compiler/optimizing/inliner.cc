@@ -1219,16 +1219,14 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
     return false;
   }
 
-  HReversePostOrderIterator it(*callee_graph);
-  it.Advance();  // Past the entry block, it does not contain instructions that prevent inlining.
   size_t number_of_instructions = 0;
 
   bool can_inline_environment =
       total_number_of_dex_registers_ < kMaximumNumberOfCumulatedDexRegisters;
 
-  for (; !it.Done(); it.Advance()) {
-    HBasicBlock* block = it.Current();
-
+  // Skip the entry block, it does not contain instructions that prevent inlining.
+  ArrayRef<HBasicBlock* const> callee_reverse_post_order(callee_graph->GetReversePostOrder());
+  for (HBasicBlock* block : callee_reverse_post_order.SubArray(1)) {
     if (block->IsLoopHeader() && block->GetLoopInformation()->IsIrreducible()) {
       // Don't inline methods with irreducible loops, they could prevent some
       // optimizations to run.
