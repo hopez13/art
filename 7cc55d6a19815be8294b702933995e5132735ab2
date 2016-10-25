@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "610a305f_5246b26d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2329,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-25T01:28:37Z",
+      "side": 1,
+      "message": "We could probably just use heap_ instead of getting it through the runtime?",
+      "range": {
+        "startLine": 2329,
+        "startChar": 18,
+        "endLine": 2329,
+        "endChar": 22
+      },
+      "revId": "7cc55d6a19815be8294b702933995e5132735ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610a305f_922e5aa4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-25T01:28:37Z",
+      "side": 1,
+      "message": "End() -\u003e Limit()?",
+      "range": {
+        "startLine": 2337,
+        "startChar": 80,
+        "endLine": 2337,
+        "endChar": 83
+      },
+      "revId": "7cc55d6a19815be8294b702933995e5132735ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
