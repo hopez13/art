@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_47c9ae0a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "const ShadowFrame\u0026 \u003d\u003e done.\n\nconst ObjPtr\u003cObject\u003e\u0026 \u003d\u003e does not play well with HandleWrapperObjPtr.",
+      "parentUuid": "3c7a1f69_d66084be",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c7a1f69_96ba8c18",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-25T09:02:30Z",
       "side": 1,
       "message": "you should probably ALWAYS_INLINE this function",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 89
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411c4caf_4640b29f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c7a1f69_96ba8c18",
       "range": {
         "startLine": 49,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_e7c0e2e5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf663e5_669090d8",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 76
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2123d89f_7541c8a5",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-24T12:11:03Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 70
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_07cfb613",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Not possible here.",
+      "parentUuid": "2123d89f_7541c8a5",
       "range": {
         "startLine": 187,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "411c4caf_a6340642",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_0e5e8f5a",
+      "range": {
+        "startLine": 479,
+        "startChar": 30,
+        "endLine": 479,
+        "endChar": 88
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c15cbc1_0c70d7f7",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-24T12:11:03Z",
       "side": 1,
       "message": "You could drop this and then just test for the cases you\u0027re checking lines 871-879?",
+      "range": {
+        "startLine": 863,
+        "startChar": 4,
+        "endLine": 864,
+        "endChar": 21
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_27abda2a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Added determination earlier in function and throwing WMTE is the same for both branches now.",
+      "parentUuid": "9c15cbc1_0c70d7f7",
       "range": {
         "startLine": 863,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_47b0ce96",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc352f64_a5c4689c",
+      "range": {
+        "startLine": 881,
+        "startChar": 13,
+        "endLine": 881,
+        "endChar": 14
+      },
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_0e0c4f56",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -174,6 +342,24 @@
       "writtenOn": "2016-10-24T12:11:03Z",
       "side": 1,
       "message": "extra line",
+      "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411c4caf_26a65664",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_0e0c4f56",
       "revId": "827a281f3fad610db72b2c3ed91f7c55b3145d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
