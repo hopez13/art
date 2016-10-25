@@ -889,6 +889,121 @@
       "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411c4caf_a64b66c9",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T15:50:31Z",
+      "side": 1,
+      "message": "\"Float\"? This applies only to float division, right? (Unlike the kArm64MulFloatingPointLatency that applies to both float and double.)",
+      "range": {
+        "startLine": 39,
+        "startChar": 34,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411c4caf_264136a7",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T15:50:31Z",
+      "side": 1,
+      "message": "I\u0027d prefer a switch statement.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 21
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_07bc16a3",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T15:50:31Z",
+      "side": 1,
+      "message": "We don\u0027t need a vector here.\n\n    HInstruction* block_instructions[] \u003d {\n        add1,\n        ...\n    };",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_c7275e28",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T15:50:31Z",
+      "side": 1,
+      "message": "scheduling graph",
+      "range": {
+        "startLine": 140,
+        "startChar": 61,
+        "endLine": 140,
+        "endChar": 66
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_07e5f6c6",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T15:50:31Z",
+      "side": 1,
+      "message": "This is ugly. I\u0027m going to add ReverseRange() helper functions to iteration_range.h .",
+      "range": {
+        "startLine": 141,
+        "startChar": 7,
+        "endLine": 143,
+        "endChar": 11
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
