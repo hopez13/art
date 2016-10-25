@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "411c4caf_467b92a1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-25T12:45:20Z",
+      "side": 1,
+      "message": "Please rename. CopyIf() indicates strong relationship with std::copy_if() which does not advance the output iterator if the predicate does not match. Here we do \"advance the output iterator\".",
+      "range": {
+        "startLine": 1250,
+        "startChar": 12,
+        "endLine": 1250,
+        "endChar": 18
+      },
+      "revId": "7710c6ea80b4a585a856d6523c71a4c1e7b496ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
