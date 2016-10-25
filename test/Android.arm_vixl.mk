@@ -22,7 +22,6 @@ TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   004-JniTest \
   004-NativeAllocations \
   004-ThreadStress \
-  004-UnsafeTest \
   004-checker-UnsafeTest18 \
   005-annotations \
   009-instanceof \
