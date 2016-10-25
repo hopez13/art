@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "617f90e7_471a8e93",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-25T17:50:52Z",
+      "side": 1,
+      "message": "Maybe give a rationale for doing a stringcmp instead of ArtMethod compare. Note that you\u0027ll need to have WellKnownClasses:: fields of the invoke/invokeExact methods for the verifier.",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 720,
+        "endChar": 67
+      },
+      "revId": "83e707d30b0167eced01d103d381792dc6a78cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
