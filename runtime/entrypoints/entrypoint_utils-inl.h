@@ -483,15 +483,15 @@ EXPLICIT_FIND_FIELD_FROM_CODE_TYPED_TEMPLATE_DECL(StaticPrimitiveWrite);
 
 template<InvokeType type, bool access_check>
 inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
-                                     mirror::Object** this_object,
+                                     ObjPtr<mirror::Object>* this_object,
                                      ArtMethod* referrer,
                                      Thread* self) {
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
   ArtMethod* resolved_method = class_linker->GetResolvedMethod(method_idx, referrer);
   if (resolved_method == nullptr) {
     StackHandleScope<1> hs(self);
-    mirror::Object* null_this = nullptr;
-    HandleWrapper<mirror::Object> h_this(
+    ObjPtr<mirror::Object> null_this = nullptr;
+    HandleWrapperObjPtr<mirror::Object> h_this(
         hs.NewHandleWrapper(type == kStatic ? &null_this : this_object));
     constexpr ClassLinker::ResolveMode resolve_mode =
         access_check ? ClassLinker::kForceICCECheck
@@ -520,7 +520,7 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
     }
   }
   // Next, null pointer check.
-  if (UNLIKELY(*this_object == nullptr && type != kStatic)) {
+  if (UNLIKELY(this_object->IsNull() && type != kStatic)) {
     if (UNLIKELY(resolved_method->GetDeclaringClass()->IsStringClass() &&
                  resolved_method->IsConstructor())) {
       // Hack for String init:
@@ -560,7 +560,7 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
       //    defaults. What we actually need is a GetContainingClass that says which classes virtuals
       //    this method is coming from.
       StackHandleScope<2> hs2(self);
-      HandleWrapper<mirror::Object> h_this(hs2.NewHandleWrapper(this_object));
+      HandleWrapperObjPtr<mirror::Object> h_this(hs2.NewHandleWrapper(this_object));
       Handle<mirror::Class> h_referring_class(hs2.NewHandle(referrer->GetDeclaringClass()));
       const uint16_t method_type_idx =
           h_referring_class->GetDexFile().GetMethodId(method_idx).class_idx_;
@@ -618,11 +618,11 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
     case kInterface: {
       uint32_t imt_index = ImTable::GetImtIndex(resolved_method);
       PointerSize pointer_size = class_linker->GetImagePointerSize();
-      ArtMethod* imt_method = (*this_object)->GetClass()->GetImt(pointer_size)->
+      ArtMethod* imt_method = this_object->Ptr()->GetClass()->GetImt(pointer_size)->
           Get(imt_index, pointer_size);
       if (!imt_method->IsRuntimeMethod()) {
         if (kIsDebugBuild) {
-          mirror::Class* klass = (*this_object)->GetClass();
+          mirror::Class* klass = this_object->Ptr()->GetClass();
           ArtMethod* method = klass->FindVirtualMethodForInterface(
               resolved_method, class_linker->GetImagePointerSize());
           CHECK_EQ(imt_method, method) << ArtMethod::PrettyMethod(resolved_method) << " / "
@@ -632,7 +632,7 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
         }
         return imt_method;
       } else {
-        ArtMethod* interface_method = (*this_object)->GetClass()->FindVirtualMethodForInterface(
+        ArtMethod* interface_method = this_object->Ptr()->GetClass()->FindVirtualMethodForInterface(
             resolved_method, class_linker->GetImagePointerSize());
         if (UNLIKELY(interface_method == nullptr)) {
           ThrowIncompatibleClassChangeErrorClassForInterfaceDispatch(resolved_method,
@@ -652,7 +652,7 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
 #define EXPLICIT_FIND_METHOD_FROM_CODE_TEMPLATE_DECL(_type, _access_check)                 \
   template REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE                       \
   ArtMethod* FindMethodFromCode<_type, _access_check>(uint32_t method_idx,         \
-                                                      mirror::Object** this_object, \
+                                                      ObjPtr<mirror::Object>* this_object, \
                                                       ArtMethod* referrer, \
                                                       Thread* self)
 #define EXPLICIT_FIND_METHOD_FROM_CODE_TYPED_TEMPLATE_DECL(_type) \
@@ -722,8 +722,11 @@ inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFiel
 }
 
 // Fast path method resolution that can't throw exceptions.
-inline ArtMethod* FindMethodFast(uint32_t method_idx, mirror::Object* this_object,
-                                 ArtMethod* referrer, bool access_check, InvokeType type) {
+inline ArtMethod* FindMethodFast(uint32_t method_idx,
+                                 ObjPtr<mirror::Object> this_object,
+                                 ArtMethod* referrer,
+                                 bool access_check,
+                                 InvokeType type) {
   ScopedAssertNoThreadSuspension ants(__FUNCTION__);
   if (UNLIKELY(this_object == nullptr && type != kStatic)) {
     return nullptr;
