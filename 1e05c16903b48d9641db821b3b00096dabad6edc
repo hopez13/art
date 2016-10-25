@@ -488,6 +488,30 @@
     },
     {
       "key": {
+        "uuid": "c1cd9c7a_629776d4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-25T14:46:18Z",
+      "side": 1,
+      "message": "I see. That\u0027s an odd check then, I\u0027ll just check if the receiver\u0027s graph is the outer graph.",
+      "parentUuid": "c1d3dce9_4c9c33f5",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 63
+      },
+      "revId": "1e05c16903b48d9641db821b3b00096dabad6edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5bfe40_27933a53",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
