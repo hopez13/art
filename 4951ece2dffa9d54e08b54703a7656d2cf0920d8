@@ -46,6 +46,30 @@
       "revId": "4951ece2dffa9d54e08b54703a7656d2cf0920d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411c4caf_e6dc3ecc",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-25T10:27:39Z",
+      "side": 1,
+      "message": "Yes, it\u0027s the lack of common code in the two cases covered by (3) that triggered the comment. It\u0027s a nit and not backed by strong opinion.",
+      "parentUuid": "9c15cbc1_4c3b6f01",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "4951ece2dffa9d54e08b54703a7656d2cf0920d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
