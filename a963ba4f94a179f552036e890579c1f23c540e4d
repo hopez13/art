@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "e191c062_6bce8115",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2867,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-25T14:46:18Z",
+      "side": 1,
+      "message": "DependsOnGC is the equivalent of CanBeSuspended. A suspension point is a potential GC point.\n\nNot sure about HDeoptimize being DependsOnGC. I think we can remove that dependency.",
+      "parentUuid": "dcf58392_9a0311b9",
+      "range": {
+        "startLine": 2867,
+        "startChar": 54,
+        "endLine": 2867,
+        "endChar": 58
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_db9df35d",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
