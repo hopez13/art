@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "61d31097_e73a022e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T10:57:28Z",
+      "side": 1,
+      "message": "Thanks for catching this.",
+      "parentUuid": "a1dd08a2_49532183",
+      "range": {
+        "startLine": 2000,
+        "startChar": 0,
+        "endLine": 2001,
+        "endChar": 51
+      },
+      "revId": "b560c849e0739894cafd81cf6e673794359aa339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1a5401c_4b532583",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "417a8c69_b65ce897",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T10:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1a5401c_4b532583",
+      "range": {
+        "startLine": 405,
+        "startChar": 22,
+        "endLine": 405,
+        "endChar": 60
+      },
+      "revId": "b560c849e0739894cafd81cf6e673794359aa339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c254c7_e4615a52",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-26T10:36:24Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "b560c849e0739894cafd81cf6e673794359aa339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61d31097_c73ffe1b",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T10:57:28Z",
+      "side": 1,
+      "message": "Copy/paste. Removed.",
+      "parentUuid": "01c254c7_e4615a52",
       "range": {
         "startLine": 57,
         "startChar": 6,
