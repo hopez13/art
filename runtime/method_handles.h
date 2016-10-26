@@ -20,7 +20,10 @@
 #include <ostream>
 
 #include "dex_instruction.h"
+#include "handle.h"
 #include "jvalue.h"
+#include "mirror/class.h"
+#include "mirror/method_type.h"
 
 namespace art {
 
@@ -56,13 +59,15 @@ inline bool IsInvoke(const MethodHandleKind handle_kind) {
   return handle_kind <= kLastInvokeKind;
 }
 
-// Performs a single argument conversion from type |from| to a distinct
-// type |to|. Returns true on success, false otherwise.
-REQUIRES_SHARED(Locks::mutator_lock_)
-inline bool ConvertJValue(Handle<mirror::Class> from,
-                          Handle<mirror::Class> to,
-                          const JValue& from_value,
-                          JValue* to_value) ALWAYS_INLINE;
+// Performs a single argument conversion from type |from| to a
+// distinct type |to| as part of conversion of |caller_type| to
+// |callee_type|. Returns true on success, false otherwise.
+bool ConvertJValue(Handle<mirror::MethodType> callee_type,
+                   Handle<mirror::MethodType> caller_type,
+                   Handle<mirror::Class> from,
+                   Handle<mirror::Class> to,
+                   const JValue& from_value,
+                   JValue* to_value) REQUIRES_SHARED(Locks::mutator_lock_);
 
 // Perform argument conversions between |callsite_type| (the type of the
 // incoming arguments) and |callee_type| (the type of the method being
@@ -111,6 +116,8 @@ inline bool ConvertJValue(Handle<mirror::Class> from,
 template <typename G, typename S>
 REQUIRES_SHARED(Locks::mutator_lock_)
 bool PerformConversions(Thread* self,
+                        Handle<mirror::MethodType> callsite_type,
+                        Handle<mirror::MethodType> callee_type,
                         Handle<mirror::ObjectArray<mirror::Class>> from_types,
                         Handle<mirror::ObjectArray<mirror::Class>> to_types,
                         G* getter,
