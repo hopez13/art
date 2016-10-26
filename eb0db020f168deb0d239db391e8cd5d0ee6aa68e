@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_2773da5d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-10-26T16:18:37Z",
+      "side": 1,
+      "message": "Yes, it works correctly.\nCurrently if you don\u0027t provide any LeaveFlags option for macroinstruction vixl will use instruction which doesn\u0027t touches the flags, so ADD will never transform into ADDS. This can lead to code size increase due to 16bit/32bit encodings usage\n\nOn the other hand the current ART arm assembler approach leads sometimes to excessive use of flags which may lead to performance regressions.\n\nThus we stick with current implementation; a little bit later we shall work on it as a \"reach parity\" task.\n\nI have rephrased the comment.",
+      "parentUuid": "7c0657a0_eed9fb41",
+      "range": {
+        "startLine": 2979,
+        "startChar": 0,
+        "endLine": 2980,
+        "endChar": 53
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_cede3728",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-24T17:54:34Z",
       "side": 1,
       "message": "Maybe add a TODO (in compiler/utils/arm/assembler_arm_shared.h or in compiler/utils/arm/assembler_arm_vixl.h) to (eventuelly) replace `art::arm::SetCc` with `vixl::aarch32::FlagsUpdate`?",
+      "range": {
+        "startLine": 3251,
+        "startChar": 59,
+        "endLine": 3251,
+        "endChar": 64
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0195f44b_8c674743",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3251,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-10-26T16:18:37Z",
+      "side": 1,
+      "message": "Have put the comment here - it\u0027s the single place where it is used for now.",
+      "parentUuid": "7c0657a0_cede3728",
       "range": {
         "startLine": 3251,
         "startChar": 59,
