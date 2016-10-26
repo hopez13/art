@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "61d31097_4725ce1e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T09:54:14Z",
+      "side": 1,
+      "message": "Should you say \"unless another thread updated the field with another object\"?",
+      "range": {
+        "startLine": 688,
+        "startChar": 45,
+        "endLine": 689,
+        "endChar": 36
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1b42848_b1f20080",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T09:54:14Z",
+      "side": 1,
+      "message": "Mention that it may be that the field in the holder is now a different object.",
+      "range": {
+        "startLine": 761,
+        "startChar": 1,
+        "endLine": 762,
+        "endChar": 47
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c8e09a_93507c4b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 11
@@ -18,6 +64,52 @@
         "startChar": 4,
         "endLine": 810,
         "endChar": 25
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a13988ba_8996d927",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T09:54:14Z",
+      "side": 1,
+      "message": "Add the same (unless it gets updated by another thread) comment as above (here and other archs).",
+      "range": {
+        "startLine": 677,
+        "startChar": 35,
+        "endLine": 677,
+        "endChar": 36
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411e0c19_965c2c98",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T09:54:14Z",
+      "side": 1,
+      "message": "If CreateIntIntIntIntIntToIntPlusTemps is only used for CAS, maybe rename it?",
+      "range": {
+        "startLine": 917,
+        "startChar": 5,
+        "endLine": 917,
+        "endChar": 37
       },
       "revId": "190565305b52a187b1e702b16be1233c713b1654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
