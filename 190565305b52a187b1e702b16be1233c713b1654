@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "61d31097_87aa2624",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-26T11:54:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61d31097_4725ce1e",
+      "range": {
+        "startLine": 688,
+        "startChar": 45,
+        "endLine": 689,
+        "endChar": 36
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1b42848_b1f20080",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-26T09:54:14Z",
       "side": 1,
       "message": "Mention that it may be that the field in the holder is now a different object.",
+      "range": {
+        "startLine": 761,
+        "startChar": 1,
+        "endLine": 762,
+        "endChar": 47
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1af5cf4_b2ce8014",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-26T11:54:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1b42848_b1f20080",
       "range": {
         "startLine": 761,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a1dd08a2_29350d3d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-26T11:54:08Z",
+      "side": 1,
+      "message": "I\u0027m not sure to follow; what did you have in mind?",
+      "parentUuid": "e1c8e09a_93507c4b",
+      "range": {
+        "startLine": 810,
+        "startChar": 4,
+        "endLine": 810,
+        "endChar": 25
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13988ba_8996d927",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "417a8c69_16bafc74",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-26T11:54:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a13988ba_8996d927",
+      "range": {
+        "startLine": 677,
+        "startChar": 35,
+        "endLine": 677,
+        "endChar": 36
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "411e0c19_965c2c98",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 11
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-26T09:54:14Z",
       "side": 1,
       "message": "If CreateIntIntIntIntIntToIntPlusTemps is only used for CAS, maybe rename it?",
+      "range": {
+        "startLine": 917,
+        "startChar": 5,
+        "endLine": 917,
+        "endChar": 37
+      },
+      "revId": "190565305b52a187b1e702b16be1233c713b1654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "815c8406_78c161e7",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-26T11:54:08Z",
+      "side": 1,
+      "message": "I think that\u0027s the case for many intrinsics (and I agree those names are not great).  Should we do this in another CL?",
+      "parentUuid": "411e0c19_965c2c98",
       "range": {
         "startLine": 917,
         "startChar": 5,
