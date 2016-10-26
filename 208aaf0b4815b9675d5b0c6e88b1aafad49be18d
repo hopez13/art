@@ -46,6 +46,29 @@
       "revId": "208aaf0b4815b9675d5b0c6e88b1aafad49be18d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_a70e6aa3",
+        "filename": "runtime/gc/space/large_object_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:46:51Z",
+      "side": 1,
+      "message": "GetBeginEndAtomic",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "208aaf0b4815b9675d5b0c6e88b1aafad49be18d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
