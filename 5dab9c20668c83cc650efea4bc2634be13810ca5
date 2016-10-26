@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c1af5cf4_d29b44fc",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T13:56:08Z",
+      "side": 1,
+      "message": "Not really, this is instantiated with with \u003cG\u003dEmulatedStackFrameAccessor, S\u003dShadowFrameSetter\u003e as well as with \u003cG\u003dShadowFrameGetter, S\u003dEmulatedStackFrameAccessor\u003e to copy from/to emulated stack frames.\n\nGiven that, would you prefer a different name ? I tried GETTER and SETTER but it looked too ugly. Any other ideas ?",
+      "parentUuid": "01c254c7_c4825e98",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 33
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "417a8c69_f6cd8017",
         "filename": "runtime/mirror/emulated_stack_frame.cc",
         "patchSetId": 1
