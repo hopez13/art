@@ -179,7 +179,13 @@ mirror::EmulatedStackFrame* EmulatedStackFrame::CreateFromShadowFrameAndArgs(
   ShadowFrameGetter<is_range> getter(first_src_reg, arg, caller_frame);
   EmulatedStackFrameAccessor setter(references, stack_frame, stack_frame->GetLength());
   if (!PerformConversions<ShadowFrameGetter<is_range>, EmulatedStackFrameAccessor>(
-      self, from_types, to_types, &getter, &setter, num_method_params)) {
+          self,
+          caller_type,
+          callee_type,
+          from_types,
+          to_types,
+          &getter, &setter,
+          num_method_params)) {
     return nullptr;
   }
 
@@ -194,6 +200,7 @@ mirror::EmulatedStackFrame* EmulatedStackFrame::CreateFromShadowFrameAndArgs(
 }
 
 bool EmulatedStackFrame::WriteToShadowFrame(Thread* self,
+                                            Handle<mirror::MethodType> callsite_type,
                                             Handle<mirror::MethodType> callee_type,
                                             const uint32_t first_dest_reg,
                                             ShadowFrame* callee_frame) {
@@ -214,7 +221,7 @@ bool EmulatedStackFrame::WriteToShadowFrame(Thread* self,
   ShadowFrameSetter setter(callee_frame, first_dest_reg);
 
   return PerformConversions<EmulatedStackFrameAccessor, ShadowFrameSetter>(
-      self, from_types, to_types, &getter, &setter, num_method_params);
+      self, callsite_type, callee_type, from_types, to_types, &getter, &setter, num_method_params);
 }
 
 void EmulatedStackFrame::GetReturnValue(Thread* self, JValue* value) {
