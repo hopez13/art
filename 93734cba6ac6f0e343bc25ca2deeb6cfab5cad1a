@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e191c062_6b2da1aa",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "I personally like current definition more. Because it is consistent with the defenition in kernel perf source code:\nhttps://github.com/torvalds/linux/blob/master/tools/perf/util/jitdump.h#L18\n\nHowever I can change if you think all magic definitions should follow the rule that we use byte array in ART.",
+      "parentUuid": "a1898840_6946856e",
+      "range": {
+        "startLine": 123,
+        "startChar": 33,
+        "endLine": 123,
+        "endChar": 55
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_ee957b1c",
         "filename": "compiler/jit/jit_logger.cc",
         "patchSetId": 5
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7c0657a0_0e20cf5d",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Nicolas, if we still want to use the simple perf-PID.map approach, it\u0027s better that code cache GC is still disabled for perf.\n\n\nNow, for jit-PID.dump approach. In short, yes.\nBecause this approach includes time stamp information for every event, perf report should support jit code cache GC and differenciating methods loaded to the same address. The time stamp information can help the profiler to locate the right symbol. I have experimented and confirmed this behavior with my simple jit program.\n\n\nThe \u0027kMove\u0027 is not for recording \u0027code delete\u0027 event. It just helps the profiler to map samples from different code locations (due to code move) to the same symbol.\nhttps://github.com/torvalds/linux/blob/master/tools/perf/util/jitdump.c#L468\nFor code cache GC, we don\u0027t need to report a \u0027code delete\u0027 event.\n\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nDETAIL:\n\nSo, let\u0027s assume that code cache GC happed and two jitted methods were reported in \u0027kLoad\u0027 events with the same code_address_ (because the first method is deleted by code cache GC). In theory, the profiler should be able to differeciate the samples for those two methods, because each sample has time stamp, and we have reported the \u0027kLoad\u0027 events with time stamps. The profiler should be able to tell that a sample belongs to the period of the first jitted method, or does it belong to the period of the second jitted method.\n\nI have experimented and confirmed this behavior with my simple jit program. We can do more experiments on ART JIT. \n\nI\u0027ve also checked the processed perf.data with ART jitted code information, I can see that the time stamps information are already there for PERF_RECORD_MMAP2 (jited code load) and  PERF_RECORD_SAMPLE (sample for jitted code). The first numbers in every line (5068487571183 and 5069935389516) are the time stamps.\n\n------------------------------------------\n5068487571183 0x253e0 [0x80]: PERF_RECORD_MMAP2 16753/16753: [0x7fad3ddd30(0x118) @ 0x40 08:01 84803589 1]: --xs /data/misc/trace/jitted-16753-1.so\n...\n5069935389516 0x6e770 [0x28]: PERF_RECORD_SAMPLE(IP, 0x2): 16753/16753: 0x7fad3dfe5c period: 250000 addr: 0\n------------------------------------------",
+      "parentUuid": "7c0657a0_2e3dd3da",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 56
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0195f44b_2ca2d336",
         "filename": "compiler/jit/jit_logger.cc",
         "patchSetId": 5
@@ -83,6 +131,30 @@
       "writtenOn": "2016-10-25T16:07:38Z",
       "side": 1,
       "message": "what does this refer to? The id of the the actual JIT-compiler thread?",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 157,
+        "endChar": 22
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "617f90e7_072b36b3",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "I have described in bellow comment, the pid \u0026 tid fields here tell perf which thread in which process performed the jitted code load action.\n\nIn our case, it should be the process ID of the jit compiler thread.",
+      "parentUuid": "0195f44b_2ca2d336",
       "range": {
         "startLine": 157,
         "startChar": 11,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_47628e56",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Right. I did more investigation on the perf source code. The profiler is able to map raw samples to the correct thread running the jitted code.\n\nThe \u0027thread_id_\u0027 here, doesn\u0027t affect this mapping.\n\nFrom what I\u0027ve learned from perf source code, this thread_id_ field tells the profiler who (which pid \u0026 tid) performed this code load action, in our case, it should be the jit compiler thread.\n\nI\u0027ll change the code and comment accordingly.",
+      "parentUuid": "7c0657a0_0e3a0fe3",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 73
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc352f64_85b36437",
         "filename": "compiler/jit/jit_logger.cc",
         "patchSetId": 5
@@ -129,6 +225,30 @@
       "writtenOn": "2016-10-24T13:16:41Z",
       "side": 1,
       "message": "Mention what ART jit does?",
+      "range": {
+        "startLine": 159,
+        "startChar": 30,
+        "endLine": 159,
+        "endChar": 100
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0195f44b_cc5f8f55",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc352f64_85b36437",
       "range": {
         "startLine": 159,
         "startChar": 30,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_67b5d285",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Currently VIXL32 has high priority. After this CL, I will join rest of our team to help on the VIXL32 work.\nAfter that I can come back to implement the source line mapping feature.",
+      "parentUuid": "7c0657a0_ee457b62",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 76
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_a7642a3f",
         "filename": "compiler/jit/jit_logger.cc",
         "patchSetId": 5
@@ -175,6 +319,30 @@
       "writtenOn": "2016-10-25T16:07:38Z",
       "side": 1,
       "message": "What if Open fails? does it make sense to continue with the Write? Document why if so.",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 23
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1bb48d0_19baab18",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "I have warning in OpenMarkerFile(), if open fails, it will report that \u0027perf inject\u0027 tool will not work.\n\nFor me, it still makes sense to continue to write jit-PID.dump file even when OpenMarkerFile() fails. Because even when \u0027perf inject\u0027 tool cannot work, developers can still use other tools to map the samples in perf.data to the information (symbol,address,code) recorded in the jit-PID.dump file, and still proceed the jitted code analylsis.\n\nI\u0027ve added comments here.",
+      "parentUuid": "617f90e7_a7642a3f",
       "range": {
         "startLine": 248,
         "startChar": 0,
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "617f90e7_27303a1f",
+        "filename": "compiler/jit/jit_logger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "These writes happen after WriteJitDumpHeader(), I already have checks and logs there, that\u0027s why I didn\u0027t check the return results here.\n\nFor such debug feature, I only want to write warning in log (to warn developer that perf profiling on jitted code may not work), I don\u0027t want to stop the process.",
+      "parentUuid": "617f90e7_a78d0abf",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 10
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_6e33cb11",
         "filename": "compiler/jit/jit_logger.h",
         "patchSetId": 5
@@ -221,6 +413,30 @@
       "writtenOn": "2016-10-24T13:16:41Z",
       "side": 1,
       "message": "where?",
+      "range": {
+        "startLine": 65,
+        "startChar": 15,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a13988ba_a99b9d4e",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "I\u0027ve added comments in PS6, which describes that the location of jit-PID.map and the generated small ELF files.",
+      "parentUuid": "7c0657a0_6e33cb11",
       "range": {
         "startLine": 65,
         "startChar": 15,
@@ -256,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "a1dd08a2_c966f167",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_4e300703",
+      "range": {
+        "startLine": 66,
+        "startChar": 76,
+        "endLine": 66,
+        "endChar": 77
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41260cae_76cf9013",
         "filename": "compiler/jit/jit_logger.h",
         "patchSetId": 5
@@ -267,6 +507,30 @@
       "writtenOn": "2016-10-24T13:16:41Z",
       "side": 1,
       "message": "Nit: one line.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "93734cba6ac6f0e343bc25ca2deeb6cfab5cad1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01c254c7_a4576274",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-26T10:19:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41260cae_76cf9013",
       "range": {
         "startLine": 73,
         "startChar": 0,
