@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_47e76e69",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-10-26T17:17:16Z",
+      "side": 1,
+      "message": "Yes, I just meant that we haven\u0027t enabled this code-size-only optimization in VIXL and later will come back and investigate possible improvements (including performance probably).",
+      "parentUuid": "612f9071_e71ea284",
+      "range": {
+        "startLine": 2979,
+        "startChar": 0,
+        "endLine": 2980,
+        "endChar": 53
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_cede3728",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
