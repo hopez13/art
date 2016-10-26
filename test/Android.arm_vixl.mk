@@ -321,6 +321,7 @@ TEST_ART_BROKEN_OPTIMIZING_ARM_VIXL_RUN_TESTS := \
   615-checker-arm64-store-zero \
   617-clinit-oome \
   618-checker-induction \
+  621-checker-new-instance \
   700-LoadArgRegs \
   701-easy-div-rem \
   702-LargeBranchOffset \
