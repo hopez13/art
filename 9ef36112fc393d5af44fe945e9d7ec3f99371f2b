@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_277fda1c",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-26T07:57:17Z",
+      "side": 1,
+      "message": "What style is best here?\nA. instruction_set_features_.get() \u003d\u003d nullptr\nB. instruction_set_features_ \u003d\u003d nullptr\nC. !instruction_set_features_\n\nElsewhere you change a pointer from B to A.\nI have no personal preference.",
+      "range": {
+        "startLine": 135,
+        "startChar": 10,
+        "endLine": 135,
+        "endChar": 46
+      },
+      "revId": "9ef36112fc393d5af44fe945e9d7ec3f99371f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_e77ce22a",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-26T07:57:17Z",
+      "side": 1,
+      "message": "See other comment. result \u003d\u003d nullptr? !result?",
+      "range": {
+        "startLine": 59,
+        "startChar": 17,
+        "endLine": 59,
+        "endChar": 23
+      },
+      "revId": "9ef36112fc393d5af44fe945e9d7ec3f99371f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_478cce17",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-26T07:57:17Z",
+      "side": 1,
+      "message": "odd indent",
+      "range": {
+        "startLine": 34,
+        "startChar": 56,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "9ef36112fc393d5af44fe945e9d7ec3f99371f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21259891_a59bbe4e",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-10-26T07:57:17Z",
+      "side": 1,
+      "message": "This conditional structure happens 5 times in this change. Consider adding a helper function for allocating a new X??InstructionSetFeatures given the x86_64 flag and the rest of the constructor arguments.",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 22
+      },
+      "revId": "9ef36112fc393d5af44fe945e9d7ec3f99371f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
