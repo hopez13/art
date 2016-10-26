@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_a7e90aa3",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:29:39Z",
+      "side": 1,
+      "message": "Final classes and methods do not need ..",
+      "range": {
+        "startLine": 239,
+        "startChar": 7,
+        "endLine": 239,
+        "endChar": 33
+      },
+      "revId": "a58ee5ddeb63d52217d18888f90953378f63a5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_c7defef5",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:29:39Z",
+      "side": 1,
+      "message": "Can you test this in cha_test.cc?",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 11
+      },
+      "revId": "a58ee5ddeb63d52217d18888f90953378f63a5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4128cc69_a67826e8",
+        "filename": "runtime/cha.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:29:39Z",
+      "side": 1,
+      "message": "Method entrypoints that have this dependency will be updated.... ?",
+      "range": {
+        "startLine": 52,
+        "startChar": 41,
+        "endLine": 52,
+        "endChar": 51
+      },
+      "revId": "a58ee5ddeb63d52217d18888f90953378f63a5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_87e406cc",
+        "filename": "runtime/cha.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:29:39Z",
+      "side": 1,
+      "message": "contain OatQuickMethodHeader from the given `method_headers` set. ?",
+      "range": {
+        "startLine": 102,
+        "startChar": 54,
+        "endLine": 102,
+        "endChar": 62
+      },
+      "revId": "a58ee5ddeb63d52217d18888f90953378f63a5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_27ad1a69",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:29:39Z",
+      "side": 1,
+      "message": "I still feel the way this is handled isn\u0027t great. How about just having this set, insert line 287 instead of calling FreeCode, and have FreeCodeInBatches do the CHA update and essentially what\u0027s in FreeCode?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 59
+      },
+      "revId": "a58ee5ddeb63d52217d18888f90953378f63a5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
