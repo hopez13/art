@@ -22,6 +22,30 @@
       "revId": "cc42be074ed15235426cdbcb34f357ead2be2caf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_cadff721",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-26T18:07:58Z",
+      "side": 1,
+      "message": "I may do that once I figure out how this can happen (right now it only seems to happen under the harder to look at image tests, not anything straight out of the box_.",
+      "parentUuid": "612f9071_071e56d4",
+      "range": {
+        "startLine": 264,
+        "startChar": 9,
+        "endLine": 264,
+        "endChar": 64
+      },
+      "revId": "cc42be074ed15235426cdbcb34f357ead2be2caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
