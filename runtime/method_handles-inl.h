@@ -31,110 +31,15 @@
 
 namespace art {
 
-// Assigns |type| to the primitive type associated with |dst_class|. Returns
-// true iff. |dst_class| was a boxed type (Integer, Long etc.), false otherwise.
-REQUIRES_SHARED(Locks::mutator_lock_)
-static inline bool GetPrimitiveType(ObjPtr<mirror::Class> dst_class, Primitive::Type* type) {
-  if (dst_class->DescriptorEquals("Ljava/lang/Boolean;")) {
-    (*type) = Primitive::kPrimBoolean;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Byte;")) {
-    (*type) = Primitive::kPrimByte;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Character;")) {
-    (*type) = Primitive::kPrimChar;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Float;")) {
-    (*type) = Primitive::kPrimFloat;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Double;")) {
-    (*type) = Primitive::kPrimDouble;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Integer;")) {
-    (*type) = Primitive::kPrimInt;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Long;")) {
-    (*type) = Primitive::kPrimLong;
-    return true;
-  } else if (dst_class->DescriptorEquals("Ljava/lang/Short;")) {
-    (*type) = Primitive::kPrimShort;
-    return true;
-  } else {
-    return false;
-  }
-}
-
-REQUIRES_SHARED(Locks::mutator_lock_)
-inline bool ConvertJValue(Handle<mirror::Class> from,
-                          Handle<mirror::Class> to,
-                          const JValue& from_value,
-                          JValue* to_value) {
-  const Primitive::Type from_type = from->GetPrimitiveType();
-  const Primitive::Type to_type = to->GetPrimitiveType();
-
-  // This method must be called only when the types don't match.
-  DCHECK(from.Get() != to.Get());
-
-  if ((from_type != Primitive::kPrimNot) && (to_type != Primitive::kPrimNot)) {
-    // Throws a ClassCastException if we're unable to convert a primitive value.
-    return ConvertPrimitiveValue(false, from_type, to_type, from_value, to_value);
-  } else if ((from_type == Primitive::kPrimNot) && (to_type == Primitive::kPrimNot)) {
-    // They're both reference types. If "from" is null, we can pass it
-    // through unchanged. If not, we must generate a cast exception if
-    // |to| is not assignable from the dynamic type of |ref|.
-    mirror::Object* const ref = from_value.GetL();
-    if (ref == nullptr || to->IsAssignableFrom(ref->GetClass())) {
-      to_value->SetL(ref);
-      return true;
-    } else {
-      ThrowClassCastException(to.Get(), ref->GetClass());
-      return false;
-    }
-  } else {
-    // Precisely one of the source or the destination are reference types.
-    // We must box or unbox.
-    if (to_type == Primitive::kPrimNot) {
-      // The target type is a reference, we must box.
-      Primitive::Type type;
-      // TODO(narayan): This is a CHECK for now. There might be a few corner cases
-      // here that we might not have handled yet. For exmple, if |to| is java/lang/Number;,
-      // we will need to box this "naturally".
-      CHECK(GetPrimitiveType(to.Get(), &type));
-      // First perform a primitive conversion to the unboxed equivalent of the target,
-      // if necessary. This should be for the rarer cases like (int->Long) etc.
-      if (UNLIKELY(from_type != type)) {
-         if (!ConvertPrimitiveValue(false, from_type, type, from_value, to_value)) {
-           return false;
-         }
-      } else {
-        *to_value = from_value;
-      }
-
-      // Then perform the actual boxing, and then set the reference.
-      ObjPtr<mirror::Object> boxed = BoxPrimitive(type, from_value);
-      to_value->SetL(boxed.Ptr());
-      return true;
-    } else {
-      // The target type is a primitive, we must unbox.
-      ObjPtr<mirror::Object> ref(from_value.GetL());
-
-      // Note that UnboxPrimitiveForResult already performs all of the type
-      // conversions that we want, based on |to|.
-      JValue unboxed_value;
-      return UnboxPrimitiveForResult(ref, to.Get(), to_value);
-    }
-  }
-
-  return true;
-}
-
 template <typename G, typename S>
 bool PerformConversions(Thread* self,
+                        Handle<mirror::MethodType> callsite_type,
+                        Handle<mirror::MethodType> callee_type,
                         Handle<mirror::ObjectArray<mirror::Class>> from_types,
                         Handle<mirror::ObjectArray<mirror::Class>> to_types,
                         G* getter,
                         S* setter,
-                        int32_t num_conversions) {
+                        int32_t num_conversions) REQUIRES_SHARED(Locks::mutator_lock_) {
   StackHandleScope<2> hs(self);
   MutableHandle<mirror::Class> from(hs.NewHandle<mirror::Class>(nullptr));
   MutableHandle<mirror::Class> to(hs.NewHandle<mirror::Class>(nullptr));
@@ -170,7 +75,7 @@ bool PerformConversions(Thread* self,
         from_value.SetI(getter->Get());
       }
 
-      if (!ConvertJValue(from, to, from_value, &to_value)) {
+      if (!ConvertJValue(callee_type, callsite_type, from, to, from_value, &to_value)) {
         DCHECK(self->IsExceptionPending());
         return false;
       }
@@ -196,7 +101,7 @@ bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
                                             uint32_t first_src_reg,
                                             uint32_t first_dest_reg,
                                             const uint32_t (&arg)[Instruction::kMaxVarArgRegs],
-                                            ShadowFrame* callee_frame) {
+                                            ShadowFrame* callee_frame) REQUIRES_SHARED(Locks::mutator_lock_) {
   StackHandleScope<4> hs(self);
   Handle<mirror::ObjectArray<mirror::Class>> from_types(hs.NewHandle(callsite_type->GetPTypes()));
   Handle<mirror::ObjectArray<mirror::Class>> to_types(hs.NewHandle(callee_type->GetPTypes()));
@@ -211,6 +116,8 @@ bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
   ShadowFrameSetter setter(callee_frame, first_dest_reg);
 
   return PerformConversions<ShadowFrameGetter<is_range>, ShadowFrameSetter>(self,
+                                                                            callsite_type,
+                                                                            callee_type,
                                                                             from_types,
                                                                             to_types,
                                                                             &getter,
