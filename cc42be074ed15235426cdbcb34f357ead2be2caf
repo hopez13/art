@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_071e56d4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-26T08:55:50Z",
+      "side": 1,
+      "message": "How about moving this to LookupCycle and check there if the instruction is in the graph and only return it if it is.",
+      "range": {
+        "startLine": 264,
+        "startChar": 9,
+        "endLine": 264,
+        "endChar": 64
+      },
+      "revId": "cc42be074ed15235426cdbcb34f357ead2be2caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
