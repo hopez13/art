@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_a700d2b0",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T00:16:06Z",
+      "side": 1,
+      "message": "Still required. The subclasses return unique_ptr\u003csubclass\u003e, which isn\u0027t assignable to unique_ptr\u003csuperclass\u003e.\n\nWould you like me to change the subclasses?",
+      "parentUuid": "0ec6ea30_02d27a2e",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "297f9b1b75cabfed464ab9fb91969a32604428ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eec0b617_012efa87",
         "filename": "runtime/arch/mips64/instruction_set_features_mips64.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e1c8e09a_a7d9f23e",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T00:16:06Z",
+      "side": 1,
+      "message": "Good point, thanks. This class is marked FINAL, there\u0027s no reason to declare anything virtual here.",
+      "parentUuid": "eec0b617_012efa87",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 9
+      },
+      "revId": "297f9b1b75cabfed464ab9fb91969a32604428ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e6aced9_63556ddf",
         "filename": "runtime/arch/x86_64/instruction_set_features_x86_64.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-06-22T16:34:34Z",
       "side": 1,
       "message": "This pattern seems awkward and slightly dangerous. Perhaps it\u0027s worth introducing a helper function for converting an X86FeaturesUniquePtr to an X86_64FeaturesUniquePtr.",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 3
+      },
+      "revId": "297f9b1b75cabfed464ab9fb91969a32604428ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8e09a_888283e6",
+        "filename": "runtime/arch/x86_64/instruction_set_features_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T00:16:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e6aced9_63556ddf",
       "range": {
         "startLine": 32,
         "startChar": 1,
