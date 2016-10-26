@@ -128,8 +128,11 @@ void Thread::InitTlsEntryPoints() {
   InitEntryPoints(&tlsPtr_.jni_entrypoints, &tlsPtr_.quick_entrypoints);
 }
 
-void Thread::ResetQuickAllocEntryPointsForThread() {
-  ResetQuickAllocEntryPoints(&tlsPtr_.quick_entrypoints);
+void Thread::ResetQuickAllocEntryPointsForThread() {\
+  // Entrypoint switching is currnetly only faster for X86_64 since other archs don't have TLAB
+  // fast path for non region space entrypoints.
+  bool gc_marking = kUseReadBarrier && kRuntimeISA == kX86_64 && GetIsGcMarking();
+  ResetQuickAllocEntryPoints(&tlsPtr_.quick_entrypoints, gc_marking);
 }
 
 class DeoptimizationContextRecord {
@@ -3131,6 +3134,15 @@ void Thread::SetException(ObjPtr<mirror::Throwable> new_exception) {
   CHECK(new_exception != nullptr);
   // TODO: DCHECK(!IsExceptionPending());
   tlsPtr_.exception = new_exception.Ptr();
+}
+
+void Thread::SetIsGcMarking(bool is_marking) {
+  CHECK(kUseReadBarrier);
+  tls32_.is_gc_marking = is_marking;
+  if (kRuntimeISA == kX86_64) {
+    // Entrypoint switching is only implemented for X86_64.
+    ResetQuickAllocEntryPointsForThread();
+  }
 }
 
 }  // namespace art
