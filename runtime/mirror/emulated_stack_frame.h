@@ -48,6 +48,7 @@ class MANAGED EmulatedStackFrame : public Object {
   // whose type is |callee_type|, starting at |first_dest_reg|.
   bool WriteToShadowFrame(
       Thread* self,
+      Handle<mirror::MethodType> callsite_type,
       Handle<mirror::MethodType> callee_type,
       const uint32_t first_dest_reg,
       ShadowFrame* callee_frame) REQUIRES_SHARED(Locks::mutator_lock_);

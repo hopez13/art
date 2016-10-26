@@ -29,11 +29,11 @@
 
 namespace art {
 
-inline bool ConvertPrimitiveValue(bool unbox_for_result,
-                                  Primitive::Type srcType,
-                                  Primitive::Type dstType,
-                                  const JValue& src,
-                                  JValue* dst) {
+inline bool ConvertPrimitiveValueNoThrow(Primitive::Type srcType,
+                                         Primitive::Type dstType,
+                                         const JValue& src,
+                                         JValue* dst) {
+  ScopedAssertNoThreadSuspension ants(__FUNCTION__);
   DCHECK(srcType != Primitive::kPrimNot && dstType != Primitive::kPrimNot);
   if (LIKELY(srcType == dstType)) {
     dst->SetJ(src.GetJ());
@@ -91,6 +91,18 @@ inline bool ConvertPrimitiveValue(bool unbox_for_result,
   default:
     break;
   }
+  return false;
+}
+
+inline bool ConvertPrimitiveValue(bool unbox_for_result,
+                                  Primitive::Type srcType,
+                                  Primitive::Type dstType,
+                                  const JValue& src,
+                                  JValue* dst) {
+  if (ConvertPrimitiveValueNoThrow(srcType, dstType, src, dst)) {
+    return true;
+  }
+
   if (!unbox_for_result) {
     ThrowIllegalArgumentException(StringPrintf("Invalid primitive conversion from %s to %s",
                                                PrettyDescriptor(srcType).c_str(),
