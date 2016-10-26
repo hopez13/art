@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_e71ea284",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-26T16:55:30Z",
+      "side": 1,
+      "message": "The kCcDontCare tells the Thumb2Assembler that the flags are irrelevant for correctness, so is optimizes for code size. That\u0027s the simple optimization target. Trying to optimize for speed is more difficult because performance depends on too many factors (including code size).\n\nFor 32-bit instructions, Thumb2Assembler treats kCcDontCare as kCcKeep.",
+      "parentUuid": "617f90e7_2773da5d",
+      "range": {
+        "startLine": 2979,
+        "startChar": 0,
+        "endLine": 2980,
+        "endChar": 53
+      },
+      "revId": "eb0db020f168deb0d239db391e8cd5d0ee6aa68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_cede3728",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
