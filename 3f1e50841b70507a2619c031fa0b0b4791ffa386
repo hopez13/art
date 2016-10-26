@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e11aa056_e395b21a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e191c062_8b5f2d28",
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_67f8720d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-10-25T18:44:40Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 849,
+        "startChar": 46,
+        "endLine": 849,
+        "endChar": 59
+      },
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e11aa056_03abae5f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "It better reflects the use of this variable. It\u0027s not really a \"vregC\" in this context.",
+      "parentUuid": "617f90e7_67f8720d",
       "range": {
         "startLine": 849,
         "startChar": 46,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a150a8f0_91bb5cac",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "617f90e7_e70aa23a",
+      "range": {
+        "startLine": 947,
+        "startChar": 26,
+        "endLine": 947,
+        "endChar": 29
+      },
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817ac4f4_68f043e6",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2016-10-25T18:44:40Z",
       "side": 1,
       "message": "only one",
+      "range": {
+        "startLine": 967,
+        "startChar": 73,
+        "endLine": 967,
+        "endChar": 77
+      },
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_e71862eb",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "817ac4f4_68f043e6",
       "range": {
         "startLine": 967,
         "startChar": 73,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "a150a8f0_d1c5e429",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "617f90e7_87ec864f",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 101
+      },
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817ac4f4_a8e15b17",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2016-10-25T18:44:40Z",
       "side": 1,
       "message": "Line too long",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 103
+      },
+      "revId": "3f1e50841b70507a2619c031fa0b0b4791ffa386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a150a8f0_f1cae836",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-26T08:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "817ac4f4_a8e15b17",
       "range": {
         "startLine": 140,
         "startChar": 0,
