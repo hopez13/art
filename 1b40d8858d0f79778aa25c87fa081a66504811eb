@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1826880_36e36e91",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Why? You have an operator for this. We should follow established idioms...",
+      "range": {
+        "startLine": 523,
+        "startChar": 26,
+        "endLine": 523,
+        "endChar": 36
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_56e0f281",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "This looks weird. Why?",
+      "range": {
+        "startLine": 621,
+        "startChar": 41,
+        "endLine": 621,
+        "endChar": 48
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_d67882e9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Fix up UnstartedRuntime?",
+      "range": {
+        "startLine": 448,
+        "startChar": 6,
+        "endLine": 448,
+        "endChar": 72
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_56655238",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Fix up Instrumentation?",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 50
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_3691aedd",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 279,
+        "startChar": 100,
+        "endLine": 279,
+        "endChar": 102
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_568e32ba",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 436,
+        "startChar": 100,
+        "endLine": 436,
+        "endChar": 101
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_b6413e81",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 453,
+        "startChar": 100,
+        "endLine": 453,
+        "endChar": 101
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_d646c295",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 480,
+        "startChar": 100,
+        "endLine": 480,
+        "endChar": 101
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_16510a4e",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 558,
+        "startChar": 100,
+        "endLine": 558,
+        "endChar": 101
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_76609619",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Why not ObjPtr like below, for consistency?",
+      "range": {
+        "startLine": 307,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 16
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1826880_965d1a5f",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-26T22:07:40Z",
+      "side": 1,
+      "message": "Indent off.",
+      "range": {
+        "startLine": 357,
+        "startChar": 36,
+        "endLine": 357,
+        "endChar": 56
+      },
+      "revId": "1b40d8858d0f79778aa25c87fa081a66504811eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
