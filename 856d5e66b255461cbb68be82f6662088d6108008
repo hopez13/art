@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a63c3ec1_915b3c68",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-10-27T20:22:19Z",
+      "side": 1,
+      "message": "Why is kGrow no longer a template param?",
+      "range": {
+        "startLine": 259,
+        "startChar": 69,
+        "endLine": 259,
+        "endChar": 74
+      },
+      "revId": "856d5e66b255461cbb68be82f6662088d6108008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
