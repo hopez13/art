@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_8aa5eb58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:47:37Z",
+      "side": 1,
+      "message": "Oh so the \"better\" applies to the current state? I thought it applied to the range-based loops. Maybe add a \"that, compared to iterators, better exposes....\".",
+      "parentUuid": "612f9071_aa454fb3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_aae9cfa2",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Would it be OK to specify `auto` as the return type? Because the actual type is quite long, something like\n\n  IterationRange\u003c\n    std::reverse_iterator\u003c\n      ArenaVector\u003cHBasicBlock*\u003e::const_iterator\n    \u003e\n  \u003e",
       "parentUuid": "612f9071_cade03f6",
+      "range": {
+        "startLine": 95,
+        "startChar": 49,
+        "endLine": 95,
+        "endChar": 68
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_6a2c37f3",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:47:37Z",
+      "side": 1,
+      "message": "yes :(",
+      "parentUuid": "612f9071_0a357b3c",
       "range": {
         "startLine": 95,
         "startChar": 49,
