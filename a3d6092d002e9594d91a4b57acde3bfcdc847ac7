@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_aa0e2fa3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "boot",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_ca1363ce",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "IsAOTCompiler()",
+      "range": {
+        "startLine": 408,
+        "startChar": 12,
+        "endLine": 408,
+        "endChar": 33
+      },
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_2a1b1fe5",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_4a2853f8",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "Say which bytecode is err.",
+      "range": {
+        "startLine": 5,
+        "startChar": 22,
+        "endLine": 5,
+        "endChar": 31
+      },
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_6a25171f",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "JIT a...",
+      "range": {
+        "startLine": 38,
+        "startChar": 35,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_8af24b80",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:25:24Z",
+      "side": 1,
+      "message": "Move this to another CL.",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 71
+      },
+      "revId": "a3d6092d002e9594d91a4b57acde3bfcdc847ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
