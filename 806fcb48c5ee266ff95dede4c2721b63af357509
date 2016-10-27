@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_aafd4f00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-27T14:00:44Z",
+      "side": 1,
+      "message": "This test no longer passes on my workstation; the error is:\n\n  02-22 18:09:31.958 29008 29008 I dex2oatd: /data/local/tmp/system/bin/dex2oatd --compiler-backend\u003dOptimizing --include-patch-information --runtime-arg -Xnorelocate --boot-image\u003d/data/art-test/core.art --dex-file\u003d/data/run-test/test-4187/002-sleep.jar --oat-file\u003d/data/run-test/test-4187/oat/arm/002-sleep.odex --base\u003d0x4000 --app-image-file\u003d/data/run-test/test-4187/oat/arm/002-sleep.art --instruction-set\u003darm\n  02-22 18:09:32.436 29008 29008 F dex2oatd: code_generator_arm_vixl.h:275] Unimplemented Instruction: ArrayGet\n\nRemove it from the commit change and blacklist it in the Makefile?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "806fcb48c5ee266ff95dede4c2721b63af357509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_caf2832f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-27T14:00:44Z",
+      "side": 1,
+      "message": "Ditto:\n\n  02-22 18:11:48.349 29078 29078 I dex2oatd: /data/local/tmp/system/bin/dex2oatd --compiler-backend\u003dOptimizing --include-patch-information --runtime-arg -Xnorelocate --boot-image\u003d/data/art-test/core.art --dex-file\u003d/data/run-test/test-3689/133-static-invoke-super.jar --oat-file\u003d/data/run-test/test-3689/oat/arm/133-static-invoke-super.odex --base\u003d0x4000 --app-image-file\u003d/data/run-test/test-3689/oat/arm/133-static-invoke-super.art --instruction-set\u003darm\n  02-22 18:11:48.835 29078 29081 F dex2oatd: code_generator_arm_vixl.h:275] Unimplemented Instruction: ArrayGet",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "806fcb48c5ee266ff95dede4c2721b63af357509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
