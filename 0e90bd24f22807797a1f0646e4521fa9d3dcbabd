@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_8ae40bcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:10:40Z",
+      "side": 1,
+      "message": "Give a rationale why you want to remove them? (I saw hit fly by a comment in another CL, but it would be good to have it here too).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 61
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_aae9cfa2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:10:40Z",
+      "side": 1,
+      "message": "Could you inline this in the for statement and avoid the local variable?",
+      "range": {
+        "startLine": 1228,
+        "startChar": 57,
+        "endLine": 1228,
+        "endChar": 92
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_cade03f6",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:10:40Z",
+      "side": 1,
+      "message": "It\u0027d be great to have a GetPostOrder.",
+      "range": {
+        "startLine": 95,
+        "startChar": 49,
+        "endLine": 95,
+        "endChar": 68
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_4ad3f3eb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T12:10:40Z",
+      "side": 1,
+      "message": "Add GetReversePostOrderSkipEntry?",
+      "range": {
+        "startLine": 1986,
+        "startChar": 59,
+        "endLine": 1986,
+        "endChar": 78
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
