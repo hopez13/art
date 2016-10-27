@@ -140,6 +140,30 @@
       "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_cac5232a",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T11:46:54Z",
+      "side": 1,
+      "message": "Up to you, my comment was mostly to avoid these duplicated checks.",
+      "parentUuid": "612f9071_ea7ca72a",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
