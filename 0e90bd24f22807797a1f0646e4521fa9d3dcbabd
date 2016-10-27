@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_6ada77cf",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-27T13:13:50Z",
+      "side": 1,
+      "message": "I found a bit shorter expression:\n\n  IterationRange\u003cArenaVector\u003cHBasicBlock*\u003e::const_reverse_iterator\u003e\n\nSo I\u0027ll avoid the `auto`.\n\nI\u0027ll also add GetReverseLinearOrder(). In my opinion, \"LinearPostOrder\" sounds odd.",
+      "parentUuid": "612f9071_6a2c37f3",
+      "range": {
+        "startLine": 95,
+        "startChar": 49,
+        "endLine": 95,
+        "endChar": 68
+      },
+      "revId": "0e90bd24f22807797a1f0646e4521fa9d3dcbabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_4ad3f3eb",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
