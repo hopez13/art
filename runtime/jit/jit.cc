@@ -662,6 +662,10 @@ void Jit::AddSamples(Thread* self, ArtMethod* method, uint16_t count, bool with_
   method->SetCounter(new_count);
 }
 
+void Jit::AddCompileTask(Thread* self, ArtMethod* method) {
+  thread_pool_->AddTask(self, new JitCompileTask(method, JitCompileTask::kCompile));
+}
+
 void Jit::MethodEntered(Thread* thread, ArtMethod* method) {
   Runtime* runtime = Runtime::Current();
   if (UNLIKELY(runtime->UseJitCompilation() && runtime->GetJit()->JitAtFirstUse())) {
