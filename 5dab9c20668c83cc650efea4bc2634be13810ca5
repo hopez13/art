@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "612f9071_478beea8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T11:51:32Z",
+      "side": 1,
+      "message": "is?",
+      "range": {
+        "startLine": 909,
+        "startChar": 36,
+        "endLine": 909,
+        "endChar": 43
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c254c7_c4825e98",
         "filename": "runtime/method_handles-inl.h",
         "patchSetId": 1
@@ -42,6 +65,53 @@
         "startChar": 0,
         "endLine": 131,
         "endChar": 33
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_675d525c",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T11:51:32Z",
+      "side": 1,
+      "message": "Maybe add this as a comment (how it is being instantiated).",
+      "parentUuid": "c1af5cf4_d29b44fc",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 33
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c134bcc0_2d325955",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T11:51:32Z",
+      "side": 1,
+      "message": "one line?",
+      "range": {
+        "startLine": 173,
+        "startChar": 20,
+        "endLine": 174,
+        "endChar": 40
       },
       "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
