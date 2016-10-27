@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "a1826880_3ef0a0e5",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-27T16:29:00Z",
+      "side": 1,
+      "message": "These separate items take a lot of space, making collecting the defaults in your mind hard. How about\n\n# Default values: no benchmarks, all tests, JIT compiling.\nrun_benchmarks\u003dfalse\nrun_tests\u003dtrue\nuse_jit\u003dtrue",
+      "revId": "7685fd7d754c4d06fa1be250ac14b8cf1ecc2936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_0ec20fec",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 1
