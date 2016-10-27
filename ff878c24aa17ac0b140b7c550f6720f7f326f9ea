@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_4aa5b387",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-27T11:39:03Z",
+      "side": 1,
+      "message": "I prefer DCHECK_LT(count_offset, offset).",
+      "parentUuid": "612f9071_67e632fe",
+      "range": {
+        "startLine": 2147,
+        "startChar": 21,
+        "endLine": 2147,
+        "endChar": 50
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_07b496d7",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_079d764f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-27T11:39:03Z",
+      "side": 1,
+      "message": "We are already using IP. We really need this additional register in the `different_compression` path. I\u0027ve already used some tricks to avoid the temp4.",
+      "parentUuid": "612f9071_07b496d7",
+      "range": {
+        "startLine": 1062,
+        "startChar": 4,
+        "endLine": 1062,
+        "endChar": 9
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_87a88677",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-27T10:30:22Z",
       "side": 1,
       "message": "Move this check in IsCompressed?",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_ea7ca72a",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-27T11:39:03Z",
+      "side": 1,
+      "message": "We could simply remove this if you prefer. If the string compression is disabled, `String::IsCompressed(count_)` trivially evaluates to `false` anyway.",
+      "parentUuid": "612f9071_87a88677",
       "range": {
         "startLine": 109,
         "startChar": 7,
