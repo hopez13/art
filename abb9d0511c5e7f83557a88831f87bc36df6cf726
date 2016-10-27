@@ -22,6 +22,30 @@
       "revId": "abb9d0511c5e7f83557a88831f87bc36df6cf726",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_e7d9423e",
+        "filename": "compiler/jit/jit_logger.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-10-27T10:21:40Z",
+      "side": 1,
+      "message": "Yes, as location as jit-PID.dump. I\u0027ve updated the comment here in PS7.\nI\u0027ve mentioned this in the comment, unfortunately \u0027perf inject\u0027 doesn\u0027t provide such handy option to specify a path, where we can ask it to look for jit-PID.dump file and generate small ELF files.",
+      "parentUuid": "61d31097_074916d1",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "abb9d0511c5e7f83557a88831f87bc36df6cf726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
