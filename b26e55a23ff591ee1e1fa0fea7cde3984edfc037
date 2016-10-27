@@ -872,6 +872,30 @@
     },
     {
       "key": {
+        "uuid": "4654620e_8cbfab60",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-27T21:43:12Z",
+      "side": 1,
+      "message": "Ok, just checked and there is no underlying malloc lock for our space. It\u0027s restructured anyway and should be cleaner now.",
+      "parentUuid": "612f9071_c7c51e2a",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 78
+      },
+      "revId": "b26e55a23ff591ee1e1fa0fea7cde3984edfc037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1898840_09426983",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
