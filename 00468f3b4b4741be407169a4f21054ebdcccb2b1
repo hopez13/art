@@ -22,6 +22,30 @@
       "revId": "00468f3b4b4741be407169a4f21054ebdcccb2b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_8a55ebde",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-27T17:20:15Z",
+      "side": 1,
+      "message": "That\u0027s not true, check out InstructionCodeGeneratorARM::VisitLoadClass().",
+      "parentUuid": "612f9071_4adf734e",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 59
+      },
+      "revId": "00468f3b4b4741be407169a4f21054ebdcccb2b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
