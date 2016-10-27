@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_67e632fe",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T10:30:22Z",
+      "side": 1,
+      "message": "Add DCHECK_LT(adjusted_offset, 0) ?",
+      "range": {
+        "startLine": 2147,
+        "startChar": 21,
+        "endLine": 2147,
+        "endChar": 50
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_07b496d7",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T10:30:22Z",
+      "side": 1,
+      "message": "Can\u0027t you use IP?",
+      "range": {
+        "startLine": 1062,
+        "startChar": 4,
+        "endLine": 1062,
+        "endChar": 9
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_87a88677",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-27T10:30:22Z",
+      "side": 1,
+      "message": "Move this check in IsCompressed?",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 29
+      },
+      "revId": "ff878c24aa17ac0b140b7c550f6720f7f326f9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
