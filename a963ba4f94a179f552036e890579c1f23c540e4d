@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "a1826880_f6c3c693",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2867,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-10-27T21:43:12Z",
+      "side": 1,
+      "message": "DependsOnGC really carries some dependency on moving GC which can invalidate pointers. This flag doesn\u0027t face the same dependency. A moving GC won\u0027t kill this flag\u0027s value.\nThis flag\u0027s value isn\u0027t tied to heap state which is what usually side effects track. I\u0027d rather treat it specially in its own elimination/hoisting optimization part.",
+      "parentUuid": "e191c062_6bce8115",
+      "range": {
+        "startLine": 2867,
+        "startChar": 54,
+        "endLine": 2867,
+        "endChar": 58
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_db9df35d",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
