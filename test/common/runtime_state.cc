@@ -140,18 +140,23 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureJitCompiled(JNIEnv* env,
 
   jit::JitCodeCache* code_cache = jit->GetCodeCache();
   OatQuickMethodHeader* header = nullptr;
+  int counter = 0;
   while (true) {
     header = OatQuickMethodHeader::FromEntryPoint(method->GetEntryPointFromQuickCompiledCode());
     if (code_cache->ContainsPc(header->GetCode())) {
       break;
     } else {
+      if (counter == 0) {
+        Thread* self = Thread::Current();
+        ScopedObjectAccess soa(self);
+        // Make sure there is a profiling info, required by the compiler.
+        ProfilingInfo::Create(soa.Self(), method, /* retry_allocation */ true);
+        jit->AddCompileTask(self, method);
+      }
+
       // Sleep to yield to the compiler thread.
       usleep(1000);
-      ScopedObjectAccess soa(Thread::Current());
-      // Make sure there is a profiling info, required by the compiler.
-      ProfilingInfo::Create(soa.Self(), method, /* retry_allocation */ true);
-      // Will either ensure it's compiled or do the compilation itself.
-      jit->CompileMethod(method, soa.Self(), /* osr */ false);
+      counter = ++counter % 20;
     }
   }
 }
