@@ -39,6 +39,30 @@
       "revId": "240dc779a37adbf725380f7770c7b793a3546699",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_ad9ba94e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-28T10:57:48Z",
+      "side": 1,
+      "message": "The Thread:Current() is utterly insignificant compared to the graph dumping.",
+      "parentUuid": "612f9071_8d6d0578",
+      "range": {
+        "startLine": 171,
+        "startChar": 19,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "240dc779a37adbf725380f7770c7b793a3546699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
