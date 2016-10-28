@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "612f9071_0d1e75d4",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_0dd9150c",
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_aadf0f22",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-10-28T09:59:43Z",
       "side": 1,
       "message": "The placement of REQUIRES_SHARED and ALWAYS_INLINE seems to differ from common usage:\n\ntemplate\u003c...\u003e\nALWAYS_INLINE static bool foo() REQUIRES_SHARED() {}",
+      "range": {
+        "startLine": 534,
+        "startChar": 73,
+        "endLine": 534,
+        "endChar": 86
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_2d1b39e5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "It\u0027s consistent with the other declarations in this file. I\u0027ll change them all in a separate commit.\n\nI\u0027ve applied your feedback to other (new) ALWAYS_INLINE declarations in emulated_stack_frame / method_handles.",
+      "parentUuid": "612f9071_aadf0f22",
       "range": {
         "startLine": 534,
         "startChar": 73,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_4d286df8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_2dd6d9dc",
+      "range": {
+        "startLine": 950,
+        "startChar": 44,
+        "endLine": 950,
+        "endChar": 48
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_4dd30dec",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2016-10-28T12:08:14Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 969,
+        "startChar": 0,
+        "endLine": 969,
+        "endChar": 106
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_adf7296f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_4dd30dec",
       "range": {
         "startLine": 969,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_cdec5da2",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21259891_4874df7e",
+      "range": {
+        "startLine": 1011,
+        "startChar": 71,
+        "endLine": 1011,
+        "endChar": 80
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_ad0e49a3",
         "filename": "runtime/mirror/emulated_stack_frame.cc",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2016-10-28T12:08:14Z",
       "side": 1,
       "message": "Missing.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "011ed449_c4c99e65",
+        "filename": "runtime/mirror/emulated_stack_frame.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_ad0e49a3",
       "range": {
         "startLine": 64,
         "startChar": 2,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_edf1217b",
+        "filename": "runtime/mirror/emulated_stack_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_6dd0d1de",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_8d0985a0",
         "filename": "runtime/mirror/emulated_stack_frame.h",
         "patchSetId": 2
@@ -168,6 +330,30 @@
       "writtenOn": "2016-10-28T12:08:14Z",
       "side": 1,
       "message": "line 45?",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_0d075580",
+        "filename": "runtime/mirror/emulated_stack_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T12:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_8d0985a0",
       "range": {
         "startLine": 46,
         "startChar": 6,
