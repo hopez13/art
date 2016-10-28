@@ -33,11 +33,11 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
  public:
   ReferenceInfo(HInstruction* reference, size_t pos) : reference_(reference), position_(pos) {
     is_singleton_ = true;
-    is_singleton_and_not_returned_ = true;
+    is_singleton_and_not_escaping_in_the_end_ = true;
     if (!reference_->IsNewInstance() && !reference_->IsNewArray()) {
       // For references not allocated in the method, don't assume anything.
       is_singleton_ = false;
-      is_singleton_and_not_returned_ = false;
+      is_singleton_and_not_escaping_in_the_end_ = false;
       return;
     }
 
@@ -50,7 +50,7 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
         // BoundType shouldn't normally be necessary for a NewInstance.
         // Just be conservative for the uncommon cases.
         is_singleton_ = false;
-        is_singleton_and_not_returned_ = false;
+        is_singleton_and_not_escaping_in_the_end_ = false;
         return;
       }
       if (user->IsPhi() || user->IsSelect() || user->IsInvoke() ||
@@ -62,7 +62,7 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
         // reference_ is merged to HPhi/HSelect, passed to a callee, or stored to heap.
         // reference_ isn't the only name that can refer to its value anymore.
         is_singleton_ = false;
-        is_singleton_and_not_returned_ = false;
+        is_singleton_and_not_escaping_in_the_end_ = false;
         return;
       }
       if ((user->IsUnresolvedInstanceFieldGet() && (reference_ == user->InputAt(0))) ||
@@ -72,11 +72,25 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
         // Note that we could optimize this case and still perform some optimizations until
         // we hit the unresolved access, but disabling is the simplest.
         is_singleton_ = false;
-        is_singleton_and_not_returned_ = false;
+        is_singleton_and_not_escaping_in_the_end_ = false;
         return;
       }
       if (user->IsReturn()) {
-        is_singleton_and_not_returned_ = false;
+        is_singleton_and_not_escaping_in_the_end_ = false;
+      }
+    }
+
+    if (!is_singleton_ || !is_singleton_and_not_escaping_in_the_end_) {
+      return;
+    }
+
+    // Look at Environment uses and if it's for HDeoptimize, it's treated the same
+    // as a return. So it's a singleton in the lifetime of the compiled code.
+    for (const HUseListNode<HEnvironment*>& use : reference_->GetEnvUses()) {
+      HEnvironment* user = use.GetUser();
+      if (user->GetHolder()->IsDeoptimize()) {
+        is_singleton_and_not_escaping_in_the_end_ = false;
+        break;
       }
     }
   }
@@ -96,17 +110,22 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
     return is_singleton_;
   }
 
-  // Returns true if reference_ is a singleton and not returned to the caller.
+  // Returns true if reference_ is a singleton and not returned to the caller or
+  // used as an environment local of an HDeoptimize instruction.
   // The allocation and stores into reference_ may be eliminated for such cases.
-  bool IsSingletonAndNotReturned() const {
-    return is_singleton_and_not_returned_;
+  bool IsSingletonAndNotEscapingInTheEnd() const {
+    return is_singleton_and_not_escaping_in_the_end_;
   }
 
  private:
   HInstruction* const reference_;
   const size_t position_;     // position in HeapLocationCollector's ref_info_array_.
   bool is_singleton_;         // can only be referred to by a single name in the method.
-  bool is_singleton_and_not_returned_;  // reference_ is singleton and not returned to caller.
+
+  // reference_ is singleton and does not escape in the end either by
+  // returning to the caller, or being used as an environment local of an
+  // HDeoptimize instruction.
+  bool is_singleton_and_not_escaping_in_the_end_;
 
   DISALLOW_COPY_AND_ASSIGN(ReferenceInfo);
 };
@@ -202,8 +221,7 @@ class HeapLocationCollector : public HGraphVisitor {
                          kArenaAllocLSE),
         has_heap_stores_(false),
         has_volatile_(false),
-        has_monitor_operations_(false),
-        may_deoptimize_(false) {}
+        has_monitor_operations_(false) {}
 
   size_t GetNumberOfHeapLocations() const {
     return heap_locations_.size();
@@ -234,13 +252,6 @@ class HeapLocationCollector : public HGraphVisitor {
 
   bool HasMonitorOps() const {
     return has_monitor_operations_;
-  }
-
-  // Returns whether this method may be deoptimized.
-  // Currently we don't have meta data support for deoptimizing
-  // a method that eliminates allocations/stores.
-  bool MayDeoptimize() const {
-    return may_deoptimize_;
   }
 
   // Find and return the heap location index in heap_locations_.
@@ -493,10 +504,6 @@ class HeapLocationCollector : public HGraphVisitor {
     CreateReferenceInfoForReferenceType(instruction);
   }
 
-  void VisitDeoptimize(HDeoptimize* instruction ATTRIBUTE_UNUSED) OVERRIDE {
-    may_deoptimize_ = true;
-  }
-
   void VisitMonitorOperation(HMonitorOperation* monitor ATTRIBUTE_UNUSED) OVERRIDE {
     has_monitor_operations_ = true;
   }
@@ -508,7 +515,6 @@ class HeapLocationCollector : public HGraphVisitor {
                             // alias analysis and won't be as effective.
   bool has_volatile_;       // If there are volatile field accesses.
   bool has_monitor_operations_;    // If there are monitor operations.
-  bool may_deoptimize_;     // Only true for HDeoptimize with single-frame deoptimization.
 
   DISALLOW_COPY_AND_ASSIGN(HeapLocationCollector);
 };
@@ -671,7 +677,7 @@ class LSEVisitor : public HGraphVisitor {
       bool from_all_predecessors = true;
       ReferenceInfo* ref_info = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
       HInstruction* singleton_ref = nullptr;
-      if (ref_info->IsSingletonAndNotReturned()) {
+      if (ref_info->IsSingletonAndNotEscapingInTheEnd()) {
         // We do more analysis of liveness when merging heap values for such
         // cases since stores into such references may potentially be eliminated.
         singleton_ref = ref_info->GetReference();
@@ -844,8 +850,7 @@ class LSEVisitor : public HGraphVisitor {
     } else if (index != nullptr) {
       // For array element, don't eliminate stores since it can be easily aliased
       // with non-constant index.
-    } else if (!heap_location_collector_.MayDeoptimize() &&
-               ref_info->IsSingletonAndNotReturned()) {
+    } else if (ref_info->IsSingletonAndNotEscapingInTheEnd()) {
       // Store into a field of a singleton that's not returned. The value cannot be
       // killed due to aliasing/invocation. It can be redundant since future loads can
       // directly get the value set by this instruction. The value can still be killed due to
@@ -1019,8 +1024,7 @@ class LSEVisitor : public HGraphVisitor {
       // new_instance isn't used for field accesses. No need to process it.
       return;
     }
-    if (!heap_location_collector_.MayDeoptimize() &&
-        ref_info->IsSingletonAndNotReturned() &&
+    if (ref_info->IsSingletonAndNotEscapingInTheEnd() &&
         !new_instance->IsFinalizable() &&
         !new_instance->NeedsAccessCheck()) {
       singleton_new_instances_.push_back(new_instance);
