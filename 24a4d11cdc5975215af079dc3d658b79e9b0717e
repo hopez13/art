@@ -22,6 +22,30 @@
       "revId": "24a4d11cdc5975215af079dc3d658b79e9b0717e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_4d606d19",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-28T14:41:01Z",
+      "side": 1,
+      "message": "We could move the CLREX instruction out of the loop (as in the ARM64 implementation), but I think this would increase code size:\n\n  Label loop_head, comparison_failed, exit_loop;\n  __ Bind(\u0026loop_head);\n  __ ldrex(tmp, tmp_ptr);\n  __ subs(tmp, tmp, ShifterOperand(expected));\n  __ b(\u0026comparison_failed, NE);\n  __ strex(tmp, value, tmp_ptr);\n  __ cmp(tmp, ShifterOperand(1);\n  __ b(\u0026loop_head, EQ);\n  __ b(\u0026exit_loop);\n  __ Bind(\u0026comparison_failed);\n  __ crlex();\n  __ Bind(\u0026exit_loop);\n\nWhat do you think?",
+      "parentUuid": "612f9071_edcda117",
+      "range": {
+        "startLine": 815,
+        "startChar": 0,
+        "endLine": 816,
+        "endChar": 17
+      },
+      "revId": "24a4d11cdc5975215af079dc3d658b79e9b0717e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
