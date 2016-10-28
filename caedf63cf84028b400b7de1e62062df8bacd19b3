@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "612f9071_6d361118",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T14:55:09Z",
+      "side": 1,
+      "message": "done in vi buffer :) really done now.",
+      "parentUuid": "612f9071_cd245de3",
+      "revId": "caedf63cf84028b400b7de1e62062df8bacd19b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_6d6ff117",
         "filename": "runtime/verifier/verifier_deps.h",
         "patchSetId": 2
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "The answer I was looking for is that Dump() is using dex_deps_ GUARDED_BY(Locks::verifier_deps_lock_) without taking that lock.",
       "parentUuid": "612f9071_ed9be1fb",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "caedf63cf84028b400b7de1e62062df8bacd19b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_4d394d05",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T14:55:09Z",
+      "side": 1,
+      "message": "Improved the comment, is that better?",
+      "parentUuid": "612f9071_ed2921b8",
       "range": {
         "startLine": 106,
         "startChar": 6,
