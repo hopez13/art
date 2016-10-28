@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_6a94372a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-28T10:21:48Z",
+      "side": 1,
+      "message": "Maybe mention that the CFG dumping action (and thus the order of the methods\u0027s graph dumped into the file) is deterministic only when `-j1` is passed to dex2oat?",
+      "revId": "240dc779a37adbf725380f7770c7b793a3546699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_8d6d0578",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-10-28T10:21:48Z",
+      "side": 1,
+      "message": "Maybe cache `Thread::Current()` in a member of the `PassObserver` (for performance reasons)?",
+      "range": {
+        "startLine": 171,
+        "startChar": 19,
+        "endLine": 171,
+        "endChar": 36
+      },
+      "revId": "240dc779a37adbf725380f7770c7b793a3546699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
