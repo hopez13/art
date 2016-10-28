@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_0d683511",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-28T14:14:11Z",
+      "side": 1,
+      "message": "Nit: EncodeDecodeMulti should be just after EncodeDecode.",
+      "revId": "caedf63cf84028b400b7de1e62062df8bacd19b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_6d6ff117",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-28T14:14:11Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "caedf63cf84028b400b7de1e62062df8bacd19b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_cd7d3dd7",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-28T14:14:11Z",
+      "side": 1,
+      "message": "I don\u0027t like const functions returning pointers to non-const internal data.",
+      "revId": "caedf63cf84028b400b7de1e62062df8bacd19b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
