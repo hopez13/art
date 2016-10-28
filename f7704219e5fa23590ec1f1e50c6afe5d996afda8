@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_4da5cd87",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T11:47:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 99,
+        "endLine": 1033,
+        "endChar": 102
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_8dbb45ac",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T11:47:58Z",
+      "side": 1,
+      "message": "Make this a helper method: FreeAllMethodHeader(method_headers).\n\nI\u0027d inline FreeCode(const std::vector\u003cconst void*\u003e\u0026 code_pointers) in that helper.\n\nYou can then share this with lines 745-752.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 26
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_6da29182",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T11:47:58Z",
+      "side": 1,
+      "message": "You only need one list: you can compute OatQuickMethodHeader or code pointer from just one.",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 59
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
