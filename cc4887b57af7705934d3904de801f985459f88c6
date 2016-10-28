@@ -22,6 +22,30 @@
       "revId": "cc4887b57af7705934d3904de801f985459f88c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_b8b39935",
+        "filename": "runtime/openjdkjvmti/ti_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-28T17:51:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure, the spec doesn\u0027t make it clear. It doesn\u0027t specify such an error (only on invalid jmethod, which this is not).",
+      "parentUuid": "86501a4a_d84e4d82",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "cc4887b57af7705934d3904de801f985459f88c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
