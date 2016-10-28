@@ -2321,12 +2321,12 @@ ClassPathEntry FindInClassPath(const char* descriptor,
   return ClassPathEntry(nullptr, nullptr);
 }
 
-bool ClassLinker::FindClassInPathClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
-                                             Thread* self,
-                                             const char* descriptor,
-                                             size_t hash,
-                                             Handle<mirror::ClassLoader> class_loader,
-                                             ObjPtr<mirror::Class>* result) {
+bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                                                Thread* self,
+                                                const char* descriptor,
+                                                size_t hash,
+                                                Handle<mirror::ClassLoader> class_loader,
+                                                ObjPtr<mirror::Class>* result) {
   // Termination case: boot class-loader.
   if (IsBootClassLoader(soa, class_loader.Get())) {
     // The boot class loader, search the boot class path.
@@ -2356,14 +2356,35 @@ bool ClassLinker::FindClassInPathClassLoader(ScopedObjectAccessAlreadyRunnable& 
   // Unsupported class-loader?
   if (soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_PathClassLoader) !=
       class_loader->GetClass()) {
-    *result = nullptr;
-    return false;
+    // PathClassLoader is the most common case, so it's the one we check explicitly. For secondary
+    // dex files, we also check others here (which will include DexClassLoader).
+    //
+    // The check is simple: the classloader is a subclass of BaseDexClassLoader, and belongs to the
+    // boot class path.
+    if (soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_BaseDexClassLoader) !=
+        class_loader->GetClass()->GetSuperClass() ||
+        class_loader->GetClass()->GetClassLoader() != nullptr) {
+      *result = nullptr;
+      return false;
+    }
+    if (kIsDebugBuild) {
+      // TODO: Consider verifying this in the compiler, instead, and abort image compilation on
+      //       failure?
+      std::string storage;
+      const char* classloader_name = class_loader->GetClass()->GetDescriptor(&storage);
+      CHECK_STREQ("Ldalvik/system/DexClassLoader;", classloader_name);
+    }
   }
 
   // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
   StackHandleScope<4> hs(self);
   Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
-  bool recursive_result = FindClassInPathClassLoader(soa, self, descriptor, hash, h_parent, result);
+  bool recursive_result = FindClassInBaseDexClassLoader(soa,
+                                                        self,
+                                                        descriptor,
+                                                        hash,
+                                                        h_parent,
+                                                        result);
 
   if (!recursive_result) {
     // Something wrong up the chain.
@@ -2485,14 +2506,14 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
   } else {
     ScopedObjectAccessUnchecked soa(self);
     ObjPtr<mirror::Class> cp_klass;
-    if (FindClassInPathClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass)) {
+    if (FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass)) {
       // The chain was understood. So the value in cp_klass is either the class we were looking
       // for, or not found.
       if (cp_klass != nullptr) {
         return cp_klass.Ptr();
       }
-      // TODO: We handle the boot classpath loader in FindClassInPathClassLoader. Try to unify this
-      //       and the branch above. TODO: throw the right exception here.
+      // TODO: We handle the boot classpath loader in FindClassInBaseDexClassLoader. Try to unify
+      //       this and the branch above. TODO: throw the right exception here.
 
       // We'll let the Java-side rediscover all this and throw the exception with the right stack
       // trace.
