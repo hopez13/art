@@ -1178,13 +1178,16 @@ static void GenCas(HInvoke* invoke, Primitive::Type type, CodeGeneratorARM64* co
   // } while (tmp_value == 0 && failure([tmp_ptr] <- r_new_value));
   // result = tmp_value != 0;
 
-  vixl::aarch64::Label loop_head, exit_loop;
+  vixl::aarch64::Label loop_head, comparison_failed, exit_loop;
   __ Bind(&loop_head);
   __ Ldaxr(tmp_value, MemOperand(tmp_ptr));
   __ Cmp(tmp_value, expected);
-  __ B(&exit_loop, ne);
+  __ B(&comparison_failed, ne);
   __ Stlxr(tmp_32, value, MemOperand(tmp_ptr));
   __ Cbnz(tmp_32, &loop_head);
+  __ B(&exit_loop);
+  __ Bind(&comparison_failed);
+  __ Clrex();
   __ Bind(&exit_loop);
   __ Cset(out, eq);
 

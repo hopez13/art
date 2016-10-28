@@ -990,19 +990,23 @@ static void GenCas(HInvoke* invoke, Primitive::Type type, CodeGeneratorARM* code
   // } while (tmp == 0 && failure([r_ptr] <- r_new_value));
   // result = tmp != 0;
 
-  Label loop_head;
+  Label loop_head, exit_loop;
   __ Bind(&loop_head);
 
   __ ldrex(tmp, tmp_ptr);
 
   __ subs(tmp, tmp, ShifterOperand(expected));
 
-  __ it(EQ, ItState::kItT);
-  __ strex(tmp, value, tmp_ptr, EQ);
-  __ cmp(tmp, ShifterOperand(1), EQ);
+  __ it(NE);
+  __ clrex(NE);
 
+  __ b(&exit_loop, NE);
+
+  __ strex(tmp, value, tmp_ptr);
+  __ cmp(tmp, ShifterOperand(1));
   __ b(&loop_head, EQ);
 
+  __ Bind(&exit_loop);
   __ dmb(ISH);
 
   __ rsbs(out, tmp, ShifterOperand(1));
