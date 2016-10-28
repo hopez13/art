@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_2da89960",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2867,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T11:47:58Z",
+      "side": 1,
+      "message": "No, DependsOnGC is also about having pointers in the middle of an object that cannot span a suspend point. so it\u0027s not just about moving GC.\n\nYou can name it DependsOnSuspension if you think that\u0027s clearer. In the end I think they all share this dependency.\n\nIn any case, you can put a TODO here, as the CanBeMoved will prevent any (invalid) merges/hoisting.",
+      "parentUuid": "a1826880_f6c3c693",
+      "range": {
+        "startLine": 2867,
+        "startChar": 54,
+        "endLine": 2867,
+        "endChar": 58
+      },
+      "revId": "a963ba4f94a179f552036e890579c1f23c540e4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcafeeab_db9df35d",
         "filename": "runtime/cha.cc",
         "patchSetId": 5
