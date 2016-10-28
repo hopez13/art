@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_edcda117",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-10-28T13:38:49Z",
+      "side": 1,
+      "message": "I think this should be outside the loop. Just change the end of the loop to `CMP tmp, #0; BNE loop_head\" and you can simply move this after exit_loop.",
+      "range": {
+        "startLine": 815,
+        "startChar": 0,
+        "endLine": 816,
+        "endChar": 17
+      },
+      "revId": "24a4d11cdc5975215af079dc3d658b79e9b0717e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
