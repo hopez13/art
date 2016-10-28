@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_6d25311f",
+        "filename": "test/910-methods/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-28T12:14:04Z",
+      "side": 1,
+      "message": "You guys should probably consider doing the same thing as checker, and have a convention in the test name that this is a jmvti test. Then the run-test script could incorporate all of this logic here, and you avoid copying the same code on all your tests.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "2a5e7773d55a4d0713f966ce6695059fa6b7bffa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
