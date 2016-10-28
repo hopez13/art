@@ -25,6 +25,125 @@
     },
     {
       "key": {
+        "uuid": "86501a4a_12525c24",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "can\u0027t you it-\u003esecond.Put here instead? (use above too when inserting for the first time, and assign to it)",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_52969497",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "due to this debug stuff, it is hard to see what we return in this case. can we put verification stuff in own method?",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_722758e6",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "do we have any plans to use CHA beyond devirtualization? If so, you may want to keep the comments in this class a bit more general, leaving devirtualization as a first application.",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_5213347e",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "will take -\u003e takes",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_921dcc8b",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "remove will too, reads harder",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_1211bc6f",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "taken -\u003e held?",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_72f9180f",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-28T23:30:21Z",
+      "side": 1,
+      "message": "start by describing the typedefs before you explain why they are needed",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_8dbb45ac",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
