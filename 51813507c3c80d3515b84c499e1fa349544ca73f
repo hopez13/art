@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612f9071_aadf0f22",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-28T09:59:43Z",
+      "side": 1,
+      "message": "The placement of REQUIRES_SHARED and ALWAYS_INLINE seems to differ from common usage:\n\ntemplate\u003c...\u003e\nALWAYS_INLINE static bool foo() REQUIRES_SHARED() {}",
+      "range": {
+        "startLine": 534,
+        "startChar": 73,
+        "endLine": 534,
+        "endChar": 86
+      },
+      "revId": "51813507c3c80d3515b84c499e1fa349544ca73f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
