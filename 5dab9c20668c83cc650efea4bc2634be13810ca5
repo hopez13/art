@@ -96,6 +96,47 @@
     },
     {
       "key": {
+        "uuid": "612f9071_aac46f4e",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-28T09:59:43Z",
+      "side": 1,
+      "message": "Sorry for the bogus comment.\n\nNo preferences for names - don\u0027t feel it needs to change. FrameReader , FrameWriter?",
+      "parentUuid": "c1af5cf4_d29b44fc",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 33
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_0ab49bd7",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-28T09:59:43Z",
+      "side": 1,
+      "message": "Nice comment. There is always the option of replacing G and S with pointers to FrameGetter / FrameSetter base classes defining the Get/Set interfaces. This\u0027d mean one less templatized inline function which possibly results in smaller .text.",
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c134bcc0_2d325955",
         "filename": "runtime/method_handles.h",
         "patchSetId": 1
