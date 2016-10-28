@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_aaad4f86",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_478beea8",
+      "range": {
+        "startLine": 909,
+        "startChar": 36,
+        "endLine": 909,
+        "endChar": 43
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c254c7_c4825e98",
         "filename": "runtime/method_handles-inl.h",
         "patchSetId": 1
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_caa28395",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "Done. (For nicolas\u0027s comment)",
+      "parentUuid": "612f9071_aac46f4e",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 33
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_0ab49bd7",
         "filename": "runtime/method_handles.h",
         "patchSetId": 1
@@ -131,6 +179,24 @@
       "writtenOn": "2016-10-28T09:59:43Z",
       "side": 1,
       "message": "Nice comment. There is always the option of replacing G and S with pointers to FrameGetter / FrameSetter base classes defining the Get/Set interfaces. This\u0027d mean one less templatized inline function which possibly results in smaller .text.",
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_eaa747a2",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "I\u0027ll add that as a TODO. We can do it if we feel that the instantiations take up too much space.",
+      "parentUuid": "612f9071_0ab49bd7",
       "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -183,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_8aa88b77",
+        "filename": "runtime/mirror/emulated_stack_frame.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "417a8c69_f6cd8017",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01c254c7_a49c82f8",
         "filename": "runtime/mirror/emulated_stack_frame.h",
         "patchSetId": 1
@@ -206,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "612f9071_0a9d7b4f",
+        "filename": "runtime/mirror/emulated_stack_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01c254c7_a49c82f8",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "411e0c19_5688d4aa",
         "filename": "runtime/mirror/emulated_stack_frame.h",
         "patchSetId": 1
@@ -217,6 +331,30 @@
       "writtenOn": "2016-10-26T12:59:05Z",
       "side": 1,
       "message": "callee",
+      "range": {
+        "startLine": 48,
+        "startChar": 62,
+        "endLine": 48,
+        "endChar": 73
+      },
+      "revId": "5dab9c20668c83cc650efea4bc2634be13810ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612f9071_2a9a3f58",
+        "filename": "runtime/mirror/emulated_stack_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-28T10:16:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "411e0c19_5688d4aa",
       "range": {
         "startLine": 48,
         "startChar": 62,
