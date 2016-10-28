@@ -95,6 +95,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void VisitInstanceOf(HInstanceOf* instruction) OVERRIDE;
   void VisitInvoke(HInvoke* invoke) OVERRIDE;
   void VisitDeoptimize(HDeoptimize* deoptimize) OVERRIDE;
+  void VisitPhi(HPhi* phi) OVERRIDE;
 
   bool CanEnsureNotNullAt(HInstruction* instr, HInstruction* at) const;
 
@@ -111,9 +112,11 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   OptimizingCompilerStats* stats_;
   bool simplification_occurred_ = false;
   int simplifications_at_current_position_ = 0;
-  // We ensure we do not loop infinitely. The value is a finger in the air guess
-  // that should allow enough simplification.
-  static constexpr int kMaxSamePositionSimplifications = 10;
+  // We ensure we do not loop infinitely. The value should not be too high, since that
+  // would allow looping around the same basic block too many times. The value should
+  // not be too low either, however, since we want to allow revisiting a basic block
+  // with many statements and simplifications at least once.
+  static constexpr int kMaxSamePositionSimplifications = 50;
 };
 
 void InstructionSimplifier::Run() {
@@ -605,11 +608,23 @@ static HCondition* GetOppositeConditionSwapOps(ArenaAllocator* arena, HInstructi
   return nullptr;
 }
 
+static bool CmpHasBoolType(HInstruction* input, HInstruction* cmp) {
+  if (input->GetType() == Primitive::kPrimBoolean) {
+    return true;  // input has direct boolean type
+  } else if (cmp->GetUses().HasExactlyOneElement()) {
+    // Comparison also has boolean type if both its input and the instruction
+    // itself feed into the same phi node.
+    HInstruction* user = cmp->GetUses().front().GetUser();
+    return user->IsPhi() && user->HasInput(input) && user->HasInput(cmp);
+  }
+  return false;
+}
+
 void InstructionSimplifierVisitor::VisitEqual(HEqual* equal) {
   HInstruction* input_const = equal->GetConstantRight();
   if (input_const != nullptr) {
     HInstruction* input_value = equal->GetLeastConstantLeft();
-    if (input_value->GetType() == Primitive::kPrimBoolean && input_const->IsIntConstant()) {
+    if (CmpHasBoolType(input_value, equal) && input_const->IsIntConstant()) {
       HBasicBlock* block = equal->GetBlock();
       // We are comparing the boolean to a constant which is of type int and can
       // be any constant.
@@ -619,6 +634,7 @@ void InstructionSimplifierVisitor::VisitEqual(HEqual* equal) {
         block->RemoveInstruction(equal);
         RecordSimplification();
       } else if (input_const->AsIntConstant()->IsFalse()) {
+        // Replace (bool_value == false) with !bool_value
         equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, equal));
         block->RemoveInstruction(equal);
         RecordSimplification();
@@ -640,11 +656,12 @@ void InstructionSimplifierVisitor::VisitNotEqual(HNotEqual* not_equal) {
   HInstruction* input_const = not_equal->GetConstantRight();
   if (input_const != nullptr) {
     HInstruction* input_value = not_equal->GetLeastConstantLeft();
-    if (input_value->GetType() == Primitive::kPrimBoolean && input_const->IsIntConstant()) {
+    if (CmpHasBoolType(input_value, not_equal) && input_const->IsIntConstant()) {
       HBasicBlock* block = not_equal->GetBlock();
       // We are comparing the boolean to a constant which is of type int and can
       // be any constant.
       if (input_const->AsIntConstant()->IsTrue()) {
+        // Replace (bool_value != true) with !bool_value
         not_equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, not_equal));
         block->RemoveInstruction(not_equal);
         RecordSimplification();
@@ -1917,6 +1934,32 @@ void InstructionSimplifierVisitor::VisitDeoptimize(HDeoptimize* deoptimize) {
       deoptimize->GetBlock()->RemoveInstruction(deoptimize);
     } else {
       // Always deopt.
+    }
+  }
+}
+
+void InstructionSimplifierVisitor::VisitPhi(HPhi* phi) {
+  HInputsRef inputs = phi->GetInputs();
+  // Both x: Phi(y,y,y,y)
+  // and  x: Phi(y,x,x,x)
+  // can be replaced by y.
+  bool all_eq = true;
+  bool all_me = true;
+  for (size_t i = 1; i < inputs.size(); i++) {
+    if (inputs[i] != inputs[0]) {
+      all_eq = false;
+    }
+    if (inputs[i] != phi) {
+      all_me = false;
+    }
+  }
+  if (all_eq || all_me) {
+    phi->ReplaceWith(inputs[0]);
+    phi->GetBlock()->RemovePhi(phi);
+    RecordSimplification();
+    // This may trigger another Phi simplification, typically in a different block.
+    if (inputs[0]->IsPhi()) {
+      VisitPhi(inputs[0]->AsPhi());
     }
   }
 }
