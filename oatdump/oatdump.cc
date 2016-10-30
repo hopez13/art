@@ -66,6 +66,7 @@
 #include "type_lookup_table.h"
 #include "vdex_file.h"
 #include "verifier/method_verifier.h"
+#include "verifier/verifier_deps.h"
 #include "well_known_classes.h"
 
 #include <sys/stat.h>
@@ -483,6 +484,23 @@ class OatDumper {
     os << "\n";
 
     if (!options_.dump_header_only_) {
+      VariableIndentationOutputStream vios(&os);
+      VdexFile::Header vdex_header = oat_file_.GetVdexFile()->GetHeader();
+      if (vdex_header.IsValid()) {
+        std::string error_msg;
+        std::vector<const DexFile*> dex_files;
+        for (size_t i = 0; i < oat_dex_files_.size(); i++) {
+          dex_files.push_back(OpenDexFile(oat_dex_files_[i], &error_msg));
+        }
+        verifier::VerifierDeps deps(dex_files, oat_file_.GetVdexFile()->VerifierDepsBegin());
+        deps.Dump(&vios);
+      } else {
+        os << "UNRECOGNIZED vdex file, magic "
+           << vdex_header.GetMagic()
+           << ", version "
+           << vdex_header.GetVersion()
+           << "\n";
+      }
       for (size_t i = 0; i < oat_dex_files_.size(); i++) {
         const OatFile::OatDexFile* oat_dex_file = oat_dex_files_[i];
         CHECK(oat_dex_file != nullptr);

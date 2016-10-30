@@ -453,10 +453,14 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
   }
 }
 
-VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files, ArrayRef<uint8_t> data)
+VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files,
+                           ArrayRef<const uint8_t> data)
     : VerifierDeps(dex_files) {
   const uint8_t* data_start = data.data();
   const uint8_t* data_end = data_start + data.size();
+  if (data_start == data_end) {
+    return;
+  }
   for (const DexFile* dex_file : dex_files) {
     DexFileDeps* deps = GetDexFileDeps(*dex_file);
     DecodeStringVector(&data_start, data_end, &deps->strings_);
