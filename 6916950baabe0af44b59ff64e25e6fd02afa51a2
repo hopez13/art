@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06e7cafb_5cc97d45",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-30T21:00:40Z",
+      "side": 1,
+      "message": "Probably needs a rationale now.",
+      "range": {
+        "startLine": 117,
+        "startChar": 57,
+        "endLine": 117,
+        "endChar": 59
+      },
+      "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6bc76d0_93b21cc9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-10-30T21:00:40Z",
+      "side": 1,
+      "message": "Isn\u0027t that a special case of RedundantPhiElimination?",
+      "range": {
+        "startLine": 1939,
+        "startChar": 0,
+        "endLine": 1963,
+        "endChar": 1
+      },
+      "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
