@@ -22,6 +22,30 @@
       "revId": "8c2d1c4aeac24b5dae24be689e4ed4f5ccdc7caf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6bb5ed0_9935db3c",
+        "filename": "test/957-methodhandle-transforms/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-10-31T14:02:12Z",
+      "side": 1,
+      "message": "It was, so I did that in the next PS. This \"inline\" cast worked with javac so it probably needs to be investigated regardless.",
+      "parentUuid": "e6bc76d0_f3d6f0a6",
+      "range": {
+        "startLine": 106,
+        "startChar": 35,
+        "endLine": 106,
+        "endChar": 41
+      },
+      "revId": "8c2d1c4aeac24b5dae24be689e4ed4f5ccdc7caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
