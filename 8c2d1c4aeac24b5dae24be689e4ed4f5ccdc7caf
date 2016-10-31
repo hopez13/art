@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6bc76d0_f3d6f0a6",
+        "filename": "test/957-methodhandle-transforms/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-10-31T13:56:44Z",
+      "side": 1,
+      "message": "Assuming this isn\u0027t foiled by putting the cast on a separate line, Object obj \u003d (Object) \"goodbye\";",
+      "range": {
+        "startLine": 106,
+        "startChar": 35,
+        "endLine": 106,
+        "endChar": 41
+      },
+      "revId": "8c2d1c4aeac24b5dae24be689e4ed4f5ccdc7caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
