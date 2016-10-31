@@ -117,6 +117,30 @@
       "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86501a4a_2ec1f839",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-10-31T20:02:02Z",
+      "side": 1,
+      "message": "perhaps just running a dce2 after fold2 and simplify2 is preferred then? let me verify if that indeed covers all cases I need first",
+      "parentUuid": "86501a4a_ce32fc50",
+      "range": {
+        "startLine": 1939,
+        "startChar": 0,
+        "endLine": 1963,
+        "endChar": 1
+      },
+      "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
