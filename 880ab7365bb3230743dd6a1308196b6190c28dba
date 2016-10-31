@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d84e6c_50fc32c5",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-10-31T23:06:41Z",
+      "side": 1,
+      "message": "This can be racy soon. Prepare for the need for synchronization...",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 39
+      },
+      "revId": "880ab7365bb3230743dd6a1308196b6190c28dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
