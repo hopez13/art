@@ -67,6 +67,11 @@ static constexpr uint32_t kAccCompileDontBother =     0x01000000;  // method (ru
 
 // Set by the verifier for a method that could not be verified to follow structured locking.
 static constexpr uint32_t kAccMustCountLocks =        0x02000000;  // method (runtime)
+
+// Set by the runtime to indicate that this ArtMethod is obsolete and has a different DexCache than
+// its declaring_class.
+static constexpr uint32_t kAccObsoleteMethod =        0x04000000;  // method (runtime)
+
 static constexpr uint32_t kAccIntrinsic  =            0x80000000;  // method (runtime)
 
 // Special runtime-only flags.
