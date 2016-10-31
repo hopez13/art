@@ -18,6 +18,7 @@
 
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "class_ext.h"
 #include "class_linker-inl.h"
 #include "class_loader.h"
 #include "class-inl.h"
@@ -58,12 +59,16 @@ void Class::VisitRoots(RootVisitor* visitor) {
   java_lang_Class_.VisitRootIfNonNull(visitor, RootInfo(kRootStickyClass));
 }
 
-inline void Class::SetVerifyError(ObjPtr<Object> error) {
-  CHECK(error != nullptr) << PrettyClass();
+ClassExt* Class::GetClassExt() {
+  return GetFieldObject<ClassExt>(OFFSET_OF_OBJECT_MEMBER(Class, ext_data_));
+}
+
+void Class::SetClassExt(ObjPtr<ClassExt> ext) {
+  CHECK(ext != nullptr) << PrettyClass();
   if (Runtime::Current()->IsActiveTransaction()) {
-    SetFieldObject<true>(OFFSET_OF_OBJECT_MEMBER(Class, verify_error_), error);
+    SetFieldObject<true>(OFFSET_OF_OBJECT_MEMBER(Class, ext_data_), ext);
   } else {
-    SetFieldObject<false>(OFFSET_OF_OBJECT_MEMBER(Class, verify_error_), error);
+    SetFieldObject<false>(OFFSET_OF_OBJECT_MEMBER(Class, ext_data_), ext);
   }
 }
 
@@ -95,9 +100,29 @@ void Class::SetStatus(Handle<Class> h_this, Status new_status, Thread* self) {
       }
     }
 
+    StackHandleScope<2> hs(self);
     // Remember the current exception.
-    CHECK(self->GetException() != nullptr);
-    h_this->SetVerifyError(self->GetException());
+    Handle<Throwable> exception(hs.NewHandle(self->GetException()));
+    CHECK(exception.Get() != nullptr);
+    MutableHandle<ClassExt> ext(hs.NewHandle(h_this->GetClassExt()));
+    if (ext.Get() == nullptr) {
+      // Cannot have exception while allocating.
+      self->ClearException();
+      ext.Assign(ClassExt::Alloc(self));
+      DCHECK(ext.Get() == nullptr || ext->GetVerifyError() == nullptr);
+      if (ext.Get() != nullptr) {
+        self->AssertNoPendingException();
+        h_this->SetClassExt(ext.Get());
+        self->SetException(exception.Get());
+      } else {
+        // TODO Should we restore the old exception anyway?
+        self->AssertPendingOOMException();
+      }
+    }
+    if (ext.Get() != nullptr) {
+      ext->SetVerifyError(self->GetException());
+    }
+    self->AssertPendingException();
   }
   static_assert(sizeof(Status) == sizeof(uint32_t), "Size of status not equal to uint32");
   if (Runtime::Current()->IsActiveTransaction()) {
