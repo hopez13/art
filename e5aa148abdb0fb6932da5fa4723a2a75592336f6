@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d84e6c_8cb4ba1e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T21:43:02Z",
+      "side": 1,
+      "message": "Please explain.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 66,
+        "endLine": 1487,
+        "endChar": 94
+      },
+      "revId": "e5aa148abdb0fb6932da5fa4723a2a75592336f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_acf096e3",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T21:43:02Z",
+      "side": 1,
+      "message": "Why are you doing this in the loop? Either extend the comment (stating something like poisoning is non-default and thus we don\u0027t care about performance) or move it out of the loop (which introduces an empty jump target on non-poisoning builds).",
+      "range": {
+        "startLine": 1497,
+        "startChar": 4,
+        "endLine": 1497,
+        "endChar": 24
+      },
+      "revId": "e5aa148abdb0fb6932da5fa4723a2a75592336f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_eca45ef4",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T21:43:02Z",
+      "side": 1,
+      "message": "Why not go all the way and traverse superclasses here? It\u0027s not more complicated than your loop above...",
+      "range": {
+        "startLine": 1507,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 30
+      },
+      "revId": "e5aa148abdb0fb6932da5fa4723a2a75592336f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
