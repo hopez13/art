@@ -46,6 +46,30 @@
       "revId": "1d62ef9aab5a6b1fca15a582c4ac42bb6e73e0d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_c94c3140",
+        "filename": "test/622-checker-bce-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-01T23:53:19Z",
+      "side": 1,
+      "message": "It seems to me a deeper cause of bug like this is the way we iterate instructions. When we modify instructions, the iterator (like HInstructionIterator) isn\u0027t aware of the change of elements.\n\nstd::vector::erase() for example, takes an iterator as arg and returns another iterator, thus the iterator is involved.\n\nBlock iterator has the same issue since blocks can be dynamically removed/inserted during iteration.\n\nA more thorough fix could be each VisitInstruction() actually isn\u0027t HGraphVisitor::VisitInstruction() but really HInstructionIterator::VisitInstruction() to get the iterator involved. But it seems too complicated due to the existing way we code. I\u0027m wondering if there is an easier way to notify the iterator to update its internal next_ correctly when an instruction is removed.",
+      "parentUuid": "26d84e6c_ec59fe16",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "1d62ef9aab5a6b1fca15a582c4ac42bb6e73e0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
