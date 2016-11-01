@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e64b96fb_7b559f0b",
+        "filename": "test/706-jit-skip-compilation/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T16:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_fb2c4fcd",
+      "range": {
+        "startLine": 17,
+        "startChar": 72,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "77eb95696c57239bf8a7841c98954d08a7ec8ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_9b218bd4",
         "filename": "test/706-jit-skip-compilation/run",
         "patchSetId": 4
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "e64b96fb_1b525b25",
+        "filename": "test/706-jit-skip-compilation/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T16:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_bb26c7e7",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "77eb95696c57239bf8a7841c98954d08a7ec8ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_3b4f1780",
+        "filename": "test/706-jit-skip-compilation/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T16:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_9b218bd4",
+      "range": {
+        "startLine": 18,
+        "startChar": 28,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "77eb95696c57239bf8a7841c98954d08a7ec8ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_7b391f05",
         "filename": "test/706-jit-skip-compilation/src/Main.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-01T15:17:03Z",
       "side": 1,
       "message": "Should you check that in the loop? In theory, we allow overflow and going back to 0...",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "77eb95696c57239bf8a7841c98954d08a7ec8ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_9b78aba6",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T16:53:31Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "e64b96fb_7b391f05",
       "range": {
         "startLine": 46,
         "startChar": 0,
