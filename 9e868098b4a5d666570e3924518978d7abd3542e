@@ -22,6 +22,30 @@
       "revId": "9e868098b4a5d666570e3924518978d7abd3542e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_622e3caa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-01T18:16:06Z",
+      "side": 1,
+      "message": "Yes, it relies on immutability. This means that we will never see incorrect data in the from-space for this case.",
+      "parentUuid": "26d84e6c_c7c502f3",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "9e868098b4a5d666570e3924518978d7abd3542e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
