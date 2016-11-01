@@ -22,6 +22,30 @@
       "revId": "721fa606fbd1b9e99bfa34ad530e66b62ab7ed5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_1c3801e7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-01T16:03:27Z",
+      "side": 1,
+      "message": "Yes, this mainly applies to the equal/notequal removals. I could lower this a bit, but it would still be around 40, so I was playing it safe.",
+      "parentUuid": "a6235e39_59b9c37d",
+      "range": {
+        "startLine": 114,
+        "startChar": 42,
+        "endLine": 118,
+        "endChar": 60
+      },
+      "revId": "721fa606fbd1b9e99bfa34ad530e66b62ab7ed5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
