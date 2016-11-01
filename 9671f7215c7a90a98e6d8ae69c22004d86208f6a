@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64b96fb_bbe487c9",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "surprised we don\u0027t already have a helper for this. You could add one, pretty sure we have this pattern in other places as well.",
+      "range": {
+        "startLine": 613,
+        "startChar": 22,
+        "endLine": 613,
+        "endChar": 48
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86149ad5_389f2936",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "not for this CL, but maybe we should introduce a typedef for this and use consistently across the code. wdyt?",
+      "range": {
+        "startLine": 633,
+        "startChar": 2,
+        "endLine": 633,
+        "endChar": 30
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6619660e_97df24f1",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "MutableHandle?",
+      "range": {
+        "startLine": 674,
+        "startChar": 4,
+        "endLine": 674,
+        "endChar": 18
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_db08739f",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "If I remember right a class with verification errors will not be marked resolved. Is this the logic that we want here?",
+      "range": {
+        "startLine": 676,
+        "startChar": 14,
+        "endLine": 676,
+        "endChar": 24
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_1bd49bce",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "consider adding a helper. The logging makes the logic harder to read.",
+      "range": {
+        "startLine": 724,
+        "startChar": 18,
+        "endLine": 726,
+        "endChar": 63
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_fb0d2fac",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "ditto for logging.",
+      "range": {
+        "startLine": 795,
+        "startChar": 18,
+        "endLine": 800,
+        "endChar": 42
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_bb17a7b6",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "Each of the inner methods (e.g. VerifyFields) only print the first error. I think we should be consistent and abort if one of the stages fail.\n\nOr... we could gather all of them and in a list of errors and print them at the end, which would be better for debug mode.",
+      "range": {
+        "startLine": 846,
+        "startChar": 19,
+        "endLine": 846,
+        "endChar": 32
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_9bdf4bf1",
+        "filename": "runtime/verifier/verifier_deps.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T11:32:50Z",
+      "side": 1,
+      "message": "explain why.",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 32
+      },
+      "revId": "9671f7215c7a90a98e6d8ae69c22004d86208f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
