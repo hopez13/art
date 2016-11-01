@@ -22,6 +22,24 @@
       "revId": "880ab7365bb3230743dd6a1308196b6190c28dba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_90ff3a8c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T00:12:09Z",
+      "side": 1,
+      "message": "Good catch. Syncronize on h_this. Also have DCHECKS in setter for proper use (locks and only 1 set)\n\nI am not sure but I think we should maybe just immediately move this to a global lock or add a lock object to class. Locking on \u0027this\u0027 is not cool (although ATM it\u0027s fine due to when this gets set).",
+      "parentUuid": "26d84e6c_50fc32c5",
+      "revId": "880ab7365bb3230743dd6a1308196b6190c28dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
