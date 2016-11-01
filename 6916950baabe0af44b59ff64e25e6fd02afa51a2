@@ -165,6 +165,30 @@
       "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_dc48397e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-01T16:03:27Z",
+      "side": 1,
+      "message": "I already uploaded a new cl with extra pass instead. It has my preference for other reasons as well, as it tends to cleanup the HIR the loop optimizer sees.",
+      "parentUuid": "e64b96fb_7b04bf32",
+      "range": {
+        "startLine": 1939,
+        "startChar": 0,
+        "endLine": 1963,
+        "endChar": 1
+      },
+      "revId": "6916950baabe0af44b59ff64e25e6fd02afa51a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
