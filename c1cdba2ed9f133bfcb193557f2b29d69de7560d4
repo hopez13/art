@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "26d84e6c_7c42650a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26d84e6c_811daad8",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26d84e6c_e1f46e6a",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 73,
         "endChar": 101
       },
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_5c3fa97a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26d84e6c_e1f46e6a",
       "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "26d84e6c_fcf095bf",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "yeah the entire point of this object is it is only for runtime use so we know it won\u0027t do anything dangerous.",
+      "parentUuid": "26d84e6c_c1e97294",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_7b7eff1f",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
@@ -88,6 +142,24 @@
         "endLine": 1386,
         "endChar": 89
       },
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_fc4d353d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_7b7eff1f",
       "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +212,60 @@
     },
     {
       "key": {
+        "uuid": "26d84e6c_5c18c935",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_5b81c3e2",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_7c1b8534",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_bb7b2730",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_1c22416a",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_bb7b2730",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_1b8b3b05",
         "filename": "runtime/modifiers.h",
         "patchSetId": 3
@@ -151,6 +277,24 @@
       "writtenOn": "2016-11-01T09:09:42Z",
       "side": 1,
       "message": "revert this unrelated change",
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_bc47ad19",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-01T16:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_1b8b3b05",
       "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
