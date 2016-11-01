@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d84e6c_c7c502f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-01T17:09:37Z",
+      "side": 1,
+      "message": "How does this work? Is this safe because strings are immutable and it\u0027s fine to read from the from-space copies?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "9e868098b4a5d666570e3924518978d7abd3542e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
