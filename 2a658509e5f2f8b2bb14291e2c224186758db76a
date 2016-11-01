@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64b96fb_9be98b95",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "This is inconsistent with the other versions of SET_VREG64_F below which \".set at;\". Is that intentional?",
+      "range": {
+        "startLine": 410,
+        "startChar": 4,
+        "endLine": 410,
+        "endChar": 13
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_1bfedb45",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "#elif",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 6
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_7b011f6a",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "#elif",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 6
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_3bfb9756",
+        "filename": "runtime/interpreter/mterp/mips/op_aput_wide.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "JR(t0)?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_db5ab39b",
+        "filename": "runtime/interpreter/mterp/mips/op_iput_object_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "For iput-object-quick, this is offset, not field.",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 28
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_fb5f6f88",
+        "filename": "runtime/interpreter/mterp/mips/op_iput_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 28
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_9b642b63",
+        "filename": "runtime/interpreter/mterp/mips/op_iput_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "JR(t1)?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_bb69e73b",
+        "filename": "runtime/interpreter/mterp/mips/op_iput_wide_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 1,
+        "startChar": 31,
+        "endLine": 1,
+        "endChar": 41
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_5b4f83d9",
+        "filename": "runtime/interpreter/mterp/mips/op_iput_wide_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "JR(t0)?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 22
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_7b4cbfe3",
+        "filename": "runtime/interpreter/mterp/mips/op_move_exception.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-01T13:02:31Z",
+      "side": 1,
+      "message": "JR(t0)?",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "2a658509e5f2f8b2bb14291e2c224186758db76a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
