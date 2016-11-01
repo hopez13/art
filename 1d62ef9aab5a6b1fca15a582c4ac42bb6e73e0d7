@@ -22,6 +22,30 @@
       "revId": "1d62ef9aab5a6b1fca15a582c4ac42bb6e73e0d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_ec59fe16",
+        "filename": "test/622-checker-bce-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-01T21:41:58Z",
+      "side": 1,
+      "message": "no, I really mean DCE. Dead code elimination removes the array references, so we end up with two consecutive boundschecks entering BCE.\n\nWe test something similar at BB level, and I guard against it in the dynamic/constant cases, but this was surprisingly the first time we hit this at the visit level\n\nit is not common to hit this, even this test needs jack, not dx to reproduce\n\nbut it is gone now",
+      "parentUuid": "26d84e6c_acc776a0",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "1d62ef9aab5a6b1fca15a582c4ac42bb6e73e0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
