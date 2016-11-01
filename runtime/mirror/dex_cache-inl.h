@@ -180,8 +180,8 @@ inline void VisitDexCachePairs(std::atomic<DexCachePair<T>>* pairs,
     // that's in the cache.
     GcRoot<T> root(before);
     visitor.VisitRootIfNonNull(root.AddressWithoutBarrier());
-    if (root.Read() != before) {
-      source.object = GcRoot<T>(root.Read());
+    if (root.template Read<kReadBarrierOption>() != before) {
+      source.object = root;
       pairs[i].store(source, std::memory_order_relaxed);
     }
   }
