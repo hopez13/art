@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d84e6c_811daad8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T02:05:00Z",
+      "side": 1,
+      "message": "\"h\" missing",
+      "range": {
+        "startLine": 69,
+        "startChar": 78,
+        "endLine": 69,
+        "endChar": 88
+      },
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_e1f46e6a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T02:05:00Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 73,
+        "startChar": 100,
+        "endLine": 73,
+        "endChar": 101
+      },
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_c1e97294",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-01T02:05:00Z",
+      "side": 1,
+      "message": "I wonder whether it\u0027s a good idea to allocate here. But considering it\u0027s a small class with no initializer and such, I guess it should be OK.",
+      "range": {
+        "startLine": 120,
+        "startChar": 19,
+        "endLine": 120,
+        "endChar": 40
+      },
+      "revId": "c1cdba2ed9f133bfcb193557f2b29d69de7560d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
