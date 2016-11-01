@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e64b96fb_bb4007a2",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T14:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "213cb8a3_70942e2a",
+      "range": {
+        "startLine": 26,
+        "startChar": 37,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "6fe51428f81aafc8827dc516f615e52493887952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_2d589946",
         "filename": "test/706-jit-skip-compilation/src/Main.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "262f6e24_d5403c7e",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T14:45:47Z",
+      "side": 1,
+      "message": "Re-worked the test to actually verify we don\u0027t record samples.",
+      "parentUuid": "612f9071_2d589946",
+      "range": {
+        "startLine": 40,
+        "startChar": 53,
+        "endLine": 40,
+        "endChar": 77
+      },
+      "revId": "6fe51428f81aafc8827dc516f615e52493887952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_0d5bd545",
         "filename": "test/706-jit-skip-compilation/src/Main.java",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-28T19:15:59Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 44,
+        "startChar": 51,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "6fe51428f81aafc8827dc516f615e52493887952",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_bb8567a2",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-01T14:45:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_0d5bd545",
       "range": {
         "startLine": 44,
         "startChar": 51,
