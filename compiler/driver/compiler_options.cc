@@ -48,7 +48,7 @@ CompilerOptions::CompilerOptions()
       dump_cfg_file_name_(""),
       dump_cfg_append_(false),
       force_determinism_(false),
-      register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
+      register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorGraphColor),
       passes_to_run_(nullptr) {
 }
 
