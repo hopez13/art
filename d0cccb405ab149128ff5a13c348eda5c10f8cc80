@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e64b96fb_fbd0cfb2",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-01T14:15:19Z",
+      "side": 1,
+      "message": "Aren\u0027t these just the PTypes() of the callsite and the callee ?",
+      "range": {
+        "startLine": 38,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 76
+      },
+      "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_bbca4701",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-01T14:15:19Z",
+      "side": 1,
+      "message": "i guess you could avoid the \"from\" and \"to\" and just pass an argument index - that way we could say \"ConvertJValue\" performs the \"ith pairwise conversion\"",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 62
+      },
+      "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_5be0e383",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-01T14:15:19Z",
+      "side": 1,
+      "message": "oh i see.. this is why we\u0027re passing the callee_type \u0026 caller_type. Is this really necessary, we could throw the WrongMethodTypeException in the caller, couldn\u0027t we ?",
+      "range": {
+        "startLine": 139,
+        "startChar": 6,
+        "endLine": 139,
+        "endChar": 74
+      },
+      "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0628aa1a_34fbb056",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-01T14:15:19Z",
+      "side": 1,
+      "message": "Are we supposed to do this even when the unboxing failed due to a NullPointerException ?\n\nCould we avoid this wart by refactoring UnboxPrimitiveForResult ? (I\u0027m happy for that to be in a follow up)",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 211,
+        "endChar": 76
+      },
+      "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
