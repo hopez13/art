@@ -22,6 +22,184 @@
       "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_3bbab7a1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Nit: 4-space indentation.",
+      "range": {
+        "startLine": 440,
+        "startChar": 2,
+        "endLine": 440,
+        "endChar": 4
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6247649_13bd6c98",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3868,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 3865,
+        "startChar": 0,
+        "endLine": 3868,
+        "endChar": 51
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4632a288_b69ca8f4",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3877,
+        "startChar": 0,
+        "endLine": 3880,
+        "endChar": 63
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_1b59fba0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3904,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3901,
+        "startChar": 0,
+        "endLine": 3904,
+        "endChar": 65
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_1b301b47",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3940,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3937,
+        "startChar": 0,
+        "endLine": 3940,
+        "endChar": 67
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_1b8c9bc1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4037,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 4034,
+        "startChar": 0,
+        "endLine": 4037,
+        "endChar": 46
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_3b8957b2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4044,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 4041,
+        "startChar": 0,
+        "endLine": 4044,
+        "endChar": 51
+      },
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_db40737e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-01T15:03:24Z",
+      "side": 1,
+      "message": "Nit: extra blank line.",
+      "revId": "c821d08318a40ada5e3ab1fbccedbbda81f6d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
