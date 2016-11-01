@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e64b96fb_bb92472e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-01T09:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_955f73f9",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 0
+      },
+      "revId": "b3824c54793c7d36e9b2b12ab1a9dbff1e96cc27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06e7cafb_7c18f9e7",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-31T10:40:41Z",
       "side": 1,
       "message": "Error checking?",
+      "range": {
+        "startLine": 493,
+        "startChar": 30,
+        "endLine": 493,
+        "endChar": 72
+      },
+      "revId": "b3824c54793c7d36e9b2b12ab1a9dbff1e96cc27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_db939335",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-01T09:42:19Z",
+      "side": 1,
+      "message": "Done (though there\u0027s tons of inconsistencies on checking the return value of OpenDexFile within this file, I\u0027ll try to clean it up in a different CL).",
+      "parentUuid": "06e7cafb_7c18f9e7",
       "range": {
         "startLine": 493,
         "startChar": 30,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e64b96fb_fb98cf53",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-01T09:42:19Z",
+      "side": 1,
+      "message": "Good idea. I\u0027ll add after VerifierDeps::Verify gets in.",
+      "parentUuid": "86501a4a_d568cba6",
+      "range": {
+        "startLine": 496,
+        "startChar": 8,
+        "endLine": 496,
+        "endChar": 25
+      },
+      "revId": "b3824c54793c7d36e9b2b12ab1a9dbff1e96cc27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bc76d0_f3fa704f",
         "filename": "runtime/verifier/verifier_deps.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-31T10:40:41Z",
       "side": 1,
       "message": "data.empty(), move before data_start definition.",
+      "range": {
+        "startLine": 461,
+        "startChar": 6,
+        "endLine": 461,
+        "endChar": 28
+      },
+      "revId": "b3824c54793c7d36e9b2b12ab1a9dbff1e96cc27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64b96fb_9b8d0b15",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-01T09:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6bc76d0_f3fa704f",
       "range": {
         "startLine": 461,
         "startChar": 6,
