@@ -164,6 +164,30 @@
       "revId": "e5aa148abdb0fb6932da5fa4723a2a75592336f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26d84e6c_2acc861f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-01T22:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26d84e6c_6a304e48",
+      "range": {
+        "startLine": 1507,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 30
+      },
+      "revId": "e5aa148abdb0fb6932da5fa4723a2a75592336f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
