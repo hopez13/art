@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6dd1ea2_cbb89c21",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-02T22:08:21Z",
+      "side": 1,
+      "message": "You could also use a weak relaxed CAS if you wanted to have a retry loop for spurrious failures. That is usually faster if this is performance critical.",
+      "range": {
+        "startLine": 89,
+        "startChar": 20,
+        "endLine": 89,
+        "endChar": 62
+      },
+      "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
