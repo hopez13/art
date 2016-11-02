@@ -79,6 +79,24 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_b20fa113",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T20:05:36Z",
+      "side": 1,
+      "message": "It is exactly not. Where was this OOME thrown? Why isn\u0027t it stored? This is the rethrow part, it isn\u0027t directly connected with where the error came from.",
+      "parentUuid": "a6dd1ea2_a35f5689",
+      "revId": "ccdd2d0e9ac6c1c89fde30f9fa0c11f5ad1fede0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_0bb9fd7e",
         "filename": "runtime/mirror/class_ext.cc",
         "patchSetId": 4
