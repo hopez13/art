@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4628e269_c61282c8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:31:58Z",
+      "side": 1,
+      "message": "Doesn\u0027t that depend on the visit order? Meaning, you\u0027re taking the heap location of either the if or the else branch? does it matter?",
+      "range": {
+        "startLine": 670,
+        "startChar": 0,
+        "endLine": 670,
+        "endChar": 96
+      },
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4628e269_e6177eb5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:31:58Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 40
+      },
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_abd0e9b1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:31:58Z",
+      "side": 1,
+      "message": "I guess a singleton ref cannot feed in a phi?",
+      "range": {
+        "startLine": 683,
+        "startChar": 10,
+        "endLine": 683,
+        "endChar": 59
+      },
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cbc535f3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:31:58Z",
+      "side": 1,
+      "message": "it",
+      "range": {
+        "startLine": 684,
+        "startChar": 12,
+        "endLine": 684,
+        "endChar": 29
+      },
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ebcaf101",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:31:58Z",
+      "side": 1,
+      "message": "Please add a comment.",
+      "range": {
+        "startLine": 714,
+        "startChar": 2,
+        "endLine": 714,
+        "endChar": 64
+      },
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
