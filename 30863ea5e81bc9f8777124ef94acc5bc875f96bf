@@ -63,6 +63,30 @@
       "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4be8653b",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-02T13:01:46Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter why it returns false (OOME or otherwise) as long as there\u0027s a pending exception when we return false.\n\n@oth: I don\u0027t think we need Thread::Current()-\u003eThrowOutOfMemoryError. If i\u0027m not mistaken, the Alloc call should do that for us.",
+      "parentUuid": "e641d62c_0b073d39",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 21
+      },
+      "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
