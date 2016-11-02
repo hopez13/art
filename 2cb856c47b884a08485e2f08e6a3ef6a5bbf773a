@@ -22,6 +22,30 @@
       "revId": "2cb856c47b884a08485e2f08e6a3ef6a5bbf773a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cbd1b515",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-02T18:28:09Z",
+      "side": 1,
+      "message": "This turned out to be pretty awkward. When I wrote this function, I was looking for a way to just do an \u003d\u003d check with some Class* somewhere (i could have sworn i saw these in well known classes or some-such) but couldn\u0027t find any.\n\nI\u0027ll add a class loader check. Can i do it in the follow up change, because i might be able to share more code with reflection.cc with a slightly larger change.",
+      "parentUuid": "a6dd1ea2_c3c24a44",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "2cb856c47b884a08485e2f08e6a3ef6a5bbf773a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
