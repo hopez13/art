@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e641d62c_abbd490f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2070,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe say something about the change from\n\n  if (kUseBakerOrBrooksReadBarrier) // ...\n\nto\n\n  if (kUseBakerReadBarrier) // ...\n\nthat is visible many times in this CL?",
+      "range": {
+        "startLine": 2070,
+        "startChar": 2,
+        "endLine": 2070,
+        "endChar": 27
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c634d2c0_ca1283c8",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Could this check be done statically?",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6dd1ea2_a9e57dc9",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -66,6 +112,368 @@
         "startChar": 10,
         "endLine": 145,
         "endChar": 22
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4628e269_a6a2e635",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that this instruction is enough to \"fool the compiler and the CPU\" by having `fad` always be null, without them being able to assume that fact?",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 44
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2625ae91_652d46f1",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"+r\", as `result` is both written (on line  146) and read (on line 147)?",
+      "range": {
+        "startLine": 148,
+        "startChar": 17,
+        "endLine": 148,
+        "endChar": 21
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cb78d5a7",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe replace with (*fake_address_dependency) and remove `fad` in line 143?",
+      "range": {
+        "startLine": 148,
+        "startChar": 43,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2b52394e",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Nit: missing space.",
+      "range": {
+        "startLine": 149,
+        "startChar": 16,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2beb193a",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe remove, as no variable/register is clobbered by the assembly code?",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 7
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_eb7d9194",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "mips/mips64?",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 9
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_8b408d7d",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Nit: Shouldn\u0027t this be \"!USE_BAKER_READ_BARRIER\"?",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 32
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ab7389c8",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that `*fake_address_dependency` is set to 0 after the execution of this method?",
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4b8ce5c2",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe mention that this overload does not offer any special mechanism to prevent load-load reordering?",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 85
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ab9aa9b8",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe document this method?\nAlso, maybe mark it ALWAYS_INLINE?",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_8b9dedf4",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 67
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2b8f99b9",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Maybe mention that this specific overload of mirror::Object::GetReadBarrierState() has load-acquire semantics?",
+      "range": {
+        "startLine": 231,
+        "startChar": 5,
+        "endLine": 231,
+        "endChar": 23
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862ada5e_081d87d6",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "GetReadBarrierStateAcquire?",
+      "range": {
+        "startLine": 232,
+        "startChar": 14,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0b92ddde",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "\"object reference load (from one of `obj`\u0027s fields)\"?",
+      "range": {
+        "startLine": 93,
+        "startChar": 93,
+        "endLine": 93,
+        "endChar": 97
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2625ae91_85e5e2c9",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "prevent?",
+      "range": {
+        "startLine": 93,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2b687913",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T15:03:40Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 70
       },
       "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
