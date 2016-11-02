@@ -46,6 +46,30 @@
       "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ab7b89e1",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:36:30Z",
+      "side": 1,
+      "message": "Could you add that as a comment here?",
+      "parentUuid": "a6dd1ea2_698c25c3",
+      "range": {
+        "startLine": 145,
+        "startChar": 10,
+        "endLine": 145,
+        "endChar": 22
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
