@@ -46,6 +46,30 @@
       "revId": "721fa606fbd1b9e99bfa34ad530e66b62ab7ed5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2bddd9c5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:33:42Z",
+      "side": 1,
+      "message": "I\u0027m curious what\u0027s the pattern that make us require at least 40 iterations, can you describe it here?",
+      "parentUuid": "26d84e6c_1c3801e7",
+      "range": {
+        "startLine": 114,
+        "startChar": 42,
+        "endLine": 118,
+        "endChar": 60
+      },
+      "revId": "721fa606fbd1b9e99bfa34ad530e66b62ab7ed5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
