@@ -22,6 +22,30 @@
       "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_3d3c27f6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T15:16:41Z",
+      "side": 1,
+      "message": "Unless you\u0027re doing properly abstracted Java OOP... ;-)\n\nRitz:\n\n $ grep pCheckCast | wc -l\n 10517",
+      "parentUuid": "e641d62c_4bc305f3",
+      "range": {
+        "startLine": 1484,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 91
+      },
+      "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
