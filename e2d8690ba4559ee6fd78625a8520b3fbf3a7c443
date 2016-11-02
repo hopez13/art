@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_0b42dd08",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-02T17:29:44Z",
+      "side": 1,
+      "message": "Sounds good to me.",
+      "parentUuid": "e641d62c_6bab61bf",
+      "range": {
+        "startLine": 385,
+        "startChar": 35,
+        "endLine": 385,
+        "endChar": 51
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_fba44ff4",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
