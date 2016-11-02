@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8bef436f_e001a26c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-02T12:47:42Z",
+      "side": 1,
+      "message": "IANAE, but REQUIRES_SHARED decorations mostly go on their own line irrespective of wrapping considerations.",
+      "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_0b073d39",
         "filename": "runtime/method_handles-inl.h",
         "patchSetId": 1
