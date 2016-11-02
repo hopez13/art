@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_0b073d39",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T12:46:06Z",
+      "side": 1,
+      "message": "Is the caller aware that ConvertJValue may return false for OOME?",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 21
+      },
+      "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
