@@ -22,6 +22,24 @@
       "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_cb0a5c05",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-02T22:17:05Z",
+      "side": 1,
+      "message": "I don\u0027t think this will ever be perf critical so I\u0027d rather just avoid the complexity.",
+      "parentUuid": "a6dd1ea2_cbb89c21",
+      "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
