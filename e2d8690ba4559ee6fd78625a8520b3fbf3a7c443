@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_6bab61bf",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "We intend to have at least one clean-up patch in the end of the series, and I\u0027d rather do that there, especially since it seems that InputRegister() may need some improvement. I\u0027ll leave a note in the code generator changes.",
+      "parentUuid": "e64b96fb_3bd4f745",
+      "range": {
+        "startLine": 385,
+        "startChar": 35,
+        "endLine": 385,
+        "endChar": 51
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_fba44ff4",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Why is this not `HighRegisterFrom(trg_loc)`?",
+      "range": {
+        "startLine": 682,
+        "startChar": 24,
+        "endLine": 682,
+        "endChar": 62
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4b6dc5e1",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_fba44ff4",
       "range": {
         "startLine": 682,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_6b6a81cc",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_9b998bb7",
+      "range": {
+        "startLine": 824,
+        "startChar": 66,
+        "endLine": 824,
+        "endChar": 70
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_bb9ec79a",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Why is this not `HighRegisterFrom(locations-\u003eInAt(3))`?",
+      "range": {
+        "startLine": 850,
+        "startChar": 24,
+        "endLine": 850,
+        "endChar": 63
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_8b95ed8b",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_bb9ec79a",
       "range": {
         "startLine": 850,
         "startChar": 24,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_cb8ff579",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_5bb4631d",
+      "range": {
+        "startLine": 984,
+        "startChar": 0,
+        "endLine": 984,
+        "endChar": 102
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_7bb11f2c",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 989,
+        "endChar": 102
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_eb94b18c",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_7bb11f2c",
       "range": {
         "startLine": 989,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_0b8add69",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_fb0f6f12",
+      "range": {
+        "startLine": 1246,
+        "startChar": 24,
+        "endLine": 1246,
+        "endChar": 61
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_9b142b25",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1280,
+        "startChar": 44,
+        "endLine": 1280,
+        "endChar": 81
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2b879960",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_9b142b25",
       "range": {
         "startLine": 1280,
         "startChar": 44,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_4b84e559",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_bb19e75d",
+      "range": {
+        "startLine": 1281,
+        "startChar": 7,
+        "endLine": 1281,
+        "endChar": 46
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_5bff83bb",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Nit: extra space.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 41,
+        "endLine": 1455,
+        "endChar": 42
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_6b81a148",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_5bff83bb",
       "range": {
         "startLine": 1455,
         "startChar": 41,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_8bb88d20",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1499,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_7bfcbfc5",
+      "range": {
+        "startLine": 1498,
+        "startChar": 0,
+        "endLine": 1499,
+        "endChar": 76
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_dbf153eb",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Cbnz",
+      "range": {
+        "startLine": 1703,
+        "startChar": 7,
+        "endLine": 1703,
+        "endChar": 10
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cbc29592",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Whew, I\u0027ll have to double check all Cbz() and Cbnz() calls...",
+      "parentUuid": "e64b96fb_dbf153eb",
       "range": {
         "startLine": 1703,
         "startChar": 7,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_0bcd7dc0",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2141,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_5be6a331",
+      "range": {
+        "startLine": 2137,
+        "startChar": 0,
+        "endLine": 2141,
+        "endChar": 54
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_7be35f20",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -312,6 +624,24 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Keep the assertions on live registers?\n\n  DCHECK(!locations-\u003eGetLiveRegisters()-\u003eContainsCoreRegister(calling_convention.GetRegisterAt(0)));\n  DCHECK(!locations-\u003eGetLiveRegisters()-\u003eContainsCoreRegister(calling_convention.GetRegisterAt(1)));",
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4baea5d0",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "The old code used to define an InvokeRuntimeCallingConvention object, and then some of the used registers were obtained from it, so there was a potential discrepancy between what the compiler left unused, and what the calling convention required, hence the DCHECK() (in fact, since the call kind was not kNoCall, adding temporaries was not necessary - the required registers were caller-saved anyway; I did it just in case). Now all registers are obtained from the LocationSummary object, so such a check is no longer relevant (or is too paranoid at best - failing the check would imply that the support for temporaries in the LocationSummary class is broken).",
+      "parentUuid": "e64b96fb_7be35f20",
       "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -335,6 +665,24 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_8b9fad9a",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2229,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "e64b96fb_1be01b11",
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e64b96fb_db54f3df",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -346,6 +694,30 @@
       "writtenOn": "2016-11-01T19:26:31Z",
       "side": 1,
       "message": "Nit: long lines.",
+      "range": {
+        "startLine": 2653,
+        "startChar": 0,
+        "endLine": 2654,
+        "endChar": 106
+      },
+      "revId": "e2d8690ba4559ee6fd78625a8520b3fbf3a7c443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cb99b5b6",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-02T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b96fb_db54f3df",
       "range": {
         "startLine": 2653,
         "startChar": 0,
