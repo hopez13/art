@@ -87,6 +87,30 @@
       "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4be06512",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-02T16:21:52Z",
+      "side": 1,
+      "message": "Confirmed that happens. Maybe a comment or DCHECK that exception is pending if not assumed to be commonly known.",
+      "parentUuid": "e641d62c_4be8653b",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 21
+      },
+      "revId": "30863ea5e81bc9f8777124ef94acc5bc875f96bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
