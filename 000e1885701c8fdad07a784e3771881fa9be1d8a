@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6dd1ea2_323c56f6",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T06:27:53Z",
+      "side": 1,
+      "message": "This is violating our style guide. Lock annotations follow the signature, not lead it.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 37
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_12395206",
+        "filename": "runtime/method_handles.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T06:27:53Z",
+      "side": 1,
+      "message": "This is violating our style guide. ALWAYS_INLINE preceeds the method declaration.",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 57
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
