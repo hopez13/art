@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_5e959121",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-02T19:23:03Z",
+      "side": 1,
+      "message": "Yes, I just wanted this for the j case. Thanks for also fixing below.",
+      "parentUuid": "a6dd1ea2_e39caef5",
+      "revId": "96a76ecbbbdba19773e52ac8e801d35ea4622772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_abd0e9b1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
