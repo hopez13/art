@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_0bdaddff",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "Note that a JValue doesn\u0027t protect references from a GC. Could you add a ScopedAssertNoThreadSuspension during the scope of the JValue?",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 472,
+        "endChar": 64
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2bd799d6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "indent is off",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 977,
+        "endChar": 12
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_4bd4e5cf",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 986,
+        "endChar": 12
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862ada5e_689fe334",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "ditto about NoThreadSuspension.",
+      "range": {
+        "startLine": 992,
+        "startChar": 8,
+        "endLine": 992,
+        "endChar": 14
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_6bd1a1de",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 1004,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 12
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_8b088d9e",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "This might be problematic if value points to a reference.",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ab0d49ad",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 110
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_eb1751b5",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "Don\u0027t we have WellKnownClasses for those?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0b1d7dd6",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "!IsPrimitivetype() ?",
+      "range": {
+        "startLine": 116,
+        "startChar": 9,
+        "endLine": 116,
+        "endChar": 36
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2b1a39df",
+        "filename": "test/955-methodhandles-smali/smali/Main.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T10:04:03Z",
+      "side": 1,
+      "message": "WrongMethodTypeException (I had to think for a few seconds what it was :))",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 18
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
