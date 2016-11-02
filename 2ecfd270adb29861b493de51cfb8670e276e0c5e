@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_4bc305f3",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T11:21:47Z",
+      "side": 1,
+      "message": "Do you want to inline this in the compiled code instead? Feels like the code is small enough that we can take the code size hit. We shouldn\u0027t expect tons if interface check casts.",
+      "range": {
+        "startLine": 1484,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 91
+      },
+      "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
