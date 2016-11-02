@@ -1678,6 +1678,50 @@ class ParallelCompilationManager {
   DISALLOW_COPY_AND_ASSIGN(ParallelCompilationManager);
 };
 
+static bool SkipClass(Thread* self,
+                      ClassLinker* class_linker,
+                      ObjPtr<mirror::ClassLoader> class_loader,
+                      ObjPtr<mirror::DexCache> expected_cache,
+                      const char* descriptor,
+                      const DexFile& cur_dex_file,
+                      const std::vector<const DexFile*>& dex_files)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ObjPtr<mirror::Class> lookup_klass =
+      class_linker->LookupClass(self, descriptor, class_loader);
+  // We don't expect lookup_klass to be null, really. We should at least have an erroneous class.
+  // However, reporting a skip is just as well.
+  bool result = lookup_klass == nullptr || lookup_klass->GetDexCache() != expected_cache;
+
+  if (kIsDebugBuild) {
+    bool check_result = false;
+    for (const DexFile* dex_file : dex_files) {
+      if (dex_file == &cur_dex_file) {
+        // Reached the current file, not a duplicate.
+        check_result = false;
+        break;
+      }
+
+      const DexFile::TypeId* type_id = dex_file->FindTypeId(descriptor);
+      if (type_id != nullptr) {
+        uint16_t type_idx = dex_file->GetIndexForTypeId(*type_id);
+        if (dex_file->FindClassDef(type_idx) != nullptr) {
+          // OK, that's the same name, we found a duplicate.
+          check_result = true;
+          break;
+        }
+      }
+    }
+    if (lookup_klass != nullptr) {
+      CHECK_EQ(result, check_result);
+    }
+  }
+
+  VLOG(compiler) << "Skipping class " << descriptor << " from "
+                 << cur_dex_file.GetLocation() << " (previously found).";
+
+  return result;
+}
+
 // A fast version of SkipClass above if the class pointer is available
 // that avoids the expensive FindInClassPath search.
 static bool SkipClass(jobject class_loader, const DexFile& dex_file, mirror::Class* klass)
@@ -1951,8 +1995,10 @@ void CompilerDriver::Verify(jobject class_loader,
 
 class VerifyClassVisitor : public CompilationVisitor {
  public:
-  VerifyClassVisitor(const ParallelCompilationManager* manager, verifier::HardFailLogMode log_level)
-     : manager_(manager), log_level_(log_level) {}
+  VerifyClassVisitor(const ParallelCompilationManager* manager,
+                     verifier::HardFailLogMode log_level,
+                     const std::vector<const DexFile*>& dex_files)
+      : manager_(manager), log_level_(log_level), dex_files_(dex_files) {}
 
   virtual void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) OVERRIDE {
     ATRACE_CALL();
@@ -1974,30 +2020,44 @@ class VerifyClassVisitor : public CompilationVisitor {
     verifier::MethodVerifier::FailureKind failure_kind;
     if (klass.Get() == nullptr) {
       CHECK(soa.Self()->IsExceptionPending());
+      LOG(INFO) << soa.Self()->GetException()->Dump();
       soa.Self()->ClearException();
 
-      /*
-       * At compile time, we can still structurally verify the class even if FindClass fails.
-       * This is to ensure the class is structurally sound for compilation. An unsound class
-       * will be rejected by the verifier and later skipped during compilation in the compiler.
-       */
+      // At compile time, we can still structurally verify the class even if FindClass fails.
+      // This is to ensure the class is structurally sound for compilation. An unsound class
+      // will be rejected by the verifier and later skipped during compilation in the compiler.
+
       Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
           soa.Self(), dex_file, false)));
-      std::string error_msg;
-      failure_kind =
-          verifier::MethodVerifier::VerifyClass(soa.Self(),
-                                                &dex_file,
-                                                dex_cache,
-                                                class_loader,
-                                                class_def,
-                                                Runtime::Current()->GetCompilerCallbacks(),
-                                                true /* allow soft failures */,
-                                                log_level_,
-                                                &error_msg);
-      if (failure_kind == verifier::MethodVerifier::kHardFailure) {
-        LOG(ERROR) << "Verification failed on class " << PrettyDescriptor(descriptor)
-                   << " because: " << error_msg;
-        manager_->GetCompiler()->SetHadHardVerifierFailure();
+
+      // But be careful: do not attempt to verify duplicates. The dex caches will be misaligned,
+      // which can lead to follow-up breakage.
+      if (SkipClass(soa.Self(),
+                    class_linker,
+                    class_loader.Get(),
+                    dex_cache.Get(),
+                    descriptor,
+                    dex_file,
+                    dex_files_)) {
+        // Make the skip a soft failure, essentially being considered as verify at runtime.
+        failure_kind = verifier::MethodVerifier::kSoftFailure;
+      } else {
+        std::string error_msg;
+        failure_kind =
+            verifier::MethodVerifier::VerifyClass(soa.Self(),
+                                                  &dex_file,
+                                                  dex_cache,
+                                                  class_loader,
+                                                  class_def,
+                                                  Runtime::Current()->GetCompilerCallbacks(),
+                                                  true /* allow soft failures */,
+                                                  log_level_,
+                                                  &error_msg);
+        if (failure_kind == verifier::MethodVerifier::kHardFailure) {
+          LOG(ERROR) << "Verification failed on class " << PrettyDescriptor(descriptor)
+                       << " because: " << error_msg;
+          manager_->GetCompiler()->SetHadHardVerifierFailure();
+        }
       }
     } else if (!SkipClass(jclass_loader, dex_file, klass.Get())) {
       CHECK(klass->IsResolved()) << klass->PrettyClass();
@@ -2037,6 +2097,7 @@ class VerifyClassVisitor : public CompilationVisitor {
  private:
   const ParallelCompilationManager* const manager_;
   const verifier::HardFailLogMode log_level_;
+  const std::vector<const DexFile*>& dex_files_;
 };
 
 void CompilerDriver::VerifyDexFile(jobject class_loader,
@@ -2052,7 +2113,7 @@ void CompilerDriver::VerifyDexFile(jobject class_loader,
   verifier::HardFailLogMode log_level = GetCompilerOptions().AbortOnHardVerifierFailure()
                               ? verifier::HardFailLogMode::kLogInternalFatal
                               : verifier::HardFailLogMode::kLogWarning;
-  VerifyClassVisitor visitor(&context, log_level);
+  VerifyClassVisitor visitor(&context, log_level, dex_files);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, thread_count);
 }
 
@@ -2364,7 +2425,9 @@ void CompilerDriver::Compile(jobject class_loader,
 
 class CompileClassVisitor : public CompilationVisitor {
  public:
-  explicit CompileClassVisitor(const ParallelCompilationManager* manager) : manager_(manager) {}
+  CompileClassVisitor(const ParallelCompilationManager* manager,
+                      const std::vector<const DexFile*>& dex_files)
+     : manager_(manager), dex_files_(dex_files) {}
 
   virtual void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) OVERRIDE {
     ATRACE_CALL();
@@ -2389,7 +2452,19 @@ class CompileClassVisitor : public CompilationVisitor {
     if (klass.Get() == nullptr) {
       soa.Self()->AssertPendingException();
       soa.Self()->ClearException();
+
       dex_cache = hs.NewHandle(class_linker->FindDexCache(soa.Self(), dex_file));
+
+      // Do not compile a duplicate class. We have not verified it (as resolution may be bad).
+      if (SkipClass(soa.Self(),
+                    class_linker,
+                    class_loader.Get(),
+                    dex_cache.Get(),
+                    descriptor,
+                    dex_file,
+                    dex_files_)) {
+        return;
+      }
     } else if (SkipClass(jclass_loader, dex_file, klass.Get())) {
       return;
     } else {
@@ -2462,6 +2537,7 @@ class CompileClassVisitor : public CompilationVisitor {
 
  private:
   const ParallelCompilationManager* const manager_;
+  const std::vector<const DexFile*>& dex_files_;
 };
 
 void CompilerDriver::CompileDexFile(jobject class_loader,
@@ -2473,7 +2549,7 @@ void CompilerDriver::CompileDexFile(jobject class_loader,
   TimingLogger::ScopedTiming t("Compile Dex File", timings);
   ParallelCompilationManager context(Runtime::Current()->GetClassLinker(), class_loader, this,
                                      &dex_file, dex_files, thread_pool);
-  CompileClassVisitor visitor(&context);
+  CompileClassVisitor visitor(&context, dex_files);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, thread_count);
 }
 
