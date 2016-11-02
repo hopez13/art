@@ -59,6 +59,7 @@ public class Main {
     testfindSpecial_invokeDirectBehaviour();
     testExceptionDetailMessages();
     testfindVirtual();
+    testAsType();
   }
 
   public static void testfindSpecial_invokeSuperBehaviour() throws Throwable {
@@ -261,6 +262,24 @@ public class Main {
     if (!"superPackageMethod".equals(str)) {
       System.out.println("Unexpected return value for BarImpl#superPackageMethod: " + str);
     }
+  }
+
+  public static CharSequence getSequence() {
+    return "foo";
+  }
+
+  public static void testAsType() throws Throwable {
+    MethodHandle mh = MethodHandles.lookup().findVirtual(String.class,
+        "concat", MethodType.methodType(String.class, String.class));
+
+    MethodHandle asType = mh.asType(
+        MethodType.methodType(Object.class, CharSequence.class, String.class));
+
+    Object obj = asType.invokeExact((CharSequence) getSequence(), (String) "bar");
+
+    MethodHandle asType2 = mh.asType(
+        MethodType.methodType(String.class, CharSequence.class, String.class));
+    obj = asType2.invokeExact((CharSequence) getSequence(), (String) "bar");
   }
 }
 
