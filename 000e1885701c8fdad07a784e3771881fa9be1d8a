@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "a6dd1ea2_b26e86e3",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "Superfluous",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_927382c9",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "Non-standard indent.",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_3263b6fa",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "This may throw. I think you want to return false in that case, e.g., the break out of the loop below.",
+      "range": {
+        "startLine": 114,
+        "startChar": 37,
+        "endLine": 114,
+        "endChar": 49
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_f23d9ed5",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "Superfluous, unless you remove \"else\" and make it \"early-return\" style.",
+      "range": {
+        "startLine": 160,
+        "startChar": 6,
+        "endLine": 160,
+        "endChar": 15
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6dd1ea2_323c56f6",
         "filename": "runtime/method_handles.h",
         "patchSetId": 5
@@ -41,6 +133,75 @@
         "startChar": 44,
         "endLine": 65,
         "endChar": 57
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_72e88e3b",
+        "filename": "runtime/mirror/emulated_stack_frame.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "OOM handling missing here and in line 188. Note that this is required, I believe, as it will crash the runtime right now (\"unexpected pending exception\" ...)",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 82
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_524f4a7e",
+        "filename": "runtime/mirror/emulated_stack_frame.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "Non-standard indent, should be 4 more.",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 6
+      },
+      "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_9248a27d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T07:15:09Z",
+      "side": 1,
+      "message": "Do not leave commented code.",
+      "range": {
+        "startLine": 319,
+        "startChar": 4,
+        "endLine": 319,
+        "endChar": 70
       },
       "revId": "000e1885701c8fdad07a784e3771881fa9be1d8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
