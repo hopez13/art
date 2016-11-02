@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_ab21c9bc",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T13:12:31Z",
+      "side": 1,
+      "message": "Cheap check for constants?",
+      "range": {
+        "startLine": 83,
+        "startChar": 9,
+        "endLine": 83,
+        "endChar": 14
+      },
+      "revId": "dd90972d4209cddb94576c5277d3408f1fc69bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_cb2615d2",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T13:12:31Z",
+      "side": 1,
+      "message": "Could you do GetMaxAtHint and return null if not found?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 22
+      },
+      "revId": "dd90972d4209cddb94576c5277d3408f1fc69bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_eb2bd198",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-02T13:12:31Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 134,
+        "startChar": 18,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "dd90972d4209cddb94576c5277d3408f1fc69bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
