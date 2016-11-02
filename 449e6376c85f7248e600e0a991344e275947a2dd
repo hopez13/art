@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_a1110972",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2070,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_abbd490f",
+      "range": {
+        "startLine": 2070,
+        "startChar": 2,
+        "endLine": 2070,
+        "endChar": 27
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c634d2c0_ca1283c8",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Could this check be done statically?",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_2b185835",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "I tried but it doesn\u0027t seem to work:\n\nart/runtime/mirror/object-inl.h:145:17: error: static_assert expression is not an integral constant expression\n  static_assert(OFFSETOF_MEMBER(Object, monitor_) \u003d\u003d 4U, \"Foo\");\n                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nart/runtime/base/macros.h:51:3: note: expanded from macro \u0027OFFSETOF_MEMBER\u0027\n  (reinterpret_cast\u003cuintptr_t\u003e(\u0026reinterpret_cast\u003ct*\u003e(16)-\u003ef) - static_cast\u003cuintptr_t\u003e(16u))  // NOLINT\n  ^\nart/runtime/mirror/object-inl.h:145:17: note: reinterpret_cast is not allowed in a constant expression\nart/runtime/base/macros.h:51:4: note: expanded from macro \u0027OFFSETOF_MEMBER\u0027\n  (reinterpret_cast\u003cuintptr_t\u003e(\u0026reinterpret_cast\u003ct*\u003e(16)-\u003ef) - static_cast\u003cuintptr_t\u003e(16u))  // NOLINT",
+      "parentUuid": "c634d2c0_ca1283c8",
       "range": {
         "startLine": 144,
         "startChar": 2,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_ebf000e5",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_ab7b89e1",
+      "range": {
+        "startLine": 145,
+        "startChar": 10,
+        "endLine": 145,
+        "endChar": 22
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4628e269_a6a2e635",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -130,6 +202,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Maybe add a comment saying that this instruction is enough to \"fool the compiler and the CPU\" by having `fad` always be null, without them being able to assume that fact?",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 44
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_4b902c66",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4628e269_a6a2e635",
       "range": {
         "startLine": 147,
         "startChar": 6,
@@ -188,6 +284,54 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_6be370ee",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2625ae91_652d46f1",
+      "range": {
+        "startLine": 148,
+        "startChar": 17,
+        "endLine": 148,
+        "endChar": 21
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_abae0882",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_cb78d5a7",
+      "range": {
+        "startLine": 148,
+        "startChar": 43,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_2b52394e",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -199,6 +343,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Nit: missing space.",
+      "range": {
+        "startLine": 149,
+        "startChar": 16,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_4b05ccbe",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2b52394e",
       "range": {
         "startLine": 149,
         "startChar": 16,
@@ -234,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_4becace0",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2beb193a",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 7
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_eb7d9194",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -245,6 +437,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "mips/mips64?",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 9
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_eba80078",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_eb7d9194",
       "range": {
         "startLine": 180,
         "startChar": 5,
@@ -280,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_4b9e6c4c",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e641d62c_8b408d7d",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 32
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_ab7389c8",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 2
@@ -297,6 +537,24 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_e65af79a",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_ab7389c8",
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_4b8ce5c2",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 2
@@ -308,6 +566,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Maybe mention that this overload does not offer any special mechanism to prevent load-load reordering?",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 85
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_464ca3e3",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_4b8ce5c2",
       "range": {
         "startLine": 100,
         "startChar": 2,
@@ -343,6 +625,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_06410ba5",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_ab9aa9b8",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 31
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_8b9dedf4",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 2
@@ -354,6 +660,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 67
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_a630ff48",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_8b9dedf4",
       "range": {
         "startLine": 225,
         "startChar": 0,
@@ -389,6 +719,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_a6c3dff1",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2b8f99b9",
+      "range": {
+        "startLine": 231,
+        "startChar": 5,
+        "endLine": 231,
+        "endChar": 23
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "862ada5e_081d87d6",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 2
@@ -400,6 +754,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "GetReadBarrierStateAcquire?",
+      "range": {
+        "startLine": 232,
+        "startChar": 14,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_26afef38",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "862ada5e_081d87d6",
       "range": {
         "startLine": 232,
         "startChar": 14,
@@ -458,6 +836,54 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_46682314",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_0b92ddde",
+      "range": {
+        "startLine": 93,
+        "startChar": 93,
+        "endLine": 93,
+        "endChar": 97
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_a6759fe9",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2625ae91_85e5e2c9",
+      "range": {
+        "startLine": 93,
+        "startChar": 24,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_2b687913",
         "filename": "runtime/read_barrier.h",
         "patchSetId": 2
@@ -469,6 +895,30 @@
       "writtenOn": "2016-11-02T15:03:40Z",
       "side": 1,
       "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 70
+      },
+      "revId": "449e6376c85f7248e600e0a991344e275947a2dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_86721bfe",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-02T23:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2b687913",
       "range": {
         "startLine": 94,
         "startChar": 0,
