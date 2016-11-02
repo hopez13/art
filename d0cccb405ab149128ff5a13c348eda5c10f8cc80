@@ -187,6 +187,30 @@
       "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2625ae91_05b9f27e",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-02T15:02:27Z",
+      "side": 1,
+      "message": "Added a new method in this file UnboxPrimitiveForMethodHandle that has the relevant exceptions. I\u0027m not seeing a clean way of adapting the code in reflection.cc.",
+      "parentUuid": "6619660e_376ad8cb",
+      "range": {
+        "startLine": 205,
+        "startChar": 5,
+        "endLine": 211,
+        "endChar": 76
+      },
+      "revId": "d0cccb405ab149128ff5a13c348eda5c10f8cc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
