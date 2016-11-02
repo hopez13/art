@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_3d69c7a9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T16:11:15Z",
+      "side": 1,
+      "message": "SkipClass is the traditional name for this in the driver.",
+      "parentUuid": "e641d62c_ebf031e5",
+      "range": {
+        "startLine": 1681,
+        "startChar": 12,
+        "endLine": 1681,
+        "endChar": 21
+      },
+      "revId": "34fdd2fb1c9f6bb563169dc1fe6e173a03ca768c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_cbeb75fa",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-02T16:07:45Z",
       "side": 1,
       "message": "can you rely on the verification status instead of re-checking here? Or something may change in between?",
+      "range": {
+        "startLine": 2459,
+        "startChar": 10,
+        "endLine": 2459,
+        "endChar": 19
+      },
+      "revId": "34fdd2fb1c9f6bb563169dc1fe6e173a03ca768c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_1d6683d7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2459,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-02T16:11:15Z",
+      "side": 1,
+      "message": "That would change meaning here. And as we don\u0027t run the verifier, we don\u0027t push verification results.",
+      "parentUuid": "e641d62c_cbeb75fa",
       "range": {
         "startLine": 2459,
         "startChar": 10,
