@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "abeec770_c1e8e23b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-02T15:02:27Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e641d62c_0b365d46",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 472,
+        "endChar": 64
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_2bd799d6",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "862ada5e_689fe334",
+      "range": {
+        "startLine": 992,
+        "startChar": 8,
+        "endLine": 992,
+        "endChar": 14
+      },
+      "revId": "24370bf2f90ec047e8ed810bbe3b6833b8126f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0b63bdf9",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-02T15:02:27Z",
+      "side": 1,
+      "message": "Correction, not done.\n\nConvertArgumentValue can allocate if boxing or throwing an exception:\n\n- if boxing, the unboxed |value| was not on a reference type. The boxed value is allocated  and returned in |value| which is okay.\n- if an exception is thrown, |value| is not touched again.",
+      "parentUuid": "e641d62c_8b5a4d9a",
       "range": {
         "startLine": 992,
         "startChar": 8,
