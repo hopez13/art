@@ -70,6 +70,53 @@
       "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_6b39a193",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-02T17:40:31Z",
+      "side": 1,
+      "message": "Please collect statistics for TypeCheckKind::kInterfaceCheck. Then we can decide whether to inline the check in compiled code, use this approach or create a separate entrypoint.",
+      "parentUuid": "e641d62c_6b0601fb",
+      "range": {
+        "startLine": 1484,
+        "startChar": 0,
+        "endLine": 1509,
+        "endChar": 91
+      },
+      "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "862ada5e_485f7f55",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-02T17:40:31Z",
+      "side": 1,
+      "message": ".Lcheck_cast_return (similar for other labels)",
+      "range": {
+        "startLine": 1522,
+        "startChar": 0,
+        "endLine": 1522,
+        "endChar": 8
+      },
+      "revId": "2ecfd270adb29861b493de51cfb8670e276e0c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
