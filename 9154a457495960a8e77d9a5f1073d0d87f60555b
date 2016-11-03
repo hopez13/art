@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_aec71752",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T16:05:18Z",
+      "side": 1,
+      "message": "Want to add a IGNORE_RETURN_VALUE ala https://cs.corp.google.com/android/external/valgrind/drd/tests/tsan_unittest.cpp?type\u003dcs\u0026q\u003dIGNORE_RETURN_VALUE\u0026sq\u003dpackage:%5Eandroid$\u0026l\u003d76?",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 19
+      },
+      "revId": "9154a457495960a8e77d9a5f1073d0d87f60555b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
