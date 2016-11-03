@@ -46,6 +46,30 @@
       "revId": "ba37e04e40744b43b68bfa491316974860ee25aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ee4cbf3f",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T15:48:25Z",
+      "side": 1,
+      "message": "printing the entire outcome is more useful imo.",
+      "parentUuid": "e641d62c_ceeb83fa",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 12
+      },
+      "revId": "ba37e04e40744b43b68bfa491316974860ee25aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
