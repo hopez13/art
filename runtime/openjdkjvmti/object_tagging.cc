@@ -109,6 +109,11 @@ bool ObjectTagTable::RemoveLocked(art::Thread* self, art::mirror::Object* obj, j
 }
 
 bool ObjectTagTable::Set(art::mirror::Object* obj, jlong new_tag) {
+  if (new_tag == 0) {
+    jlong tmp;
+    return Remove(obj, &tmp);
+  }
+
   art::Thread* self = art::Thread::Current();
   art::MutexLock mu(self, allow_disallow_lock_);
   Wait(self);
