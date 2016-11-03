@@ -40,6 +40,47 @@
       "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0eff4bbc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T15:12:38Z",
+      "side": 1,
+      "message": "Agree with Alex.",
+      "parentUuid": "a6dd1ea2_cb0a5c05",
+      "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_ce146326",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T15:12:38Z",
+      "side": 1,
+      "message": "to force?",
+      "range": {
+        "startLine": 1137,
+        "startChar": 5,
+        "endLine": 1137,
+        "endChar": 10
+      },
+      "revId": "f57111983f32629fc3cbdf04ab65edc4f59cf7de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
