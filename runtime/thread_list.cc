@@ -32,6 +32,7 @@
 #include "base/timing_logger.h"
 #include "debugger.h"
 #include "gc/collector/concurrent_copying.h"
+#include "gc/reference_processor.h"
 #include "jni_internal.h"
 #include "lock_word.h"
 #include "monitor.h"
@@ -332,6 +333,11 @@ size_t ThreadList::RunCheckpoint(Closure* checkpoint_function, Closure* callback
 
   // Run the checkpoint on ourself while we wait for threads to suspend.
   checkpoint_function->Run(self);
+
+  // Wake up the threads blocking for weak ref access so that they will respond to the checkpoint
+  // request. Otherwise we will hang as they are blocking in the kRunnable state.
+  Runtime::Current()->GetHeap()->GetReferenceProcessor()->BroadcastForSlowPath(self);
+  Runtime::Current()->BroadcastForNewSystemWeaks(/*broadcast_for_checkpoint*/true);
 
   // Run the checkpoint on the suspended threads.
   for (const auto& thread : suspended_count_modified_threads) {
