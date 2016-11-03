@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_6e228f6b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T15:43:12Z",
+      "side": 1,
+      "message": "Because the vdex file wasn\u0027t created by this method. I\u0027ve added a comment.",
+      "parentUuid": "a6dd1ea2_dabd030f",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 631,
+        "endChar": 23
+      },
+      "revId": "81d13c1519c93d3284b8e6eaf6b1fddb5772d156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_aef637df",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
