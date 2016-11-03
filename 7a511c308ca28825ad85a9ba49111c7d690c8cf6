@@ -22,6 +22,30 @@
       "revId": "7a511c308ca28825ad85a9ba49111c7d690c8cf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0ee66b30",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-03T15:19:01Z",
+      "side": 1,
+      "message": "Are you trying to read the comment without the context of the function.\n\nThe SimplifyIfs() optimization is about redirecting edges that lead to statically known \"if\" to the appropriate target of the \"if\".",
+      "parentUuid": "e641d62c_6e060ffb",
+      "range": {
+        "startLine": 218,
+        "startChar": 24,
+        "endLine": 218,
+        "endChar": 32
+      },
+      "revId": "7a511c308ca28825ad85a9ba49111c7d690c8cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
