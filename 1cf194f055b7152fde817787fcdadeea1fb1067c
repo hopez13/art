@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e641d62c_4e11536f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T13:05:30Z",
+      "side": 1,
+      "message": "Maybe for the non-GC expert put a simple description of what overflow means here.",
+      "range": {
+        "startLine": 2307,
+        "startChar": 15,
+        "endLine": 2307,
+        "endChar": 23
+      },
+      "revId": "1cf194f055b7152fde817787fcdadeea1fb1067c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6dd1ea2_e19dc1f3",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 1
