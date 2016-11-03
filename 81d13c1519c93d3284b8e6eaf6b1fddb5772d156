@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_4ee07312",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T15:28:25Z",
+      "side": 1,
+      "message": "Hard to reason here :P\n\nYou can only enter this path if you need compilation because of a filter change, otherwise you would  have already return at L150 or L165. So I think you miss those cases to update the vdex.",
+      "range": {
+        "startLine": 187,
+        "startChar": 9,
+        "endLine": 187,
+        "endChar": 19
+      },
+      "revId": "81d13c1519c93d3284b8e6eaf6b1fddb5772d156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_aef637df",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T15:28:25Z",
+      "side": 1,
+      "message": "Mention that his implies kDex2OatNeeded? (i.e. the code  for the dex location needs updating).",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "81d13c1519c93d3284b8e6eaf6b1fddb5772d156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
