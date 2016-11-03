@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a6dd1ea2_7ab4d71d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-03T15:44:40Z",
+      "side": 1,
+      "message": "That is dangerous, though. Can you ensure that it\u0027s never gonna be corrupted by a crashing (or randomly killed) dex2oat?",
+      "parentUuid": "e641d62c_6e228f6b",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 631,
+        "endChar": 23
+      },
+      "revId": "81d13c1519c93d3284b8e6eaf6b1fddb5772d156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_aef637df",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
