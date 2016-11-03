@@ -1253,6 +1253,10 @@ bool ConcurrentCopying::ProcessMarkStackOnce() {
     }
     gc_mark_stack_->Reset();
   } else if (mark_stack_mode == kMarkStackModeShared) {
+    // Do an empty checkpoint to avoid a race with a mutator preempted in the middle of a read
+    // barrier but before pushing onto the mark stack. b/32508093. Note the weak ref access is
+    // disabled at this point.
+    IssueEmptyCheckpoint();
     // Process the shared GC mark stack with a lock.
     {
       MutexLock mu(self, mark_stack_lock_);

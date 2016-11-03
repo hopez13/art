@@ -171,6 +171,9 @@ class Thread {
   // Process pending thread suspension request and handle if pending.
   void CheckSuspend() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Process pending checkpoints if pending.
+  void CheckCheckpoint() REQUIRES_SHARED(Locks::mutator_lock_);
+
   static Thread* FromManagedThread(const ScopedObjectAccessAlreadyRunnable& ts,
                                    mirror::Object* thread_peer)
       REQUIRES(Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_)
