@@ -50,6 +50,7 @@ class DexCache;
 
 namespace verifier {
 class MethodVerifier;
+class VerifierDeps;
 class VerifierDepsTest;
 }  // namespace verifier
 
@@ -67,6 +68,7 @@ class SrcMapElem;
 using SwapSrcMap = SrcMap<SwapAllocator<SrcMapElem>>;
 template<class T> class Handle;
 class TimingLogger;
+class VdexFile;
 class VerificationResults;
 class VerifiedMethod;
 
@@ -117,6 +119,7 @@ class CompilerDriver {
 
   void CompileAll(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,
+                  verifier::VerifierDeps* verifier_deps,
                   TimingLogger* timings)
       REQUIRES(!Locks::mutator_lock_, !compiled_classes_lock_, !dex_to_dex_references_lock_);
 
@@ -415,6 +418,7 @@ class CompilerDriver {
  private:
   void PreCompile(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,
+                  verifier::VerifierDeps* verifier_deps,
                   TimingLogger* timings)
       REQUIRES(!Locks::mutator_lock_, !compiled_classes_lock_);
 
@@ -437,7 +441,10 @@ class CompilerDriver {
 
   void Verify(jobject class_loader,
               const std::vector<const DexFile*>& dex_files,
-              TimingLogger* timings);
+              verifier::VerifierDeps* verifier_deps,
+              TimingLogger* timings)
+      REQUIRES(!compiled_classes_lock_);
+
   void VerifyDexFile(jobject class_loader,
                      const DexFile& dex_file,
                      const std::vector<const DexFile*>& dex_files,

@@ -39,6 +39,7 @@
 #include "compiled_class.h"
 #include "compiled_method.h"
 #include "compiler.h"
+#include "compiler_callbacks.h"
 #include "compiler_driver-inl.h"
 #include "dex_compilation_unit.h"
 #include "dex_file-inl.h"
@@ -71,6 +72,7 @@
 #include "transaction.h"
 #include "utils/dex_cache_arrays_layout-inl.h"
 #include "utils/swap_space.h"
+#include "vdex_file.h"
 #include "verifier/method_verifier.h"
 #include "verifier/method_verifier-inl.h"
 #include "verifier/verifier_log_mode.h"
@@ -393,6 +395,7 @@ static void SetupIntrinsic(Thread* self,
 
 void CompilerDriver::CompileAll(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierDeps* verifier_deps,
                                 TimingLogger* timings) {
   DCHECK(!Runtime::Current()->IsStarted());
 
@@ -404,7 +407,7 @@ void CompilerDriver::CompileAll(jobject class_loader,
   // 2) Resolve all classes
   // 3) Attempt to verify all classes
   // 4) Attempt to initialize image classes, and trivially initialized classes
-  PreCompile(class_loader, dex_files, timings);
+  PreCompile(class_loader, dex_files, verifier_deps, timings);
   if (GetCompilerOptions().IsBootImage()) {
     // We don't need to setup the intrinsics for non boot image compilation, as
     // those compilations will pick up a boot image that have the ArtMethod already
@@ -676,7 +679,7 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
 
   InitializeThreadPools();
 
-  PreCompile(jclass_loader, dex_files, timings);
+  PreCompile(jclass_loader, dex_files, nullptr, timings);
 
   // Can we run DEX-to-DEX compiler on this class ?
   optimizer::DexToDexCompilationLevel dex_to_dex_compilation_level =
@@ -873,6 +876,7 @@ inline void CompilerDriver::CheckThreadPools() {
 
 void CompilerDriver::PreCompile(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierDeps* verifier_deps,
                                 TimingLogger* timings) {
   CheckThreadPools();
 
@@ -906,7 +910,7 @@ void CompilerDriver::PreCompile(jobject class_loader,
     VLOG(compiler) << "Resolve const-strings: " << GetMemoryUsageString(false);
   }
 
-  Verify(class_loader, dex_files, timings);
+  Verify(class_loader, dex_files, verifier_deps, timings);
   VLOG(compiler) << "Verify: " << GetMemoryUsageString(false);
 
   if (had_hard_verifier_failure_ && GetCompilerOptions().AbortOnHardVerifierFailure()) {
@@ -1932,15 +1936,49 @@ void CompilerDriver::SetVerified(jobject class_loader,
   }
 }
 
-void CompilerDriver::Verify(jobject class_loader,
+void CompilerDriver::Verify(jobject jclass_loader,
                             const std::vector<const DexFile*>& dex_files,
+                            verifier::VerifierDeps* verifier_deps,
                             TimingLogger* timings) {
+  if (verifier_deps != nullptr) {
+    TimingLogger::ScopedTiming t("Fast Verify", timings);
+    ScopedObjectAccess soa(Thread::Current());
+    StackHandleScope<2> hs(soa.Self());
+    Handle<mirror::ClassLoader> class_loader(
+        hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
+    MutableHandle<mirror::Class> cls(hs.NewHandle<mirror::Class>(nullptr));
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    if (verifier_deps->Verify(class_loader, soa.Self())) {
+      for (const DexFile* dex_file : dex_files) {
+        const std::vector<uint16_t>& unverified_classes =
+            verifier_deps->GetUnverifiedClasses(*dex_file);
+        std::set<uint16_t> set(unverified_classes.begin(), unverified_classes.end());
+        for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+          const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
+          const char* descriptor = dex_file->GetClassDescriptor(class_def);
+          cls.Assign(class_linker->FindClass(soa.Self(), descriptor, class_loader));
+          if (cls.Get() == nullptr) {
+            CHECK(soa.Self()->IsExceptionPending());
+            soa.Self()->ClearException();
+          } else if (set.find(class_def.class_idx_) == set.end()) {
+            ObjectLock<mirror::Class> lock(soa.Self(), cls);
+            mirror::Class::SetStatus(cls, mirror::Class::kStatusVerified, soa.Self());
+          }
+        }
+      }
+      return;
+    }
+  }
+  if (!GetCompilerOptions().IsBootImage()) {
+    Runtime::Current()->GetCompilerCallbacks()->SetVerifierDeps(
+        new verifier::VerifierDeps(dex_files));
+  }
   // Note: verification should not be pulling in classes anymore when compiling the boot image,
   //       as all should have been resolved before. As such, doing this in parallel should still
   //       be deterministic.
   for (const DexFile* dex_file : dex_files) {
     CHECK(dex_file != nullptr);
-    VerifyDexFile(class_loader,
+    VerifyDexFile(jclass_loader,
                   *dex_file,
                   dex_files,
                   parallel_thread_pool_.get(),

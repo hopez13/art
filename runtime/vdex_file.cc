@@ -66,23 +66,32 @@ VdexFile* VdexFile::Open(const std::string& vdex_filename,
                  (writable ? " for read/write" : "for reading");
     return nullptr;
   }
+  return Open(*vdex_file, writable, low_4gb, error_msg);
+}
 
-  int64_t vdex_length = vdex_file->GetLength();
+VdexFile* VdexFile::Open(const File& vdex_file,
+                         bool writable,
+                         bool low_4gb,
+                         std::string* error_msg) {
+  int64_t vdex_length = vdex_file.GetLength();
   if (vdex_length == -1) {
-    *error_msg = "Could not read the length of file " + vdex_filename;
+    *error_msg = "Could not read the length of file " + vdex_file.GetPath();
+    return nullptr;
+  } else if (vdex_length < static_cast<int64_t>(sizeof(Header))) {
+    *error_msg = "File too small for being a vdex file " + vdex_file.GetPath();
     return nullptr;
   }
 
   std::unique_ptr<MemMap> mmap(MemMap::MapFile(vdex_length,
                                                writable ? PROT_READ | PROT_WRITE : PROT_READ,
                                                MAP_SHARED,
-                                               vdex_file->Fd(),
+                                               vdex_file.Fd(),
                                                0 /* start offset */,
                                                low_4gb,
-                                               vdex_filename.c_str(),
+                                               vdex_file.GetPath().c_str(),
                                                error_msg));
   if (mmap == nullptr) {
-    *error_msg = "Failed to mmap file " + vdex_filename + " : " + *error_msg;
+    *error_msg = "Failed to mmap file " + vdex_file.GetPath() + " : " + *error_msg;
     return nullptr;
   }
 

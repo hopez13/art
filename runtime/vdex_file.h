@@ -71,6 +71,11 @@ class VdexFile {
                         bool low_4gb,
                         std::string* error_msg);
 
+  static VdexFile* Open(const File& vdex_file,
+                        bool writable,
+                        bool low_4gb,
+                        std::string* error_msg);
+  
   const uint8_t* Begin() const { return mmap_->Begin(); }
   const uint8_t* End() const { return mmap_->End(); }
   size_t Size() const { return mmap_->Size(); }
@@ -78,6 +83,8 @@ class VdexFile {
   const Header& GetHeader() const {
     return *reinterpret_cast<const Header*>(Begin());
   }
+
+  bool IsValid() const { return GetHeader().IsValid(); }
 
   ArrayRef<const uint8_t> GetVerifierDepsData() const {
     return ArrayRef<const uint8_t>(
