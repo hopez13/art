@@ -22,6 +22,30 @@
       "revId": "1df388199aa45571e4acbf6190a51b3f76f62273",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_2e87a760",
+        "filename": "test/622-simplifyifs-exception-edges/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-03T14:07:39Z",
+      "side": 1,
+      "message": "Same bug I believe, even though the error message seems to have changed.",
+      "parentUuid": "e641d62c_2eeb273a",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "1df388199aa45571e4acbf6190a51b3f76f62273",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
