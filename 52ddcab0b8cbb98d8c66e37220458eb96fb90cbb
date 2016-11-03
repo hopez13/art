@@ -70,6 +70,30 @@
       "revId": "52ddcab0b8cbb98d8c66e37220458eb96fb90cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_c0ab4dbd",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-03T22:50:05Z",
+      "side": 1,
+      "message": "You\u0027d prefer a friend class hidden in the locations.cc over the StaticAsserts function? Sure, I can do that.\n\nThe reference bug would probably be the ObjPtr bug, considering it\u0027s what has changed recently. :-)",
+      "parentUuid": "e641d62c_71819048",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 30
+      },
+      "revId": "52ddcab0b8cbb98d8c66e37220458eb96fb90cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
