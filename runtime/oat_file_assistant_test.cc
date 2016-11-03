@@ -337,7 +337,7 @@ TEST_F(OatFileAssistantTest, OatForDifferentDex) {
 
   OatFileAssistant oat_file_assistant(dex_location.c_str(), kRuntimeISA, false);
 
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
 
   EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
@@ -416,7 +416,7 @@ TEST_F(OatFileAssistantTest, MultiDexSecondaryOutOfDate) {
   Copy(GetMultiDexSrc2(), dex_location);
 
   OatFileAssistant oat_file_assistant(dex_location.c_str(), kRuntimeISA, true);
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed, false));
   EXPECT_TRUE(oat_file_assistant.HasOriginalDexFiles());
 }
@@ -465,9 +465,9 @@ TEST_F(OatFileAssistantTest, OatOutOfDate) {
   Copy(GetDexSrc2(), dex_location);
 
   OatFileAssistant oat_file_assistant(dex_location.c_str(), kRuntimeISA, false);
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kVerifyAtRuntime));
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
 
   EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
@@ -701,7 +701,7 @@ TEST_F(OatFileAssistantTest, SelfRelocation) {
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kInterpretOnly));
   EXPECT_EQ(OatFileAssistant::kSelfPatchOatNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kEverything));
 
   EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
@@ -745,7 +745,7 @@ TEST_F(OatFileAssistantTest, SelfRelocation) {
 
 // Case: We have a DEX file, no ODEX file and an OAT file that needs
 // relocation but doesn't have patch info.
-// Expect: The status is kDex2OatNeeded, because we can't run patchoat.
+// Expect: The status is kUpdateVdexNeeded, because we can't run patchoat.
 TEST_F(OatFileAssistantTest, NoSelfRelocation) {
   std::string dex_location = GetScratchDir() + "/NoSelfRelocation.jar";
   std::string oat_location = GetOdexDir() + "/NoSelfRelocation.oat";
@@ -757,7 +757,7 @@ TEST_F(OatFileAssistantTest, NoSelfRelocation) {
   OatFileAssistant oat_file_assistant(dex_location.c_str(),
       oat_location.c_str(), kRuntimeISA, true);
 
-  EXPECT_EQ(OatFileAssistant::kDex2OatNeeded,
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded,
       oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
 
   // Make the oat file up to date.
@@ -994,7 +994,7 @@ TEST_F(OatFileAssistantTest, GenNoDex) {
   std::string error_msg;
   Runtime::Current()->AddCompilerOption("--compiler-filter=speed");
   EXPECT_EQ(OatFileAssistant::kUpdateNotAttempted,
-      oat_file_assistant.GenerateOatFile(&error_msg));
+      oat_file_assistant.GenerateOatFile(/* update_vdex */ false, &error_msg));
 }
 
 // Turn an absolute path into a path relative to the current working
@@ -1294,6 +1294,12 @@ TEST_F(OatFileAssistantTest, DexOptStatusValues) {
   ASSERT_FALSE(self_patchoat_needed == nullptr);
   EXPECT_EQ(self_patchoat_needed->GetTypeAsPrimitiveType(), Primitive::kPrimInt);
   EXPECT_EQ(OatFileAssistant::kSelfPatchOatNeeded, self_patchoat_needed->GetInt(dexfile.Get()));
+
+  ArtField* update_vdex_needed = mirror::Class::FindStaticField(
+      soa.Self(), dexfile, "UPDATE_VDEX_NEEDED", "I");
+  ASSERT_FALSE(update_vdex_needed == nullptr);
+  EXPECT_EQ(update_vdex_needed->GetTypeAsPrimitiveType(), Primitive::kPrimInt);
+  EXPECT_EQ(OatFileAssistant::kUpdateVdexNeeded, update_vdex_needed->GetInt(dexfile.Get()));
 }
 
 // TODO: More Tests:
