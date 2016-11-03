@@ -22,6 +22,30 @@
       "revId": "58d9bfce4a305f4c59f2a1b466b7b8386da6b353",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_bd5f6954",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-03T17:14:30Z",
+      "side": 1,
+      "message": "Defined in this block should be covered by \"not defined before block\".",
+      "parentUuid": "e641d62c_cedf03f0",
+      "range": {
+        "startLine": 714,
+        "startChar": 23,
+        "endLine": 714,
+        "endChar": 24
+      },
+      "revId": "58d9bfce4a305f4c59f2a1b466b7b8386da6b353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
