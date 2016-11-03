@@ -212,24 +212,31 @@ bool HDeadCodeElimination::SimplifyIfs() {
             ++i;
           } else {
             HBasicBlock* predecessor_to_update = block->GetPredecessors()[i];
-            HBasicBlock* successor_to_update = nullptr;
-            if (value_to_check->AsIntConstant()->IsTrue()) {
-              successor_to_update = last->AsIf()->IfTrueSuccessor();
+            HTryBoundary* try_boundary =
+                predecessor_to_update->GetLastInstruction()->AsTryBoundary();
+            if (try_boundary != nullptr && try_boundary->HasExceptionHandler(*block)) {
+              // Do not redirect exception handler edges.
+              ++i;
             } else {
-              DCHECK(value_to_check->AsIntConstant()->IsFalse())
-                  << value_to_check->AsIntConstant()->GetValue();
-              successor_to_update = last->AsIf()->IfFalseSuccessor();
-            }
-            predecessor_to_update->ReplaceSuccessor(block, successor_to_update);
-            phi->RemoveInputAt(i);
-            simplified_one_or_more_ifs = true;
-            if (block->IsInLoop()) {
-              rerun_dominance_and_loop_analysis = true;
-            }
-            // For simplicity, don't create a dead block, let the dead code elimination
-            // pass deal with it.
-            if (phi->InputCount() == 1) {
-              break;
+              HBasicBlock* successor_to_update = nullptr;
+              if (value_to_check->AsIntConstant()->IsTrue()) {
+                successor_to_update = last->AsIf()->IfTrueSuccessor();
+              } else {
+                DCHECK(value_to_check->AsIntConstant()->IsFalse())
+                    << value_to_check->AsIntConstant()->GetValue();
+                successor_to_update = last->AsIf()->IfFalseSuccessor();
+              }
+              predecessor_to_update->ReplaceSuccessor(block, successor_to_update);
+              phi->RemoveInputAt(i);
+              simplified_one_or_more_ifs = true;
+              if (block->IsInLoop()) {
+                rerun_dominance_and_loop_analysis = true;
+              }
+              // For simplicity, don't create a dead block, let the dead code elimination
+              // pass deal with it.
+              if (phi->InputCount() == 1) {
+                break;
+              }
             }
           }
         }
