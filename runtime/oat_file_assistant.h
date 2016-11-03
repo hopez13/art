@@ -67,6 +67,12 @@ class OatFileAssistant {
     // up to date, patchoat must be run on the oat file.
     // Matches Java: dalvik.system.DexFile.SELF_PATCHOAT_NEEDED = 3
     kSelfPatchOatNeeded = 3,
+
+    // kUpdateVdexNeeded - In order to make the vdex for this dex location up to
+    // date, dex2oat must be run on the dex file with --update-vdex passed. Note that
+    // this implies kDex2OatNeeded.
+    // Matches Java: dalvik.system.DexFile.UPDATE_VDEX_NEEDED = 4
+    kUpdateVdexNeeded = 4,
   };
 
   enum OatStatus {
@@ -253,14 +259,15 @@ class OatFileAssistant {
   ResultOfAttemptToUpdate RelocateOatFile(const std::string* input_file, std::string* error_msg);
 
   // Generate the oat file from the dex file using the current runtime
-  // compiler options.
+  // compiler options. If `update_vdex` is set, invoke dex2oat with the
+  // --update-vdex option.
   // This does not check the current status before attempting to generate the
   // oat file.
   //
   // If the result is not kUpdateSucceeded, the value of error_msg will be set
   // to a string describing why there was a failure or the update was not
   // attempted. error_msg must not be null.
-  ResultOfAttemptToUpdate GenerateOatFile(std::string* error_msg);
+  ResultOfAttemptToUpdate GenerateOatFile(bool update_vdex, std::string* error_msg);
 
   // Executes dex2oat using the current runtime configuration overridden with
   // the given arguments. This does not check to see if dex2oat is enabled in
