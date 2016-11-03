@@ -22,6 +22,30 @@
       "revId": "5b6fbd02f03fd41829c7dd4bfce97a62346be854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_daa4e3f4",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-03T15:42:46Z",
+      "side": 0,
+      "message": "The functions already do TEMP_FAILURE_RETRY where necessary. This was just doubling stupidity.\n\n(Plus Close() should not be under TEMP_FAILURE_RETRY)",
+      "parentUuid": "e641d62c_ee359fa3",
+      "range": {
+        "startLine": 344,
+        "startChar": 2,
+        "endLine": 344,
+        "endChar": 20
+      },
+      "revId": "5b6fbd02f03fd41829c7dd4bfce97a62346be854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
