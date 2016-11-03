@@ -178,8 +178,39 @@ OatFileAssistant::GetDexOptNeeded(CompilerFilter::Filter target, bool profile_ch
     }
   }
 
-  // We can only run dex2oat if there are original dex files.
-  return HasOriginalDexFiles() ? kDex2OatNeeded : kNoDexOptNeeded;
+  if (!HasOriginalDexFiles()) {
+    // We can only run dex2oat if there are original dex files.
+    return kNoDexOptNeeded;
+  }
+
+  // If the oat file is up to date, a simple dex2oat without
+  // updating the vdex is sufficient to fix the compilation
+  // filter
+  if (compilation_desired) {
+    if (oat_.IsUpToDate()) {
+      return kDex2OatNeeded;
+    }
+  } else {
+    if (!oat_.IsOutOfDate()) {
+      return kDex2OatNeeded;
+    }
+  }
+
+  // If the odex file is up to date, a simple dex2oat without
+  // updating the vdex is sufficient to fix the compilation
+  // filter.
+  if (compilation_desired) {
+    if (odex_.IsUpToDate()) {
+      return kDex2OatNeeded;
+    }
+  } else {
+    if (!odex_.IsOutOfDate()) {
+      return kDex2OatNeeded;
+    }
+  }
+
+  DCHECK(!IsUpToDate());
+  return kUpdateVdexNeeded;
 }
 
 // Figure out the currently specified compile filter option in the runtime.
@@ -217,9 +248,10 @@ OatFileAssistant::MakeUpToDate(bool profile_changed, std::string* error_msg) {
 
   switch (GetDexOptNeeded(target, profile_changed)) {
     case kNoDexOptNeeded: return kUpdateSucceeded;
-    case kDex2OatNeeded: return GenerateOatFile(error_msg);
+    case kDex2OatNeeded: return GenerateOatFile(/* update_vdex */ false, error_msg);
     case kPatchOatNeeded: return RelocateOatFile(odex_.Filename(), error_msg);
     case kSelfPatchOatNeeded: return RelocateOatFile(oat_.Filename(), error_msg);
+    case kUpdateVdexNeeded: return GenerateOatFile(/* update_vdex */ true, error_msg);
   }
   UNREACHABLE();
 }
@@ -538,7 +570,7 @@ OatFileAssistant::RelocateOatFile(const std::string* input_file, std::string* er
 }
 
 OatFileAssistant::ResultOfAttemptToUpdate
-OatFileAssistant::GenerateOatFile(std::string* error_msg) {
+OatFileAssistant::GenerateOatFile(bool update_vdex, std::string* error_msg) {
   CHECK(error_msg != nullptr);
 
   Runtime* runtime = Runtime::Current();
@@ -564,19 +596,31 @@ OatFileAssistant::GenerateOatFile(std::string* error_msg) {
     return kUpdateNotAttempted;
   }
 
-  std::unique_ptr<File> vdex_file(OS::CreateEmptyFile(vdex_file_name.c_str()));
-  if (vdex_file.get() == nullptr) {
-    *error_msg = "Generation of oat file " + oat_file_name
-      + " not attempted because the vdex file " + vdex_file_name
-      + " could not be opened.";
-    return kUpdateNotAttempted;
-  }
+  std::unique_ptr<File> vdex_file(nullptr);
+  update_vdex = update_vdex && OS::FileExists(vdex_file_name.c_str());
+  if (update_vdex) {
+    vdex_file.reset(OS::OpenFileReadWrite(vdex_file_name.c_str()));
+    if (vdex_file.get() == nullptr) {
+      *error_msg = "Generation of oat file " + oat_file_name
+        + " not attempted because the vdex file " + vdex_file_name
+        + " could not be opened.";
+      return kUpdateNotAttempted;
+    }
+  } else {
+    vdex_file.reset(OS::CreateEmptyFile(vdex_file_name.c_str()));
+    if (vdex_file.get() == nullptr) {
+      *error_msg = "Generation of oat file " + oat_file_name
+        + " not attempted because the vdex file " + vdex_file_name
+        + " could not be opened.";
+      return kUpdateNotAttempted;
+    }
 
-  if (fchmod(vdex_file->Fd(), 0644) != 0) {
-    *error_msg = "Generation of oat file " + oat_file_name
-      + " not attempted because the vdex file " + vdex_file_name
-      + " could not be made world readable.";
-    return kUpdateNotAttempted;
+    if (fchmod(vdex_file->Fd(), 0644) != 0) {
+      *error_msg = "Generation of oat file " + oat_file_name
+        + " not attempted because the vdex file " + vdex_file_name
+        + " could not be made world readable.";
+      return kUpdateNotAttempted;
+    }
   }
 
   std::unique_ptr<File> oat_file(OS::CreateEmptyFile(oat_file_name.c_str()));
@@ -598,6 +642,9 @@ OatFileAssistant::GenerateOatFile(std::string* error_msg) {
   args.push_back("--vdex-fd=" + std::to_string(vdex_file->Fd()));
   args.push_back("--oat-fd=" + std::to_string(oat_file->Fd()));
   args.push_back("--oat-location=" + oat_file_name);
+  if (update_vdex) {
+    args.push_back("--update-vdex");
+  }
 
   if (!Dex2Oat(args, error_msg)) {
     // Manually delete the oat and vdex files. This ensures there is no garbage

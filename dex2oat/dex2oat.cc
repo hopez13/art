@@ -389,6 +389,8 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("      This option is incompatible with read barriers (e.g., if dex2oat has been");
   UsageError("      built with the environment variable `ART_USE_READ_BARRIER` set to `true`).");
   UsageError("");
+  UsageError("  --update-vdex: update the passed vdex file.");
+  UsageError("");
   std::cerr << "See log for usage error information\n";
   exit(EXIT_FAILURE);
 }
@@ -1219,6 +1221,8 @@ class Dex2Oat FINAL {
           Usage("Cannot use --force-determinism with read barriers or non-CMS garbage collector");
         }
         force_determinism_ = true;
+      } else if (option == "--update-vdex") {
+        update_vdex_ = true;
       } else if (!compiler_options_->ParseCompilerOption(option, Usage)) {
         Usage("Unknown argument %s", option.data());
       }
@@ -2653,6 +2657,10 @@ class Dex2Oat FINAL {
 
   // See CompilerOptions.force_determinism_.
   bool force_determinism_;
+
+  // Whether the given vdex file needs to be updated (for example because quickening
+  // is now invalid).
+  bool update_vdex_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
