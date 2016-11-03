@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6dd1ea2_40863dae",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-03T22:32:31Z",
+      "side": 1,
+      "message": "Is there a way to have an abstraction for CheckCheckpoint + WaitHoldingLocks combination so that we don\u0027t forget to add a CheckCheckpoint in the future?",
+      "range": {
+        "startLine": 295,
+        "startChar": 10,
+        "endLine": 295,
+        "endChar": 25
+      },
+      "revId": "40d3b3de707b3dfdb4dc048d8222943090ae35d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
