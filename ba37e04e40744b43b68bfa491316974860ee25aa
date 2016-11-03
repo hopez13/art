@@ -70,6 +70,30 @@
       "revId": "ba37e04e40744b43b68bfa491316974860ee25aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_7affb7bb",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-03T15:49:24Z",
+      "side": 1,
+      "message": "I was just pointing out that you\u0027re changing an unrelated part of the logging if doing it that way...",
+      "parentUuid": "e641d62c_ee4cbf3f",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 12
+      },
+      "revId": "ba37e04e40744b43b68bfa491316974860ee25aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
