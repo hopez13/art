@@ -22,6 +22,30 @@
       "revId": "99b5d1dc07f973a2a9f9482072147d652be5952d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0e582b46",
+        "filename": "benchmark/string-indexof/src/StringIndexOfBenchmark.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-03T13:51:02Z",
+      "side": 1,
+      "message": "Well, the intrinsic has no side effect, so I guess LICM would pull it out and the loop would be eliminated (if not now then soon). This should be good enough for relative comparison of different implementations.",
+      "parentUuid": "e641d62c_6ee52f60",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "99b5d1dc07f973a2a9f9482072147d652be5952d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
