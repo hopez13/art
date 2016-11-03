@@ -77,26 +77,12 @@ class Location : public ValueObject {
   };
 
   Location() : ValueObject(), value_(kInvalid) {
-    // Verify that non-constant location kinds do not interfere with kConstant.
-    static_assert((kInvalid & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kUnallocated & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kStackSlot & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kDoubleStackSlot & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kRegister & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kFpuRegister & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kRegisterPair & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kFpuRegisterPair & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kConstant & kLocationConstantMask) == kConstant, "TagError");
-
     DCHECK(!IsValid());
   }
 
-  Location(const Location& other) : value_(other.value_) {}
+  Location(const Location& other) = default;
 
-  Location& operator=(const Location& other) {
-    value_ = other.value_;
-    return *this;
-  }
+  Location& operator=(const Location& other) = default;
 
   bool IsConstant() const {
     return (value_ & kLocationConstantMask) == kConstant;
@@ -328,7 +314,6 @@ class Location : public ValueObject {
         LOG(FATAL) << "Should not use this location kind";
     }
     UNREACHABLE();
-    return "?";
   }
 
   // Unallocated locations.
@@ -409,6 +394,8 @@ class Location : public ValueObject {
   // Layout for stack slots.
   static const intptr_t kStackIndexBias =
       static_cast<intptr_t>(1) << (kBitsForPayload - 1);
+
+  static void StaticAsserts();
 
   // Location either contains kind and payload fields or a tagged handle for
   // a constant locations. Values of enumeration Kind are selected in such a

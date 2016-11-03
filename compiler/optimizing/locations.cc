@@ -16,10 +16,30 @@
 
 #include "locations.h"
 
+#include <type_traits>
+
 #include "nodes.h"
 #include "code_generator.h"
 
 namespace art {
+
+void Location::StaticAsserts() {
+  // Verify that non-constant location kinds do not interfere with kConstant.
+  static_assert((kInvalid & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kUnallocated & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kStackSlot & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kDoubleStackSlot & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kRegister & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kFpuRegister & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kRegisterPair &Location:: kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kFpuRegisterPair & Location::kLocationConstantMask) != kConstant, "TagError");
+  static_assert((kConstant & Location:: kLocationConstantMask) == kConstant, "TagError");
+
+  // Verify that Location is trivially copyable.
+  static_assert(std::is_trivially_copyable<Location>::value,
+                "Location should be trivially copyable");
+}
+
 
 LocationSummary::LocationSummary(HInstruction* instruction,
                                  CallKind call_kind,
