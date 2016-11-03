@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_0e92ebde",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T11:58:24Z",
+      "side": 1,
+      "message": "Add documentation to VerifierDeps#Verify and a short note here mentioning that \u0027true\u0027 here does not mean all classes are verified.\n\nIt\u0027s easy to assume (in this context) based on name that it returns true only if everything verifies which is not the case.",
+      "range": {
+        "startLine": 1950,
+        "startChar": 23,
+        "endLine": 1950,
+        "endChar": 29
+      },
+      "revId": "7ff1d59ae6153612e0013caac21c9fd1c46fdb98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_aea2b735",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1966,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T11:58:24Z",
+      "side": 1,
+      "message": "are the classes present in this set already marked as unverified? By who? Seems to contrast with the need to explicitly mark the other ones as verified.",
+      "range": {
+        "startLine": 1966,
+        "startChar": 21,
+        "endLine": 1966,
+        "endChar": 24
+      },
+      "revId": "7ff1d59ae6153612e0013caac21c9fd1c46fdb98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_6e728f01",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1980,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-03T11:58:24Z",
+      "side": 1,
+      "message": "That requires a bit more docs.\n\n1) Why is it needed and where it gets used after this point.\n2) Why do you create a new one if it failed verification? What changed\n3) What\u0027s the difference between fail to verify and having null here? (as a side note, the null case feels like it should be handled separately)",
+      "range": {
+        "startLine": 1979,
+        "startChar": 3,
+        "endLine": 1980,
+        "endChar": 47
+      },
+      "revId": "7ff1d59ae6153612e0013caac21c9fd1c46fdb98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
