@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e641d62c_6ee52f60",
+        "filename": "benchmark/string-indexof/src/StringIndexOfBenchmark.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T13:38:45Z",
+      "side": 1,
+      "message": "Why this? The commit message sort of implied you wanted to call String.indexOf directly in the loop.",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 25
+      },
+      "revId": "99b5d1dc07f973a2a9f9482072147d652be5952d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
