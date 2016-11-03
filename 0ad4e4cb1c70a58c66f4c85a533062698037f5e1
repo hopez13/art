@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_eed67f0a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "e641d62c_ee175fb5",
+      "range": {
+        "startLine": 473,
+        "startChar": 3,
+        "endLine": 473,
+        "endChar": 52
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_0e1d8bd6",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-03T10:14:33Z",
       "side": 1,
       "message": "const\u0026?",
+      "range": {
+        "startLine": 521,
+        "startChar": 37,
+        "endLine": 521,
+        "endChar": 49
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_0eecabdf",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_0e1d8bd6",
       "range": {
         "startLine": 521,
         "startChar": 37,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_ced1c315",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Comment added. Handles removed here.",
+      "parentUuid": "e641d62c_2e1a47df",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 51
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_4e27932a",
         "filename": "runtime/method_handles-inl.h",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-03T10:14:33Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 51
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "061eea49_c7760048",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Comment added. Handles removed here.",
+      "parentUuid": "e641d62c_4e27932a",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_ee211fca",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_eeee7f99",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 56
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_0e04ab7a",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 9
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_8ef97b15",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e641d62c_0e04ab7a",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 34
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_4efeb346",
         "filename": "test/955-methodhandles-smali/smali/Main.smali",
         "patchSetId": 9
@@ -151,6 +295,30 @@
       "writtenOn": "2016-11-03T10:14:33Z",
       "side": 1,
       "message": "TODO: re-enable when...?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 107
+      },
+      "revId": "0ad4e4cb1c70a58c66f4c85a533062698037f5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e641d62c_6e336f24",
+        "filename": "test/955-methodhandles-smali/smali/Main.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-03T16:39:37Z",
+      "side": 1,
+      "message": "There is no re-enable, this test no longer passes and that\u0027s by design. Thought it better to comment first, before deleting the test. We will likely retire these smali tests shortly.",
+      "parentUuid": "e641d62c_4efeb346",
       "range": {
         "startLine": 233,
         "startChar": 0,
