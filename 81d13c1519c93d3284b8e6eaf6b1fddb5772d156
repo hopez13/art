@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "e641d62c_eeff5f8a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-03T15:53:20Z",
+      "side": 1,
+      "message": "Good point.\n\nSo the oat file is out of date, therefore no-one can use it. If dex2oat does things in that order:\n1) Clear vdex header\n2) Update vdex\n3) Set vdex header\n4) Generate oat\n\nThen a corruption of the existing vdex will make the oat file even less usable. So we should be good, WDYT?\n\nOn the other hand, the invariant that we cleanup the mess done by any dex2oat crash is nice to have. So no strong preference here. Would you rather have that invariant?",
+      "parentUuid": "a6dd1ea2_7ab4d71d",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 631,
+        "endChar": 23
+      },
+      "revId": "81d13c1519c93d3284b8e6eaf6b1fddb5772d156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_aef637df",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 2
