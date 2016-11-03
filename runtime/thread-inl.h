@@ -78,6 +78,17 @@ inline void Thread::CheckSuspend() {
   }
 }
 
+inline void Thread::CheckCheckpoint() {
+  DCHECK_EQ(Thread::Current(), this);
+  for (;;) {
+    if (ReadFlag(kCheckpointRequest)) {
+      RunCheckpointFunction();
+    } else {
+      break;
+    }
+  }
+}
+
 inline ThreadState Thread::SetState(ThreadState new_state) {
   // Should only be used to change between suspended states.
   // Cannot use this code to change into or from Runnable as changing to Runnable should
