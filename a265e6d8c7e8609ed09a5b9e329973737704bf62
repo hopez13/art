@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_958f84b7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5990,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T12:50:16Z",
+      "side": 1,
+      "message": "Move to line 5983?",
+      "range": {
+        "startLine": 5990,
+        "startChar": 0,
+        "endLine": 5990,
+        "endChar": 40
+      },
+      "revId": "a265e6d8c7e8609ed09a5b9e329973737704bf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_75990803",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T12:50:16Z",
+      "side": 1,
+      "message": "this should always go to the slowpath.",
+      "range": {
+        "startLine": 6207,
+        "startChar": 4,
+        "endLine": 6207,
+        "endChar": 41
+      },
+      "revId": "a265e6d8c7e8609ed09a5b9e329973737704bf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_f58cf8c3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T12:50:16Z",
+      "side": 1,
+      "message": "How can that be? Not implementing any interfaces?",
+      "range": {
+        "startLine": 6224,
+        "startChar": 0,
+        "endLine": 6224,
+        "endChar": 22
+      },
+      "revId": "a265e6d8c7e8609ed09a5b9e329973737704bf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
