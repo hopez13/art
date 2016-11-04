@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_f8250d24",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5750,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T21:44:01Z",
+      "side": 1,
+      "message": "Could you do:\nif (type_check_kind \u003d\u003d TypeCheckKind::kInterfaceCheck) {\n  // We need a temporary because...\n  return true;\n}",
+      "range": {
+        "startLine": 5750,
+        "startChar": 5,
+        "endLine": 5750,
+        "endChar": 56
+      },
+      "revId": "35a4f222de29ca3a9f8e77e673e3894ead0c9fbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
