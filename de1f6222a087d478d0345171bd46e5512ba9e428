@@ -140,6 +140,30 @@
       "revId": "de1f6222a087d478d0345171bd46e5512ba9e428",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_981859e6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6060,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T21:44:01Z",
+      "side": 1,
+      "message": "No strong preference. I think Roland changed one signature lately to avoid the default argument as it was passing the same value.\n\nIf you prefer default arguments, that\u0027s fine by me.",
+      "parentUuid": "4bf38bab_5d2887b4",
+      "range": {
+        "startLine": 6056,
+        "startChar": 6,
+        "endLine": 6060,
+        "endChar": 66
+      },
+      "revId": "de1f6222a087d478d0345171bd46e5512ba9e428",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
