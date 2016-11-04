@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_d1d106e1",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-04T15:53:18Z",
+      "side": 1,
+      "message": "Don\u0027t think I didn\u0027t try. Can\u0027t add category - cpplint and tidy don\u0027t mix well. :-(",
+      "parentUuid": "2b6bb700_f5feb843",
+      "range": {
+        "startLine": 45,
+        "startChar": 40,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_95d784d6",
         "filename": "runtime/obj_ptr.h",
         "patchSetId": 1
