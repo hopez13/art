@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_55968c95",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Is JitLiterals ok?",
+      "parentUuid": "1c2b9a7f_ee3cdfcb",
+      "range": {
+        "startLine": 335,
+        "startChar": 20,
+        "endLine": 335,
+        "endChar": 28
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_6e17cf60",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-11T17:14:48Z",
       "side": 1,
       "message": "Sharpening does not currently allow such fallback because it determines the address for kDexCacheAddress before calling GetSupportedLoadStringKind().",
+      "range": {
+        "startLine": 5691,
+        "startChar": 0,
+        "endLine": 5692,
+        "endChar": 53
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_55a04cdd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Replace with kDexCacheViaMethod (kDexCacheAddress is dead anyway, I\u0027ll remove it in a follow-up cl).",
+      "parentUuid": "1c2b9a7f_6e17cf60",
       "range": {
         "startLine": 5691,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b55af38_3740387c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7aac68_aa3c6919",
+      "range": {
+        "startLine": 4287,
+        "startChar": 0,
+        "endLine": 4287,
+        "endChar": 27
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f7aac68_9697e196",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 5
@@ -82,6 +154,24 @@
       "writtenOn": "2016-10-11T22:23:52Z",
       "side": 1,
       "message": "Does it make sense to have \n\nDCHECK(Runtime::Current()-\u003eUseJitCompilation());\n\nhere?",
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_b5b44020",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7aac68_9697e196",
       "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -246,6 +336,24 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_75146825",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Yes, you would need that assert in the compiled code, which isn\u0027t ideal.",
+      "parentUuid": "1f7aac68_67a36d4c",
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f7aac68_d62cf9a1",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -257,6 +365,30 @@
       "writtenOn": "2016-10-11T22:23:52Z",
       "side": 1,
       "message": "Can we put a comment why this DCHECK holds? Because the strings are always strongly-interned and should be alive?",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 36
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_150ff414",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7aac68_d62cf9a1",
       "range": {
         "startLine": 299,
         "startChar": 6,
