@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_f8898d0a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-04T16:52:32Z",
+      "side": 1,
+      "message": "Actually I have intentionally moved this \"Mov hidden_reg\" close to BLX, because it COULD happen previously that r12 was clobbered. Will remove the comment.",
+      "parentUuid": "2b6bb700_75cc6876",
+      "range": {
+        "startLine": 1585,
+        "startChar": 0,
+        "endLine": 1586,
+        "endChar": 71
+      },
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_ee2bdf98",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
