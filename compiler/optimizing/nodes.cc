@@ -690,6 +690,18 @@ void HLoopInformation::Populate() {
   }
 }
 
+bool HLoopInformation::HasNoExitEdges() const {
+  HBlocksInLoopReversePostOrderIterator it_loop(*this);
+  for (; !it_loop.Done(); it_loop.Advance()) {
+    for (HBasicBlock* successor : it_loop.Current()->GetSuccessors()) {
+      if (IsExitEdge(*successor)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 HBasicBlock* HLoopInformation::GetPreHeader() const {
   HBasicBlock* block = header_->GetPredecessors()[0];
   DCHECK(irreducible_ || (block == header_->GetDominator()));

@@ -724,6 +724,12 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
     return back_edges_.size();
   }
 
+  bool IsExitEdge(const HBasicBlock& block) const {
+    return !Contains(block);
+  }
+
+  bool HasNoExitEdges() const;
+
   HBasicBlock* GetPreHeader() const;
 
   const ArenaVector<HBasicBlock*>& GetBackEdges() const {
