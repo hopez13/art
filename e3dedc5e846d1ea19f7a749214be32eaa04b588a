@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_8e8d9b51",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-04T15:06:04Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "2b6bb700_f5251824",
+      "range": {
+        "startLine": 198,
+        "startChar": 3,
+        "endLine": 199,
+        "endChar": 80
+      },
+      "revId": "e3dedc5e846d1ea19f7a749214be32eaa04b588a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_150d34ab",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_ce87a32d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-04T15:06:04Z",
+      "side": 1,
+      "message": "I hope not as well :-)\n\nBut if it ever is, this transformation would be harmful. Do you prefer a DCHECK, or are we not that convinced :-)",
+      "parentUuid": "2b6bb700_150d34ab",
+      "range": {
+        "startLine": 226,
+        "startChar": 12,
+        "endLine": 226,
+        "endChar": 26
+      },
+      "revId": "e3dedc5e846d1ea19f7a749214be32eaa04b588a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_5517acb8",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-04T10:13:07Z",
       "side": 1,
       "message": "Please add a DCHECK that the block you\u0027re removing is not a try handler.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 11
+      },
+      "revId": "e3dedc5e846d1ea19f7a749214be32eaa04b588a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_ee8a5f35",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-04T15:06:04Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "2b6bb700_5517acb8",
       "range": {
         "startLine": 234,
         "startChar": 0,
