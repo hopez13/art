@@ -24,7 +24,7 @@ public class Main {
     };
     testThread.start();
     try {
-      testThread.join(20 * 1000);  // 20s timeout.
+      testThread.join(150 * 1000);  // 150s timeout.
     } catch (InterruptedException ie) {
       System.out.println("Interrupted.");
       System.exit(1);
