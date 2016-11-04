@@ -93,6 +93,30 @@
       "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_f1c1a2eb",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-04T16:08:45Z",
+      "side": 1,
+      "message": "That\u0027s up to Mathieu and shouldn\u0027t be in this CL. This is pretty standard C++ fair, and it seems weird to write a paragraph about it.\n\n(As an explanation: this allows to assign nullptr or use nullptr as an actual parameter value for a formal parameter of type ObjPtr...)",
+      "parentUuid": "2b6bb700_95d784d6",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
