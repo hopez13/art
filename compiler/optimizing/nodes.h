@@ -685,6 +685,7 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
         suspend_check_(nullptr),
         irreducible_(false),
         contains_irreducible_loop_(false),
+        has_exit_(false),
         back_edges_(graph->GetArena()->Adapter(kArenaAllocLoopInfoBackEdges)),
         // Make bit vector growable, as the number of blocks may change.
         blocks_(graph->GetArena(), graph->GetBlocks().size(), true, kArenaAllocLoopInfoBackEdges) {
@@ -723,6 +724,8 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   size_t NumberOfBackEdges() const {
     return back_edges_.size();
   }
+
+  bool HasExit() const { return has_exit_; }
 
   HBasicBlock* GetPreHeader() const;
 
@@ -778,6 +781,7 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   HSuspendCheck* suspend_check_;
   bool irreducible_;
   bool contains_irreducible_loop_;
+  bool has_exit_;
   ArenaVector<HBasicBlock*> back_edges_;
   ArenaBitVector blocks_;
 

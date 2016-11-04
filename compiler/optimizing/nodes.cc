@@ -688,6 +688,17 @@ void HLoopInformation::Populate() {
     contains_irreducible_loop_ = true;
     graph->SetHasIrreducibleLoops(true);
   }
+
+  // Determine if this loop has at least one exit edge.
+  HBlocksInLoopReversePostOrderIterator it_loop(*this);
+  for (; !it_loop.Done(); it_loop.Advance()) {
+    for (HBasicBlock* successor : it_loop.Current()->GetSuccessors()) {
+      if (!Contains(*successor)) {
+        has_exit_ = true;
+        break;
+      }
+    }
+  }
 }
 
 HBasicBlock* HLoopInformation::GetPreHeader() const {

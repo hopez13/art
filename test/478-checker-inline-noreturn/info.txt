@@ -1,0 +1,2 @@
+Tests inlining a function with a no-exit loop into a loop. SSAChecker should verify that
+loop information was updated correctly.
