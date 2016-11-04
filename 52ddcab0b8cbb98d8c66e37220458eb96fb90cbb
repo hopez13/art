@@ -118,6 +118,30 @@
       "revId": "52ddcab0b8cbb98d8c66e37220458eb96fb90cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6dd1ea2_79b05cc1",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-04T00:45:55Z",
+      "side": 1,
+      "message": "I just postponed the issue. My added static_assert can go into the .cc by itself.",
+      "parentUuid": "e641d62c_d1c24492",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 30
+      },
+      "revId": "52ddcab0b8cbb98d8c66e37220458eb96fb90cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
