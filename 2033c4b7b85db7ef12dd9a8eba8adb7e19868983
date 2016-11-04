@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_0e2b6b4c",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-04T15:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_f55d185d",
+      "revId": "2033c4b7b85db7ef12dd9a8eba8adb7e19868983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_d55a9c62",
         "filename": "test/623-checker-loop-regressions/src/Main.java",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-11-04T13:09:55Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 17
+      },
+      "revId": "2033c4b7b85db7ef12dd9a8eba8adb7e19868983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_6e302fb5",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-04T15:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_d55a9c62",
       "range": {
         "startLine": 50,
         "startChar": 16,
