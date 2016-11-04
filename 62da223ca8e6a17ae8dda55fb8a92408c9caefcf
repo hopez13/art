@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_7530e8b4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:31:09Z",
+      "side": 1,
+      "message": "What does that mean? I think non-escaping_ in the name conveys already the meaning for me.",
+      "range": {
+        "startLine": 36,
+        "startChar": 34,
+        "endLine": 36,
+        "endChar": 44
+      },
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_35f030be",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:31:09Z",
+      "side": 1,
+      "message": "Please also add a comment why other env uses are fine.",
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf9938d_ec570b6c",
+        "filename": "test/530-checker-lse2/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T15:31:09Z",
+      "side": 1,
+      "message": "Nice hand-crafted method :) Could you say that\u0027s a fuzzer test, and also add a simpler method that combine both lse and bce?",
+      "range": {
+        "startLine": 98,
+        "startChar": 16,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
