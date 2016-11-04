@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_f5bb58a2",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T10:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_51a2d483",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 3
+      },
+      "revId": "c221e7d4f66807ca360dae8a24c4661ea2a55823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_d1c88445",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 4
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_d5b8dca8",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T10:00:38Z",
+      "side": 1,
+      "message": "We discussed this with Andreas too. As a safety net, I\u0027ll remove the vdex file.",
+      "parentUuid": "e641d62c_11da0c00",
+      "range": {
+        "startLine": 630,
+        "startChar": 0,
+        "endLine": 632,
+        "endChar": 23
+      },
+      "revId": "c221e7d4f66807ca360dae8a24c4661ea2a55823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_2ee967d0",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 4
@@ -105,6 +153,30 @@
       "writtenOn": "2016-11-03T16:40:28Z",
       "side": 1,
       "message": "Replace \u0027vdex\u0027 with \u0027code\u0027.",
+      "range": {
+        "startLine": 71,
+        "startChar": 48,
+        "endLine": 71,
+        "endChar": 52
+      },
+      "revId": "c221e7d4f66807ca360dae8a24c4661ea2a55823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_55cdec4f",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T10:00:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2ee967d0",
       "range": {
         "startLine": 71,
         "startChar": 48,
