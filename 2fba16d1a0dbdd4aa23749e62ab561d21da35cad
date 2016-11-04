@@ -117,6 +117,30 @@
       "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_18f60973",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T21:53:58Z",
+      "side": 1,
+      "message": "About a comment looking weird: I\u0027d argue the constructor is weird, it\u0027s our only constructor with std::nullptr_t in it. A comment explaining why it\u0027s needed for ObjPtr but not for all our other classes is always nice to have.",
+      "parentUuid": "4bf38bab_f1c1a2eb",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
