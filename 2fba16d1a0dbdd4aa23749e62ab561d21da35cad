@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_f5d4f8d2",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T10:03:54Z",
+      "side": 1,
+      "message": "Add comments on why NOLINT",
+      "range": {
+        "startLine": 45,
+        "startChar": 40,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_95d784d6",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-04T10:03:54Z",
+      "side": 1,
+      "message": "It\u0027d be good to add a comment on why we need this constructor.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
