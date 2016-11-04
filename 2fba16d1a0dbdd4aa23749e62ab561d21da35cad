@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_f5feb843",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-04T10:25:50Z",
+      "side": 1,
+      "message": "Make more specific, i.e. NOLINT [warning/type]",
+      "parentUuid": "2b6bb700_f5d4f8d2",
+      "range": {
+        "startLine": 45,
+        "startChar": 40,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "2fba16d1a0dbdd4aa23749e62ab561d21da35cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_95d784d6",
         "filename": "runtime/obj_ptr.h",
         "patchSetId": 1
