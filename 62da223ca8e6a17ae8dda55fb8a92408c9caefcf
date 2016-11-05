@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_14a6dcfc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-05T00:15:47Z",
+      "side": 1,
+      "message": "A singleton itself doesn\u0027t escape throughout the compiled code of the current method, but it\u0027s allowed to escape in the end, like being returned, which doesn\u0027t affect alias analysis within the method.\n\nI want to be more clear about the singletons that don\u0027t escape in the end, either by being returned, or deoptimized to interpreter. This type of singletons might do store/allocation elimination.\n\nI agree _in_the_end probably doesn\u0027t help. I just dropped that.",
+      "parentUuid": "2b6bb700_7530e8b4",
+      "range": {
+        "startLine": 36,
+        "startChar": 34,
+        "endLine": 36,
+        "endChar": 44
+      },
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_35f030be",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-04T15:31:09Z",
       "side": 1,
       "message": "Please also add a comment why other env uses are fine.",
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_2bbd6e0d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-05T00:15:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_35f030be",
       "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "4bf38bab_6bc776a3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-05T00:15:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf38bab_eebfffae",
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bf9938d_ec570b6c",
         "filename": "test/530-checker-lse2/src/Main.java",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2016-11-04T15:31:09Z",
       "side": 1,
       "message": "Nice hand-crafted method :) Could you say that\u0027s a fuzzer test, and also add a simpler method that combine both lse and bce?",
+      "range": {
+        "startLine": 98,
+        "startChar": 16,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "62da223ca8e6a17ae8dda55fb8a92408c9caefcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_6b7db692",
+        "filename": "test/530-checker-lse2/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-05T00:15:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9938d_ec570b6c",
       "range": {
         "startLine": 98,
         "startChar": 16,
