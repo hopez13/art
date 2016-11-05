@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bf38bab_29bc569b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5989,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-05T02:28:36Z",
+      "side": 1,
+      "message": "The non interface ones should still be fatal I think? Only the interface one can have false failures due to skipping read barrier.",
+      "range": {
+        "startLine": 5989,
+        "startChar": 36,
+        "endLine": 5989,
+        "endChar": 60
+      },
+      "revId": "30e740e454828526853a19d52a333d0c9139910e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
