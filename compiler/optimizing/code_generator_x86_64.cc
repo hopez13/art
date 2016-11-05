@@ -5978,7 +5978,7 @@ void InstructionCodeGeneratorX86_64::VisitInstanceOf(HInstanceOf* instruction) {
   }
 }
 
-bool IsTypeCheckSlowPathFatal(TypeCheckKind type_check_kind, bool throws_into_catch) {
+static bool IsTypeCheckSlowPathFatal(TypeCheckKind type_check_kind, bool throws_into_catch) {
   switch (type_check_kind) {
     case TypeCheckKind::kExactCheck:
     case TypeCheckKind::kAbstractClassCheck:
@@ -6037,7 +6037,8 @@ void InstructionCodeGeneratorX86_64::VisitCheckCast(HCheckCast* instruction) {
   const uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
   const uint32_t iftable_offset = mirror::Class::IfTableOffset().Uint32Value();
   const uint32_t array_length_offset = mirror::Array::LengthOffset().Uint32Value();
-  const int object_array_data_offset = mirror::Array::DataOffset(kHeapReferenceSize).Uint32Value();
+  const uint32_t object_array_data_offset =
+      mirror::Array::DataOffset(kHeapReferenceSize).Uint32Value();
 
   bool is_type_check_slow_path_fatal =
       IsTypeCheckSlowPathFatal(type_check_kind, instruction->CanThrowIntoCatchBlock());
@@ -6289,21 +6290,19 @@ void InstructionCodeGeneratorX86_64::VisitCheckCast(HCheckCast* instruction) {
                                           /*emit_read_barrier*/ false);
         NearLabel is_null;
         // Null iftable means it is empty.
-        __ testl(temp_loc.AsRegister<CpuRegister>(), temp_loc.AsRegister<CpuRegister>());
+        __ testl(temp, temp);
         __ j(kZero, &is_null);
 
         // Loop through the iftable and check if any class matches.
-        __ movl(maybe_temp2_loc.AsRegister<CpuRegister>(),
-                Address(temp_loc.AsRegister<CpuRegister>(), array_length_offset));
+        __ movl(maybe_temp2_loc.AsRegister<CpuRegister>(), Address(temp, array_length_offset));
 
         NearLabel start_loop;
         __ Bind(&start_loop);
-        __ cmpl(cls.AsRegister<CpuRegister>(),
-                Address(temp_loc.AsRegister<CpuRegister>(), object_array_data_offset));
+        __ cmpl(cls.AsRegister<CpuRegister>(), Address(temp, object_array_data_offset));
         __ j(kEqual, &done);  // Return if same class.
         // Go to next interface.
-        __ addq(temp_loc.AsRegister<CpuRegister>(), Immediate(2 * kHeapReferenceSize));
-        __ subq(maybe_temp2_loc.AsRegister<CpuRegister>(), Immediate(2));
+        __ addl(temp, Immediate(2 * kHeapReferenceSize));
+        __ subl(maybe_temp2_loc.AsRegister<CpuRegister>(), Immediate(2));
         __ j(kNotZero, &start_loop);
         __ Bind(&is_null);
       }
