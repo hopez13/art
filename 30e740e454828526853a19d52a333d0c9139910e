@@ -70,6 +70,30 @@
       "revId": "30e740e454828526853a19d52a333d0c9139910e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_0455ff63",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5989,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-05T18:59:04Z",
+      "side": 1,
+      "message": "Yes, that is planned. Also changing the check cast asm stub to be responsible for loading the class.",
+      "parentUuid": "0bf9938d_ec738b03",
+      "range": {
+        "startLine": 5989,
+        "startChar": 36,
+        "endLine": 5989,
+        "endChar": 60
+      },
+      "revId": "30e740e454828526853a19d52a333d0c9139910e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
