@@ -248,8 +248,7 @@ class InstructionCodeGeneratorX86_64 : public InstructionCodeGenerator {
   void GenerateReferenceLoadTwoRegisters(HInstruction* instruction,
                                          Location out,
                                          Location obj,
-                                         uint32_t offset,
-                                         bool emit_read_barrier);
+                                         uint32_t offset);
   // Generate a GC root reference load:
   //
   //   root <- *address
