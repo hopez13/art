@@ -22,6 +22,30 @@
       "revId": "30e740e454828526853a19d52a333d0c9139910e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf38bab_e9da4efd",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5989,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-05T02:37:10Z",
+      "side": 1,
+      "message": "This is the exact previous condition, and I\u0027m not gonna change it here. It\u0027s conservative to say we call.\n\nNote: Before this refactor, LocationGenerator and CodeGenerator were not consistent wrt/ kEmitCompilerReadBarrier. Something to investigate.",
+      "parentUuid": "4bf38bab_29bc569b",
+      "range": {
+        "startLine": 5989,
+        "startChar": 36,
+        "endLine": 5989,
+        "endChar": 60
+      },
+      "revId": "30e740e454828526853a19d52a333d0c9139910e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
