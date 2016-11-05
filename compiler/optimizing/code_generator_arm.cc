@@ -6012,12 +6012,22 @@ void InstructionCodeGeneratorARM::VisitThrow(HThrow* instruction) {
   CheckEntrypointTypes<kQuickDeliverException, void, mirror::Object*>();
 }
 
-static bool TypeCheckNeedsATemporary(TypeCheckKind type_check_kind) {
-  return kEmitCompilerReadBarrier &&
-      (kUseBakerReadBarrier ||
-       type_check_kind == TypeCheckKind::kAbstractClassCheck ||
-       type_check_kind == TypeCheckKind::kClassHierarchyCheck ||
-       type_check_kind == TypeCheckKind::kArrayObjectCheck);
+static size_t NumberOfInstanceOfTemps(TypeCheckKind type_check_kind) {
+  if (kEmitCompilerReadBarrier &&
+       (kUseBakerReadBarrier ||
+          type_check_kind == TypeCheckKind::kAbstractClassCheck ||
+          type_check_kind == TypeCheckKind::kClassHierarchyCheck ||
+          type_check_kind == TypeCheckKind::kArrayObjectCheck)) {
+    return 1;
+  }
+  return 0;
+}
+
+static size_t NumberOfCheckCastTemps(TypeCheckKind type_check_kind) {
+  if (type_check_kind == TypeCheckKind::kInterfaceCheck) {
+    return 3;
+  }
+  return 1 + NumberOfInstanceOfTemps(type_check_kind);
 }
 
 void LocationsBuilderARM::VisitInstanceOf(HInstanceOf* instruction) {
@@ -6049,11 +6059,8 @@ void LocationsBuilderARM::VisitInstanceOf(HInstanceOf* instruction) {
   // The "out" register is used as a temporary, so it overlaps with the inputs.
   // Note that TypeCheckSlowPathARM uses this register too.
   locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
-  // When read barriers are enabled, we need a temporary register for
-  // some cases.
-  if (TypeCheckNeedsATemporary(type_check_kind)) {
-    locations->AddTemp(Location::RequiresRegister());
-  }
+  // When read barriers are enabled, we need a temporary register for some cases.
+  locations->AddRegisterTemps(NumberOfInstanceOfTemps(type_check_kind));
 }
 
 void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
@@ -6064,9 +6071,9 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
   Register cls = locations->InAt(1).AsRegister<Register>();
   Location out_loc = locations->Out();
   Register out = out_loc.AsRegister<Register>();
-  Location maybe_temp_loc = TypeCheckNeedsATemporary(type_check_kind) ?
-      locations->GetTemp(0) :
-      Location::NoLocation();
+  const size_t num_temps = NumberOfInstanceOfTemps(type_check_kind);
+  DCHECK_LE(num_temps, 1u);
+  Location maybe_temp_loc = (num_temps >= 1) ? locations->GetTemp(0) : Location::NoLocation();
   uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
   uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
   uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
@@ -6081,7 +6088,12 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
   }
 
   // /* HeapReference<Class> */ out = obj->klass_
-  GenerateReferenceLoadTwoRegisters(instruction, out_loc, obj_loc, class_offset, maybe_temp_loc);
+  GenerateReferenceLoadTwoRegisters(instruction,
+                                    out_loc,
+                                    obj_loc,
+                                    class_offset,
+                                    maybe_temp_loc,
+                                    kEmitCompilerReadBarrier);
 
   switch (type_check_kind) {
     case TypeCheckKind::kExactCheck: {
@@ -6233,13 +6245,8 @@ void LocationsBuilderARM::VisitCheckCast(HCheckCast* instruction) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(instruction, call_kind);
   locations->SetInAt(0, Location::RequiresRegister());
   locations->SetInAt(1, Location::RequiresRegister());
-  // Note that TypeCheckSlowPathARM uses this "temp" register too.
-  locations->AddTemp(Location::RequiresRegister());
-  // When read barriers are enabled, we need an additional temporary
-  // register for some cases.
-  if (TypeCheckNeedsATemporary(type_check_kind)) {
-    locations->AddTemp(Location::RequiresRegister());
-  }
+  // Add temps required temps.
+  locations->AddRegisterTemps(NumberOfCheckCastTemps(type_check_kind));
 }
 
 void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
@@ -6250,13 +6257,18 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
   Register cls = locations->InAt(1).AsRegister<Register>();
   Location temp_loc = locations->GetTemp(0);
   Register temp = temp_loc.AsRegister<Register>();
-  Location maybe_temp2_loc = TypeCheckNeedsATemporary(type_check_kind) ?
-      locations->GetTemp(1) :
-      Location::NoLocation();
-  uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
-  uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
-  uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
-  uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
+  const size_t num_temps = NumberOfCheckCastTemps(type_check_kind);
+  DCHECK_LE(num_temps, 3u);
+  Location maybe_temp2_loc = (num_temps >= 2) ? locations->GetTemp(1) : Location::NoLocation();
+  Location maybe_temp3_loc = (num_temps >= 3) ? locations->GetTemp(2) : Location::NoLocation();
+  const uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
+  const uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
+  const uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
+  const uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
+  const uint32_t iftable_offset = mirror::Class::IfTableOffset().Uint32Value();
+  const uint32_t array_length_offset = mirror::Array::LengthOffset().Uint32Value();
+  const uint32_t object_array_data_offset =
+      mirror::Array::DataOffset(kHeapReferenceSize).Uint32Value();
 
   bool is_type_check_slow_path_fatal =
       (type_check_kind == TypeCheckKind::kExactCheck ||
@@ -6275,12 +6287,17 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
     __ CompareAndBranchIfZero(obj, &done);
   }
 
-  // /* HeapReference<Class> */ temp = obj->klass_
-  GenerateReferenceLoadTwoRegisters(instruction, temp_loc, obj_loc, class_offset, maybe_temp2_loc);
-
   switch (type_check_kind) {
     case TypeCheckKind::kExactCheck:
     case TypeCheckKind::kArrayCheck: {
+      // /* HeapReference<Class> */ temp = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
+
       __ cmp(temp, ShifterOperand(cls));
       // Jump to slow path for throwing the exception or doing a
       // more involved array check.
@@ -6289,6 +6306,14 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
     }
 
     case TypeCheckKind::kAbstractClassCheck: {
+      // /* HeapReference<Class> */ temp = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
+
       // If the class is abstract, we eagerly fetch the super class of the
       // object to avoid doing a comparison we know will fail.
       Label loop, compare_classes;
@@ -6306,8 +6331,12 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
       // going into the slow path, as it has been overwritten in the
       // meantime.
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(
-          instruction, temp_loc, obj_loc, class_offset, maybe_temp2_loc);
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
       __ b(type_check_slow_path->GetEntryLabel());
 
       __ Bind(&compare_classes);
@@ -6317,6 +6346,14 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
     }
 
     case TypeCheckKind::kClassHierarchyCheck: {
+      // /* HeapReference<Class> */ temp = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
+
       // Walk over the class hierarchy to find a match.
       Label loop;
       __ Bind(&loop);
@@ -6335,13 +6372,25 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
       // going into the slow path, as it has been overwritten in the
       // meantime.
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(
-          instruction, temp_loc, obj_loc, class_offset, maybe_temp2_loc);
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
       __ b(type_check_slow_path->GetEntryLabel());
       break;
     }
 
     case TypeCheckKind::kArrayObjectCheck: {
+      // /* HeapReference<Class> */ temp = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
+
       // Do an exact check.
       Label check_non_primitive_component_type;
       __ cmp(temp, ShifterOperand(cls));
@@ -6362,8 +6411,12 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
       // going into the slow path, as it has been overwritten in the
       // meantime.
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(
-          instruction, temp_loc, obj_loc, class_offset, maybe_temp2_loc);
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
       __ b(type_check_slow_path->GetEntryLabel());
 
       __ Bind(&check_non_primitive_component_type);
@@ -6372,8 +6425,12 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
       __ CompareAndBranchIfZero(temp, &done);
       // Same comment as above regarding `temp` and the slow path.
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(
-          instruction, temp_loc, obj_loc, class_offset, maybe_temp2_loc);
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
       __ b(type_check_slow_path->GetEntryLabel());
       break;
     }
@@ -6397,6 +6454,59 @@ void InstructionCodeGeneratorARM::VisitCheckCast(HCheckCast* instruction) {
       // case of the `switch` code as it was previously (with a direct
       // call to the runtime not using a type checking slow path).
       // This should also be beneficial for the other cases above.
+
+      if (type_check_kind == TypeCheckKind::kInterfaceCheck) {
+        // Try to avoid read barriers to improve the fast path. We can not get false positives by
+        // doing this.
+        // /* HeapReference<Class> */ temp = obj->klass_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          obj_loc,
+                                          class_offset,
+                                          maybe_temp2_loc,
+                                          /*emit_read_barrier*/ false);
+
+        // /* HeapReference<Class> */ temp = temp->iftable_
+        GenerateReferenceLoadTwoRegisters(instruction,
+                                          temp_loc,
+                                          temp_loc,
+                                          iftable_offset,
+                                          maybe_temp2_loc,
+                                          /*emit_read_barrier*/ false);
+        Label is_null;
+        // Null iftable means it is empty and will always fail the check.
+        // Not cbz since the temp may not be a low register.
+        __ cmp(temp, ShifterOperand(0));
+        __ b(&is_null, EQ);
+
+        // Loop through the iftable and check if any class matches.
+        __ ldr(maybe_temp2_loc.AsRegister<Register>(), Address(temp, array_length_offset));
+
+        Label start_loop;
+        __ Bind(&start_loop);
+        __ ldr(maybe_temp3_loc.AsRegister<Register>(), Address(temp, object_array_data_offset));
+        __ MaybeUnpoisonHeapReference(maybe_temp3_loc.AsRegister<Register>());
+        __ cmp(cls, ShifterOperand(maybe_temp3_loc.AsRegister<Register>()));
+        __ b(&done, EQ);  // Return if same class.
+        // Go to next interface.
+        __ add(temp, temp, ShifterOperand(2 * kHeapReferenceSize));
+        __ sub(maybe_temp2_loc.AsRegister<Register>(),
+               maybe_temp2_loc.AsRegister<Register>(),
+               ShifterOperand(2));
+        // Not cbnz since the temp may not be a low register.
+        __ cmp(maybe_temp2_loc.AsRegister<Register>(), ShifterOperand(0));
+        __ b(&start_loop, NE);
+        __ Bind(&is_null);
+      }
+
+      // /* HeapReference<Class> */ temp = obj->klass_
+      GenerateReferenceLoadTwoRegisters(instruction,
+                                        temp_loc,
+                                        obj_loc,
+                                        class_offset,
+                                        maybe_temp2_loc,
+                                        kEmitCompilerReadBarrier);
+
       __ b(type_check_slow_path->GetEntryLabel());
       break;
   }
@@ -6706,10 +6816,12 @@ void InstructionCodeGeneratorARM::GenerateReferenceLoadTwoRegisters(HInstruction
                                                                     Location out,
                                                                     Location obj,
                                                                     uint32_t offset,
-                                                                    Location maybe_temp) {
+                                                                    Location maybe_temp,
+                                                                    bool emit_read_barrier) {
   Register out_reg = out.AsRegister<Register>();
   Register obj_reg = obj.AsRegister<Register>();
-  if (kEmitCompilerReadBarrier) {
+  if (emit_read_barrier) {
+    DCHECK(kEmitCompilerReadBarrier);
     if (kUseBakerReadBarrier) {
       DCHECK(maybe_temp.IsRegister()) << maybe_temp;
       // Load with fast path based Baker's read barrier.
