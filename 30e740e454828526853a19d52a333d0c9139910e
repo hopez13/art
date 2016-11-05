@@ -46,6 +46,30 @@
       "revId": "30e740e454828526853a19d52a333d0c9139910e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf9938d_ec738b03",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-05T14:22:16Z",
+      "side": 1,
+      "message": "I think there\u0027s an oversight, the intention was to rely on the slow path for the read barriers. So in essence, they turned out to be fatal with the read barrier configuration.\n\nMathieu, do you want to do the same performance investigation of disabling the read barriers on the fast path for all kinds of TypeCheckKind?",
+      "parentUuid": "4bf38bab_e9da4efd",
+      "range": {
+        "startLine": 5989,
+        "startChar": 36,
+        "endLine": 5989,
+        "endChar": 60
+      },
+      "revId": "30e740e454828526853a19d52a333d0c9139910e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
