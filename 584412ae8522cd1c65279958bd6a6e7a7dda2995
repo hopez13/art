@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_988fb9b7",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_38a4a55c",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 80
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_18a9e932",
         "filename": "runtime/method_handles-inl.h",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-05T16:00:39Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 80
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b12739d_84e906d1",
+        "filename": "runtime/method_handles-inl.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_18a9e932",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_d85ad162",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Changed to check unboxed_value-\u003eGetJ() is 0 on entry. Caller now sets unboxed_value to 0 when it\u0027s previous value is claimed.",
+      "parentUuid": "2b6bb700_78ae1d3c",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_58b361a0",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 14
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-05T16:00:39Z",
       "side": 1,
       "message": "Why this change? To play it safe? That feels arbitrary, as clearly IsAssignableFrom can\u0027t trigger GC (it\u0027s a instance method on a mirror class).",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 5
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_781c5d8c",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Comment added. Playing it safe as not sure whether the call graph of IsAssignableFrom() could allocate or not.",
+      "parentUuid": "2b6bb700_58b361a0",
       "range": {
         "startLine": 233,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_d833f122",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Comment added. Playing it safe.",
+      "parentUuid": "2b6bb700_b8b7158b",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 49
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_98b4d987",
         "filename": "runtime/method_handles.cc",
         "patchSetId": 14
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-05T16:00:39Z",
       "side": 1,
       "message": "Please add a comment.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 62
+      },
+      "revId": "584412ae8522cd1c65279958bd6a6e7a7dda2995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_1817296c",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-07T10:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_98b4d987",
       "range": {
         "startLine": 285,
         "startChar": 0,
