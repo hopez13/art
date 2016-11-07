@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbb69be6_bdfa8bc7",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-07T21:12:55Z",
+      "side": 1,
+      "message": "Here and below, original authors please pay attention. I had to pick another class for the const-class 2 operation, because otherwise the code would be removed as dead. Please check if this still preserves the original intention of the test.",
+      "range": {
+        "startLine": 199,
+        "startChar": 23,
+        "endLine": 199,
+        "endChar": 24
+      },
+      "revId": "b015df2d9ec8fa32bc35c2cf2447974625009af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
