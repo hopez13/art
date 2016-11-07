@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b12739d_674a0c9c",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-07T14:40:13Z",
+      "side": 1,
+      "message": "Nit: rename as `requires_read_barrier`, to be uniform with GenerateGcRootFieldLoad?",
+      "range": {
+        "startLine": 252,
+        "startChar": 46,
+        "endLine": 252,
+        "endChar": 63
+      },
+      "revId": "cdba73be7eacf5891902e3dbeb9101c303e3bc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
