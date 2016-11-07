@@ -22,6 +22,30 @@
       "revId": "def4ee67bbff3b2a7280b93cca383c645984a710",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_3da4bb43",
+        "filename": "runtime/gc/system_weak.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-07T20:38:27Z",
+      "side": 1,
+      "message": "As the comment states: so that one can write lock annotations, because the lock is private.",
+      "parentUuid": "cbb69be6_bdb44b87",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 29
+      },
+      "revId": "def4ee67bbff3b2a7280b93cca383c645984a710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
