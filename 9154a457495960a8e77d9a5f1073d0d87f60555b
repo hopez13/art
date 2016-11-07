@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_5a1255ca",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-07T18:58:40Z",
+      "side": 1,
+      "message": "I\u0027ll do a follow-up CL.",
+      "parentUuid": "e641d62c_aec71752",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 19
+      },
+      "revId": "9154a457495960a8e77d9a5f1073d0d87f60555b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb605be7_6a6c577c",
         "filename": "runtime/base/unix_file/fd_file_test.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_da258524",
+        "filename": "runtime/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-07T18:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb605be7_6a6c577c",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 198,
+        "endChar": 31
+      },
+      "revId": "9154a457495960a8e77d9a5f1073d0d87f60555b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb2d1f95_0bcddd50",
         "filename": "runtime/base/unix_file/fd_file_test.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-03T20:53:34Z",
       "side": 1,
       "message": "sizeof(buffer)",
+      "range": {
+        "startLine": 200,
+        "startChar": 39,
+        "endLine": 200,
+        "endChar": 41
+      },
+      "revId": "9154a457495960a8e77d9a5f1073d0d87f60555b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_1af1bd7a",
+        "filename": "runtime/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-07T18:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb2d1f95_0bcddd50",
       "range": {
         "startLine": 200,
         "startChar": 39,
