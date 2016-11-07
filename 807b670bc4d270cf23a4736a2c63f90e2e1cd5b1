@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbb69be6_40d262bb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Why is the constructor not setting up options to reasonable defaults?",
+      "range": {
+        "startLine": 2186,
+        "startChar": 2,
+        "endLine": 2186,
+        "endChar": 8
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be1cbe3_c7d774d5",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "const bool",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd84f3b_48b0d3dd",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "If there are a lot of keys, unordered_map should be faster.",
+      "range": {
+        "startLine": 145,
+        "startChar": 41,
+        "endLine": 145,
+        "endChar": 52
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bb12ff1_bdd7e7d5",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "dex_ir::Header* const header_;",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be1cbe3_c7b4d488",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "MemMap* const mem_map_?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 9
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_002eaaed",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Don\u0027t need the get()",
+      "range": {
+        "startLine": 1543,
+        "startChar": 15,
+        "endLine": 1543,
+        "endChar": 20
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_80b39a9f",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Is it a concern if this fails? What about logging if there is an error?",
+      "range": {
+        "startLine": 1544,
+        "startChar": 21,
+        "endLine": 1544,
+        "endChar": 38
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_e0c1b6eb",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Put args on previous line and do one per line?",
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8baca39c_618f6c0b",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Correct style is one arg per line here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 44
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_60ebe68a",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 90,
+        "startChar": 23,
+        "endLine": 91,
+        "endChar": 71
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_0550781a",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "I think we probably don\u0027t need this option in the long term and just want to do it for speed-profile and/or verify-profile?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_205ace9a",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "const",
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_2043aeb2",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T21:58:13Z",
+      "side": 1,
+      "message": "Make it clearer what the ordering is? I.e. ordering classes in the profile first and other classes after?",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 93,
+        "endChar": 28
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
