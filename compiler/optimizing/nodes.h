@@ -1956,7 +1956,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
   bool IsRemovable() const {
     return
-        !HasSideEffects() &&
+        !DoesAnyWrite() &&
         !CanThrow() &&
         !IsSuspendCheck() &&
         !IsControlFlow() &&

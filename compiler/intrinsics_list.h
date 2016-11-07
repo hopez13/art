@@ -108,13 +108,17 @@
   V(StringCompareTo, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "compareTo", "(Ljava/lang/String;)I") \
   V(StringEquals, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "equals", "(Ljava/lang/Object;)Z") \
   V(StringGetCharsNoCheck, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "getCharsNoCheck", "(II[CI)V") \
-  V(StringIndexOf, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "indexOf", "(I)I") \
-  V(StringIndexOfAfter, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "indexOf", "(II)I") \
+  V(StringIndexOf, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(I)I") \
+  V(StringIndexOfAfter, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(II)I") \
+  V(StringStringIndexOf, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(Ljava/lang/String;)I") \
+  V(StringStringIndexOfAfter, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(Ljava/lang/String;I)I") \
   V(StringIsEmpty, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "isEmpty", "()Z") \
   V(StringLength, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "length", "()I") \
   V(StringNewStringFromBytes, kStatic, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Ljava/lang/StringFactory;", "newStringFromBytes", "([BIII)Ljava/lang/String;") \
   V(StringNewStringFromChars, kStatic, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Ljava/lang/StringFactory;", "newStringFromChars", "(II[C)Ljava/lang/String;") \
   V(StringNewStringFromString, kStatic, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Ljava/lang/StringFactory;", "newStringFromString", "(Ljava/lang/String;)Ljava/lang/String;") \
+  V(StringBufferToString, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/StringBuffer;", "toString", "()Ljava/lang/String;") \
+  V(StringBuilderToString, kVirtual, kNeedsEnvironmentOrCache, kReadSideEffects, kNoThrow, "Ljava/lang/StringBuilder;", "toString", "()Ljava/lang/String;") \
   V(UnsafeCASInt, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "compareAndSwapInt", "(Ljava/lang/Object;JII)Z") \
   V(UnsafeCASLong, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z") \
   V(UnsafeCASObject, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z") \
