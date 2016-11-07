@@ -45,6 +45,29 @@
       "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_1a0a9d04",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-07T19:30:36Z",
+      "side": 1,
+      "message": "I assume we aren\u0027t doing the two-visit approach b/32167580#10 yet.",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 37
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
