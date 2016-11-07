@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_78ed7d0d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-07T14:41:49Z",
+      "side": 1,
+      "message": "I\u0027d make this a separate paragraph. The loop header case is not even checked below because the pattern being looked for cannot be matched by a loop header, as its first instruction is a suspend check.\n\n(Or maybe rewrite the first sentence).",
+      "range": {
+        "startLine": 169,
+        "startChar": 28,
+        "endLine": 175,
+        "endChar": 65
+      },
+      "revId": "0f68717a45f33327d5846c79a215a250d4ed5c5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
