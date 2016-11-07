@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abc1671f_9e0fa94e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T18:14:32Z",
+      "side": 1,
+      "message": "Why is the length stored after the literals? Is that for iterating backwards? Can you add a comment.",
+      "range": {
+        "startLine": 278,
+        "startChar": 44,
+        "endLine": 278,
+        "endChar": 50
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abc1671f_be0ced59",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-07T18:14:32Z",
+      "side": 1,
+      "message": "Add a comment that this wont be safe for class literals due to class unloading?",
+      "range": {
+        "startLine": 301,
+        "startChar": 44,
+        "endLine": 301,
+        "endChar": 52
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
