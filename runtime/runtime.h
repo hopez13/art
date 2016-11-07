@@ -110,6 +110,7 @@ enum VisitRootFlags : uint8_t {
   // Non moving means we can have optimizations where we don't visit some roots if they are
   // definitely reachable from another location. E.g. ArtMethod and ArtField roots.
   kVisitRootFlagNonMoving = 0x20,
+  kVisitRootFlagClassLoader = 0x40,
 };
 
 class Runtime {

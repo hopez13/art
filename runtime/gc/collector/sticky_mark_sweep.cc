@@ -56,6 +56,13 @@ void StickyMarkSweep::MarkReachableObjects() {
   RecursiveMarkDirtyObjects(false, accounting::CardTable::kCardDirty - 1);
 }
 
+void StickyMarkSweep::MarkConcurrentRoots(VisitRootFlags flags) {
+  TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
+  // Visit all runtime roots and clear dirty flags including class loader
+  Runtime::Current()->VisitConcurrentRoots(
+    this, static_cast<VisitRootFlags>(flags | kVisitRootFlagNonMoving | kVisitRootFlagClassLoader));
+}
+
 void StickyMarkSweep::Sweep(bool swap_bitmaps ATTRIBUTE_UNUSED) {
   SweepArray(GetHeap()->GetLiveStack(), false);
 }
