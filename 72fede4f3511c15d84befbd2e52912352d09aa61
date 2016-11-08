@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4b6e2b0f_59b367a0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9938d_0fc36929",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_fb07c7f5",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-08T13:49:15Z",
       "side": 1,
       "message": "DCHECK(Runtime::Current()-\u003eUseJitCompilation());",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b23efec_4a4273ab",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5880,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_fb07c7f5",
       "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2b19f7c0_e8308b4a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_db048bf4",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_3bf3fff4",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 8
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "2b19f7c0_c82dcff2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_3bf3fff4",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_5bf23bed",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 8
@@ -81,6 +153,30 @@
       "writtenOn": "2016-11-08T13:49:15Z",
       "side": 1,
       "message": "I\u0027d prefer a line break here.",
+      "range": {
+        "startLine": 5710,
+        "startChar": 26,
+        "endLine": 5710,
+        "endChar": 27
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b12739d_4afa7704",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_5bf23bed",
       "range": {
         "startLine": 5710,
         "startChar": 26,
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_bbec2fe1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_7b5e17fe",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abc1671f_9e0fa94e",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -127,6 +247,30 @@
       "writtenOn": "2016-11-07T18:14:32Z",
       "side": 1,
       "message": "Why is the length stored after the literals? Is that for iterating backwards? Can you add a comment.",
+      "range": {
+        "startLine": 278,
+        "startChar": 44,
+        "endLine": 278,
+        "endChar": 50
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b64332d_b7b44220",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "If it\u0027s stored before the literals, we won\u0027t know how to fetch it: the compiled code points to the stack map, and the table is just before that stack map. So putting the length at stack_map - 1, allows to fetch it and know where to start.\n\nI\u0027ve added a comment.",
+      "parentUuid": "abc1671f_9e0fa94e",
       "range": {
         "startLine": 278,
         "startChar": 44,
@@ -162,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "4b6e2b0f_d9be5763",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abc1671f_be0ced59",
+      "range": {
+        "startLine": 301,
+        "startChar": 44,
+        "endLine": 301,
+        "endChar": 52
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_1a0a9d04",
         "filename": "runtime/runtime.cc",
         "patchSetId": 8
@@ -173,6 +341,30 @@
       "writtenOn": "2016-11-07T19:30:36Z",
       "side": 1,
       "message": "I assume we aren\u0027t doing the two-visit approach b/32167580#10 yet.",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 37
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b19f7c0_68ae5b3c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T14:58:35Z",
+      "side": 1,
+      "message": "Not yet, I\u0027ll do this in a follow-up.",
+      "parentUuid": "cbb69be6_1a0a9d04",
       "range": {
         "startLine": 499,
         "startChar": 0,
