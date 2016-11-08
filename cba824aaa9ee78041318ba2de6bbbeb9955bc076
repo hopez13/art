@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_0f88953b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-08T17:40:57Z",
+      "side": 1,
+      "message": "I like that idea. Also about having early exits. Right now that is an expensive operation that we do in BCE and LoopOpt. Keeping the flags up to date after changes may be a challenge though...",
+      "parentUuid": "2b6bb700_bbe6ef2f",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_1bf8c3cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
