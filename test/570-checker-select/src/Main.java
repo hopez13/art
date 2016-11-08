@@ -371,6 +371,59 @@ public class Main {
     return a > b ? x : y;
   }
 
+  /// CHECK-START-ARM: long Main.LongEqNonmatCond_LongVarVar(long, long, long, long) disassembly (after)
+  /// CHECK:                 cmp {{r\d+}}, {{r\d+}}
+  /// CHECK-NEXT:            it eq
+  /// CHECK-NEXT:            cmpeq {{r\d+}}, {{r\d+}}
+  /// CHECK-NEXT:            it eq
+
+  public static long LongEqNonmatCond_LongVarVar(long a, long b, long x, long y) {
+    if (doThrow) {
+      // Try defeating inlining.
+      throw new Error();
+    }
+    return a == b ? x : y;
+  }
+
+  /// CHECK-START-ARM: long Main.LongNonmatCondCst_LongVarVar(long, long, long) disassembly (after)
+  /// CHECK:                 cmp {{r\d+}}, ip
+  /// CHECK-NEXT:            sbcs ip, {{r\d+}}, #{{\d+}}
+  /// CHECK-NEXT:            it ge
+
+  public static long LongNonmatCondCst_LongVarVar(long a, long x, long y) {
+    if (doThrow) {
+      // Try defeating inlining.
+      throw new Error();
+    }
+    return a > 0x89ABCDEFL ? x : y;
+  }
+
+  /// CHECK-START-ARM: long Main.LongNonmatCondCst_LongVarVar(long, long, long) disassembly (after)
+  /// CHECK:                 mov ip, #{{\d+}}
+  /// CHECK-NEXT:            movt ip, #{{\d+}}
+  /// CHECK-NEXT:            cmp {{r\d+}}, ip
+
+  public static long LongNonmatCondCst_LongVarVar2(long a, long x, long y) {
+    if (doThrow) {
+      // Try defeating inlining.
+      throw new Error();
+    }
+    return a > 0x0123456789ABCDEFL ? x : y;
+  }
+
+  /// CHECK-START-ARM: long Main.LongNonmatCondCst_LongVarVar3(long, long, long) disassembly (after)
+  /// CHECK:                 cmp {{r\d+}}, {{r\d+}}
+  /// CHECK-NOT:             sbcs
+  /// CHECK-NOT:             cmp
+
+  public static long LongNonmatCondCst_LongVarVar3(long a, long x, long y) {
+    if (doThrow) {
+      // Try defeating inlining.
+      throw new Error();
+    }
+    return a > 0x7FFFFFFFFFFFFFFFL ? x : y;
+  }
+
   /// CHECK-START: long Main.LongMatCond_LongVarVar(long, long, long, long) register (after)
   /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{j\d+}},{{j\d+}}]
   /// CHECK:            <<Sel1:j\d+>> Select [{{j\d+}},{{j\d+}},<<Cond>>]
@@ -611,6 +664,32 @@ public class Main {
     assertEqual(7, IntNonmatCond_IntVarVar(2, 3, 5, 7));
     assertEqual(5, IntMatCond_IntVarVar(3, 2, 5, 7));
     assertEqual(8, IntMatCond_IntVarVar(2, 3, 5, 7));
+
+    assertEqual(0xAAAAAAAA55555555L,
+                LongNonmatCond_LongVarVar(3L, 2L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
+    assertEqual(0x8888888877777777L,
+                LongNonmatCond_LongVarVar(2L, 2L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
+    assertEqual(0x8888888877777777L,
+                LongNonmatCond_LongVarVar(2L, 3L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
+    assertEqual(0xAAAAAAAA55555555L, LongNonmatCond_LongVarVar(0x0000000100000000L,
+                                                               0x00000000FFFFFFFFL,
+                                                               0xAAAAAAAA55555555L,
+                                                               0x8888888877777777L));
+    assertEqual(0x8888888877777777L, LongNonmatCond_LongVarVar(0x00000000FFFFFFFFL,
+                                                               0x0000000100000000L,
+                                                               0xAAAAAAAA55555555L,
+                                                               0x8888888877777777L));
+
+    assertEqual(0x8888888877777777L,
+                LongEqNonmatCond_LongVarVar(2L, 3L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
+    assertEqual(0xAAAAAAAA55555555L,
+                LongEqNonmatCond_LongVarVar(2L, 2L, 0xAAAAAAAA55555555L, 0x8888888877777777L));
+    assertEqual(0x8888888877777777L, LongEqNonmatCond_LongVarVar(0x10000000000L,
+                                                                 0L,
+                                                                 0xAAAAAAAA55555555L,
+                                                                 0x8888888877777777L));
+
+    assertEqual(7L, LongNonmatCondCst_LongVarVar3(2L, 5L, 7L));
 
     assertEqual(5, FloatLtNonmatCond_IntVarVar(3, 2, 5, 7));
     assertEqual(7, FloatLtNonmatCond_IntVarVar(2, 3, 5, 7));
