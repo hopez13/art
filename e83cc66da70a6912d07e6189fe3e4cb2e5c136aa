@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_3bbe5f9b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-08T11:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_d5e3bcec",
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_95b2e4e8",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-11-04T16:34:20Z",
       "side": 1,
       "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 1574,
+        "startChar": 33,
+        "endLine": 1575,
+        "endChar": 66
+      },
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_1bc3a329",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-08T11:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_95b2e4e8",
       "range": {
         "startLine": 1574,
         "startChar": 33,
@@ -89,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "6b55af38_ba19cd3b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-08T11:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_75cc6876",
+      "range": {
+        "startLine": 1585,
+        "startChar": 0,
+        "endLine": 1586,
+        "endChar": 71
+      },
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_ee2bdf98",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_9b55f310",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-08T11:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_ee2bdf98",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e641d62c_2e2ec7a8",
         "filename": "compiler/optimizing/code_generator_arm_vixl.h",
         "patchSetId": 1
@@ -123,6 +213,30 @@
       "writtenOn": "2016-11-04T16:34:20Z",
       "side": 1,
       "message": "Could this be moved inside class `FieldAccessCallingConventionARMVIXL` below to reduce the scope of this statement?  Our C++ style discourages `using` directives in headers.",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 28
+      },
+      "revId": "e83cc66da70a6912d07e6189fe3e4cb2e5c136aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_fb522724",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-08T11:30:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e641d62c_2e2ec7a8",
       "range": {
         "startLine": 223,
         "startChar": 0,
