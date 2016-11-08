@@ -42,6 +42,7 @@ using helpers::DRegisterFrom;
 using helpers::DWARFReg;
 using helpers::HighDRegisterFrom;
 using helpers::HighRegisterFrom;
+using helpers::InputDRegisterAt;
 using helpers::InputOperandAt;
 using helpers::InputRegister;
 using helpers::InputRegisterAt;
@@ -1260,6 +1261,84 @@ size_t CodeGeneratorARMVIXL::RestoreFloatingPointRegister(size_t stack_index ATT
   return 0;
 }
 
+static void GenerateVcmp(HInstruction* instruction, CodeGeneratorARMVIXL* codegen) {
+  const Location rhs_loc = instruction->GetLocations()->InAt(1);
+  if (rhs_loc.IsConstant()) {
+    // 0.0 is the only immediate that can be encoded directly in
+    // a VCMP instruction.
+    //
+    // Both the JLS (section 15.20.1) and the JVMS (section 6.5)
+    // specify that in a floating-point comparison, positive zero
+    // and negative zero are considered equal, so we can use the
+    // literal 0.0 for both cases here.
+    //
+    // Note however that some methods (Float.equal, Float.compare,
+    // Float.compareTo, Double.equal, Double.compare,
+    // Double.compareTo, Math.max, Math.min, StrictMath.max,
+    // StrictMath.min) consider 0.0 to be (strictly) greater than
+    // -0.0. So if we ever translate calls to these methods into a
+    // HCompare instruction, we must handle the -0.0 case with
+    // care here.
+    DCHECK(rhs_loc.GetConstant()->IsArithmeticZero());
+
+    const Primitive::Type type = instruction->InputAt(0)->GetType();
+
+    if (type == Primitive::kPrimFloat) {
+      __ Vcmp(F32, InputSRegisterAt(instruction, 0), 0.0);
+    } else {
+      DCHECK_EQ(type, Primitive::kPrimDouble);
+      __ Vcmp(F64, InputDRegisterAt(instruction, 0), 0.0);
+    }
+  } else {
+    __ Vcmp(InputVRegisterAt(instruction, 0), InputVRegisterAt(instruction, 1));
+  }
+}
+
+static vixl32::Condition GenerateTest(HInstruction* instruction,
+                                      Location loc,
+                                      bool invert,
+                                      CodeGeneratorARMVIXL* codegen) {
+  DCHECK(!instruction->IsConstant());
+
+  vixl32::Condition ret = invert ? eq : ne;
+
+  if (IsBooleanValueOrMaterializedCondition(instruction)) {
+    __ Cmp(RegisterFrom(loc), 0);
+  } else {
+    HCondition* const condition = instruction->AsCondition();
+    const Primitive::Type type = condition->GetLeft()->GetType();
+    const IfCondition cond = invert ? condition->GetOppositeCondition() : condition->GetCondition();
+
+    if (type == Primitive::kPrimLong) {
+      const LocationSummary* const locations = condition->GetLocations();
+      const Location left = locations->InAt(0);
+      const Location right = locations->InAt(1);
+
+      DCHECK(right.IsRegisterPair());
+      DCHECK(condition->GetCondition() == kCondEQ || condition->GetCondition() == kCondNE);
+      __ Cmp(HighRegisterFrom(left), HighRegisterFrom(right));
+
+      ExactAssemblyScope guard(codegen->GetVIXLAssembler(),
+                               2 * vixl32::kMaxInstructionSizeInBytes,
+                               CodeBufferCheckScope::kMaximumSize);
+
+      __ it(eq);
+      __ cmp(eq, LowRegisterFrom(left), LowRegisterFrom(right));
+      ret = ARMCondition(cond);
+    } else if (Primitive::IsFloatingPointType(type)) {
+      GenerateVcmp(condition, codegen);
+      __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
+      ret = ARMFPCondition(cond, condition->IsGtBias());
+    } else {
+      DCHECK(Primitive::IsIntegralType(type) || type == Primitive::kPrimNot) << type;
+      __ Cmp(InputRegisterAt(condition, 0), InputOperandAt(condition, 1));
+      ret = ARMCondition(cond);
+    }
+  }
+
+  return ret;
+}
+
 #undef __
 
 CodeGeneratorARMVIXL::CodeGeneratorARMVIXL(HGraph* graph,
@@ -1755,43 +1834,6 @@ void LocationsBuilderARMVIXL::VisitExit(HExit* exit) {
 void InstructionCodeGeneratorARMVIXL::VisitExit(HExit* exit ATTRIBUTE_UNUSED) {
 }
 
-void InstructionCodeGeneratorARMVIXL::GenerateVcmp(HInstruction* instruction) {
-  Primitive::Type type = instruction->InputAt(0)->GetType();
-  Location lhs_loc = instruction->GetLocations()->InAt(0);
-  Location rhs_loc = instruction->GetLocations()->InAt(1);
-  if (rhs_loc.IsConstant()) {
-    // 0.0 is the only immediate that can be encoded directly in
-    // a VCMP instruction.
-    //
-    // Both the JLS (section 15.20.1) and the JVMS (section 6.5)
-    // specify that in a floating-point comparison, positive zero
-    // and negative zero are considered equal, so we can use the
-    // literal 0.0 for both cases here.
-    //
-    // Note however that some methods (Float.equal, Float.compare,
-    // Float.compareTo, Double.equal, Double.compare,
-    // Double.compareTo, Math.max, Math.min, StrictMath.max,
-    // StrictMath.min) consider 0.0 to be (strictly) greater than
-    // -0.0. So if we ever translate calls to these methods into a
-    // HCompare instruction, we must handle the -0.0 case with
-    // care here.
-    DCHECK(rhs_loc.GetConstant()->IsArithmeticZero());
-    if (type == Primitive::kPrimFloat) {
-      __ Vcmp(F32, InputSRegisterAt(instruction, 0), 0.0);
-    } else {
-      DCHECK_EQ(type, Primitive::kPrimDouble);
-      __ Vcmp(F64, DRegisterFrom(lhs_loc), 0.0);
-    }
-  } else {
-    if (type == Primitive::kPrimFloat) {
-      __ Vcmp(InputSRegisterAt(instruction, 0), InputSRegisterAt(instruction, 1));
-    } else {
-      DCHECK_EQ(type, Primitive::kPrimDouble);
-      __ Vcmp(DRegisterFrom(lhs_loc), DRegisterFrom(rhs_loc));
-    }
-  }
-}
-
 void InstructionCodeGeneratorARMVIXL::GenerateFPJumps(HCondition* cond,
                                                       vixl32::Label* true_label,
                                                       vixl32::Label* false_label ATTRIBUTE_UNUSED) {
@@ -1900,7 +1942,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateCompareTestAndBranch(HCondition* c
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      GenerateVcmp(condition);
+      GenerateVcmp(condition, codegen_);
       GenerateFPJumps(condition, true_target, false_target);
       break;
     default:
@@ -1977,20 +2019,29 @@ void InstructionCodeGeneratorARMVIXL::GenerateTestAndBranch(HInstruction* instru
       return;
     }
 
-    LocationSummary* locations = cond->GetLocations();
-    DCHECK(locations->InAt(0).IsRegister());
-    vixl32::Register left = InputRegisterAt(cond, 0);
-    Location right = locations->InAt(1);
-    if (right.IsRegister()) {
-      __ Cmp(left, InputRegisterAt(cond, 1));
-    } else {
-      DCHECK(right.IsConstant());
-      __ Cmp(left, CodeGenerator::GetInt32ValueOf(right.GetConstant()));
-    }
+    vixl32::Label* non_fallthrough_target;
+    vixl32::Condition arm_cond = vixl32::Condition::None();
+    const vixl32::Register left = InputRegisterAt(cond, 0);
+    const Operand right = InputOperandAt(cond, 1);
+
     if (true_target == nullptr) {
-      __ B(ARMCondition(condition->GetOppositeCondition()), false_target);
+      arm_cond = ARMCondition(condition->GetOppositeCondition());
+      non_fallthrough_target = false_target;
     } else {
-      __ B(ARMCondition(condition->GetCondition()), true_target);
+      arm_cond = ARMCondition(condition->GetCondition());
+      non_fallthrough_target = true_target;
+    }
+
+    if (right.IsImmediate() && right.GetImmediate() == 0 && (arm_cond.Is(ne) || arm_cond.Is(eq))) {
+      if (arm_cond.Is(eq)) {
+        __ CompareAndBranchIfZero(left, non_fallthrough_target);
+      } else {
+        DCHECK(arm_cond.Is(ne));
+        __ CompareAndBranchIfNonZero(left, non_fallthrough_target);
+      }
+    } else {
+      __ Cmp(left, right);
+      __ B(arm_cond, non_fallthrough_target);
     }
   }
 
@@ -2051,29 +2102,111 @@ void InstructionCodeGeneratorARMVIXL::VisitShouldDeoptimizeFlag(HShouldDeoptimiz
 
 void LocationsBuilderARMVIXL::VisitSelect(HSelect* select) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(select);
-  if (Primitive::IsFloatingPointType(select->GetType())) {
-    locations->SetInAt(0, Location::RequiresFpuRegister());
-    locations->SetInAt(1, Location::RequiresFpuRegister());
-  } else {
-    locations->SetInAt(0, Location::RequiresRegister());
-    locations->SetInAt(1, Location::RequiresRegister());
-  }
+  Location::OutputOverlap overlap = Location::kNoOutputOverlap;
+
   if (IsBooleanValueOrMaterializedCondition(select->GetCondition())) {
-    locations->SetInAt(2, Location::RequiresRegister());
+    locations->SetInAt(2, Location::RegisterOrConstant(select->GetCondition()));
+    // The code generator handles overlap with the values, but not with the condition.
+    overlap = Location::kOutputOverlap;
   }
-  locations->SetOut(Location::SameAsFirstInput());
+
+  if (Primitive::IsFloatingPointType(select->GetType())) {
+    locations->SetInAt(0, Location::FpuRegisterOrConstant(select->GetFalseValue()));
+    locations->SetInAt(1, Location::FpuRegisterOrConstant(select->GetTrueValue()));
+    locations->SetOut(Location::RequiresFpuRegister(), overlap);
+  } else {
+    locations->SetInAt(0, Location::RegisterOrConstant(select->GetFalseValue()));
+    locations->SetInAt(1, Location::RegisterOrConstant(select->GetTrueValue()));
+    locations->SetOut(Location::RequiresRegister(), overlap);
+  }
+}
+
+static bool GenerateSelectITBlock(HInstruction* condition, const Location& src) {
+  return src.IsRegister() &&
+         (IsBooleanValueOrMaterializedCondition(condition) ||
+          condition->AsCondition()->GetLeft()->GetType() != Primitive::kPrimLong ||
+          (condition->AsCondition()->GetLocations()->InAt(1).IsRegisterPair() &&
+           (condition->AsCondition()->GetCondition() == kCondEQ ||
+            condition->AsCondition()->GetCondition() == kCondNE)));
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
-  LocationSummary* locations = select->GetLocations();
-  vixl32::Label false_target;
-  GenerateTestAndBranch(select,
-                        /* condition_input_index */ 2,
-                        /* true_target */ nullptr,
-                        &false_target,
-                        /* far_target */ false);
-  codegen_->MoveLocation(locations->Out(), locations->InAt(1), select->GetType());
-  __ Bind(&false_target);
+  Location src;
+  HInstruction* const condition = select->GetCondition();
+  const LocationSummary* const locations = select->GetLocations();
+
+  if (condition->IsIntConstant()) {
+    if (condition->AsIntConstant()->IsFalse()) {
+      src = locations->InAt(0);
+    } else {
+      src = locations->InAt(1);
+    }
+
+    codegen_->MoveLocation(locations->Out(), src, select->GetType());
+    return;
+  }
+
+  // Since IT blocks longer than a 16-bit instruction are deprecated by ARMv8,
+  // we do this only for integers.
+  if (select->GetType() == Primitive::kPrimInt) {
+    bool invert = false;
+
+    if (locations->Out().Equals(locations->InAt(1))) {
+      src = locations->InAt(0);
+      invert = true;
+    } else {
+      src = locations->InAt(1);
+    }
+
+    if (GenerateSelectITBlock(condition, src)) {
+      if (!locations->Out().Equals(locations->InAt(0)) &&
+          !locations->Out().Equals(locations->InAt(1))) {
+        DCHECK(locations->InAt(1).Equals(src));
+        codegen_->MoveLocation(locations->Out(), locations->InAt(0), select->GetType());
+      }
+
+      const vixl32::Condition cond = GenerateTest(condition, locations->InAt(2), invert, codegen_);
+      ExactAssemblyScope guard(GetVIXLAssembler(),
+                               2 * vixl32::kMaxInstructionSizeInBytes,
+                               CodeBufferCheckScope::kMaximumSize);
+
+      __ it(cond);
+      __ mov(cond, OutputRegister(select), RegisterFrom(src));
+      return;
+    }
+
+    // Fall through.
+  }
+
+  const HBasicBlock* const block = select->GetBlock();
+  const HLoopInformation* const info = block->GetLoopInformation();
+  vixl32::Label* false_target = nullptr;
+  vixl32::Label* true_target = nullptr;
+  vixl32::Label select_end;
+  vixl32::Label* target = &select_end;
+
+  // Avoid a branch to a branch.
+  if (select->GetNext()->IsGoto() &&
+      (info == nullptr || !info->IsBackEdge(*block) || !info->HasSuspendCheck())) {
+    HBasicBlock* next = codegen_->FirstNonEmptyBlock(select->GetNext()->AsGoto()->GetSuccessor());
+    target = codegen_->GetLabelOf(next);
+  }
+
+  if (locations->Out().Equals(locations->InAt(1))) {
+    true_target = target;
+    src = locations->InAt(0);
+  } else {
+    false_target = target;
+    src = locations->InAt(1);
+
+    if (!locations->Out().Equals(locations->InAt(0))) {
+      codegen_->MoveLocation(locations->Out(), locations->InAt(0), select->GetType());
+    }
+  }
+
+  GenerateTestAndBranch(select, 2, true_target, false_target, /* far_target */ false);
+  codegen_->MoveLocation(locations->Out(), src, select->GetType());
+  __ Bind(&select_end);
 }
 
 void LocationsBuilderARMVIXL::VisitNativeDebugInfo(HNativeDebugInfo* info) {
@@ -2151,7 +2284,7 @@ void InstructionCodeGeneratorARMVIXL::HandleCondition(HCondition* cond) {
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      GenerateVcmp(cond);
+      GenerateVcmp(cond, codegen_);
       GenerateFPJumps(cond, &true_label, &false_label);
       break;
   }
@@ -4166,7 +4299,7 @@ void InstructionCodeGeneratorARMVIXL::VisitCompare(HCompare* compare) {
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble: {
       __ Mov(out, 0);
-      GenerateVcmp(compare);
+      GenerateVcmp(compare, codegen_);
       // To branch on the FP compare result we transfer FPSCR to APSR (encoded as PC in VMRS).
       __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
       less_cond = ARMFPCondition(kCondLT, compare->IsGtBias());

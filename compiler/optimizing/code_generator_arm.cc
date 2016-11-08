@@ -1132,10 +1132,6 @@ class ReadBarrierForRootSlowPathARM : public SlowPathCodeARM {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathARM);
 };
 
-#undef __
-// NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
-#define __ down_cast<ArmAssembler*>(GetAssembler())->  // NOLINT
-
 inline Condition ARMCondition(IfCondition cond) {
   switch (cond) {
     case kCondEQ: return EQ;
@@ -1190,6 +1186,99 @@ inline Condition ARMFPCondition(IfCondition cond, bool gt_bias) {
       UNREACHABLE();
   }
 }
+
+static void GenerateVcmp(HInstruction* instruction, CodeGeneratorARM* codegen) {
+  Primitive::Type type = instruction->InputAt(0)->GetType();
+  Location lhs_loc = instruction->GetLocations()->InAt(0);
+  Location rhs_loc = instruction->GetLocations()->InAt(1);
+  if (rhs_loc.IsConstant()) {
+    // 0.0 is the only immediate that can be encoded directly in
+    // a VCMP instruction.
+    //
+    // Both the JLS (section 15.20.1) and the JVMS (section 6.5)
+    // specify that in a floating-point comparison, positive zero
+    // and negative zero are considered equal, so we can use the
+    // literal 0.0 for both cases here.
+    //
+    // Note however that some methods (Float.equal, Float.compare,
+    // Float.compareTo, Double.equal, Double.compare,
+    // Double.compareTo, Math.max, Math.min, StrictMath.max,
+    // StrictMath.min) consider 0.0 to be (strictly) greater than
+    // -0.0. So if we ever translate calls to these methods into a
+    // HCompare instruction, we must handle the -0.0 case with
+    // care here.
+    DCHECK(rhs_loc.GetConstant()->IsArithmeticZero());
+    if (type == Primitive::kPrimFloat) {
+      __ vcmpsz(lhs_loc.AsFpuRegister<SRegister>());
+    } else {
+      DCHECK_EQ(type, Primitive::kPrimDouble);
+      __ vcmpdz(FromLowSToD(lhs_loc.AsFpuRegisterPairLow<SRegister>()));
+    }
+  } else {
+    if (type == Primitive::kPrimFloat) {
+      __ vcmps(lhs_loc.AsFpuRegister<SRegister>(), rhs_loc.AsFpuRegister<SRegister>());
+    } else {
+      DCHECK_EQ(type, Primitive::kPrimDouble);
+      __ vcmpd(FromLowSToD(lhs_loc.AsFpuRegisterPairLow<SRegister>()),
+               FromLowSToD(rhs_loc.AsFpuRegisterPairLow<SRegister>()));
+    }
+  }
+}
+
+static Condition GenerateTest(HInstruction* instruction,
+                              Location loc,
+                              bool invert,
+                              CodeGeneratorARM* codegen) {
+  DCHECK(!instruction->IsConstant());
+
+  Condition ret = invert ? EQ : NE;
+
+  if (IsBooleanValueOrMaterializedCondition(instruction)) {
+    __ CmpConstant(loc.AsRegister<Register>(), 0);
+  } else {
+    HCondition* const condition = instruction->AsCondition();
+    const LocationSummary* const locations = condition->GetLocations();
+    const Primitive::Type type = condition->GetLeft()->GetType();
+    const IfCondition cond = invert ? condition->GetOppositeCondition() : condition->GetCondition();
+    const Location left = locations->InAt(0);
+    const Location right = locations->InAt(1);
+
+    if (type == Primitive::kPrimLong) {
+      DCHECK(right.IsRegisterPair());
+      DCHECK(condition->GetCondition() == kCondEQ || condition->GetCondition() == kCondNE);
+      __ cmp(left.AsRegisterPairHigh<Register>(),
+             ShifterOperand(right.AsRegisterPairHigh<Register>()));
+      __ it(EQ);
+      __ cmp(left.AsRegisterPairLow<Register>(),
+             ShifterOperand(right.AsRegisterPairLow<Register>()),
+             EQ);
+      ret = ARMCondition(cond);
+    } else if (Primitive::IsFloatingPointType(type)) {
+      GenerateVcmp(condition, codegen);
+      __ vmstat();
+      ret = ARMFPCondition(cond, condition->IsGtBias());
+    } else {
+      DCHECK(Primitive::IsIntegralType(type) || type == Primitive::kPrimNot) << type;
+
+      const Register left_reg = left.AsRegister<Register>();
+
+      if (right.IsRegister()) {
+        __ cmp(left_reg, ShifterOperand(right.AsRegister<Register>()));
+      } else {
+        DCHECK(right.IsConstant());
+        __ CmpConstant(left_reg, CodeGenerator::GetInt32ValueOf(right.GetConstant()));
+      }
+
+      ret = ARMCondition(cond);
+    }
+  }
+
+  return ret;
+}
+
+#undef __
+// NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
+#define __ down_cast<ArmAssembler*>(GetAssembler())->  // NOLINT
 
 void CodeGeneratorARM::DumpCoreRegister(std::ostream& stream, int reg) const {
   stream << Register(reg);
@@ -1717,44 +1806,6 @@ void LocationsBuilderARM::VisitExit(HExit* exit) {
 void InstructionCodeGeneratorARM::VisitExit(HExit* exit ATTRIBUTE_UNUSED) {
 }
 
-void InstructionCodeGeneratorARM::GenerateVcmp(HInstruction* instruction) {
-  Primitive::Type type = instruction->InputAt(0)->GetType();
-  Location lhs_loc = instruction->GetLocations()->InAt(0);
-  Location rhs_loc = instruction->GetLocations()->InAt(1);
-  if (rhs_loc.IsConstant()) {
-    // 0.0 is the only immediate that can be encoded directly in
-    // a VCMP instruction.
-    //
-    // Both the JLS (section 15.20.1) and the JVMS (section 6.5)
-    // specify that in a floating-point comparison, positive zero
-    // and negative zero are considered equal, so we can use the
-    // literal 0.0 for both cases here.
-    //
-    // Note however that some methods (Float.equal, Float.compare,
-    // Float.compareTo, Double.equal, Double.compare,
-    // Double.compareTo, Math.max, Math.min, StrictMath.max,
-    // StrictMath.min) consider 0.0 to be (strictly) greater than
-    // -0.0. So if we ever translate calls to these methods into a
-    // HCompare instruction, we must handle the -0.0 case with
-    // care here.
-    DCHECK(rhs_loc.GetConstant()->IsArithmeticZero());
-    if (type == Primitive::kPrimFloat) {
-      __ vcmpsz(lhs_loc.AsFpuRegister<SRegister>());
-    } else {
-      DCHECK_EQ(type, Primitive::kPrimDouble);
-      __ vcmpdz(FromLowSToD(lhs_loc.AsFpuRegisterPairLow<SRegister>()));
-    }
-  } else {
-    if (type == Primitive::kPrimFloat) {
-      __ vcmps(lhs_loc.AsFpuRegister<SRegister>(), rhs_loc.AsFpuRegister<SRegister>());
-    } else {
-      DCHECK_EQ(type, Primitive::kPrimDouble);
-      __ vcmpd(FromLowSToD(lhs_loc.AsFpuRegisterPairLow<SRegister>()),
-               FromLowSToD(rhs_loc.AsFpuRegisterPairLow<SRegister>()));
-    }
-  }
-}
-
 void InstructionCodeGeneratorARM::GenerateFPJumps(HCondition* cond,
                                                   Label* true_label,
                                                   Label* false_label ATTRIBUTE_UNUSED) {
@@ -1862,7 +1913,7 @@ void InstructionCodeGeneratorARM::GenerateCompareTestAndBranch(HCondition* condi
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      GenerateVcmp(condition);
+      GenerateVcmp(condition, codegen_);
       GenerateFPJumps(condition, true_target, false_target);
       break;
     default:
@@ -1932,20 +1983,38 @@ void InstructionCodeGeneratorARM::GenerateTestAndBranch(HInstruction* instructio
       return;
     }
 
+    Label* non_fallthrough_target;
+    Condition arm_cond;
     LocationSummary* locations = cond->GetLocations();
     DCHECK(locations->InAt(0).IsRegister());
     Register left = locations->InAt(0).AsRegister<Register>();
     Location right = locations->InAt(1);
-    if (right.IsRegister()) {
-      __ cmp(left, ShifterOperand(right.AsRegister<Register>()));
-    } else {
-      DCHECK(right.IsConstant());
-      __ CmpConstant(left, CodeGenerator::GetInt32ValueOf(right.GetConstant()));
-    }
+
     if (true_target == nullptr) {
-      __ b(false_target, ARMCondition(condition->GetOppositeCondition()));
+      arm_cond = ARMCondition(condition->GetOppositeCondition());
+      non_fallthrough_target = false_target;
     } else {
-      __ b(true_target, ARMCondition(condition->GetCondition()));
+      arm_cond = ARMCondition(condition->GetCondition());
+      non_fallthrough_target = true_target;
+    }
+
+    if (right.IsConstant() && (arm_cond == NE || arm_cond == EQ) &&
+        CodeGenerator::GetInt32ValueOf(right.GetConstant()) == 0) {
+      if (arm_cond == EQ) {
+        __ CompareAndBranchIfZero(left, non_fallthrough_target);
+      } else {
+        DCHECK_EQ(arm_cond, NE);
+        __ CompareAndBranchIfNonZero(left, non_fallthrough_target);
+      }
+    } else {
+      if (right.IsRegister()) {
+        __ cmp(left, ShifterOperand(right.AsRegister<Register>()));
+      } else {
+        DCHECK(right.IsConstant());
+        __ CmpConstant(left, CodeGenerator::GetInt32ValueOf(right.GetConstant()));
+      }
+
+      __ b(non_fallthrough_target, arm_cond);
     }
   }
 
@@ -2005,28 +2074,110 @@ void InstructionCodeGeneratorARM::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFla
 
 void LocationsBuilderARM::VisitSelect(HSelect* select) {
   LocationSummary* locations = new (GetGraph()->GetArena()) LocationSummary(select);
-  if (Primitive::IsFloatingPointType(select->GetType())) {
-    locations->SetInAt(0, Location::RequiresFpuRegister());
-    locations->SetInAt(1, Location::RequiresFpuRegister());
-  } else {
-    locations->SetInAt(0, Location::RequiresRegister());
-    locations->SetInAt(1, Location::RequiresRegister());
-  }
+  Location::OutputOverlap overlap = Location::kNoOutputOverlap;
+
   if (IsBooleanValueOrMaterializedCondition(select->GetCondition())) {
-    locations->SetInAt(2, Location::RequiresRegister());
+    locations->SetInAt(2, Location::RegisterOrConstant(select->GetCondition()));
+    // The code generator handles overlap with the values, but not with the condition.
+    overlap = Location::kOutputOverlap;
   }
-  locations->SetOut(Location::SameAsFirstInput());
+
+  if (Primitive::IsFloatingPointType(select->GetType())) {
+    locations->SetInAt(0, Location::FpuRegisterOrConstant(select->GetFalseValue()));
+    locations->SetInAt(1, Location::FpuRegisterOrConstant(select->GetTrueValue()));
+    locations->SetOut(Location::RequiresFpuRegister(), overlap);
+  } else {
+    locations->SetInAt(0, Location::RegisterOrConstant(select->GetFalseValue()));
+    locations->SetInAt(1, Location::RegisterOrConstant(select->GetTrueValue()));
+    locations->SetOut(Location::RequiresRegister(), overlap);
+  }
+}
+
+static bool GenerateSelectITBlock(HInstruction* condition, const Location& src) {
+  return src.IsRegister() &&
+         (IsBooleanValueOrMaterializedCondition(condition) ||
+          condition->AsCondition()->GetLeft()->GetType() != Primitive::kPrimLong ||
+          (condition->AsCondition()->GetLocations()->InAt(1).IsRegisterPair() &&
+           (condition->AsCondition()->GetCondition() == kCondEQ ||
+            condition->AsCondition()->GetCondition() == kCondNE)));
 }
 
 void InstructionCodeGeneratorARM::VisitSelect(HSelect* select) {
-  LocationSummary* locations = select->GetLocations();
-  Label false_target;
-  GenerateTestAndBranch(select,
-                        /* condition_input_index */ 2,
-                        /* true_target */ nullptr,
-                        &false_target);
-  codegen_->MoveLocation(locations->Out(), locations->InAt(1), select->GetType());
-  __ Bind(&false_target);
+  Location src;
+  HInstruction* const condition = select->GetCondition();
+  const LocationSummary* const locations = select->GetLocations();
+
+  if (condition->IsIntConstant()) {
+    if (condition->AsIntConstant()->IsFalse()) {
+      src = locations->InAt(0);
+    } else {
+      src = locations->InAt(1);
+    }
+
+    codegen_->MoveLocation(locations->Out(), src, select->GetType());
+    return;
+  }
+
+  // Since IT blocks longer than a 16-bit instruction are deprecated by ARMv8,
+  // we do this only for integers.
+  if (select->GetType() == Primitive::kPrimInt) {
+    bool invert = false;
+
+    if (locations->Out().Equals(locations->InAt(1))) {
+      src = locations->InAt(0);
+      invert = true;
+    } else {
+      src = locations->InAt(1);
+    }
+
+    if (GenerateSelectITBlock(condition, src)) {
+      if (!locations->Out().Equals(locations->InAt(0)) &&
+          !locations->Out().Equals(locations->InAt(1))) {
+        DCHECK(locations->InAt(1).Equals(src));
+        codegen_->MoveLocation(locations->Out(), locations->InAt(0), select->GetType());
+      }
+
+      const Condition cond = GenerateTest(condition, locations->InAt(2), invert, codegen_);
+
+      __ it(cond);
+      __ mov(locations->Out().AsRegister<Register>(),
+             ShifterOperand(src.AsRegister<Register>()),
+             cond);
+      return;
+    }
+
+    // Fall through.
+  }
+
+  const HBasicBlock* const block = select->GetBlock();
+  const HLoopInformation* const info = block->GetLoopInformation();
+  Label* false_target = nullptr;
+  Label* true_target = nullptr;
+  Label select_end;
+  Label* target = &select_end;
+
+  // Avoid a branch to a branch.
+  if (select->GetNext()->IsGoto() &&
+      (info == nullptr || !info->IsBackEdge(*block) || !info->HasSuspendCheck())) {
+    HBasicBlock* next = codegen_->FirstNonEmptyBlock(select->GetNext()->AsGoto()->GetSuccessor());
+    target = codegen_->GetLabelOf(next);
+  }
+
+  if (locations->Out().Equals(locations->InAt(1))) {
+    true_target = target;
+    src = locations->InAt(0);
+  } else {
+    false_target = target;
+    src = locations->InAt(1);
+
+    if (!locations->Out().Equals(locations->InAt(0))) {
+      codegen_->MoveLocation(locations->Out(), locations->InAt(0), select->GetType());
+    }
+  }
+
+  GenerateTestAndBranch(select, 2, true_target, false_target);
+  codegen_->MoveLocation(locations->Out(), src, select->GetType());
+  __ Bind(&select_end);
 }
 
 void LocationsBuilderARM::VisitNativeDebugInfo(HNativeDebugInfo* info) {
@@ -2105,7 +2256,7 @@ void InstructionCodeGeneratorARM::HandleCondition(HCondition* cond) {
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      GenerateVcmp(cond);
+      GenerateVcmp(cond, codegen_);
       GenerateFPJumps(cond, &true_label, &false_label);
       break;
   }
@@ -4159,7 +4310,7 @@ void InstructionCodeGeneratorARM::VisitCompare(HCompare* compare) {
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble: {
       __ LoadImmediate(out, 0);
-      GenerateVcmp(compare);
+      GenerateVcmp(compare, codegen_);
       __ vmstat();  // transfer FP status register to ARM APSR.
       less_cond = ARMFPCondition(kCondLT, compare->IsGtBias());
       break;
