@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bf9938d_6fe14dba",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-08T13:44:02Z",
+      "side": 1,
+      "message": "add a comment why is -1.\n\nYou could also consider not passing it all. Not much benefit in adding an extra flag knowing to be ignored.",
+      "range": {
+        "startLine": 598,
+        "startChar": 34,
+        "endLine": 598,
+        "endChar": 36
+      },
+      "revId": "242c4d6b85439f0298a1ea5f315c32cd6c7d9232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
