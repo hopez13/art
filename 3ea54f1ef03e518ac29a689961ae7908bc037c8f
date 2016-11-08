@@ -22,6 +22,30 @@
       "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_bbe0af85",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-11-08T09:51:18Z",
+      "side": 1,
+      "message": "That is correct.\nThere is not much need for FP temp registers in the macro assembler.",
+      "parentUuid": "2b6bb700_7b3d7723",
+      "range": {
+        "startLine": 1511,
+        "startChar": 8,
+        "endLine": 1512,
+        "endChar": 58
+      },
+      "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
