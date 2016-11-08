@@ -20,6 +20,7 @@
 #include "scoped_thread_state_change.h"
 
 #include "jni_env_ext-inl.h"
+#include "jni_internal.h"
 #include "obj_ptr-inl.h"
 #include "thread-inl.h"
 
@@ -96,18 +97,6 @@ inline jfieldID ScopedObjectAccessAlreadyRunnable::EncodeField(ArtField* field) 
   Locks::mutator_lock_->AssertSharedHeld(Self());
   DCHECK(IsRunnable());  // Don't work with raw objects in non-runnable states.
   return reinterpret_cast<jfieldID>(field);
-}
-
-inline ArtMethod* ScopedObjectAccessAlreadyRunnable::DecodeMethod(jmethodID mid) const {
-  Locks::mutator_lock_->AssertSharedHeld(Self());
-  DCHECK(IsRunnable());  // Don't work with raw objects in non-runnable states.
-  return reinterpret_cast<ArtMethod*>(mid);
-}
-
-inline jmethodID ScopedObjectAccessAlreadyRunnable::EncodeMethod(ArtMethod* method) const {
-  Locks::mutator_lock_->AssertSharedHeld(Self());
-  DCHECK(IsRunnable());  // Don't work with raw objects in non-runnable states.
-  return reinterpret_cast<jmethodID>(method);
 }
 
 inline bool ScopedObjectAccessAlreadyRunnable::IsRunnable() const {
