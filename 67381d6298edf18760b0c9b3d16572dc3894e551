@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_3b549fde",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T13:25:27Z",
+      "side": 0,
+      "message": "I think you can keep this shared here by just changing object_class line 492 (rename it to second_argument or something).\n\nHere and other archs as well.",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 29
+      },
+      "revId": "67381d6298edf18760b0c9b3d16572dc3894e551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
