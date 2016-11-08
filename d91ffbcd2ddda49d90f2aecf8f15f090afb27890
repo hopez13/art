@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_fb3987ec",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "NPE? (On the argument.)",
+      "range": {
+        "startLine": 113,
+        "startChar": 79,
+        "endLine": 113,
+        "endChar": 87
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b6e2b0f_f9feb343",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "StringBuilder.toString() is synchronized and that means kAllSideEffects. It can also throw OOME.",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 88
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b64332d_97eb0637",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "OOME?",
+      "range": {
+        "startLine": 121,
+        "startChar": 81,
+        "endLine": 121,
+        "endChar": 89
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b64332d_37fb120c",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "Make more specific. (Either intrinsic: or method_name: .)",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b6e2b0f_d9fbf751",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "We do not perform synchronization barrier folding, so this should definitely stay in the loop.",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b23efec_aab16fc8",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "To pull this out of the loop, the compiler needs to conclude that it\u0027s used only in contexts where the object identity does not matter, i.e. no reference comparison, the reference does not escape and the indexOf() intrinsic does not care about the reference itself.",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 23
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_3b6e5fe5",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "No barrier folding.",
+      "range": {
+        "startLine": 129,
+        "startChar": 14,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b12739d_aa368b45",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:32:13Z",
+      "side": 1,
+      "message": "Killing this invoke is the same as killing unused \"new Object()\", i.e. it\u0027s OK but we should be very clear that we\u0027re deliberately avoiding the object allocation and possible OOME.",
+      "range": {
+        "startLine": 152,
+        "startChar": 14,
+        "endLine": 152,
+        "endChar": 26
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
