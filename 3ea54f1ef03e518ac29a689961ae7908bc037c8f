@@ -94,6 +94,30 @@
       "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_3b1c9f7d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T11:10:13Z",
+      "side": 1,
+      "message": "The relevant part of the backtrace is\n\n#3  0x0000000000da4ffe in __assert_fail ()\n#4  0x00000000005f2159 in vixl::aarch64::UseScratchRegisterScope::AcquireNextAvailable (available\u003d...) at external/vixl/src/aarch64/macro-assembler-aarch64.cc:2875\n#5  0x000000000073a7fa in AcquireS (this\u003d...) at external/vixl/src/aarch64/macro-assembler-aarch64.h:3316\n#6  art::arm64::CodeGeneratorARM64::MoveLocation (this\u003d..., destination\u003d..., source\u003d..., dst_type\u003d...) at art/compiler/optimizing/code_generator_arm64.cc:1331\n#7  0x0000000000738b3e in art::arm64::ParallelMoveResolverARM64::EmitMove (this\u003d..., index\u003d...) at art/compiler/optimizing/code_generator_arm64.cc:1033\n\nThere is nothing platform-specific below that, so nothing to have a UseScratchRegisterScope.\n\nI don\u0027t really see how we could have exhausted the FP scratch register anywhere.",
+      "parentUuid": "2b6bb700_3b401f7c",
+      "range": {
+        "startLine": 1511,
+        "startChar": 8,
+        "endLine": 1512,
+        "endChar": 58
+      },
+      "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
