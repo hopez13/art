@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_bb90af67",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "This creates an ambiguity for the word \"literal\". Previously, it was used only for data embedded in the code, now you\u0027re also using the word for stuff in the metadata. These are weak roots, right? So why not JitRoots or JitWeakRoots?",
+      "parentUuid": "2b6bb700_55968c95",
+      "range": {
+        "startLine": 335,
+        "startChar": 20,
+        "endLine": 335,
+        "endChar": 28
+      },
+      "revId": "6465be1e8d69c23ff76dc30b34e76d85315c67ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c2b9a7f_6e17cf60",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
