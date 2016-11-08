@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_5a540ac6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-08T22:37:14Z",
+      "side": 1,
+      "message": "I am in favor of that (other CL though). The HasSideEffects() has the danger of being misinterpreted as well, since we are just dealing with reads/writes/gc side effects.",
+      "parentUuid": "0b12739d_2a261b86",
+      "range": {
+        "startLine": 1959,
+        "startChar": 9,
+        "endLine": 1959,
+        "endChar": 21
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b64332d_37fb120c",
         "filename": "test/624-checker-stringops/src/Main.java",
         "patchSetId": 2
