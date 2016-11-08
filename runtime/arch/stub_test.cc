@@ -813,13 +813,14 @@ TEST_F(StubTest, CheckCast) {
     (defined(__x86_64__) && !defined(__APPLE__))
   Thread* self = Thread::Current();
 
-  const uintptr_t art_quick_check_cast = StubTest::GetEntrypoint(self, kQuickCheckCast);
+  const uintptr_t art_quick_check_instance_of =
+      StubTest::GetEntrypoint(self, kQuickCheckInstanceOf);
 
   // Find some classes.
   ScopedObjectAccess soa(self);
   // garbage is created during ClassLinker::Init
 
-  StackHandleScope<4> hs(soa.Self());
+  VariableSizedHandleScope hs(soa.Self());
   Handle<mirror::Class> c(
       hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "[Ljava/lang/Object;")));
   Handle<mirror::Class> c2(
@@ -828,50 +829,53 @@ TEST_F(StubTest, CheckCast) {
       hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "[Ljava/util/List;")));
   Handle<mirror::Class> array_list(
       hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "[Ljava/util/ArrayList;")));
+  Handle<mirror::Object> obj_c(hs.NewHandle(c->AllocObject(soa.Self())));
+  Handle<mirror::Object> obj_c2(hs.NewHandle(c2->AllocObject(soa.Self())));
+  Handle<mirror::Object> obj_list(hs.NewHandle(list->AllocObject(soa.Self())));
 
   EXPECT_FALSE(self->IsExceptionPending());
 
-  Invoke3(reinterpret_cast<size_t>(c.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_c.Get()),
           reinterpret_cast<size_t>(c.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_FALSE(self->IsExceptionPending());
 
-  Invoke3(reinterpret_cast<size_t>(c2.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_c2.Get()),
           reinterpret_cast<size_t>(c2.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_FALSE(self->IsExceptionPending());
 
-  Invoke3(reinterpret_cast<size_t>(c.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_c.Get()),
           reinterpret_cast<size_t>(c2.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_FALSE(self->IsExceptionPending());
 
-  Invoke3(reinterpret_cast<size_t>(list.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_list.Get()),
           reinterpret_cast<size_t>(array_list.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_FALSE(self->IsExceptionPending());
 
-  Invoke3(reinterpret_cast<size_t>(list.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_list.Get()),
           reinterpret_cast<size_t>(c2.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_TRUE(self->IsExceptionPending());
   self->ClearException();
 
   // TODO: Make the following work. But that would require correct managed frames.
-  Invoke3(reinterpret_cast<size_t>(c2.Get()),
+  Invoke3(reinterpret_cast<size_t>(obj_c2.Get()),
           reinterpret_cast<size_t>(c.Get()),
           0U,
-          art_quick_check_cast,
+          art_quick_check_instance_of,
           self);
   EXPECT_TRUE(self->IsExceptionPending());
   self->ClearException();

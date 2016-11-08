@@ -458,20 +458,30 @@ class TypeCheckSlowPathARMVIXL : public SlowPathCodeARMVIXL {
     // We're moving two locations to locations that could overlap, so we need a parallel
     // move resolver.
     InvokeRuntimeCallingConventionARMVIXL calling_convention;
-    codegen->EmitParallelMoves(
-        locations->InAt(1),
-        LocationFrom(calling_convention.GetRegisterAt(0)),
-        Primitive::kPrimNot,
-        object_class,
-        LocationFrom(calling_convention.GetRegisterAt(1)),
-        Primitive::kPrimNot);
 
     if (instruction_->IsInstanceOf()) {
+      codegen->EmitParallelMoves(
+          locations->InAt(1),
+          LocationFrom(calling_convention.GetRegisterAt(0)),
+          Primitive::kPrimNot,
+          object_class,
+          LocationFrom(calling_convention.GetRegisterAt(1)),
+          Primitive::kPrimNot);
       TODO_VIXL32(FATAL);
     } else {
+      codegen->EmitParallelMoves(
+          locations->InAt(0),
+          LocationFrom(calling_convention.GetRegisterAt(0)),
+          Primitive::kPrimNot,
+          locations->InAt(1),
+          LocationFrom(calling_convention.GetRegisterAt(1)),
+          Primitive::kPrimNot);
       DCHECK(instruction_->IsCheckCast());
-      arm_codegen->InvokeRuntime(kQuickCheckCast, instruction_, instruction_->GetDexPc(), this);
-      CheckEntrypointTypes<kQuickCheckCast, void, const mirror::Class*, const mirror::Class*>();
+      arm_codegen->InvokeRuntime(kQuickCheckInstanceOf,
+                                 instruction_,
+                                 instruction_->GetDexPc(),
+                                 this);
+      CheckEntrypointTypes<kQuickCheckInstanceOf, void, mirror::Object*, mirror::Class*>();
     }
 
     if (!is_fatal_) {
