@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_3bd93f3e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "The code started on the kInvokeStatic route.\n\nIt went this way after noticing that other code (CallCommon) does the method switch late in execution. The advantage of this seemed to be making cracking unambiguous, MethodHandleInfo.reflectAs(). Not sure there\u0027s a good solution to this otherwise.\n\nWDYT?",
+      "parentUuid": "2b6bb700_1b59e314",
+      "range": {
+        "startLine": 939,
+        "startChar": 6,
+        "endLine": 940,
+        "endChar": 8
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_5b635bca",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-08T13:31:04Z",
       "side": 1,
       "message": "remove ? seems like left over debugging cruft.",
+      "range": {
+        "startLine": 505,
+        "startChar": 4,
+        "endLine": 505,
+        "endChar": 18
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_db200b64",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_5b635bca",
       "range": {
         "startLine": 505,
         "startChar": 4,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_5b7cfb5e",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_fb71878d",
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_db6e4bad",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2016-11-08T13:31:04Z",
       "side": 1,
       "message": "any particular reason you\u0027re not just doing \"value !\u003d 0.33f\" ?",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 35
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_fb23476d",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "Less ambiguity, \"value !\u003d 0.33f\" has specific rules about how conversion is done.",
+      "parentUuid": "2b6bb700_db6e4bad",
       "range": {
         "startLine": 507,
         "startChar": 8,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "2b6bb700_7b30d7b4",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_3b7dbf5e",
+      "range": {
+        "startLine": 550,
+        "startChar": 11,
+        "endLine": 550,
+        "endChar": 19
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_1b828324",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2016-11-08T13:31:04Z",
       "side": 1,
       "message": "given that you\u0027re numbering these exception messages, would it make sense to add numbers to your comment above two ? (might make it easier to match things up). Your call.",
+      "range": {
+        "startLine": 572,
+        "startChar": 26,
+        "endLine": 572,
+        "endChar": 27
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf9938d_6f12edca",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-08T14:49:01Z",
+      "side": 1,
+      "message": "Numbers removed and reporting changed from System.out.println(message) to fail(message).",
+      "parentUuid": "2b6bb700_1b828324",
       "range": {
         "startLine": 572,
         "startChar": 26,
