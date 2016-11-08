@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbb69be6_ae3c0ff7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Remove this line?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_ae532f52",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "I guess we didn\u0027t have a fast path for these before?",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 67
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_ce8f83b6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Remove this part of the comment (we don\u0027t load the lock word here)?",
+      "range": {
+        "startLine": 1229,
+        "startChar": 18,
+        "endLine": 1229,
+        "endChar": 52
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_2e763ffc",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Why is this?",
+      "range": {
+        "startLine": 1289,
+        "startChar": 4,
+        "endLine": 1289,
+        "endChar": 46
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_8e7bcb2e",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "How about \"AllocWithNewTLAB\"?",
+      "range": {
+        "startLine": 355,
+        "startChar": 15,
+        "endLine": 355,
+        "endChar": 32
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_6eebd78a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4231,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Do we update the current allocator when is_gc_marking changes?",
+      "range": {
+        "startLine": 4231,
+        "startChar": 39,
+        "endLine": 4231,
+        "endChar": 58
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_6e76774b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4242,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "It seems like we should retain \"*bytes_tl_bulk_allocated \u003d new_tlab_size;\" here. Should we?",
+      "range": {
+        "startLine": 4242,
+        "startChar": 4,
+        "endLine": 4242,
+        "endChar": 5
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_7dfab304",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Remove this backslash?",
+      "range": {
+        "startLine": 131,
+        "startChar": 52,
+        "endLine": 131,
+        "endChar": 53
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_7d2b9399",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Pass this as an argument from SetIsGcMarking instead of reloading the is_gc_marking (as this relies on that is_gc_marking_ is updated before the call, which could be error-prone)?",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 82
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_fd0c035b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-08T00:37:01Z",
+      "side": 1,
+      "message": "Rename this to suggest it may also update alloc entrypoints, or add a separate function for updating the entrypoints?",
+      "range": {
+        "startLine": 3139,
+        "startChar": 13,
+        "endLine": 3139,
+        "endChar": 27
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
