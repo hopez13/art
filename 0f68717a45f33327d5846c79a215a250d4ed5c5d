@@ -22,6 +22,30 @@
       "revId": "0f68717a45f33327d5846c79a215a250d4ed5c5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_bb538f52",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T10:26:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_78ed7d0d",
+      "range": {
+        "startLine": 169,
+        "startChar": 28,
+        "endLine": 175,
+        "endChar": 65
+      },
+      "revId": "0f68717a45f33327d5846c79a215a250d4ed5c5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
