@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_84d3a71c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-08T21:20:18Z",
+      "side": 1,
+      "message": "Interesting English question -- I think it sort of works either way, and sounds odd to the ear either way.  I accept your way, though.  (And you missed \"an loop\" :-) )",
+      "parentUuid": "2b6bb700_bbfd4fc4",
+      "range": {
+        "startLine": 1242,
+        "startChar": 85,
+        "endLine": 1242,
+        "endChar": 90
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_bbe6ef2f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -72,6 +96,54 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_24e49bf5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-08T21:20:18Z",
+      "side": 1,
+      "message": "I\u0027ll add your bit in a subsequent CL.",
+      "parentUuid": "cbb69be6_0f88953b",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_e4e9c3cf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-08T21:20:18Z",
+      "side": 1,
+      "message": "Moved.",
+      "parentUuid": "2b6bb700_bbe6ef2f",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_1bf8c3cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2016-11-08T13:14:14Z",
       "side": 1,
       "message": "Not really? I think i\u0027d avoid this helper method, and just inline the !Contains in HasNoExitEdges.",
+      "range": {
+        "startLine": 728,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 28
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_376ccf7b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-08T21:20:18Z",
+      "side": 1,
+      "message": "Out of context, I agree with the question.  Folded into the computation in Propagate.",
+      "parentUuid": "2b6bb700_1bf8c3cb",
       "range": {
         "startLine": 728,
         "startChar": 0,
