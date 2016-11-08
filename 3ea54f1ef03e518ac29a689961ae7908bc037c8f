@@ -46,6 +46,30 @@
       "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_3b9f7fec",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1512,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T10:01:18Z",
+      "side": 1,
+      "message": "Sure, but I\u0027m surprised we are only starting to hit the case described by Roland below (\"within a ParallelMove instruction, when a move is blocked by a another move\")",
+      "parentUuid": "2b6bb700_bbe0af85",
+      "range": {
+        "startLine": 1511,
+        "startChar": 8,
+        "endLine": 1512,
+        "endChar": 58
+      },
+      "revId": "3ea54f1ef03e518ac29a689961ae7908bc037c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
