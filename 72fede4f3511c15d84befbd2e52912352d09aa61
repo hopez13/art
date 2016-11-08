@@ -2,6 +2,120 @@
   "comments": [
     {
       "key": {
+        "uuid": "0bf9938d_0fc36929",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "DCHECK_EQ(literals-\u003eGetLength(), GetNumberOfJitLiterals());",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_fb07c7f5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5880,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "DCHECK(Runtime::Current()-\u003eUseJitCompilation());",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_db048bf4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5207,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "DCHECK(Runtime::Current()-\u003eUseJitCompilation());",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_3bf3fff4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "DCHECK(Runtime::Current()-\u003eUseJitCompilation());",
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_5bf23bed",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5710,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "I\u0027d prefer a line break here.",
+      "range": {
+        "startLine": 5710,
+        "startChar": 26,
+        "endLine": 5710,
+        "endChar": 27
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_7b5e17fe",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T13:49:15Z",
+      "side": 1,
+      "message": "add comment",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "72fede4f3511c15d84befbd2e52912352d09aa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abc1671f_9e0fa94e",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
