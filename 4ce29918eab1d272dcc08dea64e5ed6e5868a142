@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_1b59e314",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "i\u0027m not sure why this is necessary, can we not transform this (at the java layer) to a kInvokeStatic to the corresponding method ? The vast majority of the MethodHandles API doesn\u0027t really care about it (revealDirect is an exception, but we can fudge things there if we really care about this obscure case...)",
+      "range": {
+        "startLine": 939,
+        "startChar": 6,
+        "endLine": 940,
+        "endChar": 8
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_5b635bca",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "remove ? seems like left over debugging cruft.",
+      "range": {
+        "startLine": 505,
+        "startChar": 4,
+        "endLine": 505,
+        "endChar": 18
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_fb71878d",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "style nit (here and elsewhere): Please leave a single space between the cast and the expression.",
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_db6e4bad",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "any particular reason you\u0027re not just doing \"value !\u003d 0.33f\" ?",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 35
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_3b7dbf5e",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "nit: existent",
+      "range": {
+        "startLine": 550,
+        "startChar": 11,
+        "endLine": 550,
+        "endChar": 19
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_1b828324",
+        "filename": "test/956-methodhandles/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T13:31:04Z",
+      "side": 1,
+      "message": "given that you\u0027re numbering these exception messages, would it make sense to add numbers to your comment above two ? (might make it easier to match things up). Your call.",
+      "range": {
+        "startLine": 572,
+        "startChar": 26,
+        "endLine": 572,
+        "endChar": 27
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
