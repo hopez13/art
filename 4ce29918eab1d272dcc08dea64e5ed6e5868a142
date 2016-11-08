@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2bf0179f_33be909b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-08T14:52:07Z",
+      "side": 1,
+      "message": "Sounds fine, we\u0027ll just have to live with String init cruft in every new feature we implement.",
+      "parentUuid": "2b6bb700_3bd93f3e",
+      "range": {
+        "startLine": 939,
+        "startChar": 6,
+        "endLine": 940,
+        "endChar": 8
+      },
+      "revId": "4ce29918eab1d272dcc08dea64e5ed6e5868a142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_5b635bca",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 3
