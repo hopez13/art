@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_43450c8b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Options was a struct. I\u0027ve updated it to a class so that we don\u0027t need to initialize it with a memset.",
+      "parentUuid": "cbb69be6_40d262bb",
+      "range": {
+        "startLine": 2186,
+        "startChar": 2,
+        "endLine": 2186,
+        "endChar": 8
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be1cbe3_c7d774d5",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "const bool",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_c3fafcc8",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be1cbe3_c7d774d5",
       "range": {
         "startLine": 427,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_23abb875",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Currently, the layout relies on the order for iteration. Maybe later I can change the layout to use some other method to order the items.",
+      "parentUuid": "6bd84f3b_48b0d3dd",
+      "range": {
+        "startLine": 145,
+        "startChar": 41,
+        "endLine": 145,
+        "endChar": 52
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bb12ff1_bdd7e7d5",
         "filename": "dexlayout/dex_writer.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "dex_ir::Header* const header_;",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_e398e05d",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bb12ff1_bdd7e7d5",
       "range": {
         "startLine": 65,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_0396b430",
+        "filename": "dexlayout/dex_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be1cbe3_c7b4d488",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 9
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_002eaaed",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "Don\u0027t need the get()",
+      "range": {
+        "startLine": 1543,
+        "startChar": 15,
+        "endLine": 1543,
+        "endChar": 20
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_2e08ff9a",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_002eaaed",
       "range": {
         "startLine": 1543,
         "startChar": 15,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_ae1b2fe1",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "FlushCloseOrErase already outputs to LOG(ERROR) on an error. Hopefully that\u0027s good enough?",
+      "parentUuid": "cbb69be6_80b39a9f",
+      "range": {
+        "startLine": 1544,
+        "startChar": 21,
+        "endLine": 1544,
+        "endChar": 38
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_e0c1b6eb",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -180,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_eed447d3",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_e0c1b6eb",
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8baca39c_618f6c0b",
         "filename": "dexlayout/dexlayout.h",
         "patchSetId": 1
@@ -191,6 +377,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "Correct style is one arg per line here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 44
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_eebb67a2",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8baca39c_618f6c0b",
       "range": {
         "startLine": 66,
         "startChar": 12,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_0eb97baa",
+        "filename": "dexlayout/dexlayout.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_60ebe68a",
+      "range": {
+        "startLine": 90,
+        "startChar": 23,
+        "endLine": 91,
+        "endChar": 71
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0be7d3fb_0550781a",
         "filename": "runtime/compiler_filter.h",
         "patchSetId": 1
@@ -237,6 +471,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "I think we probably don\u0027t need this option in the long term and just want to do it for speed-profile and/or verify-profile?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_0e233b1f",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "You\u0027re probably right for the long term, but I\u0027d like it separate while I\u0027m still developing what layout-profile does.",
+      "parentUuid": "0be7d3fb_0550781a",
       "range": {
         "startLine": 43,
         "startChar": 4,
@@ -266,6 +524,24 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_4ef61374",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_205ace9a",
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_2043aeb2",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 1
@@ -277,6 +553,30 @@
       "writtenOn": "2016-11-07T21:58:13Z",
       "side": 1,
       "message": "Make it clearer what the ordering is? I.e. ordering classes in the profile first and other classes after?",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 93,
+        "endChar": 28
+      },
+      "revId": "807b670bc4d270cf23a4736a2c63f90e2e1cd5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_ce4a23c7",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-08T00:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_2043aeb2",
       "range": {
         "startLine": 93,
         "startChar": 7,
