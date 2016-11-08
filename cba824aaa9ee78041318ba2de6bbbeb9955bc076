@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_bbfd4fc4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T13:14:14Z",
+      "side": 1,
+      "message": "exit?",
+      "range": {
+        "startLine": 1242,
+        "startChar": 85,
+        "endLine": 1242,
+        "endChar": 90
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_bbe6ef2f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T13:14:14Z",
+      "side": 1,
+      "message": "Should we add a flag in HLoopInformation and compute it in PopulateLoop? This seems generally useful to know.",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6bb700_1bf8c3cb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T13:14:14Z",
+      "side": 1,
+      "message": "Not really? I think i\u0027d avoid this helper method, and just inline the !Contains in HasNoExitEdges.",
+      "range": {
+        "startLine": 728,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 28
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
