@@ -167,6 +167,29 @@
     },
     {
       "key": {
+        "uuid": "0b12739d_2a261b86",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-08T22:28:43Z",
+      "side": 1,
+      "message": "So DoesAnyWrite is very close to HasSideEffects, it\u0027s just the GC triggering that is different.\n\nShould we drop HasSideEffects? It\u0027s probably confusing in the presence of DoesAnyWrite.",
+      "range": {
+        "startLine": 1959,
+        "startChar": 9,
+        "endLine": 1959,
+        "endChar": 21
+      },
+      "revId": "d91ffbcd2ddda49d90f2aecf8f15f090afb27890",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b64332d_37fb120c",
         "filename": "test/624-checker-stringops/src/Main.java",
         "patchSetId": 2
