@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6bb700_fed4d5d2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-08T16:25:09Z",
+      "side": 1,
+      "message": "The way this is written, it requires sizeof(GcRoot\u003c\u003e) \u003d\u003d sizeof(uint32_t).\n\nPlease put the `reinterpret_cast\u003cGcRoot\u003cmirror::Object\u003e*\u003e(roots_data)` above to a local variable and do the subscripting on that variable before this reinterpret_cast.",
+      "revId": "4fcd9d63018be48f399ee6e48a0dd1d487a0c5cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
