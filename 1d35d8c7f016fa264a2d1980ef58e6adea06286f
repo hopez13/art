@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_7b91376a",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b32ab88_16db1cd2",
+      "range": {
+        "startLine": 199,
+        "startChar": 18,
+        "endLine": 199,
+        "endChar": 34
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b19f7c0_a86173f2",
         "filename": "test/624-checker-stringops/src/Main.java",
         "patchSetId": 4
