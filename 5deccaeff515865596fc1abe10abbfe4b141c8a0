@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6cdb83_d06d94e8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6760,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-09T23:01:09Z",
+      "side": 1,
+      "message": "Comment why this isn\u0027t a load-acquire or w/e.",
+      "range": {
+        "startLine": 6759,
+        "startChar": 6,
+        "endLine": 6760,
+        "endChar": 33
+      },
+      "revId": "5deccaeff515865596fc1abe10abbfe4b141c8a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_10856c56",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6914,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-09T23:01:09Z",
+      "side": 1,
+      "message": "Not super-crazy about this. Would be more readable if it was hidden. (Either as a second constructor, a constructor with default, or aptly named Create() functions. Or even subclassing.)",
+      "range": {
+        "startLine": 6911,
+        "startChar": 45,
+        "endLine": 6914,
+        "endChar": 46
+      },
+      "revId": "5deccaeff515865596fc1abe10abbfe4b141c8a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
