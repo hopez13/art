@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "cb6cdb83_300510ee",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-09T23:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_105ecc58",
+      "revId": "b78404f0153791f5b8590b8d8dc35c13af279de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8baca39c_b0eb7e89",
         "filename": "test/478-checker-inline-noreturn/src/Main.java",
         "patchSetId": 3
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Sorry I was so vague. I actually meant, why not make it a checker test and check in callerLoop that you see the invoke\n(also, we can use the $noline$ syntax to check fail if we do inline on the method)",
       "parentUuid": "cb6cdb83_50b8c479",
+      "revId": "b78404f0153791f5b8590b8d8dc35c13af279de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_50b52419",
+        "filename": "test/478-checker-inline-noreturn/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-09T23:15:21Z",
+      "side": 1,
+      "message": "With your help, I have done so.",
+      "parentUuid": "cb6cdb83_d0111478",
       "revId": "b78404f0153791f5b8590b8d8dc35c13af279de0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
