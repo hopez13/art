@@ -283,6 +283,30 @@
       "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_8a77ebb4",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-09T19:29:33Z",
+      "side": 1,
+      "message": "In dynamic BCE, we did hoist null checks out with a deoptimization, in order to do some BCE\u0027s.\n\nBut if we get null check for free with signal mechanism, it\u0027s ok not to hoist.",
+      "parentUuid": "2bd3b749_be769d7f",
+      "range": {
+        "startLine": 88,
+        "startChar": 99,
+        "endLine": 88,
+        "endChar": 117
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
