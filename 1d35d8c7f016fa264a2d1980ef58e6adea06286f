@@ -235,6 +235,30 @@
       "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb243f49_d33ff4f4",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-09T18:32:08Z",
+      "side": 1,
+      "message": "I see... We would have to split the header first, so that we branch over if the body is not executed at all:\n\n  while (cond) { ... } -\u003e if (cond) { do { ... } while (cond); }\n\nThen we can hoist certain throwing instructions out of the loop while keeping them inside the \"if\".",
+      "parentUuid": "2bd3b749_3b085f05",
+      "range": {
+        "startLine": 88,
+        "startChar": 99,
+        "endLine": 88,
+        "endChar": 117
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
