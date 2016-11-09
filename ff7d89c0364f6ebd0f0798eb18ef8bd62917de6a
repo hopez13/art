@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_5b9c3b50",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:52:03Z",
+      "side": 1,
+      "message": "I had no direct plans, but that is an interesting idea. Note that we have three uses of intrinsics: \n\n(1) ones that lower methods to HIR (unreachable)\n(2) ones that are unimplemented, but convey interesting properties to compiler (unimplemented)\n(3) ones that are implemented on some/call archs in better native code\n\nI was really using it for (2) here, but we can always move those to (3)",
+      "parentUuid": "2b4657f2_9dad0340",
+      "range": {
+        "startLine": 2603,
+        "startChar": 0,
+        "endLine": 2604,
+        "endChar": 55
+      },
+      "revId": "ff7d89c0364f6ebd0f0798eb18ef8bd62917de6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bd3b749_1b3a4388",
         "filename": "runtime/image.cc",
         "patchSetId": 5
