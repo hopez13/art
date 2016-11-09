@@ -216,6 +216,30 @@
     },
     {
       "key": {
+        "uuid": "cb6cdb83_30bf5061",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-09T22:17:17Z",
+      "side": 1,
+      "message": "Basically every transformation that adds or removes an edge risks updating this property.  And I think I can prove our test coverage wasn\u0027t adequate :-).  I\u0027m going to risk the compile time and just compute in the inliner.",
+      "parentUuid": "4b32ab88_f6c22024",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_1bf8c3cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
