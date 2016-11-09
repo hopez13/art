@@ -965,27 +965,33 @@ inline bool DoInvokePolymorphic(Thread* self,
       CHECK(called_method != nullptr);
     }
 
+    bool call_success;
     if (handle_kind == kInvokeTransform) {
-      return DoCallTransform<is_range>(called_method,
-                                       callsite_type,
-                                       handle_type,
-                                       self,
-                                       shadow_frame,
-                                       method_handle /* receiver */,
-                                       result,
-                                       arg,
-                                       first_src_reg);
+      call_success = DoCallTransform<is_range>(called_method,
+                                               callsite_type,
+                                               handle_type,
+                                               self,
+                                               shadow_frame,
+                                               method_handle /* receiver */,
+                                               result,
+                                               arg,
+                                               first_src_reg);
     } else {
-      return DoCallPolymorphic<is_range>(called_method,
-                                         callsite_type,
-                                         handle_type,
-                                         self,
-                                         shadow_frame,
-                                         result,
-                                         arg,
-                                         first_src_reg,
-                                         handle_kind);
+      call_success = DoCallPolymorphic<is_range>(called_method,
+                                                 callsite_type,
+                                                 handle_type,
+                                                 self,
+                                                 shadow_frame,
+                                                 result,
+                                                 arg,
+                                                 first_src_reg,
+                                                 handle_kind);
     }
+    if (LIKELY(call_success && ConvertReturnValue(callsite_type, handle_type, result))) {
+      return true;
+    }
+    DCHECK(self->IsExceptionPending());
+    return false;
   } else {
     DCHECK(!is_range);
     ArtField* field = method_handle->GetTargetField();
