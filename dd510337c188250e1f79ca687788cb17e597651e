@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b28b31a_d4e6fcd4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-09T14:25:45Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should instead assign the indexes straight away, in the order that they appear in the generated code (eventually even interleaving GcRoot\u003cString\u003e and GcRoot\u003cClass\u003e). That would help reduce the number of literals as we could then split the address between the literal load and the root load (using the available offset), similar to the old kDexCacheAddress, https://android-review.googlesource.com/#/c/237670/10/compiler/optimizing/code_generator_arm.cc@5204 .",
+      "range": {
+        "startLine": 7216,
+        "startChar": 72,
+        "endLine": 7216,
+        "endChar": 92
+      },
+      "revId": "dd510337c188250e1f79ca687788cb17e597651e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b192f0e_37b978ab",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-09T14:25:45Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 1156,
+        "startChar": 26,
+        "endLine": 1156,
+        "endChar": 33
+      },
+      "revId": "dd510337c188250e1f79ca687788cb17e597651e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
