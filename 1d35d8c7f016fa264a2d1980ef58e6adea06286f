@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bad4bb0_07453c64",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:13:30Z",
+      "side": 1,
+      "message": "yes, see my question on Nicolas on that",
+      "parentUuid": "2b19f7c0_087367cb",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 69
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb4b5ffb_9be0abb8",
         "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-09T14:30:13Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 199,
+        "startChar": 18,
+        "endLine": 199,
+        "endChar": 34
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_5b2d5ba9",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:13:30Z",
+      "side": 1,
+      "message": "see my query/comment in the original CL\n\nwith the original, we can remove the LoadClass  completely as dead, since it cannot throw, is not used, etc.\n\nI hope this keeps the intent, but was not completely sure. Hence my cry for help in the first CL :-)",
+      "parentUuid": "eb4b5ffb_9be0abb8",
       "range": {
         "startLine": 199,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ebafdfaa_c44994a7",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:13:30Z",
+      "side": 1,
+      "message": "oh I meant to drop the whole part starting from loop\n(since there are no other virtuals)\n\nbut your suggestion is a bit more robust",
+      "parentUuid": "2b19f7c0_a86173f2",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 66,
+        "endChar": 60
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b6e2b0f_19f8cfcb",
         "filename": "test/624-checker-stringops/src/Main.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-09T14:30:27Z",
       "side": 1,
       "message": "Why don\u0027t we hoist the null check out of the loop? The InputsAreDefinedBeforeLoop() in LICM says that \"[w]e can move an instruction that takes a loop header phi in the environment...\" Why doesn\u0027t it apply here?\n\n(Though this could actually be a pessimization for implicit null checks that can be merged into the following instruction if that instruction is not hoisted.)",
+      "range": {
+        "startLine": 88,
+        "startChar": 99,
+        "endLine": 88,
+        "endChar": 117
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_3b085f05",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T17:13:30Z",
+      "side": 1,
+      "message": "LICM never tries due to:\n\nbool found_first_non_hoisted_throwing_instruction_in_loop \u003d !inner-\u003eIsLoopHeader();\n\n(i.e. we only hoist out of header to preheader, never out of  loop-body proper). Hmm, maybe we need a loop optimizer.... :-)",
+      "parentUuid": "4b6e2b0f_19f8cfcb",
       "range": {
         "startLine": 88,
         "startChar": 99,
