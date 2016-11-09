@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2b4657f2_5d4e9bdd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T16:24:56Z",
+      "side": 1,
+      "message": "doh indeed. I\u0027ll do that as a cleanup + memory savings optimization.",
+      "parentUuid": "eb243f49_f3eb109a",
+      "range": {
+        "startLine": 7216,
+        "startChar": 72,
+        "endLine": 7216,
+        "endChar": 92
+      },
+      "revId": "dd510337c188250e1f79ca687788cb17e597651e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b192f0e_37b978ab",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
