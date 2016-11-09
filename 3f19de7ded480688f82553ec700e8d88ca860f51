@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb6cdb83_50e7642d",
+        "filename": "test/478-checker-inline-noreturn/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-09T23:15:21Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "cb6cdb83_50fe84bf",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "3f19de7ded480688f82553ec700e8d88ca860f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6cdb83_b0182058",
         "filename": "test/478-checker-inline-noreturn/src/Main.java",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-09T23:12:28Z",
       "side": 1,
       "message": "perhaps a bit double now actually with the check and the $noinline$ flag, but I like it!",
+      "revId": "3f19de7ded480688f82553ec700e8d88ca860f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_10e1ec16",
+        "filename": "test/478-checker-inline-noreturn/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-09T23:15:21Z",
+      "side": 1,
+      "message": "Belt and suspenders.",
+      "parentUuid": "cb6cdb83_b0182058",
       "revId": "3f19de7ded480688f82553ec700e8d88ca860f51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
