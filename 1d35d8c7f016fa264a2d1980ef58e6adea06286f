@@ -307,6 +307,30 @@
       "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_caa083e3",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T19:34:36Z",
+      "side": 1,
+      "message": "I am looking at a few cases where the LICM stops at the null check. That in itself is not so bad, but it prevents instructions that follow that could be hoisted. Stay tuned if this fans out.....",
+      "parentUuid": "cb6cdb83_8a77ebb4",
+      "range": {
+        "startLine": 88,
+        "startChar": 99,
+        "endLine": 88,
+        "endChar": 117
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
