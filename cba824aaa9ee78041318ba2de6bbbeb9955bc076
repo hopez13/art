@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "4b32ab88_f6c22024",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T14:08:40Z",
+      "side": 1,
+      "message": "It\u0027s the other way around I\u0027m worried:\n- Loop initially says it has one exit\n- We do block simplification, killing the exit edge\n- We forget to run loop analysis and the loop still says it has one exit\n- We do inlining and crash.",
+      "parentUuid": "cbb69be6_17218b65",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 1
+      },
+      "revId": "cba824aaa9ee78041318ba2de6bbbeb9955bc076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_1bf8c3cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
