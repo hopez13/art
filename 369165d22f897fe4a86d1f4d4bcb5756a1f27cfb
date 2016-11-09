@@ -448,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "ebe35fee_0e0ecee2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6353,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b6e2b0f_1948cfc9",
+      "range": {
+        "startLine": 6337,
+        "startChar": 0,
+        "endLine": 6353,
+        "endChar": 1
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bf0179f_f03cfe85",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
