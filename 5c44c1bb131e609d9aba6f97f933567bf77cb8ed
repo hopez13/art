@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b4fd308_bc27a1e5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6048,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T21:41:40Z",
+      "side": 1,
+      "message": "Interface",
+      "range": {
+        "startLine": 6048,
+        "startChar": 3,
+        "endLine": 6048,
+        "endChar": 16
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4fd308_9c1bc594",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T21:41:40Z",
+      "side": 1,
+      "message": "Interface",
+      "range": {
+        "startLine": 3338,
+        "startChar": 3,
+        "endLine": 3338,
+        "endChar": 16
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4fd308_bc2001c7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T21:41:40Z",
+      "side": 1,
+      "message": "InterfaceCheck",
+      "range": {
+        "startLine": 6372,
+        "startChar": 3,
+        "endLine": 6372,
+        "endChar": 16
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4fd308_5c069d3e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6818,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T21:41:40Z",
+      "side": 1,
+      "message": "missing \u0027.\u0027",
+      "range": {
+        "startLine": 6818,
+        "startChar": 50,
+        "endLine": 6818,
+        "endChar": 59
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
