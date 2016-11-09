@@ -259,6 +259,30 @@
       "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_be769d7f",
+        "filename": "test/624-checker-stringops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-09T18:38:11Z",
+      "side": 1,
+      "message": "In the Intel compiler we converted all loops to these top-tested/bottom-tested forms. Also saves some branching overhead for very tight loops.\n\nI am looking at a few other missed licm cases in our benchmarks as I type this message....\n\n\nBut all beyond the scope of this CL, I hope.",
+      "parentUuid": "eb243f49_d33ff4f4",
+      "range": {
+        "startLine": 88,
+        "startChar": 99,
+        "endLine": 88,
+        "endChar": 117
+      },
+      "revId": "1d35d8c7f016fa264a2d1980ef58e6adea06286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
