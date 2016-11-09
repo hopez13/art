@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_5e7d491f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6039,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b23efec_2a457f65",
+      "range": {
+        "startLine": 6039,
+        "startChar": 0,
+        "endLine": 6039,
+        "endChar": 59
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bf9938d_af2fb5a3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-09T10:07:29Z",
       "side": 1,
       "message": "Move this to kUnresolvedCheck (and adjust it, I think the second paragraph is now out of date).",
+      "range": {
+        "startLine": 6403,
+        "startChar": 0,
+        "endLine": 6412,
+        "endChar": 50
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_9ecc0156",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6412,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9938d_af2fb5a3",
       "range": {
         "startLine": 6403,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_de5ef98c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3712,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b6e2b0f_f9aeb3cd",
+      "range": {
+        "startLine": 3703,
+        "startChar": 0,
+        "endLine": 3712,
+        "endChar": 50
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bf9938d_8f2c79b0",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-09T10:07:29Z",
       "side": 1,
       "message": "What is the code that is related to this comment?",
+      "range": {
+        "startLine": 3715,
+        "startChar": 0,
+        "endLine": 3717,
+        "endChar": 74
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_1e559163",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3717,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Copy paste error.",
+      "parentUuid": "0bf9938d_8f2c79b0",
       "range": {
         "startLine": 3715,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_1e2eb1ed",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6803,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_1e4a7173",
+      "range": {
+        "startLine": 6788,
+        "startChar": 0,
+        "endLine": 6803,
+        "endChar": 66
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bf9938d_cf3681fc",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-09T10:07:29Z",
       "side": 1,
       "message": "... Therefore we just jump to the slow path if we are running under poisoning.",
+      "range": {
+        "startLine": 6805,
+        "startChar": 0,
+        "endLine": 6807,
+        "endChar": 74
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_9e8401a7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6807,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9938d_cf3681fc",
       "range": {
         "startLine": 6805,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_1bbda3b6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6217,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "kArrayObjectCheck cant use NearLabel since it may be too short due to read barriers. When I remove the read barrier there I plan on moving the label outside the switch.",
+      "parentUuid": "4b1c6baf_6cc82f42",
+      "range": {
+        "startLine": 6213,
+        "startChar": 0,
+        "endLine": 6217,
+        "endChar": 7
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b1c6baf_4ccd7350",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "2bd3b749_dbaf2b7e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6248,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b1c6baf_4ccd7350",
+      "range": {
+        "startLine": 6233,
+        "startChar": 0,
+        "endLine": 6248,
+        "endChar": 66
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bf9938d_2f458565",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -197,6 +389,30 @@
       "writtenOn": "2016-11-09T10:07:29Z",
       "side": 1,
       "message": "ditto about saying you always go to slow path when poisoning.",
+      "range": {
+        "startLine": 6252,
+        "startChar": 73,
+        "endLine": 6252,
+        "endChar": 74
+      },
+      "revId": "addab3dac8b33d0832030e96fd647edf0d434919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd3b749_bba46fa3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T18:26:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf9938d_2f458565",
       "range": {
         "startLine": 6252,
         "startChar": 73,
