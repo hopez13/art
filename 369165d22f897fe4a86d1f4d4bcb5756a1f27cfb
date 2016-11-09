@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bd84f3b_1465f8cb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6031,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b6e2b0f_39430bb3",
+      "range": {
+        "startLine": 6015,
+        "startChar": 0,
+        "endLine": 6031,
+        "endChar": 1
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_7b9bb7ac",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_5745c38a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6248,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_7b9bb7ac",
+      "range": {
+        "startLine": 6248,
+        "startChar": 2,
+        "endLine": 6248,
+        "endChar": 30
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_5ba07bdd",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-08T13:00:28Z",
       "side": 1,
       "message": "Please make the kUnresolvedCheck a standalone case instead.",
+      "range": {
+        "startLine": 6458,
+        "startChar": 0,
+        "endLine": 6458,
+        "endChar": 62
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_773007b5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6458,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_5ba07bdd",
       "range": {
         "startLine": 6458,
         "startChar": 0,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "0be7d3fb_3d557964",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6459,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_9bb17330",
+      "range": {
+        "startLine": 6459,
+        "startChar": 10,
+        "endLine": 6459,
+        "endChar": 23
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be1cbe3_0f65e7cb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6459,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_bbb42f20",
+      "range": {
+        "startLine": 6459,
+        "startChar": 67,
+        "endLine": 6459,
+        "endChar": 74
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b6bb700_fbaea7cd",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-08T13:00:28Z",
       "side": 1,
       "message": "CompareAndBranchIfZero",
+      "range": {
+        "startLine": 6479,
+        "startChar": 0,
+        "endLine": 6480,
+        "endChar": 27
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb69be6_176fcbaa",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6480,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_fbaea7cd",
       "range": {
         "startLine": 6479,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_572b034b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6498,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6bb700_dbabebbb",
+      "range": {
+        "startLine": 6496,
+        "startChar": 0,
+        "endLine": 6498,
+        "endChar": 30
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b1c6baf_e96b71cc",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "8baca39c_6d1cb37e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3333,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b1c6baf_e96b71cc",
+      "range": {
+        "startLine": 3317,
+        "startChar": 0,
+        "endLine": 3333,
+        "endChar": 1
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b23efec_4a1713b9",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -197,6 +389,30 @@
       "writtenOn": "2016-11-08T13:00:28Z",
       "side": 1,
       "message": "ditto: make this a standalone case.",
+      "range": {
+        "startLine": 3742,
+        "startChar": 0,
+        "endLine": 3742,
+        "endChar": 41
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd84f3b_b449ac2f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3742,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b23efec_4a1713b9",
       "range": {
         "startLine": 3742,
         "startChar": 0,
@@ -243,6 +459,30 @@
       "writtenOn": "2016-11-08T13:00:28Z",
       "side": 1,
       "message": "ditto make standalone case.",
+      "range": {
+        "startLine": 6801,
+        "startChar": 0,
+        "endLine": 6801,
+        "endChar": 41
+      },
+      "revId": "369165d22f897fe4a86d1f4d4bcb5756a1f27cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc73767_29c2a7ef",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6801,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T00:17:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bf0179f_f03cfe85",
       "range": {
         "startLine": 6801,
         "startChar": 0,
