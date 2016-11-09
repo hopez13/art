@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b2f3724_75afe863",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-09T14:56:57Z",
+      "side": 1,
+      "message": "memory",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "6e01822277c4f6fcc6721e25f4e247fb1fa0216d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b192f0e_d707dc8b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-09T14:56:57Z",
+      "side": 1,
+      "message": "Why not:\n\n  new_block-\u003edominated_blocks_.swap(dominated_blocks_);\n\nto preserve the style you used elsewhere?",
+      "range": {
+        "startLine": 1488,
+        "startChar": 2,
+        "endLine": 1488,
+        "endChar": 55
+      },
+      "revId": "6e01822277c4f6fcc6721e25f4e247fb1fa0216d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b28b31a_d407dc8b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-09T14:56:57Z",
+      "side": 1,
+      "message": "By the way, do you think there are also refactoring opportunities with HBasicBlock::MergeWith?",
+      "range": {
+        "startLine": 1879,
+        "startChar": 5,
+        "endLine": 1879,
+        "endChar": 34
+      },
+      "revId": "6e01822277c4f6fcc6721e25f4e247fb1fa0216d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
