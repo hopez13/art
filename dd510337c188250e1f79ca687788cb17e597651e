@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2b4657f2_7dd83705",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T14:43:54Z",
+      "side": 1,
+      "message": "Interleaving is no problem, but I\u0027d like to avoid duplicated strings/classes in the table. This means we will have to collect the HLoadClass and HLoadString during eg prepare_for_register_allocation, or LocationBuilder. Then we can assign them an index before CodeGenerator. \n\nThinking about it, I like the idea. I\u0027ll try and do that in a follow-up, if that\u0027s ok with you?",
+      "parentUuid": "0b28b31a_d4e6fcd4",
+      "range": {
+        "startLine": 7216,
+        "startChar": 72,
+        "endLine": 7216,
+        "endChar": 92
+      },
+      "revId": "dd510337c188250e1f79ca687788cb17e597651e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b192f0e_37b978ab",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-09T14:25:45Z",
       "side": 1,
       "message": "indentation",
+      "range": {
+        "startLine": 1156,
+        "startChar": 26,
+        "endLine": 1156,
+        "endChar": 33
+      },
+      "revId": "dd510337c188250e1f79ca687788cb17e597651e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b28b31a_54dbcc02",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-09T14:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b192f0e_37b978ab",
       "range": {
         "startLine": 1156,
         "startChar": 26,
