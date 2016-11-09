@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb6cdb83_b0c6e0a4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6760,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T23:10:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_d06d94e8",
+      "range": {
+        "startLine": 6759,
+        "startChar": 6,
+        "endLine": 6760,
+        "endChar": 33
+      },
+      "revId": "5deccaeff515865596fc1abe10abbfe4b141c8a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6cdb83_10856c56",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-09T23:01:09Z",
       "side": 1,
       "message": "Not super-crazy about this. Would be more readable if it was hidden. (Either as a second constructor, a constructor with default, or aptly named Create() functions. Or even subclassing.)",
+      "range": {
+        "startLine": 6911,
+        "startChar": 45,
+        "endLine": 6914,
+        "endChar": 46
+      },
+      "revId": "5deccaeff515865596fc1abe10abbfe4b141c8a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_90c15c91",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6914,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-09T23:10:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_10856c56",
       "range": {
         "startLine": 6911,
         "startChar": 45,
