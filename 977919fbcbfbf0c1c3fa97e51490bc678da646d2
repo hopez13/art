@@ -16,6 +16,24 @@
       "revId": "977919fbcbfbf0c1c3fa97e51490bc678da646d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_3bb52382",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6817,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:34:37Z",
+      "side": 0,
+      "message": "Yes accidental double load.",
+      "parentUuid": "8b5ca306_1b805fe0",
+      "revId": "977919fbcbfbf0c1c3fa97e51490bc678da646d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
