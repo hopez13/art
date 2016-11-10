@@ -16,6 +16,24 @@
       "revId": "3aaf9b7be92c715e3101f82c3dadadae1e9dc0f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6beccf3c_bf5937a8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T13:12:13Z",
+      "side": 1,
+      "message": "We could still DCHECK(object !\u003d nullptr) and we could also DCHECK(new_string-\u003eIsString()) further down.",
+      "parentUuid": "0bfb53f7_5c23dd1e",
+      "revId": "3aaf9b7be92c715e3101f82c3dadadae1e9dc0f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
