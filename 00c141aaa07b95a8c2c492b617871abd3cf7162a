@@ -22,6 +22,30 @@
       "revId": "00c141aaa07b95a8c2c492b617871abd3cf7162a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bba0f39_cf439d5d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T17:48:49Z",
+      "side": 1,
+      "message": "I think there\u0027s a one level call stack check to ensure the caller doesn\u0027t hold the lock.",
+      "parentUuid": "4bf54bfd_de4ec5ac",
+      "range": {
+        "startLine": 173,
+        "startChar": 25,
+        "endLine": 173,
+        "endChar": 58
+      },
+      "revId": "00c141aaa07b95a8c2c492b617871abd3cf7162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
