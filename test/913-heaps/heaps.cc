@@ -25,10 +25,15 @@
 #include "base/logging.h"
 #include "base/macros.h"
 #include "base/stringprintf.h"
+#include "jit/jit.h"
 #include "jni.h"
 #include "openjdkjvmti/jvmti.h"
+#include "runtime.h"
+#include "thread-inl.h"
 #include "ti-agent/common_helper.h"
 #include "ti-agent/common_load.h"
+
+
 
 namespace art {
 namespace Test913Heaps {
@@ -276,6 +281,13 @@ jint OnLoad(JavaVM* vm,
     return 1;
   }
   return 0;
+}
+
+extern "C" JNIEXPORT void JNICALL Java_Main_waitForJitCompilation(JNIEnv*, jclass) {
+  jit::Jit* jit = Runtime::Current()->GetJit();
+  if (jit != nullptr) {
+    jit->WaitForCompilationToFinish(Thread::Current());
+  }
 }
 
 }  // namespace Test913Heaps
