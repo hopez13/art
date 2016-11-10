@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_18e7852e",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-10T20:05:11Z",
+      "side": 1,
+      "message": "Updated comment, hopefully clearer now.",
+      "parentUuid": "cbe13b42_42593249",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "2b2f8eec3f52cadcf36442eb84e2cd02c94ba3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b56f3b8_642d0aaa",
         "filename": "runtime/mirror/method_type.h",
         "patchSetId": 3
