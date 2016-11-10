@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_9bcc6f21",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6297,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T20:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b5ca306_b80e9915",
+      "range": {
+        "startLine": 6297,
+        "startChar": 2,
+        "endLine": 6297,
+        "endChar": 34
+      },
+      "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bba0f39_cfe55dc7",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_1be13f89",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6325,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T20:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b5ca306_f8181159",
+      "range": {
+        "startLine": 6325,
+        "startChar": 62,
+        "endLine": 6325,
+        "endChar": 67
+      },
+      "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b5ca306_7805e1ec",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -106,6 +154,24 @@
       "writtenOn": "2016-11-10T20:04:22Z",
       "side": 1,
       "message": "CHECK(kEmitCompilerReadBarrier) ?",
+      "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_3b67e345",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7033,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T20:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b5ca306_7805e1ec",
       "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
