@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b5ca306_7e6949d4",
+        "filename": "test/030-bad-finalizer/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-10T22:29:41Z",
+      "side": 1,
+      "message": "Doesn\u0027t really have to be volatile, considering it\u0027s a field. Oh well.",
+      "range": {
+        "startLine": 83,
+        "startChar": 40,
+        "endLine": 83,
+        "endChar": 48
+      },
+      "revId": "6bbeecca4b6669bf138b7240b4f09afca03bac27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
