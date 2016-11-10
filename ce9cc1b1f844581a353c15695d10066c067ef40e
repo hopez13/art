@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b56f3b8_c444fe6a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T15:46:10Z",
+      "side": 1,
+      "message": "Use SETUP_SAVE_EVERYTHING_FRAME. Fix the comment: \"save everything in case of GC\"",
+      "range": {
+        "startLine": 1112,
+        "startChar": 0,
+        "endLine": 1128,
+        "endChar": 86
+      },
+      "revId": "ce9cc1b1f844581a353c15695d10066c067ef40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b56f3b8_e449fa7f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T15:46:10Z",
+      "side": 1,
+      "message": "Align comment with the line below. s/callee saves/everything/",
+      "range": {
+        "startLine": 1654,
+        "startChar": 46,
+        "endLine": 1654,
+        "endChar": 48
+      },
+      "revId": "ce9cc1b1f844581a353c15695d10066c067ef40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b56f3b8_843e06cf",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T15:46:10Z",
+      "side": 1,
+      "message": "This comment was deliberately a bit to the left in order to fit to the 100 character limit. Maybe move all the comments a bit left?",
+      "range": {
+        "startLine": 1164,
+        "startChar": 60,
+        "endLine": 1164,
+        "endChar": 65
+      },
+      "revId": "ce9cc1b1f844581a353c15695d10066c067ef40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
