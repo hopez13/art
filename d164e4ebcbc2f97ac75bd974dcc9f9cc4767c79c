@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6beccf3c_3fb247cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T10:26:49Z",
+      "side": 1,
+      "message": "Actually, why do you say \"consider\"? Because of complexity? If not because of complexity, I\u0027d prefer having all archs behave the same way.",
+      "range": {
+        "startLine": 17,
+        "startChar": 33,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb527fc5_63af4264",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T10:26:49Z",
+      "side": 1,
+      "message": "Should be test-art-target too.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6cdb83_d3259e79",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
