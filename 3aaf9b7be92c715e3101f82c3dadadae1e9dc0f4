@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bfb53f7_5c23dd1e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T12:35:45Z",
+      "side": 1,
+      "message": "We cannot do this check as the object is in the old space. I could put a comment here, but it felt ackward to comment dead code.",
+      "revId": "3aaf9b7be92c715e3101f82c3dadadae1e9dc0f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
