@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb6cdb83_84ea7ac2",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-10T16:45:39Z",
+      "side": 1,
+      "message": "Helper function?\n\nAlternatively, move everything into the GraphVisualizer? (That was my original multi-threading change, but for final output the local change in the caller was simpler)",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 198,
+        "endChar": 30
+      },
+      "revId": "3554edee9a3dbb36248347a7119938776852c637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
