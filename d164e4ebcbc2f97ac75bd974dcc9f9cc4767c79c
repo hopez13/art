@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "8be74356_80bcd69c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6749,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T10:45:00Z",
+      "side": 1,
+      "message": "LR?",
+      "range": {
+        "startLine": 6749,
+        "startChar": 49,
+        "endLine": 6749,
+        "endChar": 51
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbe13b42_22198ee9",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -87,6 +110,29 @@
         "startChar": 0,
         "endLine": 610,
         "endChar": 88
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bba0f39_2f1ce9d8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T10:45:00Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 69
       },
       "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -111,6 +157,46 @@
         "endLine": 5292,
         "endChar": 12
       },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf54bfd_de16c5bb",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T10:45:00Z",
+      "side": 1,
+      "message": "LR?",
+      "range": {
+        "startLine": 5310,
+        "startChar": 22,
+        "endLine": 5310,
+        "endChar": 38
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be74356_60b9d2aa",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-10T10:45:00Z",
+      "side": 1,
+      "message": "Remove one of the two blank lines.",
       "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
