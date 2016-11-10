@@ -22,6 +22,30 @@
       "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_df3fdff4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6304,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T18:05:19Z",
+      "side": 1,
+      "message": "I think its not the same for heap poisoning though.",
+      "parentUuid": "6bba0f39_cfe55dc7",
+      "range": {
+        "startLine": 6296,
+        "startChar": 0,
+        "endLine": 6304,
+        "endChar": 3
+      },
+      "revId": "aa474eb597056d21c0b21d353b9b6aa460351d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
