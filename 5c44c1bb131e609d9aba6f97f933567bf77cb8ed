@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6bba0f39_ef63015a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T11:20:51Z",
+      "side": 1,
+      "message": "The comment should be dropped (here and line 6442).",
+      "parentUuid": "eb527fc5_03d52ecc",
+      "range": {
+        "startLine": 6459,
+        "startChar": 0,
+        "endLine": 6460,
+        "endChar": 88
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b4fd308_9c1bc594",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 6
