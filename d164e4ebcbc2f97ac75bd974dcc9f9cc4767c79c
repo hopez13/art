@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "cbe13b42_22198ee9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-10T10:24:31Z",
+      "side": 1,
+      "message": "Could you also add a comment explaining in which situation we already have loaded the entrypoint, and which we haven\u0027t?",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 88
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6cdb83_f35302dd",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
