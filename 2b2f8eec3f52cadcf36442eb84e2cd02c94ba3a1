@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b56f3b8_a4954289",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-10T16:05:59Z",
+      "side": 1,
+      "message": "At the point this check is made, we\u0027re just comparing signatures and throwing a WrongMethodTypeException in case of failure.\n\nThe documentation for this is the conversion paths outlined in:\n\nhttps://docs.oracle.com/javase/8/docs/api/java/lang/invoke/MethodHandle.html#asType-java.lang.invoke.MethodType-\n\nCast exceptions are raised when converting the values the caller provides.",
+      "parentUuid": "0bfb53f7_7cdb39d1",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "2b2f8eec3f52cadcf36442eb84e2cd02c94ba3a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b56f3b8_642d0aaa",
         "filename": "runtime/mirror/method_type.h",
         "patchSetId": 3
