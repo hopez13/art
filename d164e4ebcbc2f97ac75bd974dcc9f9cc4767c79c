@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_1e376d44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "x86 would require adding one instruction in the fast path since it is currently doing a memory compare. This could possibly be slower. I\u0027ll consider adding it in another CL.",
+      "parentUuid": "6beccf3c_3fb247cc",
+      "range": {
+        "startLine": 17,
+        "startChar": 33,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb527fc5_63af4264",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-10T10:26:49Z",
       "side": 1,
       "message": "Should be test-art-target too.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_3e34313d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb527fc5_63af4264",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_7b0b1bd2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6736,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_d3259e79",
+      "range": {
+        "startLine": 6734,
+        "startChar": 0,
+        "endLine": 6736,
+        "endChar": 12
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be74356_80bcd69c",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-10T10:45:00Z",
       "side": 1,
       "message": "LR?",
+      "range": {
+        "startLine": 6749,
+        "startChar": 49,
+        "endLine": 6749,
+        "endChar": 51
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_1b43ff0e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6749,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8be74356_80bcd69c",
       "range": {
         "startLine": 6749,
         "startChar": 49,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_1eb84d79",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbe13b42_22198ee9",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 88
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bba0f39_2f1ce9d8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-10T10:45:00Z",
       "side": 1,
       "message": "Why do we need this?",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 69
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_9e753df1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "I just copied out of the InvokeRuntimeWithoutRecordingPcInfo, maybe its not necessary.",
+      "parentUuid": "6bba0f39_2f1ce9d8",
       "range": {
         "startLine": 675,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_9e3ffdf5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5292,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_f35302dd",
+      "range": {
+        "startLine": 5290,
+        "startChar": 0,
+        "endLine": 5292,
+        "endChar": 12
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_de16c5bb",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-10T10:45:00Z",
       "side": 1,
       "message": "LR?",
+      "range": {
+        "startLine": 5310,
+        "startChar": 22,
+        "endLine": 5310,
+        "endChar": 38
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_7e5b0968",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5310,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Why do you prefer LR?",
+      "parentUuid": "4bf54bfd_de16c5bb",
       "range": {
         "startLine": 5310,
         "startChar": 22,
@@ -203,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_9e28ddb9",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8be74356_60b9d2aa",
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6cdb83_d3b7de2d",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -214,6 +424,30 @@
       "writtenOn": "2016-11-10T01:12:41Z",
       "side": 1,
       "message": "Rename this to suggest we change entrypoints?",
+      "range": {
+        "startLine": 121,
+        "startChar": 13,
+        "endLine": 121,
+        "endChar": 27
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_1e3dadf1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-10T22:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6cdb83_d3b7de2d",
       "range": {
         "startLine": 121,
         "startChar": 13,
