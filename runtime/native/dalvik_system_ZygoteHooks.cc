@@ -75,6 +75,7 @@ static void EnableDebugFeatures(uint32_t debug_flags) {
     DEBUG_GENERATE_DEBUG_INFO       = 1 << 5,
     DEBUG_ALWAYS_JIT                = 1 << 6,
     DEBUG_NATIVE_DEBUGGABLE         = 1 << 7,
+    DEBUG_FULLY_DEOPTABLE           = 1 << 8,
   };
 
   Runtime* const runtime = Runtime::Current();
@@ -101,6 +102,12 @@ static void EnableDebugFeatures(uint32_t debug_flags) {
     EnableDebugger();
   }
   debug_flags &= ~DEBUG_ENABLE_DEBUGGER;
+
+  if ((debug_flags & DEBUG_FULLY_DEOPTABLE) != 0) {
+    runtime->AddCompilerOption("--debuggable");
+    runtime->SetFullyDeoptable(true);
+  }
+  debug_flags &= ~DEBUG_FULLY_DEOPTABLE;
 
   const bool safe_mode = (debug_flags & DEBUG_ENABLE_SAFEMODE) != 0;
   if (safe_mode) {
