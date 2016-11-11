@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "6b568fef_6f553163",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-11T00:09:17Z",
+      "side": 1,
+      "message": "lr is the default idiom when calling. It\u0027s also blocked, exactly because we always use it. I guess Vladimir thinks you can go without this temp.",
+      "parentUuid": "8b5ca306_7e5b0968",
+      "range": {
+        "startLine": 5310,
+        "startChar": 22,
+        "endLine": 5310,
+        "endChar": 38
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8be74356_60b9d2aa",
         "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
         "patchSetId": 2
