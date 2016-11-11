@@ -2532,7 +2532,9 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
   } else {
     ScopedObjectAccessUnchecked soa(self);
     ObjPtr<mirror::Class> cp_klass;
-    if (FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass)) {
+    bool known_hierarchy =
+        FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass);
+    if (known_hierarchy) {
       // The chain was understood. So the value in cp_klass is either the class we were looking
       // for, or not found.
       if (cp_klass != nullptr) {
@@ -2578,8 +2580,57 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
                                              class_name_string.c_str()).c_str());
       return nullptr;
     } else {
+      ObjPtr<mirror::Class> result_ptr = soa.Decode<mirror::Class>(result.get());
+      if (known_hierarchy) {
+        if (kIsDebugBuild) {
+          known_hierarchy =
+              FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass);
+          CHECK(known_hierarchy);
+          CHECK(cp_klass == soa.Decode<mirror::Class>(result.get()));
+          const char* result_name =
+              result_ptr->GetDexFile().StringByTypeIdx(result_ptr->GetDexTypeIndex());
+          CHECK_EQ(strcmp(result_name, descriptor), 0);
+        }
+      } else {
+        const char* result_name =
+            result_ptr->GetDexFile().StringByTypeIdx(result_ptr->GetDexTypeIndex());
+        if (UNLIKELY(strcmp(result_name, descriptor) != 0)) {
+          mirror::Class* loader_class = class_loader->GetClass();
+          const char* loader_class_name =
+              loader_class->GetDexFile().StringByTypeIdx(loader_class->GetDexTypeIndex());
+          ThrowLinkageError(nullptr,
+                            "Initiating class loader of type %s returned class %s instead of %s.",
+                            DescriptorToDot(loader_class_name).c_str(),
+                            DescriptorToDot(result_name).c_str(),
+                            class_name_string.c_str());
+          return nullptr;
+        }
+        ObjPtr<mirror::Class> old;
+        {
+          ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
+          ClassTable* const class_table = ClassTableForClassLoader(class_loader.Get());
+          if (class_table != nullptr) {
+            old = class_table->Lookup(descriptor, hash);
+            if (old == nullptr) {
+              class_table->Insert(result_ptr.Ptr());
+              old = result_ptr;
+            }
+          }
+        }
+        if (UNLIKELY(old != result_ptr)) {
+          mirror::Class* loader_class = class_loader->GetClass();
+          const char* loader_class_name =
+              loader_class->GetDexFile().StringByTypeIdx(loader_class->GetDexTypeIndex());
+          ThrowLinkageError(nullptr,
+                            "Initiating class loader of type %s is not well-behaved; "
+                                "it returned different Class for racing loadClass(\"%s\").",
+                            DescriptorToDot(loader_class_name).c_str(),
+                            class_name_string.c_str());
+          return nullptr;
+        }
+      }
       // success, return mirror::Class*
-      return soa.Decode<mirror::Class>(result.get()).Ptr();
+      return result_ptr.Ptr();
     }
   }
   UNREACHABLE();
