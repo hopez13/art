@@ -438,7 +438,15 @@ public class Main {
     return "foo";
   }
 
+  public static void frob(Integer i){}
+  public static void frob(boolean i){}
+  public static void frob(Integer i, boolean b){}
+
   public static void testAsType() throws Throwable {
+      MethodHandle oh = MethodHandles.lookup().findStatic(
+          Main.class, "frob", MethodType.methodType(void.class, boolean.class));
+      oh.invoke(Boolean.TRUE);
+
     // The type of this handle is (String, String)String.
     MethodHandle mh = MethodHandles.lookup().findVirtual(String.class,
         "concat", MethodType.methodType(String.class, String.class));
@@ -842,6 +850,43 @@ public class Main {
     // void -> long
     long l = (long) mh.invoke();
     if (l != 0) fail();
+
+    // boolean -> Boolean
+    mh = MethodHandles.lookup().findStatic(Boolean.class, "parseBoolean",
+                                           MethodType.methodType(boolean.class, String.class));
+    Boolean z = (Boolean) mh.invoke("True");
+    if (!z.booleanValue()) fail();
+
+    // boolean -> int
+    try {
+        int dummy = (int) mh.invoke("True");
+        fail();
+    } catch (WrongMethodTypeException e) {}
+
+    // boolean -> Integer
+    try {
+        Integer dummy = (Integer) mh.invoke("True");
+        fail();
+    } catch (WrongMethodTypeException e) {}
+
+    // Boolean -> boolean
+    mh = MethodHandles.lookup().findStatic(Boolean.class, "valueOf",
+                                           MethodType.methodType(Boolean.class, boolean.class));
+    boolean w = (boolean) mh.invoke(false);
+    if (w) fail();
+
+    // Boolean -> int
+    try {
+        int dummy = (int) mh.invoke(false);
+        fail();
+    } catch (WrongMethodTypeException e) {}
+
+    // Boolean -> Integer
+    try {
+        Integer dummy = (Integer) mh.invoke("True");
+        fail();
+    } catch (WrongMethodTypeException e) {}
+
 
     System.out.println("testPrimitiveReturnValueConversions done.");
   }
