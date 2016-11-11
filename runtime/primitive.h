@@ -177,14 +177,14 @@ class Primitive {
     }
   }
 
-  // Returns true if |from| and |to| are the same or a widening conversion exists between them.
+  // Returns true if it is possible to widen type |from| to type |to|.
   static bool IsWidenable(Type from, Type to) {
     static_assert(Primitive::Type::kPrimByte < Primitive::Type::kPrimShort, "Bad ordering");
     static_assert(Primitive::Type::kPrimShort < Primitive::Type::kPrimInt, "Bad ordering");
     static_assert(Primitive::Type::kPrimInt < Primitive::Type::kPrimLong, "Bad ordering");
     static_assert(Primitive::Type::kPrimLong < Primitive::Type::kPrimFloat, "Bad ordering");
     static_assert(Primitive::Type::kPrimFloat < Primitive::Type::kPrimDouble, "Bad ordering");
-    return IsNumericType(from) && IsNumericType(to) && from <= to;
+    return (from == to) || (IsNumericType(from) && IsNumericType(to) && from < to);
   }
 
   static bool IsIntOrLongType(Type type) {
