@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6beccf3c_bf6db7e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-11T11:02:09Z",
+      "side": 1,
+      "message": "For consistency, x86 should check the entrypoint instead of the marking bit. We can still do the check in memory as it cannot change between the check and the call.\n\nIf we decide to be inconsistent, we should add some serious comments why we\u0027re doing that.",
+      "parentUuid": "8b5ca306_1e376d44",
+      "range": {
+        "startLine": 17,
+        "startChar": 33,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb527fc5_63af4264",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "eb527fc5_63af4264",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "d164e4ebcbc2f97ac75bd974dcc9f9cc4767c79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bfb53f7_9c20c5b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-11T11:02:09Z",
+      "side": 1,
+      "message": "Not done in PS3, PS3 merged. Please modify the commit message next time when asked.",
+      "parentUuid": "8b5ca306_3e34313d",
       "range": {
         "startLine": 22,
         "startChar": 0,
