@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8be74356_20c98ab3",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-11T14:31:30Z",
+      "side": 1,
+      "message": "The \"i\" at the NullCheck is a constant, i.e. defined before the loop. NullCheck can be hoisted, the environment will contain that constant. (If the assignment was something more complex, say \"i \u003d (i + 3) ^ 2\", we would not hoist. Simple \"i +\u003d 1\" falls under https://android-review.googlesource.com/301687 .)",
+      "parentUuid": "8b5ca306_e7130c3c",
+      "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_fe2581c7",
         "filename": "test/625-checker-licm-regressions/src/Main.java",
         "patchSetId": 1
