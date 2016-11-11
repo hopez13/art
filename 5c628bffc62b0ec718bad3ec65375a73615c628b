@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_f27f48ca",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-11T17:30:39Z",
+      "side": 1,
+      "message": "I played around with those cases as well while working on both cls. When we have explicit catches that can see the local i, we don\u0027t LICM anyway due to the try boundaries. If we don\u0027t have those, so only the method throws, i is not visible, except for possible an environment, which we capture correctly. So perhaps only deopts are a concern if we ever see them in licm.",
+      "parentUuid": "8b5ca306_e7130c3c",
+      "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_fe2581c7",
         "filename": "test/625-checker-licm-regressions/src/Main.java",
         "patchSetId": 1
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Actually, it\u0027s not exactly LICM. It\u0027s something like LICM-enhanced LSE.",
       "parentUuid": "6bba0f39_6f3d517f",
+      "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_b2a31055",
+        "filename": "test/625-checker-licm-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-11T17:30:39Z",
+      "side": 1,
+      "message": "Well is is a regression test. I also have some follow up tests planned in combination with the other Cl to make sure those are not messed up. Will add those when merged.",
+      "parentUuid": "4bf54bfd_fe2581c7",
       "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
