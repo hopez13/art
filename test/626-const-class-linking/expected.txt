@@ -1,0 +1,35 @@
+JNI_OnLoad called
+Helper1 class loader: class DelegatingLoader
+Test class loader: class DefiningLoader
+Helper1 class loader: class DelegatingLoader
+Test class loader: class DefiningLoader
+testClearDexCache done
+Helper1 class loader: class DelegatingLoader
+Test class loader: class DefiningLoader
+Helper2 class loader: class DelegatingLoader
+Test class loader: class DefiningLoader
+testMultiDex done
+Helper1 class loader: class RacyLoader
+Helper1 class loader: class RacyLoader
+Helper1 class loader: class RacyLoader
+Helper1 class loader: class RacyLoader
+Test class loader: class DefiningLoader
+Test class loader: class DefiningLoader
+Initiating class loader of type RacyLoader is not well-behaved; it returned different Class for racing loadClass("Test").
+Initiating class loader of type RacyLoader is not well-behaved; it returned different Class for racing loadClass("Test").
+total: 4
+  throwables: 2
+  class_weaks: 2 (1 unique)
+testRacyLoader done
+Helper3 class loader: class RacyLoader
+Helper1 class loader: class RacyLoader
+Test3 class loader: class DefiningLoader
+Test class loader: class DefiningLoader
+total: 2
+  throwables: 0
+  class_weaks: 2 (2 unique)
+testRacyLoader2 done
+Helper1 class loader: class MisbehavingLoader
+MisbehavingLoader loading Helper2 instead of Test
+java.lang.NoClassDefFoundError: Initiating class loader of type MisbehavingLoader returned class Helper2 instead of Test.
+testMisbehavingLoader done

@@ -1,0 +1,13 @@
+Main:
+  @@com.android.jack.annotations.ForceInMainDex
+  class Main
+FancyLoader:
+  @@com.android.jack.annotations.ForceInMainDex
+  class FancyLoader
+WrapperLoader:
+  @@com.android.jack.annotations.ForceInMainDex
+  class WrapperLoader
+Helper1:
+  @@com.android.jack.annotations.ForceInMainDex
+  class Helper1
+

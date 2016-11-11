@@ -2532,10 +2532,13 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
   } else {
     ScopedObjectAccessUnchecked soa(self);
     ObjPtr<mirror::Class> cp_klass;
-    if (FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass)) {
+    bool known_hierarchy =
+        FindClassInBaseDexClassLoader(soa, self, descriptor, hash, class_loader, &cp_klass);
+    if (known_hierarchy) {
       // The chain was understood. So the value in cp_klass is either the class we were looking
       // for, or not found.
       if (cp_klass != nullptr) {
+        // FIXME: Insert the class to the initiating class loader's class table.
         return cp_klass.Ptr();
       }
       // TODO: We handle the boot classpath loader in FindClassInBaseDexClassLoader. Try to unify
@@ -2577,10 +2580,46 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
       ThrowNullPointerException(StringPrintf("ClassLoader.loadClass returned null for %s",
                                              class_name_string.c_str()).c_str());
       return nullptr;
-    } else {
-      // success, return mirror::Class*
-      return soa.Decode<mirror::Class>(result.get()).Ptr();
     }
+
+    ObjPtr<mirror::Class> result_ptr = soa.Decode<mirror::Class>(result.get());
+    // Check the name of the returned class.
+    if (UNLIKELY(!result_ptr->DescriptorEquals(descriptor))) {
+      std::string result_storage;
+      const char* result_name = result_ptr->GetDescriptor(&result_storage);
+      std::string loader_storage;
+      const char* loader_class_name = class_loader->GetClass()->GetDescriptor(&loader_storage);
+      ThrowNoClassDefFoundError(
+          "Initiating class loader of type %s returned class %s instead of %s.",
+          DescriptorToDot(loader_class_name).c_str(),
+          DescriptorToDot(result_name).c_str(),
+          class_name_string.c_str());
+      return nullptr;
+    }
+    // Try to insert the class to the class table, checking for mismatch.
+    ObjPtr<mirror::Class> old;
+    {
+      ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
+      ClassTable* const class_table = InsertClassTableForClassLoader(class_loader.Get());
+      old = class_table->Lookup(descriptor, hash);
+      if (old == nullptr) {
+        class_table->Insert(result_ptr.Ptr());
+        old = result_ptr;
+      }
+    }
+    if (UNLIKELY(old != result_ptr)) {
+      mirror::Class* loader_class = class_loader->GetClass();
+      const char* loader_class_name =
+          loader_class->GetDexFile().StringByTypeIdx(loader_class->GetDexTypeIndex());
+      ThrowLinkageError(nullptr,
+                        "Initiating class loader of type %s is not well-behaved; "
+                            "it returned different Class for racing loadClass(\"%s\").",
+                        DescriptorToDot(loader_class_name).c_str(),
+                        class_name_string.c_str());
+      return nullptr;
+    }
+    // success, return mirror::Class*
+    return result_ptr.Ptr();
   }
   UNREACHABLE();
 }
