@@ -922,7 +922,7 @@ inline bool DoInvokePolymorphic(Thread* self,
         ThrowWrongMethodTypeException(check_type.Ptr(), callsite_type.Get());
         return false;
       }
-    } else {
+    } else if (!IsInvokeTransform(handle_kind)) {
       if (UNLIKELY(!IsCallerTransformer(callsite_type) &&
                    !callsite_type->IsConvertible(check_type.Ptr()))) {
         ThrowWrongMethodTypeException(check_type.Ptr(), callsite_type.Get());
@@ -991,10 +991,11 @@ inline bool DoInvokePolymorphic(Thread* self,
     }
 
     bool call_success;
-    if (handle_kind == kInvokeTransform) {
+    if (IsInvokeTransform(handle_kind)) {
       call_success = DoCallTransform<is_range>(called_method,
                                                callsite_type,
-                                               handle_type,
+                                               (handle_kind == kInvokeCallsiteTransform) ?
+                                               callsite_type : handle_type,
                                                self,
                                                shadow_frame,
                                                method_handle /* receiver */,
@@ -1154,6 +1155,8 @@ static inline bool DoCallPolymorphic(ArtMethod* called_method,
   // Compute method information.
   const DexFile::CodeItem* code_item = called_method->GetCodeItem();
 
+  result->SetL(0);
+
   // Number of registers for the callee's call frame. Note that for non-exact
   // invokes, we always derive this information from the callee method. We
   // cannot guarantee during verification that the number of registers encoded
@@ -1258,7 +1261,10 @@ static inline bool DoCallPolymorphic(ArtMethod* called_method,
     ObjPtr<mirror::EmulatedStackFrame> emulated_stack_frame(
         reinterpret_cast<mirror::EmulatedStackFrame*>(
             shadow_frame.GetVRegReference(first_src_reg)));
-
+    if (target_type->GetRType()->IsPrimitiveVoid()) {
+      // TODO(oth): this should not be necessary.
+      result->SetJ(0);
+    }
     emulated_stack_frame->SetReturnValue(self, *result);
   }
 
