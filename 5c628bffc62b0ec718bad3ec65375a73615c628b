@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_e7130c3c",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-11T14:16:04Z",
+      "side": 1,
+      "message": "Actually if we have:\ni \u003d 0;\ntry {\n  do {\n      i \u003d 1;    // even though there is no field store, following NullCheck should not be hoisted.\n  } while (arr.length \u003c 10)\n} catch (Exception e) {}\n\nThat still doesn\u0027t look right. Do we guard against this case? Looks like the whole thing can\u0027t be in a try block.",
+      "parentUuid": "8b5ca306_87d33060",
+      "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_fe2581c7",
         "filename": "test/625-checker-licm-regressions/src/Main.java",
         "patchSetId": 1
