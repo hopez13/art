@@ -94,6 +94,52 @@
     },
     {
       "key": {
+        "uuid": "eb527fc5_835d9e01",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-11T14:59:50Z",
+      "side": 1,
+      "message": "you don\u0027t really need this extra flag. The way we do it in the driver is to test if profile_compilation_info_ is null.",
+      "range": {
+        "startLine": 425,
+        "startChar": 13,
+        "endLine": 425,
+        "endChar": 26
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb527fc5_c35396f6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-11T14:59:50Z",
+      "side": 1,
+      "message": "Not sure this is working as you expect.\n\nThis will reorder class_dex_indx and basically lie about what\u0027s being profiled. If then you look at this profile after it will seem that only the topN classes count.\n\nIf I got the flow right I think this skewed your benchmarks by quite a margin.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 10,
+        "endLine": 1487,
+        "endChar": 64
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b56f3b8_c7e640d5",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 6
@@ -110,6 +156,29 @@
         "startChar": 11,
         "endLine": 2272,
         "endChar": 20
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b56f3b8_e7a81c31",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-11T14:59:50Z",
+      "side": 1,
+      "message": "This is problematic, since profiles relies on dex checksum. If this changes we\u0027ll need to update the profiles as well. \n\nI added more comments in the design doc.",
+      "range": {
+        "startLine": 626,
+        "startChar": 0,
+        "endLine": 627,
+        "endChar": 36
       },
       "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -140,6 +209,30 @@
     },
     {
       "key": {
+        "uuid": "6bba0f39_0f4005ff",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-11T14:59:50Z",
+      "side": 1,
+      "message": "uint16_t is ok, but I prefer MethodReference here. It\u0027s shorter. Any reason to change it?",
+      "parentUuid": "0b56f3b8_e7eb3c9a",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 74
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_3e59a94a",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 6
@@ -156,6 +249,29 @@
         "startChar": 0,
         "endLine": 95,
         "endChar": 60
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb527fc5_03e1ae16",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-11T14:59:50Z",
+      "side": 1,
+      "message": "Such a method does not have context and I doesn\u0027t fit well in the current design. I.e. profiles should not care about dexlayout.\n\nIf you want to update the type ids I think you should pass a map, old_id -\u003e new_id.",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 31
       },
       "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
