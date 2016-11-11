@@ -69,6 +69,24 @@
       "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bba0f39_6f3d517f",
+        "filename": "test/625-checker-licm-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-11T14:19:42Z",
+      "side": 1,
+      "message": "Non-volatile StaticFieldSet that always stores the same value and is executed at least once is a perfect candidate for hoisting if there are no other writes to memory observable by other threads. (Not by the current LICM though.)",
+      "parentUuid": "8b5ca306_47c918b2",
+      "revId": "5c628bffc62b0ec718bad3ec65375a73615c628b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
