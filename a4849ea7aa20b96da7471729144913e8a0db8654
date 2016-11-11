@@ -22,6 +22,30 @@
       "revId": "a4849ea7aa20b96da7471729144913e8a0db8654",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bf54bfd_1efb0dcf",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-11T15:01:06Z",
+      "side": 1,
+      "message": "Yes, same here. Fixed.\n\nAlso hoisted the equality test into caller and documented that.",
+      "parentUuid": "2bf2d718_408010e1",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 39
+      },
+      "revId": "a4849ea7aa20b96da7471729144913e8a0db8654",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
