@@ -16,6 +16,11 @@
 
 class Transform {
   public void sayHi() {
-    System.out.println("Hello");
+    // Delibarately do something differently than the transformation code.
+    // The original and the transformation used to have the same code except
+    // the actual printed String, which was making the test inacurately passing
+    // in JIT mode when loading the string from the dex cache, as the string ids
+    // of the two different strings were the same.
+    System.out.println("He" + new String("") + "llo");
   }
 }
