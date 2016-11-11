@@ -67,6 +67,14 @@ extern "C" JNIEXPORT void JNICALL Java_Main_restoreResolvedMethods(
   }
 }
 
+extern "C" JNIEXPORT void JNICALL Java_Main_clearResolvedTypes(JNIEnv*, jclass, jclass cls) {
+  ScopedObjectAccess soa(Thread::Current());
+  mirror::DexCache* dex_cache = soa.Decode<mirror::Class>(cls)->GetDexCache();
+  for (size_t i = 0, num_types = dex_cache->NumResolvedTypes(); i != num_types; ++i) {
+    dex_cache->SetResolvedType(i, ObjPtr<mirror::Class>(nullptr));
+  }
+}
+
 }  // namespace
 
 }  // namespace art
