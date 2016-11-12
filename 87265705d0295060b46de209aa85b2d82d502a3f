@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b97d3c5_2885c0a1",
+        "filename": "runtime/gc/collector/sticky_mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-12T00:23:07Z",
+      "side": 1,
+      "message": "Say why visit class loaders (eg. refer to the bug) in the comment?",
+      "range": {
+        "startLine": 61,
+        "startChar": 51,
+        "endLine": 61,
+        "endChar": 73
+      },
+      "revId": "87265705d0295060b46de209aa85b2d82d502a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
