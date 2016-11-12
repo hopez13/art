@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8baca39c_edb523d4",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_4da5cd87",
+      "range": {
+        "startLine": 1033,
+        "startChar": 99,
+        "endLine": 1033,
+        "endChar": 102
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86501a4a_12525c24",
         "filename": "runtime/cha.cc",
         "patchSetId": 8
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-28T23:30:21Z",
       "side": 1,
       "message": "can\u0027t you it-\u003esecond.Put here instead? (use above too when inserting for the first time, and assign to it)",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebe35fee_292e24ee",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_12525c24",
       "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "8baca39c_d02b9297",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_52969497",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86501a4a_722758e6",
         "filename": "runtime/cha.h",
         "patchSetId": 8
@@ -70,6 +130,24 @@
       "writtenOn": "2016-10-28T23:30:21Z",
       "side": 1,
       "message": "do we have any plans to use CHA beyond devirtualization? If so, you may want to keep the comments in this class a bit more general, leaving devirtualization as a first application.",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8baca39c_90711a54",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "I\u0027m not aware of other things beyond devirtualization for CHA right now. Do you have any in mind?",
+      "parentUuid": "86501a4a_722758e6",
       "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "cbb69be6_9014c126",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_5213347e",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86501a4a_921dcc8b",
         "filename": "runtime/cha.h",
         "patchSetId": 8
@@ -104,6 +200,24 @@
       "writtenOn": "2016-10-28T23:30:21Z",
       "side": 1,
       "message": "remove will too, reads harder",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b9f4379_20fcaa49",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_921dcc8b",
       "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "ebe35fee_2ebd4ab7",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86501a4a_1211bc6f",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86501a4a_72f9180f",
         "filename": "runtime/cha.h",
         "patchSetId": 8
@@ -138,6 +270,24 @@
       "writtenOn": "2016-10-28T23:30:21Z",
       "side": 1,
       "message": "start by describing the typedefs before you explain why they are needed",
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebe35fee_89c81843",
+        "filename": "runtime/cha.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Added:\n// Types for recording CHA dependencies.",
+      "parentUuid": "86501a4a_72f9180f",
       "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -167,6 +317,30 @@
     },
     {
       "key": {
+        "uuid": "4bd62b38_d6702450",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_8dbb45ac",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 26
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f9071_6da29182",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 8
@@ -178,6 +352,30 @@
       "writtenOn": "2016-10-28T11:47:58Z",
       "side": 1,
       "message": "You only need one list: you can compute OatQuickMethodHeader or code pointer from just one.",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 59
+      },
+      "revId": "f7704219e5fa23590ec1f1e50c6afe5d996afda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6cdb83_ea2a2747",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-12T00:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f9071_6da29182",
       "range": {
         "startLine": 726,
         "startChar": 0,
