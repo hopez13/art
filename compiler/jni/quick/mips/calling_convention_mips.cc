@@ -30,9 +30,9 @@ constexpr size_t kMaxFloatOrDoubleRegisterArguments = 2u;
 // enregistered. The rest of the args must go on the stack.
 constexpr size_t kMaxIntLikeRegisterArguments = 4u;
 
-static const Register kCoreArgumentRegisters[] = { A0, A1, A2, A3 };
-static const FRegister kFArgumentRegisters[] = { F12, F14 };
-static const DRegister kDArgumentRegisters[] = { D6, D7 };
+static const Register kCoreArgumentRegisters[] = { A0, A1, A2, A3, T0, T1 };
+static const FRegister kFArgumentRegisters[] = { F8, F10, F12, F14, F16, F18 };
+static const DRegister kDArgumentRegisters[] = { D4, D5, D6, D7, D8, D9 };
 
 static constexpr ManagedRegister kCalleeSaveRegisters[] = {
     // Core registers.
@@ -149,8 +149,8 @@ const ManagedRegisterEntrySpills& MipsManagedRuntimeCallingConvention::EntrySpil
         }
       } else {
         if (IsCurrentParamALong() && !IsCurrentParamAReference()) {
-          if (gpr_index == 1) {
-            // Don't use a1-a2 as a register pair, move to a2-a3 instead.
+          if (gpr_index == 1 || gpr_index == 3) {
+            // Don't use A1-A2(A3-T0) as a register pair, move to A2-A3(T0-T1) instead.
             gpr_index++;
           }
           if (gpr_index < arraysize(kCoreArgumentRegisters) - 1) {
