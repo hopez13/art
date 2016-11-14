@@ -383,7 +383,7 @@ static jint GetDexOptNeeded(JNIEnv* env,
 
   // Always treat elements of the bootclasspath as up-to-date.
   if (oat_file_assistant.IsInBootClassPath()) {
-    return OatFileAssistant::kNoDexOptNeeded;
+    return kNoDexOptNeeded;
   }
   return oat_file_assistant.GetDexOptNeeded(filter, profile_changed);
 }

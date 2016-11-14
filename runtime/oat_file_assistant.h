@@ -37,6 +37,156 @@ class ImageSpace;
 }  // namespace space
 }  // namespace gc
 
+class OatFileAssistant;
+
+enum DexOptNeeded {
+  // kNoDexOptNeeded - The code for this dex location is up to date and can
+  // be used as is.
+  // Matches Java: dalvik.system.DexFile.NO_DEXOPT_NEEDED = 0
+  kNoDexOptNeeded = 0,
+
+  // kDex2OatNeeded - In order to make the code for this dex location up to
+  // date, dex2oat must be run on the dex file.
+  // Matches Java: dalvik.system.DexFile.DEX2OAT_NEEDED = 1
+  kDex2OatNeeded = 1,
+
+  // kPatchOatNeeded - In order to make the code for this dex location up to
+  // date, patchoat must be run on the odex file.
+  // Matches Java: dalvik.system.DexFile.PATCHOAT_NEEDED = 2
+  kPatchOatNeeded = 2,
+
+  // kSelfPatchOatNeeded - In order to make the code for this dex location
+  // up to date, patchoat must be run on the oat file.
+  // Matches Java: dalvik.system.DexFile.SELF_PATCHOAT_NEEDED = 3
+  kSelfPatchOatNeeded = 3,
+};
+
+enum OatStatus {
+  // kOatOutOfDate - An oat file is said to be out of date if the file does
+  // not exist, is out of date with respect to the dex file or boot image,
+  // or does not meet the target compilation type.
+  kOatOutOfDate,
+
+  // kOatNeedsRelocation - An oat file is said to need relocation if the
+  // code is up to date, but not yet properly relocated for address space
+  // layout randomization (ASLR). In this case, the oat file is neither
+  // "out of date" nor "up to date".
+  kOatNeedsRelocation,
+
+  // kOatUpToDate - An oat file is said to be up to date if it is not out of
+  // date and has been properly relocated for the purposes of ASLR.
+  kOatUpToDate,
+};
+
+std::ostream& operator << (std::ostream& stream, const OatStatus status);
+
+// Class used in conjunction with an OatFileAssistant for getting information
+// about the status of a specific oat file on disk.
+class OatFileInfo {
+ public:
+  // Initially the info is for no file in particular. It will treat the
+  // file as out of date until Reset is called with a real filename to use
+  // the cache for.
+  // Pass true for is_oat_location if the information associated with this
+  // OatFileInfo is for the oat location, as opposed to the odex location.
+  OatFileInfo(OatFileAssistant* oat_file_assistant, bool is_oat_location);
+
+  // Returns the value of the is_oat_location field passed at time of
+  // construction.
+  bool IsOatLocation();
+
+  // Returns the name of the oat file on disk, or null if no filename has yet
+  // been provided.
+  const std::string* Filename();
+
+  // Returns true if the oat file exists.
+  bool Exists();
+
+  // Returns the status of the oat file.
+  OatStatus Status();
+
+  // Returns the value of the compiler filter for the oat file.
+  // Must only be called if the associated file Exists().
+  CompilerFilter::Filter CompilerFilter();
+
+  // Return the DexOptNeeded value for this oat file with respect to the
+  // given target_compilation_filter.
+  // profile_changed should be true to indicate the profile has recently
+  // changed for this dex location.
+  // Always returns the kPatchOatNeeded status, and not the
+  // kSelfPatchOatNeeded status.
+  DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
+                               bool profile_changed);
+
+  // Returns a reference to the loaded file.
+  // Loads the file if needed. Returns null if the file failed to load.
+  // Ownership of the OatFile belongs to the OatFileInfo object; the caller
+  // shouldn't clean up or free the returned pointer.
+  const OatFile* GetFile();
+
+  // Returns true if the oat file is currently opened executable.
+  bool IsExecutable();
+
+  // Returns true if the oat file has patch info required to run patchoat.
+  bool HasPatchInfo();
+
+  // Clear any cached information about the oat file that depends on the
+  // contents of the file. This does not reset the provided filename.
+  void Reset();
+
+  // Clear any cached information and switch to getting info about the oat
+  // file with the given filename.
+  //
+  // load_executable should be true if the caller intends to try and load
+  // executable code for this dex location.
+  void Reset(const std::string& filename, bool load_executable);
+
+  // Release the loaded oat file for runtime use.
+  // Returns null if the oat file hasn't been loaded or is out of date.
+  // Ensures the returned file is not loaded executable if it has unuseable
+  // compiled code.
+  //
+  // After this call, no other methods of the OatFileInfo should be
+  // called, because access to the loaded oat file has been taken away from
+  // the OatFileInfo object.
+  std::unique_ptr<OatFile> ReleaseFileForUse();
+
+ private:
+  // Returns true if the compiler filter used to generate the file is at
+  // least as good as the given target filter. profile_changed should be
+  // true to indicate the profile has recently changed for this dex
+  // location.
+  bool CompilerFilterIsOkay(CompilerFilter::Filter target, bool profile_changed);
+
+  // Release the loaded oat file.
+  // Returns null if the oat file hasn't been loaded.
+  //
+  // After this call, no other methods of the OatFileInfo should be
+  // called, because access to the loaded oat file has been taken away from
+  // the OatFileInfo object.
+  std::unique_ptr<OatFile> ReleaseFile();
+
+  OatFileAssistant* oat_file_assistant_;
+  bool is_oat_location_;
+
+  // Whether we will attempt to load oat files executable.
+  bool load_executable_ = false;
+
+  bool filename_provided_ = false;
+  std::string filename_;
+
+  bool load_attempted_ = false;
+  std::unique_ptr<OatFile> file_;
+
+  bool status_attempted_ = false;
+  OatStatus status_;
+
+  // For debugging only.
+  // If this flag is set, the file has been released to the user and the
+  // OatFileInfo object is in a bad state and should no longer be used.
+  bool file_released_ = false;
+};
+
 // Class for assisting with oat file management.
 //
 // This class collects common utilities for determining the status of an oat
@@ -47,45 +197,6 @@ class ImageSpace;
 // dex location is in the boot class path.
 class OatFileAssistant {
  public:
-  enum DexOptNeeded {
-    // kNoDexOptNeeded - The code for this dex location is up to date and can
-    // be used as is.
-    // Matches Java: dalvik.system.DexFile.NO_DEXOPT_NEEDED = 0
-    kNoDexOptNeeded = 0,
-
-    // kDex2OatNeeded - In order to make the code for this dex location up to
-    // date, dex2oat must be run on the dex file.
-    // Matches Java: dalvik.system.DexFile.DEX2OAT_NEEDED = 1
-    kDex2OatNeeded = 1,
-
-    // kPatchOatNeeded - In order to make the code for this dex location up to
-    // date, patchoat must be run on the odex file.
-    // Matches Java: dalvik.system.DexFile.PATCHOAT_NEEDED = 2
-    kPatchOatNeeded = 2,
-
-    // kSelfPatchOatNeeded - In order to make the code for this dex location
-    // up to date, patchoat must be run on the oat file.
-    // Matches Java: dalvik.system.DexFile.SELF_PATCHOAT_NEEDED = 3
-    kSelfPatchOatNeeded = 3,
-  };
-
-  enum OatStatus {
-    // kOatOutOfDate - An oat file is said to be out of date if the file does
-    // not exist, is out of date with respect to the dex file or boot image,
-    // or does not meet the target compilation type.
-    kOatOutOfDate,
-
-    // kOatNeedsRelocation - An oat file is said to need relocation if the
-    // code is up to date, but not yet properly relocated for address space
-    // layout randomization (ASLR). In this case, the oat file is neither
-    // "out of date" nor "up to date".
-    kOatNeedsRelocation,
-
-    // kOatUpToDate - An oat file is said to be up to date if it is not out of
-    // date and has been properly relocated for the purposes of ASLR.
-    kOatUpToDate,
-  };
-
   // Constructs an OatFileAssistant object to assist the oat file
   // corresponding to the given dex location with the target instruction set.
   //
@@ -115,6 +226,9 @@ class OatFileAssistant {
                    bool load_executable);
 
   ~OatFileAssistant();
+
+  // Returns the dex location this OatFileAssistant object is assisting with.
+  std::string DexLocation() const;
 
   // Returns true if the dex location refers to an element of the boot class
   // path.
@@ -203,41 +317,27 @@ class OatFileAssistant {
   // file is an apk/zip without a classes.dex entry.
   bool HasOriginalDexFiles();
 
+  // Returns information about the oat file in the odex location.
+  //
   // If the dex file has been installed with a compiled oat file alongside
   // it, the compiled oat file will have the extension .odex, and is referred
   // to as the odex file. It is called odex for legacy reasons; the file is
   // really an oat file. The odex file will often, but not always, have a
   // patch delta of 0 and need to be relocated before use for the purposes of
   // ASLR. The odex file is treated as if it were read-only.
-  // These methods return the location and status of the odex file for the dex
-  // location.
-  // Notes:
-  //  * OdexFileName may return null if the odex file name could not be
-  //    determined.
-  const std::string* OdexFileName();
-  bool OdexFileExists();
-  OatStatus OdexFileStatus();
-  // Must only be called if the associated odex file exists, i.e, if
-  // |OdexFileExists() == true|.
-  CompilerFilter::Filter OdexFileCompilerFilter();
+  OatFileInfo& GetOdexInfo();
 
+  // Returns information about the oat file in the oat location.
+  //
   // When the dex files is compiled on the target device, the oat file is the
   // result. The oat file will have been relocated to some
   // (possibly-out-of-date) offset for ASLR.
-  // These methods return the location and status of the target oat file for
-  // the dex location.
-  //
-  // Notes:
-  //  * OatFileName may return null if the oat file name could not be
-  //    determined.
-  const std::string* OatFileName();
-  bool OatFileExists();
-  OatStatus OatFileStatus();
-  // Must only be called if the associated oat file exists, i.e, if
-  // |OatFileExists() == true|.
-  CompilerFilter::Filter OatFileCompilerFilter();
+  OatFileInfo& GetOatInfo();
 
-  // Return the status for a given opened oat file with respect to the dex
+  // Returns information about the best oat file available to use.
+  OatFileInfo& GetBestInfo();
+
+  // Returns the status for a given opened oat file with respect to the dex
   // location.
   OatStatus GivenOatFileStatus(const OatFile& file);
 
@@ -304,95 +404,6 @@ class OatFileAssistant {
     std::string location;
   };
 
-  class OatFileInfo {
-   public:
-    // Initially the info is for no file in particular. It will treat the
-    // file as out of date until Reset is called with a real filename to use
-    // the cache for.
-    // Pass true for is_oat_location if the information associated with this
-    // OatFileInfo is for the oat location, as opposed to the odex location.
-    OatFileInfo(OatFileAssistant* oat_file_assistant, bool is_oat_location);
-
-    bool IsOatLocation();
-
-    const std::string* Filename();
-    bool Exists();
-    OatStatus Status();
-    // Must only be called if the associated file exists, i.e, if
-    // |Exists() == true|.
-    CompilerFilter::Filter CompilerFilter();
-
-    // Return the DexOptNeeded value for this oat file with respect to the
-    // given target_compilation_filter.
-    // profile_changed should be true to indicate the profile has recently
-    // changed for this dex location.
-    // Always returns the kPatchOatNeeded status, and not the
-    // kSelfPatchOatNeeded status.
-    DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
-                                 bool profile_changed);
-
-    // Returns the loaded file.
-    // Loads the file if needed. Returns null if the file failed to load.
-    // The caller shouldn't clean up or free the returned pointer.
-    const OatFile* GetFile();
-
-    // Returns true if the file is opened executable.
-    bool IsExecutable();
-
-    // Returns true if the file has patch info required to run patchoat.
-    bool HasPatchInfo();
-
-    // Clear any cached information about the file that depends on the
-    // contents of the file. This does not reset the provided filename.
-    void Reset();
-
-    // Clear any cached information and switch to getting info about the oat
-    // file with the given filename.
-    void Reset(const std::string& filename);
-
-    // Release the loaded oat file for runtime use.
-    // Returns null if the oat file hasn't been loaded or is out of date.
-    // Ensures the returned file is not loaded executable if it has unuseable
-    // compiled code.
-    //
-    // After this call, no other methods of the OatFileInfo should be
-    // called, because access to the loaded oat file has been taken away from
-    // the OatFileInfo object.
-    std::unique_ptr<OatFile> ReleaseFileForUse();
-
-   private:
-    // Returns true if the compiler filter used to generate the file is at
-    // least as good as the given target filter. profile_changed should be
-    // true to indicate the profile has recently changed for this dex
-    // location.
-    bool CompilerFilterIsOkay(CompilerFilter::Filter target, bool profile_changed);
-
-    // Release the loaded oat file.
-    // Returns null if the oat file hasn't been loaded.
-    //
-    // After this call, no other methods of the OatFileInfo should be
-    // called, because access to the loaded oat file has been taken away from
-    // the OatFileInfo object.
-    std::unique_ptr<OatFile> ReleaseFile();
-
-    OatFileAssistant* oat_file_assistant_;
-    bool is_oat_location_;
-
-    bool filename_provided_ = false;
-    std::string filename_;
-
-    bool load_attempted_ = false;
-    std::unique_ptr<OatFile> file_;
-
-    bool status_attempted_ = false;
-    OatStatus status_;
-
-    // For debugging only.
-    // If this flag is set, the file has been released to the user and the
-    // OatFileInfo object is in a bad state and should no longer be used.
-    bool file_released_ = false;
-  };
-
   // Returns the current image location.
   // Returns an empty string if the image location could not be retrieved.
   //
@@ -416,9 +427,6 @@ class OatFileAssistant {
 
   uint32_t GetCombinedImageChecksum();
 
-  // Return info for the best oat file.
-  OatFileInfo& GetBestInfo();
-
   // To implement Lock(), we lock a dummy file where the oat file would go
   // (adding ".flock" to the target file name) and retain the lock for the
   // remaining lifetime of the OatFileAssistant object.
@@ -429,9 +437,6 @@ class OatFileAssistant {
   // In a properly constructed OatFileAssistant object, isa_ should be either
   // the 32 or 64 bit variant for the current device.
   const InstructionSet isa_ = kNone;
-
-  // Whether we will attempt to load oat files executable.
-  bool load_executable_ = false;
 
   // Cached value of the required dex checksum.
   // This should be accessed only by the GetRequiredDexChecksum() method.
@@ -454,8 +459,6 @@ class OatFileAssistant {
 
   DISALLOW_COPY_AND_ASSIGN(OatFileAssistant);
 };
-
-std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStatus status);
 
 }  // namespace art
 
