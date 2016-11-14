@@ -305,7 +305,11 @@ class OatFileAssistant {
     // Initially the info is for no file in particular. It will treat the
     // file as out of date until Reset is called with a real filename to use
     // the cache for.
-    explicit OatFileInfo(OatFileAssistant* oat_file_assistant);
+    // Pass true for is_oat_location if the information associated with this
+    // OatFileInfo is for the oat location, as opposed to the odex location.
+    OatFileInfo(OatFileAssistant* oat_file_assistant, bool is_oat_location);
+
+    bool IsOatLocation();
 
     const std::string* Filename();
     bool Exists();
@@ -367,8 +371,8 @@ class OatFileAssistant {
     // the OatFileInfo object.
     std::unique_ptr<OatFile> ReleaseFile();
 
-   private:
     OatFileAssistant* oat_file_assistant_;
+    bool is_oat_location_;
 
     bool filename_provided_ = false;
     std::string filename_;
@@ -407,6 +411,9 @@ class OatFileAssistant {
   const ImageInfo* GetImageInfo();
 
   uint32_t GetCombinedImageChecksum();
+
+  // Return info for the best oat file.
+  OatFileInfo& GetBestInfo();
 
   // To implement Lock(), we lock a dummy file where the oat file would go
   // (adding ".flock" to the target file name) and retain the lock for the
