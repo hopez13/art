@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b5ca306_2a3f81cd",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-14T18:31:59Z",
+      "side": 1,
+      "message": "minor point: Maybe \"new_object\" to match \"object\" or change \"object\" to \"string\"?",
+      "range": {
+        "startLine": 305,
+        "startChar": 22,
+        "endLine": 305,
+        "endChar": 32
+      },
+      "revId": "664815459e3533960cc1cddb89f255640dbd3a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
