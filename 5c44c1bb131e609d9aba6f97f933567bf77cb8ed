@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_8a67ad43",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6443,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf54bfd_5efc754a",
+      "range": {
+        "startLine": 6443,
+        "startChar": 39,
+        "endLine": 6443,
+        "endChar": 46
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb527fc5_03d52ecc",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -107,6 +131,54 @@
       "side": 1,
       "message": "The comment should be dropped (here and line 6442).",
       "parentUuid": "eb527fc5_03d52ecc",
+      "range": {
+        "startLine": 6459,
+        "startChar": 0,
+        "endLine": 6460,
+        "endChar": 88
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_ca71a5fd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6460,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb527fc5_03d52ecc",
+      "range": {
+        "startLine": 6459,
+        "startChar": 0,
+        "endLine": 6460,
+        "endChar": 88
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_aa7471ed",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6460,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bba0f39_ef63015a",
       "range": {
         "startLine": 6459,
         "startChar": 0,
@@ -177,6 +249,30 @@
       "writtenOn": "2016-11-10T11:16:18Z",
       "side": 1,
       "message": "slow path (no code size excuse on arm64)",
+      "range": {
+        "startLine": 3733,
+        "startChar": 20,
+        "endLine": 3733,
+        "endChar": 27
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_6ae7b92d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3733,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfb53f7_9ceba59b",
       "range": {
         "startLine": 3733,
         "startChar": 20,
@@ -306,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_aae1d118",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6845,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8be74356_c007fe8b",
+      "range": {
+        "startLine": 6845,
+        "startChar": 21,
+        "endLine": 6845,
+        "endChar": 28
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbe13b42_82585a9d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -317,6 +437,30 @@
       "writtenOn": "2016-11-10T11:16:18Z",
       "side": 1,
       "message": "slow path (or optimizing for code size?)",
+      "range": {
+        "startLine": 6281,
+        "startChar": 21,
+        "endLine": 6281,
+        "endChar": 28
+      },
+      "revId": "5c44c1bb131e609d9aba6f97f933567bf77cb8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_0a547dc4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6281,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-14T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbe13b42_82585a9d",
       "range": {
         "startLine": 6281,
         "startChar": 21,
