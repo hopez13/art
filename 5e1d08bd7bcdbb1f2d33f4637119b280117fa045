@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90177437_f9b6f78b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-14T17:57:04Z",
+      "side": 1,
+      "message": "I see you\u0027re not doing the \"ADD pc, pc, jump_offset\" as the old codegen does. That means you\u0027re wasting one more register than necessary.",
+      "range": {
+        "startLine": 6108,
+        "startChar": 0,
+        "endLine": 6109,
+        "endChar": 26
+      },
+      "revId": "5e1d08bd7bcdbb1f2d33f4637119b280117fa045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
