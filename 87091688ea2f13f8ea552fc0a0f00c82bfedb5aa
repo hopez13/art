@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_01ce8c45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll add that all I did was begin a systrace for 5 sec, then click the app and let it start up with no other inputs.\n\nI tried to get app startup times, but Tim Murray says they\u0027re not that meaningful because they\u0027re dependent on so many factors that they\u0027re incredibly noisy. For instance, I\u0027m seeing startup times on maps range from 887ms to 1642ms. This is after trying to lock all the CPUs to the same frequency.",
+      "parentUuid": "6beccf3c_1f5f8326",
+      "range": {
+        "startLine": 14,
+        "startChar": 37,
+        "endLine": 14,
+        "endChar": 48
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b56f3b8_07bc589a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-11T11:37:12Z",
       "side": 1,
       "message": "Remove this line (you intend to commit this version, right?)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_41f6d471",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b56f3b8_07bc589a",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_8dec2750",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2175,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfb53f7_5c375df8",
+      "range": {
+        "startLine": 2175,
+        "startChar": 61,
+        "endLine": 2175,
+        "endChar": 71
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6beccf3c_7f6ccfe5",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-11T11:37:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2179,
+        "startChar": 58,
+        "endLine": 2179,
+        "endChar": 62
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_ade9eb3f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2179,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6beccf3c_7f6ccfe5",
       "range": {
         "startLine": 2179,
         "startChar": 58,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_4d212fc9",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb527fc5_835d9e01",
+      "range": {
+        "startLine": 425,
+        "startChar": 13,
+        "endLine": 425,
+        "endChar": 26
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb527fc5_c35396f6",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-11T14:59:50Z",
       "side": 1,
       "message": "Not sure this is working as you expect.\n\nThis will reorder class_dex_indx and basically lie about what\u0027s being profiled. If then you look at this profile after it will seem that only the topN classes count.\n\nIf I got the flow right I think this skewed your benchmarks by quite a margin.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 10,
+        "endLine": 1487,
+        "endChar": 64
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_1e470d6f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "This reordering is necessary after dexlayout. It changes the class indexes, and this updates the profile so it has the proper indexes. Unless I\u0027m missing something, the (in-memory) profile should refer to the same set of classes in the newly laid out dex file as it did before dexlayout.\n\nMaybe this belongs inside oat_writer so that it\u0027s clearer that the profile needs to be changed as part of the layout process.",
+      "parentUuid": "eb527fc5_c35396f6",
       "range": {
         "startLine": 1487,
         "startChar": 10,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_ad3acbde",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2272,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b56f3b8_c7e640d5",
+      "range": {
+        "startLine": 2272,
+        "startChar": 11,
+        "endLine": 2272,
+        "endChar": 20
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b56f3b8_e7a81c31",
         "filename": "dexlayout/dex_writer.cc",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-11T14:59:50Z",
       "side": 1,
       "message": "This is problematic, since profiles relies on dex checksum. If this changes we\u0027ll need to update the profiles as well. \n\nI added more comments in the design doc.",
+      "range": {
+        "startLine": 626,
+        "startChar": 0,
+        "endLine": 627,
+        "endChar": 36
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_9e05dd33",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "I have to recalculate the checksum or the new dex file will fail to open when the dex file verifier checks the checksum. I can update the checksum in the profile when I modify it. I need to work out if/how these changes are written back to file.",
+      "parentUuid": "0b56f3b8_e7a81c31",
       "range": {
         "startLine": 626,
         "startChar": 0,
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_ed3f63f4",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "This change made it more in line with how ContainsClass is called. I\u0027ll change it back.",
+      "parentUuid": "6bba0f39_0f4005ff",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 74
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bf54bfd_3e59a94a",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 6
@@ -256,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_ded92587",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf54bfd_3e59a94a",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 60
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb527fc5_03e1ae16",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 6
@@ -267,6 +507,30 @@
       "writtenOn": "2016-11-11T14:59:50Z",
       "side": 1,
       "message": "Such a method does not have context and I doesn\u0027t fit well in the current design. I.e. profiles should not care about dexlayout.\n\nIf you want to update the type ids I think you should pass a map, old_id -\u003e new_id.",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 31
+      },
+      "revId": "87091688ea2f13f8ea552fc0a0f00c82bfedb5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_9ecf9dba",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-14T22:39:31Z",
+      "side": 1,
+      "message": "I think we need to talk about what to do here. If we want the profile to be agnostic to dexlayout, then it can\u0027t modify any of the indexes. Maybe that\u0027s ok, since the bulk of the dex file is actual data, which can be shuffled around without modifying the indexes.\n\nHowever, any modification to the dex file changes the checksum, so dexlayout will always have some effect on the profile. I don\u0027t see a way to decouple the profile from dexlayout completely.",
+      "parentUuid": "eb527fc5_03e1ae16",
       "range": {
         "startLine": 96,
         "startChar": 7,
