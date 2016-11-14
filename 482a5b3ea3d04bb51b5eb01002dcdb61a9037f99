@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3045e884_c4a5d287",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-14T23:00:07Z",
+      "side": 1,
+      "message": "I don\u0027t like the repetition, but I don\u0027t see a better way (duplicating the switch is yuck).\n\n(Maybe a lambda function, which would cut down on the lines.)",
+      "range": {
+        "startLine": 6111,
+        "startChar": 0,
+        "endLine": 6117,
+        "endChar": 68
+      },
+      "revId": "482a5b3ea3d04bb51b5eb01002dcdb61a9037f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_e49c4e48",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-14T23:00:07Z",
+      "side": 1,
+      "message": "Unaligned.",
+      "range": {
+        "startLine": 2230,
+        "startChar": 45,
+        "endLine": 2230,
+        "endChar": 46
+      },
+      "revId": "482a5b3ea3d04bb51b5eb01002dcdb61a9037f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
