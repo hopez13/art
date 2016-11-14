@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_fbd26f63",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "WZR? Done.",
+      "parentUuid": "10faa431_9dd483a6",
+      "range": {
+        "startLine": 1282,
+        "startChar": 0,
+        "endLine": 1286,
+        "endChar": 75
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_1bb2bb99",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-14T09:59:34Z",
       "side": 1,
       "message": "I\u0027d drop this, you\u0027re already checking it line 266.",
+      "range": {
+        "startLine": 303,
+        "startChar": 30,
+        "endLine": 303,
+        "endChar": 73
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_dbcfb3b9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ff2c21_1bb2bb99",
       "range": {
         "startLine": 303,
         "startChar": 30,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_3ba0d7d6",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ff2c21_dbb3339a",
+      "range": {
+        "startLine": 320,
+        "startChar": 26,
+        "endLine": 320,
+        "endChar": 83
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b012b845_bab631b9",
         "filename": "runtime/cha.h",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-14T09:59:34Z",
       "side": 1,
       "message": "virtual table slot",
+      "range": {
+        "startLine": 129,
+        "startChar": 36,
+        "endLine": 129,
+        "endChar": 40
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_dbb69323",
+        "filename": "runtime/cha.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "changed to \"vtable slot\"",
+      "parentUuid": "b012b845_bab631b9",
       "range": {
         "startLine": 129,
         "startChar": 36,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_dbfd73c1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Updated to:\n  // We need to remove entries in method_headers from CHA dependency\n  // first since once we do FreeCode() below, the memory can be reused\n  // so it\u0027s possible for the same method_header to start representing different\n  // compile code.",
+      "parentUuid": "d0ff2c21_db34533d",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 75
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7008401c_383ea920",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-14T09:59:34Z",
       "side": 1,
       "message": "Add a comment why you\u0027re collecting instead of deallocting directly, and why it needs to be a set.",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 59
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_9b07ebf7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Added this:\n  // We use a set to first collect all method_headers whose code need to be\n  // removed. We need to free the underlying code after we remove CHA dependencies\n  // for entries in this set. And it\u0027s more efficient to iterate through\n  // the CHA dependency map just once with an unordered_set.",
+      "parentUuid": "7008401c_383ea920",
       "range": {
         "startLine": 283,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_fb002fe3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ff2c21_7ba3ff4e",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 1
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_5ba84329",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 9
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-14T09:59:34Z",
       "side": 1,
       "message": "Add a comment that you\u0027re checking whether assumptions made during compilation are still valid.",
+      "range": {
+        "startLine": 396,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 5
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_7bf41fd8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Add:\n    // Discard the code if any single-implementation assumptions are violated.",
+      "parentUuid": "d0ff2c21_5ba84329",
       "range": {
         "startLine": 396,
         "startChar": 2,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_5bf963ce",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Changed to:\n      VLOG(jit) \u003c\u003c \"JIT discarded jitted code due to violated single-implementation assumptions.\";",
+      "parentUuid": "f00270f6_fc64a93b",
+      "range": {
+        "startLine": 407,
+        "startChar": 19,
+        "endLine": 408,
+        "endChar": 57
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_9b2ecbe7",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 9
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "d0ff2c21_5b128340",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ff2c21_9b2ecbe7",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 70
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_bb31874b",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 9
@@ -243,6 +483,30 @@
       "writtenOn": "2016-11-14T09:59:34Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 70
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_bb0aa7ff",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-14T17:21:24Z",
+      "side": 1,
+      "message": "Removed this method as suggested and did inlining.",
+      "parentUuid": "d0ff2c21_bb31874b",
       "range": {
         "startLine": 242,
         "startChar": 0,
