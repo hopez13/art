@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "1023849f_b599a068",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T21:10:23Z",
+      "side": 1,
+      "message": "DEBUGGABLE has been the name all along. You might argue you could make deoptimizable/debuggable different, but this isn\u0027t the path we\u0027re going: an app is either debuggable or not.\n\nSo having DEBUGGABLE in the name is desirable IMO. An other option is DEBUGGABLE_APP.",
+      "parentUuid": "8b5ca306_4a7bd52f",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_5bc4c3a0",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -84,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "90177437_b9d75faa",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T21:10:23Z",
+      "side": 1,
+      "message": "That\u0027s an implementation problem. The goal of IsDebuggable it to know whether the app is debuggable, which is what looks to me you\u0027re also trying to say with IsFullyDeoptable.",
+      "parentUuid": "8b5ca306_ea6bc962",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_9b7a4b8d",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 3
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "We cannot have this set for run-tests without adding an option.",
       "parentUuid": "d0ff2c21_9b7a4b8d",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1023849f_d59c1c5a",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T21:10:23Z",
+      "side": 1,
+      "message": "--debuggable is supposed to be that option.",
+      "parentUuid": "8b5ca306_0a71dd51",
       "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
