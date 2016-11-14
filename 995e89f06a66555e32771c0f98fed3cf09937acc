@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_4a7bd52f",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-14T17:52:38Z",
+      "side": 1,
+      "message": "I honestly think that would be confusing since we already support java debuggers. This name says exactly what it ensures.\n\nHonestly I don\u0027t really like the name native_debuggable either. Both are extremely unhelpful names.",
+      "parentUuid": "d0ff2c21_7bbf7f06",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_5bc4c3a0",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8b5ca306_ea6bc962",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-14T17:52:38Z",
+      "side": 1,
+      "message": "IsDebuggable is based on the primary oat file only.",
+      "parentUuid": "d0ff2c21_5bc4c3a0",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_9b7a4b8d",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 3
@@ -65,6 +101,24 @@
         "endLine": 124,
         "endChar": 90
       },
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_0a71dd51",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-14T17:52:38Z",
+      "side": 1,
+      "message": "We cannot have this set for run-tests without adding an option.",
+      "parentUuid": "d0ff2c21_9b7a4b8d",
       "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
