@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "3045e884_e1e60067",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-14T22:16:43Z",
+      "side": 1,
+      "message": "Fine, Done. IsDebuggable will also return true if IsFullyDeoptable.",
+      "parentUuid": "90177437_b9d75faa",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_9b7a4b8d",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 3
