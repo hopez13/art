@@ -40,42 +40,60 @@ class ImageSpace;
 class OatFileAssistant;
 
 enum DexOptNeeded {
-  // kNoDexOptNeeded - The code for this dex location is up to date and can
-  // be used as is.
+  // No dexopt should (or can) be done to update the code for this dex
+  // location.
   // Matches Java: dalvik.system.DexFile.NO_DEXOPT_NEEDED = 0
   kNoDexOptNeeded = 0,
 
-  // kDex2OatNeeded - In order to make the code for this dex location up to
-  // date, dex2oat must be run on the dex file.
-  // Matches Java: dalvik.system.DexFile.DEX2OAT_NEEDED = 1
-  kDex2OatNeeded = 1,
+  // dex2oat should be run to update the code for this dex location without
+  // use of an existing vdex file.
+  // Matches Java: dalvik.system.DexFile.DEX2OAT_FROM_SCRATCH = 1
+  kDex2OatFromScratch = 1,
 
-  // kPatchOatNeeded - In order to make the code for this dex location up to
-  // date, patchoat must be run on the odex file.
-  // Matches Java: dalvik.system.DexFile.PATCHOAT_NEEDED = 2
-  kPatchOatNeeded = 2,
+  // dex2oat should be run to update the apk/jar using the vdex file as
+  // input. The vdex file is up to date with respect to the apk/jar, but is
+  // out of date with respect to the boot image.
+  // Matches Java: dalvik.system.DexFile.DEX2OAT_FOR_BOOT_IMAGE
+  kDex2OatForBootImage = 2,
 
-  // kSelfPatchOatNeeded - In order to make the code for this dex location
-  // up to date, patchoat must be run on the oat file.
-  // Matches Java: dalvik.system.DexFile.SELF_PATCHOAT_NEEDED = 3
-  kSelfPatchOatNeeded = 3,
+  // dex2oat should be run to update the apk/jar using the vdex file input.
+  // The vdex file is up to date with respect to the apk/jar and boot image.
+  // The existing oat file is out of date with respect to the compiler
+  // filter.
+  // Matches Java: dalvik.system.DexFile.DEX2OAT_FOR_FILTER
+  kDex2OatForFilter = 3,
+
+  // dex2oat should be run to update the apk/jar using the vdex file as
+  // input. The vdex file is up to date with respect to the apk/jar and boot
+  // image. patchoat cannot be called because the existing oat file does not
+  // have the necessary patch information.
+  // Matches Java: dalvik.system.DexFile.DEX2OAT_FOR_RELOCATION
+  kDex2OatForRelocation = 4,
+
+  // patchoat should be run to update the apk/jar.
+  // Matches Java: dalvik.system.DexFile.PATCHOAT_FOR_RELOCATION
+  kPatchoatForRelocation = 5,
 };
 
 enum OatStatus {
-  // kOatOutOfDate - An oat file is said to be out of date if the file does
-  // not exist, is out of date with respect to the dex file or boot image,
-  // or does not meet the target compilation type.
-  kOatOutOfDate,
+  // kOatOutOfDate - The oat file does not exist, is unreadable, corrupt, or
+  // is out of date with respect to the dex file.
+  kOatOutOfDate = 0,
 
-  // kOatNeedsRelocation - An oat file is said to need relocation if the
-  // code is up to date, but not yet properly relocated for address space
-  // layout randomization (ASLR). In this case, the oat file is neither
-  // "out of date" nor "up to date".
-  kOatNeedsRelocation,
+  // kOatBootImageOutOfDate - The oat file is up to date with respect to the
+  // dex file, but is out of date with respect to the boot image.
+  kOatBootImageOutOfDate = 1,
 
-  // kOatUpToDate - An oat file is said to be up to date if it is not out of
-  // date and has been properly relocated for the purposes of ASLR.
-  kOatUpToDate,
+  // kOatRelocationOutOfDate - The oat file is up to date with respect to
+  // the dex file and boot image, but contains compiled code that has the
+  // wrong patch delta with respect to the boot image. Patchoat should be
+  // run on the oat file to update the patch delta of the compiled code to
+  // match the boot image.
+  kOatRelocationOutOfDate = 2,
+
+  // kOatUpToDate - The oat file is completely up to date with respect to
+  // the dex file and boot image.
+  kOatUpToDate = 3,
 };
 
 std::ostream& operator << (std::ostream& stream, const OatStatus status);
@@ -102,6 +120,9 @@ class OatFileInfo {
   // Returns true if the oat file exists.
   bool Exists();
 
+  // Returns true if the oat file is unuseable.
+  bool IsOutOfDate();
+
   // Returns the status of the oat file.
   OatStatus Status();
 
@@ -113,8 +134,6 @@ class OatFileInfo {
   // given target_compilation_filter.
   // profile_changed should be true to indicate the profile has recently
   // changed for this dex location.
-  // Always returns the kPatchOatNeeded status, and not the
-  // kSelfPatchOatNeeded status.
   DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
                                bool profile_changed);
 
@@ -256,8 +275,10 @@ class OatFileAssistant {
   // dex location that is at least as good as an oat file generated with the
   // given compiler filter. profile_changed should be true to indicate the
   // profile has recently changed for this dex location.
-  DexOptNeeded GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter,
-                               bool profile_changed = false);
+  // Returns a positive status code if the status refers to the oat file in
+  // the oat location. Returns a negative status code if the status refers to
+  // the oat file in the odex location.
+  int GetDexOptNeeded(CompilerFilter::Filter target_compiler_filter, bool profile_changed = false);
 
   // Returns true if there is up-to-date code for this dex location,
   // irrespective of the compiler filter of the up-to-date code.
