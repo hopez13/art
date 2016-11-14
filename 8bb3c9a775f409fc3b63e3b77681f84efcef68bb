@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10faa431_9dd483a6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "You can use the zero register here.",
+      "range": {
+        "startLine": 1282,
+        "startChar": 0,
+        "endLine": 1286,
+        "endChar": 75
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_1bb2bb99",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "I\u0027d drop this, you\u0027re already checking it line 266.",
+      "range": {
+        "startLine": 303,
+        "startChar": 30,
+        "endLine": 303,
+        "endChar": 73
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_dbb3339a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "I\u0027d add a \"AddCHASingleImplementationDependency\" on the HGraph.",
+      "range": {
+        "startLine": 320,
+        "startChar": 26,
+        "endLine": 320,
+        "endChar": 83
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b012b845_bab631b9",
+        "filename": "runtime/cha.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "virtual table slot",
+      "range": {
+        "startLine": 129,
+        "startChar": 36,
+        "endLine": 129,
+        "endChar": 40
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_db34533d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "I find this comment hard to read.",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 75
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7008401c_383ea920",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re collecting instead of deallocting directly, and why it needs to be a set.",
+      "range": {
+        "startLine": 283,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 59
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_7ba3ff4e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "This is only called by FreeMethodHeaders, right? I\u0027d inline it there.",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 1
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_5ba84329",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "Add a comment that you\u0027re checking whether assumptions made during compilation are still valid.",
+      "range": {
+        "startLine": 396,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 5
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00270f6_fc64a93b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "I have a hard time reading this.",
+      "range": {
+        "startLine": 407,
+        "startChar": 19,
+        "endLine": 408,
+        "endChar": 57
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_9b2ecbe7",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 70
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_bb31874b",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T09:59:34Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 70
+      },
+      "revId": "8bb3c9a775f409fc3b63e3b77681f84efcef68bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
