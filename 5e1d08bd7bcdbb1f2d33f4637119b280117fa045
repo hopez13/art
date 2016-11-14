@@ -22,6 +22,30 @@
       "revId": "5e1d08bd7bcdbb1f2d33f4637119b280117fa045",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90177437_b9c07fe8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6109,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-14T18:09:46Z",
+      "side": 1,
+      "message": "Yes, but I am using ip - it doesn\u0027t count.\nHowever this is not a final solution but a bug fix; later I am going to benchmark different implementations in terms of branch prediction and performance.",
+      "parentUuid": "90177437_f9b6f78b",
+      "range": {
+        "startLine": 6108,
+        "startChar": 0,
+        "endLine": 6109,
+        "endChar": 26
+      },
+      "revId": "5e1d08bd7bcdbb1f2d33f4637119b280117fa045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
