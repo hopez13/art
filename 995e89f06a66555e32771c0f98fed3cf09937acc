@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0ff2c21_7bbf7f06",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T13:19:51Z",
+      "side": 1,
+      "message": "How about DEBUG_JAVA_DEBUGGABLE? (to make it consistent with DEBUG_NATIVE_DEBUGGABLE).",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 40
+      },
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_5bc4c3a0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T13:19:51Z",
+      "side": 1,
+      "message": "What is the difference with IsDebuggable?",
+      "range": {
+        "startLine": 597,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 3
+      },
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ff2c21_9b7a4b8d",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-14T13:19:51Z",
+      "side": 1,
+      "message": "I don\u0027t understand why we need another option?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 90
+      },
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
