@@ -61,6 +61,24 @@
     },
     {
       "key": {
+        "uuid": "3045e884_fee18110",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-14T21:34:01Z",
+      "side": 1,
+      "message": "Yes but we already have an ENABLE_DEBUGGER flag. Having 2 extremely similar names seems confusing.\n\nHow about ENABLE_FULL_DEOPT. Then it matches the style of the first 5 options, says what it\u0027s doing and doesn\u0027t add to the confusing array of options with DEBUG in the name (currently 3).\n\nAlso I\u0027d say that all of the options currently have names that describe what they do (Except for native_debuggable) and many of them are set only in groups (i.e. ENABLE_DEBUGGER is always set with ENABLE_CHECKJNI, NATIVE_DEBUGGABLE is always set with ALWAYS_JIT and GENERATE_DEBUG_INFO). This indicates to me that each option should do the minimum necessary (and be set in conjunction with others by the zygote) and should be named for what it actually DOES, not what it\u0027s FOR. Therefore I believe that an appropriate name should say that it allows deopting everything and we shouldn\u0027t mention that it is related to debuggable apps.",
+      "parentUuid": "1023849f_b599a068",
+      "revId": "995e89f06a66555e32771c0f98fed3cf09937acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ff2c21_5bc4c3a0",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
