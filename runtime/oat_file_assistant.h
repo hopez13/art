@@ -179,6 +179,10 @@ class OatFileAssistant {
   // the OatFileAssistant object.
   std::unique_ptr<OatFile> GetBestOatFile();
 
+  // Returns a human readable description of the status of the code for the
+  // dex file. The returned description is for debugging purposes only.
+  std::string GetStatusDump();
+
   // Open and returns an image space associated with the oat file.
   static std::unique_ptr<gc::space::ImageSpace> OpenImageSpace(const OatFile* oat_file);
 

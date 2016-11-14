@@ -16,6 +16,8 @@
 
 #include "oat_file_assistant.h"
 
+#include <sstream>
+
 #include <sys/stat.h>
 #include "base/logging.h"
 #include "base/stringprintf.h"
@@ -193,6 +195,35 @@ OatFileAssistant::MakeUpToDate(bool profile_changed, std::string* error_msg) {
 
 std::unique_ptr<OatFile> OatFileAssistant::GetBestOatFile() {
   return GetBestInfo().ReleaseFileForUse();
+}
+
+std::string OatFileAssistant::GetStatusDump() {
+  std::ostringstream status;
+  bool oat_file_exists = false;
+  bool odex_file_exists = false;
+  if (oat_.Exists()) {
+    oat_file_exists = true;
+    status << *oat_.Filename() << " [compilation_filter=";
+    status << CompilerFilter::NameOfFilter(oat_.CompilerFilter());
+    status << ", status=" << oat_.Status();
+  }
+
+  if (odex_.Exists()) {
+    odex_file_exists = true;
+    if (oat_file_exists) {
+      status << "] ";
+    }
+    status << *odex_.Filename() << " [compilation_filter=";
+    status << CompilerFilter::NameOfFilter(odex_.CompilerFilter());
+    status << ", status=" << odex_.Status();
+  }
+
+  if (!oat_file_exists && !odex_file_exists) {
+    status << "invalid[";
+  }
+
+  status << "]";
+  return status.str();
 }
 
 std::vector<std::unique_ptr<const DexFile>> OatFileAssistant::LoadDexFiles(
