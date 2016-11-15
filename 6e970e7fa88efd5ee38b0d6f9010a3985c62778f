@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3045e884_5926c47e",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-15T22:32:53Z",
+      "side": 1,
+      "message": "Maybe the code would be simpler if you looked at sorted_summaries.back() instead of prev.",
+      "range": {
+        "startLine": 241,
+        "startChar": 19,
+        "endLine": 241,
+        "endChar": 23
+      },
+      "revId": "6e970e7fa88efd5ee38b0d6f9010a3985c62778f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
