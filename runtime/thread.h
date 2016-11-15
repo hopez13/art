@@ -271,6 +271,7 @@ class Thread {
 
   // Transition from runnable into a state where mutator privileges are denied. Releases share of
   // mutator lock.
+  template <bool kPoisonObjPtrs = true>
   ALWAYS_INLINE void TransitionFromRunnableToSuspended(ThreadState new_state)
       REQUIRES(!Locks::thread_suspend_count_lock_, !Roles::uninterruptible_)
       UNLOCK_FUNCTION(Locks::mutator_lock_);

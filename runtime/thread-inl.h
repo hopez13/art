@@ -193,9 +193,12 @@ inline void Thread::PassActiveSuspendBarriers() {
   }
 }
 
+template <bool kPoisonObjPtrs>
 inline void Thread::TransitionFromRunnableToSuspended(ThreadState new_state) {
   AssertThreadSuspensionIsAllowable();
-  PoisonObjectPointersIfDebug();
+  if (kPoisonObjPtrs) {
+    PoisonObjectPointersIfDebug();
+  }
   DCHECK_EQ(this, Thread::Current());
   // Change to non-runnable state, thereby appearing suspended to the system.
   TransitionToSuspendedAndRunCheckpoints(new_state);

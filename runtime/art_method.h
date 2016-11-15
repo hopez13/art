@@ -227,6 +227,11 @@ class ArtMethod FINAL {
     return (GetAccessFlags() & kAccDefault) != 0;
   }
 
+  bool IsObsolete() {
+    // TODO Should maybe make this not needed?
+    return !IsIntrinsic() && (GetAccessFlags() & kAccObsoleteMethod) != 0;
+  }
+
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   bool IsNative() {
     return (GetAccessFlags<kReadBarrierOption>() & kAccNative) != 0;
@@ -555,6 +560,7 @@ class ArtMethod FINAL {
   mirror::ClassLoader* GetClassLoader() REQUIRES_SHARED(Locks::mutator_lock_);
 
   mirror::DexCache* GetDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
+  mirror::DexCache* GetObsoleteDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE ArtMethod* GetInterfaceMethodIfProxy(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
