@@ -53,10 +53,10 @@ jvmtiError GetTransformationData(ArtJvmTiEnv* env,
                                  /*out*/unsigned char** dex_data);
 
 // Install the new dex file.
-jvmtiError MoveTransformedFileIntoRuntime(jclass jklass,
-                                          const std::string& original_location,
-                                          jint data_len,
-                                          unsigned char* dex_data);
+// jvmtiError MoveTransformedFileIntoRuntime(jclass jklass,
+//                                           const std::string& original_location,
+//                                           jint data_len,
+//                                           unsigned char* dex_data);
 
 }  // namespace openjdkjvmti
 
