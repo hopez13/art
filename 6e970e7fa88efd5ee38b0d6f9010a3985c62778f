@@ -46,6 +46,30 @@
       "revId": "6e970e7fa88efd5ee38b0d6f9010a3985c62778f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_94c93112",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-15T23:12:42Z",
+      "side": 1,
+      "message": "Tried and discussed with mathieuc. Doesn\u0027t make the code nicer. (We need the last element update to detect unique values correctly.)",
+      "parentUuid": "3045e884_7948e02e",
+      "range": {
+        "startLine": 241,
+        "startChar": 19,
+        "endLine": 241,
+        "endChar": 23
+      },
+      "revId": "6e970e7fa88efd5ee38b0d6f9010a3985c62778f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
