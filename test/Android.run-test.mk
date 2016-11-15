@@ -504,11 +504,13 @@ TEST_ART_BROKEN_INTERPRETER_RUN_TESTS :=
 # Test 906 iterates the heap filtering with different options. No instances should be created
 # between those runs to be able to have precise checks.
 # Test 902 hits races with the JIT compiler. b/32821077
+# Test 913 may have JIT compiler thread races. b/31385354
 TEST_ART_BROKEN_JIT_RUN_TESTS := \
   137-cfi \
   902-hello-transformation \
   904-object-allocation \
   906-iterate-heap \
+  913-heaps \
 
 ifneq (,$(filter jit,$(COMPILER_TYPES)))
   ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES),$(PREBUILD_TYPES), \
