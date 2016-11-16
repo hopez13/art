@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_e9741078",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-16T23:34:10Z",
+      "side": 1,
+      "message": "We start them when the thread pool is created. It is a simplifying assumption, but I thought it was good enough (especially since started_ isn\u0027t surfaced).",
+      "parentUuid": "3045e884_69e2c015",
+      "range": {
+        "startLine": 718,
+        "startChar": 51,
+        "endLine": 718,
+        "endChar": 63
+      },
+      "revId": "d2fe7e3960435e460c58366259b3a75ed29cfc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3045e884_a90de820",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-16T23:23:38Z",
       "side": 1,
       "message": "const bool",
+      "revId": "d2fe7e3960435e460c58366259b3a75ed29cfc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_09efbccf",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-16T23:34:10Z",
+      "side": 1,
+      "message": "This makes the constructor IMHO uglier. Because the field would have to be initialized in the initializer list. Should I still do it?",
+      "parentUuid": "3045e884_a90de820",
       "revId": "d2fe7e3960435e460c58366259b3a75ed29cfc02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
