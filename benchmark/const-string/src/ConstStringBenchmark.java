@@ -1045,21 +1045,21 @@ public class ConstStringBenchmark {
     public static final String string_1024 = "TestString_1024";
 
     public void timeConstStringsWithConflict(int count) {
-      for (int i = 0; i < count; ++i) {
-        $noinline$foo("TestString_0000");
-        $noinline$foo("TestString_1024");
-      }
+        for (int i = 0; i < count; ++i) {
+            $noinline$foo("TestString_0000");
+            $noinline$foo("TestString_1024");
+        }
     }
 
     public void timeConstStringsWithoutConflict(int count) {
-      for (int i = 0; i < count; ++i) {
-        $noinline$foo("TestString_0001");
-        $noinline$foo("TestString_1023");
-      }
+        for (int i = 0; i < count; ++i) {
+            $noinline$foo("TestString_0001");
+            $noinline$foo("TestString_1023");
+        }
     }
 
     static void $noinline$foo(String s) {
-      if (doThrow) { throw new Error(); }
+        if (doThrow) { throw new Error(); }
     }
 
     public static boolean doThrow = false;
