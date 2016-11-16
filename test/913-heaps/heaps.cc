@@ -108,6 +108,28 @@ static bool Run(jint heap_filter,
   return true;
 }
 
+class ScopedJitStop {
+ public:
+  ScopedJitStop() {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    was_on_ = (jit != nullptr) && (jit->GetThreadPool() != nullptr);
+    if (was_on_) {
+      Thread* self = Thread::Current();
+      jit->GetThreadPool()->StopWorkers(self);
+      jit->WaitForCompilationToFinish(self);
+    }
+  }
+
+  ~ScopedJitStop() {
+    if (was_on_) {
+      Runtime::Current()->GetJit()->GetThreadPool()->StartWorkers(Thread::Current());
+    }
+  }
+
+ private:
+  bool was_on_;
+};
+
 extern "C" JNIEXPORT jobjectArray JNICALL Java_Main_followReferences(JNIEnv* env,
                                                                      jclass klass ATTRIBUTE_UNUSED,
                                                                      jint heap_filter,
@@ -261,6 +283,8 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_Main_followReferences(JNIEnv* env
     std::vector<std::string> lines_;
   };
 
+  ScopedJitStop sjs;  // Wait to avoid JIT influence (e.g., JNI globals).
+
   // If jniRef isn't null, add a local and a global ref.
   ScopedLocalRef<jobject> jni_local_ref(env, nullptr);
   jobject jni_global_ref = nullptr;
@@ -297,13 +321,6 @@ jint OnLoad(JavaVM* vm,
   }
   SetAllCapabilities(jvmti_env);
   return 0;
-}
-
-extern "C" JNIEXPORT void JNICALL Java_Main_waitForJitCompilation(JNIEnv*, jclass) {
-  jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit != nullptr) {
-    jit->WaitForCompilationToFinish(Thread::Current());
-  }
 }
 
 }  // namespace Test913Heaps

@@ -175,6 +175,10 @@ class Jit {
 
   static bool LoadCompilerLibrary(std::string* error_msg);
 
+  ThreadPool* GetThreadPool() {
+    return thread_pool_.get();
+  }
+
  private:
   Jit();
 
