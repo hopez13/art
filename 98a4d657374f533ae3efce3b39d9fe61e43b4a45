@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_eaac0c6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_ae3c0ff7",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_ae532f52",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-08T00:37:01Z",
       "side": 1,
       "message": "I guess we didn\u0027t have a fast path for these before?",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 67
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_6ae0fcb1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Not the resolved and initialized cases.",
+      "parentUuid": "cbb69be6_ae532f52",
       "range": {
         "startLine": 999,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_4ae540c0",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_ce8f83b6",
+      "range": {
+        "startLine": 1229,
+        "startChar": 18,
+        "endLine": 1229,
+        "endChar": 52
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_2e763ffc",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-08T00:37:01Z",
       "side": 1,
       "message": "Why is this?",
+      "range": {
+        "startLine": 1289,
+        "startChar": 4,
+        "endLine": 1289,
+        "endChar": 46
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_ea224c15",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Because the class is passed as an argument, the to-space invariant current means the HLoadClass will do the read barrier.",
+      "parentUuid": "cbb69be6_2e763ffc",
       "range": {
         "startLine": 1289,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_2a2d5405",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_8e7bcb2e",
+      "range": {
+        "startLine": 355,
+        "startChar": 15,
+        "endLine": 355,
+        "endChar": 32
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_6eebd78a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-08T00:37:01Z",
       "side": 1,
       "message": "Do we update the current allocator when is_gc_marking changes?",
+      "range": {
+        "startLine": 4231,
+        "startChar": 39,
+        "endLine": 4231,
+        "endChar": 58
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_ca4dd0e3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4231,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Not currently, the dynamic check means we fall back to region space correctly instead of bump_pointer_space_.",
+      "parentUuid": "cbb69be6_6eebd78a",
       "range": {
         "startLine": 4231,
         "startChar": 39,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_4a626052",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4242,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_6e76774b",
+      "range": {
+        "startLine": 4242,
+        "startChar": 4,
+        "endLine": 4242,
+        "endChar": 5
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_7dfab304",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-08T00:37:01Z",
       "side": 1,
       "message": "Remove this backslash?",
+      "range": {
+        "startLine": 131,
+        "startChar": 52,
+        "endLine": 131,
+        "endChar": 53
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_2a32744e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_7dfab304",
       "range": {
         "startLine": 131,
         "startChar": 52,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_0a2fb8e5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbb69be6_7d2b9399",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 82
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_fd0c035b",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -220,6 +436,30 @@
       "writtenOn": "2016-11-08T00:37:01Z",
       "side": 1,
       "message": "Rename this to suggest it may also update alloc entrypoints, or add a separate function for updating the entrypoints?",
+      "range": {
+        "startLine": 3139,
+        "startChar": 13,
+        "endLine": 3139,
+        "endChar": 27
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3045e884_ea37ec3e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T02:01:58Z",
+      "side": 1,
+      "message": "Done in other CL.",
+      "parentUuid": "cbb69be6_fd0c035b",
       "range": {
         "startLine": 3139,
         "startChar": 13,
