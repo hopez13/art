@@ -5464,7 +5464,7 @@ void LocationsBuilderX86_64::VisitLoadClass(HLoadClass* cls) {
     return;
   }
 
-  const bool requires_read_barrier = kEmitCompilerReadBarrier && !cls->IsInBootImage();
+  const bool requires_read_barrier = cls->RequiresReadBarrier();
   LocationSummary::CallKind call_kind = (cls->NeedsEnvironment() || requires_read_barrier)
       ? LocationSummary::kCallOnSlowPath
       : LocationSummary::kNoCall;
@@ -5493,9 +5493,9 @@ void InstructionCodeGeneratorX86_64::VisitLoadClass(HLoadClass* cls) {
   Location out_loc = locations->Out();
   CpuRegister out = out_loc.AsRegister<CpuRegister>();
 
-  const ReadBarrierOption read_barrier_option = cls->IsInBootImage()
-      ? kWithoutReadBarrier
-      : kCompilerReadBarrierOption;
+  const ReadBarrierOption read_barrier_option = cls->RequiresReadBarrier()
+      ? kWithReadBarrier
+      : kWithoutReadBarrier;
   bool generate_null_check = false;
   switch (cls->GetLoadKind()) {
     case HLoadClass::LoadKind::kReferrersClass: {

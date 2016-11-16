@@ -5569,6 +5569,33 @@ class HLoadClass FINAL : public HInstruction {
   bool IsInBootImage() const { return GetPackedFlag<kFlagIsInBootImage>(); }
   bool MustGenerateClinitCheck() const { return GetPackedFlag<kFlagGenerateClInitCheck>(); }
 
+  bool IsUsedByClinitCheckOnly() const {
+    for (const HUseListNode<HInstruction*>& use : GetUses()) {
+      if (!use.GetUser()->IsClinitCheck()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool RequiresReadBarrier() const {
+    if (!kEmitCompilerReadBarrier) {
+      return false;
+    }
+    // If the class is in the boot image, we don't require a read barrier because the classes in the
+    // boot image that are on dirty cards are grayed during the pause.
+    if (IsInBootImage()) {
+      return false;
+    }
+    // If used by ClinitCheck only, we don't require a read barrier because it's safe to read a
+    // stale class status in ClinitCheck and the slow path (artInitializeStaticStorageFromCode,
+    // artInitializeTypeFromCode) will reload the class with a read barrier.
+    if (IsUsedByClinitCheckOnly()) {
+      return false;
+    }
+    return true;
+  }
+
   void MarkInDexCache() {
     SetPackedFlag<kFlagIsInDexCache>(true);
     DCHECK(!NeedsEnvironment());
