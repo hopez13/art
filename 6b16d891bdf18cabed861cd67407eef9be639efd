@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e168e5_21f488d7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-16T16:18:04Z",
+      "side": 1,
+      "message": "This is an implementation that is not good enough for jvmti anymore. You should have the runtime check that the -Xcompiler-option --debuggable is passed.",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 57
+      },
+      "revId": "6b16d891bdf18cabed861cd67407eef9be639efd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b028f8c6_2a0d7f1f",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-16T16:18:04Z",
+      "side": 1,
+      "message": "You don\u0027t need this, please use the \"-Xcompiler-option --debuggable\" instead, which is exactly what you want to express here.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 90
+      },
+      "revId": "6b16d891bdf18cabed861cd67407eef9be639efd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
