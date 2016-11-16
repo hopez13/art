@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e168e5_4176f4f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-16T11:19:35Z",
+      "side": 1,
+      "message": "Add measurements, please.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "9fd8c60cdff7b28a89bb97fd90ae9d0f37cf8f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_617bf0df",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-16T11:19:35Z",
+      "side": 1,
+      "message": "Move to individual cases as in the old arm codegen.",
+      "range": {
+        "startLine": 5159,
+        "startChar": 0,
+        "endLine": 5160,
+        "endChar": 97
+      },
+      "revId": "9fd8c60cdff7b28a89bb97fd90ae9d0f37cf8f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_016cec1e",
+        "filename": "runtime/arch/arm/entrypoints_init_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-16T11:19:35Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 89,
+        "startChar": 57,
+        "endLine": 89,
+        "endChar": 58
+      },
+      "revId": "9fd8c60cdff7b28a89bb97fd90ae9d0f37cf8f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
