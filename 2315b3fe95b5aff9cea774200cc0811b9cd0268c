@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3045e884_72cab25f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5572,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T17:32:59Z",
+      "side": 1,
+      "message": "Is there a way to make sure there are no suspend points in between? This is not safe if this pattern could occur:\n\n\nx \u003d LoadClass\n\nthread suspension point\n\nClInitCheck(x)\n\n\nThread suspension could start GC and have the GC see a pointer in from-space of previous GC as a root.",
+      "range": {
+        "startLine": 5572,
+        "startChar": 7,
+        "endLine": 5572,
+        "endChar": 30
+      },
+      "revId": "2315b3fe95b5aff9cea774200cc0811b9cd0268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
