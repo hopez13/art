@@ -37,8 +37,13 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
       : reference_(reference),
         position_(pos),
         is_singleton_(true),
-        is_singleton_and_non_escaping_(true) {
-    CalculateEscape(reference_, nullptr, &is_singleton_, &is_singleton_and_non_escaping_);
+        is_singleton_and_not_returned_(true),
+        is_singleton_and_not_deopt_visible_(true) {
+    CalculateEscape(reference_,
+                    nullptr,
+                    &is_singleton_,
+                    &is_singleton_and_not_returned_,
+                    &is_singleton_and_not_deopt_visible_);
   }
 
   HInstruction* GetReference() const {
@@ -60,18 +65,16 @@ class ReferenceInfo : public ArenaObject<kArenaAllocMisc> {
   // used as an environment local of an HDeoptimize instruction.
   // The allocation and stores into reference_ may be eliminated for such cases.
   bool IsSingletonAndNonEscaping() const {
-    return is_singleton_and_non_escaping_;
+    return is_singleton_and_not_returned_ && is_singleton_and_not_deopt_visible_;
   }
 
  private:
   HInstruction* const reference_;
-  const size_t position_;     // position in HeapLocationCollector's ref_info_array_.
-  bool is_singleton_;         // can only be referred to by a single name in the method.
+  const size_t position_;  // position in HeapLocationCollector's ref_info_array_.
 
-  // reference_ is singleton and does not escape in the end either by
-  // returning to the caller, or being used as an environment local of an
-  // HDeoptimize instruction.
-  bool is_singleton_and_non_escaping_;
+  bool is_singleton_;                        // can only be referred to by a single name in the method,
+  bool is_singleton_and_not_returned_;       // and not returned to caller,
+  bool is_singleton_and_not_deopt_visible_;  // and not used as an environment local of HDeoptimize.
 
   DISALLOW_COPY_AND_ASSIGN(ReferenceInfo);
 };
