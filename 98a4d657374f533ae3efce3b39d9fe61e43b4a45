@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_69712089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-16T23:26:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3045e884_69d800db",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "98a4d657374f533ae3efce3b39d9fe61e43b4a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb69be6_ae532f52",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 3
