@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "50a6dcc4_788f357d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-17T22:39:59Z",
+      "side": 1,
+      "message": "Could use result_ptr-\u003eDescriptorEquals",
+      "range": {
+        "startLine": 2597,
+        "startChar": 21,
+        "endLine": 2597,
+        "endChar": 27
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50a6dcc4_03d5dea0",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -13,6 +36,30 @@
       "writtenOn": "2016-11-17T22:15:18Z",
       "side": 1,
       "message": "Why would we not have a class table?\n\nMathieu says it might have been lazily created? But then you *must* create it here, or you\u0027ll throw a (wrong) LinkageError below? (And if it\u0027s because of OOM, we could get exception during exception?)",
+      "range": {
+        "startLine": 2612,
+        "startChar": 10,
+        "endLine": 2612,
+        "endChar": 39
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50a6dcc4_c352f62a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2612,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-17T22:39:59Z",
+      "side": 1,
+      "message": "Yes, can you just call InsertClassTableForClassLoader instead? That will make sure a class table exists.",
+      "parentUuid": "50a6dcc4_03d5dea0",
       "range": {
         "startLine": 2612,
         "startChar": 10,
