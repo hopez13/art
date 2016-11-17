@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3045e884_18ba6409",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-17T16:49:04Z",
+      "side": 1,
+      "message": "That is after stopping the workers. At that point, the workers will only finish the current task they\u0027re already running.",
+      "parentUuid": "30e168e5_04e95ac7",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 42
+      },
+      "revId": "662f96a8e8f5803ffc4ab4e08d3686fb6a58ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_4449a2d0",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 2
