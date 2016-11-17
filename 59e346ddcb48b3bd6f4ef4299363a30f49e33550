@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30e168e5_64513e51",
+        "filename": "benchmark/const-class/src/ConstClassBenchmark.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-17T11:31:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e168e5_24981608",
+      "revId": "59e346ddcb48b3bd6f4ef4299363a30f49e33550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_449d22f7",
         "filename": "benchmark/const-class/src/ConstClassBenchmark.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-17T11:10:59Z",
       "side": 1,
       "message": "I hope you used some automated way of generating these lines :-)",
+      "revId": "59e346ddcb48b3bd6f4ef4299363a30f49e33550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_a48b46ae",
+        "filename": "benchmark/const-class/src/ConstClassBenchmark.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-17T11:31:39Z",
+      "side": 1,
+      "message": "Four mini-scripts like\n\n    for i in {100..999}; do echo \"public static class TestClass_0$i {}\" \u003e\u003e benchmark/const-class/src/ConstClassBenchmark.java ; done\n\nand the cut and paste to the right place.",
+      "parentUuid": "30e168e5_449d22f7",
       "revId": "59e346ddcb48b3bd6f4ef4299363a30f49e33550",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
