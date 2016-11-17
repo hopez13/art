@@ -325,6 +325,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         invoke_type_(invoke_type),
         in_ssa_form_(false),
         should_generate_constructor_barrier_(should_generate_constructor_barrier),
+        number_of_cha_guards_(0),
         instruction_set_(instruction_set),
         cached_null_constant_(nullptr),
         cached_int_constants_(std::less<int32_t>(), arena->Adapter(kArenaAllocConstantsMap)),
@@ -546,9 +547,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   }
 
   bool HasShouldDeoptimizeFlag() const {
-    // TODO: if all CHA guards can be eliminated, there is no need for the flag
-    // even if cha_single_implementation_list_ is not empty.
-    return !cha_single_implementation_list_.empty();
+    return number_of_cha_guards_ != 0;
   }
 
   bool HasTryCatch() const { return has_try_catch_; }
@@ -566,6 +565,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   HInstruction* InsertOppositeCondition(HInstruction* cond, HInstruction* cursor);
 
   ReferenceTypeInfo GetInexactObjectRti() const { return inexact_object_rti_; }
+
+  uint32_t GetNumberOfCHAGuards() { return number_of_cha_guards_; }
+  void SetNumberOfCHAGuards(uint32_t num) { number_of_cha_guards_ = num; }
+  void IncrementNumberOfCHAGuards() { number_of_cha_guards_++; }
 
  private:
   void RemoveInstructionsAsUsersFromDeadBlocks(const ArenaBitVector& visited) const;
@@ -661,6 +664,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   bool in_ssa_form_;
 
   const bool should_generate_constructor_barrier_;
+
+  uint32_t number_of_cha_guards_;
 
   const InstructionSet instruction_set_;
 
@@ -2899,14 +2904,17 @@ class HDeoptimize FINAL : public HTemplateInstruction<1> {
 // if it's true, starts to do deoptimization.
 // It has a 4-byte slot on stack.
 // TODO: allocate a register for this flag.
-class HShouldDeoptimizeFlag FINAL : public HExpression<0> {
+class HShouldDeoptimizeFlag FINAL : public HExpression<1> {
  public:
   // TODO: use SideEffects to aid eliminating some CHA guards.
-  explicit HShouldDeoptimizeFlag(uint32_t dex_pc)
+  explicit HShouldDeoptimizeFlag(HInstruction* receiver, uint32_t dex_pc)
       : HExpression(Primitive::kPrimInt, SideEffects::None(), dex_pc) {
+    SetRawInputAt(0, receiver);
   }
 
-  // We don't eliminate CHA guards yet.
+  // We do all CHA guard elimination/motion in a single pass, after which there is no
+  // further guard elimination/motion since a guard might have been used for justification
+  // of the elimination of another guard.
   bool CanBeMoved() const OVERRIDE { return false; }
 
   DECLARE_INSTRUCTION(ShouldDeoptimizeFlag);
