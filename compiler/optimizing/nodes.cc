@@ -1347,7 +1347,7 @@ std::ostream& operator<<(std::ostream& os, const HInstruction::InstructionKind& 
 void HInstruction::MoveBefore(HInstruction* cursor) {
   DCHECK(!IsPhi());
   DCHECK(!IsControlFlow());
-  DCHECK(CanBeMoved());
+  DCHECK(CanBeMoved() || IsShouldDeoptimizeFlag());
   DCHECK(!cursor->IsPhi());
 
   next_->previous_ = previous_;
