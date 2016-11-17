@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e168e5_8443aaae",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-17T09:57:46Z",
+      "side": 1,
+      "message": "Why do you need to wait first?",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 42
+      },
+      "revId": "662f96a8e8f5803ffc4ab4e08d3686fb6a58ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_4449a2d0",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-17T09:57:46Z",
+      "side": 1,
+      "message": "const ?",
+      "range": {
+        "startLine": 178,
+        "startChar": 29,
+        "endLine": 178,
+        "endChar": 30
+      },
+      "revId": "662f96a8e8f5803ffc4ab4e08d3686fb6a58ff28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
