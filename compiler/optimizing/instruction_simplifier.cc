@@ -16,6 +16,7 @@
 
 #include "instruction_simplifier.h"
 
+#include "cha_guard_optimization.h"
 #include "escape.h"
 #include "intrinsics.h"
 #include "mirror/class-inl.h"
@@ -25,9 +26,12 @@ namespace art {
 
 class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
  public:
-  InstructionSimplifierVisitor(HGraph* graph, OptimizingCompilerStats* stats)
+  InstructionSimplifierVisitor(HGraph* graph,
+                               OptimizingCompilerStats* stats,
+                               bool optimize_cha_guard)
       : HGraphDelegateVisitor(graph),
-        stats_(stats) {}
+        stats_(stats),
+        cha_guard_optimization_(this, optimize_cha_guard) {}
 
   void Run();
 
@@ -96,6 +100,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void VisitInstanceOf(HInstanceOf* instruction) OVERRIDE;
   void VisitInvoke(HInvoke* invoke) OVERRIDE;
   void VisitDeoptimize(HDeoptimize* deoptimize) OVERRIDE;
+  void VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* flag) OVERRIDE;
 
   bool CanEnsureNotNullAt(HInstruction* instr, HInstruction* at) const;
 
@@ -113,6 +118,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void SimplifyMemBarrier(HInvoke* invoke, MemBarrierKind barrier_kind);
 
   OptimizingCompilerStats* stats_;
+  CHAGuardOptimization cha_guard_optimization_;
   bool simplification_occurred_ = false;
   int simplifications_at_current_position_ = 0;
   // We ensure we do not loop infinitely. The value should not be too high, since that
@@ -123,7 +129,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
 };
 
 void InstructionSimplifier::Run() {
-  InstructionSimplifierVisitor visitor(graph_, stats_);
+  InstructionSimplifierVisitor visitor(graph_, stats_, optimize_cha_guard_);
   visitor.Run();
 }
 
@@ -2011,6 +2017,10 @@ void InstructionSimplifierVisitor::VisitDeoptimize(HDeoptimize* deoptimize) {
       // Always deopt.
     }
   }
+}
+
+void InstructionSimplifierVisitor::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* flag) {
+  cha_guard_optimization_.OptimizeGuard(flag);
 }
 
 // Replace code looking like

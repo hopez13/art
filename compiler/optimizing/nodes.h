@@ -546,9 +546,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   }
 
   bool HasShouldDeoptimizeFlag() const {
-    // TODO: if all CHA guards can be eliminated, there is no need for the flag
-    // even if cha_single_implementation_list_ is not empty.
-    return !cha_single_implementation_list_.empty();
+    return has_cha_guards_;
   }
 
   bool HasTryCatch() const { return has_try_catch_; }
@@ -566,6 +564,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   HInstruction* InsertOppositeCondition(HInstruction* cond, HInstruction* cursor);
 
   ReferenceTypeInfo GetInexactObjectRti() const { return inexact_object_rti_; }
+
+  void SetHasCHAGuards(bool has_cha_guards) { has_cha_guards_ = has_cha_guards; }
 
  private:
   void RemoveInstructionsAsUsersFromDeadBlocks(const ArenaBitVector& visited) const;
@@ -661,6 +661,8 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   bool in_ssa_form_;
 
   const bool should_generate_constructor_barrier_;
+
+  bool has_cha_guards_;
 
   const InstructionSet instruction_set_;
 
@@ -2899,11 +2901,16 @@ class HDeoptimize FINAL : public HTemplateInstruction<1> {
 // if it's true, starts to do deoptimization.
 // It has a 4-byte slot on stack.
 // TODO: allocate a register for this flag.
-class HShouldDeoptimizeFlag FINAL : public HExpression<0> {
+class HShouldDeoptimizeFlag FINAL : public HExpression<1> {
  public:
   // TODO: use SideEffects to aid eliminating some CHA guards.
-  explicit HShouldDeoptimizeFlag(uint32_t dex_pc)
+  explicit HShouldDeoptimizeFlag(HInstruction* receiver, uint32_t dex_pc)
       : HExpression(Primitive::kPrimInt, SideEffects::None(), dex_pc) {
+    SetRawInputAt(0, receiver);
+  }
+
+  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
+    return true;
   }
 
   // We don't eliminate CHA guards yet.
@@ -6669,6 +6676,9 @@ class HGraphVisitor : public ValueObject {
 
   HGraph* GetGraph() const { return graph_; }
 
+  HInstructionIterator* GetInstructionIterator() const { return instruction_iterator_; }
+  void SetInstructionIterator(HInstructionIterator* it) { instruction_iterator_ = it; }
+
   // Visit functions for instruction classes.
 #define DECLARE_VISIT_INSTRUCTION(name, super)                                        \
   virtual void Visit##name(H##name* instr) { VisitInstruction(instr); }
@@ -6679,6 +6689,7 @@ class HGraphVisitor : public ValueObject {
 
  private:
   HGraph* const graph_;
+  HInstructionIterator* instruction_iterator_;
 
   DISALLOW_COPY_AND_ASSIGN(HGraphVisitor);
 };

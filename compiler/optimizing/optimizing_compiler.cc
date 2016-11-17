@@ -769,11 +769,11 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   HLoopOptimization* loop = new (arena) HLoopOptimization(graph, induction);
   HSharpening* sharpening = new (arena) HSharpening(graph, codegen, dex_compilation_unit, driver);
   InstructionSimplifier* simplify2 = new (arena) InstructionSimplifier(
-      graph, stats, "instruction_simplifier$after_inlining");
+      graph, stats, false, "instruction_simplifier$after_inlining");
   InstructionSimplifier* simplify3 = new (arena) InstructionSimplifier(
-      graph, stats, "instruction_simplifier$after_bce");
+      graph, stats, true, "instruction_simplifier$after_bce");  // Does CHA guard optimization.
   InstructionSimplifier* simplify4 = new (arena) InstructionSimplifier(
-      graph, stats, "instruction_simplifier$before_codegen");
+      graph, stats, false, "instruction_simplifier$before_codegen");
   IntrinsicsRecognizer* intrinsics = new (arena) IntrinsicsRecognizer(graph, stats);
 
   HOptimization* optimizations1[] = {

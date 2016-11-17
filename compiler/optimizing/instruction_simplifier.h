@@ -37,14 +37,18 @@ class InstructionSimplifier : public HOptimization {
  public:
   explicit InstructionSimplifier(HGraph* graph,
                                  OptimizingCompilerStats* stats = nullptr,
+                                 bool optimize_cha_guard = false,
                                  const char* name = kInstructionSimplifierPassName)
-      : HOptimization(graph, name, stats) {}
+      : HOptimization(graph, name, stats),
+        optimize_cha_guard_(optimize_cha_guard) {}
 
   static constexpr const char* kInstructionSimplifierPassName = "instruction_simplifier";
 
   void Run() OVERRIDE;
 
  private:
+  bool optimize_cha_guard_;
+
   DISALLOW_COPY_AND_ASSIGN(InstructionSimplifier);
 };
 

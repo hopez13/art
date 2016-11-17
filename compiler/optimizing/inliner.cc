@@ -506,7 +506,8 @@ void HInliner::AddCHAGuard(HInstruction* invoke_instruction,
                            uint32_t dex_pc,
                            HInstruction* cursor,
                            HBasicBlock* bb_cursor) {
-  HInstruction* deopt_flag = new (graph_->GetArena()) HShouldDeoptimizeFlag(dex_pc);
+  HInstruction* deopt_flag = new (graph_->GetArena())
+      HShouldDeoptimizeFlag(invoke_instruction->InputAt(0), dex_pc);
   HInstruction* should_deopt = new (graph_->GetArena()) HNotEqual(
       deopt_flag, graph_->GetIntConstant(0, dex_pc));
   HInstruction* deopt = new (graph_->GetArena()) HDeoptimize(should_deopt, dex_pc);
@@ -519,6 +520,7 @@ void HInliner::AddCHAGuard(HInstruction* invoke_instruction,
   bb_cursor->InsertInstructionAfter(should_deopt, deopt_flag);
   bb_cursor->InsertInstructionAfter(deopt, should_deopt);
   deopt->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
+  outermost_graph_->SetHasCHAGuards(true);
 }
 
 HInstruction* HInliner::AddTypeGuard(HInstruction* receiver,

@@ -1149,11 +1149,16 @@ void HGraphVisitor::VisitReversePostOrder() {
 }
 
 void HGraphVisitor::VisitBasicBlock(HBasicBlock* block) {
-  for (HInstructionIterator it(block->GetPhis()); !it.Done(); it.Advance()) {
+  HInstructionIterator it(block->GetPhis());
+  SetInstructionIterator(&it);
+  for (; !it.Done(); it.Advance()) {
     it.Current()->Accept(this);
   }
-  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
-    it.Current()->Accept(this);
+
+  HInstructionIterator it2(block->GetInstructions());
+  SetInstructionIterator(&it2);
+  for (; !it2.Done(); it2.Advance()) {
+    it2.Current()->Accept(this);
   }
 }
 
@@ -1347,7 +1352,7 @@ std::ostream& operator<<(std::ostream& os, const HInstruction::InstructionKind& 
 void HInstruction::MoveBefore(HInstruction* cursor) {
   DCHECK(!IsPhi());
   DCHECK(!IsControlFlow());
-  DCHECK(CanBeMoved());
+  DCHECK(CanBeMoved() || IsShouldDeoptimizeFlag());
   DCHECK(!cursor->IsPhi());
 
   next_->previous_ = previous_;
