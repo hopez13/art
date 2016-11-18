@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70eda006_90fa9401",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T18:11:55Z",
+      "side": 1,
+      "message": "Prefer spaces over tabs (even in commit message).",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50f25ce7_afc899b5",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T18:11:55Z",
+      "side": 1,
+      "message": "Constructing and destroying an std::function\u003c\u003e has a very high cost - allocation and deallocation.",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ecd40b_11858c26",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T18:11:55Z",
+      "side": 1,
+      "message": "The `reference` is always the StringBuffer, right? So this is always true, you could simply DCHECK() it.",
+      "range": {
+        "startLine": 1893,
+        "startChar": 15,
+        "endLine": 1893,
+        "endChar": 44
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_8cdcc732",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T18:11:55Z",
+      "side": 1,
+      "message": "What you really want is `user-\u003eInputAt(1) !\u003d reference` which is only implied by `user-\u003eInputAt(0) \u003d\u003d reference` because the other input has an incompatible type. And that also makes the expression always true.",
+      "range": {
+        "startLine": 1896,
+        "startChar": 15,
+        "endLine": 1896,
+        "endChar": 44
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
