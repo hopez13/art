@@ -270,6 +270,30 @@
       "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ecd40b_b15c800b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:34:57Z",
+      "side": 1,
+      "message": "Thanks for the reference, I guess I\u0027ll have to experiment if registering as parallel capable changes that behavior.\n\nThis part is actually about races. I\u0027m focused on resolving class literals from code, i.e. const-class in dalvik bytecode and whatever is the equivalent in Java bytecode. Once you get a result for that, the runtime does not need to call loadClass() again, so simply \"separated in time\" shall not reach this point. (We actually did call loadClass() again for multi-dex as exposed by the testMultiDex() if you drop the ClassLinker changes.)\n\nWhat happens when you call loadClass() directly from code is not really my concern at this time (in this CL), though we could try and intercept those calls and record the class in the ClassTable.",
+      "parentUuid": "50a6dcc4_bb37d23f",
+      "range": {
+        "startLine": 2624,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 55
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
