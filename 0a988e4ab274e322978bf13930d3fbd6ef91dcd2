@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f0e0b014_0c2fb7e5",
+        "filename": "compiler/dex/dex_to_dex_decompiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-18T10:45:18Z",
+      "side": 1,
+      "message": "Replied too soon. Not done. Changing it to non-const has too many repercussion on the existing code base. I\u0027ve added a comment and TODO on ArtDecompileDEX.",
+      "parentUuid": "30e168e5_44ab62be",
+      "range": {
+        "startLine": 189,
+        "startChar": 46,
+        "endLine": 189,
+        "endChar": 55
+      },
+      "revId": "0a988e4ab274e322978bf13930d3fbd6ef91dcd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_24bf3607",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 7
