@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_ecf6abb7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "Do we also need to mark the class loader with WriteBarrierEveryFieldOf()?\n\nIf yes, I guess I should refactor the ClassLinker::InsertClass() to take the class loader as and additional parameter, so that we can use it here.",
+      "revId": "c3449b62a9de92ae3ed0223cf2d8f99a4cf0679b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_ccfbef9f",
+        "filename": "test/626-const-class-linking/expected.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "Hmm, these could be reordered. I\u0027ll need to clean this up.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "c3449b62a9de92ae3ed0223cf2d8f99a4cf0679b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
