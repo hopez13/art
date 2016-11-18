@@ -246,6 +246,30 @@
       "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50a6dcc4_bb37d23f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-18T17:15:13Z",
+      "side": 1,
+      "message": "Note that the ClassLoader API has the concept of \"parallel capable\" for this.\n\nWhat if it isn\u0027t a race, just something separated in time (the spec for well-behaved isn\u0027t restricting this to a race)? Does it protect calls to loadClass (and potentially underlying defineClass)? Or is it \"only\" in findLoadedClass?",
+      "parentUuid": "f0cb5092_348630a5",
+      "range": {
+        "startLine": 2624,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 55
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
