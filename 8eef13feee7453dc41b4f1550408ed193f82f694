@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90ecd40b_f168c8d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-18T15:57:21Z",
+      "side": 1,
+      "message": "We discussed the same change here yesterday :-)\n\nThe message would have read:\n\n\"Flush updated JIT code into shared memory before invalidating instruction pipelines on active cores with mprotect(RWX-\u003eRW).\"\n\nThis perhaps conveys the concern more concisely? The change is making absolutely clear there\u0027s no new code data in the store buffer before doing mprotect(). WDYT?",
+      "revId": "8eef13feee7453dc41b4f1550408ed193f82f694",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d8e46b_6d2f55a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-18T15:57:21Z",
+      "side": 1,
+      "message": "The test should be on device unless the host referred to has ARM architecture cpu (?).",
+      "revId": "8eef13feee7453dc41b4f1550408ed193f82f694",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
