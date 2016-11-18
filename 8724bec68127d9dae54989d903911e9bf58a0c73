@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_4cefffce",
+        "filename": "dexlayout/dex_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-18T18:12:46Z",
+      "side": 1,
+      "message": "This will not necessary yield the same checksum as the original dex file, right?\n\nWe discussed about it and you should just use the original checksum form the dex file.",
+      "range": {
+        "startLine": 627,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 85
+      },
+      "revId": "8724bec68127d9dae54989d903911e9bf58a0c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
