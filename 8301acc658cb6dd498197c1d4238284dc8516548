@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_2cc39346",
+        "filename": "runtime/compiler_filter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-18T18:35:04Z",
+      "side": 1,
+      "message": "Just to make you aware that this filter will be considered to be \"better\" than kSpeed. See \"AsGoodAs\" method. That it, if something is compiled layout-profile and you use \u0027adb shell package compile...\" with speed, nothing will be done.  Probably not a problem, but it\u0027s something you should keep in mind in your tests.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "8301acc658cb6dd498197c1d4238284dc8516548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
