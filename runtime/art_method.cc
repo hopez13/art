@@ -486,7 +486,7 @@ const uint8_t* ArtMethod::GetQuickenedInfo(PointerSize pointer_size) {
   }
 }
 
-const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
+const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc, bool safe) {
   // Our callers should make sure they don't pass the instrumentation exit pc,
   // as this method does not look at the side instrumentation stack.
   DCHECK_NE(pc, reinterpret_cast<uintptr_t>(GetQuickInstrumentationExitPc()));
@@ -562,9 +562,10 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
     // TODO(ngeoffray): Update these tests to pass the right pc?
     return OatQuickMethodHeader::FromEntryPoint(existing_entry_point);
   }
+
   const void* oat_entry_point = oat_method.GetQuickCode();
   if (oat_entry_point == nullptr || class_linker->IsQuickGenericJniStub(oat_entry_point)) {
-    DCHECK(IsNative()) << PrettyMethod();
+    DCHECK(safe || IsNative()) << PrettyMethod(this);
     return nullptr;
   }
 
@@ -575,10 +576,16 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
     return method_header;
   }
 
-  DCHECK(method_header->Contains(pc))
-      << PrettyMethod()
-      << " " << std::hex << pc << " " << oat_entry_point
+  bool contains_pc = method_header->Contains(pc);
+  if (safe) {
+    return contains_pc ? method_header : nullptr;
+  }
+
+  DCHECK(contains_pc)
+      << PrettyMethod(this)
+      << std::hex << pc << " " << oat_entry_point
       << " " << (uintptr_t)(method_header->code_ + method_header->code_size_);
+
   return method_header;
 }
 

@@ -622,39 +622,16 @@ static instrumentation::InstrumentationStackFrame& GetInstrumentationStackFrame(
 
 static void AssertPcIsWithinQuickCode(ArtMethod* method, uintptr_t pc)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (method->IsNative() || method->IsRuntimeMethod() || method->IsProxyMethod()) {
-    return;
+  if (pc != 0) {
+    const OatQuickMethodHeader* oat_header = method->GetOatQuickMethodHeader(pc);
+    if (oat_header != nullptr) {
+      CHECK(oat_header->Contains(pc))
+          << ArtMethod::PrettyMethod(method)
+          << " pc=" << std::hex << pc
+          << " code_start=" << reinterpret_cast<const void*>(oat_header->GetCode())
+          << " code_size=" << oat_header->GetCodeSize();
+    }
   }
-
-  if (pc == reinterpret_cast<uintptr_t>(GetQuickInstrumentationExitPc())) {
-    return;
-  }
-
-  const void* code = method->GetEntryPointFromQuickCompiledCode();
-  if (code == GetQuickInstrumentationEntryPoint()) {
-    return;
-  }
-
-  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  if (class_linker->IsQuickToInterpreterBridge(code) ||
-      class_linker->IsQuickResolutionStub(code)) {
-    return;
-  }
-
-  // If we are the JIT then we may have just compiled the method after the
-  // IsQuickToInterpreterBridge check.
-  Runtime* runtime = Runtime::Current();
-  if (runtime->UseJitCompilation() && runtime->GetJit()->GetCodeCache()->ContainsPc(code)) {
-    return;
-  }
-
-  uint32_t code_size = OatQuickMethodHeader::FromEntryPoint(code)->code_size_;
-  uintptr_t code_start = reinterpret_cast<uintptr_t>(code);
-  CHECK(code_start <= pc && pc <= (code_start + code_size))
-      << method->PrettyMethod()
-      << " pc=" << std::hex << pc
-      << " code_start=" << code_start
-      << " code_size=" << code_size;
 }
 
 void StackVisitor::SanityCheckFrame() const {
@@ -796,7 +773,7 @@ void StackVisitor::WalkStack(bool include_transitions) {
       DCHECK(current_fragment->GetTopShadowFrame() == nullptr);
       ArtMethod* method = *cur_quick_frame_;
       while (method != nullptr) {
-        cur_oat_quick_method_header_ = method->GetOatQuickMethodHeader(cur_quick_frame_pc_);
+        cur_oat_quick_method_header_ = method->GetOatQuickMethodHeader(cur_quick_frame_pc_, true);
         SanityCheckFrame();
 
         if ((walk_kind_ == StackWalkKind::kIncludeInlinedFrames)
