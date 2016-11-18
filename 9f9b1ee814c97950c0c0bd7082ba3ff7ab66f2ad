@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0e71824_32b770b8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "Thinking a bit more after our offline discussion, I decided not to trust the parent chain. There are many things that could be messed up using reflection.",
+      "parentUuid": "f0e0b014_8c4287aa",
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50a6dcc4_788f357d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -35,6 +53,53 @@
         "startChar": 21,
         "endLine": 2597,
         "endChar": 27
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0cb5092_34ce3046",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50a6dcc4_788f357d",
+      "range": {
+        "startLine": 2597,
+        "startChar": 21,
+        "endLine": 2597,
+        "endChar": 27
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30db286a_8e1ddbdf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "RI throws NoClassDefFoundError, the message is simply the class name. I prefer the more descriptive message.",
+      "range": {
+        "startLine": 2601,
+        "startChar": 0,
+        "endLine": 2605,
+        "endChar": 55
       },
       "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -89,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "90ecd40b_b1c24023",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2612,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "Done. (The perils of copy-pasted code.)",
+      "parentUuid": "50a6dcc4_c352f62a",
+      "range": {
+        "startLine": 2612,
+        "startChar": 10,
+        "endLine": 2612,
+        "endChar": 39
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_a1833855",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -124,6 +213,30 @@
       "side": 1,
       "message": "Not sure. Have you tested what the RI does? The spec only nebulously says that an implementation will protect itself against non-well-behaved classloaders...",
       "parentUuid": "30e168e5_a1833855",
+      "range": {
+        "startLine": 2624,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 55
+      },
+      "revId": "9f9b1ee814c97950c0c0bd7082ba3ff7ab66f2ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0cb5092_348630a5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-18T17:06:05Z",
+      "side": 1,
+      "message": "The RI actually synchronizes on the class loader. As shocking as that may be, acquiring a lock on a class loader will block all other threads that try to load classes using that class loader.\n\nI didn\u0027t find any such requirement in the JLS (but maybe I didn\u0027t look long enough). I actually find it harmful that the RI does not allow loading two different classes concurrently by the same class loader, especially when there is a suggestion that classes can be loaded over the network.\n\nWe should discuss whether we want to follow the RI or not.",
+      "parentUuid": "50a6dcc4_437606f9",
       "range": {
         "startLine": 2624,
         "startChar": 0,
