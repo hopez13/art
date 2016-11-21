@@ -22,6 +22,30 @@
       "revId": "41580c5fc050faf2262efb2d764059f7d01bb51f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_921dfcdf",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-21T16:07:57Z",
+      "side": 1,
+      "message": "Perhaps use of the vdex file could differ? If the filter changed, it may mean more information should be added to the vdex file. If you know the filter did not change, you know you don\u0027t need to change the vdex file at all?",
+      "parentUuid": "f0e0b014_8fdcb932",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 23
+      },
+      "revId": "41580c5fc050faf2262efb2d764059f7d01bb51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
