@@ -46,6 +46,29 @@
       "revId": "9fd339085b943508d97a7a759ee2531efc0df4f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_327e4884",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T22:18:05Z",
+      "side": 1,
+      "message": "use std::numeric_limits?",
+      "range": {
+        "startLine": 35,
+        "startChar": 41,
+        "endLine": 35,
+        "endChar": 46
+      },
+      "revId": "9fd339085b943508d97a7a759ee2531efc0df4f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
