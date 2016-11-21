@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_cf32c123",
+        "filename": "runtime/thread_pool_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T11:05:55Z",
+      "side": 1,
+      "message": "The problem is HasOutstandingTasks checks at \"started_\", which you don\u0027t expect from the name. Didn\u0027t I already commented the API is getting confusing? :)",
+      "range": {
+        "startLine": 118,
+        "startChar": 57,
+        "endLine": 119,
+        "endChar": 25
+      },
+      "revId": "1013bdeacffb39b160a6a9e4ea4027930c955e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
