@@ -70,6 +70,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_afc895b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T13:00:19Z",
+      "side": 1,
+      "message": "Note that I am not doubting the fix. We here also came to the conclusion it would give us more guarantees to do the flush before the mprotect.\n\nBut I think the description you\u0027re giving here isn\u0027t what is happening. The instruction cache may contain old data at this point, so we flush it, and that cache not doing any updates doesn\u0027t need to write back in main memory.",
+      "parentUuid": "f0f990d6_ae90982d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
