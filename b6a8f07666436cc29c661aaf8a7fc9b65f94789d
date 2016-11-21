@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0e0b014_effb3d08",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-21T12:54:15Z",
+      "side": 1,
+      "message": "The intent with callsite transform is to say \"bypass validation and conversions for this\". Otherwise, it gets rejected for incompatible method types.\n\nThe code doesn\u0027t convert the non-varargs arguments in Java. As the invocation of the wrapped method handle will do the type checks and has the conversions that seemed slightly easier. Possibly less efficient though.",
+      "parentUuid": "f0e0b014_2f86e5a4",
+      "range": {
+        "startLine": 997,
+        "startChar": 47,
+        "endLine": 998,
+        "endChar": 75
+      },
+      "revId": "b6a8f07666436cc29c661aaf8a7fc9b65f94789d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_cf9c01fe",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-21T10:49:51Z",
       "side": 1,
       "message": "not sure I understand this, do we understand why it\u0027s necessary now ?",
+      "range": {
+        "startLine": 1264,
+        "startChar": 3,
+        "endLine": 1267,
+        "endChar": 5
+      },
+      "revId": "b6a8f07666436cc29c661aaf8a7fc9b65f94789d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ecd40b_74de06cb",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-21T12:54:15Z",
+      "side": 1,
+      "message": "[ This is one of a few issues still pending. There are a couple of commented out tests that should pass too. ]\n\nA void method handle can have it\u0027s result cast to a type. It should be null for object types and \u0027zero\u0027 for other primitives. The issue observed is that null is a small unaligned integer that subsequently causes the VM to crash.",
+      "parentUuid": "f0e0b014_cf9c01fe",
       "range": {
         "startLine": 1264,
         "startChar": 3,
