@@ -190,6 +190,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_8eb95ccf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-21T17:52:25Z",
+      "side": 1,
+      "message": "I\u0027m guessing a bit, but I believe the issue is that the invalidate instructions effectively do \"writes\" to shared cache levels from the perspective of other cores.  (Clearing the contents of a dirty line throws away the previous contents, and read from memory may yield different values.)  It\u0027s possibly the case that the invalidate in the nearest cache is propagated out via write operations as well...",
+      "parentUuid": "f0e0b014_12beac62",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
