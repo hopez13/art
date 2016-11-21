@@ -94,6 +94,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_6edbc0d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-11-21T15:50:08Z",
+      "side": 1,
+      "message": "My thoughts were:\n1. We received several crashes described above.\n2. If pc points to \"dc cvau\" inside __aarch64_sync_cache_range in the JIT thread then the JIT thread crashes during flushing of caches.\n3. If error code is SEGV_ACCERR then the JIT thread tries to  write into memory which has no write permission. It also means that instruction \"dc cvau\" can do writes into memory. Arm documentation confirms that.\nThis commit fixes this issue.\n\n\u003e The instruction cache may contain old data at this point, so we flush it, and that cache not doing any updates doesn\u0027t need to write back in main memory.\n\nThe issue happens when we flush data cache in the JIT thread.\n\n\u003e But I think the description you\u0027re giving here isn\u0027t what is happening.\n\n\nI don\u0027t know how it works inside CPU. May be I wrong but, the issue happens on big.little architecture. As I know each core have own L1 cache and common L2 per cluster (4 cores). There is interconnect between L2 caches with support of coherency. For example JIT thread flushes caches on one cluster and this leads to write back from L1 cache into L2 cache. At this moment cache controller invalidates affected cache lines int another cluster and sends data into memory.\nI want to say again may be I wrong about CPU logic.\n\n\n\u003eBut I think the description you\u0027re giving here isn\u0027t what is happening.\n\nProbably we have different issues. Could you explain your opinion?",
+      "parentUuid": "f0e0b014_afc895b5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
