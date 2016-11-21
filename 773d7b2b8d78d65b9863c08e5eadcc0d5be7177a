@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f0e0b014_8f7f19ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-21T10:31:58Z",
+      "side": 1,
+      "message": "This sentence is fine as part of the explanation, but the subject for the commit should be 60 characters max.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "773d7b2b8d78d65b9863c08e5eadcc0d5be7177a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_afac153d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
