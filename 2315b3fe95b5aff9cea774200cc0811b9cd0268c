@@ -70,6 +70,30 @@
       "revId": "2315b3fe95b5aff9cea774200cc0811b9cd0268c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_1286acfb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T15:42:04Z",
+      "side": 1,
+      "message": "I think what you could easily do for now, is check that the HLoadClass is just before the HClinit. That would probably cover most of the cases you saw.",
+      "parentUuid": "f0e0b014_6fde2dcb",
+      "range": {
+        "startLine": 5572,
+        "startChar": 7,
+        "endLine": 5572,
+        "endChar": 30
+      },
+      "revId": "2315b3fe95b5aff9cea774200cc0811b9cd0268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
