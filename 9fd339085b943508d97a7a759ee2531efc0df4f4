@@ -22,6 +22,30 @@
       "revId": "9fd339085b943508d97a7a759ee2531efc0df4f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_64e51f1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-11-21T21:14:28Z",
+      "side": 1,
+      "message": "Some of the dex files that are processed during a build have 0xffff in the padding and appear to be sign extended from 16 to 32 bits.  I think it\u0027s premature to try to change jack/dx to follow a strict zero-extend before knowing what\u0027s happening in the apps we\u0027re trying to test.",
+      "parentUuid": "f0f990d6_44b46319",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "9fd339085b943508d97a7a759ee2531efc0df4f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
