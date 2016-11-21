@@ -46,6 +46,30 @@
       "revId": "2315b3fe95b5aff9cea774200cc0811b9cd0268c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_6fde2dcb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5572,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-21T10:25:27Z",
+      "side": 1,
+      "message": "A way to do this would be to turn this predicate into a Boolean and have PrepareForRegisterAllocation (which is the last IR graph transformation before liveness analysis \u0026 register allocation) check for this and set that Boolean value.\n\nAlso, I\u0027d recommend to augment the GraphChecker to check that there is no suspension point between a ClinitCheck and its LoadClass.",
+      "parentUuid": "3045e884_a0418058",
+      "range": {
+        "startLine": 5572,
+        "startChar": 7,
+        "endLine": 5572,
+        "endChar": 30
+      },
+      "revId": "2315b3fe95b5aff9cea774200cc0811b9cd0268c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
