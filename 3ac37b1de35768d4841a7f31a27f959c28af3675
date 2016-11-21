@@ -166,6 +166,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_12beac62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T16:31:07Z",
+      "side": 1,
+      "message": "Sure, but this doesn\u0027t mention memory protection, and you might expect that implicit cache flushes (that happen all the time) do not look at page permissions. So can we conclude that all \"dc\" instructions do look at the page permissions?",
+      "parentUuid": "f0f990d6_ce72b4c2",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
