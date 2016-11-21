@@ -142,6 +142,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_ce72b4c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-11-21T16:24:48Z",
+      "side": 1,
+      "message": "This line\n\"Cleaning a cache or cache line means writing the contents of cache lines that are marked as dirty, out to the next level of cache, or to main memory, and clearing the dirty bits in the cache line. This makes the contents of the cache line coherent with the next level of the cache or memory system. This is only applicable for data caches in which a write-back policy is used. This is also a way of making changes in the cache visible to the user of the outer memory domain, but is only available for data cache.\"\nfrom this http://infocenter.arm.com/help/index.jsp?topic\u003d/com.arm.doc.den0024a/BABJDBHI.html",
+      "parentUuid": "f0e0b014_d2fa6454",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
