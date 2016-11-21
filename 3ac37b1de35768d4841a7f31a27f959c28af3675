@@ -46,6 +46,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_ae90982d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-11-21T11:56:51Z",
+      "side": 1,
+      "message": "We faced several crashes of such kind. In all cases pc points to this instruction and error code of SIGSEGV was SEGV_ACCERR",
+      "parentUuid": "f0f990d6_ee96902a",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
