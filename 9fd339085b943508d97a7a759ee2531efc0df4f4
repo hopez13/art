@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0f990d6_1f42345f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-21T22:29:50Z",
+      "side": 1,
+      "message": "But I\u0027m not sure that it\u0027s correct to *expect* sign extension, either.",
+      "parentUuid": "f0f990d6_64e51f1c",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "9fd339085b943508d97a7a759ee2531efc0df4f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_327e4884",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
