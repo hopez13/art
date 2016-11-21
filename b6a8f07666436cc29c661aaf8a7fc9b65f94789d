@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_2f86e5a4",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-21T10:49:51Z",
+      "side": 1,
+      "message": "I see. I think I understand a little more about why this is called a \"callsite transform\". We copy the arguments exactly to the emulated call frame and then perform all argument conversions in Java. That said, I didn\u0027t see any code in the libcore change to perform argument conversions for the non var-args arguments. Did i miss something ?",
+      "range": {
+        "startLine": 997,
+        "startChar": 47,
+        "endLine": 998,
+        "endChar": 75
+      },
+      "revId": "b6a8f07666436cc29c661aaf8a7fc9b65f94789d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_cf9c01fe",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-21T10:49:51Z",
+      "side": 1,
+      "message": "not sure I understand this, do we understand why it\u0027s necessary now ?",
+      "range": {
+        "startLine": 1264,
+        "startChar": 3,
+        "endLine": 1267,
+        "endChar": 5
+      },
+      "revId": "b6a8f07666436cc29c661aaf8a7fc9b65f94789d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
