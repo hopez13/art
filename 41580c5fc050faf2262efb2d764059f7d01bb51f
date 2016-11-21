@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_8fdcb932",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-21T15:03:26Z",
+      "side": 1,
+      "message": "I\u0027m ok if you want to keep it but from the PM/installd point of view what\u0027s the difference between this one on kDex2OatForFilter? Wouldn\u0027t it execute the same dex2oat command?",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 23
+      },
+      "revId": "41580c5fc050faf2262efb2d764059f7d01bb51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
