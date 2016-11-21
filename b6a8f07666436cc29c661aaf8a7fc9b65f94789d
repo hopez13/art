@@ -49,6 +49,24 @@
     },
     {
       "key": {
+        "uuid": "f0e0b014_8f8ef97e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-21T12:57:24Z",
+      "side": 1,
+      "message": "Okay, yeah that makes sense. Could you add a comment to that effect here and in the libcore component of the change (in the transformer implementation, in particular) ?",
+      "parentUuid": "f0e0b014_effb3d08",
+      "revId": "b6a8f07666436cc29c661aaf8a7fc9b65f94789d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_cf9c01fe",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
