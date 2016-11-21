@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_d2bdc49c",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T15:49:32Z",
+      "side": 1,
+      "message": "I\u0027d prefer if that was checked at the point you\u0027re calling WriteAndOpenDexFiles.",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 3
+      },
+      "revId": "95b6237c7b48c732b1987ee7f9070632b128cde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
