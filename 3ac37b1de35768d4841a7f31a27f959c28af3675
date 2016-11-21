@@ -22,6 +22,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_ee96902a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-11-21T11:54:39Z",
+      "side": 1,
+      "message": "Probably, dc cvau not only moves to next level of cache, but also makes writes to main memory (as arm documentation says). Due to this instruction uses virtual address it need to translate it into physical address and also check permissions.",
+      "parentUuid": "f0e0b014_ef145d6d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
