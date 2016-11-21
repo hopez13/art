@@ -118,6 +118,30 @@
       "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_d2fa6454",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-21T16:10:43Z",
+      "side": 1,
+      "message": "To confirm : when you mention the ART documentation, is it this specific line?\n\"The AArch64 Data Cache invalidate instruction by address, DC IVAC, requires write permission or else a permission fault is generated.\"\n\nIt\u0027s only referencing DC IVAC though, are you saying DC CVAU inherits from this?",
+      "parentUuid": "f0f990d6_6edbc0d9",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "3ac37b1de35768d4841a7f31a27f959c28af3675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
