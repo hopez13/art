@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_92785c6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-11-22T09:54:56Z",
+      "side": 1,
+      "message": "For somebody not steeped in runtime internals like myself a bit more context and the behavior if the check fails in the commit comment would be nice. A bug number would also be good, if only so later issues / discussions / knowledge have somewhere obvious to go (and rollback record, if needed)\n\nOTTOMH, there are a few classes in the wider libcore that use system properties that affect static initialization. I know you removed a few so that we can pre-initialize classes in the runtime but I don\u0027t think we\u0027ve done all. It is conceivable that those system properties (or other things outside of our control / \"hidden variables\") could cause static initialization to fail.\n\nGiven it *expected* not to fail static initialization for boot classes but it *might* happen, should we start with a warning log instead? I\u0027ll happily confess I don\u0027t know the difference between a CHECK and DCHECK.",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "22f71d215679955372d8e24db3771fc7173dccb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
