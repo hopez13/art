@@ -22,6 +22,30 @@
       "revId": "6f4d102e0c3029b3c74af13d3846a14e1c878a12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_ba78ce6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-11-22T00:00:24Z",
+      "side": 1,
+      "message": "Fair enough. There\u0027s a case to be made for adding an EINTR inner loop (although I\u0027m not sure whether the increased path length will be worth it), but if we want to do that, let\u0027s do it globally. This diff just adds EINTR handling to make these two futex calls consistent with the rest.",
+      "parentUuid": "f0f990d6_faf886cd",
+      "range": {
+        "startLine": 11,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "6f4d102e0c3029b3c74af13d3846a14e1c878a12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
