@@ -1683,6 +1683,13 @@ void MipsAssembler::PopAndReturn(Register rd, Register rt) {
   SetReorder(reordering);
 }
 
+void MipsAssembler::Lsa(Register rd, Register rs, Register rt, uint16_t saPlusOne) {
+  CHECK(IsR6());
+  uint16_t sa = saPlusOne - 1;
+  CHECK(IsUint<2>(sa)) << saPlusOne;
+  EmitR(0x0, rs, rt, rd, sa, 0x05);
+}
+
 void MipsAssembler::LoadConst32(Register rd, int32_t value) {
   if (IsUint<16>(value)) {
     // Use OR with (unsigned) immediate to encode 16b unsigned int.

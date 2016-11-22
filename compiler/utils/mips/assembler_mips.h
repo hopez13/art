@@ -462,6 +462,8 @@ class MipsAssembler FINAL : public Assembler, public JNIMacroAssembler<PointerSi
   void Clear(Register rd);
   void Not(Register rd, Register rs);
 
+  void Lsa(Register rd, Register rs, Register rt, uint16_t saPlusOne);  // R6
+
   // Higher level composite instructions.
   void LoadConst32(Register rd, int32_t value);
   void LoadConst64(Register reg_hi, Register reg_lo, int64_t value);
