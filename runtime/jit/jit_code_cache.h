@@ -126,6 +126,10 @@ class JitCodeCache {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!lock_);
 
+  void ClearData(Thread* self, uint8_t* stack_map_data, uint8_t* roots_data)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!lock_);
+
   CodeCacheBitmap* GetLiveBitmap() const {
     return live_bitmap_.get();
   }

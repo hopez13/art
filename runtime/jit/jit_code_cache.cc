@@ -487,6 +487,17 @@ void JitCodeCache::ClearData(Thread* self, void* data) {
   FreeData(reinterpret_cast<uint8_t*>(data));
 }
 
+static const uint8_t* FromStackMapToRoots(const uint8_t* stack_map_data) {
+  return stack_map_data - ComputeRootTableSize(GetNumberOfRoots(stack_map_data));
+}
+
+void JitCodeCache::ClearData(Thread* self,
+                             uint8_t* stack_map_data,
+                             uint8_t* roots_data) {
+  DCHECK_EQ(FromStackMapToRoots(stack_map_data), roots_data);
+  ClearData(self, roots_data);
+}
+
 void JitCodeCache::ReserveData(Thread* self,
                                size_t stack_map_size,
                                size_t number_of_roots,
