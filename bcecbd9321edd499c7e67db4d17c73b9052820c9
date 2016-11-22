@@ -22,6 +22,30 @@
       "revId": "bcecbd9321edd499c7e67db4d17c73b9052820c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_75095a4e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-22T15:03:13Z",
+      "side": 1,
+      "message": "It\u0027s a method handle that represents a call site transform. \n\nBasically for varargs we need a transform that is indifferent to the callee type of the method handle - otherwise the invoke code will reject the call because the handles are not compatible. We effect this by making the callee type of the method handle the same as the callsite.\n\nI\u0027ve updated the comment and capitalization, but it perhaps needs a better name. WDYT?",
+      "parentUuid": "f0e0b014_35c192ec",
+      "range": {
+        "startLine": 994,
+        "startChar": 9,
+        "endLine": 994,
+        "endChar": 17
+      },
+      "revId": "bcecbd9321edd499c7e67db4d17c73b9052820c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
