@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_d54c8e43",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-22T19:15:36Z",
+      "side": 1,
+      "message": "Do you need this check because OutputDexFile is more efficient than LayoutOutputFile? I\u0027d exepect them to be equivalent if the profile is empty.",
+      "range": {
+        "startLine": 1697,
+        "startChar": 28,
+        "endLine": 1697,
+        "endChar": 43
+      },
+      "revId": "659810925954cd49f48f26e428f5e834d6bff3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
