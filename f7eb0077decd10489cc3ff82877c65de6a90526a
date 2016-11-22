@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0e0b014_f2f680b7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-22T10:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e0b014_af0095b4",
+      "range": {
+        "startLine": 936,
+        "startChar": 3,
+        "endLine": 936,
+        "endChar": 50
+      },
+      "revId": "f7eb0077decd10489cc3ff82877c65de6a90526a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_4f393193",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-21T14:51:00Z",
       "side": 1,
       "message": "Thant\u0027s misleading. I.e. I read it as \"this function always returns kPatchOatNeeded\".\n\nYou want to say that it never returns kSelf...?",
+      "range": {
+        "startLine": 330,
+        "startChar": 7,
+        "endLine": 331,
+        "endChar": 34
+      },
+      "revId": "f7eb0077decd10489cc3ff82877c65de6a90526a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_5208b4d9",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-22T10:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e0b014_4f393193",
       "range": {
         "startLine": 330,
         "startChar": 7,
