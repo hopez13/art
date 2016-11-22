@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0e0b014_d5cece19",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-22T14:07:57Z",
+      "side": 1,
+      "message": "Is this still used other than in the ClearData() overload below? Can we inline it below and remove?",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 1
+      },
+      "revId": "7e7de3889da6943daeb19bf46a198eb5164eaecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
