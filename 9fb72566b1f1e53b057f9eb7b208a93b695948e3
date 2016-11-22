@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70eda006_338652a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-22T13:07:47Z",
+      "side": 1,
+      "message": "Artem, earlier you said it was the data cache flushing that required write permissions, but it seems David, Hans and Orion agree it\u0027s actually the instruction cache invalidation that require write permission.\n\nDo you now agree it\u0027s the invalidation causing the issue?",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "9fb72566b1f1e53b057f9eb7b208a93b695948e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e0b014_95de06f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-22T13:07:47Z",
+      "side": 1,
+      "message": "Should be test-art-target\n\nAlso, it\u0027d be great if you could share a stack trace with a crash, and maybe if you managed to get a reproducible case?",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "9fb72566b1f1e53b057f9eb7b208a93b695948e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
