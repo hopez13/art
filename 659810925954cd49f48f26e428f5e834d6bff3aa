@@ -22,6 +22,30 @@
       "revId": "659810925954cd49f48f26e428f5e834d6bff3aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b01e38f2_09621552",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-22T21:32:10Z",
+      "side": 1,
+      "message": "Yea I don\u0027t think this check is necessary. I\u0027ll remove it. If the info isn\u0027t null, it should be non-empty.",
+      "parentUuid": "f0e0b014_d54c8e43",
+      "range": {
+        "startLine": 1697,
+        "startChar": 28,
+        "endLine": 1697,
+        "endChar": 43
+      },
+      "revId": "659810925954cd49f48f26e428f5e834d6bff3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
