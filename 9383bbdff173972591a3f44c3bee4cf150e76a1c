@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b01e38f2_3dbe3b63",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-22T19:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b01e38f2_7aefd9ce",
+      "range": {
+        "startLine": 1490,
+        "startChar": 12,
+        "endLine": 1490,
+        "endChar": 18
+      },
+      "revId": "9383bbdff173972591a3f44c3bee4cf150e76a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b01e38f2_dd6a9f5b",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-22T18:56:55Z",
       "side": 1,
       "message": "Are the header changes in another CL? Can you add a basic comment of how the layout is optimized?",
+      "range": {
+        "startLine": 1489,
+        "startChar": 42,
+        "endLine": 1489,
+        "endChar": 69
+      },
+      "revId": "9383bbdff173972591a3f44c3bee4cf150e76a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b01e38f2_9d9187e4",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-11-22T19:07:09Z",
+      "side": 1,
+      "message": "We don\u0027t change the layout of the header. I\u0027ll put some comments to LayoutOutputFile to explain what we change now.",
+      "parentUuid": "b01e38f2_dd6a9f5b",
       "range": {
         "startLine": 1489,
         "startChar": 42,
