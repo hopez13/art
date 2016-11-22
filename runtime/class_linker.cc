@@ -2582,8 +2582,9 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
       // the Java-side could still succeed for racy programs if another thread is actively
       // modifying the class loader's path list.
 
-      if (Runtime::Current()->IsAotCompiler()) {
-        // Oops, compile-time, can't run actual class-loader code.
+      if (!self->HasPeer()) {
+        // Oops, thread doesn't have a Java peer, can't run actual class-loader code.
+        // This happens for example when the thread is a compiler (e.g. AOT or JIT).
         ObjPtr<mirror::Throwable> pre_allocated =
             Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
         self->SetException(pre_allocated);
