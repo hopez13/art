@@ -22,6 +22,30 @@
       "revId": "4b4967e256351f4d391799f9b3fc7b00698ef368",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0af18f5_5201146a",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-23T10:43:19Z",
+      "side": 1,
+      "message": "I updated the behavior (in the parent CL) so we get kDex2OatForBootImage.",
+      "parentUuid": "309168cf_1ed4cdd6",
+      "range": {
+        "startLine": 525,
+        "startChar": 1,
+        "endLine": 530,
+        "endChar": 66
+      },
+      "revId": "4b4967e256351f4d391799f9b3fc7b00698ef368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
