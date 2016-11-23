@@ -24,9 +24,10 @@
 namespace art {
 
 template <typename T>
-typename AtomicMethodRefMap<T>::InsertResult AtomicMethodRefMap<T>::Insert(MethodReference ref,
-                                                                           const T& expected,
-                                                                           const T& desired) {
+inline typename AtomicMethodRefMap<T>::InsertResult AtomicMethodRefMap<T>::Insert(
+    MethodReference ref,
+    const T& expected,
+    const T& desired) {
   ElementArray* const array = GetArray(ref.dex_file);
   if (array == nullptr) {
     return kInsertResultInvalidDexFile;
@@ -38,8 +39,8 @@ typename AtomicMethodRefMap<T>::InsertResult AtomicMethodRefMap<T>::Insert(Metho
 }
 
 template <typename T>
-bool AtomicMethodRefMap<T>::Get(MethodReference ref, T* out) {
-  ElementArray* const array = GetArray(ref.dex_file);
+inline bool AtomicMethodRefMap<T>::Get(MethodReference ref, T* out) const {
+  const ElementArray* const array = GetArray(ref.dex_file);
   if (array == nullptr) {
     return kInsertResultInvalidDexFile;
   }
@@ -48,19 +49,26 @@ bool AtomicMethodRefMap<T>::Get(MethodReference ref, T* out) {
 }
 
 template <typename T>
-void AtomicMethodRefMap<T>::AddDexFile(const DexFile* dex_file) {
+inline void AtomicMethodRefMap<T>::AddDexFile(const DexFile* dex_file) {
   arrays_.Put(dex_file, std::move(ElementArray(dex_file->NumMethodIds())));
 }
 
 template <typename T>
-typename AtomicMethodRefMap<T>::ElementArray* AtomicMethodRefMap<T>::GetArray(
+inline typename AtomicMethodRefMap<T>::ElementArray* AtomicMethodRefMap<T>::GetArray(
     const DexFile* dex_file) {
   auto it = arrays_.find(dex_file);
   return (it != arrays_.end()) ? &it->second : nullptr;
 }
 
+template <typename T>
+inline const typename AtomicMethodRefMap<T>::ElementArray* AtomicMethodRefMap<T>::GetArray(
+    const DexFile* dex_file) const {
+  auto it = arrays_.find(dex_file);
+  return (it != arrays_.end()) ? &it->second : nullptr;
+}
+
 template <typename T> template <typename Visitor>
-void AtomicMethodRefMap<T>::Visit(const Visitor& visitor) {
+inline void AtomicMethodRefMap<T>::Visit(const Visitor& visitor) {
   for (auto& pair : arrays_) {
     const DexFile* dex_file = pair.first;
     const ElementArray& elements = pair.second;

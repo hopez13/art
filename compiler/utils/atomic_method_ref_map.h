@@ -41,7 +41,7 @@ class AtomicMethodRefMap {
   InsertResult Insert(MethodReference ref, const T& expected, const T& desired);
 
   // Retreive an item, returns false if the dex file is not added.
-  bool Get(MethodReference ref, T* out);
+  bool Get(MethodReference ref, T* out) const;
 
   // Dex files must be added before method references belonging to them can be used as keys. Not
   // thread safe.
@@ -56,6 +56,7 @@ class AtomicMethodRefMap {
   using ElementArray = dchecked_vector<Atomic<T>>;
   using DexFileArrays = SafeMap<const DexFile*, ElementArray>;
 
+  const ElementArray* GetArray(const DexFile* dex_file) const;
   ElementArray* GetArray(const DexFile* dex_file);
 
   DexFileArrays arrays_;
