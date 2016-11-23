@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "309168cf_1ed4cdd6",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-23T10:20:25Z",
+      "side": 1,
+      "message": "These assertions currently fail.\nGetDexOptNeeded returns kDex2OatFromScratch, because the oat file is not up to date and there is no odex file.\n\nI\u0027m not sure what behavior we want.",
+      "range": {
+        "startLine": 525,
+        "startChar": 1,
+        "endLine": 530,
+        "endChar": 66
+      },
+      "revId": "4b4967e256351f4d391799f9b3fc7b00698ef368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
