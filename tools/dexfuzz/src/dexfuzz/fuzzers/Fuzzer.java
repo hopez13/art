@@ -24,6 +24,7 @@ import dexfuzz.executors.Arm64InterpreterExecutor;
 import dexfuzz.executors.Arm64OptimizingBackendExecutor;
 import dexfuzz.executors.ArmInterpreterExecutor;
 import dexfuzz.executors.ArmOptimizingBackendExecutor;
+import dexfuzz.executors.ArmVixl32BackendExecutor;
 import dexfuzz.executors.Device;
 import dexfuzz.executors.Executor;
 import dexfuzz.executors.Mips64InterpreterExecutor;
@@ -161,6 +162,9 @@ public abstract class Fuzzer {
     if (Options.useArchArm) {
       addExecutorsForArchitecture(device, ArmOptimizingBackendExecutor.class,
           ArmInterpreterExecutor.class);
+      if (Options.useVixl32) {
+        executors.add(new ArmVixl32BackendExecutor(listener, device));
+      }
     }
 
     if (Options.useArchX86_64) {

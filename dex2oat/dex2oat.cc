@@ -1171,6 +1171,8 @@ class Dex2Oat FINAL {
         ParseInstructionSetFeatures(option, parser_options.get());
       } else if (option.starts_with("--compiler-backend=")) {
         ParseCompilerBackend(option, parser_options.get());
+      } else if (option.starts_with("--arm-vixl32")) {
+        compiler_options_->use_arm_vixl32_ = true;
       } else if (option.starts_with("--profile-file=")) {
         profile_file_ = option.substr(strlen("--profile-file=")).ToString();
       } else if (option.starts_with("--profile-file-fd=")) {

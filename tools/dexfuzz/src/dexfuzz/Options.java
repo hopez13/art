@@ -62,6 +62,7 @@ public class Options {
   public static boolean noBootImage;
   public static boolean useInterpreter;
   public static boolean useOptimizing;
+  public static boolean useVixl32;
   public static boolean useArchArm;
   public static boolean useArchArm64;
   public static boolean useArchX86;
@@ -101,6 +102,7 @@ public class Options {
     Log.always("");
     Log.always("    --interpreter        : Include the Interpreter in comparisons");
     Log.always("    --optimizing         : Include the Optimizing Compiler in comparisons");
+    Log.always("    --arm-vixl32         : Include the Vixl32 backend in comparisons");
     Log.always("");
     Log.always("    --arm                : Include ARM backends in comparisons");
     Log.always("    --arm64              : Include ARM64 backends in comparisons");
@@ -162,6 +164,8 @@ public class Options {
       useOptimizing = true;
     } else if (flag.equals("arm")) {
       useArchArm = true;
+    } else if (flag.equals("arm-vixl32")) {
+      useVixl32 = true;
     } else if (flag.equals("arm64")) {
       useArchArm64 = true;
     } else if (flag.equals("allarm")) {
@@ -415,6 +419,10 @@ public class Options {
         Log.error("Did you mean to specify x86 and MIPS?");
         return false;
       }
+      if (useVixl32 && !useArchArm) {
+        Log.error("Vixl32 can only be used on ARM architecture");
+        return false;
+      }
       int backends = 0;
       if (useInterpreter) {
         backends++;
@@ -424,6 +432,9 @@ public class Options {
       }
       if (useArchArm && useArchArm64) {
         // Could just be comparing optimizing-ARM versus optimizing-ARM64?
+        backends++;
+      }
+      if (useVixl32) {
         backends++;
       }
       if (backends < 2) {

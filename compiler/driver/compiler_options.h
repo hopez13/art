@@ -265,6 +265,10 @@ class CompilerOptions FINAL {
     return force_determinism_;
   }
 
+  bool IsUseArmVixl32() const {
+    return use_arm_vixl32_;
+  }
+
   RegisterAllocator::Strategy GetRegisterAllocationStrategy() const {
     return register_allocation_strategy_;
   }
@@ -329,6 +333,10 @@ class CompilerOptions FINAL {
   // Whether the compiler should trade performance for determinism to guarantee exactly reproducible
   // outcomes.
   bool force_determinism_;
+
+  // This option enables the new arm 32bit backend based on Vixl. Once this backend replaces the
+  // current one we should remove this.
+  bool use_arm_vixl32_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

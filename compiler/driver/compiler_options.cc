@@ -48,6 +48,7 @@ CompilerOptions::CompilerOptions()
       dump_cfg_file_name_(""),
       dump_cfg_append_(false),
       force_determinism_(false),
+      use_arm_vixl32_(false),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
       passes_to_run_(nullptr) {
 }
@@ -109,6 +110,7 @@ CompilerOptions::CompilerOptions(CompilerFilter::Filter compiler_filter,
       dump_cfg_file_name_(dump_cfg_file_name),
       dump_cfg_append_(dump_cfg_append),
       force_determinism_(force_determinism),
+      use_arm_vixl32_(false),
       register_allocation_strategy_(regalloc_strategy),
       passes_to_run_(passes_to_run) {
 }

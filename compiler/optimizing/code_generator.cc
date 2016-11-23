@@ -576,14 +576,16 @@ std::unique_ptr<CodeGenerator> CodeGenerator::Create(HGraph* graph,
 #ifdef ART_ENABLE_CODEGEN_arm
     case kArm:
     case kThumb2: {
-      if (kArmUseVIXL32) {
+      // We want to have both compile time option and run time option to enable Vixl32 backend.
+      // The run time option is useful when fuzzing against current backend.
+      if (kArmUseVIXL32 || compiler_options.IsUseArmVixl32()) {
         return std::unique_ptr<CodeGenerator>(
             new (arena) arm::CodeGeneratorARMVIXL(graph,
                                                   *isa_features.AsArmInstructionSetFeatures(),
                                                   compiler_options,
                                                   stats));
       } else {
-          return std::unique_ptr<CodeGenerator>(
+        return std::unique_ptr<CodeGenerator>(
             new (arena) arm::CodeGeneratorARM(graph,
                                               *isa_features.AsArmInstructionSetFeatures(),
                                               compiler_options,

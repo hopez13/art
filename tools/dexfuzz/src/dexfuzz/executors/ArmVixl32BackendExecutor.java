@@ -18,10 +18,10 @@ package dexfuzz.executors;
 
 import dexfuzz.listeners.BaseListener;
 
-public class ArmOptimizingBackendExecutor extends Executor {
+public class ArmVixl32BackendExecutor extends Executor {
 
-  public ArmOptimizingBackendExecutor(BaseListener listener, Device device) {
-    super("ARM Optimizing Backend", 5, listener, Architecture.ARM, device,
+  public ArmVixl32BackendExecutor(BaseListener listener, Device device) {
+    super("ARM Vixl32 Backend", 5, listener, Architecture.ARM, device,
         /*needsCleanCodeCache*/ true, /*isBisectable*/ true);
   }
 
@@ -31,7 +31,7 @@ public class ArmOptimizingBackendExecutor extends Executor {
     commandBuilder.append("dalvikvm32 -Xcompiler-option --compiler-backend=Optimizing ");
     // The -Xno-dex-file-fallback option ensures that the execution does not default to
     // interpreter if compilations fails.
-    commandBuilder.append("-Xno-dex-file-fallback ");
+    commandBuilder.append("-Xcompiler-option --arm-vixl32 -Xno-dex-file-fallback ");
     if (device.noBootImageAvailable()) {
       commandBuilder.append("-Ximage:/data/art-test/core.art -Xnorelocate ");
     }
