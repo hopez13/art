@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30e168e5_04979a32",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-23T19:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e168e5_419d14f7",
+      "range": {
+        "startLine": 1284,
+        "startChar": 13,
+        "endLine": 1284,
+        "endChar": 21
+      },
+      "revId": "049bc1c4d4734788df1732ea50f0870461655f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_619210e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-16T11:22:04Z",
       "side": 1,
       "message": "Please move this in its own change.",
+      "range": {
+        "startLine": 2881,
+        "startChar": 0,
+        "endLine": 2881,
+        "endChar": 51
+      },
+      "revId": "049bc1c4d4734788df1732ea50f0870461655f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_4770c44a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-23T19:56:36Z",
+      "side": 1,
+      "message": "This actually undid a change I made earlier.",
+      "parentUuid": "30e168e5_619210e8",
       "range": {
         "startLine": 2881,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "30e168e5_6775c039",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-23T19:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e168e5_a18b38ae",
+      "range": {
+        "startLine": 411,
+        "startChar": 69,
+        "endLine": 411,
+        "endChar": 77
+      },
+      "revId": "049bc1c4d4734788df1732ea50f0870461655f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e168e5_c18844b4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-16T11:22:04Z",
       "side": 1,
       "message": "invalid?",
+      "range": {
+        "startLine": 413,
+        "startChar": 53,
+        "endLine": 413,
+        "endChar": 61
+      },
+      "revId": "049bc1c4d4734788df1732ea50f0870461655f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e168e5_877acc28",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-23T19:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e168e5_c18844b4",
       "range": {
         "startLine": 413,
         "startChar": 53,
