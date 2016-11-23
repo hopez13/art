@@ -22,6 +22,30 @@
       "revId": "ae02d2e2b754f5a7ca2c4dcc869cf5934f88555e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b03478bf_eac74731",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-23T16:40:28Z",
+      "side": 1,
+      "message": "I made it consistent with the others, but you might argue the others are due to line break. However, I think we should keep it separate, as we should really differentiate between a debug build and a non-debug build. Right now everyone has put the non-debug and debug dependencies for convenience.",
+      "parentUuid": "5056dcee_2faa494f",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 45
+      },
+      "revId": "ae02d2e2b754f5a7ca2c4dcc869cf5934f88555e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
