@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905054f1_b100601e",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-24T10:24:02Z",
+      "side": 1,
+      "message": "i\u0027m not sure i understand this. this would make all var-arg native methods signature polymorphic ? Even things like this from android.util.EventLog:\n\n\n public static native int writeEvent(int tag, Object... list);",
+      "range": {
+        "startLine": 249,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 45
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_11f04c1f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3034,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-24T10:24:02Z",
+      "side": 1,
+      "message": "we\u0027d need something along these lines for the POLYMORPHIC case as well ? even though the this_type is always going to be java.lang.invoke.MethodHandle for now.. maybe we could even assert that\u0027s the case..",
+      "range": {
+        "startLine": 3018,
+        "startChar": 6,
+        "endLine": 3034,
+        "endChar": 7
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_d1f5e412",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3065,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-24T10:24:02Z",
+      "side": 1,
+      "message": "we need to verify that VRegH is in the right range at a lower level in the verifier (hard verifier failure if not).",
+      "range": {
+        "startLine": 3065,
+        "startChar": 8,
+        "endLine": 3065,
+        "endChar": 97
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
