@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905054f1_b1c30099",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:17:32Z",
+      "side": 1,
+      "message": "Huh really? Please document.",
+      "range": {
+        "startLine": 249,
+        "startChar": 30,
+        "endLine": 249,
+        "endChar": 54
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103c64a3_cd7aa9db",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3063,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:17:32Z",
+      "side": 1,
+      "message": "What\u0027s the implication of returning false? Please add a comment.",
+      "range": {
+        "startLine": 3063,
+        "startChar": 0,
+        "endLine": 3063,
+        "endChar": 21
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_d1c884b7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3077,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:17:32Z",
+      "side": 1,
+      "message": "Move to line 3081?",
+      "range": {
+        "startLine": 3077,
+        "startChar": 6,
+        "endLine": 3077,
+        "endChar": 43
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_f1cd88c4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3924,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:17:32Z",
+      "side": 1,
+      "message": "Mention this bug in the commit message.",
+      "range": {
+        "startLine": 3924,
+        "startChar": 63,
+        "endLine": 3924,
+        "endChar": 71
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_11d3ec69",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:17:32Z",
+      "side": 1,
+      "message": "Didn\u0027t we say we would ensure the two methods would be in WellKnownClasses?",
+      "range": {
+        "startLine": 4189,
+        "startChar": 0,
+        "endLine": 4224,
+        "endChar": 14
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
