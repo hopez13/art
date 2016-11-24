@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905054f1_91799c73",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4925,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-24T14:20:40Z",
+      "side": 1,
+      "message": "temps.Release(temp);",
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_51881441",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-24T14:20:40Z",
+      "side": 1,
+      "message": "Does the vixl disassembler always print both Rd and Rn, even for the SUB (immediate) encoding T2?",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
