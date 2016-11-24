@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "905054f1_94b8aaae",
+        "filename": "runtime/dex2oat_environment_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-24T16:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "905054f1_319d5054",
+      "range": {
+        "startLine": 139,
+        "startChar": 26,
+        "endLine": 139,
+        "endChar": 37
+      },
+      "revId": "07d034261f67c5b007ae4fa747fa370c66002bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_519ad45c",
         "filename": "runtime/dex2oat_environment_test.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "905054f1_b4bdae9d",
+        "filename": "runtime/dex2oat_environment_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-24T16:50:56Z",
+      "side": 1,
+      "message": "The use of \u00272\u0027 is analogous to the choice of names GetDexSrc2 and GetMultiDexSrc2.\n\nDo you feel strongly about this, or is it okay to leave as is? I don\u0027t think GetOtherImageLocation is quite the right name to use either, but a better alternative isn\u0027t coming to mind right now.",
+      "parentUuid": "905054f1_519ad45c",
+      "range": {
+        "startLine": 162,
+        "startChar": 14,
+        "endLine": 162,
+        "endChar": 31
+      },
+      "revId": "07d034261f67c5b007ae4fa747fa370c66002bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_b46f6e69",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-24T16:17:12Z",
       "side": 1,
       "message": "const\u0026",
+      "range": {
+        "startLine": 52,
+        "startChar": 24,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "07d034261f67c5b007ae4fa747fa370c66002bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b03478bf_cdeffd8f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-24T16:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "905054f1_b46f6e69",
       "range": {
         "startLine": 52,
         "startChar": 24,
