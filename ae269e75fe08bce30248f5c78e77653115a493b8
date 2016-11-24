@@ -81,6 +81,30 @@
       "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_71c0b837",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-24T16:03:04Z",
+      "side": 1,
+      "message": "The current backend generates:\n\n 1e50    \tsubs r0, r2, #1\n\nSo, I am actually surprised that the old rule works at all - does whitespace implicitly match anything?",
+      "parentUuid": "905054f1_9120bc63",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
