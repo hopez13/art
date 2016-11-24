@@ -105,6 +105,30 @@
       "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_347c5e23",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-24T16:17:53Z",
+      "side": 1,
+      "message": "Anton: Yes, this is feature of Checker, which tokenizes based on whitespace and then tries to match elements independently (though respecting their order).  To make sure that whitespace is not ignored, you can put all elements in the same regex:\n\n  /// CHECK-NEXT:  {{(adds|subs)\\s+r\\d+, r\\d+, #(4294967295|1)}}",
+      "parentUuid": "905054f1_71c0b837",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
