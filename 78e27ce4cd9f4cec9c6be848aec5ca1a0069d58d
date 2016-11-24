@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "905054f1_91a51cec",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-24T13:22:23Z",
+      "side": 1,
+      "message": "Removed. The code needs to check the modifier flags as they\u0027re part of the definition of signature polymorphic. Replaced with IsVarargs() that was missing.",
+      "parentUuid": "905054f1_b100601e",
+      "range": {
+        "startLine": 249,
+        "startChar": 3,
+        "endLine": 250,
+        "endChar": 45
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_11f04c1f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "905054f1_71da787c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3034,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-24T13:22:23Z",
+      "side": 1,
+      "message": "Thanks, missed this. Added a check in the INVOKE_POLYMORPHIC clause that receiver is null or an instance of MethodHandle.",
+      "parentUuid": "905054f1_11f04c1f",
+      "range": {
+        "startLine": 3018,
+        "startChar": 6,
+        "endLine": 3034,
+        "endChar": 7
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_d1f5e412",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-24T10:24:02Z",
       "side": 1,
       "message": "we need to verify that VRegH is in the right range at a lower level in the verifier (hard verifier failure if not).",
+      "range": {
+        "startLine": 3065,
+        "startChar": 8,
+        "endLine": 3065,
+        "endChar": 97
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5056dcee_0f09054f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3065,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-24T13:22:23Z",
+      "side": 1,
+      "message": "Check added at the bottom of MethodVerifier::VerifyInvocationArgs before the code gets the prototype for checking parameter types.",
+      "parentUuid": "905054f1_d1f5e412",
       "range": {
         "startLine": 3065,
         "startChar": 8,
