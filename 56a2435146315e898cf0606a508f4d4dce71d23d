@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905054f1_714d1887",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-11-24T11:51:20Z",
+      "side": 1,
+      "message": "Patch rebased and this blank line removed.\nPrevious build failure should be due to this extra blank line which fails cpplint check.",
+      "revId": "56a2435146315e898cf0606a508f4d4dce71d23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
