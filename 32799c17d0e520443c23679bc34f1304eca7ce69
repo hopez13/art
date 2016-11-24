@@ -22,6 +22,29 @@
       "revId": "32799c17d0e520443c23679bc34f1304eca7ce69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_f11bc858",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-24T13:30:12Z",
+      "side": 1,
+      "message": "Nit: you could make the description of individual values agnostic of oat/vdex by only mentioning \"dex code\" or \"compiled code\", but I\u0027m fine with the way it is now.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 4
+      },
+      "revId": "32799c17d0e520443c23679bc34f1304eca7ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
