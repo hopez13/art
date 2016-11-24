@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "905054f1_716438f7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-24T14:07:29Z",
+      "side": 1,
+      "message": "Renamed to \u0027IsUseable\u0027 and added a comment for clarity. This function will be used in more places in future changes.",
+      "parentUuid": "905054f1_f1402855",
+      "range": {
+        "startLine": 809,
+        "startChar": 9,
+        "endLine": 809,
+        "endChar": 32
+      },
+      "revId": "4863b09b5c2bcc4caaec7c2f58101e429098e6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_91419c5c",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-24T11:36:03Z",
       "side": 1,
       "message": "I think you can drop \"Given\" and make this function static. IMO it\u0027s obvious that you want the status of the argument.",
+      "range": {
+        "startLine": 384,
+        "startChar": 12,
+        "endLine": 384,
+        "endChar": 17
+      },
+      "revId": "4863b09b5c2bcc4caaec7c2f58101e429098e6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_d189647a",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-24T14:07:29Z",
+      "side": 1,
+      "message": "I would rather leave this function as is.\n\nIt cannot be made static, because it refers to and may update the cached dex checksum and image info.\n\nI agree it\u0027s obvious that you want the status of the argument, but I want to use the name to explicitly distinguish this from the existing OatFileStatus and OdexFileStatus methods, which give the status for implicit oat files that you may not be able to open.",
+      "parentUuid": "905054f1_91419c5c",
       "range": {
         "startLine": 384,
         "startChar": 12,
