@@ -46,6 +46,23 @@
       "revId": "41580c5fc050faf2262efb2d764059f7d01bb51f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_31539031",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-24T11:43:58Z",
+      "side": 1,
+      "message": "vdex should be filter independent. Or at least it is now.\n\nI\u0027m ok having a more refine status even if we\u0027d end up using the same dex2oat command later. It gives us more flexibility I guess.",
+      "revId": "41580c5fc050faf2262efb2d764059f7d01bb51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
