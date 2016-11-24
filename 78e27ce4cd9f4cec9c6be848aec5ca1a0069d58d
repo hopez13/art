@@ -140,6 +140,30 @@
       "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_910c3c24",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3065,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-24T13:26:48Z",
+      "side": 1,
+      "message": "I would have expected this to be in MethodVerifier::VerifyInstruction since it seems like a \"lower level\" structural check on the instruction.",
+      "parentUuid": "5056dcee_0f09054f",
+      "range": {
+        "startLine": 3065,
+        "startChar": 8,
+        "endLine": 3065,
+        "endChar": 97
+      },
+      "revId": "78e27ce4cd9f4cec9c6be848aec5ca1a0069d58d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
