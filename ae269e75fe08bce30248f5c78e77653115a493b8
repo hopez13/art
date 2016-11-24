@@ -195,6 +195,30 @@
       "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_d4c23224",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-11-24T16:42:41Z",
+      "side": 1,
+      "message": "Right, so how does the following look:\n\n {{adds|subs}} r{{\\d+}}, #{{4294967295|1}}\n\nIt matches more than we expect (e.g. \"subs r0, r2, #4294967295\"), but not by much, and it seems easier to read than the alternative.",
+      "parentUuid": "905054f1_f146681e",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
