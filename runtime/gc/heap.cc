@@ -122,12 +122,18 @@ static constexpr size_t kDefaultAllocationStackSize = 8 * MB /
 // timeout on how long we wait for finalizers to run. b/21544853
 static constexpr uint64_t kNativeAllocationFinalizeTimeout = MsToNs(250u);
 
+// How many bytes are registered with RegisterNativeAllocation before we
+// trigger a new GC.
+static constexpr size_t kNativeAllocationGcWatermark = Heap::kDefaultMaxFree;
+
+// How many bytes are registered with RegisterNativeAllocation before we
+// trigger a blocking GC if the previously triggered GC is falling behind.
+static constexpr size_t kNativeAllocationBlockingGcWatermark = 4 * kNativeAllocationGcWatermark;
+
 // For deterministic compilation, we need the heap to be at a well-known address.
 static constexpr uint32_t kAllocSpaceBeginForDeterministicAoT = 0x40000000;
 // Dump the rosalloc stats on SIGQUIT.
 static constexpr bool kDumpRosAllocStatsOnSigQuit = false;
-
-static constexpr size_t kNativeAllocationHistogramBuckets = 16;
 
 // Extra added to the heap growth multiplier. Used to adjust the GC ergonomics for the read barrier
 // config.
@@ -194,18 +200,11 @@ Heap::Heap(size_t initial_size,
       capacity_(capacity),
       growth_limit_(growth_limit),
       max_allowed_footprint_(initial_size),
-      native_footprint_gc_watermark_(initial_size),
-      native_need_to_run_finalization_(false),
       concurrent_start_bytes_(std::numeric_limits<size_t>::max()),
       total_bytes_freed_ever_(0),
       total_objects_freed_ever_(0),
       num_bytes_allocated_(0),
-      native_bytes_allocated_(0),
-      native_histogram_lock_("Native allocation lock"),
-      native_allocation_histogram_("Native allocation sizes",
-                                   1U,
-                                   kNativeAllocationHistogramBuckets),
-      native_free_histogram_("Native free sizes", 1U, kNativeAllocationHistogramBuckets),
+      recent_native_bytes_allocated_(0),
       num_bytes_freed_revoke_(0),
       verify_missing_card_marks_(false),
       verify_system_weaks_(false),
@@ -1099,20 +1098,6 @@ void Heap::DumpGcPerformanceInfo(std::ostream& os) {
 
   if (kDumpRosAllocStatsOnSigQuit && rosalloc_space_ != nullptr) {
     rosalloc_space_->DumpStats(os);
-  }
-
-  {
-    MutexLock mu(Thread::Current(), native_histogram_lock_);
-    if (native_allocation_histogram_.SampleSize() > 0u) {
-      os << "Histogram of native allocation ";
-      native_allocation_histogram_.DumpBins(os);
-      os << " bucket size " << native_allocation_histogram_.BucketWidth() << "\n";
-    }
-    if (native_free_histogram_.SampleSize() > 0u) {
-      os << "Histogram of native free ";
-      native_free_histogram_.DumpBins(os);
-      os << " bucket size " << native_free_histogram_.BucketWidth() << "\n";
-    }
   }
 
   BaseMutex::DumpAll(os);
@@ -3504,18 +3489,6 @@ bool Heap::IsMovableObject(ObjPtr<mirror::Object> obj) const {
   return false;
 }
 
-void Heap::UpdateMaxNativeFootprint() {
-  size_t native_size = native_bytes_allocated_.LoadRelaxed();
-  // TODO: Tune the native heap utilization to be a value other than the java heap utilization.
-  size_t target_size = native_size / GetTargetHeapUtilization();
-  if (target_size > native_size + max_free_) {
-    target_size = native_size + max_free_;
-  } else if (target_size < native_size + min_free_) {
-    target_size = native_size + min_free_;
-  }
-  native_footprint_gc_watermark_ = std::min(growth_limit_, target_size);
-}
-
 collector::GarbageCollector* Heap::FindCollectorByGcType(collector::GcType gc_type) {
   for (const auto& collector : garbage_collectors_) {
     if (collector->GetCollectorType() == collector_type_ &&
@@ -3552,7 +3525,6 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
     target_size = bytes_allocated + delta * multiplier;
     target_size = std::min(target_size, bytes_allocated + adjusted_max_free);
     target_size = std::max(target_size, bytes_allocated + adjusted_min_free);
-    native_need_to_run_finalization_ = true;
     next_gc_type_ = collector::kGcTypeSticky;
   } else {
     collector::GcType non_sticky_gc_type =
@@ -3864,70 +3836,43 @@ void Heap::RunFinalization(JNIEnv* env, uint64_t timeout) {
 }
 
 void Heap::RegisterNativeAllocation(JNIEnv* env, size_t bytes) {
-  Thread* self = ThreadForEnv(env);
-  {
-    MutexLock mu(self, native_histogram_lock_);
-    native_allocation_histogram_.AddValue(bytes);
-  }
-  if (native_need_to_run_finalization_) {
-    RunFinalization(env, kNativeAllocationFinalizeTimeout);
-    UpdateMaxNativeFootprint();
-    native_need_to_run_finalization_ = false;
-  }
-  // Total number of native bytes allocated.
-  size_t new_native_bytes_allocated = native_bytes_allocated_.FetchAndAddSequentiallyConsistent(bytes);
-  new_native_bytes_allocated += bytes;
-  if (new_native_bytes_allocated > native_footprint_gc_watermark_) {
-    collector::GcType gc_type = HasZygoteSpace() ? collector::kGcTypePartial :
-        collector::kGcTypeFull;
-
-    // The second watermark is higher than the gc watermark. If you hit this it means you are
-    // allocating native objects faster than the GC can keep up with.
-    if (new_native_bytes_allocated > growth_limit_) {
-      if (WaitForGcToComplete(kGcCauseForNativeAlloc, self) != collector::kGcTypeNone) {
-        // Just finished a GC, attempt to run finalizers.
-        RunFinalization(env, kNativeAllocationFinalizeTimeout);
-        CHECK(!env->ExceptionCheck());
-        // Native bytes allocated may be updated by finalization, refresh it.
-        new_native_bytes_allocated = native_bytes_allocated_.LoadRelaxed();
-      }
-      // If we still are over the watermark, attempt a GC for alloc and run finalizers.
-      if (new_native_bytes_allocated > growth_limit_) {
-        CollectGarbageInternal(gc_type, kGcCauseForNativeAlloc, false);
-        RunFinalization(env, kNativeAllocationFinalizeTimeout);
-        native_need_to_run_finalization_ = false;
-        CHECK(!env->ExceptionCheck());
-      }
-      // We have just run finalizers, update the native watermark since it is very likely that
-      // finalizers released native managed allocations.
-      UpdateMaxNativeFootprint();
-    } else if (!IsGCRequestPending()) {
-      if (IsGcConcurrent()) {
-        RequestConcurrentGC(self, true);  // Request non-sticky type.
-      } else {
-        CollectGarbageInternal(gc_type, kGcCauseForNativeAlloc, false);
-      }
+  // Our goal is to limit the number of native bytes allocated that are
+  // retained by potentially garbage Java objects. We keep track of the number
+  // of recent native bytes allocated and trigger a GC any time that exceeds
+  // kNativeAllocationGcWatermark. If GC and reference processing can't keep
+  // up and we find that the number of recent native bytes allocated is
+  // as high as kNativeAllocationBlockingGcWatermark, we trigger a blocking GC
+  // to slow down the allocating thread. See the REDESIGN section of
+  // go/understanding-register-native-allocation for more info.
+  size_t new_value = bytes + recent_native_bytes_allocated_.FetchAndAddRelaxed(bytes);
+  if (new_value > kNativeAllocationGcWatermark && !IsGCRequestPending()) {
+    // Time for another GC.
+    recent_native_bytes_allocated_.StoreRelaxed(0);
+    if (IsGcConcurrent()) {
+      Thread* self = ThreadForEnv(env);
+      RequestConcurrentGC(self, true);  // Request non-sticky type.
+    } else {
+      collector::GcType gc_type = HasZygoteSpace() ? collector::kGcTypePartial :
+          collector::kGcTypeFull;
+      CollectGarbageInternal(gc_type, kGcCauseForNativeAlloc, false);
+    }
+  } else if (new_value > kNativeAllocationBlockingGcWatermark) {
+    // Do a blocking GC, because we seem to be falling way behind our target.
+    // Use CompareExchange to ensure that only one thread triggers the
+    // blocking GC at a time.
+    if (recent_native_bytes_allocated_.CompareExchangeStrongRelaxed(new_value, 0)) {
+      collector::GcType gc_type = HasZygoteSpace() ? collector::kGcTypePartial :
+          collector::kGcTypeFull;
+      CollectGarbageInternal(gc_type, kGcCauseForNativeAlloc, false);
+      RunFinalization(env, kNativeAllocationFinalizeTimeout);
+      CHECK(!env->ExceptionCheck());
     }
   }
 }
 
-void Heap::RegisterNativeFree(JNIEnv* env, size_t bytes) {
-  size_t expected_size;
-  {
-    MutexLock mu(Thread::Current(), native_histogram_lock_);
-    native_free_histogram_.AddValue(bytes);
-  }
-  do {
-    expected_size = native_bytes_allocated_.LoadRelaxed();
-    if (UNLIKELY(bytes > expected_size)) {
-      ScopedObjectAccess soa(env);
-      env->ThrowNew(WellKnownClasses::java_lang_RuntimeException,
-                    StringPrintf("Attempted to free %zd native bytes with only %zd native bytes "
-                    "registered as allocated", bytes, expected_size).c_str());
-      break;
-    }
-  } while (!native_bytes_allocated_.CompareExchangeWeakRelaxed(expected_size,
-                                                               expected_size - bytes));
+void Heap::RegisterNativeFree(JNIEnv*, size_t) {
+  // The current design of RegisterNativeAllocation does not require us to do
+  // anything for RegisterNativeFree.
 }
 
 size_t Heap::GetTotalMemory() const {
