@@ -36,7 +36,7 @@ public class Main {
             synchronized (nativeLock) {
                 if (!testingDeadlock) {
                     nativeBytes += bytes;
-                    if (nativeBytes > maxMem) {
+                    if (nativeBytes > 2 * maxMem) {
                         throw new OutOfMemoryError();
                     }
                 }
