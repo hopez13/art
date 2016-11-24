@@ -116,6 +116,12 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-XX:NonMovingSpaceCapacity=_")
           .WithType<MemoryKiB>()
           .IntoKey(M::NonMovingSpaceCapacity)
+      .Define("-XX:NativeAllocationGcWatermark=_")
+          .WithType<MemoryKiB>()
+          .IntoKey(M::NativeAllocationGcWatermark)
+      .Define("-XX:NativeAllocationBlockingGcWatermark=_")
+          .WithType<MemoryKiB>()
+          .IntoKey(M::NativeAllocationBlockingGcWatermark)
       .Define("-XX:HeapTargetUtilization=_")
           .WithType<double>().WithRange(0.1, 0.9)
           .IntoKey(M::HeapTargetUtilization)
@@ -703,6 +709,8 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -XX:HeapMinFree=N\n");
   UsageMessage(stream, "  -XX:HeapMaxFree=N\n");
   UsageMessage(stream, "  -XX:NonMovingSpaceCapacity=N\n");
+  UsageMessage(stream, "  -XX:NativeAllocationGcWatermark=N\n");
+  UsageMessage(stream, "  -XX:NativeAllocationBlockingGcWatermark=N\n");
   UsageMessage(stream, "  -XX:HeapTargetUtilization=doublevalue\n");
   UsageMessage(stream, "  -XX:ForegroundHeapGrowthMultiplier=doublevalue\n");
   UsageMessage(stream, "  -XX:LowMemoryMode\n");

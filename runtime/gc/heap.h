@@ -131,6 +131,8 @@ class Heap {
   static constexpr size_t kDefaultNonMovingSpaceCapacity = 64 * MB;
   static constexpr size_t kDefaultMaxFree = 2 * MB;
   static constexpr size_t kDefaultMinFree = kDefaultMaxFree / 4;
+  static constexpr size_t kDefaultNativeAllocationGcWatermark = kDefaultMaxFree;
+  static constexpr size_t kDefaultNativeAllocationBlockingGcWatermark = 4 * kDefaultNativeAllocationGcWatermark;
   static constexpr size_t kDefaultLongPauseLogThreshold = MsToNs(5);
   static constexpr size_t kDefaultLongGCLogThreshold = MsToNs(100);
   static constexpr size_t kDefaultTLABSize = 32 * KB;
@@ -190,7 +192,9 @@ class Heap {
        bool gc_stress_mode,
        bool measure_gc_performance,
        bool use_homogeneous_space_compaction,
-       uint64_t min_interval_homogeneous_space_compaction_by_oom);
+       uint64_t min_interval_homogeneous_space_compaction_by_oom,
+       size_t native_allocation_gc_watermark,
+       size_t native_allocation_blocking_gc_watermark);
 
   ~Heap();
 
@@ -260,9 +264,9 @@ class Heap {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void RegisterNativeAllocation(JNIEnv* env, size_t bytes)
-      REQUIRES(!*gc_complete_lock_, !*pending_task_lock_, !native_histogram_lock_);
+      REQUIRES(!*gc_complete_lock_, !*pending_task_lock_);
   void RegisterNativeFree(JNIEnv* env, size_t bytes)
-      REQUIRES(!*gc_complete_lock_, !*pending_task_lock_, !native_histogram_lock_);
+      REQUIRES(!*gc_complete_lock_, !*pending_task_lock_);
 
   // Change the allocator, updates entrypoints.
   void ChangeAllocator(AllocatorType allocator)
@@ -562,7 +566,7 @@ class Heap {
   space::Space* FindSpaceFromAddress(const void* ptr) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void DumpForSigQuit(std::ostream& os) REQUIRES(!*gc_complete_lock_, !native_histogram_lock_);
+  void DumpForSigQuit(std::ostream& os) REQUIRES(!*gc_complete_lock_);
 
   // Do a pending collector transition.
   void DoPendingCollectorTransition() REQUIRES(!*gc_complete_lock_, !*pending_task_lock_);
@@ -679,7 +683,7 @@ class Heap {
 
   // GC performance measuring
   void DumpGcPerformanceInfo(std::ostream& os)
-      REQUIRES(!*gc_complete_lock_, !native_histogram_lock_);
+      REQUIRES(!*gc_complete_lock_);
   void ResetGcPerformanceInfo() REQUIRES(!*gc_complete_lock_);
 
   // Thread pool.
@@ -979,10 +983,6 @@ class Heap {
   void PostGcVerificationPaused(collector::GarbageCollector* gc)
       REQUIRES(Locks::mutator_lock_, !*gc_complete_lock_);
 
-  // Update the watermark for the native allocated bytes based on the current number of native
-  // bytes allocated and the target utilization ratio.
-  void UpdateMaxNativeFootprint();
-
   // Find a collector based on GC type.
   collector::GarbageCollector* FindCollectorByGcType(collector::GcType gc_type);
 
@@ -1184,12 +1184,6 @@ class Heap {
   // a GC should be triggered.
   size_t max_allowed_footprint_;
 
-  // The watermark at which a concurrent GC is requested by registerNativeAllocation.
-  size_t native_footprint_gc_watermark_;
-
-  // Whether or not we need to run finalizers in the next native allocation.
-  bool native_need_to_run_finalization_;
-
   // When num_bytes_allocated_ exceeds this amount then a concurrent GC should be requested so that
   // it completes ahead of an allocation failing.
   size_t concurrent_start_bytes_;
@@ -1203,13 +1197,17 @@ class Heap {
   // Number of bytes allocated.  Adjusted after each allocation and free.
   Atomic<size_t> num_bytes_allocated_;
 
-  // Bytes which are allocated and managed by native code but still need to be accounted for.
-  Atomic<size_t> native_bytes_allocated_;
+  // Number of bytes allocated using RegisterNativeAllocation since the last
+  // time GC was triggered for RegisterNativeAllocation.
+  Atomic<size_t> recent_native_bytes_allocated_;
 
-  // Native allocation stats.
-  Mutex native_histogram_lock_;
-  Histogram<uint64_t> native_allocation_histogram_;
-  Histogram<uint64_t> native_free_histogram_;
+  // How many bytes are registered with RegisterNativeAllocation before we
+  // trigger a new GC.
+  size_t native_allocation_gc_watermark_;
+
+  // How many bytes are registered with RegisterNativeAllocation before we
+  // block on GC if the previously triggered GC is falling behind.
+  size_t native_allocation_blocking_gc_watermark_;
 
   // Number of bytes freed by thread local buffer revokes. This will
   // cancel out the ahead-of-time bulk counting of bytes allocated in
