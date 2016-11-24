@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "905054f1_113ccc83",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4925,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-24T16:26:09Z",
+      "side": 1,
+      "message": "I agree that it is unnecessary. I\u0027ll leave it up to you to decide where you want to have these.",
+      "parentUuid": "905054f1_d12a4441",
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_51881441",
         "filename": "test/538-checker-embed-constants/src/Main.java",
         "patchSetId": 1
@@ -120,6 +138,54 @@
       "side": 1,
       "message": "Anton: Yes, this is feature of Checker, which tokenizes based on whitespace and then tries to match elements independently (though respecting their order).  To make sure that whitespace is not ignored, you can put all elements in the same regex:\n\n  /// CHECK-NEXT:  {{(adds|subs)\\s+r\\d+, r\\d+, #(4294967295|1)}}",
       "parentUuid": "905054f1_71c0b837",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_f146681e",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-24T16:26:09Z",
+      "side": 1,
+      "message": "Current backend prefers T2 over T1 when possible. OTOH, \u003c\u003cArg\u003e\u003e remains live below, so the register allocator is not going to assign the same register to both input and output of the Add. But do we want to rely on that?",
+      "parentUuid": "905054f1_9120bc63",
+      "range": {
+        "startLine": 510,
+        "startChar": 50,
+        "endLine": 510,
+        "endChar": 68
+      },
+      "revId": "ae269e75fe08bce30248f5c78e77653115a493b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_f490162f",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-24T16:26:09Z",
+      "side": 1,
+      "message": "The checker splits the string on spaces before trying to match tokens, so you cannot match the space.",
+      "parentUuid": "905054f1_347c5e23",
       "range": {
         "startLine": 510,
         "startChar": 50,
