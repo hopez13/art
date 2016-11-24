@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905054f1_f1402855",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-24T11:36:03Z",
+      "side": 1,
+      "message": "Is this intended? If so, it requires more comments, and maybe a change of the methods name.\n\nI see that IsOutOfDate is only used in ReleaseFileForUse. If kOatRelocationOutOfDate requires special handling maybe is just better to inline this method and document directly there.",
+      "range": {
+        "startLine": 809,
+        "startChar": 9,
+        "endLine": 809,
+        "endChar": 32
+      },
+      "revId": "4863b09b5c2bcc4caaec7c2f58101e429098e6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905054f1_91419c5c",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-24T11:36:03Z",
+      "side": 1,
+      "message": "I think you can drop \"Given\" and make this function static. IMO it\u0027s obvious that you want the status of the argument.",
+      "range": {
+        "startLine": 384,
+        "startChar": 12,
+        "endLine": 384,
+        "endChar": 17
+      },
+      "revId": "4863b09b5c2bcc4caaec7c2f58101e429098e6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
