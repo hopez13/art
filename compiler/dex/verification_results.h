@@ -60,19 +60,15 @@ class VerificationResults {
 
  private:
   // Verified methods. The method array is fixed to avoid needing a lock to extend it.
-  using DexFileMethodArray = dchecked_vector<Atomic<const VerifiedMethod*>>;
+  using DexFileMethodArray = dchecked_vector<const VerifiedMethod*>;
   using DexFileResults = std::map<const DexFile*, DexFileMethodArray>;
-  using VerifiedMethodMap = SafeMap<MethodReference,
-                                    const VerifiedMethod*,
-                                    MethodReferenceComparator>;
 
   static void DeleteResults(DexFileResults& array);
 
   DexFileMethodArray* GetMethodArray(const DexFile* dex_file) REQUIRES(!verified_methods_lock_);
-  VerifiedMethodMap verified_methods_ GUARDED_BY(verified_methods_lock_);
   const CompilerOptions* const compiler_options_;
 
-  // Dex2oat can preregister dex files to avoid locking when calling GetVerifiedMethod.
+  // We preregister dex files to avoid locking when calling GetVerifiedMethod.
   DexFileResults preregistered_dex_files_;
 
   ReaderWriterMutex verified_methods_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
