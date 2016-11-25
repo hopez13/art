@@ -22,6 +22,30 @@
       "revId": "e141d1e8d078e26dbfbf692cd2d9257dd835b13d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0dd6c5f_31888840",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-25T07:52:14Z",
+      "side": 1,
+      "message": "GetStatusDump may have the side effect of loading oat files to determine their status. It should not be const.",
+      "parentUuid": "f0e0b014_4c5a5f3e",
+      "range": {
+        "startLine": 184,
+        "startChar": 27,
+        "endLine": 184,
+        "endChar": 30
+      },
+      "revId": "e141d1e8d078e26dbfbf692cd2d9257dd835b13d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
