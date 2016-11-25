@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "705120f4_13adae66",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3063,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-25T11:33:10Z",
+      "side": 1,
+      "message": "But is that the right thing to do? Should we hard fail instead?",
+      "parentUuid": "2d266fad_ddeafc2b",
+      "range": {
+        "startLine": 3063,
+        "startChar": 0,
+        "endLine": 3063,
+        "endChar": 21
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_d1c884b7",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 5
