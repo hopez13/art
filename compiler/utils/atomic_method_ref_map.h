@@ -47,6 +47,7 @@ class AtomicMethodRefMap {
   // thread safe.
   void AddDexFile(const DexFile* dex_file);
 
+  // Returns true if dex_file is already added.
   bool HaveDexFile(const DexFile* dex_file) const {
     return arrays_.find(dex_file) != arrays_.end();
   }

@@ -45,38 +45,27 @@ class VerificationResults {
   ~VerificationResults();
 
   void ProcessVerifiedMethod(verifier::MethodVerifier* method_verifier)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!verified_methods_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void CreateVerifiedMethodFor(MethodReference ref)
-      REQUIRES(!verified_methods_lock_);
+  void CreateVerifiedMethodFor(MethodReference ref);
 
-  const VerifiedMethod* GetVerifiedMethod(MethodReference ref)
-      REQUIRES(!verified_methods_lock_);
+  const VerifiedMethod* GetVerifiedMethod(MethodReference ref);
 
   void AddRejectedClass(ClassReference ref) REQUIRES(!rejected_classes_lock_);
   bool IsClassRejected(ClassReference ref) REQUIRES(!rejected_classes_lock_);
 
   bool IsCandidateForCompilation(MethodReference& method_ref, const uint32_t access_flags);
 
-  // Add a dex file to enable using the atomic map.
-  void AddDexFile(const DexFile* dex_file) REQUIRES(!verified_methods_lock_);
+  // Add a dex file to enable using the atomic map. Not thread safe.
+  void AddDexFile(const DexFile* dex_file);
 
  private:
-  // Verified methods. The method array is fixed to avoid needing a lock to extend it.
-  using AtomicMap = AtomicMethodRefMap<const VerifiedMethod*>;
-  using VerifiedMethodMap = SafeMap<MethodReference,
-                                    const VerifiedMethod*,
-                                    MethodReferenceComparator>;
-
-  VerifiedMethodMap verified_methods_ GUARDED_BY(verified_methods_lock_);
   const CompilerOptions* const compiler_options_;
 
-  // Dex2oat can add dex files to atomic_verified_methods_ to avoid locking when calling
-  // GetVerifiedMethod.
-  AtomicMap atomic_verified_methods_;
-
-  ReaderWriterMutex verified_methods_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
+  // Verified methods atomic map, dex files must be inserted by calling AddDexFile before
+  // accessing.
+  using AtomicMap = AtomicMethodRefMap<const VerifiedMethod*>;
+  AtomicMap verified_methods_;
 
   // Rejected classes.
   ReaderWriterMutex rejected_classes_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
