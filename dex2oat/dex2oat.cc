@@ -1602,6 +1602,12 @@ class Dex2Oat FINAL {
       }
     }
 
+    // Add dex files so that we can access verification results without locks during compilation
+    // and verification.
+    for (const auto& dex_file : dex_files_) {
+      verification_results_->AddDexFile(dex_file);
+    }
+
     if (IsBootImage()) {
       // For boot image, pass opened dex files to the Runtime::Create().
       // Note: Runtime acquires ownership of these dex files.
@@ -1652,9 +1658,6 @@ class Dex2Oat FINAL {
       dex_caches_.push_back(soa.AddLocalReference<jobject>(
           class_linker->RegisterDexFile(*dex_file,
                                         soa.Decode<mirror::ClassLoader>(class_loader_).Ptr())));
-      // Pre-register dex files so that we can access verification results without locks during
-      // compilation and verification.
-      verification_results_->AddDexFile(dex_file);
     }
 
     return true;
