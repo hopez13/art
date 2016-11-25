@@ -587,10 +587,6 @@ static void CompileMethod(Thread* self,
     // TODO: Refactor the compilation to avoid having to distinguish the two passes
     // here. That should be done on a higher level. http://b/29089975
     if (driver->GetCurrentDexToDexMethods()->IsBitSet(method_idx)) {
-      const VerifiedMethod* verified_method =
-          driver->GetVerificationResults()->GetVerifiedMethod(method_ref);
-      // Do not optimize if a VerifiedMethod is missing. SafeCast elision,
-      // for example, relies on it.
       compiled_method = optimizer::ArtCompileDEX(
           driver,
           code_item,
@@ -600,9 +596,7 @@ static void CompileMethod(Thread* self,
           method_idx,
           class_loader,
           dex_file,
-          (verified_method != nullptr)
-              ? dex_to_dex_compilation_level
-              : optimizer::DexToDexCompilationLevel::kRequired);
+          dex_to_dex_compilation_level);
     }
   } else if ((access_flags & kAccNative) != 0) {
     // Are we extracting only and have support for generic JNI down calls?
@@ -939,6 +933,14 @@ void CompilerDriver::PreCompile(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
                                 TimingLogger* timings) {
   CheckThreadPools();
+
+
+  for (const DexFile* dex_file : dex_files) {
+    // Can be already inserted if the caller is CompileOne. This happens for gtests.
+    if (verification_results_ != nullptr) {
+      verification_results_->AddDexFile(dex_file);
+    }
+  }
 
   LoadImageClasses(timings);
   VLOG(compiler) << "LoadImageClasses: " << GetMemoryUsageString(false);
@@ -1621,7 +1623,9 @@ bool CompilerDriver::IsSafeCast(const DexCompilationUnit* mUnit, uint32_t dex_pc
     // If we didn't verify, every cast has to be treated as non-safe.
     return false;
   }
-  DCHECK(mUnit->GetVerifiedMethod() != nullptr);
+  if (mUnit->GetVerifiedMethod() == nullptr) {
+    return false;
+  }
   bool result = mUnit->GetVerifiedMethod()->IsSafeCast(dex_pc);
   if (result) {
     stats_->SafeCast();
