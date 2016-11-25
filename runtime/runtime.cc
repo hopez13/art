@@ -697,6 +697,7 @@ bool Runtime::Start() {
   // Initialize well known thread group values that may be accessed threads while attaching.
   InitThreadGroups(self);
 
+  // Attach the peer to the main thread and run gc root clinits.
   Thread::FinishStartup();
 
   system_class_loader_ = CreateSystemClassLoader(this);

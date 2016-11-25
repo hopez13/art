@@ -2534,7 +2534,8 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
       // The boot class loader is searched ahead of the application class loader, failures are
       // expected and will be wrapped in a ClassNotFoundException. Use the pre-allocated error to
       // trigger the chaining with a proper stack trace.
-      ObjPtr<mirror::Throwable> pre_allocated = Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
+      ObjPtr<mirror::Throwable> pre_allocated =
+          Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
       self->SetException(pre_allocated);
       return nullptr;
     }
@@ -2554,9 +2555,25 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
       // trace.
     }
 
-    if (Runtime::Current()->IsAotCompiler()) {
-      // Oops, compile-time, can't run actual class-loader code.
-      ObjPtr<mirror::Throwable> pre_allocated = Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
+    if (!self->HasPeer()) {
+      // Oops, thread doesn't have a Java peer, can't run actual class-loader code.
+      // This happens for example when the thread is a compiler (e.g. AOT or JIT).
+      //
+      // Note that there is a time window when the main thread has no peer. That is between
+      // Runtime::Init(), when the thread is created, and Runtime::Start(), when the peer is
+      // attached. It is still OK to throw NoClassDefFoundError here. During that time window
+      // only the BootClassLoader is active and the look up is covered in the above
+      // FindClassInBaseDexClassLoader. If that didn't find the class, the Java side will not
+      // find it either, so throwing is the right thing to do.
+      //
+      // TOOD: can jvmti agents influence this behavior by adding new classloaders before
+      //       Runtime::Start() which will need to enter Java side for finding the class?
+      //       In general, calling into Java without a peer is dangerous, as if it ends up
+      //       needing a thread things will break. Investigate if it's OK to DCHECK that we
+      //       always have a peer before calling into Java, and if not OK, document why it
+      //       is safe to do so.
+      ObjPtr<mirror::Throwable> pre_allocated =
+          Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
       self->SetException(pre_allocated);
       return nullptr;
     }
