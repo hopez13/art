@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d06c8cba_33b628dc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3063,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-25T12:44:53Z",
+      "side": 1,
+      "message": "Added code to hard fail here.\n\nAlso changed the block so the code does not return early, otherwise it\u0027ll skip logging steps.",
+      "parentUuid": "705120f4_13adae66",
+      "range": {
+        "startLine": 3063,
+        "startChar": 0,
+        "endLine": 3063,
+        "endChar": 21
+      },
+      "revId": "f5ac6842bcf53939ab6052529f01a2f41785fb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "905054f1_d1c884b7",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 5
