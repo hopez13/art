@@ -22,6 +22,30 @@
       "revId": "f55259338b60d74fd29919362f13730c89f2a770",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_1fdba30b",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T09:45:49Z",
+      "side": 1,
+      "message": "When you say memory leak, are you referring to the previous race?\n\nI think the race was due to JIT at the time. But we removed the use of VerifiedMethod from the JIT.\n\nI can add a:\nif (kIsDebugBuild) {\n  // Lock\n  // Check entry is null\n  // update\n  // unlock\n}\n\nif we want to be extra sure for AOT. Would you prefer that?",
+      "parentUuid": "b04b9845_15511680",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 32
+      },
+      "revId": "f55259338b60d74fd29919362f13730c89f2a770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
