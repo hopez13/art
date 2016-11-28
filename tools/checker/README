@@ -16,15 +16,15 @@ be listed with the '--list-passes' command-line flag).
 Matching of check lines is carried out in the order of appearance in the
 source file. There are three types of check lines:
  - CHECK:      Must match an output line which appears in the output group
-               later than lines matched against any preceeding checks. Output
+               later than lines matched against any preceding checks. Output
                lines must therefore match the check lines in the same order.
                These are referred to as "in-order" checks in the code.
  - CHECK-DAG:  Must match an output line which appears in the output group
-               later than lines matched against any preceeding in-order checks.
+               later than lines matched against any preceding in-order checks.
                In other words, the order of output lines does not matter
                between consecutive DAG checks.
  - CHECK-NOT:  Must not match any output line which appears in the output group
-               later than lines matched against any preceeding checks and
+               later than lines matched against any preceding checks and
                earlier than lines matched against any subsequent checks.
                Surrounding non-negative checks (or boundaries of the group)
                therefore create a scope within which the assertion is verified.
@@ -36,10 +36,11 @@ source file. There are three types of check lines:
 Check-line patterns are treated as plain text rather than regular expressions
 but are whitespace agnostic.
 
-Actual regex patterns can be inserted enclosed in '{{' and '}}' brackets. If
-curly brackets need to be used inside the body of the regex, they need to be
-enclosed in round brackets. For example, the pattern '{{foo{2}}}' will parse
-the invalid regex 'foo{2', but '{{(fo{2})}}' will match 'foo'.
+Actual regular expressions  patterns can be inserted  enclosed in '{{' and
+'}}' brackets.  If curly brackets need to be  used inside the body of the
+regex, they need to be enclosed in round brackets. For example, the pattern
+'{{foo{2}}}' will  parse the  invalid regex  'foo{2', but '{{(fo{2})}}' will
+match 'foo'.
 
 Regex patterns can be named and referenced later. A new variable is defined
 with '<<name:regex>>' and can be referenced with '<<name>>'. Variables are
@@ -68,11 +69,81 @@ Example:
   /// CHECK-EVAL:    <<VarA>> != <<VarB>>
 
 
+Specifiers
+==========
+
+The 'CHECK-START' keyword can be completed with additional specifiers
+to enable/disable a group of check lines with respect to a given
+context. The syntax is as follows:
+
+  CHECK-START[-<arch>][-DEBUGGABLE][-IF(<cond>)]:
+
+These specifiers are:
+  - the architecture-specific specifier: '-<arch>' (where '-<arch>'
+    can be either ARM, ARM64, MIPS, MIPS64, X86 or X86_64);
+  - the debuggable specifier: '-DEBUGGABLE';
+  - the conditional specifier: '-IF(<cond>)'.
+
+These specifiers are optional and independent. The relative order in
+which they appear after the 'CHECK-START' keyword, however, is fixed
+and as shown above.
+
+Architecture-Specific Specifier
+-------------------------------
+
 A group of check lines can be made architecture-specific by inserting '-<arch>'
 after the 'CHECK-START' keyword. The previous example can be updated to run for
-arm64 only with:
+ARM64 only with:
 
 Example:
   /// CHECK-START-ARM64: int MyClass.MyMethod() constant_folding (after)
   /// CHECK:         <<ID:i\d+>>  IntConstant {{11|22}}
   /// CHECK:                      Return [<<ID>>]
+
+Debuggable Specifier
+--------------------
+
+By default, a group of check line is only matched against
+non-debuggable control-flow graphs (code compiled without the
+'--debuggable' option passed to dex2oat). To check an assertion
+against (only) a debuggable CFG, add '-DEBUGGABLE' after the
+'CHECK-START' keyword.
+
+Example:
+  /// CHECK-START-DEBUGGABLE: int MyClass.MyMethod() builder (after)
+  /// CHECK:                      Phi
+
+  /// CHECK-START: int MyClass.MyMethod() builder (after)
+  /// CHECK-NOT:                  Phi
+
+  The first statement will only be tested when dex2oat is passed the
+  '--debuggable' option; the second statement will only be tested when
+  dex2oat is *not* passed the '--debuggable' option.
+
+Conditional Specifier
+---------------------
+
+The conditional specifier '-IF(<cond>)' can be used to enable a group
+of check lines only when condition '<cond>', expressed as a Python
+statement, is met.
+
+Example:
+  /// CHECK-START-IF(os.environ.get('ART_USE_READ_BARRIER') == 'true') int MyClass.MyMethod() disassembly (after):
+  /// CHECK:               disasm {{ReadBarrier.*SlowPath}}
+
+  Checker will try to match these check lines only if the environment
+  variable 'ART_USE_READ_BARRIER' is set to 'true'.
+
+As environment variables are often used in conditionals, Checker
+provides some helper functions to make it easier to write such
+conditions (envTrue, envFalse, envEquals, envNotEquals).
+
+Example:
+  /// CHECK-START-X86-IF(envTrue('ART_HEAP_POISONING')) java.lang.Object Main.testGetField() disassembly (after):
+  /// CHECK:                      InstanceFieldGet field_type:PrimNot
+  /// CHECK:                        neg
+  /// CHECK:                      Return
+
+  Checker will try to match these check lines only if the target
+  architecture is x86 and if the environment variable
+  'ART_HEAP_POISONING' is set to 'true'.
