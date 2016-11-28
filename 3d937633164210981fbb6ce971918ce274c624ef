@@ -235,6 +235,30 @@
       "revId": "3d937633164210981fbb6ce971918ce274c624ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705120f4_93ab5e6f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-28T15:49:44Z",
+      "side": 1,
+      "message": "I see (at last). Then just follow Calin\u0027s suggestion of adding DCHECK()s.",
+      "parentUuid": "4d90030a_df569b21",
+      "range": {
+        "startLine": 406,
+        "startChar": 8,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
