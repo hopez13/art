@@ -22,6 +22,30 @@
       "revId": "3d937633164210981fbb6ce971918ce274c624ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_ff56ff47",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T13:22:01Z",
+      "side": 1,
+      "message": "Yeah, I just shared the way you wake up waiting threads between the two configs.\n\nThe only difference between the two versions is the update of is_weak_access_enabled_. Do you prefer having it under kUseReadBarrier?",
+      "parentUuid": "d06c8cba_76e7ae63",
+      "range": {
+        "startLine": 406,
+        "startChar": 8,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
