@@ -20,6 +20,7 @@ from file_format.checker.parser import ParseCheckerStream
 from file_format.checker.struct import CheckerFile, TestCase, TestAssertion, TestExpression
 
 import io
+import os
 import unittest
 
 CheckerException = SystemExit
@@ -365,6 +366,41 @@ class CheckerParser_SuffixTests(unittest.TestCase):
         """).testCases[0]
     self.assertTrue(testCase.forDebuggable)
     self.assertEqual(testCase.testArch, "ARM")
+
+  def test_TrueCondition(self):
+    testCase = self.parse("""
+        /// CHECK-START-IF(True): Group
+        /// CHECK: foo
+        """).testCases[0]
+    self.assertEqual(testCase.condition, "True")
+    self.assertTrue(eval(testCase.condition))
+
+  def test_FalseCondition(self):
+    testCase = self.parse("""
+        /// CHECK-START-IF(False): Group
+        /// CHECK: foo
+        """).testCases[0]
+    self.assertEqual(testCase.condition, "False")
+    self.assertFalse(eval(testCase.condition))
+
+  def test_EnvCondition(self):
+    testCase = self.parse("""
+        /// CHECK-START-IF(os.environ.get('HOME') != ''): Group
+        /// CHECK: foo
+        """).testCases[0]
+    self.assertEqual(testCase.condition, "os.environ.get('HOME') != ''")
+    # Environment variable 'HOME' is expected to never be empty.
+    self.assertTrue(eval(testCase.condition))
+
+  def test_InvalidCondition(self):
+    testCase = self.parse("""
+        /// CHECK-START-IF(unknown == 'foo'): Group
+        /// CHECK: foo
+        """).testCases[0]
+    self.assertEqual(testCase.condition, "unknown == 'foo'")
+    # Check that the undefined name 'unknown' makes the condition invalid.
+    with self.assertRaises(NameError):
+      eval(testCase.condition)
 
 class CheckerParser_EvalTests(unittest.TestCase):
   def parseTestCase(self, string):
