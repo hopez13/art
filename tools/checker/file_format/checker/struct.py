@@ -36,7 +36,8 @@ class CheckerFile(PrintableMixin):
 
 class TestCase(PrintableMixin):
 
-  def __init__(self, parent, name, startLineNo, testArch = None, forDebuggable = False):
+  def __init__(self, parent, name, startLineNo, testArch = None, forDebuggable = False,
+               condition = None):
     assert isinstance(parent, CheckerFile)
 
     self.parent = parent
@@ -45,6 +46,8 @@ class TestCase(PrintableMixin):
     self.startLineNo = startLineNo
     self.testArch = testArch
     self.forDebuggable = forDebuggable
+    # An optional string containing a Python statement evaluated as a condition.
+    self.condition = condition
 
     if not self.name:
       Logger.fail("Test case does not have a name", self.fileName, self.startLineNo)
