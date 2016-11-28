@@ -22,6 +22,30 @@
       "revId": "7225a8d0796ef6fafbf3037cafd2446766bff514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_dfde9bc8",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-28T11:48:49Z",
+      "side": 1,
+      "message": "A suggestion is to use something like \"to optimize the compiled code for the dex file\".\n\nWhat we care about is: compilation/optimizations.\nAnd what we work with are dex files (zipped or unzipped).\n\nUp to you though if you want to revisit later though.",
+      "parentUuid": "4d90030a_3fc78736",
+      "range": {
+        "startLine": 51,
+        "startChar": 41,
+        "endLine": 51,
+        "endChar": 63
+      },
+      "revId": "7225a8d0796ef6fafbf3037cafd2446766bff514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
