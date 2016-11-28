@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_dfba1b08",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3899,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-11-28T15:42:00Z",
+      "side": 1,
+      "message": "Probably this should be specified as a constant or parameter somewhere. I\u0027m open to suggestions.",
+      "range": {
+        "startLine": 3899,
+        "startChar": 35,
+        "endLine": 3899,
+        "endChar": 48
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
