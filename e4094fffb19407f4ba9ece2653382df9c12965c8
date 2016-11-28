@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_1fc5e3f4",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T11:49:23Z",
+      "side": 1,
+      "message": "image_end?",
+      "range": {
+        "startLine": 1151,
+        "startChar": 22,
+        "endLine": 1151,
+        "endChar": 31
+      },
+      "revId": "e4094fffb19407f4ba9ece2653382df9c12965c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_3fca2704",
+        "filename": "test/626-const-class-linking/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T11:49:23Z",
+      "side": 1,
+      "message": "I assume to mimic the RI? And verify-at-runtime won\u0027t pass the test without it?\n\nPlease add a comment,",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 79
+      },
+      "revId": "e4094fffb19407f4ba9ece2653382df9c12965c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
