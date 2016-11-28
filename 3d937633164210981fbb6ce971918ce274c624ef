@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d06c8cba_76e7ae63",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-28T13:17:50Z",
+      "side": 1,
+      "message": "This seems to be inconsistent with AllowInlineCacheAccess().",
+      "range": {
+        "startLine": 406,
+        "startChar": 8,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
