@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "2d266fad_072c9606",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3888,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-28T20:31:29Z",
+      "side": 1,
+      "message": "I might change all of these to relaxed for consistency, though it doesn\u0027t matter here.",
+      "range": {
+        "startLine": 3888,
+        "startChar": 33,
+        "endLine": 3888,
+        "endChar": 55
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_dfba1b08",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -64,6 +87,29 @@
         "startChar": 4,
         "endLine": 3903,
         "endChar": 67
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d266fad_a7028224",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3912,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-28T20:31:29Z",
+      "side": 1,
+      "message": "The down side of this design is that a client that normally manages its own native memory, and only uses Cleaners as a fallback, still regularly triggers Java GCs. I\u0027m not sure how important that is. My a priori inclination would have been to still negate the effect of RegisterNativeAllocation here. That seems to make sense even if we otherwise keep the current design.\n\nMy intuition is that we would want to do this only for explicit deallocations, not for those invoked by a Cleaner.\n\nFor now, would it make sense to have RegisterNativeFree just do the decrement (probably limited to keep the value non-negative), and remove the RegisterNativeFree call from NativeAllocationRegistry? That removes an empty JNI call, and gives us a clearer path forward if this starts to matter. We\u0027d add a NativeAllocationRegistry version that handles the \"expect to deallocate natively\" case.",
+      "range": {
+        "startLine": 3911,
+        "startChar": 2,
+        "endLine": 3912,
+        "endChar": 37
       },
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
