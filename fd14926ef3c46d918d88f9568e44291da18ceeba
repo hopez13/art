@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_dff21bb9",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T21:16:47Z",
+      "side": 1,
+      "message": "Can you also specify what returning false from no_escape means? The implementation shows you\u0027re ignoring it.",
+      "range": {
+        "startLine": 40,
+        "startChar": 32,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "fd14926ef3c46d918d88f9568e44291da18ceeba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
