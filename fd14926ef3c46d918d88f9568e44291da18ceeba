@@ -22,6 +22,30 @@
       "revId": "fd14926ef3c46d918d88f9568e44291da18ceeba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d266fad_8a7aedd8",
+        "filename": "compiler/optimizing/escape.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-28T21:19:46Z",
+      "side": 1,
+      "message": "Good point. David had a similar request. Will add in header file.",
+      "parentUuid": "4d90030a_dff21bb9",
+      "range": {
+        "startLine": 40,
+        "startChar": 32,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "fd14926ef3c46d918d88f9568e44291da18ceeba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
