@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_bf4dd788",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-11-28T14:36:20Z",
+      "side": 1,
+      "message": "Your call; but note that the only context where the style guide forbids non-const references is when passing arguments.",
+      "parentUuid": "4d90030a_7f1f4f78",
+      "range": {
+        "startLine": 331,
+        "startChar": 17,
+        "endLine": 331,
+        "endChar": 18
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_3f2307ce",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
