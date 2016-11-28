@@ -22,27 +22,34 @@ import re
 def __isCheckerLine(line):
   return line.startswith("///") or line.startswith("##")
 
-def __extractLine(prefix, line, arch = None, debuggable = False):
+def __extractLine(prefix, line, arch = None, debuggable = False, allow_condition = False):
   """ Attempts to parse a check line. The regex searches for a comment symbol
       followed by the CHECK keyword, given attribute and a colon at the very
-      beginning of the line. Whitespaces are ignored.
+      beginning of the line. Whitespaces are ignored. The check line is returned
+      in the first value. If a condition is allowed and is found, it is returned
+      in the second value; otherwise, None is returned.
   """
   rIgnoreWhitespace = r"\s*"
   rCommentSymbols = [r"///", r"##"]
   arch_specifier = r"-%s" % arch if arch is not None else r""
   dbg_specifier = r"-DEBUGGABLE" if debuggable else r""
+  # Create a (named) capturing group for the possible condition.
+  opt_cond_specifier = r"(?:-IF\((?P<cond>[^:]*)\))?" if allow_condition else r""
   regexPrefix = rIgnoreWhitespace + \
                 r"(" + r"|".join(rCommentSymbols) + r")" + \
                 rIgnoreWhitespace + \
-                prefix + arch_specifier + dbg_specifier + r":"
+                prefix + arch_specifier + dbg_specifier + opt_cond_specifier + r":"
 
   # The 'match' function succeeds only if the pattern is matched at the
   # beginning of the line.
   match = re.match(regexPrefix, line)
   if match is not None:
-    return line[match.end():].strip()
+    if allow_condition:
+      return line[match.end():].strip(), match.group('cond')
+    else:
+      return line[match.end():].strip(), None
   else:
-    return None
+    return None, None
 
 def __processLine(line, lineNo, prefix, fileName):
   """ This function is invoked on each line of the check file and returns a triplet
@@ -50,41 +57,52 @@ def __processLine(line, lineNo, prefix, fileName):
       to be included in the current check group, it is returned in the first
       value. If the line starts a new check group, the name of the group is
       returned in the second value. The third value indicates whether the line
-      contained an architecture-specific suffix.
+      contained an architecture-specific, a debuggable suffix and/or a condition.
   """
   if not __isCheckerLine(line):
     return None, None, None
 
   # Lines beginning with 'CHECK-START' start a new test case.
   # We currently only consider the architecture suffix in "CHECK-START" lines.
+  # Likewise for conditions.
   for debuggable in [True, False]:
     for arch in [None] + archs_list:
-      startLine = __extractLine(prefix + "-START", line, arch, debuggable)
+      startLine, condition = __extractLine(prefix + "-START", line, arch, debuggable, True)
       if startLine is not None:
-        return None, startLine, (arch, debuggable)
+        return None, startLine, (arch, debuggable, condition)
 
   # Lines starting only with 'CHECK' are matched in order.
-  plainLine = __extractLine(prefix, line)
+  plainLine, condition = __extractLine(prefix, line)
+  # Currently, only "CHECK-START" lines can have a condition.
+  assert condition is None
   if plainLine is not None:
     return (plainLine, TestAssertion.Variant.InOrder, lineNo), None, None
 
   # 'CHECK-NEXT' lines are in-order but must match the very next line.
-  nextLine = __extractLine(prefix + "-NEXT", line)
+  nextLine, condition = __extractLine(prefix + "-NEXT", line)
+  # Currently, only "CHECK-START" lines can have a condition.
+  assert condition is None
   if nextLine is not None:
     return (nextLine, TestAssertion.Variant.NextLine, lineNo), None, None
 
   # 'CHECK-DAG' lines are no-order assertions.
-  dagLine = __extractLine(prefix + "-DAG", line)
+  dagLine, condition = __extractLine(prefix + "-DAG", line)
+  # Currently, only "CHECK-START" lines can have a condition.
+  assert condition is None
   if dagLine is not None:
     return (dagLine, TestAssertion.Variant.DAG, lineNo), None, None
 
   # 'CHECK-NOT' lines are no-order negative assertions.
-  notLine = __extractLine(prefix + "-NOT", line)
+  notLine, condition = __extractLine(prefix + "-NOT", line)
+  # Currently, only "CHECK-START" lines can have a condition.
+  assert condition is None
   if notLine is not None:
     return (notLine, TestAssertion.Variant.Not, lineNo), None, None
 
   # 'CHECK-EVAL' lines evaluate a Python expression.
-  evalLine = __extractLine(prefix + "-EVAL", line)
+  evalLine, condition = __extractLine(prefix + "-EVAL", line)
+  # Currently, only "CHECK-START" lines can have a condition.
+  assert condition is None
   if evalLine is not None:
     return (evalLine, TestAssertion.Variant.Eval, lineNo), None, None
 
@@ -173,7 +191,8 @@ def ParseCheckerStream(fileName, prefix, stream):
       SplitStream(stream, fnProcessLine, fnLineOutsideChunk):
     testArch = testData[0]
     forDebuggable = testData[1]
-    testCase = TestCase(checkerFile, caseName, startLineNo, testArch, forDebuggable)
+    condition = testData[2]
+    testCase = TestCase(checkerFile, caseName, startLineNo, testArch, forDebuggable, condition)
     for caseLine in caseLines:
       ParseCheckerAssertion(testCase, caseLine[0], caseLine[1], caseLine[2])
   return checkerFile

@@ -19,6 +19,8 @@ from file_format.c1visualizer.struct  import C1visualizerFile, C1visualizerPass
 from file_format.checker.struct       import CheckerFile, TestCase, TestAssertion
 from match.line                       import MatchLines, EvaluateLine
 
+import os
+
 MatchScope = namedtuple("MatchScope", ["start", "end"])
 MatchInfo = namedtuple("MatchInfo", ["scope", "variables"])
 
@@ -162,9 +164,15 @@ def MatchTestCase(testCase, c1Pass):
 
 def MatchFiles(checkerFile, c1File, targetArch, debuggableMode):
   for testCase in checkerFile.testCases:
+    # Ignore test cases written for a specific architecture other than
+    # the target architecture.
     if testCase.testArch not in [None, targetArch]:
       continue
+    # Ignore test cases that do not match the debuggable mode.
     if testCase.forDebuggable != debuggableMode:
+      continue
+    # Ignore test cases whose condition is not satisfied.
+    if testCase.condition is not None and not eval(testCase.condition):
       continue
 
     # TODO: Currently does not handle multiple occurrences of the same group
@@ -187,3 +195,17 @@ def MatchFiles(checkerFile, c1File, targetArch, debuggableMode):
         msg = "Assertion could not be matched starting from line {}"
       msg = msg.format(lineNo)
       Logger.testFailed(msg, e.assertion, e.variables)
+
+
+# Convenience helpers intended to be used in conditions.
+def envTrue(var):
+  return os.environ.get(var) == 'true'
+
+def envFalse(var):
+  return os.environ.get(var) == 'false'
+
+def envEquals(var, value):
+  return os.environ.get(var) == value
+
+def envNotEquals(var, value):
+  return os.environ.get(var) != value
