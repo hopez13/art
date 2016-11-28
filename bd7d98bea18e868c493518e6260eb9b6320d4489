@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2d266fad_e4e75863",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3882,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-28T19:33:35Z",
+      "side": 1,
+      "message": "I think we\u0027re OK with Relaxed here. This is performance critical, and IIUC, we only use the result as a hint; there is no correctness issue no matter what value we see here. Since we\u0027re not deducing anything important from the value, I don\u0027t think memory ordering is required.\n\nIn either case, we can presumably end up with two concurrent calls to RequestConcurrentGC or CollectGarbageInternal. Is that OK?",
+      "range": {
+        "startLine": 3882,
+        "startChar": 56,
+        "endLine": 3882,
+        "endChar": 89
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_dfba1b08",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 35,
         "endLine": 3899,
         "endChar": 48
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d266fad_c468dcd3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-28T19:33:35Z",
+      "side": 1,
+      "message": "If we get two of these concurrently, do we correctly suppress one? That seems like a fairly important and not particularly unlikely scenario.",
+      "range": {
+        "startLine": 3903,
+        "startChar": 4,
+        "endLine": 3903,
+        "endChar": 67
       },
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
