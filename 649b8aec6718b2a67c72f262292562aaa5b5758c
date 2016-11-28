@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d266fad_02b5a7cf",
+        "filename": "tools/dexfuzz/src/dexfuzz/Options.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-28T19:07:01Z",
+      "side": 1,
+      "message": "The line below sets a bad example already, but I generally like the usage() to say first *what* it does, and then say perhaps something on *when* to use it. Do you see chance to phrase this a bit better",
+      "revId": "649b8aec6718b2a67c72f262292562aaa5b5758c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
