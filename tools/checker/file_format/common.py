@@ -37,11 +37,12 @@ def SplitStream(stream, fnProcessLine, fnLineOutsideChunk):
     # Let the child class process the line and return information about it.
     # The _processLine method can modify the content of the line (or delete it
     # entirely) and specify whether it starts a new group.
-    processedLine, newChunkName, testArch = fnProcessLine(line, lineNo)
-    # Currently, only a full chunk can be specified as architecture-specific.
-    assert testArch is None or newChunkName is not None
+    processedLine, newChunkName, testData = fnProcessLine(line, lineNo)
+    # Currently, only a full chunk can be specified as having data such as
+    # architecture restriction, debuggable mode or a conditional.
+    assert testData is None or newChunkName is not None
     if newChunkName is not None:
-      currentChunk = (newChunkName, [], lineNo, testArch)
+      currentChunk = (newChunkName, [], lineNo, testData)
       allChunks.append(currentChunk)
     if processedLine is not None:
       if currentChunk is not None:
