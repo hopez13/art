@@ -164,6 +164,30 @@
       "revId": "3d937633164210981fbb6ce971918ce274c624ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_df569b21",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-28T14:29:27Z",
+      "side": 1,
+      "message": "DisallowInlineCacheAccess is not called on read-barrier config.",
+      "parentUuid": "d041ec2c_34ed3646",
+      "range": {
+        "startLine": 406,
+        "startChar": 8,
+        "endLine": 406,
+        "endChar": 39
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
