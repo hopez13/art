@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f044303c_cf2461c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-28T11:28:38Z",
+      "side": 1,
+      "message": "When generating JIT code, perform cache maintenance operations before removing page write permissions. Errata on some cores require data flush operations to be followed by data invalidate operations requiring write permission.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "e6f4e46ba197b5cf446e8010afb6c1ca64a5c9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
