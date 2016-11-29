@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_dd1afc30",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T22:23:43Z",
+      "side": 1,
+      "message": "Talked a bit offline with Mingyao about his concerns. The boolean addition to the API would solve his concerns but also render this optimization useless since it will always fail on some env use.\n\nSo the only solution is to make this simplification aware of where it runs (before or after bce). Mingyao said he needs similar tests also at one point.\n\nBoth of us also voiced concern that we should document such dependences someplace. Also, bisection search will become a bit fragile, since phases are now suddenly aware of where they run.....",
+      "parentUuid": "ade97f6b_fd502024",
+      "range": {
+        "startLine": 1900,
+        "startChar": 15,
+        "endLine": 1900,
+        "endChar": 31
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_023a6c87",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
