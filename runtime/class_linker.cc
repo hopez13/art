@@ -1409,17 +1409,23 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           dex_cache->SetResolvedMethods(methods);
         }
         if (num_fields != 0u) {
-          ArtField** const fields =
-              reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+          mirror::FieldDexCacheType* const image_resolved_fields = dex_cache->GetResolvedFields();
+          mirror::FieldDexCacheType* const fields =
+              reinterpret_cast<mirror::FieldDexCacheType*>(raw_arrays + layout.FieldsOffset());
           for (size_t j = 0; kIsDebugBuild && j < num_fields; ++j) {
-            DCHECK(fields[j] == nullptr);
+            DCHECK_EQ(mirror::DexCache::GetNativePairPtrSize(fields, j, image_pointer_size_).index,
+                      0u);
+            DCHECK(mirror::DexCache::GetNativePairPtrSize(fields, j, image_pointer_size_).object ==
+                   nullptr);
+            mirror::DexCache::SetNativePairPtrSize(
+                fields,
+                j,
+                mirror::DexCache::GetNativePairPtrSize(image_resolved_fields,
+                                                       j,
+                                                       image_pointer_size_),
+                image_pointer_size_);
           }
-          CopyNonNull(dex_cache->GetResolvedFields(),
-                      num_fields,
-                      fields,
-                      [] (const ArtField* field) {
-                          return field == nullptr;
-                      });
+          mirror::FieldDexCachePair::Initialize(fields, image_pointer_size_);
           dex_cache->SetResolvedFields(fields);
         }
         if (num_method_types != 0u) {
@@ -2128,8 +2134,12 @@ void ClassLinker::InitializeDexCache(Thread* self,
              dex_file.NumTypeIds() != 0u ||
              dex_file.NumMethodIds() != 0u ||
              dex_file.NumFieldIds() != 0u) {
+    static_assert(ArenaAllocator::kAlignment == 8, "Expecting arena alignment of 8.");
+    DCHECK(layout.Alignment() == 8u || layout.Alignment() == 16u);
     // Zero-initialized.
-    raw_arrays = reinterpret_cast<uint8_t*>(linear_alloc->Alloc(self, layout.Size()));
+    raw_arrays = (layout.Alignment() == 16u)
+        ? reinterpret_cast<uint8_t*>(linear_alloc->AllocAlign16(self, layout.Size()))
+        : reinterpret_cast<uint8_t*>(linear_alloc->Alloc(self, layout.Size()));
   }
 
   mirror::StringDexCacheType* strings = (dex_file.NumStringIds() == 0u) ? nullptr :
@@ -2138,12 +2148,17 @@ void ClassLinker::InitializeDexCache(Thread* self,
       reinterpret_cast<GcRoot<mirror::Class>*>(raw_arrays + layout.TypesOffset());
   ArtMethod** methods = (dex_file.NumMethodIds() == 0u) ? nullptr :
       reinterpret_cast<ArtMethod**>(raw_arrays + layout.MethodsOffset());
-  ArtField** fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
-      reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+  mirror::FieldDexCacheType* fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
+      reinterpret_cast<mirror::FieldDexCacheType*>(raw_arrays + layout.FieldsOffset());
 
   size_t num_strings = mirror::DexCache::kDexCacheStringCacheSize;
   if (dex_file.NumStringIds() < num_strings) {
     num_strings = dex_file.NumStringIds();
+  }
+
+  size_t num_fields = mirror::DexCache::kDexCacheFieldCacheSize;
+  if (dex_file.NumFieldIds() < num_fields) {
+    num_fields = dex_file.NumFieldIds();
   }
 
   // Note that we allocate the method type dex caches regardless of this flag,
@@ -2186,8 +2201,10 @@ void ClassLinker::InitializeDexCache(Thread* self,
     for (size_t i = 0; i < dex_file.NumMethodIds(); ++i) {
       CHECK(mirror::DexCache::GetElementPtrSize(methods, i, image_pointer_size_) == nullptr);
     }
-    for (size_t i = 0; i < dex_file.NumFieldIds(); ++i) {
-      CHECK(mirror::DexCache::GetElementPtrSize(fields, i, image_pointer_size_) == nullptr);
+    for (size_t i = 0; i < num_fields; ++i) {
+      CHECK_EQ(mirror::DexCache::GetNativePairPtrSize(fields, i, image_pointer_size_).index, 0u);
+      CHECK(mirror::DexCache::GetNativePairPtrSize(
+          fields, i, image_pointer_size_).object == nullptr);
     }
     for (size_t i = 0; i < num_method_types; ++i) {
       CHECK_EQ(method_types[i].load(std::memory_order_relaxed).index, 0u);
@@ -2196,6 +2213,9 @@ void ClassLinker::InitializeDexCache(Thread* self,
   }
   if (strings != nullptr) {
     mirror::StringDexCachePair::Initialize(strings);
+  }
+  if (fields != nullptr) {
+    mirror::FieldDexCachePair::Initialize(fields, image_pointer_size_);
   }
   if (method_types != nullptr) {
     mirror::MethodTypeDexCachePair::Initialize(method_types);

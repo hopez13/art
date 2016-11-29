@@ -101,8 +101,54 @@ template <typename T> struct PACKED(8) DexCachePair {
   }
 };
 
+template <typename T> struct PACKED(2 * __SIZEOF_POINTER__) NativeDexCachePair {
+  T* object;
+  size_t index;
+  // This is similar to DexCachePair except that we're storing a native pointer
+  // instead of a GC root. See DexCachePair for the details.
+  NativeDexCachePair(T* object, uint32_t index)
+      : object(object),
+        index(index) {}
+  NativeDexCachePair() : object(nullptr), index(0u) { }
+  NativeDexCachePair(const NativeDexCachePair<T>&) = default;
+  NativeDexCachePair& operator=(const NativeDexCachePair<T>&) = default;
+
+  static void Initialize(std::atomic<NativeDexCachePair<T>>* dex_cache, PointerSize pointer_size);
+
+  static GcRoot<T> Lookup(std::atomic<NativeDexCachePair<T>>* dex_cache,
+                          uint32_t idx,
+                          uint32_t cache_size) {
+    DCHECK_NE(cache_size, 0u);
+    NativeDexCachePair<T> element = dex_cache[idx % cache_size].load(std::memory_order_relaxed);
+    if (idx != element.index) {
+      return GcRoot<T>(nullptr);
+    }
+
+    DCHECK(!element.object.IsNull());
+    return element.object;
+  }
+
+  static void Assign(std::atomic<NativeDexCachePair<T>>* dex_cache,
+                     uint32_t idx,
+                     T* object,
+                     uint32_t cache_size) {
+    DCHECK_LT(idx % cache_size, cache_size);
+    dex_cache[idx % cache_size].store(
+        NativeDexCachePair<T>(object, idx), std::memory_order_relaxed);
+  }
+
+  static uint32_t InvalidIndexForSlot(uint32_t slot) {
+    // Since the cache size is a power of two, 0 will always map to slot 0.
+    // Use 1 for slot 0 and 0 for all other slots.
+    return (slot == 0) ? 1u : 0u;
+  }
+};
+
 using StringDexCachePair = DexCachePair<mirror::String>;
 using StringDexCacheType = std::atomic<StringDexCachePair>;
+
+using FieldDexCachePair = NativeDexCachePair<ArtField>;
+using FieldDexCacheType = std::atomic<FieldDexCachePair>;
 
 using MethodTypeDexCachePair = DexCachePair<mirror::MethodType>;
 using MethodTypeDexCacheType = std::atomic<MethodTypeDexCachePair>;
@@ -117,6 +163,11 @@ class MANAGED DexCache FINAL : public Object {
   static constexpr size_t kDexCacheStringCacheSize = 1024;
   static_assert(IsPowerOfTwo(kDexCacheStringCacheSize),
                 "String dex cache size is not a power of 2.");
+
+  // Size of field dex cache. Needs to be a power of 2 for entrypoint assumptions to hold.
+  static constexpr size_t kDexCacheFieldCacheSize = 1024;
+  static_assert(IsPowerOfTwo(kDexCacheFieldCacheSize),
+                "Field dex cache size is not a power of 2.");
 
   // Size of method type dex cache. Needs to be a power of 2 for entrypoint assumptions
   // to hold.
@@ -145,7 +196,7 @@ class MANAGED DexCache FINAL : public Object {
             uint32_t num_resolved_types,
             ArtMethod** resolved_methods,
             uint32_t num_resolved_methods,
-            ArtField** resolved_fields,
+            FieldDexCacheType* resolved_fields,
             uint32_t num_resolved_fields,
             MethodTypeDexCacheType* resolved_methodtypes,
             uint32_t num_resolved_methodtypes,
@@ -244,6 +295,8 @@ class MANAGED DexCache FINAL : public Object {
   // Pointer sized variant, used for patching.
   ALWAYS_INLINE void SetResolvedField(uint32_t idx, ArtField* field, PointerSize ptr_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  ALWAYS_INLINE void ClearResolvedField(uint32_t idx, PointerSize ptr_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   MethodType* GetResolvedMethodType(uint32_t proto_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -277,11 +330,11 @@ class MANAGED DexCache FINAL : public Object {
     SetFieldPtr<false>(ResolvedMethodsOffset(), resolved_methods);
   }
 
-  ArtField** GetResolvedFields() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr<ArtField**>(ResolvedFieldsOffset());
+  FieldDexCacheType* GetResolvedFields() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldPtr<FieldDexCacheType*>(ResolvedFieldsOffset());
   }
 
-  void SetResolvedFields(ArtField** resolved_fields)
+  void SetResolvedFields(FieldDexCacheType* resolved_fields)
       ALWAYS_INLINE
       REQUIRES_SHARED(Locks::mutator_lock_) {
     SetFieldPtr<false>(ResolvedFieldsOffset(), resolved_fields);
@@ -338,7 +391,29 @@ class MANAGED DexCache FINAL : public Object {
   template <typename PtrType>
   static void SetElementPtrSize(PtrType* ptr_array, size_t idx, PtrType ptr, PointerSize ptr_size);
 
+  template <typename T>
+  static NativeDexCachePair<T> GetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+                                                    size_t idx,
+                                                    PointerSize ptr_size);
+
+  template <typename T>
+  static void SetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+                                   size_t idx,
+                                   NativeDexCachePair<T> pair,
+                                   PointerSize ptr_size);
+
  private:
+  template <typename IntType>
+  struct PACKED(2 * sizeof(IntType)) ConversionPair {
+    ConversionPair(IntType f, IntType s) : first(f), second(s) { }
+    ConversionPair(const ConversionPair&) = default;
+    ConversionPair& operator=(const ConversionPair&) = default;
+    IntType first;
+    IntType second;
+  };
+  using ConversionPair32 = ConversionPair<uint32_t>;
+  using ConversionPair64 = ConversionPair<uint64_t>;
+
   // Visit instance fields of the dex cache as well as its associated arrays.
   template <bool kVisitNativeRoots,
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
@@ -350,7 +425,8 @@ class MANAGED DexCache FINAL : public Object {
   HeapReference<Object> dex_;
   HeapReference<String> location_;
   uint64_t dex_file_;               // const DexFile*
-  uint64_t resolved_fields_;        // ArtField*, array with num_resolved_fields_ elements.
+  uint64_t resolved_fields_;        // std::atomic<FieldDexCacheType>*, array with
+                                    // num_resolved_fields_ elements.
   uint64_t resolved_method_types_;  // std::atomic<MethodTypeDexCachePair>* array with
                                     // num_resolved_method_types_ elements.
   uint64_t resolved_methods_;       // ArtMethod*, array with num_resolved_methods_ elements.

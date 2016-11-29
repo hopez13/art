@@ -316,6 +316,26 @@ class ArenaAllocator
     return ret;
   }
 
+  // Returns zeroed memory.
+  void* AllocAlign16(size_t bytes, ArenaAllocKind kind = kArenaAllocMisc) ALWAYS_INLINE {
+    // It is an error to request 16-byte aligned allocation of unaligned size.
+    DCHECK_ALIGNED(bytes, 16);
+    if (UNLIKELY(IsRunningOnMemoryTool())) {
+      return AllocWithMemoryToolAlign16(bytes, kind);
+    }
+    uintptr_t padding =
+        ((reinterpret_cast<uintptr_t>(ptr_) + 15u) & 15u) - reinterpret_cast<uintptr_t>(ptr_);
+    ArenaAllocatorStats::RecordAlloc(bytes, kind);
+    if (UNLIKELY(padding + bytes > static_cast<size_t>(end_ - ptr_))) {
+      return AllocFromNewArena(bytes);
+    }
+    ptr_ += padding;
+    uint8_t* ret = ptr_;
+    DCHECK_ALIGNED(ret, 16);
+    ptr_ += bytes;
+    return ret;
+  }
+
   // Realloc never frees the input pointer, it is the caller's job to do this if necessary.
   void* Realloc(void* ptr, size_t ptr_size, size_t new_size,
                 ArenaAllocKind kind = kArenaAllocMisc) ALWAYS_INLINE {
@@ -372,6 +392,7 @@ class ArenaAllocator
 
  private:
   void* AllocWithMemoryTool(size_t bytes, ArenaAllocKind kind);
+  void* AllocWithMemoryToolAlign16(size_t bytes, ArenaAllocKind kind);
   uint8_t* AllocFromNewArena(size_t bytes);
 
 
