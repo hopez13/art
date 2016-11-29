@@ -1409,17 +1409,16 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           dex_cache->SetResolvedMethods(methods);
         }
         if (num_fields != 0u) {
-          ArtField** const fields =
-              reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+          mirror::FieldDexCacheType* const image_resolved_fields = dex_cache->GetResolvedFields();
+          mirror::FieldDexCacheType* const fields =
+              reinterpret_cast<mirror::FieldDexCacheType*>(raw_arrays + layout.FieldsOffset());
           for (size_t j = 0; kIsDebugBuild && j < num_fields; ++j) {
-            DCHECK(fields[j] == nullptr);
+            DCHECK_EQ(fields[j].load(std::memory_order_relaxed).index, 0u);
+            DCHECK(fields[j].load(std::memory_order_relaxed).object == nullptr);
+            fields[j].store(image_resolved_fields[j].load(std::memory_order_relaxed),
+                             std::memory_order_relaxed);
           }
-          CopyNonNull(dex_cache->GetResolvedFields(),
-                      num_fields,
-                      fields,
-                      [] (const ArtField* field) {
-                          return field == nullptr;
-                      });
+          mirror::FieldDexCachePair::Initialize(fields);
           dex_cache->SetResolvedFields(fields);
         }
         if (num_method_types != 0u) {
@@ -2138,8 +2137,8 @@ void ClassLinker::InitializeDexCache(Thread* self,
       reinterpret_cast<GcRoot<mirror::Class>*>(raw_arrays + layout.TypesOffset());
   ArtMethod** methods = (dex_file.NumMethodIds() == 0u) ? nullptr :
       reinterpret_cast<ArtMethod**>(raw_arrays + layout.MethodsOffset());
-  ArtField** fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
-      reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+  mirror::FieldDexCacheType* fields = (dex_file.NumFieldIds() == 0u) ? nullptr :
+      reinterpret_cast<mirror::FieldDexCacheType*>(raw_arrays + layout.FieldsOffset());
 
   size_t num_strings = mirror::DexCache::kDexCacheStringCacheSize;
   if (dex_file.NumStringIds() < num_strings) {
@@ -2187,7 +2186,8 @@ void ClassLinker::InitializeDexCache(Thread* self,
       CHECK(mirror::DexCache::GetElementPtrSize(methods, i, image_pointer_size_) == nullptr);
     }
     for (size_t i = 0; i < dex_file.NumFieldIds(); ++i) {
-      CHECK(mirror::DexCache::GetElementPtrSize(fields, i, image_pointer_size_) == nullptr);
+      CHECK(mirror::DexCache::GetNativePairPtrSize(
+          fields, i, image_pointer_size_).object == nullptr);
     }
     for (size_t i = 0; i < num_method_types; ++i) {
       CHECK_EQ(method_types[i].load(std::memory_order_relaxed).index, 0u);
