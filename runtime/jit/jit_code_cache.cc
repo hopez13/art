@@ -63,7 +63,7 @@ JitCodeCache* JitCodeCache::Create(size_t initial_capacity,
 
   // Generating debug information is mostly for using the 'perf' tool, which does
   // not work with ashmem.
-  bool use_ashmem = !generate_debug_info;
+  bool use_ashmem = !generate_debug_info && !kIsTargetLinux;
   // With 'perf', we want a 1-1 mapping between an address and a method.
   bool garbage_collect_code = !generate_debug_info;
 
