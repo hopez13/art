@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_2243f012",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T20:45:30Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 1870,
+        "startChar": 6,
+        "endLine": 1870,
+        "endChar": 24
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_4248742a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T20:45:30Z",
+      "side": 1,
+      "message": "Why not recursively calling NoEscapeForStringBufferReference?",
+      "range": {
+        "startLine": 1900,
+        "startChar": 15,
+        "endLine": 1900,
+        "endChar": 31
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_023a6c87",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T20:45:30Z",
+      "side": 1,
+      "message": "Maybe add the synchronized information in the intrinsics_list.h?",
+      "range": {
+        "startLine": 1916,
+        "startChar": 3,
+        "endLine": 1916,
+        "endChar": 87
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_a23620a2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T20:45:30Z",
+      "side": 1,
+      "message": "Ditto about moving this to intrinsics_list.h?",
+      "range": {
+        "startLine": 4186,
+        "startChar": 0,
+        "endLine": 4197,
+        "endChar": 3
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
