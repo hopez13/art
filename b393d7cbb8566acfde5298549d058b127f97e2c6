@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_cce7f063",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T18:06:22Z",
+      "side": 1,
+      "message": "perhaps say \n\nCould not ADB PUSH program ...\n\nto make the underlying command jump out?",
+      "revId": "b393d7cbb8566acfde5298549d058b127f97e2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_8c48c87d",
+        "filename": "tools/dexfuzz/src/dexfuzz/listeners/FinalStatusListener.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T18:06:22Z",
+      "side": 1,
+      "message": "top level documentation for class please",
+      "revId": "b393d7cbb8566acfde5298549d058b127f97e2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
