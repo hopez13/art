@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_cc4db088",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "I think this is superfluous.",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 70
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_ac682cd2",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "You have the Scoped... below?",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 36
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_6c7224c5",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "Can you comment why this is necessary?",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 66
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_8cc3289a",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "DCHECK for !\u003d nullptr.",
+      "range": {
+        "startLine": 433,
+        "startChar": 2,
+        "endLine": 433,
+        "endChar": 53
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_4c90809d",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "Please use //.",
+      "range": {
+        "startLine": 212,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 5
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_8c11e83d",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "CHECK_EQ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_0cfdd8be",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "? I thought this isn\u0027t needed in a transaction?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 50
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_6cefc401",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "You could CAS to detect a race here, but I think you mean the caller (and getting both arrays updated atomically)?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 94
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_2ce9bcf9",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "Sort...",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_4c61a0ba",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be an ObjectLock?",
+      "range": {
+        "startLine": 498,
+        "startChar": 4,
+        "endLine": 498,
+        "endChar": 29
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_ec6f54a3",
+        "filename": "runtime/openjdkjvmti/transform.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-29T18:16:23Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 70
+      },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
