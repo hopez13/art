@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b04b9845_38db71da",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/A.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-29T14:23:12Z",
+      "side": 1,
+      "message": "Added an additional test for MethodHandle.toString().",
+      "parentUuid": "4d90030a_c20ec453",
+      "range": {
+        "startLine": 26,
+        "startChar": 31,
+        "endLine": 26,
+        "endChar": 112
+      },
+      "revId": "14c71c6c290cab32e5fd7388a58a47ed29aee439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_8202fc24",
         "filename": "test/954-invoke-polymorphic-verifier/smali/B.smali",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-29T13:28:46Z",
       "side": 1,
       "message": "general comment : these class names could have been more descriptive.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "14c71c6c290cab32e5fd7388a58a47ed29aee439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_62433864",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/B.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-29T14:23:12Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4d90030a_8202fc24",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f044303c_5271f488",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/Main.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-29T14:23:12Z",
+      "side": 1,
+      "message": "/jumbo was cut-and-paste (removed).\n\nAdded comment to main() and to the class definition and a reference to bug for dxmerge that forces this function to be written in smali.",
+      "parentUuid": "303fa899_1723de1b",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "14c71c6c290cab32e5fd7388a58a47ed29aee439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_62fd78fb",
         "filename": "test/954-invoke-polymorphic-verifier/smali/Main.smali",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-29T13:28:46Z",
       "side": 1,
       "message": "does this verify ? supposed to return Object but it returns nothing..",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 80
+      },
+      "revId": "14c71c6c290cab32e5fd7388a58a47ed29aee439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d041ec2c_3f398f94",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/Main.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-29T14:23:12Z",
+      "side": 1,
+      "message": "Yes, it\u0027s a native method declaration.",
+      "parentUuid": "4d90030a_62fd78fb",
       "range": {
         "startLine": 70,
         "startChar": 0,
