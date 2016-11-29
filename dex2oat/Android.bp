@@ -21,10 +21,42 @@ cc_library_headers {
 }
 
 cc_defaults {
-    name: "dex2oat-defaults",
+    name: "dex2oat-shared-defaults",
     host_supported: true,
     defaults: ["art_defaults"],
-    srcs: ["dex2oat.cc"],
+    srcs: [
+        "linker/image_writer.cc",
+        "linker/multi_oat_relative_patcher.cc",
+        "linker/oat_writer.cc",
+    ],
+
+    generated_sources: ["art_dex2oat_operator_srcs"],
+
+    header_libs: [
+        "dex2oat_headers",
+        "art_cmdlineparser_headers",
+    ],
+}
+
+gensrcs {
+    name: "art_dex2oat_operator_srcs",
+    cmd: "$(location generate-operator-out.py) art/dex2oat $(in) > $(out)",
+    tool_files: ["generate-operator-out.py"],
+    srcs: [
+        "linker/image_writer.h",
+    ],
+    output_extension: "operator_out.cc",
+}
+
+cc_defaults {
+    name: "dex2oat-defaults",
+    defaults: [
+        "art_defaults",
+        "dex2oat-shared-defaults",
+    ],
+    srcs: [
+        "dex2oat.cc",
+    ],
 
     target: {
         android: {
@@ -32,11 +64,6 @@ cc_defaults {
             compile_multilib: "prefer32",
         },
     },
-
-    header_libs: [
-        "dex2oat_headers",
-        "art_cmdlineparser_headers",
-    ],
 }
 
 art_cc_binary {
@@ -47,8 +74,10 @@ art_cc_binary {
     shared_libs: [
         "libart",
         "libart-compiler",
+        "libart-dexlayout",
         "libbase",
         "libsigchain",
+        "liblz4",
     ],
 }
 
@@ -61,8 +90,10 @@ art_cc_binary {
     shared_libs: [
         "libartd",
         "libartd-compiler",
+        "libartd-dexlayout",
         "libbase",
         "libsigchain",
+        "liblz4",
     ],
 }
 
@@ -123,6 +154,21 @@ art_cc_binary {
     ] + art_static_dependencies,
 }
 
+art_cc_library {
+    name: "libartd-dex2oat-test",
+    defaults: [
+        "art_gtest_defaults",
+        "dex2oat-shared-defaults",
+    ],
+    shared_libs: [
+        "libartd-compiler",
+        "libartd-dexlayout",
+        "libbase",
+        "libsigchain",
+        "liblz4",
+    ],
+}
+
 art_cc_test {
     name: "art_dex2oat_tests",
     defaults: [
@@ -131,6 +177,19 @@ art_cc_test {
     srcs: [
         "dex2oat_test.cc",
         "dex2oat_image_test.cc",
+        "linker/image_test.cc",
+        "linker/image_write_read_test.cc",
+        "linker/multi_oat_relative_patcher_test.cc",
+        "linker/oat_writer_test.cc",
     ],
     header_libs: ["dex2oat_headers"],
+    shared_libs: [
+        "libartd-dex2oat-test",
+        "libartd-compiler",
+        "libartd-dexlayout",
+        "libbase",
+        "libsigchain",
+        "liblz4",
+    ],
+    include_dirs: ["art/dex2oat"],
 }

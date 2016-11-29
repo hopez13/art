@@ -38,6 +38,7 @@
 #include "utils.h"
 
 namespace art {
+namespace linker {
 
 // .eh_frame and .debug_frame are almost identical.
 // Except for some minor formatting differences, the main difference
@@ -315,4 +316,5 @@ size_t ElfWriterQuick<ElfTypes>::GetLoadedSize() {
 template class ElfWriterQuick<ElfTypes32>;
 template class ElfWriterQuick<ElfTypes64>;
 
+}  // namespace linker
 }  // namespace art

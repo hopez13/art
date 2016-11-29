@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#ifndef ART_COMPILER_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_
-#define ART_COMPILER_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_
+#ifndef ART_DEX2OAT_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_
+#define ART_DEX2OAT_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_
 
 #include "arch/instruction_set.h"
 #include "method_reference.h"
-#include "relative_patcher.h"
+#include "linker/relative_patcher.h"
 #include "safe_map.h"
 
 namespace art {
@@ -126,8 +126,8 @@ class MultiOatRelativePatcher FINAL {
 
  private:
   // Map method reference to assigned offset.
-  // Wrap the map in a class implementing linker::RelativePatcherTargetProvider.
-  class MethodOffsetMap : public linker::RelativePatcherTargetProvider {
+  // Wrap the map in a class implementing RelativePatcherTargetProvider.
+  class MethodOffsetMap : public RelativePatcherTargetProvider {
    public:
     std::pair<bool, uint32_t> FindMethodOffset(MethodReference ref) OVERRIDE;
     SafeMap<MethodReference, uint32_t, MethodReferenceComparator> map;
@@ -150,4 +150,4 @@ class MultiOatRelativePatcher FINAL {
 }  // namespace linker
 }  // namespace art
 
-#endif  // ART_COMPILER_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_
+#endif  // ART_DEX2OAT_LINKER_MULTI_OAT_RELATIVE_PATCHER_H_

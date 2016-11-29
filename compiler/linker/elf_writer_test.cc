@@ -26,6 +26,7 @@
 #include "utils.h"
 
 namespace art {
+namespace linker {
 
 class ElfWriterTest : public CommonCompilerTest {
  protected:
@@ -161,4 +162,5 @@ TEST_F(ElfWriterTest, EncodeDecodeOatPatches) {
   }
 }
 
+}  // namespace linker
 }  // namespace art
