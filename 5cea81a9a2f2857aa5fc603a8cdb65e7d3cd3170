@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_4205d4c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_42984704",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_623d8bd1",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 6
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-29T20:38:33Z",
       "side": 1,
       "message": "Should we return false here with a unique VLOG message?",
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_e20988de",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_623d8bd1",
       "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_0207cccb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_6250eb4e",
+      "range": {
+        "startLine": 157,
+        "startChar": 43,
+        "endLine": 157,
+        "endChar": 51
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_c239f701",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_a213800e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_c239f701",
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_e2dbdb7c",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -93,6 +177,30 @@
       "writtenOn": "2016-11-29T20:38:33Z",
       "side": 1,
       "message": "Similarly.",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 343,
+        "endChar": 37
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_c2100404",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_e2dbdb7c",
       "range": {
         "startLine": 343,
         "startChar": 27,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_62dfb829",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "Yes, the compiler ensures the inline cache doesn\u0027t get swept away. I\u0027ve added a comment.",
+      "parentUuid": "ade97f6b_c20e9753",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 3
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_e2651bf6",
         "filename": "runtime/runtime.cc",
         "patchSetId": 6
@@ -139,6 +271,30 @@
       "writtenOn": "2016-11-29T20:38:33Z",
       "side": 1,
       "message": "How about BroadcastForInlineCacheAccess rather than checking kUseReadBarrier internally?",
+      "range": {
+        "startLine": 1820,
+        "startChar": 30,
+        "endLine": 1820,
+        "endChar": 52
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_e2f2e8b8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T21:07:37Z",
+      "side": 1,
+      "message": "I agree that would make things consistent. Done.",
+      "parentUuid": "ade97f6b_e2651bf6",
       "range": {
         "startLine": 1820,
         "startChar": 30,
