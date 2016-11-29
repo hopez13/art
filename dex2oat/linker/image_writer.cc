@@ -38,7 +38,6 @@
 #include "driver/compiler_driver.h"
 #include "elf_file.h"
 #include "elf_utils.h"
-#include "elf_writer.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc/accounting/heap_bitmap.h"
 #include "gc/accounting/space_bitmap-inl.h"
@@ -81,6 +80,7 @@ using ::art::mirror::ObjectArray;
 using ::art::mirror::String;
 
 namespace art {
+namespace linker {
 
 // Separate objects into multiple bins to optimize dirty memory use.
 static constexpr bool kBinObjects = true;
@@ -2834,5 +2834,5 @@ void ImageWriter::CopyAndFixupPointer(void** target, void* value) {
   }
 }
 
-
+}  // namespace linker
 }  // namespace art
