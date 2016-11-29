@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_ff2a588c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T18:56:56Z",
+      "side": 1,
+      "message": "append() in general has many forms, but this istrinsic in particular is restricted to string arguments, so it should never be the second parameter (hence DCHECK for now).\n\nThis raises the point that I was pondering over as well, should I add \"all\" append(T x) forms as intrinsic? It would be nice to avoid long switches with many cases in favor of something more general.\n\nIf it is is an env use of DEOPT, the IsNonEscapingSingleton will return false.\n\nLastly, a cascade of appends will indeed prevent this optimization (and correctly so). That is why I also implemented the \"returns this\" optimization (which in itself is beneficial, but also serves to make this use list empty)",
+      "parentUuid": "ade97f6b_7f4ac8c6",
+      "range": {
+        "startLine": 1896,
+        "startChar": 15,
+        "endLine": 1896,
+        "endChar": 64
+      },
+      "revId": "9e4981e27d1efbdd047545d113c4f40648cafd9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_3fb1e095",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-29T18:47:45Z",
       "side": 1,
       "message": "New in what sense? The newly added string buffer intrinsics? Or does \u0027new\u0027 mean some form of instance creation? Need a less confusing name.",
+      "range": {
+        "startLine": 1984,
+        "startChar": 14,
+        "endLine": 1984,
+        "endChar": 17
+      },
+      "revId": "9e4981e27d1efbdd047545d113c4f40648cafd9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_1f573c1f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T18:56:56Z",
+      "side": 1,
+      "message": "Ok, it was of course New in the sense of instance creation (I would never name methods \"new\" or \"improved\" or \"nowWith20%MorePeanuts\" :-)\n\nWill pick another name",
+      "parentUuid": "ade97f6b_3fb1e095",
       "range": {
         "startLine": 1984,
         "startChar": 14,
