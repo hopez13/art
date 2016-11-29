@@ -102,17 +102,28 @@ inline void DexCache::SetResolvedMethodType(uint32_t proto_idx, MethodType* reso
 inline ArtField* DexCache::GetResolvedField(uint32_t field_idx, PointerSize ptr_size) {
   DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), ptr_size);
   DCHECK_LT(field_idx, NumResolvedFields());  // NOTE: Unchecked, i.e. not throwing AIOOB.
-  ArtField* field = GetElementPtrSize(GetResolvedFields(), field_idx, ptr_size);
-  if (field == nullptr || field->GetDeclaringClass()->IsErroneous()) {
-    return nullptr;
+  FieldDexCachePair pair = GetNativePairPtrSize(GetResolvedFields(), field_idx, ptr_size);
+  if (pair.index == field_idx) {
+    DCHECK(pair.object != nullptr);
+    if (!pair.object->GetDeclaringClass()->IsErroneous()) {
+      return pair.object;
+    }
   }
-  return field;
+  return nullptr;
 }
 
 inline void DexCache::SetResolvedField(uint32_t field_idx, ArtField* field, PointerSize ptr_size) {
   DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), ptr_size);
   DCHECK_LT(field_idx, NumResolvedFields());  // NOTE: Unchecked, i.e. not throwing AIOOB.
-  SetElementPtrSize(GetResolvedFields(), field_idx, field, ptr_size);
+  FieldDexCachePair pair(field, field_idx);
+  SetNativePairPtrSize(GetResolvedFields(), field_idx, pair, ptr_size);
+}
+
+inline void DexCache::ClearResolvedField(uint32_t field_idx, PointerSize ptr_size) {
+  DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), ptr_size);
+  DCHECK_LT(field_idx, NumResolvedFields());  // NOTE: Unchecked, i.e. not throwing AIOOB.
+  FieldDexCachePair pair(nullptr, FieldDexCachePair::InvalidIndexForSlot(field_idx));
+  SetNativePairPtrSize(GetResolvedFields(), field_idx, pair, ptr_size);
 }
 
 inline ArtMethod* DexCache::GetResolvedMethod(uint32_t method_idx, PointerSize ptr_size) {
@@ -157,6 +168,40 @@ inline void DexCache::SetElementPtrSize(PtrType* ptr_array,
   } else {
     reinterpret_cast<uint32_t*>(ptr_array)[idx] =
         dchecked_integral_cast<uint32_t>(reinterpret_cast<uintptr_t>(ptr));
+  }
+}
+
+template <typename T>
+NativeDexCachePair<T> DexCache::GetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+                                                     size_t idx,
+                                                     PointerSize ptr_size) {
+  if (ptr_size == PointerSize::k64) {
+    auto* array = reinterpret_cast<std::atomic<ConversionPair64>*>(pair_array);
+    ConversionPair64 value = array[idx].load(std::memory_order_relaxed);
+    return NativeDexCachePair<T>(reinterpret_cast64<T*>(value.first),
+                                 dchecked_integral_cast<size_t>(value.second));
+  } else {
+    auto* array = reinterpret_cast<std::atomic<ConversionPair32>*>(pair_array);
+    ConversionPair32 value = array[idx].load(std::memory_order_relaxed);
+    return NativeDexCachePair<T>(reinterpret_cast<T*>(value.first), value.second);
+  }
+}
+
+template <typename T>
+void DexCache::SetNativePairPtrSize(std::atomic<NativeDexCachePair<T>>* pair_array,
+                                    size_t idx,
+                                    NativeDexCachePair<T> pair,
+                                    PointerSize ptr_size) {
+  if (ptr_size == PointerSize::k64) {
+    auto* array = reinterpret_cast<std::atomic<ConversionPair64>*>(pair_array);
+    ConversionPair64 v(reinterpret_cast64<uint64_t>(pair.object), pair.index);
+    array[idx].store(v, std::memory_order_relaxed);
+  } else {
+    auto* array = reinterpret_cast<std::atomic<ConversionPair32>*>(pair_array);
+    ConversionPair32 v(
+        dchecked_integral_cast<uint32_t>(reinterpret_cast<uintptr_t>(pair.object)),
+        dchecked_integral_cast<uint32_t>(pair.index));
+    array[idx].store(v, std::memory_order_relaxed);
   }
 }
 
