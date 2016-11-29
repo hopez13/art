@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4d90030a_02a90c58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T10:01:20Z",
+      "side": 1,
+      "message": "Mention the doc and the section describing the new implementation.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 65
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_e4e75863",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
