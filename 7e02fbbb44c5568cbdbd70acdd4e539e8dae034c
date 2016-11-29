@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5056dcee_d5acec3e",
+        "filename": "tools/dexfuzz/src/dexfuzz/Options.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1125523
+      },
+      "writtenOn": "2016-11-29T10:53:21Z",
+      "side": 1,
+      "message": "I will look into changing it so it can be run independently.",
+      "parentUuid": "2d266fad_98c9276b",
+      "revId": "7e02fbbb44c5568cbdbd70acdd4e539e8dae034c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_9880071f",
         "filename": "tools/dexfuzz/src/dexfuzz/executors/Arm64OptimizingBackendExecutor.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-28T23:08:59Z",
       "side": 1,
       "message": "is this an unrelated improvement to the set up?",
+      "revId": "7e02fbbb44c5568cbdbd70acdd4e539e8dae034c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_e24f48d9",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Arm64OptimizingBackendExecutor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125523
+      },
+      "writtenOn": "2016-11-29T10:53:21Z",
+      "side": 1,
+      "message": "It is. I can make it a separate patch if you think it is better.",
+      "parentUuid": "2d266fad_9880071f",
       "revId": "7e02fbbb44c5568cbdbd70acdd4e539e8dae034c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
