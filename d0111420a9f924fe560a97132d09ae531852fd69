@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_69757672",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T17:16:15Z",
+      "side": 0,
+      "message": "I left this here for the JIT case since the map should be sparse enough that it saves RAM. I think creating the arrays could increase RAM for apps with many methods. Thoughts?",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 37
+      },
+      "revId": "d0111420a9f924fe560a97132d09ae531852fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
