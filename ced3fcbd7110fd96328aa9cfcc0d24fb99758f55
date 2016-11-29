@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_422f2750",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T20:51:00Z",
+      "side": 1,
+      "message": "Just so we don\u0027t keep resetting the flag. It is a minor improvement (extra read to avoid duplicate writes)",
+      "parentUuid": "4d90030a_2243f012",
+      "range": {
+        "startLine": 1870,
+        "startChar": 6,
+        "endLine": 1870,
+        "endChar": 24
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_4248742a",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-29T20:45:30Z",
       "side": 1,
       "message": "Why not recursively calling NoEscapeForStringBufferReference?",
+      "range": {
+        "startLine": 1900,
+        "startChar": 15,
+        "endLine": 1900,
+        "endChar": 31
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_a2495333",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T20:51:00Z",
+      "side": 1,
+      "message": "I thought about that, but decided against it to avoid weird looping cases and excessive times spent in this method. Note that I think that in the long run, perhaps we should make escape analysis a full blown analysis pass, not a on-demand service ....",
+      "parentUuid": "4d90030a_4248742a",
       "range": {
         "startLine": 1900,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_023a3f87",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T20:51:00Z",
+      "side": 1,
+      "message": "you are reading my mind. I want to propose a more general attribute list in intrinsics_list.h. seems a bit too much to do that in this cl, but I can file a bug on this, where we can also brainstorm on what other attributes we want (and make sure it can be more easily extended than right now)",
+      "parentUuid": "4d90030a_023a6c87",
+      "range": {
+        "startLine": 1916,
+        "startChar": 3,
+        "endLine": 1916,
+        "endChar": 87
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_a23620a2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-29T20:45:30Z",
       "side": 1,
       "message": "Ditto about moving this to intrinsics_list.h?",
+      "range": {
+        "startLine": 4186,
+        "startChar": 0,
+        "endLine": 4197,
+        "endChar": 3
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_e2363ba3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4197,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T20:51:00Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "4d90030a_a23620a2",
       "range": {
         "startLine": 4186,
         "startChar": 0,
