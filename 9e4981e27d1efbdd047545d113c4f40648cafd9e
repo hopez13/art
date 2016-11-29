@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_e2119b77",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-29T20:43:50Z",
+      "side": 1,
+      "message": "Just noticed that HasUses() covers the case HasEnvironmentUses() so we should be fine.\n\nAlso due to the return-this optimization, does user-\u003eHasUses() actually always return false here since it\u0027s been replaced by the receiver already?",
+      "parentUuid": "ade97f6b_ff2a588c",
+      "range": {
+        "startLine": 1896,
+        "startChar": 15,
+        "endLine": 1896,
+        "endChar": 64
+      },
+      "revId": "9e4981e27d1efbdd047545d113c4f40648cafd9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_3fb1e095",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
