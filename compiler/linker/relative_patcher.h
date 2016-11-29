@@ -29,9 +29,10 @@ namespace art {
 
 class CompiledMethod;
 class LinkerPatch;
-class OutputStream;
 
 namespace linker {
+
+class OutputStream;
 
 /**
  * @class RelativePatcherTargetProvider
