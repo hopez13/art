@@ -200,7 +200,7 @@ void Arena::Reset() {
 }
 
 ArenaPool::ArenaPool(bool use_malloc, bool low_4gb, const char* name)
-    : use_malloc_(use_malloc),
+    : use_malloc_(use_malloc && (false)),  // FIXME: allow use_malloc == true.
       lock_("Arena pool lock", kArenaPoolLock),
       free_arenas_(nullptr),
       low_4gb_(low_4gb),
@@ -208,7 +208,7 @@ ArenaPool::ArenaPool(bool use_malloc, bool low_4gb, const char* name)
   if (low_4gb) {
     CHECK(!use_malloc) << "low4gb must use map implementation";
   }
-  if (!use_malloc) {
+  if (!use_malloc_) {
     MemMap::Init();
   }
 }
@@ -340,6 +340,42 @@ void* ArenaAllocator::AllocWithMemoryTool(size_t bytes, ArenaAllocKind kind) {
     }
     MEMORY_TOOL_MAKE_NOACCESS(noaccess_begin, noaccess_end - noaccess_begin);
   } else {
+    ret = ptr_;
+    ptr_ += rounded_bytes;
+  }
+  MEMORY_TOOL_MAKE_DEFINED(ret, bytes);
+  // Check that the memory is already zeroed out.
+  DCHECK(std::all_of(ret, ret + bytes, [](uint8_t val) { return val == 0u; }));
+  return ret;
+}
+
+void* ArenaAllocator::AllocWithMemoryToolAlign16(size_t bytes, ArenaAllocKind kind) {
+  // We mark all memory for a newly retrieved arena as inaccessible and then
+  // mark only the actually allocated memory as defined. That leaves red zones
+  // and padding between allocations marked as inaccessible.
+  size_t rounded_bytes = bytes + kMemoryToolRedZoneBytes;
+  DCHECK_ALIGNED(rounded_bytes, 8);  // `bytes` is 16-byte aligned, red zone is 8 bytes.
+  uintptr_t padding =
+      ((reinterpret_cast<uintptr_t>(ptr_) + 15u) & 15u) - reinterpret_cast<uintptr_t>(ptr_);
+  ArenaAllocatorStats::RecordAlloc(rounded_bytes, kind);
+  uint8_t* ret;
+  if (UNLIKELY(padding + rounded_bytes > static_cast<size_t>(end_ - ptr_))) {
+    ret = AllocFromNewArena(rounded_bytes);
+    uint8_t* noaccess_begin = ret + bytes;
+    uint8_t* noaccess_end;
+    if (ret == arena_head_->Begin()) {
+      DCHECK(ptr_ - rounded_bytes == ret);
+      noaccess_end = end_;
+    } else {
+      // We're still using the old arena but `ret` comes from a new one just after it.
+      DCHECK(arena_head_->next_ != nullptr);
+      DCHECK(ret == arena_head_->next_->Begin());
+      DCHECK_EQ(rounded_bytes, arena_head_->next_->GetBytesAllocated());
+      noaccess_end = arena_head_->next_->End();
+    }
+    MEMORY_TOOL_MAKE_NOACCESS(noaccess_begin, noaccess_end - noaccess_begin);
+  } else {
+    ptr_ += padding;  // Leave padding inaccessible.
     ret = ptr_;
     ptr_ += rounded_bytes;
   }
