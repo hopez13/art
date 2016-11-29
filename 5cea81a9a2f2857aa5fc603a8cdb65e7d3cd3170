@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_42984704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "Can you spell out a bit how this change avoids the deadlock issue?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_623d8bd1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "Should we return false here with a unique VLOG message?",
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_6250eb4e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "\u0027condition variable\u0027?",
+      "range": {
+        "startLine": 157,
+        "startChar": 43,
+        "endLine": 157,
+        "endChar": 51
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_c239f701",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "Rename this to \u0027klass\u0027 or \u0027cls\u0027 or something to indicate it\u0027s a class?",
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_e2dbdb7c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "Similarly.",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 343,
+        "endChar": 37
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_c20e9753",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "It looks like it doesn\u0027t hold the lock here. I suppose it\u0027s okay and as intended?",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 3
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_e2651bf6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 1,
+      "message": "How about BroadcastForInlineCacheAccess rather than checking kUseReadBarrier internally?",
+      "range": {
+        "startLine": 1820,
+        "startChar": 30,
+        "endLine": 1820,
+        "endChar": 52
+      },
+      "revId": "5cea81a9a2f2857aa5fc603a8cdb65e7d3cd3170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

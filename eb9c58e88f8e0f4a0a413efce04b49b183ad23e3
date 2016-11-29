@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_022b5f92",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 0,
+      "message": "This isn\u0027t necessary any more because the classes are now weak roots, right?",
+      "range": {
+        "startLine": 819,
+        "startChar": 32,
+        "endLine": 819,
+        "endChar": 35
+      },
+      "revId": "eb9c58e88f8e0f4a0a413efce04b49b183ad23e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_a20cb322",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T20:38:33Z",
+      "side": 0,
+      "message": "Why is this not necessary any more?",
+      "range": {
+        "startLine": 43,
+        "startChar": 46,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "eb9c58e88f8e0f4a0a413efce04b49b183ad23e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
