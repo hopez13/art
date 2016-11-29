@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_42795433",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-11-29T09:17:07Z",
+      "side": 1,
+      "message": "I don\u0027t see this fd being closed. Unless it is implictly done by the code below?",
+      "range": {
+        "startLine": 567,
+        "startChar": 8,
+        "endLine": 567,
+        "endChar": 23
+      },
+      "revId": "cb9222c75cf7aa2e7337a0a1da803a95629b73f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
