@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_9fb8ecac",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3882,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-29T18:36:31Z",
+      "side": 1,
+      "message": "The short answer is that you shouldn\u0027t expect sequentially consistent to make things visible much sooner. It\u0027s mostly about ordering guarantees with respect to other updates.\n\nThe detailed answers here get messy. See e.g.\nhttp://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0062r1.html, which didn\u0027t go anywhere. Part of the issue here is that hardware vendors aren\u0027t willing to provide much in the way of guarantees, and compiler writers also hate providing guarantees.\n\nBut there is a guarantee that you will see updates that \"happen before\" you.  And there is enough random synchronization in Java programs that that helps. It is also guaranteed that all accesses to a single location like native_bytes_allocated appear to occur in a single global order, consistent with happens-before, but not necessarily consistent with such global orders for other locations.\n\nI attempted to present some general guidelines for weakly ordered atomics in my recent CppCon talk (slides at http://schd.ws/hosted_files/cppcon2016/74/HansWeakAtomics.pdf, talk on YouTube)",
+      "parentUuid": "4d90030a_42cdd4c1",
+      "range": {
+        "startLine": 3882,
+        "startChar": 56,
+        "endLine": 3882,
+        "endChar": 89
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_072c9606",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -153,6 +177,30 @@
       "side": 1,
       "message": "Briefly skimming the code suggests to me that we would end up running two GCs in a row in this case. I\u0027ll try writing a test case that calls RegisterNativeAllocation on multiple threads to see what happens.",
       "parentUuid": "2d266fad_c468dcd3",
+      "range": {
+        "startLine": 3903,
+        "startChar": 4,
+        "endLine": 3903,
+        "endChar": 67
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_bfcbb032",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-29T18:36:31Z",
+      "side": 1,
+      "message": "If so, we should probably avoid that. E.g. use compare_exchange to reset native_bytes_allocated_, and trigger a GC only if you are the thread that succeeds at it.",
+      "parentUuid": "4d90030a_e2d18861",
       "range": {
         "startLine": 3903,
         "startChar": 4,
