@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_fd502024",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-29T21:49:54Z",
+      "side": 1,
+      "message": "HasUses() is too conservative since it includes env uses. Say there is another call after the user, it treats the reference as escaping. Env use only by Deopt should make it escaping. But I\u0027m really worried about correctness as I said previously due to Deopt being added after the allocation removal since there is simplifying happening before bce.\n\nMoving out escape analysis actually introduces the danger already (just realized today) which didn\u0027t exist before since previously it\u0027s used only by LSE which is done after all HDeoptimize instructions are in place. So in a sense IsNonEscapingSingleton() isn\u0027t accurate before the BCE pass. If we do any form of allocation removal before adding some HDeoptimize instructions, bugs may happen.\n\nOne solution is a conservative boolean for IsNonEscapingSingleton() that distinguishes whether all env uses or only Deopt env uses should make the singleton espcaping. We can be aggressive only after BCE which is the final pass that can introduce Deopt.",
+      "parentUuid": "ade97f6b_a2495333",
+      "range": {
+        "startLine": 1900,
+        "startChar": 15,
+        "endLine": 1900,
+        "endChar": 31
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_023a6c87",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
