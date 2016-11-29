@@ -22,6 +22,30 @@
       "revId": "d87c7d00530ac54f63367b0ab7303354fdefac71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103c64a3_5032d24f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3077,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2016-11-29T14:23:12Z",
+      "side": 1,
+      "message": "VerifyInvocationArgs() can fail for a range of reasons (resolution, permission, argument checks, possibly more). An earlier soft error message provides that detail.\n\nThe code now converts a potentially soft error on the VerifyInvocationArgs() to a hard error. As far as I know none of the soft errors would be recoverable for invoke-polymorphic. Does this seem reasonable?",
+      "parentUuid": "905054f1_14f03a1f",
+      "range": {
+        "startLine": 3077,
+        "startChar": 68,
+        "endLine": 3077,
+        "endChar": 71
+      },
+      "revId": "d87c7d00530ac54f63367b0ab7303354fdefac71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
