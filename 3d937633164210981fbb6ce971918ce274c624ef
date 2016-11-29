@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_a25940a7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-29T10:45:14Z",
+      "side": 1,
+      "message": "They do add value (showing the query is related to the size of our inline caches).\n\nAs discussed, I don\u0027t agree it\u0027s out of the blue. IsMonomoprhic/Polymorphic are all inline cache terminology.",
+      "parentUuid": "4d90030a_7f966f9e",
+      "range": {
+        "startLine": 263,
+        "startChar": 12,
+        "endLine": 263,
+        "endChar": 25
+      },
+      "revId": "3d937633164210981fbb6ce971918ce274c624ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_5f14cb6c",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
