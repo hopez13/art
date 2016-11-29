@@ -46,6 +46,30 @@
       "revId": "e51ca8bfa8a193b64901ad214842f213adca92eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_5d2eecbc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T21:31:12Z",
+      "side": 1,
+      "message": "Hmm true, I think WaitUntilInlineCacheAccessible is not called before calling AddInvokeInfo. Are there any issues from newly allocated class loaders maybe not being marked?",
+      "parentUuid": "4d90030a_82c99c6a",
+      "range": {
+        "startLine": 341,
+        "startChar": 32,
+        "endLine": 341,
+        "endChar": 44
+      },
+      "revId": "e51ca8bfa8a193b64901ad214842f213adca92eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
