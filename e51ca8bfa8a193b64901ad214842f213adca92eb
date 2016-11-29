@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_bd7058fd",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T21:21:45Z",
+      "side": 1,
+      "message": "The class loader keeps the class live, you can probably just call IsMarked on the class and never do it on the class loader.",
+      "range": {
+        "startLine": 341,
+        "startChar": 32,
+        "endLine": 341,
+        "endChar": 44
+      },
+      "revId": "e51ca8bfa8a193b64901ad214842f213adca92eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
