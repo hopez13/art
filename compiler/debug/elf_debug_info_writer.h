@@ -29,8 +29,8 @@
 #include "debug/method_debug_info.h"
 #include "dex_file-inl.h"
 #include "dex_file.h"
-#include "elf_builder.h"
 #include "linear_alloc.h"
+#include "linker/elf_builder.h"
 #include "mirror/array.h"
 #include "mirror/class-inl.h"
 #include "mirror/class.h"
@@ -67,7 +67,7 @@ class ElfDebugInfoWriter {
   using Elf_Addr = typename ElfTypes::Addr;
 
  public:
-  explicit ElfDebugInfoWriter(ElfBuilder<ElfTypes>* builder)
+  explicit ElfDebugInfoWriter(linker::ElfBuilder<ElfTypes>* builder)
       : builder_(builder),
         debug_abbrev_(&debug_abbrev_buffer_) {
   }
@@ -92,7 +92,7 @@ class ElfDebugInfoWriter {
   }
 
  private:
-  ElfBuilder<ElfTypes>* builder_;
+  linker::ElfBuilder<ElfTypes>* builder_;
   std::vector<uintptr_t> debug_info_patches_;
   std::vector<uint8_t> debug_abbrev_buffer_;
   dwarf::DebugAbbrevWriter<> debug_abbrev_;
