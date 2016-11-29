@@ -60,6 +60,7 @@
 #include "zip_archive.h"
 
 namespace art {
+namespace linker {
 
 namespace {  // anonymous namespace
 
@@ -599,7 +600,7 @@ bool OatWriter::WriteAndOpenDexFiles(
   return true;
 }
 
-void OatWriter::PrepareLayout(linker::MultiOatRelativePatcher* relative_patcher) {
+void OatWriter::PrepareLayout(MultiOatRelativePatcher* relative_patcher) {
   CHECK(write_state_ == WriteState::kPrepareLayout);
 
   relative_patcher_ = relative_patcher;
@@ -3600,4 +3601,5 @@ const uint8_t* OatWriter::LookupBootImageClassTableSlot(const DexFile& dex_file,
   UNREACHABLE();
 }
 
+}  // namespace linker
 }  // namespace art
