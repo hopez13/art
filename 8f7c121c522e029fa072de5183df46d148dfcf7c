@@ -22,6 +22,24 @@
       "revId": "8f7c121c522e029fa072de5183df46d148dfcf7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_a26a7358",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T19:29:30Z",
+      "side": 1,
+      "message": "That\u0027s just the old implementation that I forgot to remove. It\u0027s gone.",
+      "parentUuid": "ade97f6b_bfbe10b0",
+      "revId": "8f7c121c522e029fa072de5183df46d148dfcf7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
