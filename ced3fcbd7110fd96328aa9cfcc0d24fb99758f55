@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_f886eea4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-29T23:13:12Z",
+      "side": 1,
+      "message": "Talked a bit more and this approach is actually safe, since I don\u0027t remove the new on the reference for which we apply escape analysis, but the new which uses the reference, but has no other uses either. I just used the escape analysis to prove that the synchronization is thread local.\n\nMingyou and I agreed that this is actually due to the naming (we have singleton, no return , and no escape to deopt), where the last two names are clumped together. A better naming scheme, and separation of the last two will make this more clear.\n\nComing up....",
+      "parentUuid": "ade97f6b_dd1afc30",
+      "range": {
+        "startLine": 1900,
+        "startChar": 15,
+        "endLine": 1900,
+        "endChar": 31
+      },
+      "revId": "ced3fcbd7110fd96328aa9cfcc0d24fb99758f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_023a6c87",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
