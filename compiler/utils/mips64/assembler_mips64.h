@@ -333,6 +333,15 @@ class Mips64ExceptionSlowPath {
   DISALLOW_COPY_AND_ASSIGN(Mips64ExceptionSlowPath);
 };
 
+class Mips64JNIMacroScratchRegisters : public JNIMacroScratchRegisters {
+ public:
+  virtual ManagedRegister Allocate() {
+    return Mips64ManagedRegister::FromGpuRegister(T9);
+  }
+
+  virtual ~Mips64JNIMacroScratchRegisters() OVERRIDE {}
+};
+
 class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<PointerSize::k64> {
  public:
   using JNIBase = JNIMacroAssembler<PointerSize::k64>;
@@ -761,6 +770,10 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   // Get the final position of a label after local fixup based on the old position
   // recorded before FinalizeCode().
   uint32_t GetAdjustedPosition(uint32_t old_position);
+
+  virtual std::unique_ptr<JNIMacroScratchRegisters> ScopedScratchRegisters() {
+    return std::unique_ptr<JNIMacroScratchRegisters>(new Mips64JNIMacroScratchRegisters);
+  }
 
   enum BranchCondition {
     kCondLT,

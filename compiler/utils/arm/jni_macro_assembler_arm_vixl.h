@@ -196,6 +196,8 @@ class ArmVIXLJNIMacroAssembler FINAL
   // Code at this offset will serve as the target for the Jump call.
   void Bind(JNIMacroLabel* label) OVERRIDE;
 
+  std::unique_ptr<JNIMacroScratchRegisters> ScopedScratchRegisters() OVERRIDE;
+
   void MemoryBarrier(ManagedRegister scratch) OVERRIDE;
 
   void EmitExceptionPoll(ArmVIXLJNIMacroAssembler::ArmException *exception);
@@ -236,6 +238,18 @@ class ArmVIXLJNIMacroLabel FINAL
   vixl32::Label* AsArm() {
     return AsPlatformLabel();
   }
+};
+
+class ArmVIXLJNIMacroScratchRegisters : public JNIMacroScratchRegisters {
+ public:
+  explicit ArmVIXLJNIMacroScratchRegisters(ArmVIXLMacroAssembler* assembler);
+
+  ManagedRegister Allocate() OVERRIDE;
+
+  ~ArmVIXLJNIMacroScratchRegisters() {}
+
+ private:
+  vixl::aarch32::UseScratchRegisterScope temps_;
 };
 
 }  // namespace arm

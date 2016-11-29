@@ -36,6 +36,7 @@ class DebugFrameOpCodeWriterForAssembler;
 class InstructionSetFeatures;
 class MemoryRegion;
 class JNIMacroLabel;
+class JNIMacroScratchRegisters;
 
 enum class JNIMacroUnaryCondition {
   kZero,
@@ -208,6 +209,8 @@ class JNIMacroAssembler : public DeletableArenaObject<kArenaAllocAssembler> {
   // Code at this offset will serve as the target for the Jump call.
   virtual void Bind(JNIMacroLabel* label) = 0;
 
+  virtual std::unique_ptr<JNIMacroScratchRegisters> ScopedScratchRegisters() = 0;
+
   virtual ~JNIMacroAssembler() {}
 
   /**
@@ -289,6 +292,13 @@ class JNIMacroLabelCommon : public JNIMacroLabel {
 
  private:
   PlatformLabel label_;
+};
+
+class JNIMacroScratchRegisters {
+ public:
+  virtual ManagedRegister Allocate() = 0;
+
+  virtual ~JNIMacroScratchRegisters() {}
 };
 
 }  // namespace art

@@ -684,5 +684,16 @@ void ArmVIXLJNIMacroAssembler::Load(ArmManagedRegister
   }
 }
 
+std::unique_ptr<JNIMacroScratchRegisters> ArmVIXLJNIMacroAssembler::ScopedScratchRegisters() {
+  return new ArmVIXLJNIMacroScratchRegisters;
+}
+
+ArmVIXLJNIMacroScratchRegisters::ArmVIXLJNIMacroScratchRegisters(ArmVIXLMacroAssembler* assembler)
+    : temps_(assembler) {}
+
+ManagedRegister ArmVIXLJNIMacroScratchRegisters::Allocate() {
+  return temps_.Acquire();
+}
+
 }  // namespace arm
 }  // namespace art
