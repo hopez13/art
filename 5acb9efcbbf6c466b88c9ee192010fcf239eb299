@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_42a607f6",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T20:39:29Z",
+      "side": 1,
+      "message": "Those are both same priority, but logd may trim out earlier lines of LOG(FATAL) if there are many. Some bug reports don\u0027t have the holder info printed since the stack traces from Runtime::Abort are printed after.",
+      "parentUuid": "ade97f6b_627a2bdc",
+      "revId": "5acb9efcbbf6c466b88c9ee192010fcf239eb299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_e2d87bdb",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_c2d8d782",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T20:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_e2d87bdb",
+      "range": {
+        "startLine": 451,
+        "startChar": 97,
+        "endLine": 451,
+        "endChar": 99
+      },
+      "revId": "5acb9efcbbf6c466b88c9ee192010fcf239eb299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_c2d577a3",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2016-11-29T19:58:56Z",
       "side": 1,
       "message": "\"\u003c\u003c std::endl\" here?",
+      "revId": "5acb9efcbbf6c466b88c9ee192010fcf239eb299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_22bb030e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-29T20:39:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_c2d577a3",
       "revId": "5acb9efcbbf6c466b88c9ee192010fcf239eb299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
