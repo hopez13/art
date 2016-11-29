@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_4248472a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T21:46:10Z",
+      "side": 1,
+      "message": "Can you describe the new design in a comment?",
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_e4e75863",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -89,6 +106,29 @@
         "startChar": 56,
         "endLine": 3882,
         "endChar": 89
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_622a2b42",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3885,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T21:46:10Z",
+      "side": 1,
+      "message": "Why is this compared to max_free_?",
+      "range": {
+        "startLine": 3885,
+        "startChar": 35,
+        "endLine": 3885,
+        "endChar": 44
       },
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -253,6 +293,29 @@
         "startChar": 2,
         "endLine": 3912,
         "endChar": 37
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_c26c57b1",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-29T21:46:10Z",
+      "side": 1,
+      "message": "Would native_bytes_allocated_since_last_gc_ be a better name?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 17,
+        "endLine": 1185,
+        "endChar": 40
       },
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
