@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "4d90030a_a2886040",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-29T18:25:59Z",
+      "side": 1,
+      "message": "Yes, I\u0027d prefer a DCHECK() for readability. (The reader should not need to think whether it can be false.)",
+      "parentUuid": "2d266fad_78c52bf4",
+      "range": {
+        "startLine": 1893,
+        "startChar": 15,
+        "endLine": 1893,
+        "endChar": 44
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e0b014_8cdcc732",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "Again, the first part was a pedantic check.",
       "parentUuid": "f0e0b014_8cdcc732",
+      "range": {
+        "startLine": 1896,
+        "startChar": 15,
+        "endLine": 1896,
+        "endChar": 44
+      },
+      "revId": "d6f4511a6e542877a66848712fbbde2a790c036a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f044303c_95918636",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-11-29T18:25:59Z",
+      "side": 1,
+      "message": "Two DCHECK()s, \"user-\u003eInputAt(0) \u003d\u003d reference\" and \"user-\u003eInputAt(1) !\u003d reference\".",
+      "parentUuid": "2d266fad_b87063fd",
       "range": {
         "startLine": 1896,
         "startChar": 15,
