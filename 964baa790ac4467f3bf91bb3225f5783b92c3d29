@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_4c0520c3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_cc4db088",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_ac682cd2",
         "filename": "runtime/art_method.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 65,
         "endChar": 36
       },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_2c0adcd2",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_ac682cd2",
       "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_acdf0c28",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "I guess you\u0027re right. It shouldn\u0027t matter.",
+      "parentUuid": "ade97f6b_6c7224c5",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_8cc3289a",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 433,
         "endChar": 53
       },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_ccbed0b1",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "of src?\n\nIf so, done.",
+      "parentUuid": "ade97f6b_8cc3289a",
       "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_2cb89cc6",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_4c90809d",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_8c11e83d",
         "filename": "runtime/mirror/class_ext.cc",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 41,
         "endChar": 7
       },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_2ca1bc8a",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_8c11e83d",
       "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_0c9ef84f",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "I suppose you\u0027re right. I was following the style of other setters but a DCHECK is also fine.",
+      "parentUuid": "ade97f6b_0cfdd8be",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_6cefc401",
         "filename": "runtime/mirror/class_ext.cc",
         "patchSetId": 2
@@ -180,6 +306,24 @@
         "endLine": 54,
         "endChar": 94
       },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_7f6f686a",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Yeah pretty much. \n\nAny suggestions as to how I could make this comment clearer.",
+      "parentUuid": "ade97f6b_6cefc401",
       "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_5f74a43e",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_2ce9bcf9",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_4c61a0ba",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
@@ -232,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_dfa0b476",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_4c61a0ba",
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_ec6f54a3",
         "filename": "runtime/openjdkjvmti/transform.h",
         "patchSetId": 2
@@ -249,6 +429,24 @@
         "endLine": 59,
         "endChar": 70
       },
+      "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_7fbd289a",
+        "filename": "runtime/openjdkjvmti/transform.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-11-29T18:57:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_ec6f54a3",
       "revId": "964baa790ac4467f3bf91bb3225f5783b92c3d29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
