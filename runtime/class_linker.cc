@@ -1293,17 +1293,23 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
           dex_cache->SetResolvedMethods(methods);
         }
         if (num_fields != 0u) {
-          ArtField** const fields =
-              reinterpret_cast<ArtField**>(raw_arrays + layout.FieldsOffset());
+          mirror::FieldDexCacheType* const image_resolved_fields = dex_cache->GetResolvedFields();
+          mirror::FieldDexCacheType* const fields =
+              reinterpret_cast<mirror::FieldDexCacheType*>(raw_arrays + layout.FieldsOffset());
           for (size_t j = 0; kIsDebugBuild && j < num_fields; ++j) {
-            DCHECK(fields[j] == nullptr);
+            DCHECK_EQ(mirror::DexCache::GetNativePairPtrSize(fields, j, image_pointer_size_).index,
+                      0u);
+            DCHECK(mirror::DexCache::GetNativePairPtrSize(fields, j, image_pointer_size_).object ==
+                   nullptr);
+            mirror::DexCache::SetNativePairPtrSize(
+                fields,
+                j,
+                mirror::DexCache::GetNativePairPtrSize(image_resolved_fields,
+                                                       j,
+                                                       image_pointer_size_),
+                image_pointer_size_);
           }
-          CopyNonNull(dex_cache->GetResolvedFields(),
-                      num_fields,
-                      fields,
-                      [] (const ArtField* field) {
-                          return field == nullptr;
-                      });
+          mirror::FieldDexCachePair::Initialize(fields, image_pointer_size_);
           dex_cache->SetResolvedFields(fields);
         }
         if (num_method_types != 0u) {
