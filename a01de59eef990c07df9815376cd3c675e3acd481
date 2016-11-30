@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dd83b0a_31b11096",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "Sorry, should have been clearer. Please add a comment on why you need to map it read only.\n\n(The comment you added is  a repetition of the code, which isn\u0027t necessary).",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_d1b52482",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "second, right? (second element, but index 1).",
+      "range": {
+        "startLine": 239,
+        "startChar": 54,
+        "endLine": 239,
+        "endChar": 59
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_11ac0c3b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 71,
+        "startChar": 65,
+        "endLine": 71,
+        "endChar": 69
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
