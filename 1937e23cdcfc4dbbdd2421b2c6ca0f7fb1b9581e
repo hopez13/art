@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_45907e9d",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-11-30T14:04:34Z",
+      "side": 1,
+      "message": "you should cache the result of Save, close the fd and then ASSERT.",
+      "range": {
+        "startLine": 573,
+        "startChar": 4,
+        "endLine": 573,
+        "endChar": 15
+      },
+      "revId": "1937e23cdcfc4dbbdd2421b2c6ca0f7fb1b9581e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
