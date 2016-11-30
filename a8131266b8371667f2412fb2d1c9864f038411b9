@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_c4f7bc6c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-11-30T18:53:48Z",
+      "side": 1,
+      "message": "Good. But it seems like there\u0027s a bigger performance problem remaining here. Presumably these are really only needed at the end of the GC cycle? Can we turn these into thread_local counters and merge them at the end? As it stands, all copy operations contend for these cache lines. Immediately after a GC there could presumably be many concurrent copy operations by different mutator threads in addition to the GC thread, so it looks to me like this is asking for a lot of cache contention. That\u0027s the one operation that\u0027s more expensive than a fence.",
+      "range": {
+        "startLine": 2158,
+        "startChar": 6,
+        "endLine": 2159,
+        "endChar": 63
+      },
+      "revId": "a8131266b8371667f2412fb2d1c9864f038411b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
