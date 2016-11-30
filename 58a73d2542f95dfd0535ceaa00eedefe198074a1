@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_e563d231",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-30T10:42:01Z",
+      "side": 1,
+      "message": "ashmem (it\u0027s too late to change this now, though...)",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "58a73d2542f95dfd0535ceaa00eedefe198074a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_a56dca1d",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-11-30T10:42:01Z",
+      "side": 1,
+      "message": "do you still need this ? i.e, do we MapAnonymous with use_ashmem \u003d false on Android ?",
+      "range": {
+        "startLine": 281,
+        "startChar": 29,
+        "endLine": 281,
+        "endChar": 44
+      },
+      "revId": "58a73d2542f95dfd0535ceaa00eedefe198074a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
