@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ade97f6b_50ac8e69",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-30T03:38:30Z",
+      "side": 1,
+      "message": "Instead of having the ThreadFenceRelease below, would it be any cheaper to turn one of these stores into a store-release?",
+      "range": {
+        "startLine": 2141,
+        "startChar": 0,
+        "endLine": 2146,
+        "endChar": 5
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d28cb81_700e8eac",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
