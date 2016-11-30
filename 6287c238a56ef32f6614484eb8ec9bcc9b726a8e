@@ -16,6 +16,24 @@
       "revId": "6287c238a56ef32f6614484eb8ec9bcc9b726a8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5056dcee_585bd19f",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-11-30T11:40:33Z",
+      "side": 1,
+      "message": "This comment:\n    // The VIXL macro assembler may clobber any of the scratch registers that are available to it,\n    // so it checks if the application is using them (by passing them to the macro assembler\n    // methods). The following application of UseScratchRegisterScope corrects VIXL\u0027s notion of\n    // what is available, and is the opposite of the standard usage: Instead of requesting a\n    // temporary location, it imposes an external constraint (i.e. a specific register is reserved\n    // for the hidden argument). Note that this works even if VIXL needs a scratch register itself\n    // (to materialize the constant), since the destination register becomes available for such use\n    // internally for the duration of the macro instruction.",
+      "parentUuid": "ade97f6b_18363245",
+      "revId": "6287c238a56ef32f6614484eb8ec9bcc9b726a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
