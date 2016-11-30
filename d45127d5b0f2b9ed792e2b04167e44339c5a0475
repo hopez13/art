@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "8dd83b0a_b12f40e3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "Oh, then yes, you can drop the TODO :)",
+      "parentUuid": "ade97f6b_99c5a1f7",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_0508368f",
         "filename": "runtime/mirror/class_ext.cc",
         "patchSetId": 5
@@ -78,6 +96,24 @@
       "side": 1,
       "message": "Both. This is more just a general warning to myself to be careful.",
       "parentUuid": "4d90030a_0508368f",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_51a2944c",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "Sure, but please remember this code is reviewed and will be read by more engineers than its author. So having clear comments saves precious time.",
+      "parentUuid": "ade97f6b_79cadd04",
       "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -693,6 +729,24 @@
       "side": 1,
       "message": "Changes output of run-test making it no longer agree with RI.",
       "parentUuid": "4d90030a_854a06c4",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_71a7985b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T21:50:22Z",
+      "side": 1,
+      "message": "Don\u0027t we remove LOG(WARNING) from the output? In any case, up to you.",
+      "parentUuid": "ade97f6b_39dc55ce",
       "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
