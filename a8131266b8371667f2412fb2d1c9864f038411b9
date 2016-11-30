@@ -22,6 +22,30 @@
       "revId": "a8131266b8371667f2412fb2d1c9864f038411b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_24dc28ce",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-30T19:03:46Z",
+      "side": 1,
+      "message": "Copying doesn\u0027t happen too often, but it may be worth having non atomic counters for objects that the GC copies. Most of the marking / copying is done by the GC thread.",
+      "parentUuid": "ade97f6b_c4f7bc6c",
+      "range": {
+        "startLine": 2158,
+        "startChar": 6,
+        "endLine": 2159,
+        "endChar": 63
+      },
+      "revId": "a8131266b8371667f2412fb2d1c9864f038411b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
