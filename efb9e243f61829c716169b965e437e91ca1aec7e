@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ade97f6b_0437e4a0",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-30T20:52:05Z",
+      "side": 1,
+      "message": "It\u0027s worthwhile to add some comments to clarify a few things. e.g. why deopt_visible doesn\u0027t count toward escaping. Basically if it can\u0027t escape the current thread in compiled code, it can\u0027t escape the current thread in interpreter code either. And we are talking about thread-escape here.\n\nMethod-escape generally means object can outlive the method (including its callees). However the escape analysis done by LSE really means escaping the current compiled method, not including its callees, since we don\u0027t do inter-procedural analysis. In a sense no_escape() really specializes some callees to allow some callees to be included. deopt_visible counts as escaping the current compiled code for LSE.\n\nWell just some observations, it would be nice to have some comments to clarify the concepts.",
+      "revId": "efb9e243f61829c716169b965e437e91ca1aec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_642eb0bd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-11-30T20:52:05Z",
+      "side": 1,
+      "message": "Escaping here means a little different from the other place which doesn\u0027t include deopt-visible. Maybe IsSingletonAndRemovable() to avoid the confusion.",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "efb9e243f61829c716169b965e437e91ca1aec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
