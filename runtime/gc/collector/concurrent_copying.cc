@@ -2145,6 +2145,10 @@ mirror::Object* ConcurrentCopying::Copy(mirror::Object* from_ref) {
       to_ref->SetReadBarrierState(ReadBarrier::GrayState());
     }
 
+    // Do a fence to prevent the field CAS in ConcurrentCopying::Process from possibly reordering
+    // before the object copy.
+    QuasiAtomic::ThreadFenceRelease();
+
     LockWord new_lock_word = LockWord::FromForwardingAddress(reinterpret_cast<size_t>(to_ref));
 
     // Try to atomically write the fwd ptr.
