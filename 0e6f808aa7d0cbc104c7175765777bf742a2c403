@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d28cb81_700e8eac",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-30T02:26:23Z",
+      "side": 1,
+      "message": "I thought this is more about the CAS just below, right?\n\nIt may also be to do with the field CAS in ConcurrentCopying::Process.  But can it really reorder because the field CAS only happens after it\u0027s pushed onto the mark stack?",
+      "range": {
+        "startLine": 2148,
+        "startChar": 29,
+        "endLine": 2148,
+        "endChar": 72
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_6ec8d4b3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2155,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-30T02:26:23Z",
+      "side": 1,
+      "message": "Can you also change this to a relaxed CAS?",
+      "range": {
+        "startLine": 2155,
+        "startChar": 29,
+        "endLine": 2155,
+        "endChar": 66
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
