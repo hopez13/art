@@ -46,6 +46,30 @@
       "revId": "a8131266b8371667f2412fb2d1c9864f038411b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_ff636d1f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-11-30T20:36:32Z",
+      "side": 1,
+      "message": "These SC -\u003e Relaxed change looks good. Agreed that the thread local counters or just a mutator/GC split seem worth considering.",
+      "parentUuid": "ade97f6b_24dc28ce",
+      "range": {
+        "startLine": 2158,
+        "startChar": 6,
+        "endLine": 2159,
+        "endChar": 63
+      },
+      "revId": "a8131266b8371667f2412fb2d1c9864f038411b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
