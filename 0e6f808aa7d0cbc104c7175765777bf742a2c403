@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_3940d570",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-30T17:57:36Z",
+      "side": 1,
+      "message": "Is that sufficient? I thought that wasn\u0027t the same as an explicit fence.",
+      "parentUuid": "ade97f6b_50ac8e69",
+      "range": {
+        "startLine": 2141,
+        "startChar": 0,
+        "endLine": 2146,
+        "endChar": 5
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d28cb81_700e8eac",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_991ec189",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-30T17:57:36Z",
+      "side": 1,
+      "message": "I think both are possibly issues, the mark stack push does not have any fences for the GC exclusive state?",
+      "parentUuid": "0d28cb81_700e8eac",
+      "range": {
+        "startLine": 2148,
+        "startChar": 29,
+        "endLine": 2148,
+        "endChar": 72
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_6ec8d4b3",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-30T02:26:23Z",
       "side": 1,
       "message": "Can you also change this to a relaxed CAS?",
+      "range": {
+        "startLine": 2155,
+        "startChar": 29,
+        "endLine": 2155,
+        "endChar": 66
+      },
+      "revId": "0e6f808aa7d0cbc104c7175765777bf742a2c403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_792e5dbd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2155,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-11-30T17:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_6ec8d4b3",
       "range": {
         "startLine": 2155,
         "startChar": 29,
