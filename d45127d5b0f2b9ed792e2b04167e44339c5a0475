@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d90030a_45f63e70",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "This looks stalled. Why are you referencing images? And if that\u0027s app images / boot images you\u0027re talking about, then indeed, they don\u0027t have obsolete methods.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 87
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_0508368f",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Please extend: what\u0027s wrong with the race condition? Correctness? Unnecessary allocations?\n\nIt looks to me correctness is ok as you ensure the ClassExt object is locked at this point.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 94
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_253f7a1c",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Please add a comment.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_0536f644",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "... DexFile. The class ..",
+      "range": {
+        "startLine": 189,
+        "startChar": 80,
+        "endLine": 189,
+        "endChar": 87
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_65a2624d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "I assume this is related to klass_? Please expand or remove such comments.",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 39
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_85a7665a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Drop or extend.",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 44
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_25ac5a3b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 298,
+        "startChar": 45,
+        "endLine": 298,
+        "endChar": 49
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_e5b51282",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 330,
+        "startChar": 37,
+        "endLine": 330,
+        "endChar": 41
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_05b3569d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "\"next 2 comments\": which ones?",
+      "range": {
+        "startLine": 330,
+        "startChar": 92,
+        "endLine": 331,
+        "endChar": 13
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_25669a66",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "class?",
+      "range": {
+        "startLine": 66,
+        "startChar": 36,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_456b9e2b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "required -\u003e used\n\nOr maybe just say the runtime makes a copy of it?",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 98
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_e54f52d9",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Compared to keeping it in... ? mirror::Class?",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 98
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_054d96e0",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Out parameters should be \u0027*\u0027.",
+      "range": {
+        "startLine": 115,
+        "startChar": 9,
+        "endLine": 115,
+        "endChar": 60
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_a5594aa7",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "Remove \u0027\u0026\u0027.",
+      "range": {
+        "startLine": 130,
+        "startChar": 83,
+        "endLine": 130,
+        "endChar": 85
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_c556ce76",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "remove \u0027\u0026\u0027.",
+      "range": {
+        "startLine": 136,
+        "startChar": 79,
+        "endLine": 136,
+        "endChar": 81
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_654582b6",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "remove \u0027\u0026\u0027.",
+      "range": {
+        "startLine": 139,
+        "startChar": 79,
+        "endLine": 139,
+        "endChar": 81
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d90030a_854a06c4",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-11-30T10:15:39Z",
+      "side": 1,
+      "message": "LOG(WARNING) \u003c\u003c \"Unimplemented\" in the method?",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 30
+      },
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
