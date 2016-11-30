@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ade97f6b_ff1dad2a",
+        "filename": "compiler/optimizing/escape.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-30T21:21:40Z",
+      "side": 1,
+      "message": "Added some. See if you like it.",
+      "parentUuid": "ade97f6b_0437e4a0",
+      "revId": "efb9e243f61829c716169b965e437e91ca1aec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_642eb0bd",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2016-11-30T20:52:05Z",
       "side": 1,
       "message": "Escaping here means a little different from the other place which doesn\u0027t include deopt-visible. Maybe IsSingletonAndRemovable() to avoid the confusion.",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "efb9e243f61829c716169b965e437e91ca1aec7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade97f6b_ff880d41",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-11-30T21:21:40Z",
+      "side": 1,
+      "message": "Good idea. Renamed.",
+      "parentUuid": "ade97f6b_642eb0bd",
       "range": {
         "startLine": 67,
         "startChar": 7,
