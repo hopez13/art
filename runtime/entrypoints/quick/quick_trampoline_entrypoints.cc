@@ -27,10 +27,12 @@
 #include "imtable-inl.h"
 #include "interpreter/interpreter.h"
 #include "linear_alloc.h"
+#include "method_handles.h"
 #include "method_reference.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
 #include "mirror/method.h"
+#include "mirror/method_handle_impl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "oat_quick_method_header.h"
@@ -2389,6 +2391,95 @@ extern "C" TwoWordReturn artInvokeInterfaceTrampoline(uint32_t deadbeef ATTRIBUT
 
   return GetTwoWordSuccessValue(reinterpret_cast<uintptr_t>(code),
                                 reinterpret_cast<uintptr_t>(method));
+}
+
+// Returns shorty type so caller can determine how to put result into expected registers.
+extern "C" uintptr_t artInvokePolymorphic(
+    JValue* result,
+    mirror::Object* raw_method_handle,
+    Thread* self,
+    ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ScopedQuickEntrypointChecks sqec(self);
+  DCHECK_EQ(*sp, Runtime::Current()->GetCalleeSaveMethod(Runtime::kSaveRefsAndArgs));
+
+  // Get instruction so arguments can be extracted.
+  ArtMethod* caller_method = QuickArgumentVisitor::GetCallingMethod(sp);
+  uint32_t dex_pc = QuickArgumentVisitor::GetCallingDexPc(sp);
+  const DexFile::CodeItem* code = caller_method->GetCodeItem();
+  const Instruction* inst = Instruction::At(&code->insns_[dex_pc]);
+  DCHECK(inst->Opcode() == Instruction::INVOKE_POLYMORPHIC ||
+         inst->Opcode() == Instruction::INVOKE_POLYMORPHIC_RANGE);
+
+  // Resolve method
+  ClassLinker* linker = Runtime::Current()->GetClassLinker();
+  ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::kForceICCECheck>(self,
+                                                                                   inst->VRegB(),
+                                                                                   caller_method,
+                                                                                   kVirtual);
+
+  // Get method handle and perform null pointer check.
+  StackHandleScope<7> hs(self);
+  Handle<mirror::MethodHandleImpl> method_handle(
+      hs.NewHandle(ObjPtr<mirror::MethodHandleImpl>::DownCast(MakeObjPtr(raw_method_handle))));
+  if (UNLIKELY(method_handle.IsNull())) {
+    ThrowNullPointerExceptionForMethodAccess(resolved_method, InvokeType::kVirtual);
+    return static_cast<uintptr_t>('V');
+  }
+
+  // Get shorty for the call site.
+  uint32_t callsite_proto_idx = inst->VRegH();
+  Handle<mirror::Class> caller_class(hs.NewHandle(caller_method->GetDeclaringClass()));
+  const DexFile& caller_dex_file = caller_class->GetDexFile();
+  const char* callsite_shorty = caller_dex_file.GetShorty(callsite_proto_idx);
+  DCHECK_EQ(ArtMethod::NumArgRegisters(callsite_shorty) + 1u, (uint32_t)inst->VRegA());
+
+  Handle<mirror::MethodType> callsite_type(hs.NewHandle(linker->ResolveMethodType(
+      caller_dex_file, callsite_proto_idx,
+      hs.NewHandle<mirror::DexCache>(caller_class->GetDexCache()),
+      hs.NewHandle<mirror::ClassLoader>(caller_class->GetClassLoader()))));
+  // This implies we couldn't resolve one or more types in this method handle.
+  if (UNLIKELY(callsite_type.IsNull())) {
+    CHECK(self->IsExceptionPending());
+    return static_cast<uintptr_t>('V');
+  }
+
+  // Construct shadow frame placing arguments consecutive from register |first_arg|.
+  const bool is_range = (inst->Opcode() == Instruction::INVOKE_POLYMORPHIC_RANGE);
+  const size_t num_vregs = is_range ? inst->VRegA_4rcc() : inst->VRegA_45cc();
+  const size_t first_arg = 0;
+  const char* old_cause = self->StartAssertNoThreadSuspension("Building interpreter shadow frame");
+  ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
+      CREATE_SHADOW_FRAME(num_vregs, /* link */ nullptr, resolved_method, dex_pc);
+  ShadowFrame* shadow_frame = shadow_frame_unique_ptr.get();
+  ScopedStackedShadowFramePusher
+      frame_pusher(self, shadow_frame, StackedShadowFrameType::kShadowFrameUnderConstruction);
+  BuildQuickShadowFrameVisitor shadow_frame_builder(sp,
+                                                    resolved_method->IsStatic(),
+                                                    callsite_shorty,
+                                                    strlen(callsite_shorty),
+                                                    shadow_frame,
+                                                    first_arg);
+  shadow_frame_builder.VisitArguments();
+  self->EndAssertNoThreadSuspension(old_cause);
+
+  // Call DoInvokePolymorphic with |is_range| = true, as shadow frame has argument registers in
+  // consecutive order.
+  uint32_t unused_args[Instruction::kMaxVarArgRegs] = {};
+  uint32_t first_callee_arg = first_arg + 1;
+  const bool do_assignability_check = false;
+  if (!DoInvokePolymorphic<true /* is_range */, do_assignability_check>(self,
+                                                                        resolved_method,
+                                                                        *shadow_frame,
+                                                                        method_handle,
+                                                                        callsite_type,
+                                                                        unused_args,
+                                                                        first_callee_arg,
+                                                                        result)) {
+    DCHECK(self->IsExceptionPending());
+  }
+
+  return static_cast<uintptr_t>(callsite_shorty[0]);
 }
 
 }  // namespace art
