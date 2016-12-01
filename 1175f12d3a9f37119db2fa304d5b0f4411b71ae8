@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adbc1f98_0a1e1b8b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T09:55:11Z",
+      "side": 1,
+      "message": "Following our discussions from last change and per chat, we cannot guarantee this, but I agree having some way for us to know about it is useful.\n\nI think using DCHECK is not in the right philosophy though, as we use DCHECK for expensive things that could have been a CHECK in the first place.\n\nIf you really, really, want to abort the app, how about:\nLOG(kIsDebugBuild ? FATAL : WARNING) \u003c\u003c ...\n\n?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 3
+      },
+      "revId": "1175f12d3a9f37119db2fa304d5b0f4411b71ae8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
