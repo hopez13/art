@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "8dd83b0a_d1d1a461",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T13:19:52Z",
+      "side": 1,
+      "message": "More than just move. The size_vdex_checksums_ should be updated inside the loop by sizeof(uint32_t) in every iteration, i.e. for every WriteFully(). And there should be a CHECK_EQ(vdex_size_, ...) in WriteCode().",
+      "parentUuid": "6db227c7_c8a00f89",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 68
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_91655cf7",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
