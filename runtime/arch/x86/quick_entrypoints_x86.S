@@ -468,7 +468,7 @@ TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING art_quick_throw_string_bounds, artThro
      * The helper will attempt to locate the target and return a 64-bit result in r0/r1 consisting
      * of the target Method* in r0 and method->code_ in r1.
      *
-     * If unsuccessful, the helper will return null/null will bea pending exception in the
+     * If unsuccessful, the helper will return null/null will be a pending exception in the
      * thread and we branch to another stub to deliver it.
      *
      * On success this wrapper will restore arguments and *jump* to the target, leaving the lr
@@ -2269,6 +2269,61 @@ DEFINE_FUNCTION art_quick_osr_stub
     rep movsb                     // while (ecx--) { *edi++ = *esi++ }
     jmp *%ebx
 END_FUNCTION art_quick_osr_stub
+
+DEFINE_FUNCTION art_quick_invoke_polymorphic
+    SETUP_SAVE_REFS_AND_ARGS_FRAME  ebx, ebx  // save frame
+    mov %esp, %edx                            // remember SP
+    subl LITERAL(16), %esp                    // make space for JValue result
+    CFI_ADJUST_CFA_OFFSET(16)
+    movl LITERAL(0), (%esp)                   // initialize result
+    movl LITERAL(0), 4(%esp)
+    mov %esp, %eax                            // store pointer to Jvalue result in eax
+    PUSH edx                                  // pass SP
+    pushl %fs:THREAD_SELF_OFFSET              // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    PUSH ecx                                  // pass receiver (method handle)
+    PUSH eax                                  // pass JResult
+    call SYMBOL(artInvokePolymorphic)         // (result, receiver, Thread*, SP)
+    cmpb LITERAL('V'), %al
+    je .Lcleanup_and_return
+    cmpb LITERAL('Z'), %al
+    je .Lstore_result_1
+    cmpb LITERAL('C'), %al
+    je .Lstore_result_2
+    cmpb LITERAL('J'), %al
+    je .Lstore_result_8
+    cmpb LITERAL('F'), %al
+    je .Lstore_float_result
+    cmpb LITERAL('D'), %al
+    je .Lstore_double_result
+.Lstore_result_4:
+    movl 16(%esp), %eax
+    jmp .Lcleanup_and_return
+.Lstore_result_1:
+    movb 16(%esp), %al
+    jmp .Lcleanup_and_return
+.Lstore_result_2:
+    movw 16(%esp), %ax
+    jmp .Lcleanup_and_return
+.Lstore_result_8:
+    movl 16(%esp), %eax
+    movl 20(%esp), %edx
+    movl %edx, 72(%esp)
+    jmp .Lcleanup_and_return
+.Lstore_float_result:
+    movd 16(%esp), %xmm0
+    movd %xmm0, 36(%esp)
+    // Fall-through to clean-up
+.Lstore_double_result:
+    movsd 16(%esp), %xmm0
+    movsd %xmm0, 36(%esp)
+    jmp .Lcleanup_and_return
+.Lcleanup_and_return:
+    addl LITERAL(32), %esp                    // pop arguments and JValue result
+    CFI_ADJUST_CFA_OFFSET(-32)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    RETURN_OR_DELIVER_PENDING_EXCEPTION       // return or deliver exception
+END_FUNCTION art_quick_invoke_polymorphic
 
     // TODO: implement these!
 UNIMPLEMENTED art_quick_memcmp16

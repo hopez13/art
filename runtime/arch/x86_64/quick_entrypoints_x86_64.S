@@ -2453,3 +2453,50 @@ DEFINE_FUNCTION art_quick_osr_stub
     rep movsb                     // while (rcx--) { *rdi++ = *rsi++ }
     jmp *%rdx
 END_FUNCTION art_quick_osr_stub
+
+DEFINE_FUNCTION art_quick_invoke_polymorphic
+    SETUP_SAVE_REFS_AND_ARGS_FRAME      // save callee saves
+    movq %gs:THREAD_SELF_OFFSET, %rdx   // pass Thread
+    movq %rsp, %rcx                     // pass SP
+    subq LITERAL(16), %rsp              // make space for JValue result
+    CFI_ADJUST_CFA_OFFSET(16)
+    movq LITERAL(0), (%rsp)             // initialize result
+    movq %rsp, %rdi                     // store pointer to JValue result
+    call SYMBOL(artInvokePolymorphic)   // artInvokePolymorphic(result, receiver, Thread*, SP)
+                                        // save the code pointer
+    cmpb LITERAL('V'), %al
+    je .Lcleanup_and_return
+    cmpb LITERAL('Z'), %al
+    je .Lstore_result_1
+    cmpb LITERAL('C'), %al
+    je .Lstore_result_2
+    cmpb LITERAL('F'), %al
+    je .Lstore_float_result
+    cmpb LITERAL('D'), %al
+    je .Lstore_double_result
+.Lstore_result_8:
+    movq (%rsp), %rax                   // Move result to rax
+    jmp .Lcleanup_and_return
+.Lstore_result_1:
+    movb (%rsp), %al                    // Move result to rax
+    jmp .Lcleanup_and_return
+.Lstore_result_2:
+    movw (%rsp), %ax                    // Move result to rax
+    jmp .Lcleanup_and_return
+.Lstore_result_4:
+    movl (%rsp), %eax                   // Move result to rax
+    jmp .Lcleanup_and_return
+.Lstore_float_result:
+    movd (%rsp), %xmm0
+    movd %xmm0, 32(%rsp)                // Move result so it is in xmm0 when the context is restored.
+    jmp .Lcleanup_and_return
+.Lstore_double_result:
+    movsd (%rsp), %xmm0
+    movsd %xmm0, 32(%rsp)               // Move result so it is in xmm0 when the context is restored.
+    // Fall-through to clean-up
+.Lcleanup_and_return:
+    addq LITERAL(16), %rsp              // pop space for JValue result
+    CFI_ADJUST_CFA_OFFSET(16)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    RETURN_OR_DELIVER_PENDING_EXCEPTION // return or deliver exception
+END_FUNCTION art_quick_invoke_polymorphic
