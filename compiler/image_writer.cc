@@ -1856,8 +1856,7 @@ void ImageWriter::CopyAndFixupNativeData(size_t oat_index) {
     temp_class_table.ReadFromMemory(class_table_memory_ptr);
     CHECK_EQ(temp_class_table.NumZygoteClasses(), table->NumNonZygoteClasses() +
              table->NumZygoteClasses());
-    BufferedRootVisitor<kDefaultBufferedRootCount> buffered_visitor(&root_visitor,
-                                                                    RootInfo(kRootUnknown));
+    UnbufferedRootVisitor buffered_visitor(&root_visitor, RootInfo(kRootUnknown));
     temp_class_table.VisitRoots(buffered_visitor);
   }
 }
