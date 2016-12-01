@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d556338_ea388a31",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1859,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-01T22:49:21Z",
+      "side": 1,
+      "message": "Type and name clash rather violently.",
+      "range": {
+        "startLine": 1859,
+        "startChar": 26,
+        "endLine": 1859,
+        "endChar": 42
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_aaacd23c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-01T22:49:21Z",
+      "side": 1,
+      "message": "Same thing.  unbuffered_visitor, please.",
+      "range": {
+        "startLine": 608,
+        "startChar": 24,
+        "endLine": 608,
+        "endChar": 40
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
