@@ -468,7 +468,7 @@ TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING art_quick_throw_string_bounds, artThro
      * The helper will attempt to locate the target and return a 64-bit result in r0/r1 consisting
      * of the target Method* in r0 and method->code_ in r1.
      *
-     * If unsuccessful, the helper will return null/null will bea pending exception in the
+     * If unsuccessful, the helper will return null/null will be a pending exception in the
      * thread and we branch to another stub to deliver it.
      *
      * On success this wrapper will restore arguments and *jump* to the target, leaving the lr
@@ -2269,6 +2269,21 @@ DEFINE_FUNCTION art_quick_osr_stub
     rep movsb                     // while (ecx--) { *edi++ = *esi++ }
     jmp *%ebx
 END_FUNCTION art_quick_osr_stub
+
+DEFINE_FUNCTION art_quick_invoke_polymorphic
+    SETUP_SAVE_REFS_AND_ARGS_FRAME  ebx, ebx  // save frame
+    mov %esp, %edx                            // remember SP
+    PUSH edx                                  // pass SP
+    pushl %fs:THREAD_SELF_OFFSET              // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    PUSH ecx                                  // pass receiver
+    PUSH eax                                  // pass method
+    call SYMBOL(artInvokePolymorphic)         // (method, Thread*, SP)
+    addl LITERAL(16), %esp                    // pop arguments (arg1, arg2, Thread::Current(), SP)
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    RETURN_OR_DELIVER_PENDING_EXCEPTION       // return or deliver exception
+END_FUNCTION art_quick_invoke_polymorphic
 
     // TODO: implement these!
 UNIMPLEMENTED art_quick_memcmp16

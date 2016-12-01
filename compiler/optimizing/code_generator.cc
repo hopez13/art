@@ -367,6 +367,12 @@ void CodeGenerator::GenerateInvokeUnresolvedRuntimeCall(HInvokeUnresolved* invok
   InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
 }
 
+void CodeGenerator::GenerateInvokePolymorphicCall(HInvokePolymorphic* invoke) {
+  MoveConstant(invoke->GetLocations()->GetTemp(0), invoke->GetDexMethodIndex());
+  QuickEntrypointEnum entrypoint = kQuickInvokePolymorphicTrampolineWithAccessCheck;
+  InvokeRuntime(entrypoint, invoke, invoke->GetDexPc(), nullptr);
+}
+
 void CodeGenerator::CreateUnresolvedFieldLocationSummary(
     HInstruction* field_access,
     Primitive::Type field_type,

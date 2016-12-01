@@ -2453,3 +2453,14 @@ DEFINE_FUNCTION art_quick_osr_stub
     rep movsb                     // while (rcx--) { *rdi++ = *rsi++ }
     jmp *%rdx
 END_FUNCTION art_quick_osr_stub
+
+DEFINE_FUNCTION art_quick_invoke_polymorphic
+    SETUP_SAVE_REFS_AND_ARGS_FRAME       // save callee saves
+                                         // (method_idx, *this_object, *self, sp)
+    movq %gs:THREAD_SELF_OFFSET, %rdx    // pass Thread
+    movq %rsp, %rcx                      // pass SP
+    call SYMBOL(artInvokePolymorphic)    // artInvokePolymorphic(arg1, arg2, Thread*, SP)
+                                         // save the code pointer
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    RETURN_OR_DELIVER_PENDING_EXCEPTION  // return or deliver exception
+END_FUNCTION art_quick_invoke_polymorphic
