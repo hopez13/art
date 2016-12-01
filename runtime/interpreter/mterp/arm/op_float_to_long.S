@@ -1,4 +1,3 @@
-@include "arm/unopWider.S" {"instr":"bl      __aeabi_f2lz"}
 %include "arm/unopWider.S" {"instr":"bl      f2l_doconv"}
 
 %break
@@ -10,30 +9,15 @@
  * to modest integer.  The EABI convert function isn't doing this for us.
  */
 f2l_doconv:
-    stmfd   sp!, {r4, lr}
-    mov     r1, #0x5f000000             @ (float)maxlong
-    mov     r4, r0
-    bl      __aeabi_fcmpge              @ is arg >= maxlong?
-    cmp     r0, #0                      @ nonzero == yes
-    mvnne   r0, #0                      @ return maxlong (7fffffff)
-    mvnne   r1, #0x80000000
-    popne   {r4, pc}
-
-    mov     r0, r4                      @ recover arg
-    mov     r1, #0xdf000000             @ (float)minlong
-    bl      __aeabi_fcmple              @ is arg <= minlong?
-    cmp     r0, #0                      @ nonzero == yes
-    movne   r0, #0                      @ return minlong (80000000)
-    movne   r1, #0x80000000
-    popne   {r4, pc}
-
-    mov     r0, r4                      @ recover arg
-    mov     r1, r4
-    bl      __aeabi_fcmpeq              @ is arg == self?
-    cmp     r0, #0                      @ zero == no
-    moveq   r1, #0                      @ return zero for NaN
-    popeq   {r4, pc}
-
-    mov     r0, r4                      @ recover arg
-    bl      __aeabi_f2lz                @ convert float to long
-    ldmfd   sp!, {r4, pc}
+    ubfx    r2, r0, #23, #8             @ grab the exponent
+    cmp     r2, #0x4f                   @ MININT < x > MAXINT?
+    blt     __aeabi_f2lz                @ tail call to convert float to long
+    cmp     r2, #0xff                   @ NaN?
+    beq     f2l_isNaN
+    adds    r0, r0, r0                  @ sign bit to carry
+    mov     r0, #0x7fffffff             @ assume maxint
+    adc     r0, r0, r0                  @ convert to minint (0x80000000) if exp negative
+    mov     pc, lr
+f2l_isNaN:
+    mov     r0, #0
+    mov     pc, lr                      @ return 0 for NaN
