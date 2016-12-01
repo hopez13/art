@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dd83b0a_f1fce8c4",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T13:46:09Z",
+      "side": 1,
+      "message": "CHECK_EQ(vdex_size_, size_vdex_header_ + size_vdex_checksums_);",
+      "revId": "3addd23fc864aff97ebdf9274d83f092d5d868ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
