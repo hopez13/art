@@ -420,6 +420,48 @@ class MANAGED DexCache FINAL : public Object {
   void VisitReferences(ObjPtr<mirror::Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
 
+  // Due to lack of 16-byte atomics support, we use hand-crafted routines.
+#if  defined(__aarch64__)
+  // 16-byte atomics are supported on aarch64.
+  ALWAYS_INLINE static ConversionPair64 AtomicRelaxedLoad16B(
+      std::atomic<ConversionPair64>* target) {
+    return target->load(std::memory_order_relaxed);
+  }
+
+  ALWAYS_INLINE static void AtomicRelaxedStore16B(
+      std::atomic<ConversionPair64>* target, ConversionPair64 value) {
+    target->store(value, std::memory_order_relaxed);
+  }
+#elif defined(__x86_64__)
+  ALWAYS_INLINE static ConversionPair64 AtomicRelaxedLoad16B(
+      std::atomic<ConversionPair64>* target) {
+    uint64_t first, second;
+    __asm__ __volatile__(
+        "lock cmpxchg16b (%2)"
+        : "=&a"(first), "=&d"(second)
+        : "r"(target), "a"(0), "d"(0), "b"(0), "c"(0)
+        : "cc");
+    return ConversionPair64(first, second);
+  }
+
+  ALWAYS_INLINE static void AtomicRelaxedStore16B(
+      std::atomic<ConversionPair64>* target, ConversionPair64 value) {
+    uint64_t first, second;
+    __asm__ __volatile__ (
+        "movq (%2), %%rax\n\t"
+        "movq 8(%2), %%rdx\n\t"
+        "1:\n\t"
+        "lock cmpxchg16b (%2)\n\t"
+        "jnz 1b"
+        : "=&a"(first), "=&d"(second)
+        : "r"(target), "b"(value.first), "c"(value.second)
+        : "cc");
+  }
+#else
+  static ConversionPair64 AtomicRelaxedLoad16B(std::atomic<ConversionPair64>* target);
+  static void AtomicRelaxedStore16B(std::atomic<ConversionPair64>* target, ConversionPair64 value);
+#endif
+
   HeapReference<Object> dex_;
   HeapReference<String> location_;
   uint64_t dex_file_;               // const DexFile*
