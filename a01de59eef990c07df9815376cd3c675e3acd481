@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "4d556338_dddf5b50",
+        "filename": "runtime/handle.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "Why not operator bool?",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 64,
+        "endChar": 27
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_1d4ef339",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "Restrict annotations? Libc memcpy has them; without them, the compiler has to make pessimistic aliasing assumptions.",
+      "range": {
+        "startLine": 217,
+        "startChar": 14,
+        "endLine": 217,
+        "endChar": 34
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_3d7bf769",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "Why the lock annotation? It\u0027s just memcpy. Isn\u0027t it up to the caller to use it correctly?",
+      "range": {
+        "startLine": 221,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 21
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_fd369fa2",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 70,
+        "startChar": 84,
+        "endLine": 70,
+        "endChar": 88
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_5dd34b1a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "Why do we need a whole page and a whole VMA? What if we redefine thousands of classes?",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 58
+      },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_31b11096",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
@@ -19,6 +134,23 @@
         "endLine": 69,
         "endChar": 39
       },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_00a16c78",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2016-12-01T00:57:52Z",
+      "side": 1,
+      "message": "I don\u0027t think this functionality should depend on ClassLoader internals. Applications can (and do!) use whatever classloaders they want.",
       "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
