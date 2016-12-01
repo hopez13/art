@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d556338_65e14db6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1859,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-01T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_ea388a31",
+      "range": {
+        "startLine": 1859,
+        "startChar": 26,
+        "endLine": 1859,
+        "endChar": 42
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_aaacd23c",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4d556338_85e0e1b0",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-01T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_aaacd23c",
+      "range": {
+        "startLine": 608,
+        "startChar": 24,
+        "endLine": 608,
+        "endChar": 40
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_4a4a56c6",
         "filename": "runtime/class_table.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-12-01T22:54:26Z",
       "side": 1,
       "message": "Why is this necessary?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_e5d43ddb",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-01T23:49:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_4a4a56c6",
       "range": {
         "startLine": 45,
         "startChar": 8,
