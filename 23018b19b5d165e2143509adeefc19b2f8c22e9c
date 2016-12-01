@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4db723b6_073db6d1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 3103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T10:41:48Z",
+      "side": 1,
+      "message": "Why are you taking the address, and not use const RegType\u0026?",
+      "range": {
+        "startLine": 3103,
+        "startChar": 10,
+        "endLine": 3103,
+        "endChar": 11
+      },
+      "revId": "23018b19b5d165e2143509adeefc19b2f8c22e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dd9470d_501a8c89",
+        "filename": "test/954-invoke-polymorphic-verifier/expected.txt",
+        "patchSetId": 15
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T10:41:48Z",
+      "side": 1,
+      "message": "That\u0027s an odd message.",
+      "range": {
+        "startLine": 4,
+        "startChar": 208,
+        "endLine": 4,
+        "endChar": 245
+      },
+      "revId": "23018b19b5d165e2143509adeefc19b2f8c22e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dc11b20_2929ad9a",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/WrongArgumentCount.smali",
+        "patchSetId": 15
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T10:41:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this name.",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "23018b19b5d165e2143509adeefc19b2f8c22e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_31fcb0fc",
+        "filename": "test/954-invoke-polymorphic-verifier/smali/WrongArgumentCount.smali",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T10:41:48Z",
+      "side": 1,
+      "message": "invoke",
+      "range": {
+        "startLine": 27,
+        "startChar": 47,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "23018b19b5d165e2143509adeefc19b2f8c22e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
