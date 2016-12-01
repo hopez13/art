@@ -134,6 +134,7 @@
   V(InvokeStaticTrampolineWithAccessCheck, void, uint32_t, void*) \
   V(InvokeSuperTrampolineWithAccessCheck, void, uint32_t, void*) \
   V(InvokeVirtualTrampolineWithAccessCheck, void, uint32_t, void*) \
+  V(InvokePolymorphic, void, JValue*, mirror::Object*, uint32_t, void*) \
 \
   V(TestSuspend, void, void) \
 \
