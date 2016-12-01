@@ -43,7 +43,10 @@ class VdexFile {
  public:
   struct Header {
    public:
-    Header(uint32_t dex_size, uint32_t verifier_deps_size, uint32_t quickening_info_size);
+    Header(uint32_t number_of_dex_files_,
+           uint32_t dex_size,
+           uint32_t verifier_deps_size,
+           uint32_t quickening_info_size);
 
     const char* GetMagic() const { return reinterpret_cast<const char*>(magic_); }
     const char* GetVersion() const { return reinterpret_cast<const char*>(version_); }
@@ -54,13 +57,15 @@ class VdexFile {
     uint32_t GetDexSize() const { return dex_size_; }
     uint32_t GetVerifierDepsSize() const { return verifier_deps_size_; }
     uint32_t GetQuickeningInfoSize() const { return quickening_info_size_; }
+    uint32_t GetNumberOfDexFiles() const { return number_of_dex_files_; }
 
    private:
     static constexpr uint8_t kVdexMagic[] = { 'v', 'd', 'e', 'x' };
-    static constexpr uint8_t kVdexVersion[] = { '0', '0', '0', '\0' };
+    static constexpr uint8_t kVdexVersion[] = { '0', '0', '1', '\0' };
 
     uint8_t magic_[4];
     uint8_t version_[4];
+    uint32_t number_of_dex_files_;
     uint32_t dex_size_;
     uint32_t verifier_deps_size_;
     uint32_t quickening_info_size_;
@@ -88,7 +93,7 @@ class VdexFile {
 
   ArrayRef<const uint8_t> GetVerifierDepsData() const {
     return ArrayRef<const uint8_t>(
-        Begin() + sizeof(Header) + GetHeader().GetDexSize(), GetHeader().GetVerifierDepsSize());
+        DexBegin() + GetHeader().GetDexSize(), GetHeader().GetVerifierDepsSize());
   }
 
   ArrayRef<const uint8_t> GetQuickeningInfo() const {
@@ -107,6 +112,11 @@ class VdexFile {
   // is none.
   const uint8_t* GetNextDexFileData(const uint8_t* cursor) const;
 
+  // Get the location checksum of the dex file number `dex_file_index`.
+  uint32_t GetLocationChecksum(uint32_t dex_file_index) const {
+    return reinterpret_cast<const uint32_t*>(Begin() + sizeof(Header))[dex_file_index];
+  }
+
  private:
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
 
@@ -115,11 +125,15 @@ class VdexFile {
   }
 
   const uint8_t* DexBegin() const {
-    return Begin() + sizeof(Header);
+    return Begin() + sizeof(Header) + GetSizeOfChecksumsSection();
   }
 
   const uint8_t* DexEnd() const {
-    return Begin() + sizeof(Header) + GetHeader().GetDexSize();
+    return DexBegin() + GetHeader().GetDexSize();
+  }
+
+  size_t GetSizeOfChecksumsSection() const {
+    return sizeof(uint32_t) * GetHeader().GetNumberOfDexFiles();
   }
 
   std::unique_ptr<MemMap> mmap_;
