@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dd83b0a_516854d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_1172ccc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_f1586844",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "We have the convention of updating stats as we\u0027re writing the data. And stats should not be used for calculating the vdex_size_, only for checking it in WriteCode().",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 68
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_91655cf7",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2624,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "\"checksum\" or \"dex file location checksum\"",
+      "range": {
+        "startLine": 2624,
+        "startChar": 38,
+        "endLine": 2624,
+        "endChar": 49
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_118bac71",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "Why? (Did you change this for debugging and forgot to change back?)",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 14
+      },
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd83b0a_3190309d",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-01T12:49:59Z",
+      "side": 1,
+      "message": "DCHECK_LT(dex_file_index, GetNumberOfDexFile());",
+      "revId": "ad884f8a18f2e8a64ba0ad44020c0546e8db9eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
