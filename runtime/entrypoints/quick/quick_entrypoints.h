@@ -37,6 +37,7 @@ class Object;
 
 class ArtMethod;
 template<class MirrorType> class GcRoot;
+union JValue;
 class Thread;
 
 // Pointers to functions that are called by quick compiler generated code via thread-local storage.
