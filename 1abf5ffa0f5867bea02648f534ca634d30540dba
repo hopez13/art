@@ -22,6 +22,30 @@
       "revId": "1abf5ffa0f5867bea02648f534ca634d30540dba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dd9470d_b0e978c8",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2621,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-01T16:41:12Z",
+      "side": 1,
+      "message": "Ah I wanted to introduce a typedef for this. I\u0027ll update this in the next PS.",
+      "parentUuid": "6dd9470d_d0f2fcb8",
+      "range": {
+        "startLine": 2621,
+        "startChar": 37,
+        "endLine": 2621,
+        "endChar": 45
+      },
+      "revId": "1abf5ffa0f5867bea02648f534ca634d30540dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
