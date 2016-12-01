@@ -45,6 +45,29 @@
       "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_4a4a56c6",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-01T22:54:26Z",
+      "side": 1,
+      "message": "Why is this necessary?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "f301311f60c3afc908ac24a0a4a40ac3e0f21551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
