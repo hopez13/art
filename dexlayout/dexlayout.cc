@@ -1528,7 +1528,7 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
 // Orders code items according to specified class data ordering.
 // NOTE: If the section following the code items is byte aligned, the last code item is left in
 // place to preserve alignment. Layout needs an overhaul to handle movement of other sections.
-int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_data_order) {
+int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*>& new_class_data_order) {
   // Find the last code item so we can leave it in place if the next section is not 4 byte aligned.
   std::unordered_set<dex_ir::CodeItem*> visited_code_items;
   uint32_t offset = header_->GetCollections().CodeItemsOffset();
@@ -1545,10 +1545,27 @@ int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_dat
     visited_code_items.insert(last_code_item);
   }
 
+  // Walk the code items, first the class initializers, then the remaining methods.
+  int32_t diff = VisitCodeItems(new_class_data_order, visited_code_items, offset, true);
+  diff += VisitCodeItems(new_class_data_order, visited_code_items, offset, false);
+  // Adjust diff to be 4-byte aligned.
+  return RoundUp(diff, kDexCodeItemAlignment);
+}
+
+// Visits code items in the specified class data order. If include_clinit is true, it will only
+// visit clinits. If include_clinit is false, it will visit all other methods.
+int32_t DexLayout::VisitCodeItems(std::vector<dex_ir::ClassData*>& new_class_data_order,
+                                  std::unordered_set<dex_ir::CodeItem*>& visited_code_items,
+                                  /*out*/uint32_t& offset,
+                                  bool include_clinit) {
   int32_t diff = 0;
   for (dex_ir::ClassData* class_data : new_class_data_order) {
     class_data->SetOffset(class_data->GetOffset() + diff);
     for (auto& method : *class_data->DirectMethods()) {
+      const char* method_name = method->GetMethodId()->Name()->Data();
+      if (include_clinit ^ (strcmp(method_name, "<clinit>") == 0)) {
+        continue;
+      }
       dex_ir::CodeItem* code_item = method->GetCodeItem();
       if (code_item != nullptr && visited_code_items.find(code_item) == visited_code_items.end()) {
         visited_code_items.insert(code_item);
@@ -1556,6 +1573,9 @@ int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_dat
         code_item->SetOffset(offset);
         offset += RoundUp(code_item->GetSize(), kDexCodeItemAlignment);
       }
+    }
+    if (include_clinit) {
+      continue;
     }
     for (auto& method : *class_data->VirtualMethods()) {
       dex_ir::CodeItem* code_item = method->GetCodeItem();
@@ -1567,8 +1587,7 @@ int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_dat
       }
     }
   }
-  // Adjust diff to be 4-byte aligned.
-  return RoundUp(diff, kDexCodeItemAlignment);
+  return diff;
 }
 
 bool DexLayout::IsNextSectionCodeItemAligned(uint32_t offset) {

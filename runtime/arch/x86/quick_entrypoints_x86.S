@@ -1807,6 +1807,7 @@ DEFINE_FUNCTION art_quick_imt_conflict_trampoline
     // Call the runtime stub to populate the ImtConflictTable and jump to the
     // resolved method.
     POP EDI
+    movd %xmm7, %eax  // Load method_idx
     INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
 END_FUNCTION art_quick_imt_conflict_trampoline
 

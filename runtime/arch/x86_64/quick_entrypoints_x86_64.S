@@ -1662,6 +1662,7 @@ DEFINE_FUNCTION art_quick_imt_conflict_trampoline
 .Lconflict_trampoline:
     // Call the runtime stub to populate the ImtConflictTable and jump to the
     // resolved method.
+    movq %rax, %rdi  // Load method_idx
     INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
 #endif  // __APPLE__
 END_FUNCTION art_quick_imt_conflict_trampoline
