@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d01ab89_c56e1a6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-02T19:52:43Z",
+      "side": 1,
+      "message": "Oh, I missed this CL and prepared https://android-review.googlesource.com/308392 .",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "0c21ff2eb473ba3de3c9952dfcbf601808a6ea88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d01ab89_e5691667",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-02T19:52:43Z",
+      "side": 1,
+      "message": "Extracting those 8 bits from 0x5f000000 yields 0xbe.",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 13,
+        "endChar": 21
+      },
+      "revId": "0c21ff2eb473ba3de3c9952dfcbf601808a6ea88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db02fbe_cc210314",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-02T19:52:43Z",
+      "side": 1,
+      "message": "Or Inf. We need to check the value bits as well.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "0c21ff2eb473ba3de3c9952dfcbf601808a6ea88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
