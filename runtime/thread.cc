@@ -2801,7 +2801,7 @@ bool Thread::HoldsLock(mirror::Object* object) const {
 }
 
 // RootVisitor parameters are: (const Object* obj, size_t vreg, const StackVisitor* visitor).
-template <typename RootVisitor>
+template <typename RootVisitor, bool kPrecise = false>
 class ReferenceMapVisitor : public StackVisitor {
  public:
   ReferenceMapVisitor(Thread* thread, Context* context, RootVisitor& visitor)
@@ -2959,6 +2959,7 @@ class RootCallbackVisitor {
   const uint32_t tid_;
 };
 
+template <bool kPrecise>
 void Thread::VisitRoots(RootVisitor* visitor) {
   const uint32_t thread_id = GetThreadId();
   visitor->VisitRootIfNonNull(&tlsPtr_.opeer, RootInfo(kRootThreadObject, thread_id));
@@ -2976,7 +2977,7 @@ void Thread::VisitRoots(RootVisitor* visitor) {
   // Visit roots for deoptimization.
   if (tlsPtr_.stacked_shadow_frame_record != nullptr) {
     RootCallbackVisitor visitor_to_callback(visitor, thread_id);
-    ReferenceMapVisitor<RootCallbackVisitor> mapper(this, nullptr, visitor_to_callback);
+    ReferenceMapVisitor<RootCallbackVisitor, kPrecise> mapper(this, nullptr, visitor_to_callback);
     for (StackedShadowFrameRecord* record = tlsPtr_.stacked_shadow_frame_record;
          record != nullptr;
          record = record->GetLink()) {
@@ -2999,7 +3000,7 @@ void Thread::VisitRoots(RootVisitor* visitor) {
   }
   if (tlsPtr_.frame_id_to_shadow_frame != nullptr) {
     RootCallbackVisitor visitor_to_callback(visitor, thread_id);
-    ReferenceMapVisitor<RootCallbackVisitor> mapper(this, nullptr, visitor_to_callback);
+    ReferenceMapVisitor<RootCallbackVisitor, kPrecise> mapper(this, nullptr, visitor_to_callback);
     for (FrameIdToShadowFrame* record = tlsPtr_.frame_id_to_shadow_frame;
          record != nullptr;
          record = record->GetNext()) {
@@ -3012,11 +3013,19 @@ void Thread::VisitRoots(RootVisitor* visitor) {
   // Visit roots on this thread's stack
   Context* context = GetLongJumpContext();
   RootCallbackVisitor visitor_to_callback(visitor, thread_id);
-  ReferenceMapVisitor<RootCallbackVisitor> mapper(this, context, visitor_to_callback);
+  ReferenceMapVisitor<RootCallbackVisitor, kPrecise> mapper(this, context, visitor_to_callback);
   mapper.WalkStack();
   ReleaseLongJumpContext(context);
   for (instrumentation::InstrumentationStackFrame& frame : *GetInstrumentationStack()) {
     visitor->VisitRootIfNonNull(&frame.this_object_, RootInfo(kRootVMInternal, thread_id));
+  }
+}
+
+void Thread::VisitRoots(RootVisitor* visitor, VisitRootFlags flags) {
+  if ((flags & VisitRootFlags::kVisitRootFlagPrecise) != 0) {
+    VisitRoots<true>(visitor);
+  } else {
+    VisitRoots<false>(visitor);
   }
 }
 
