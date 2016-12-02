@@ -16,6 +16,24 @@
       "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_2fa14d79",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-12-02T20:25:15Z",
+      "side": 1,
+      "message": "OK - I\u0027ll confess that I like the \"sign bit to carry\" trick that allows consolidation of the non-NaN paths and the overall fewer branches.  But, of course, it\u0027s all on the exceptional path so it won\u0027t matter a bit.  I will change initial branch to follow your lead.",
+      "parentUuid": "edf9b7d6_447b4e2c",
+      "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
