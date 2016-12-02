@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d556338_ded1ffe8",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2087,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-02T18:44:23Z",
+      "side": 1,
+      "message": "I think it\u0027d be good to indicate whether this is a large allocation or not like the old code (see the \"for a new buffer\" part) so that this doesn\u0027t cause a confusion (eg. a small non-array allocation looking like requesting a page-size chunk).",
+      "range": {
+        "startLine": 2087,
+        "startChar": 10,
+        "endLine": 2087,
+        "endChar": 67
+      },
+      "revId": "8757189d304526d72925d5b298fa941a8562d2a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_7ef7136e",
+        "filename": "test/080-oom-fragmentation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-02T18:44:23Z",
+      "side": 1,
+      "message": "How about using an object array so that we don\u0027t accidentally use the LOS for these (though the size is less than the current LOS threshold)?",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 48
+      },
+      "revId": "8757189d304526d72925d5b298fa941a8562d2a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
