@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_695aa56e",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2087,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-02T19:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_ded1ffe8",
+      "range": {
+        "startLine": 2087,
+        "startChar": 10,
+        "endLine": 2087,
+        "endChar": 67
+      },
+      "revId": "8757189d304526d72925d5b298fa941a8562d2a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_7ef7136e",
         "filename": "test/080-oom-fragmentation/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-02T18:44:23Z",
       "side": 1,
       "message": "How about using an object array so that we don\u0027t accidentally use the LOS for these (though the size is less than the current LOS threshold)?",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 48
+      },
+      "revId": "8757189d304526d72925d5b298fa941a8562d2a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_293dcded",
+        "filename": "test/080-oom-fragmentation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-02T19:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_7ef7136e",
       "range": {
         "startLine": 25,
         "startChar": 34,
