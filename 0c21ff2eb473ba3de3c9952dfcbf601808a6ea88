@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_ac29cb4d",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-12-02T20:08:59Z",
+      "side": 1,
+      "message": "Yes - that would be better.  Typically not taken forward branch followed by unconditional.",
+      "parentUuid": "cdf6b3e5_e3691267",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "0c21ff2eb473ba3de3c9952dfcbf601808a6ea88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2db02fbe_cc210314",
         "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
         "patchSetId": 1
@@ -82,6 +106,30 @@
       "writtenOn": "2016-12-02T19:52:43Z",
       "side": 1,
       "message": "Or Inf. We need to check the value bits as well.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "0c21ff2eb473ba3de3c9952dfcbf601808a6ea88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_6c0073e3",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-12-02T20:08:59Z",
+      "side": 1,
+      "message": "Yea - don\u0027t know what I was thinking when I churned this one out.  Uploaded it, then kicked off tests and went home.  Patch set #2 takes care of the (many) problems here.",
+      "parentUuid": "2db02fbe_cc210314",
       "range": {
         "startLine": 15,
         "startChar": 0,
