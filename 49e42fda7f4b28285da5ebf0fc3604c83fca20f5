@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d556338_c3dbec08",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2093,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-02T17:40:47Z",
+      "side": 1,
+      "message": "Can we put a test for this format, somehow? A gtest is probably a controlled-enough environment to get this stable.",
+      "range": {
+        "startLine": 2085,
+        "startChar": 2,
+        "endLine": 2093,
+        "endChar": 3
+      },
+      "revId": "49e42fda7f4b28285da5ebf0fc3604c83fca20f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d556338_83e1f4b8",
+        "filename": "test/080-oom-fragmentation/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-02T17:40:47Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "49e42fda7f4b28285da5ebf0fc3604c83fca20f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
