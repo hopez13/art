@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d159bc1_522b0a92",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-02T21:54:55Z",
+      "side": 1,
+      "message": "Why does this need a handle?",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 34
+      },
+      "revId": "532d8447d35bbb58586cc8cf1507e4cc6093b1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_f219de94",
+        "filename": "runtime/openjdkjvmti/transform.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-02T21:54:55Z",
+      "side": 1,
+      "message": "Newline",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "532d8447d35bbb58586cc8cf1507e4cc6093b1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
