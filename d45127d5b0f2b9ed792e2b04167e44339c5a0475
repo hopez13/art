@@ -61,6 +61,24 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_fede452b",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dd83b0a_b12f40e3",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d90030a_0508368f",
         "filename": "runtime/mirror/class_ext.cc",
         "patchSetId": 5
@@ -114,6 +132,24 @@
       "side": 1,
       "message": "Sure, but please remember this code is reviewed and will be read by more engineers than its author. So having clear comments saves precious time.",
       "parentUuid": "ade97f6b_79cadd04",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_1e7c7987",
+        "filename": "runtime/mirror/class_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dd83b0a_51a2944c",
       "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -747,6 +783,24 @@
       "side": 1,
       "message": "Don\u0027t we remove LOG(WARNING) from the output? In any case, up to you.",
       "parentUuid": "ade97f6b_39dc55ce",
+      "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_7ed25567",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dd83b0a_71a7985b",
       "revId": "d45127d5b0f2b9ed792e2b04167e44339c5a0475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
