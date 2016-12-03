@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4d556338_e07b988f",
+        "filename": "runtime/handle.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "That\u0027s not the way we do thing.",
+      "parentUuid": "4d556338_dddf5b50",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_1d4ef339",
         "filename": "runtime/mirror/array.h",
         "patchSetId": 6
@@ -42,6 +60,24 @@
         "endLine": 217,
         "endChar": 34
       },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_be744d77",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Won\u0027t do anything here. We are just passing it down.",
+      "parentUuid": "4d556338_1d4ef339",
       "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4d556338_e0d8b882",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "We are hitting java heap memory so we need to have the mutator_lock_.",
+      "parentUuid": "4d556338_3d7bf769",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_fd369fa2",
         "filename": "runtime/modifiers.h",
         "patchSetId": 6
@@ -88,6 +142,24 @@
         "endLine": 70,
         "endChar": 88
       },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_5e8c3154",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d556338_fd369fa2",
       "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "4d556338_00e32c1a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Currently our art::DexFile requires that the backing memory be in an MMAP. This is both for security reasons (PROT_READ) and since dex files are almost always file-backed. We could change this in the future but it not a priority ATM.",
+      "parentUuid": "4d556338_5dd34b1a",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_31b11096",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "4d556338_f7e24014",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "I mean the real reason is why not. There isn\u0027t any need to modify this any more so might as well.\n\nWe only need it PROT_WRITE so we can copy stuff in.\n\nDone.",
+      "parentUuid": "8dd83b0a_31b11096",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d556338_00a16c78",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
@@ -151,6 +259,24 @@
       "writtenOn": "2016-12-01T00:57:52Z",
       "side": 1,
       "message": "I don\u0027t think this functionality should depend on ClassLoader internals. Applications can (and do!) use whatever classloaders they want.",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_7e3db57e",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "We need to know a bit about classloaders to implement this. These restrictions may be lifted or relaxed in the future.",
+      "parentUuid": "4d556338_00a16c78",
       "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -180,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "4d556338_f76520f6",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "no first. Index 0. See next line.\n\nThis array has the OatDex as the first element the rest are all DexFiles",
+      "parentUuid": "8dd83b0a_d1b52482",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_11ac0c3b",
         "filename": "runtime/openjdkjvmti/ti_redefine.h",
         "patchSetId": 6
@@ -197,6 +341,24 @@
         "endLine": 71,
         "endChar": 69
       },
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_9e1aa954",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-03T01:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dd83b0a_11ac0c3b",
       "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
