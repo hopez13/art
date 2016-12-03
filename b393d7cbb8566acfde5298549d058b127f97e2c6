@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_35e07b0b",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-03T07:34:13Z",
+      "side": 1,
+      "message": "Sorry for the super nit, but I really meant with capitals ADB  PUSH (or perhaps quotes \u0027adb push\u0027)",
+      "parentUuid": "705120f4_b975a3ec",
+      "revId": "b393d7cbb8566acfde5298549d058b127f97e2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_8c48c87d",
         "filename": "tools/dexfuzz/src/dexfuzz/listeners/FinalStatusListener.java",
         "patchSetId": 2
