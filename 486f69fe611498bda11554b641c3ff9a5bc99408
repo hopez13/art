@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d159bc1_75e6f32b",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-03T07:31:00Z",
+      "side": 1,
+      "message": "Note that I just realized this transfer is inaccurate around the mod operator. I will fix that Monday (but it won\u0027t impact the rest of the review much, so please go ahead already).",
+      "revId": "486f69fe611498bda11554b641c3ff9a5bc99408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
