@@ -52,6 +52,24 @@
       "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_46e0e30b",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-12-05T15:38:38Z",
+      "side": 1,
+      "message": "Good point - and now that I think about it that dependency is trivially avoided by using the adc form rather than adcs form.   If we\u0027ve got negative infinity, both ads need a 1 carry, otherwise a 0 cary.  And, that\u0027s determined by the original adds so no adcs -\u003e adc ripple carry is needed.",
+      "parentUuid": "4d0ba3a9_073af6f5",
+      "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
