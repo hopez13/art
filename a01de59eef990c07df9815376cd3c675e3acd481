@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "2d04af97_06079af9",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:21:46Z",
+      "side": 1,
+      "message": "Cool. I think I found in your eng spec the description of how BCI works with DexClassLoader, but couldn\u0027t for another kind of class loader. I still think iit\u0027s worth updating the doc with it.",
+      "parentUuid": "8d159bc1_3c574074",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_d1b52482",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
