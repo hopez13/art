@@ -70,6 +70,24 @@
       "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d4003d4_9f8ad36b",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-05T16:07:41Z",
+      "side": 1,
+      "message": "Yes, ADDS+ADC+ADC works too.",
+      "parentUuid": "8d159bc1_46e0e30b",
+      "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
