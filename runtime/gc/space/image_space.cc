@@ -1619,7 +1619,7 @@ std::unique_ptr<ImageSpace> ImageSpace::CreateBootImage(const char* image_locati
 
 bool ImageSpace::LoadBootImage(const std::string& image_file_name,
                                const InstructionSet image_instruction_set,
-                               std::vector<space::ImageSpace*>* boot_image_spaces,
+                               std::vector<ImageSpace*>* boot_image_spaces,
                                uint8_t** oat_file_end) {
   DCHECK(boot_image_spaces != nullptr);
   DCHECK(boot_image_spaces->empty());
@@ -1676,6 +1676,76 @@ bool ImageSpace::LoadBootImage(const std::string& image_file_name,
           << "Attempting to fall back to imageless running. Error was: " << error_msg
           << "\nAttempted image: " << image_name;
       break;
+    }
+  }
+
+  // The zygote will use the boot image as-is (as a performance and protective measure). Non-zygote
+  // processes are allowed to change the BOOTCLASSPATH environment.
+  Runtime* runtime = Runtime::Current();
+  if (!error && !runtime->IsZygote()) {
+    const std::string& boot_class_path = runtime->GetBootClassPathString();
+    if (!boot_class_path.empty()) {
+      std::vector<std::string> parts;
+      Split(boot_class_path, ':', &parts);
+
+      // Support both single and multi image.
+      std::vector<const std::string*> from_spaces;
+      for (auto space : *boot_image_spaces) {
+        const OatFile* oat_file = space->GetOatFile();
+        if (oat_file == nullptr) {
+          LOG(WARNING) << "Null oat file for " << space->GetImageLocation();
+          continue;
+        }
+        const std::vector<const OatDexFile*>& oat_dex_files = oat_file->GetOatDexFiles();
+        for (auto oat_dex_file : oat_dex_files) {
+          from_spaces.push_back(&oat_dex_file->GetCanonicalDexFileLocation());
+        }
+      }
+
+      auto parts_it = parts.begin();
+      auto parts_it_end = parts.end();
+
+      auto spaces_it = from_spaces.begin();
+      auto spaces_it_end = from_spaces.end();
+
+      for (; parts_it != parts_it_end && spaces_it != spaces_it_end; ++parts_it, ++spaces_it) {
+        const std::string* spaces_str = *spaces_it;
+
+        // Skip multidex components.
+        if (DexFile::IsMultiDexLocation(spaces_str->c_str())) {
+          spaces_it++;
+          continue;
+        }
+
+        if (*parts_it != *spaces_str) {
+          error = true;
+          spaces_it = spaces_it_end;
+          parts_it = parts_it_end;
+          break;
+        }
+      }
+
+      // Drain spaces multidex.
+      for (; spaces_it != spaces_it_end; ++spaces_it) {
+        const std::string* spaces_str = *spaces_it;
+
+        // Skip multidex components.
+        if (!DexFile::IsMultiDexLocation(spaces_str->c_str())) {
+          break;
+        }
+      }
+
+      error = (parts_it != parts_it_end) || (spaces_it != spaces_it_end);
+
+      if (error) {
+        std::ostringstream oss;
+        for (auto str : from_spaces) {
+          oss << *str << ':';
+        }
+
+        LOG(WARNING) << "Boot classpath mismatch: requested " << boot_class_path
+                     << ", while image contains " << oss.str();
+      }
     }
   }
 
