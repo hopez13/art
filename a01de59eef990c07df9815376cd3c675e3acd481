@@ -283,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "4d4003d4_3f3aa7f6",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T13:49:04Z",
+      "side": 1,
+      "message": "Thanks for raising this Daniel.\n\nAlex, I couldn\u0027t find a mention of this in the eng spec. We should mention this limitation there.",
+      "parentUuid": "8d159bc1_7e3db57e",
+      "revId": "a01de59eef990c07df9815376cd3c675e3acd481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dd83b0a_d1b52482",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
