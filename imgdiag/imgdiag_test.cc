@@ -55,6 +55,10 @@ class ImgDiagTest : public CommonRuntimeTest {
     boot_image_location_ = image_spaces[0]->GetImageLocation();
   }
 
+  bool LoadsImage() OVERRIDE {
+    return true;
+  }
+
   virtual void SetUpRuntimeOptions(RuntimeOptions* options) OVERRIDE {
     // Needs to live until CommonRuntimeTest::SetUp finishes, since we pass it a cstring.
     runtime_args_image_ = StringPrintf("-Ximage:%s", GetCoreArtLocation().c_str());
