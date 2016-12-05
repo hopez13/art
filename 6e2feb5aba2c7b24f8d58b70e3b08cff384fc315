@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d490f02_5e0bf58e",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-05T10:19:19Z",
+      "side": 1,
+      "message": "Remove. LDMFD {..., pc} actually returns from the function. The frame after the LDMFD, i.e. the frame at MterpProfileActive, is identical to the frame before the LDMFD.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 30
+      },
+      "revId": "6e2feb5aba2c7b24f8d58b70e3b08cff384fc315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d01ab89_255a8e9b",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-05T10:19:19Z",
+      "side": 1,
+      "message": "Remove. (Though it doesn\u0027t really matter here because we should never need CFI for a PC after this LDMFD.)",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 30
+      },
+      "revId": "6e2feb5aba2c7b24f8d58b70e3b08cff384fc315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
