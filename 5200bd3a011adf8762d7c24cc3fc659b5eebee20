@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edf9b7d6_a428c2b0",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T13:51:31Z",
+      "side": 1,
+      "message": "How about:\nUsing kRuntimePointerSize (instead of using the image\u0027s pointer size)...\n\n?",
+      "range": {
+        "startLine": 71,
+        "startChar": 5,
+        "endLine": 71,
+        "endChar": 9
+      },
+      "revId": "5200bd3a011adf8762d7c24cc3fc659b5eebee20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
