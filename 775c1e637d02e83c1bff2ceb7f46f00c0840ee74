@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d04af97_86f38aee",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "nit: add /* */ for describing the parameter name. (here and other uses below).",
+      "range": {
+        "startLine": 328,
+        "startChar": 71,
+        "endLine": 328,
+        "endChar": 78
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_06e0ba0a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "Add TODO?",
+      "range": {
+        "startLine": 1115,
+        "startChar": 0,
+        "endLine": 1115,
+        "endChar": 25
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_e6511ef6",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "Move to base/utils.h?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_c65622ec",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "indentation is odd, I\u0027d just put each parameter on new lines.",
+      "range": {
+        "startLine": 956,
+        "startChar": 44,
+        "endLine": 957,
+        "endChar": 90
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_a65b2612",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 963,
+        "startChar": 28,
+        "endLine": 964,
+        "endChar": 84
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_86602ab9",
+        "filename": "test/530-checker-loops4/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "For those checker tests, I like to see the actual thing being generated at the end. For example here, it\u0027d be great to check that the only instructions you generated is Mul + Return.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_66664ed5",
+        "filename": "test/530-checker-loops4/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-05T22:56:29Z",
+      "side": 1,
+      "message": "Can you actually do a checker check that we generate Return 0?",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 3
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
