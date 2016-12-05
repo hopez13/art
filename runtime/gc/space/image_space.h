@@ -41,9 +41,15 @@ class ImageSpace : public MemMapSpace {
   // On successful return, the loaded spaces are added to boot_image_spaces (which must be
   // empty on entry) and oat_file_end is updated with the (page-aligned) end of the last
   // oat file.
+  //
+  // If boot_class_path_comparison is not null and not empty, the image is checked whether it
+  // contains the given classpath. The image will be rejected (LoadBootImage will return false)
+  // if there is not a 1:1 match. (Note: the implementation currently skips multidex
+  // components.)
   static bool LoadBootImage(const std::string& image_file_name,
                             const InstructionSet image_instruction_set,
-                            std::vector<space::ImageSpace*>* boot_image_spaces,
+                            const std::string* boot_class_path_comparison,
+                            std::vector<ImageSpace*>* boot_image_spaces,
                             uint8_t** oat_file_end)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -82,7 +88,7 @@ class ImageSpace : public MemMapSpace {
 
   // Symbolic location for image.
   // For example: /system/framework/boot.art
-  const std::string GetImageLocation() const {
+  const std::string& GetImageLocation() const {
     return image_location_;
   }
 

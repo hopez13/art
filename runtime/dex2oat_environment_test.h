@@ -93,6 +93,10 @@ class Dex2oatEnvironmentTest : public CommonRuntimeTest {
     callbacks_.reset();
   }
 
+  bool LoadsImage() OVERRIDE {
+    return true;
+  }
+
   virtual void TearDown() OVERRIDE {
     ClearDirectory(odex_dir_.c_str());
     ASSERT_EQ(0, rmdir(odex_dir_.c_str()));

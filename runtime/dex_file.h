@@ -472,6 +472,10 @@ class DexFile {
     return GetBaseLocation(location_);
   }
 
+  // Check whether a location denotes a multidex dex file. This is a very simple check: returns
+  // whether the string contains the separator character.
+  static bool IsMultiDexLocation(const char* location);
+
   // For DexFiles directly from .dex files, this is the checksum from the DexFile::Header.
   // For DexFiles opened from a zip files, this will be the ZipEntry CRC32 of classes.dex.
   uint32_t GetLocationChecksum() const {
@@ -1100,10 +1104,6 @@ class DexFile {
 
   // Returns true if the header magic and version numbers are of the expected values.
   bool CheckMagicAndVersion(std::string* error_msg) const;
-
-  // Check whether a location denotes a multidex dex file. This is a very simple check: returns
-  // whether the string contains the separator character.
-  static bool IsMultiDexLocation(const char* location);
 
   // The base address of the memory mapping.
   const uint8_t* const begin_;

@@ -320,13 +320,7 @@ void CommonRuntimeTestImpl::SetUp() {
 
 
   RuntimeOptions options;
-  std::string boot_class_path_string = "-Xbootclasspath";
-  for (const std::string &core_dex_file_name : GetLibCoreDexFileNames()) {
-    boot_class_path_string += ":";
-    boot_class_path_string += core_dex_file_name;
-  }
-
-  options.push_back(std::make_pair(boot_class_path_string, nullptr));
+  SetUpBootClassPath(&options);
   options.push_back(std::make_pair("-Xcheck:jni", nullptr));
   options.push_back(std::make_pair(min_heap_string, nullptr));
   options.push_back(std::make_pair(max_heap_string, nullptr));
@@ -360,6 +354,17 @@ void CommonRuntimeTestImpl::SetUp() {
   java_lang_dex_file_ = boot_class_path_[0];
 
   FinalizeSetup();
+}
+
+void CommonRuntimeTestImpl::SetUpBootClassPath(RuntimeOptions* options) {
+  if (!LoadsImage()) {
+    std::string boot_class_path_string = "-Xbootclasspath";
+    for (const std::string &core_dex_file_name : GetLibCoreDexFileNames()) {
+      boot_class_path_string += ":";
+      boot_class_path_string += core_dex_file_name;
+    }
+    options->push_back(std::make_pair(boot_class_path_string, nullptr));
+  }
 }
 
 void CommonRuntimeTestImpl::FinalizeSetup() {

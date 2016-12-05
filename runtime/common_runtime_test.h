@@ -100,6 +100,15 @@ class CommonRuntimeTestImpl {
   static std::string GetAndroidTargetToolsDir(InstructionSet isa);
 
  protected:
+  // Set up the boot classpath elements. By default, checks whether an image is supposed to
+  // be used. If not, will add a minimal set. Otherwise, will not add anything (so that the
+  // boot classpath check does not apply).
+  virtual void SetUpBootClassPath(RuntimeOptions* options);
+
+  virtual bool LoadsImage() {
+    return false;
+  }
+
   // Allow subclases such as CommonCompilerTest to add extra options.
   virtual void SetUpRuntimeOptions(RuntimeOptions* options ATTRIBUTE_UNUSED) {}
 

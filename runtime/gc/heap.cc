@@ -294,8 +294,15 @@ Heap::Heap(size_t initial_size,
   }
 
   // Load image space(s).
+  //
+  // The zygote will use the boot image as-is (as a performance and protective measure). Non-zygote
+  // processes are allowed to change the BOOTCLASSPATH environment.
+  const std::string* boot_cp_compare = runtime->IsZygote()
+      ? nullptr
+      : &runtime->GetBootClassPathString();
   if (space::ImageSpace::LoadBootImage(image_file_name,
                                        image_instruction_set,
+                                       boot_cp_compare,
                                        &boot_image_spaces_,
                                        &requested_alloc_space_begin)) {
     for (auto space : boot_image_spaces_) {
