@@ -34,6 +34,24 @@
       "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d0ba3a9_073af6f5",
+        "filename": "runtime/interpreter/mterp/arm/op_float_to_long.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-05T10:19:19Z",
+      "side": 1,
+      "message": "(About the irrelevant...) I admit the ADDS+ADCS+ADC is a nice trick but it does have an unnecessary dependency between the ADCS and ADC. The ASR+EOR+EOR approach avoids that dependency.",
+      "parentUuid": "8d159bc1_2fa14d79",
+      "revId": "28e4fa80ae0333c0d7c3d2a9e4e0176ebeb4ea4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
