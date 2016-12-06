@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d04af97_e94451bc",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-06T13:49:50Z",
+      "side": 1,
+      "message": "DCHECK_EQ() shall print the result, we don\u0027t need to repeat it.",
+      "range": {
+        "startLine": 114,
+        "startChar": 52,
+        "endLine": 114,
+        "endChar": 62
+      },
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_4936c545",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-06T13:49:50Z",
+      "side": 1,
+      "message": "Are we leaking memory here? Should we delete those entries first?",
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_29338955",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-06T13:49:50Z",
+      "side": 1,
+      "message": "629-vdex-speed",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
