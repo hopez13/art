@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_bb047bc8",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-06T19:43:55Z",
+      "side": 1,
+      "message": "Is it better to use a different type? In the future, this is likely to allow accidental access through the normal standard library mechanism, which may rely on locks instead, and thus wouldn\u0027t provide atomicity with respect to these.",
+      "range": {
+        "startLine": 440,
+        "startChar": 6,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
