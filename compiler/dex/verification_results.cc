@@ -111,7 +111,7 @@ void VerificationResults::CreateVerifiedMethodFor(MethodReference ref) {
       ref,
       /*expected*/ nullptr,
       new VerifiedMethod(/* encountered_error_types */ 0, /* has_runtime_throw */ false));
-  DCHECK_EQ(result, AtomicMap::kInsertResultSuccess);
+  DCHECK_EQ(result, AtomicMap::kInsertResultSuccess) << result;
 }
 
 void VerificationResults::AddRejectedClass(ClassReference ref) {
