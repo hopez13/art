@@ -22,6 +22,30 @@
       "revId": "c071a01a26013ab6e3dbfc4131efa95a65aeb4ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_729e3851",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T17:09:54Z",
+      "side": 1,
+      "message": "While editing I noticed that the CanLongValueFit was missing, should be above every Value(x) call. No specific test case, but I can make one when adding long support for last values.",
+      "parentUuid": "6d3b075b_c0ddde2d",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 553,
+        "endChar": 41
+      },
+      "revId": "c071a01a26013ab6e3dbfc4131efa95a65aeb4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
