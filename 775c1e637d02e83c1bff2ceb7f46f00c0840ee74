@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_c6fbaa04",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_86f38aee",
+      "range": {
+        "startLine": 328,
+        "startChar": 71,
+        "endLine": 328,
+        "endChar": 78
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_06e0ba0a",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-05T22:56:29Z",
       "side": 1,
       "message": "Add TODO?",
+      "range": {
+        "startLine": 1115,
+        "startChar": 0,
+        "endLine": 1115,
+        "endChar": 25
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_c6f3aaed",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Did the full format already, the TODO on getting this to work is in the header file) happy to add that too here :-)",
+      "parentUuid": "2d04af97_06e0ba0a",
       "range": {
         "startLine": 1115,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_d1780633",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Rather not. If we ever extend the constant range analysis to use this, I would like to keep track of if and when the b * b runs out of 32-bit space. That would require specializing this again.",
+      "parentUuid": "2d04af97_e6511ef6",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_c65622ec",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-05T22:56:29Z",
       "side": 1,
       "message": "indentation is odd, I\u0027d just put each parameter on new lines.",
+      "range": {
+        "startLine": 956,
+        "startChar": 44,
+        "endLine": 957,
+        "endChar": 90
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_71883a08",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_c65622ec",
       "range": {
         "startLine": 956,
         "startChar": 44,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_1198de55",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_a65b2612",
+      "range": {
+        "startLine": 963,
+        "startChar": 28,
+        "endLine": 964,
+        "endChar": 84
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_86602ab9",
         "filename": "test/530-checker-loops4/src/Main.java",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_8b9edb4d",
+        "filename": "test/530-checker-loops4/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_86602ab9",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_66664ed5",
         "filename": "test/530-checker-loops4/src/Main.java",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2016-12-05T22:56:29Z",
       "side": 1,
       "message": "Can you actually do a checker check that we generate Return 0?",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 3
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_ab399f35",
+        "filename": "test/530-checker-loops4/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-06T00:17:02Z",
+      "side": 1,
+      "message": "Done, except for the last case, where the Rem is optimized earlier (we could still remove the loop though, tbd)",
+      "parentUuid": "2d04af97_66664ed5",
       "range": {
         "startLine": 142,
         "startChar": 2,
