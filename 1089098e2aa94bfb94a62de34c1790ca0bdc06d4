@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_d8bdc50c",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-12-06T18:47:18Z",
+      "side": 1,
+      "message": "Is this the only catch handler?",
+      "revId": "1089098e2aa94bfb94a62de34c1790ca0bdc06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_387c1188",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-12-06T18:47:18Z",
+      "side": 1,
+      "message": "|| kDebugExceptionDelivery ?",
+      "revId": "1089098e2aa94bfb94a62de34c1790ca0bdc06d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
