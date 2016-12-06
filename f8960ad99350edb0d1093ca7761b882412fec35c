@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0df28b18_9d6e036c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_c99d15f8",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_e945718f",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-06T15:58:01Z",
       "side": 1,
       "message": "This is a bit ambiguous IMO. What about `vixl_temp`?\n\nAlternatively, maybe move the\n\n  UseScratchRegisterScope temps(GetAssembler()-\u003eGetVIXLAssembler());\n\nstatement from line 4871 to line 4923?",
+      "range": {
+        "startLine": 4924,
+        "startChar": 31,
+        "endLine": 4924,
+        "endChar": 39
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6de78757_0074463d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4924,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_e945718f",
       "range": {
         "startLine": 4924,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2d602f88_46a7b28f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4992,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_c94ab59d",
+      "range": {
+        "startLine": 4992,
+        "startChar": 33,
+        "endLine": 4992,
+        "endChar": 41
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_a94f79ab",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-06T15:58:01Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 5134,
+        "startChar": 31,
+        "endLine": 5134,
+        "endChar": 39
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5d2bd4_c592ba39",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5134,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_a94f79ab",
       "range": {
         "startLine": 5134,
         "startChar": 31,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4d6723a0_07a1b678",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7087,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d3afb53_a4154c28",
+      "range": {
+        "startLine": 7087,
+        "startChar": 29,
+        "endLine": 7087,
+        "endChar": 38
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_2964a927",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-12-06T15:58:01Z",
       "side": 1,
       "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 7175,
+        "startChar": 0,
+        "endLine": 7175,
+        "endChar": 54
+      },
+      "revId": "f8960ad99350edb0d1093ca7761b882412fec35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade17f42_628556ef",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7175,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-12-06T18:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_2964a927",
       "range": {
         "startLine": 7175,
         "startChar": 0,
