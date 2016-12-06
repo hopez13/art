@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad833f54_46e81233",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_d5c34e4a",
+      "range": {
+        "startLine": 1688,
+        "startChar": 31,
+        "endLine": 1688,
+        "endChar": 36
+      },
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_95d8663f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-06T18:19:55Z",
       "side": 1,
       "message": "nit: why is it called \"from\" ? Is there a tospace? I think just calling it image_locations would\u0027ve been simpler.",
+      "range": {
+        "startLine": 1692,
+        "startChar": 38,
+        "endLine": 1692,
+        "endChar": 49
+      },
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_e6190695",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_95d8663f",
       "range": {
         "startLine": 1692,
         "startChar": 38,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ad833f54_061f6a78",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_d50b4e09",
+      "range": {
+        "startLine": 1693,
+        "startChar": 11,
+        "endLine": 1693,
+        "endChar": 15
+      },
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_d5f4aeda",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2016-12-06T18:19:55Z",
       "side": 1,
       "message": "nit: a comment that it\u0027s an iterator to a string would be appreciated",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_86827a51",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_d5f4aeda",
       "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "ad833f54_267f0e80",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_75e6222c",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_d5482e30",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -116,6 +224,24 @@
       "writtenOn": "2016-12-06T18:19:55Z",
       "side": 1,
       "message": "nit: ++it is usually faster for iterators",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_467c9288",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_d5482e30",
       "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -139,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "ad833f54_06c3ea9b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1728,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_35341a99",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_35bf3aaf",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -156,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "ad833f54_e6bd860c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad833f54_35bf3aaf",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_b8780132",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
@@ -167,6 +329,24 @@
       "writtenOn": "2016-12-06T18:19:55Z",
       "side": 1,
       "message": "Not really sure what the error conditions are, I think it has to have same # of components and same order right?",
+      "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_c6cc02c9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-06T20:27:05Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "ad833f54_b8780132",
       "revId": "1d4a3677dcc3885522c832394a0bf1541ed964f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
