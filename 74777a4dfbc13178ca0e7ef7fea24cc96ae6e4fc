@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d04af97_89b03d93",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-06T14:05:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_e94451bc",
+      "range": {
+        "startLine": 114,
+        "startChar": 52,
+        "endLine": 114,
+        "endChar": 62
+      },
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_4936c545",
         "filename": "compiler/verifier_deps_test.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "0d01ab89_c8974f27",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-06T14:05:41Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "2d04af97_4936c545",
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_29338955",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-12-06T13:49:50Z",
       "side": 1,
       "message": "629-vdex-speed",
+      "range": {
+        "startLine": 430,
+        "startChar": 2,
+        "endLine": 430,
+        "endChar": 5
+      },
+      "revId": "74777a4dfbc13178ca0e7ef7fea24cc96ae6e4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_69b6218f",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-06T14:05:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d04af97_29338955",
       "range": {
         "startLine": 430,
         "startChar": 2,
