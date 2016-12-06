@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d04af97_09020d71",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-06T15:13:20Z",
+      "side": 1,
+      "message": "Now that $t0 is an argument register, maybe we should use $t8 instead.\n(Also for consistency with the corresponding RESTORE macro.)",
+      "range": {
+        "startLine": 210,
+        "startChar": 29,
+        "endLine": 210,
+        "endChar": 32
+      },
+      "revId": "d048216db17538ef448129b825a38b8e0a3187b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d04af97_096b2d09",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-06T15:13:20Z",
+      "side": 1,
+      "message": "The entrypoint could call another helper function to extract the shorty and check it but that would slow things down.",
+      "revId": "d048216db17538ef448129b825a38b8e0a3187b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
