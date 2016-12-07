@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_8fee0a40",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2640,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-07T00:45:17Z",
+      "side": 1,
+      "message": "Does it not make sense to have SetResolvedType do a release operation instead? Any other thread that needs to see this presumable reads the result of that write?\n\nI\u0027m nervous about using ThreadFenceForConstructor for other purposes. The problem is that a load before this (e.g. in a CHECK) can see the results of modifications performed after reading the dex cache entry. Store-only fences are really weird and counter-intuitive, even by memory model standards. The data protected by this really needs to be read-only. Is that the case here? A release store is much less subtle.",
+      "range": {
+        "startLine": 2637,
+        "startChar": 2,
+        "endLine": 2640,
+        "endChar": 43
+      },
+      "revId": "decb4dbc61f60dfff4143764b055ad4a3d4a573c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
