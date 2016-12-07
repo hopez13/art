@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_63389ae6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1684,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-07T19:09:14Z",
+      "side": 1,
+      "message": "I think it would be useful here to say that you\u0027re ensuring that BOOTCLASSPATH and the image files have to be the same dex file locations in the same order.",
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_23437265",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-07T19:09:14Z",
+      "side": 1,
+      "message": "Contains is still a bit vague to me.  I think it would be useful here to say that you\u0027re ensuring that BOOTCLASSPATH and the image files have to be the same dex file locations in the same order.",
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
