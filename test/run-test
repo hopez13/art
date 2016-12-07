@@ -303,6 +303,7 @@ while true; do
     elif [ "x$1" = "x--output-path" ]; then
         shift
         tmp_dir=$1
+        echo "output-path" $1
         if [ "x$tmp_dir" = "x" ]; then
             echo "$0 missing argument to --output-path" 1>&2
             usage="yes"
