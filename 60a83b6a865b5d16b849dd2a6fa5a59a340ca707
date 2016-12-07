@@ -22,6 +22,30 @@
       "revId": "60a83b6a865b5d16b849dd2a6fa5a59a340ca707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad833f54_66b668bd",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-07T19:37:42Z",
+      "side": 1,
+      "message": "I thought the conclusion was that we don\u0027t change this to an acquire load?\n\nCould we also force a fake address dependency using an inline asm (see Object::GetReadBarrierState)?",
+      "parentUuid": "ad833f54_83e01e0d",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "60a83b6a865b5d16b849dd2a6fa5a59a340ca707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
