@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_83e01e0d",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-07T19:24:12Z",
+      "side": 1,
+      "message": "Is it easy to confirm that this generates the correct code?\n\nI\u0027m suspicious that it doesn\u0027t, since LoadAcquire is going to copy, passing a different reference to Read? Is that OK?",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "60a83b6a865b5d16b849dd2a6fa5a59a340ca707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
