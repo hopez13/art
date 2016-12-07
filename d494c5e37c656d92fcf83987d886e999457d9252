@@ -16,6 +16,24 @@
       "revId": "d494c5e37c656d92fcf83987d886e999457d9252",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5d2bd4_e54a569d",
+        "filename": "compiler/utils/arm/assembler_arm_vixl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-12-07T10:55:46Z",
+      "side": 1,
+      "message": "I think if I do this it will be more confusing: Mul is a binary op, but it doesn\u0027t fit this macro, because the parameters are different: (Reg, Reg, Reg) not (Reg, Reg, Op).",
+      "parentUuid": "ad833f54_0cac6bd3",
+      "revId": "d494c5e37c656d92fcf83987d886e999457d9252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
