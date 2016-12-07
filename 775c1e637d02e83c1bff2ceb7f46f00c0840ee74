@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "8d159bc1_d11c86e2",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-07T17:13:06Z",
+      "side": 1,
+      "message": "constant",
+      "range": {
+        "startLine": 1011,
+        "startChar": 33,
+        "endLine": 1011,
+        "endChar": 42
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d04af97_06e0ba0a",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 3
@@ -83,6 +106,30 @@
       "writtenOn": "2016-12-06T00:17:02Z",
       "side": 1,
       "message": "Did the full format already, the TODO on getting this to work is in the header file) happy to add that too here :-)",
+      "parentUuid": "2d04af97_06e0ba0a",
+      "range": {
+        "startLine": 1115,
+        "startChar": 0,
+        "endLine": 1115,
+        "endChar": 25
+      },
+      "revId": "775c1e637d02e83c1bff2ceb7f46f00c0840ee74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d159bc1_f13e6a1d",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-12-07T17:13:06Z",
+      "side": 1,
+      "message": "+1",
       "parentUuid": "2d04af97_06e0ba0a",
       "range": {
         "startLine": 1115,
