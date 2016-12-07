@@ -81,6 +81,24 @@
       "revId": "d048216db17538ef448129b825a38b8e0a3187b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5d2bd4_859282e6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-07T12:45:49Z",
+      "side": 1,
+      "message": "Removing the \"TODO\" is a strange way of addressing my comment... never mind.",
+      "parentUuid": "cd795340_8e3e1b1d",
+      "revId": "d048216db17538ef448129b825a38b8e0a3187b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
