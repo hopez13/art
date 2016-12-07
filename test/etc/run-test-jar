@@ -254,7 +254,6 @@ while true; do
         break
     fi
 done
-
 if [ "$USE_JVM" = "n" ]; then
     FLAGS="${FLAGS} ${ANDROID_FLAGS}"
     for feature in ${EXPERIMENTAL}; do
@@ -324,7 +323,6 @@ if [ "$USE_JVM" = "y" ]; then
   exit
 fi
 
-
 if [ "$HAVE_IMAGE" = "n" ]; then
     DALVIKVM_BOOT_OPT="-Ximage:/system/non-existant/core.art"
 else
@@ -388,7 +386,7 @@ if [ "$RELOCATE" = "y" ]; then
         # in 512 byte blocks and set it as the ulimit. This should be more than enough
         # room.
         if [ ! `uname` = "Darwin" ]; then  # TODO: Darwin doesn't support "du -B..."
-          ulimit -S $(du -c -B512 ${ANDROID_HOST_OUT}/framework 2>/dev/null | tail -1 | cut -f1) || exit 1
+            ulimit -S $(du -c -B512 ${ANDROID_HOST_OUT}/framework 2>/dev/null | tail -1 | cut -f1) || exit 1
         fi
     fi
 else
@@ -439,6 +437,7 @@ else
   # There is no getconf on device, fallback to standard value. See NAME_MAX in kernel <linux/limits.h>
   max_filename_size=255
 fi
+
 # Compute VDEX_NAME.
 DEX_LOCATION_STRIPPED="${DEX_LOCATION#/}"
 VDEX_NAME="${DEX_LOCATION_STRIPPED//\//@}@$TEST_NAME.jar@classes.vdex"
