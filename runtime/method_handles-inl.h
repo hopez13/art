@@ -134,15 +134,13 @@ bool PerformConversions(Thread* self,
   return true;
 }
 
-template <bool is_range>
-bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
-                                            Handle<mirror::MethodType> callsite_type,
-                                            Handle<mirror::MethodType> callee_type,
-                                            const ShadowFrame& caller_frame,
-                                            uint32_t first_src_reg,
-                                            uint32_t first_dest_reg,
-                                            const uint32_t (&arg)[Instruction::kMaxVarArgRegs],
-                                            ShadowFrame* callee_frame)
+inline bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
+                                                   Handle<mirror::MethodType> callsite_type,
+                                                   Handle<mirror::MethodType> callee_type,
+                                                   const ShadowFrame& caller_frame,
+                                                   const CallerRegisters& caller_registers,
+                                                   uint32_t first_dst_reg,
+                                                   ShadowFrame* callee_frame)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::ObjectArray<mirror::Class>> from_types(callsite_type->GetPTypes());
   ObjPtr<mirror::ObjectArray<mirror::Class>> to_types(callee_type->GetPTypes());
@@ -153,15 +151,39 @@ bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
     return false;
   }
 
-  ShadowFrameGetter<is_range> getter(first_src_reg, arg, caller_frame);
-  ShadowFrameSetter setter(callee_frame, first_dest_reg);
+  ShadowFrameGetter getter(caller_registers, caller_frame);
+  ShadowFrameSetter setter(callee_frame, first_dst_reg);
 
-  return PerformConversions<ShadowFrameGetter<is_range>, ShadowFrameSetter>(self,
-                                                                            callsite_type,
-                                                                            callee_type,
-                                                                            &getter,
-                                                                            &setter,
-                                                                            num_method_params);
+  return PerformConversions<ShadowFrameGetter, ShadowFrameSetter>(self,
+                                                                  callsite_type,
+                                                                  callee_type,
+                                                                  &getter,
+                                                                  &setter,
+                                                                  num_method_params);
+}
+
+inline void CopyArgumentsFromCallerFrame(const ShadowFrame& caller_frame,
+                                         ShadowFrame* callee_frame,
+                                         const CallerRegisters& caller_registers,
+                                         const size_t first_dst_reg,
+                                         const size_t num_regs)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK_EQ(caller_registers.GetCount(), num_regs);
+  for (size_t i = 0; i < num_regs; ++i) {
+    size_t dst_reg = first_dst_reg + i;
+    size_t src_reg = caller_registers.GetRegister(i);
+    // Uint required, so that sign extension does not make this wrong on 64-bit systems
+    uint32_t src_value = caller_frame.GetVReg(src_reg);
+    ObjPtr<mirror::Object> o = caller_frame.GetVRegReference<kVerifyNone>(src_reg);
+    // If both register locations contains the same value, the register probably holds a reference.
+    // Note: As an optimization, non-moving collectors leave a stale reference value
+    // in the references array even after the original vreg was overwritten to a non-reference.
+    if (src_value == reinterpret_cast<uintptr_t>(o.Ptr())) {
+      callee_frame->SetVRegReference(dst_reg, o.Ptr());
+    } else {
+      callee_frame->SetVReg(dst_reg, src_value);
+    }
+  }
 }
 
 }  // namespace art

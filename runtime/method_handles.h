@@ -23,47 +23,17 @@
 #include "handle.h"
 #include "jvalue.h"
 #include "mirror/class.h"
+#include "mirror/method_handle_impl.h"
 #include "mirror/method_type.h"
 
 namespace art {
 
 namespace mirror {
+  class MethodHandleImpl;
   class MethodType;
-}
+}  // mirror
 
 class ShadowFrame;
-
-// Defines the behaviour of a given method handle. The behaviour
-// of a handle of a given kind is identical to the dex bytecode behaviour
-// of the equivalent instruction.
-//
-// NOTE: These must be kept in sync with the constants defined in
-// java.lang.invoke.MethodHandle.
-enum MethodHandleKind {
-  kInvokeVirtual = 0,
-  kInvokeSuper,
-  kInvokeDirect,
-  kInvokeStatic,
-  kInvokeInterface,
-  kInvokeTransform,
-  kInvokeCallSiteTransform,
-  kInstanceGet,
-  kInstancePut,
-  kStaticGet,
-  kStaticPut,
-  kLastValidKind = kStaticPut,
-  kLastInvokeKind = kInvokeCallSiteTransform
-};
-
-// Whether the given method handle kind is some variant of an invoke.
-inline bool IsInvoke(const MethodHandleKind handle_kind) {
-  return handle_kind <= kLastInvokeKind;
-}
-
-// Whether the given method handle kind is some variant of a tranform.
-inline bool IsInvokeTransform(const MethodHandleKind handle_kind) {
-  return handle_kind == kInvokeTransform || handle_kind == kInvokeCallSiteTransform;
-}
 
 // Returns true if there is a possible conversion from |from| to |to|
 // for a MethodHandle parameter.
@@ -158,61 +128,50 @@ bool PerformConversions(Thread* self,
                         S* setter,
                         int32_t num_conversions) REQUIRES_SHARED(Locks::mutator_lock_);
 
-// A convenience wrapper around |PerformConversions|, for the case where
-// the setter and getter are both ShadowFrame based.
-template <bool is_range>
-bool ConvertAndCopyArgumentsFromCallerFrame(Thread* self,
-                                            Handle<mirror::MethodType> callsite_type,
-                                            Handle<mirror::MethodType> callee_type,
-                                            const ShadowFrame& caller_frame,
-                                            uint32_t first_src_reg,
-                                            uint32_t first_dest_reg,
-                                            const uint32_t (&arg)[Instruction::kMaxVarArgRegs],
-                                            ShadowFrame* callee_frame)
-    REQUIRES_SHARED(Locks::mutator_lock_);
-
-// A convenience class that allows for iteration through a list of
-// input argument registers |arg| for non-range invokes or a list of
-// consecutive registers starting with a given based for range
-// invokes.
-//
-// This is used to iterate over input arguments while performing standard
-// argument conversions.
-template <bool is_range> class ShadowFrameGetter {
+// A class for adapting lists of registers. Typically from bytecode
+// invoke arguments with the receiver not included.
+class CallerRegisters {
  public:
-  ShadowFrameGetter(size_t first_src_reg,
-                    const uint32_t (&arg)[Instruction::kMaxVarArgRegs],
-                    const ShadowFrame& shadow_frame) :
-      first_src_reg_(first_src_reg),
-      arg_(arg),
-      shadow_frame_(shadow_frame),
-      arg_index_(0) {
-  }
+  explicit CallerRegisters(size_t count) : count_(count) {}
+  virtual ~CallerRegisters() {}
+  virtual uint32_t GetRegister(size_t index) const = 0;
+  size_t GetCount() const { return count_; }
+ protected:
+  DISALLOW_COPY_AND_ASSIGN(CallerRegisters);
+  size_t count_;
+};
+
+inline void CopyArgumentsFromCallerFrame(const ShadowFrame& caller_frame,
+                                         ShadowFrame* callee_frame,
+                                         const CallerRegisters& caller_registers,
+                                         const size_t first_dest_reg,
+                                         const size_t num_regs);
+
+class ShadowFrameGetter {
+ public:
+  ShadowFrameGetter(const CallerRegisters& caller_registers, const ShadowFrame& shadow_frame)
+      : caller_registers_(caller_registers), shadow_frame_(shadow_frame), arg_index_(0) {}
 
   ALWAYS_INLINE uint32_t Get() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
-    ++arg_index_;
-
+    const uint32_t next = caller_registers_.GetRegister(arg_index_);
+    arg_index_ += 1;
     return shadow_frame_.GetVReg(next);
   }
 
   ALWAYS_INLINE int64_t GetLong() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
+    const uint32_t next = caller_registers_.GetRegister(arg_index_);
     arg_index_ += 2;
-
     return shadow_frame_.GetVRegLong(next);
   }
 
   ALWAYS_INLINE ObjPtr<mirror::Object> GetReference() REQUIRES_SHARED(Locks::mutator_lock_) {
-    const uint32_t next = (is_range ? first_src_reg_ + arg_index_ : arg_[arg_index_]);
-    ++arg_index_;
-
+    const uint32_t next = caller_registers_.GetRegister(arg_index_);
+    arg_index_ += 1;
     return shadow_frame_.GetVRegReference(next);
   }
 
  private:
-  const size_t first_src_reg_;
-  const uint32_t (&arg_)[Instruction::kMaxVarArgRegs];
+  const CallerRegisters& caller_registers_;
   const ShadowFrame& shadow_frame_;
   size_t arg_index_;
 };
@@ -245,6 +204,26 @@ class ShadowFrameSetter {
   ShadowFrame* shadow_frame_;
   size_t arg_index_;
 };
+
+// Native implementation of MethodHandle.invokeExact() that is callable from interpreted code and
+// compiled code.
+bool DoInvokePolymorphicExact(Thread* self,
+                              ShadowFrame& shadow_frame,
+                              Handle<mirror::MethodHandleImpl> method_handle,
+                              Handle<mirror::MethodType> callsite_type,
+                              const CallerRegisters& caller_registers,
+                              JValue* result)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+// Native implementation of MethodHandle.invoke() that is callable from interpreted code and
+// compiled code.
+bool DoInvokePolymorphicNonExact(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 Handle<mirror::MethodHandleImpl> method_handle,
+                                 Handle<mirror::MethodType> callsite_type,
+                                 const CallerRegisters& caller_registers,
+                                 JValue* result)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
 }  // namespace art
 
