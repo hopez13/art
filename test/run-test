@@ -783,6 +783,7 @@ if [ "$dev_mode" = "yes" ]; then
         if ! ulimit -S "$run_file_size_limit"; then
           err_echo "ulimit file size setting failed"
         fi
+        echo '::::'
         echo "${test_dir}: running..." 1>&2
         "./${run}" $run_args "$@" 2>&1
         run_exit="$?"
@@ -842,8 +843,14 @@ elif [ "$build_only" = "yes" ]; then
     find $tmp_dir -mindepth 1  ! -regex ".*/\(.*jar\|$output\|$expected\)" | xargs rm -rf
     exit 0
 else
+    echo "shubham"
+    echo ${build_args} -
+    echo "shubham"
     "./${build}" $build_args >"$build_output" 2>&1
     build_exit="$?"
+    print $build_exit
+    echo ".....,,,"
+    echo "$@"
     if [ "$build_exit" = '0' ]; then
         if ! ulimit -S "$run_file_size_limit"; then
           err_echo "ulimit file size setting failed"
@@ -855,6 +862,7 @@ else
             err_echo "run exit status: $run_exit"
             good_run="no"
         elif [ "$run_checker" = "yes" ]; then
+            echo 'in here'
             if [ "$target_mode" = "yes" ]; then
               adb pull $cfg_output_dir/$cfg_output &> /dev/null
             fi
