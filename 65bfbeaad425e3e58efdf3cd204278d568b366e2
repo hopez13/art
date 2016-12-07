@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad833f54_9cb5ead1",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-07T00:25:50Z",
+      "side": 1,
+      "message": "DCHECK at the head that there was nothing pending on entry.",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 33
+      },
+      "revId": "65bfbeaad425e3e58efdf3cd204278d568b366e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
