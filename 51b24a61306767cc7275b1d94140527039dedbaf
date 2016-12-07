@@ -57,6 +57,24 @@
       "revId": "51b24a61306767cc7275b1d94140527039dedbaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5d2bd4_45f32abe",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-07T21:08:04Z",
+      "side": 1,
+      "message": "I\u0027d prefer also having the cputime to make it clear the difference. The memory stats are also verbose. We can submit and wait for eventual complaints.",
+      "parentUuid": "ad833f54_7bb8530f",
+      "revId": "51b24a61306767cc7275b1d94140527039dedbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
