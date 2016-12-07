@@ -2634,6 +2634,11 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
   CHECK(h_new_class.Get() != nullptr) << descriptor;
   CHECK(h_new_class->IsResolved()) << descriptor;
 
+  // Do a fence before storing into the dex cache to prevent other threads from seeing a class but
+  // not necessarily seeing the loaded members like the static fields array. This is required since
+  // DexCache::GetResolvedType does a relaxed load. See b/32075261.
+  QuasiAtomic::ThreadFenceForConstructor();
+
   // Update the dex cache of where the class is defined. Inlining depends on having
   // this filled.
   h_new_class->GetDexCache()->SetResolvedType(h_new_class->GetDexTypeIndex(), h_new_class.Get());
