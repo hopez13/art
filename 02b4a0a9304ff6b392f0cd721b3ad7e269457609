@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d5d2bd4_a51a1e54",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-07T15:36:31Z",
+      "side": 1,
+      "message": "Add a comment what does that mean for the image: do those processes come with their own? Can we reuse the zygote one with some caveats?",
+      "range": {
+        "startLine": 1683,
+        "startChar": 55,
+        "endLine": 1683,
+        "endChar": 66
+      },
+      "revId": "02b4a0a9304ff6b392f0cd721b3ad7e269457609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_c6aba26a",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
