@@ -842,8 +842,14 @@ elif [ "$build_only" = "yes" ]; then
     find $tmp_dir -mindepth 1  ! -regex ".*/\(.*jar\|$output\|$expected\)" | xargs rm -rf
     exit 0
 else
+    echo "shubham"
+    echo ${build_args} -
+    echo "shubham"
     "./${build}" $build_args >"$build_output" 2>&1
     build_exit="$?"
+    print $build_exit
+    echo ".....,,,"
+    echo "$@"
     if [ "$build_exit" = '0' ]; then
         if ! ulimit -S "$run_file_size_limit"; then
           err_echo "ulimit file size setting failed"
