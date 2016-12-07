@@ -72,13 +72,15 @@ inline void DexCache::ClearString(dex::StringIndex string_idx) {
 
 inline Class* DexCache::GetResolvedType(dex::TypeIndex type_idx) {
   DCHECK_LT(type_idx.index_, NumResolvedTypes());
-  return GetResolvedTypes()[type_idx.index_].Read();
+  return reinterpret_cast<Atomic<GcRoot<mirror::Class>>&>(GetResolvedTypes()[type_idx.index_]).
+      LoadAcquire().Read();
 }
 
 inline void DexCache::SetResolvedType(dex::TypeIndex type_idx, ObjPtr<Class> resolved) {
   DCHECK_LT(type_idx.index_, NumResolvedTypes());  // NOTE: Unchecked, i.e. not throwing AIOOB.
   // TODO default transaction support.
-  GetResolvedTypes()[type_idx.index_] = GcRoot<Class>(resolved);
+  reinterpret_cast<Atomic<GcRoot<mirror::Class>>&>(GetResolvedTypes()[type_idx.index_]).
+      StoreRelease(GcRoot<Class>(resolved));
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
 }
