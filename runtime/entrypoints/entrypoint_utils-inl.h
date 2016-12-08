@@ -672,9 +672,9 @@ EXPLICIT_FIND_METHOD_FROM_CODE_TYPED_TEMPLATE_DECL(kInterface);
 inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFieldType type,
                                size_t expected_size) {
   ScopedAssertNoThreadSuspension ants(__FUNCTION__);
+  mirror::Class* referring_class = referrer->GetDeclaringClass();
   ArtField* resolved_field =
-      referrer->GetDeclaringClass()->GetDexCache()->GetResolvedField(field_idx,
-                                                                     kRuntimePointerSize);
+      referring_class->GetDexCache()->GetResolvedField(field_idx, kRuntimePointerSize);
   if (UNLIKELY(resolved_field == nullptr)) {
     return nullptr;
   }
@@ -707,7 +707,6 @@ inline ArtField* FindFieldFast(uint32_t field_idx, ArtMethod* referrer, FindFiel
       return nullptr;
     }
   }
-  mirror::Class* referring_class = referrer->GetDeclaringClass();
   if (UNLIKELY(!referring_class->CanAccess(fields_class) ||
                !referring_class->CanAccessMember(fields_class, resolved_field->GetAccessFlags()) ||
                (is_set && resolved_field->IsFinal() && (fields_class != referring_class)))) {
