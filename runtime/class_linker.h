@@ -329,6 +329,8 @@ class ClassLinker {
 
   ArtField* GetResolvedField(uint32_t field_idx, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  ArtField* GetResolvedField(uint32_t field_idx, ObjPtr<mirror::DexCache> dex_cache, bool is_static)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   ArtField* ResolveField(uint32_t field_idx, ArtMethod* referrer, bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
@@ -795,6 +797,18 @@ class ClassLinker {
                              size_t hash,
                              ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(!Locks::classlinker_classes_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  enum class FieldLookup {
+    kUnknown,
+    kStatic,
+    kInstance
+  };
+
+  // Find a field by its field index.
+  ArtField* LookupField(uint32_t field_idx,
+                        ObjPtr<mirror::DexCache> dex_cache,
+                        FieldLookup lookup_type)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void RegisterDexFileLocked(const DexFile& dex_file, Handle<mirror::DexCache> dex_cache)

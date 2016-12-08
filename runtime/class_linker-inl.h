@@ -186,7 +186,22 @@ inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
 
 inline ArtField* ClassLinker::GetResolvedField(uint32_t field_idx,
                                                ObjPtr<mirror::DexCache> dex_cache) {
-  return dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  ArtField* field = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  if (field == nullptr) {
+    field = LookupField(field_idx, dex_cache, FieldLookup::kUnknown);
+  }
+  return field;
+}
+
+inline ArtField* ClassLinker::GetResolvedField(uint32_t field_idx,
+                                               ObjPtr<mirror::DexCache> dex_cache,
+                                               bool is_static) {
+  ArtField* field = dex_cache->GetResolvedField(field_idx, image_pointer_size_);
+  if (field == nullptr) {
+    FieldLookup lookup_type = is_static ? FieldLookup::kStatic : FieldLookup::kInstance;
+    field = LookupField(field_idx, dex_cache, lookup_type);
+  }
+  return field;
 }
 
 inline ArtField* ClassLinker::ResolveField(uint32_t field_idx,

@@ -1134,8 +1134,9 @@ bool HInliner::TryPatternSubstitution(HInvoke* invoke_instruction,
           invoke_instruction->GetBlock()->InsertInstructionBefore(iput, invoke_instruction);
 
           // Check whether the field is final. If it is, we need to add a barrier.
-          PointerSize pointer_size = InstructionSetPointerSize(codegen_->GetInstructionSet());
-          ArtField* resolved_field = dex_cache->GetResolvedField(field_index, pointer_size);
+          ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+          ArtField* resolved_field =
+              class_linker->GetResolvedField(field_index, dex_cache.Get(), /* is_static */ false);
           DCHECK(resolved_field != nullptr);
           if (resolved_field->IsFinal()) {
             needs_constructor_barrier = true;
@@ -1160,8 +1161,9 @@ HInstanceFieldGet* HInliner::CreateInstanceFieldGet(Handle<mirror::DexCache> dex
                                                     uint32_t field_index,
                                                     HInstruction* obj)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  PointerSize pointer_size = InstructionSetPointerSize(codegen_->GetInstructionSet());
-  ArtField* resolved_field = dex_cache->GetResolvedField(field_index, pointer_size);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  ArtField* resolved_field =
+      class_linker->GetResolvedField(field_index, dex_cache.Get(), /* is_static */ false);
   DCHECK(resolved_field != nullptr);
   HInstanceFieldGet* iget = new (graph_->GetArena()) HInstanceFieldGet(
       obj,
@@ -1188,8 +1190,9 @@ HInstanceFieldSet* HInliner::CreateInstanceFieldSet(Handle<mirror::DexCache> dex
                                                     HInstruction* obj,
                                                     HInstruction* value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  PointerSize pointer_size = InstructionSetPointerSize(codegen_->GetInstructionSet());
-  ArtField* resolved_field = dex_cache->GetResolvedField(field_index, pointer_size);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  ArtField* resolved_field =
+      class_linker->GetResolvedField(field_index, dex_cache.Get(), /* is_static */ false);
   DCHECK(resolved_field != nullptr);
   HInstanceFieldSet* iput = new (graph_->GetArena()) HInstanceFieldSet(
       obj,
