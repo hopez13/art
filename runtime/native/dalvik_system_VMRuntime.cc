@@ -466,7 +466,7 @@ static void PreloadDexCachesStatsFilled(DexCacheStats* filled)
       }
     }
     for (size_t j = 0; j < dex_cache->NumResolvedFields(); j++) {
-      ArtField* field = class_linker->GetResolvedField(j, dex_cache);
+      ArtField* field = dex_cache->GetResolvedField(j, class_linker->GetImagePointerSize());
       if (field != nullptr) {
         filled->num_fields++;
       }
