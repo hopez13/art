@@ -132,7 +132,8 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
         << " " << dex.GetMethodDeclaringClassDescriptor(dex.GetMethodId(i)) << " "
         << dex.GetMethodName(dex.GetMethodId(i));
   }
-  EXPECT_EQ(dex.NumFieldIds(), dex_cache->NumResolvedFields());
+  EXPECT_TRUE(dex_cache->StaticFieldSize() == dex_cache->NumResolvedFields()
+      || dex.NumFieldIds() ==  dex_cache->NumResolvedFields());
   for (size_t i = 0; i < dex_cache->NumResolvedFields(); i++) {
     ArtField* field = cl->GetResolvedField(i, dex_cache);
     EXPECT_TRUE(field != nullptr) << "field_idx=" << i
