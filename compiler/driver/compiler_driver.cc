@@ -1208,7 +1208,7 @@ static void MaybeAddToImageClasses(Handle<mirror::Class> c,
     for (size_t i = 0; i < klass->NumDirectInterfaces(); ++i) {
       StackHandleScope<1> hs2(self);
       // May cause thread suspension.
-      MaybeAddToImageClasses(hs2.NewHandle(mirror::Class::GetDirectInterface(self, klass, i)),
+      MaybeAddToImageClasses(hs2.NewHandle(mirror::Class::ResolveDirectInterface(self, klass, i)),
                              image_classes);
     }
     for (auto& m : c->GetVirtualMethods(pointer_size)) {
