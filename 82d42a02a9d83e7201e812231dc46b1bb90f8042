@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2df58ffe_4143f47f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-08T17:01:04Z",
+      "side": 1,
+      "message": "I guess this fixes a latent bug.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 19,
+        "endLine": 1211,
+        "endChar": 24
+      },
+      "revId": "82d42a02a9d83e7201e812231dc46b1bb90f8042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dec833c_02f72c1c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-08T17:01:04Z",
+      "side": 1,
+      "message": "Since there was previously no error checking, I assume this should not fail here, so I\u0027ve just added the DCHECK() below instead of using ResolveDirectInterface().",
+      "range": {
+        "startLine": 1575,
+        "startChar": 38,
+        "endLine": 1575,
+        "endChar": 83
+      },
+      "revId": "82d42a02a9d83e7201e812231dc46b1bb90f8042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
