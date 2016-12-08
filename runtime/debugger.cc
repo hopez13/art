@@ -1573,8 +1573,8 @@ JDWP::JdwpError Dbg::OutputDeclaredInterfaces(JDWP::RefTypeId class_id, JDWP::Ex
   size_t interface_count = c->NumDirectInterfaces();
   expandBufAdd4BE(pReply, interface_count);
   for (size_t i = 0; i < interface_count; ++i) {
-    expandBufAddRefTypeId(pReply,
-                          gRegistry->AddRefType(mirror::Class::GetDirectInterface(self, c, i)));
+    ObjPtr<mirror::Class> interface = mirror::Class::ResolveDirectInterface(self, c, i);
+    expandBufAddRefTypeId(pReply, gRegistry->AddRefType(interface));
   }
   return JDWP::ERR_NONE;
 }
