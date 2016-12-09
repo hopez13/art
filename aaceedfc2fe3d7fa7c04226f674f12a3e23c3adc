@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "daff4b21_9b848b9e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 3054,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T14:28:51Z",
+      "side": 1,
+      "message": "Still missing the constant division logic.",
+      "revId": "aaceedfc2fe3d7fa7c04226f674f12a3e23c3adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aef3f70_e0b1a291",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T14:28:51Z",
+      "side": 1,
+      "message": "This code could be shared with MoveBefore() if you introduce a helper funtction, say LocalMoveBeforeUnchecked().",
+      "range": {
+        "startLine": 1381,
+        "startChar": 0,
+        "endLine": 1395,
+        "endChar": 23
+      },
+      "revId": "aaceedfc2fe3d7fa7c04226f674f12a3e23c3adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_7ffe4ff9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T14:28:51Z",
+      "side": 1,
+      "message": "Useless assignment given the DCHECK() above.",
+      "range": {
+        "startLine": 1396,
+        "startChar": 2,
+        "endLine": 1396,
+        "endChar": 26
+      },
+      "revId": "aaceedfc2fe3d7fa7c04226f674f12a3e23c3adc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5af43b41_ff3fffe5",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 15
