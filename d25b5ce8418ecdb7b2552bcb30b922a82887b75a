@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "fa024ff6_1c2635de",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4798,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_2ea4b38a",
+      "range": {
+        "startLine": 4798,
+        "startChar": 10,
+        "endLine": 4798,
+        "endChar": 30
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_8ecb9f3c",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 12
@@ -82,6 +106,30 @@
       "writtenOn": "2016-10-21T17:46:54Z",
       "side": 1,
       "message": "MoveBefore(cursor-\u003enext_);",
+      "range": {
+        "startLine": 1368,
+        "startChar": 0,
+        "endLine": 1383,
+        "endChar": 26
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba129745_9abb6d70",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "We cannot simply use MoveBefore for instruction scheduling.\n\nMoveBefore() can support moving an instruction to any position within the whole graph, for example it is used by LICM to hoist instruction out of loop into loop header.\n\nMoveBefore() does CanBeMoved() DCHECK before moving, but this concept is not appropriate for instruction scheduling.\nFor example, HNewArray cannot be moved freely inside the whole graph (like host out of the loop) thus CanBeMoved() returns false for it; but instruction scheduling can move HNewArray inside one basic block.\n\nI’ve introduced LocalMoveAfter() function to allow moving instruction inside basic block without checking CanBeMoved(). \nI think the CanBeMoved() and MoveBefore/After() interfaces need improve to support different optimization requirements.\n\nPlease let me know your opinion on this.",
+      "parentUuid": "7c0657a0_8ecb9f3c",
       "range": {
         "startLine": 1368,
         "startChar": 0,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "daff4b21_3b9457cf",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done.\nI\u0027ve fixed this bad merge in PS15.",
+      "parentUuid": "7c0657a0_8ef03f76",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 12
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1bcbc99_aa882f03",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 12
@@ -128,6 +200,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "remove space",
+      "range": {
+        "startLine": 47,
+        "startChar": 42,
+        "endLine": 47,
+        "endChar": 43
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da182b71_b37098f4",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bcbc99_aa882f03",
       "range": {
         "startLine": 47,
         "startChar": 42,
@@ -915,6 +1011,30 @@
     },
     {
       "key": {
+        "uuid": "9aeeb371_81c89a11",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "411c4caf_a64b66c9",
+      "range": {
+        "startLine": 39,
+        "startChar": 34,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "411c4caf_264136a7",
         "filename": "compiler/optimizing/scheduler_arm64.h",
         "patchSetId": 12
@@ -938,6 +1058,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_3f2687e7",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done.\nI also think switch makes the code look cleaner. In previous patch sets, there is a \u0027false\u0027 in the if ()  which looks quite confusing to me.",
+      "parentUuid": "411c4caf_264136a7",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 21
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_07bc16a3",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 12
@@ -949,6 +1093,30 @@
       "writtenOn": "2016-10-25T15:50:31Z",
       "side": 1,
       "message": "We don\u0027t need a vector here.\n\n    HInstruction* block_instructions[] \u003d {\n        add1,\n        ...\n    };",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_1f2bc3af",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "I\u0027d like to keep the std::vector here, because it works really well with ReverseRange(Caintainer\u0026 c). Please see the ReverseRange() call below.\nIf we define it as array here, I think the following code has to write as something like \n ReverseRange\u003cHInstruction*, sizeof(block_instructions)\u003e(block_instructions);\nwhich looks quite awkward.",
+      "parentUuid": "617f90e7_07bc16a3",
       "range": {
         "startLine": 112,
         "startChar": 2,
@@ -1019,6 +1187,30 @@
       "side": 1,
       "message": "https://android-review.googlesource.com/#/c/294269/1/runtime/base/iteration_range.h",
       "parentUuid": "617f90e7_07e5f6c6",
+      "range": {
+        "startLine": 141,
+        "startChar": 7,
+        "endLine": 143,
+        "endChar": 11
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_df3c3bf4",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-09T14:07:23Z",
+      "side": 1,
+      "message": "Done.\nThe new helper functions make code much cleaner. Thanks!",
+      "parentUuid": "a1bb48d0_39fe8ffc",
       "range": {
         "startLine": 141,
         "startChar": 7,
