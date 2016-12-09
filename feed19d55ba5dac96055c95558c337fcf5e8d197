@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a179337_d955733a",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T16:55:03Z",
+      "side": 1,
+      "message": "Why not uint32_t? That should be enough and I think that, at least on 64-bit targets, it would actually use less memory.",
+      "range": {
+        "startLine": 718,
+        "startChar": 32,
+        "endLine": 718,
+        "endChar": 40
+      },
+      "revId": "feed19d55ba5dac96055c95558c337fcf5e8d197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aef3f70_809ad6fd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T16:55:03Z",
+      "side": 1,
+      "message": "Can we move this above the kDexCacheViaMethod? I like the fall-back kind to be the last.\n\nAnd please follow the order for cases in all switch statements (codegens and operator\u003c\u003c).",
+      "range": {
+        "startLine": 5507,
+        "startChar": 4,
+        "endLine": 5507,
+        "endChar": 21
+      },
+      "revId": "feed19d55ba5dac96055c95558c337fcf5e8d197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aef3f70_2099ca07",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T16:55:03Z",
+      "side": 1,
+      "message": "inline?",
+      "revId": "feed19d55ba5dac96055c95558c337fcf5e8d197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a179337_3926afe7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T16:55:03Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 16
+      },
+      "revId": "feed19d55ba5dac96055c95558c337fcf5e8d197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
