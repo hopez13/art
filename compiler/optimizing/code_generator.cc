@@ -1402,6 +1402,11 @@ void CodeGenerator::EmitJitRoots(uint8_t* code,
     entry.second = index;
     ++index;
   }
+  for (auto& entry : jit_class_roots_) {
+    roots->Set(index, reinterpret_cast<StackReference<mirror::Class>*>(entry.second)->AsMirrorPtr());
+    entry.second = index;
+    ++index;
+  }
   EmitJitRootPatches(code, roots_data);
 }
 
