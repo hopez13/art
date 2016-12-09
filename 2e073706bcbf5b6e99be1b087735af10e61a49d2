@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da182b71_f3dbb0d5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T13:33:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af43b41_df631b32",
+      "range": {
+        "startLine": 1191,
+        "startChar": 43,
+        "endLine": 1191,
+        "endChar": 47
+      },
+      "revId": "2e073706bcbf5b6e99be1b087735af10e61a49d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5af43b41_7f9acf00",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-09T13:11:44Z",
       "side": 1,
       "message": "Change to 6? (`hs.NewHandle()` seems to be called only 6 times in this method.)",
+      "range": {
+        "startLine": 8078,
+        "startChar": 19,
+        "endLine": 8078,
+        "endChar": 21
+      },
+      "revId": "2e073706bcbf5b6e99be1b087735af10e61a49d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aeeb371_c133424f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8078,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T13:33:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af43b41_7f9acf00",
       "range": {
         "startLine": 8078,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9a179337_19452bb5",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T13:33:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af43b41_1f82a39d",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 56
+      },
+      "revId": "2e073706bcbf5b6e99be1b087735af10e61a49d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5af43b41_5f782be1",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-09T13:11:44Z",
       "side": 1,
       "message": "Even though the explanation is in the commit message, I think it would be beneficial to document the difference between GetDirectInterface and ResolveDirectInterface here.",
+      "range": {
+        "startLine": 1209,
+        "startChar": 23,
+        "endLine": 1209,
+        "endChar": 41
+      },
+      "revId": "2e073706bcbf5b6e99be1b087735af10e61a49d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba129745_ba33d14f",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-09T13:33:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5af43b41_5f782be1",
       "range": {
         "startLine": 1209,
         "startChar": 23,
