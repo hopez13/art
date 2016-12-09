@@ -46,6 +46,30 @@
       "revId": "60a83b6a865b5d16b849dd2a6fa5a59a340ca707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_c99a3248",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-09T23:26:15Z",
+      "side": 1,
+      "message": "Changed to not use load acquire, added comment.",
+      "parentUuid": "ad833f54_66b668bd",
+      "range": {
+        "startLine": 75,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "60a83b6a865b5d16b849dd2a6fa5a59a340ca707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
