@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a2b0780_3fa328e7",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-10T01:16:00Z",
+      "side": 1,
+      "message": "dependency\n\nThis may be worth a discussion at a Monday meeting to run this past more people and see if they know of places where the dependency may be broken. Particularly folks working on clever compiler optimizations may have concerns.\n\nBut I think this is fine for now. At a minimum it should hugely reduce the failure probability.",
+      "range": {
+        "startLine": 75,
+        "startChar": 28,
+        "endLine": 75,
+        "endChar": 37
+      },
+      "revId": "5df32d376713499722c5cf17d7d94543295953dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
