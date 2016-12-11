@@ -1256,6 +1256,8 @@ void CodeGenerator::ValidateInvokeRuntimeWithoutRecordingPcInfo(HInstruction* in
   DCHECK(instruction->IsInstanceFieldGet() ||
          instruction->IsStaticFieldGet() ||
          instruction->IsArrayGet() ||
+         instruction->IsMarkReferencesExplicitRBState() ||
+         instruction->IsMarkReferencesImplicitRBState() ||
          instruction->IsArraySet() ||
          instruction->IsLoadClass() ||
          instruction->IsLoadString() ||
