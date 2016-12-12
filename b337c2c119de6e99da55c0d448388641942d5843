@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5af43b41_62a6b861",
+        "filename": "compiler/optimizing/cha_guard_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T12:55:01Z",
+      "side": 1,
+      "message": "ArenaVector",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 12
+      },
+      "revId": "b337c2c119de6e99da55c0d448388641942d5843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_42abb427",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T12:55:01Z",
+      "side": 1,
+      "message": "This should be true, and then you\u0027ll get GVN.",
+      "range": {
+        "startLine": 2916,
+        "startChar": 0,
+        "endLine": 2917,
+        "endChar": 52
+      },
+      "revId": "b337c2c119de6e99da55c0d448388641942d5843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_02b5ac7d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6680,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T12:55:01Z",
+      "side": 1,
+      "message": "This is state stuff. Please move this to the place you\u0027re using it.",
+      "range": {
+        "startLine": 6679,
+        "startChar": 0,
+        "endLine": 6680,
+        "endChar": 87
+      },
+      "revId": "b337c2c119de6e99da55c0d448388641942d5843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
