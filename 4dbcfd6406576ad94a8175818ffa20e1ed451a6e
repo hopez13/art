@@ -22,6 +22,24 @@
       "revId": "4dbcfd6406576ad94a8175818ffa20e1ed451a6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_a64f05af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-12T22:49:06Z",
+      "side": 1,
+      "message": "b/33554957\n\nI am fairly sure it is just that all other configurations either (a) already have an image and oat so don\u0027t need to compile anything, (b) don\u0027t need to compile everything anyway, or (c) fail compilation immediatly (no-dex2oat uses /system/bin/false as dex2oat). This means that no other configurations attempt the compilation during the timeout period.",
+      "parentUuid": "5af43b41_02ea4cf1",
+      "revId": "4dbcfd6406576ad94a8175818ffa20e1ed451a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
