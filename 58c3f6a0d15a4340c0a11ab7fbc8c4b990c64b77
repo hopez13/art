@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a2b0780_2551d224",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_05645227",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d5d2bd4_25614e18",
         "filename": "runtime/class_table.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-07T11:22:39Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_653fdac9",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_25614e18",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3a2b0780_054ed687",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_852842b1",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d5d2bd4_45432a80",
         "filename": "runtime/class_table.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-07T11:22:39Z",
       "side": 1,
       "message": "Ditto, except that we don\u0027t have InsertWithHashWithoutLocks().",
+      "range": {
+        "startLine": 119,
+        "startChar": 18,
+        "endLine": 119,
+        "endChar": 42
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_255c3235",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_45432a80",
       "range": {
         "startLine": 119,
         "startChar": 18,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3a2b0780_e5650af6",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_253aaef6",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 75
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d5d2bd4_a5221ec7",
         "filename": "runtime/class_table.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-12-07T11:22:39Z",
       "side": 1,
       "message": "Move this to a private static helper function and change this constructor to forward to TableSlot(klass, hash). That way, data_ will be constructed directly without the need for StoreRelaxed().",
+      "range": {
+        "startLine": 245,
+        "startChar": 21,
+        "endLine": 246,
+        "endChar": 91
+      },
+      "revId": "58c3f6a0d15a4340c0a11ab7fbc8c4b990c64b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_65911a9e",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-12T22:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5d2bd4_a5221ec7",
       "range": {
         "startLine": 245,
         "startChar": 21,
