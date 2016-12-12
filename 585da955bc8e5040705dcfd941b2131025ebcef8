@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a179337_bc4d0d8d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T23:16:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you need to do it this way. Why don\u0027t you iterate over the dex registers, get their location and then do a bitmask check on the register stack or stack mask?",
+      "range": {
+        "startLine": 2989,
+        "startChar": 0,
+        "endLine": 3053,
+        "endChar": 56
+      },
+      "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
