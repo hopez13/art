@@ -46,6 +46,30 @@
       "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1afac331_238f8e10",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T23:29:29Z",
+      "side": 1,
+      "message": "(But now you\u0027re paying a high runtime price for doing so, which you noted in your todo line 3005. And there would be no need of implementing your TODO.)\n\nIf you need to give temporaries too, then yeah, you\u0027ll need something else that walking the dex registers. jvmti mandates that you should give them?",
+      "parentUuid": "3a2b0780_99eeae96",
+      "range": {
+        "startLine": 2989,
+        "startChar": 0,
+        "endLine": 3053,
+        "endChar": 56
+      },
+      "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
