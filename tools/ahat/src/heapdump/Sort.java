@@ -14,13 +14,8 @@
  * limitations under the License.
  */
 
-package com.android.ahat;
+package com.android.ahat.heapdump;
 
-import com.android.ahat.heapdump.AhatHeap;
-import com.android.ahat.heapdump.AhatInstance;
-import com.android.ahat.heapdump.AhatSnapshot;
-import com.android.ahat.heapdump.NativeAllocation;
-import com.android.ahat.heapdump.Site;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -35,7 +30,7 @@ import java.util.List;
  * with equals. They should not be used for element lookup or search. They
  * should only be used for showing elements to the user in different orders.
  */
-class Sort {
+public class Sort {
   /**
    * Compare instances by their instance id.
    * This sorts instances from smaller id to larger id.
@@ -199,32 +194,6 @@ class Sort {
       String aName = a.getClassName();
       String bName = b.getClassName();
       return aName.compareTo(bName);
-    }
-  }
-
-  /**
-   * Compare NativeAllocation by heap name.
-   * Different allocations with the same heap name are considered equal for
-   * the purposes of comparison.
-   */
-  public static class NativeAllocationByHeapName
-      implements Comparator<NativeAllocation> {
-    @Override
-    public int compare(NativeAllocation a, NativeAllocation b) {
-      return a.heap.getName().compareTo(b.heap.getName());
-    }
-  }
-
-  /**
-   * Compare NativeAllocation by their size.
-   * Different allocations with the same size are considered equal for the
-   * purposes of comparison.
-   * This sorts allocations from larger size to smaller size.
-   */
-  public static class NativeAllocationBySize implements Comparator<NativeAllocation> {
-    @Override
-    public int compare(NativeAllocation a, NativeAllocation b) {
-      return Long.compare(b.size, a.size);
     }
   }
 }
