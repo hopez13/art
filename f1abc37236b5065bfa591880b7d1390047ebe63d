@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a2b0780_561c96df",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "This is no different from the normal read barrier slow path case, and the only difference here is we handle two refs at a time rather than one, right?",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 24
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_6bd1eb0e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "What does this \"Likewise\" refer to?",
+      "range": {
+        "startLine": 2026,
+        "startChar": 9,
+        "endLine": 2026,
+        "endChar": 18
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_96955e1f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "As this dependency is not visible at the HIR level, would there be any danger that the instruction scheduler may reorder those?",
+      "range": {
+        "startLine": 3503,
+        "startChar": 17,
+        "endLine": 3503,
+        "endChar": 27
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_56b0168e",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "I see that this currently supports the case of two consecutive instance field gets on the same object.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 59
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_305fd22d",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "How would the load-load fake address dependency work?\n\nMaybe would it make sense to make RBState as an input to FieldGet1/2 so that the load-load dependency is visible at the HIR level?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 93
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_9070c6b9",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-12T21:02:28Z",
+      "side": 1,
+      "message": "Use bool or add a new enum for this type?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 15
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
