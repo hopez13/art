@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "da182b71_93aebcc9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-12T09:54:58Z",
+      "side": 1,
+      "message": "The former, \"static inline void ...\"",
+      "parentUuid": "9aeeb371_816bfad0",
+      "revId": "feed19d55ba5dac96055c95558c337fcf5e8d197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a179337_3926afe7",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 2
