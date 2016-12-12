@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da182b71_d361d4bb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-12T11:39:37Z",
+      "side": 1,
+      "message": "Ordering: kJitTableAddress before kDexCachePcRelative.",
+      "revId": "aaf66503d32bd156a10654c084948081afc24fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_22f3107d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5827,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-12T11:39:37Z",
+      "side": 1,
+      "message": "Ordering.",
+      "revId": "aaf66503d32bd156a10654c084948081afc24fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facc0f55_cc202f12",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6040,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-12T11:39:37Z",
+      "side": 1,
+      "message": "Ordering.",
+      "revId": "aaf66503d32bd156a10654c084948081afc24fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aef3f70_607d9259",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-12T11:39:37Z",
+      "side": 1,
+      "message": "Ordering.",
+      "revId": "aaf66503d32bd156a10654c084948081afc24fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
