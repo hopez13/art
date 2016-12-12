@@ -22,6 +22,54 @@
       "revId": "d8ff4f64e2b5e690941e642e52c43ec70cca0934",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_d0652ef6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3018,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-12T19:44:10Z",
+      "side": 1,
+      "message": "Can\u0027t. I need to report duplicates.",
+      "parentUuid": "3a2b0780_9031e61e",
+      "range": {
+        "startLine": 3018,
+        "startChar": 12,
+        "endLine": 3018,
+        "endChar": 17
+      },
+      "revId": "d8ff4f64e2b5e690941e642e52c43ec70cca0934",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_105cd634",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3018,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-12T19:44:10Z",
+      "side": 1,
+      "message": "Can\u0027t. I need to report duplicates. The flag is there to distinguish \"found anything, including dups\" from the \"found nothing, report -1\" below.",
+      "parentUuid": "3a2b0780_9031e61e",
+      "range": {
+        "startLine": 3018,
+        "startChar": 12,
+        "endLine": 3018,
+        "endChar": 17
+      },
+      "revId": "d8ff4f64e2b5e690941e642e52c43ec70cca0934",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
