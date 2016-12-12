@@ -22,6 +22,30 @@
       "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_99eeae96",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-12T23:22:09Z",
+      "side": 1,
+      "message": "Because I wanted to keep most of the code common between Precise and NonPrecise.\n\nWalking the dex registers alone will not work if the compiler has reference temporaries.",
+      "parentUuid": "9a179337_bc4d0d8d",
+      "range": {
+        "startLine": 2989,
+        "startChar": 0,
+        "endLine": 3053,
+        "endChar": 56
+      },
+      "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
