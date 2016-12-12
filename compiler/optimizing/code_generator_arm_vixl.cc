@@ -4411,7 +4411,7 @@ void LocationsBuilderARMVIXL::HandleFieldGet(HInstruction* instruction,
     locations->AddTemp(Location::RequiresRegister());
   } else if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
     // We need a temporary register for the read barrier marking slow
-    // path in CodeGeneratorARM::GenerateFieldLoadWithBakerReadBarrier.
+    // path in CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier.
     locations->AddTemp(Location::RequiresRegister());
   }
 }
@@ -4633,6 +4633,41 @@ void LocationsBuilderARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instruction) 
 
 void InstructionCodeGeneratorARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instruction) {
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+}
+
+void LocationsBuilderARMVIXL::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // TODO: Implement instruction HLoadReadBarrierState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitLoadReadBarrierState(
+    HLoadReadBarrierState* instruction) {
+  // TODO: Implement instruction HLoadReadBarrierState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderARMVIXL::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // TODO: Implement instruction HMarkReferencesExplicitRBState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // TODO: Implement instruction HMarkReferencesExplicitRBState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderARMVIXL::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // Instruction HMarkReferencesImplicitRBState is not used in the ARM VIXL back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // Instruction HMarkReferencesImplicitRBState is not used in the ARM VIXL back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
 }
 
 void LocationsBuilderARMVIXL::VisitUnresolvedInstanceFieldGet(
@@ -4873,7 +4908,7 @@ void LocationsBuilderARMVIXL::VisitArrayGet(HArrayGet* instruction) {
         object_array_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
   }
   // We need a temporary register for the read barrier marking slow
-  // path in CodeGeneratorARM::GenerateArrayLoadWithBakerReadBarrier.
+  // path in CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier.
   // Also need for String compression feature.
   if ((object_array_get_with_read_barrier && kUseBakerReadBarrier)
       || (mirror::kUseStringCompression && instruction->IsStringCharAt())) {
@@ -7171,7 +7206,7 @@ void CodeGeneratorARMVIXL::MaybeGenerateReadBarrierSlow(HInstruction* instructio
                                                         Location index) {
   if (kEmitCompilerReadBarrier) {
     // Baker's read barriers shall be handled by the fast path
-    // (CodeGeneratorARM::GenerateReferenceLoadWithBakerReadBarrier).
+    // (CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier).
     DCHECK(!kUseBakerReadBarrier);
     // If heap poisoning is enabled, unpoisoning will be taken care of
     // by the runtime within the slow path.

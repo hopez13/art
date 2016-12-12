@@ -676,15 +676,47 @@ void RegisterAllocationResolver::InsertMoveAfter(HInstruction* instruction,
     return;
   }
 
-  size_t position = instruction->GetLifetimePosition() + 1;
-  HParallelMove* move = instruction->GetNext()->AsParallelMove();
+  // Position for the possible insertion of a new ParallelMove instruction.
+  HInstruction* cursor = instruction;
+
+  // Special case for InstanceFieldGet used as input of a
+  // MarkReferences{Explicit,Implicit}RBState instruction: make sure
+  // no ParrelMove is inserted between an InstanceFieldGet and its
+  // corresponding MarkReferences{Explicit,Implicit}RBState
+  // instruction.
+  if (instruction->IsInstanceFieldGet()) {
+    // Potential MarkReferences{Explicit,Implicit}RBState instruction.
+    HInstruction* mark_refs = nullptr;
+    for (const HUseListNode<HInstruction*>& use : instruction->GetUses()) {
+      HInstruction* user = use.GetUser();
+      if (user->IsMarkReferencesExplicitRBState() ||
+          user->IsMarkReferencesImplicitRBState()) {
+        DCHECK(mark_refs == nullptr)
+            << "Instruction used by more than one MarkReferences{Explicit,Implicit}RBState"
+            << " instruction: " << instruction->DebugName() << ' ' << instruction->GetId();
+        mark_refs = user;
+      }
+      if (mark_refs != nullptr) {
+        DCHECK(kEmitCompilerReadBarrier);
+        DCHECK(kUseBakerReadBarrier);
+        // This InstanceFieldGet instruction is used by a
+        // MarkReferences{Explicit,Implicit}RBState instruction: move
+        // the spilling after the
+        // MarkReferences{Explicit,Implicit}RBState instruction.
+        cursor = mark_refs;
+      }
+    }
+  }
+
+  size_t position = cursor->GetLifetimePosition() + 1;
+  HParallelMove* move = cursor->GetNext()->AsParallelMove();
   // This is a parallel move for moving the output of an instruction. We need
   // to differentiate with input moves, moves for connecting siblings in a
   // and moves for connecting blocks.
   if (move == nullptr || move->GetLifetimePosition() != position) {
     move = new (allocator_) HParallelMove(allocator_);
     move->SetLifetimePosition(position);
-    instruction->GetBlock()->InsertInstructionBefore(move, instruction->GetNext());
+    instruction->GetBlock()->InsertInstructionBefore(move, cursor->GetNext());
   }
   AddMove(move, source, destination, instruction, instruction->GetType());
 }

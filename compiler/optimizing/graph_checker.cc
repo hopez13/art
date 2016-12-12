@@ -1032,4 +1032,125 @@ void GraphChecker::VisitTypeConversion(HTypeConversion* instruction) {
   }
 }
 
+void GraphChecker::CheckInstanceFieldGetWithLoadReadBarrierState(HLoadReadBarrierState* rb_state,
+                                                                 HInstanceFieldGet* field_get) {
+  if (field_get->GeneratesOwnReadBarrier()) {
+    AddError(StringPrintf("Instruction %s:%d is expected to generate its own read barrier"
+                          " but is preceded by instruction %s:%d ... .",
+                          field_get->DebugName(),
+                          field_get->GetId(),
+                          rb_state->DebugName(),
+                          rb_state->GetId()));
+  }
+  if (rb_state->InputCount() != 1u) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected 1.",
+                          rb_state->DebugName(),
+                          rb_state->GetId(),
+                          rb_state->InputCount()));
+    return;
+  }
+  if (field_get->InputCount() != 1u) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected 1.",
+                          field_get->DebugName(),
+                          field_get->GetId(),
+                          field_get->InputCount()));
+    return;
+  }
+  if (rb_state->InputAt(0u) != field_get->InputAt(0u)) {
+    AddError(StringPrintf("Instructions %s:%d and %s:%d do not have the same input.",
+                          rb_state->DebugName(),
+                          rb_state->GetId(),
+                          field_get->DebugName(),
+                          field_get->GetId()));
+  }
+}
+
+void GraphChecker::CheckInstructionInput(HInstruction* instruction,
+                                         size_t input_index,
+                                         HInstruction* expected_input) {
+  if (instruction->InputAt(input_index) != expected_input) {
+    AddError(StringPrintf("Instruction %s:%d does not have instruction %s:%d as input number %zu",
+                          instruction->DebugName(),
+                          instruction->GetId(),
+                          expected_input->DebugName(),
+                          expected_input->GetId(),
+                          input_index));
+  }
+}
+
+void GraphChecker::VisitLoadReadBarrierState(HLoadReadBarrierState* rb_state) {
+  VisitInstruction(rb_state);
+
+  // Check that a LoadReadBarrierState instruction is always
+  // immediately followed two InstanceFieldGet instructions and a
+  // MarkReferencesExplicitRBState or MarkReferencesImplicitRBState
+  // instruction.
+
+  HBasicBlock* block = rb_state->GetBlock();
+  // Create an instruction iterator positioned on the instruction following `rb_state`.
+  HInstructionIterator it(block->GetInstructions());
+  for (; !it.Done() && it.Current() != rb_state; it.Advance()) {
+    // Nothing.
+  }
+  it.Advance();
+
+  // First InstanceFieldGet instruction.
+  if (it.Done() || !it.Current()->IsInstanceFieldGet()) {
+    AddError(StringPrintf(
+        "Instruction %s:%d is not followed by an InstanceFieldGet instruction.",
+        rb_state->DebugName(),
+        rb_state->GetId()));
+    return;
+  }
+  HInstanceFieldGet* field_get1 = it.Current()->AsInstanceFieldGet();
+  CheckInstanceFieldGetWithLoadReadBarrierState(rb_state, field_get1);
+  it.Advance();
+
+  // Second InstanceFieldGet instruction.
+  if (it.Done() || !it.Current()->IsInstanceFieldGet()) {
+    AddError(StringPrintf(
+        "Instruction %s:%d is followed by only one InstanceFieldGet instruction.",
+        rb_state->DebugName(),
+        rb_state->GetId()));
+    return;
+  }
+  HInstanceFieldGet* field_get2 = it.Current()->AsInstanceFieldGet();
+  CheckInstanceFieldGetWithLoadReadBarrierState(rb_state, field_get2);
+  it.Advance();
+
+  // MarkReferencesExplicitRBState or MarkReferencesImplicitRBState instruction.
+  if (it.Done() ||
+      (!it.Current()->IsMarkReferencesExplicitRBState() &&
+       !it.Current()->IsMarkReferencesImplicitRBState())) {
+    AddError(StringPrintf(
+        "Expected a MarkReferencesExplicitRBState or a MarkReferencesImplicitRBState instruction"
+        " after instructions %s:%d, %s:%d, and %s:%d.",
+        rb_state->DebugName(),
+        rb_state->GetId(),
+        field_get1->DebugName(),
+        field_get1->GetId(),
+        field_get2->DebugName(),
+        field_get2->GetId()));
+    return;
+  }
+  HInstruction* mark_refs = it.Current();
+  size_t expected_input_count = mark_refs->IsMarkReferencesExplicitRBState() ? 3u : 2u;
+  if (mark_refs->InputCount() != expected_input_count) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected %zu.",
+                          mark_refs->DebugName(),
+                          mark_refs->GetId(),
+                          mark_refs->InputCount(),
+                          expected_input_count));
+    return;
+  }
+  if (it.Current()->IsMarkReferencesExplicitRBState()) {
+    CheckInstructionInput(mark_refs, 0u, rb_state);
+    CheckInstructionInput(mark_refs, 1u, field_get1);
+    CheckInstructionInput(mark_refs, 2u, field_get2);
+  } else {
+    CheckInstructionInput(mark_refs, 0u, field_get1);
+    CheckInstructionInput(mark_refs, 1u, field_get2);
+  }
+}
+
 }  // namespace art
