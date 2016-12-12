@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_9faeb3c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_ce9ab74c",
+      "range": {
+        "startLine": 21,
+        "startChar": 61,
+        "endLine": 21,
+        "endChar": 70
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_8e94bf1d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-21T17:46:54Z",
       "side": 1,
       "message": "schedule",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_7f0f6f1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_8e94bf1d",
       "range": {
         "startLine": 23,
         "startChar": 43,
@@ -259,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_624a38a2",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nThe function looks cleaner, thanks.",
+      "parentUuid": "613cf0f2_3f6e4773",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41b0ccbe_06785a34",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 12
@@ -270,6 +342,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "return ContainsElement(node-\u003eGetOtherPredecessors(), other);",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_424f34b0",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nThe function looks cleaner, thanks.",
+      "parentUuid": "41b0ccbe_06785a34",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -305,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_2254303e",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nNice suggestion.",
+      "parentUuid": "e1c9c045_aba1097d",
+      "range": {
+        "startLine": 199,
+        "startChar": 42,
+        "endLine": 199,
+        "endChar": 45
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c9c045_4bbc25a4",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 12
@@ -316,6 +436,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "Command line option?",
+      "range": {
+        "startLine": 225,
+        "startChar": 23,
+        "endLine": 225,
+        "endChar": 46
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_c262241e",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "I\u0027ve put a TODO in the new patch set.\nI would like visualizer to take care of the cfg and dot graph dumps, and the command line option controls the visualizer dump.\n\nIn the future, I want to move scheduling info into HInstruction, and visualizer knows how to dump scheduling dotty graph based on scheduling info in HInstruction.",
+      "parentUuid": "e1c9c045_4bbc25a4",
       "range": {
         "startLine": 225,
         "startChar": 23,
@@ -351,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_a25f2058",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done. This static variable is removed in the new patch.",
+      "parentUuid": "e1c9c045_0bc61d36",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 38
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c9c045_2bcbd93c",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 12
@@ -374,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_822c1cca",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nThere is no more new \u0026 delete in this file now.",
+      "parentUuid": "e1c9c045_2bcbd93c",
+      "range": {
+        "startLine": 282,
+        "startChar": 2,
+        "endLine": 282,
+        "endChar": 31
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1bcbc99_4a973326",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 12
@@ -385,6 +577,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "This looks like it should be handled by the PopHighestPriorityNode(). (Otherwise the \"random\" scheduler isn\u0027t actually that random.)",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 3
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_422614e8",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nYes, I agree that this is a tuning/optimization for materialized condition instructions. I\u0027ve moved it into CriticalPath selector as a heuristic/improvement on selecting the optimal node.\n\nThe scheduler code is kept clean:\nSchedule(graph)\n--\u003e Schedule(block)\n    --\u003e Schedule(SchdulingNode)\n        --\u003e Schedule(HInstruction)",
+      "parentUuid": "c1bcbc99_4a973326",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -437,6 +653,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_222b10b0",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c9c045_ebacf16e",
+      "range": {
+        "startLine": 474,
+        "startChar": 48,
+        "endLine": 474,
+        "endChar": 54
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_cec5174a",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -460,6 +700,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_3f3a07da",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "7c0657a0_cec5174a",
+      "range": {
+        "startLine": 120,
+        "startChar": 31,
+        "endLine": 120,
+        "endChar": 33
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_eea7bba4",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -471,6 +735,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "kArenaAllocScheduling",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 61
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_c201046f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_eea7bba4",
       "range": {
         "startLine": 160,
         "startChar": 0,
@@ -575,6 +863,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_5f14ab28",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nWe used to have -1 latency in some very early patch set. Now the algorithm has changed a lot since then, the latency should not be negative. I\u0027ve changed all of them into uint32_t.",
+      "parentUuid": "3c7a1f69_d91437b8",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 5
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_8ecf1f68",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -586,6 +898,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "represents",
+      "range": {
+        "startLine": 204,
+        "startChar": 10,
+        "endLine": 204,
+        "endChar": 19
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_ff025feb",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_8ecf1f68",
       "range": {
         "startLine": 204,
         "startChar": 10,
@@ -621,6 +957,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_dfff9bb5",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_6eb50bd3",
+      "range": {
+        "startLine": 205,
+        "startChar": 18,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41260cae_96ad8cd1",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -632,6 +992,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "End the sentence with a period.",
+      "range": {
+        "startLine": 213,
+        "startChar": 60,
+        "endLine": 213,
+        "endChar": 61
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_bf0cd71f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41260cae_96ad8cd1",
       "range": {
         "startLine": 213,
         "startChar": 60,
@@ -667,6 +1051,30 @@
     },
     {
       "key": {
+        "uuid": "1afac331_202b04b0",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "I have changed it to HInstruction* const, because I think once we have made the HInstruction\u003c-\u003eSchedulingNode binding, it shouldn\u0027t change.\nBut we may still do operations on HInstruction, like schedule/move it inside the basic block.",
+      "parentUuid": "dcf663e5_a68d6882",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 15
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_2ebf13b5",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -690,6 +1098,30 @@
     },
     {
       "key": {
+        "uuid": "3afdc727_de07a53a",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_2ebf13b5",
+      "range": {
+        "startLine": 235,
+        "startChar": 54,
+        "endLine": 235,
+        "endChar": 55
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_0ebc4fbc",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -701,6 +1133,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "kArenaAllocScheduling",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 36
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_a2fe003f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0657a0_0ebc4fbc",
       "range": {
         "startLine": 247,
         "startChar": 35,
@@ -759,6 +1215,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_9f091310",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "813d64bf_b082b84b",
+      "range": {
+        "startLine": 272,
+        "startChar": 59,
+        "endLine": 272,
+        "endChar": 60
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c9c045_4b6e6574",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -770,6 +1250,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "const SchedulingNode*",
+      "range": {
+        "startLine": 274,
+        "startChar": 34,
+        "endLine": 274,
+        "endChar": 77
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_a284c09d",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c9c045_4b6e6574",
       "range": {
         "startLine": 274,
         "startChar": 34,
@@ -805,6 +1309,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_82453c92",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c9c045_6b73215d",
+      "range": {
+        "startLine": 276,
+        "startChar": 35,
+        "endLine": 276,
+        "endChar": 78
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "011c1460_17cbb63c",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -816,6 +1344,24 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "Do we really need to expose this internal map?",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba129745_7a2c19c9",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "No we don\u0027t. I\u0027ve removed this function in the new patch.",
+      "parentUuid": "011c1460_17cbb63c",
       "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -868,6 +1414,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_7ff64fe0",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bcbc99_ca81e3e3",
+      "range": {
+        "startLine": 304,
+        "startChar": 19,
+        "endLine": 304,
+        "endChar": 20
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "813d64bf_907fb481",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -891,6 +1461,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_5ffb8bc6",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "813d64bf_907fb481",
+      "range": {
+        "startLine": 306,
+        "startChar": 17,
+        "endLine": 306,
+        "endChar": 18
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1bcbc99_ea7e271f",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -902,6 +1496,30 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "OVERRIDE",
+      "range": {
+        "startLine": 324,
+        "startChar": 50,
+        "endLine": 324,
+        "endChar": 51
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_3ff0c7de",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bcbc99_ea7e271f",
       "range": {
         "startLine": 324,
         "startChar": 50,
@@ -948,6 +1566,24 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_825f7c8f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done.\nI agree, static should be used here.",
+      "parentUuid": "011c1460_d7ac1e6f",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1bcbc99_8a8bebff",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -971,6 +1607,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_1ff503cf",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bcbc99_8a8bebff",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 34
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c9c045_cbaa555a",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 12
@@ -982,6 +1642,24 @@
       "writtenOn": "2016-10-24T21:04:59Z",
       "side": 1,
       "message": "const",
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_1fa3c3e6",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-12T15:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c9c045_cbaa555a",
       "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
