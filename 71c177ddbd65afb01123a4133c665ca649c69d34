@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "5af43b41_2278b02e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "Appreciate this is a WIP and I\u0027m not the intended audience of the change. Weigh this accordingly...\n\nAs usual, I\u0027m more interested in the behavior change than the code.\n\nWhat\u0027s the behavior before, what\u0027s the (intended) behavior after. What are the wider implications?\n\nThese are all things you know and could document in the commit. It also gives reviewers a \"spec\" to review against, i.e. so they can be sure you implemented what you intended.",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_02d6ccde",
+        "filename": "imgdiag/imgdiag_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "// Return true because...",
+      "range": {
+        "startLine": 59,
+        "startChar": 11,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_a283a0ec",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "\"the boot classpath check\" assumes people know what you\u0027re talking about WRT \"the boot classpath check\". Is it the same as the \"image check\" or something else?",
+      "range": {
+        "startLine": 104,
+        "startChar": 88,
+        "endLine": 104,
+        "endChar": 91
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3afdc727_de0565c4",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "By calling LoadsImage().",
+      "range": {
+        "startLine": 104,
+        "startChar": 8,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_82909c2e",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "Comment this too. I wouldn\u0027t know when / whether I\u0027m supposed to override it, or what the implications are if I make it return true / false.",
+      "range": {
+        "startLine": 108,
+        "startChar": 15,
+        "endLine": 108,
+        "endChar": 25
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_c29d8442",
+        "filename": "runtime/dex2oat_environment_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "// Return true because....",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 15
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facc0f55_8cb8e7a5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "Non-zygote processes will still use the image if the BOOTCLASSPATH matches.\n\n...? I may have misunderstood.",
+      "range": {
+        "startLine": 299,
+        "startChar": 55,
+        "endLine": 299,
+        "endChar": 66
+      },
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_63389ae6",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 4
@@ -19,6 +180,24 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_6295981c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1684,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "+1 and why.",
+      "parentUuid": "ad833f54_63389ae6",
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad833f54_23437265",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 4
@@ -30,6 +209,29 @@
       "writtenOn": "2016-12-07T19:09:14Z",
       "side": 1,
       "message": "Contains is still a bit vague to me.  I think it would be useful here to say that you\u0027re ensuring that BOOTCLASSPATH and the image files have to be the same dex file locations in the same order.",
+      "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_428a9400",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-12-12T11:05:36Z",
+      "side": 1,
+      "message": "Would/should a false here be considered fatal? (I think not, from reading around). Probably something to document after the \"On successful return\" bit - spelling out what happens in the false case).",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 13
+      },
       "revId": "71c177ddbd65afb01123a4133c665ca649c69d34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
