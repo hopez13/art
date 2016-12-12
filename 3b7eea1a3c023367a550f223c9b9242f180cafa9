@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_62f9185d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T11:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facc0f55_4c0d1fb0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facc0f55_4ce2ffbd",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_82f41c67",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T11:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aef3f70_a0e03a0d",
+      "range": {
+        "startLine": 320,
+        "startChar": 19,
+        "endLine": 320,
+        "endChar": 35
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daff4b21_5bccc37b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -106,6 +154,30 @@
       "writtenOn": "2016-12-12T11:10:31Z",
       "side": 1,
       "message": "any way to DCHECK it?",
+      "range": {
+        "startLine": 322,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 68
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_a2272025",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-12T11:33:06Z",
+      "side": 1,
+      "message": "The other places with that comment and same pattern (supposedly written by GC experts) do not have a DCHECK, maybe it\u0027s harder than we think.",
+      "parentUuid": "daff4b21_5bccc37b",
       "range": {
         "startLine": 322,
         "startChar": 2,
