@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "facc0f55_4c0d1fb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-12T11:10:31Z",
+      "side": 1,
+      "message": "You could expand this comment a bit.\n- used to  load from the root table associated with the JIT compiled method...\n- kDexCacheAddress gets removed/or replaced...",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "facc0f55_4ce2ffbd",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -42,6 +65,52 @@
         "startChar": 7,
         "endLine": 320,
         "endChar": 18
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aef3f70_a0e03a0d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-12T11:10:31Z",
+      "side": 1,
+      "message": "Add a high level comment about what \"processes\" means.",
+      "range": {
+        "startLine": 320,
+        "startChar": 19,
+        "endLine": 320,
+        "endChar": 35
+      },
+      "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daff4b21_5bccc37b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-12T11:10:31Z",
+      "side": 1,
+      "message": "any way to DCHECK it?",
+      "range": {
+        "startLine": 322,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 68
       },
       "revId": "3b7eea1a3c023367a550f223c9b9242f180cafa9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
