@@ -498,7 +498,7 @@ class ReadBarrierMarkSlowPathX86_64 : public SlowPathCode {
     // "Compact" slow path, saving two moves.
     //
     // Instead of using the standard runtime calling convention (input
-    // and output in R0):
+    // in RDI, output in RAX):
     //
     //   RDI <- ref
     //   RAX <- ReadBarrierMark(RDI)
@@ -589,7 +589,7 @@ class ReadBarrierMarkAndUpdateFieldSlowPathX86_64 : public SlowPathCode {
     // "Compact" slow path, saving two moves.
     //
     // Instead of using the standard runtime calling convention (input
-    // and output in R0):
+    // in RDI, output in RAX):
     //
     //   RDI <- ref
     //   RAX <- ReadBarrierMark(RDI)
@@ -4218,24 +4218,29 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == Primitive::kPrimNot);
+  bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+      || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+  bool call_on_read_barrier_slow_path =
+      object_field_get_with_read_barrier && (!kUseBakerReadBarrier || generates_own_read_barrier);
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction,
-                                                   object_field_get_with_read_barrier ?
-                                                       LocationSummary::kCallOnSlowPath :
-                                                       LocationSummary::kNoCall);
-  if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
+                                                   call_on_read_barrier_slow_path
+                                                       ? LocationSummary::kCallOnSlowPath
+                                                       : LocationSummary::kNoCall);
+  if (call_on_read_barrier_slow_path) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
+
   if (Primitive::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
-    // The output overlaps for an object field get when read barriers
-    // are enabled: we do not want the move to overwrite the object's
-    // location, as we need it to emit the read barrier.
+    // The output overlaps for an object field get generating its
+    // (own) read barrier: we do not want the move to overwrite the
+    // object's location, as we need it to emit the read barrier.
     locations->SetOut(
         Location::RequiresRegister(),
-        object_field_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
+        call_on_read_barrier_slow_path ? Location::kOutputOverlap : Location::kNoOutputOverlap);
   }
 }
 
@@ -4280,14 +4285,26 @@ void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
     case Primitive::kPrimNot: {
       // /* HeapReference<Object> */ out = *(base + offset)
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        // Note that a potential implicit null check is handled in this
-        // CodeGeneratorX86_64::GenerateFieldLoadWithBakerReadBarrier call.
-        codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            instruction, out, base, offset, /* needs_null_check */ true);
+        bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+            || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+        if (generates_own_read_barrier) {
+          // Note that a potential implicit null check is handled in this
+          // CodeGeneratorX86_64::GenerateFieldLoadWithBakerReadBarrier call.
+          codegen_->GenerateFieldLoadWithBakerReadBarrier(
+              instruction, out, base, offset, /* needs_null_check */ true);
+        } else {
+          // This "reference field get" instruction loads a field that
+          // has already been updated by a HUpdateFields instruction.
+          //
+          // Note that a potential implicit null check is handled in
+          // InstructionCodeGeneratorX86_64::VisitUpdateFields.
+          __ movl(out.AsRegister<CpuRegister>(), Address(base, offset));  // Flags are unaffected.
+        }
         if (is_volatile) {
           codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
         }
       } else {
+        // Non-Baker read barrier cases.
         __ movl(out.AsRegister<CpuRegister>(), Address(base, offset));
         codegen_->MaybeRecordImplicitNullCheck(instruction);
         if (is_volatile) {
@@ -4528,6 +4545,20 @@ void LocationsBuilderX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
 
 void InstructionCodeGeneratorX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+}
+
+void LocationsBuilderX86_64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorX86_64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
 }
 
 void LocationsBuilderX86_64::VisitUnresolvedInstanceFieldGet(
@@ -6628,7 +6659,7 @@ void CodeGeneratorX86_64::GenerateReferenceLoadWithBakerReadBarrier(HInstruction
   __ movl(ref_reg, src);  // Flags are unaffected.
 
   // Note: Reference unpoisoning modifies the flags, so we need to delay it after the branch.
-  // Slow path marking the object `ref` when it is gray.
+  // Slow path marking the object `ref` when `obj` is gray.
   SlowPathCode* slow_path;
   if (always_update_field) {
     DCHECK(temp1 != nullptr);

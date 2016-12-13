@@ -198,6 +198,7 @@
   V(ReadBarrierMarkReg29, mirror::Object*, mirror::Object*) \
   V(ReadBarrierSlow, mirror::Object*, mirror::Object*, mirror::Object*, uint32_t) \
   V(ReadBarrierForRootSlow, mirror::Object*, GcRoot<mirror::Object>*) \
+  V(ReadBarrierUpdateFields, mirror::Object*, mirror::Object*, uint32_t, uint32_t) \
 \
 
 #endif  // ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_LIST_H_
