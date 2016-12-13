@@ -29,6 +29,15 @@ namespace art {
 
 using android::base::StringPrintf;
 
+// Syntactic sugar pretty printing object `x` (having an output stream
+// operator<<) as a C string.
+template <typename T>
+static const char* toCString(const T& x) {
+  std::ostringstream oss;
+  oss << x;
+  return oss.str().c_str();
+}
+
 static bool IsAllowedToJumpToExitBlock(HInstruction* instruction) {
   return instruction->IsThrow() || instruction->IsReturn() || instruction->IsReturnVoid();
 }
@@ -808,20 +817,16 @@ void GraphChecker::VisitPhi(HPhi* phi) {
       HPhi* other_phi = phi_it.Current()->AsPhi();
       if (phi != other_phi && phi->GetRegNumber() == other_phi->GetRegNumber()) {
         if (phi->GetType() == other_phi->GetType()) {
-          std::stringstream type_str;
-          type_str << phi->GetType();
           AddError(StringPrintf("Equivalent phi (%d) found for VReg %d with type: %s.",
                                 phi->GetId(),
                                 phi->GetRegNumber(),
-                                type_str.str().c_str()));
+                                toCString(phi->GetType())));
         } else if (phi->GetType() == Primitive::kPrimNot) {
-          std::stringstream type_str;
-          type_str << other_phi->GetType();
           AddError(StringPrintf(
               "Equivalent non-reference phi (%d) found for VReg %d with type: %s.",
               phi->GetId(),
               phi->GetRegNumber(),
-              type_str.str().c_str()));
+              toCString(other_phi->GetType())));
         } else {
           // If we get here, make sure we allocate all the necessary storage at once
           // because the BitVector reallocation strategy has very bad worst-case behavior.
@@ -1032,6 +1037,187 @@ void GraphChecker::VisitTypeConversion(HTypeConversion* instruction) {
         instruction->GetId(),
         Primitive::PrettyDescriptor(result_type),
         Primitive::PrettyDescriptor(input_type)));
+  }
+}
+
+void GraphChecker::CheckInstanceFieldGetWithLoadReadBarrierState(HLoadReadBarrierState* rb_state,
+                                                                 HInstanceFieldGet* field_get) {
+  if (field_get->GeneratesOwnReadBarrier()) {
+    AddError(StringPrintf("Instruction %s:%d is expected to generate its own read barrier"
+                          " but is preceded by instruction %s:%d ... .",
+                          field_get->DebugName(),
+                          field_get->GetId(),
+                          rb_state->DebugName(),
+                          rb_state->GetId()));
+  }
+  if (rb_state->InputCount() != 1u) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected 1.",
+                          rb_state->DebugName(),
+                          rb_state->GetId(),
+                          rb_state->InputCount()));
+    return;
+  }
+  if (field_get->InputCount() != 1u) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected 1.",
+                          field_get->DebugName(),
+                          field_get->GetId(),
+                          field_get->InputCount()));
+    return;
+  }
+  if (rb_state->InputAt(0u) != field_get->InputAt(0u)) {
+    AddError(StringPrintf("Instructions %s:%d and %s:%d do not have the same input.",
+                          rb_state->DebugName(),
+                          rb_state->GetId(),
+                          field_get->DebugName(),
+                          field_get->GetId()));
+  }
+}
+
+void GraphChecker::CheckParallelMoveBeforeInstanceFieldGet(HParallelMove* parallel_move,
+                                                           HInstanceFieldGet* field_get) {
+  size_t num_move_operands = parallel_move->NumMoves();
+  if (num_move_operands != 1) {
+    AddError(StringPrintf(
+        "Instruction %s:%d before Instruction %s:%d has %zu move operands, expected 1.",
+        parallel_move->DebugName(),
+        parallel_move->GetId(),
+        field_get->DebugName(),
+        field_get->GetId(),
+        num_move_operands));
+    return;
+  }
+  Location parallel_move_source = parallel_move->MoveOperandsAt(0)->GetSource();
+  Location field_get_destination = field_get->GetLocations()->Out();
+  if (!parallel_move_source.Equals(field_get_destination)) {
+    AddError(StringPrintf(
+        "Source of sole move operands of instruction %s:%d is different from"
+        " output location of instruction %s:%d: %s vs %s.",
+        parallel_move->DebugName(),
+        parallel_move->GetId(),
+        field_get->DebugName(),
+        field_get->GetId(),
+        toCString(parallel_move_source),
+        toCString(field_get_destination)));
+  }
+}
+
+void GraphChecker::CheckInstructionInput(HInstruction* instruction,
+                                         size_t input_index,
+                                         HInstruction* expected_input) {
+  if (instruction->InputAt(input_index) != expected_input) {
+    AddError(StringPrintf("Instruction %s:%d does not have instruction %s:%d as input number %zu",
+                          instruction->DebugName(),
+                          instruction->GetId(),
+                          expected_input->DebugName(),
+                          expected_input->GetId(),
+                          input_index));
+  }
+}
+
+void GraphChecker::VisitLoadReadBarrierState(HLoadReadBarrierState* rb_state) {
+  VisitInstruction(rb_state);
+
+  // Check that a LoadReadBarrierState instruction is always
+  // immediately followed two InstanceFieldGet instructions and a
+  // MarkReferencesExplicitRBState or MarkReferencesImplicitRBState
+  // instruction.
+
+  // TODO: Use HInstruction::GetNext() instead of an HInstructionIterator?
+
+  HBasicBlock* block = rb_state->GetBlock();
+  // Create an instruction iterator positioned on the instruction following `rb_state`.
+  HInstructionIterator it(block->GetInstructions());
+  for (; !it.Done() && it.Current() != rb_state; it.Advance()) {
+    // Nothing.
+  }
+  it.Advance();
+
+  // Allow one ParallelMove instruction before the first
+  // InstanceFieldGet instruction containing a single move operand
+  // saving the register where that InstanceFieldGet instruction loads
+  // a reference.
+  HParallelMove* parallel_move1 = nullptr;
+  if (!it.Done() && it.Current()->IsParallelMove()) {
+    // Keep that ParallelMove, so that we can check its contents later.
+    parallel_move1 = it.Current()->AsParallelMove();
+    it.Advance();
+  }
+
+  // First InstanceFieldGet instruction.
+  if (it.Done() || !it.Current()->IsInstanceFieldGet()) {
+    AddError(StringPrintf(
+        "Instruction %s:%d is not followed by an InstanceFieldGet instruction.",
+        rb_state->DebugName(),
+        rb_state->GetId()));
+    return;
+  }
+  HInstanceFieldGet* field_get1 = it.Current()->AsInstanceFieldGet();
+  CheckInstanceFieldGetWithLoadReadBarrierState(rb_state, field_get1);
+  // Check potential ParallelMove just before `field_get1`.
+  if (parallel_move1 != nullptr) {
+    CheckParallelMoveBeforeInstanceFieldGet(parallel_move1, field_get1);
+  }
+  it.Advance();
+
+  // Allow one ParallelMove instruction before the second
+  // InstanceFieldGet instruction containing a single move operand
+  // saving the register where that InstanceFieldGet instruction loads
+  // a reference.
+  HParallelMove* parallel_move2 = nullptr;
+  if (!it.Done() && it.Current()->IsParallelMove()) {
+    // Keep that ParallelMove, so that we can check its contents later.
+    parallel_move2 = it.Current()->AsParallelMove();
+    it.Advance();
+  }
+
+  // Second InstanceFieldGet instruction.
+  if (it.Done() || !it.Current()->IsInstanceFieldGet()) {
+    AddError(StringPrintf(
+        "Instruction %s:%d is followed by only one InstanceFieldGet instruction.",
+        rb_state->DebugName(),
+        rb_state->GetId()));
+    return;
+  }
+  HInstanceFieldGet* field_get2 = it.Current()->AsInstanceFieldGet();
+  CheckInstanceFieldGetWithLoadReadBarrierState(rb_state, field_get2);
+  // Check potential ParallelMove just before `field_get2`.
+  if (parallel_move2 != nullptr) {
+    CheckParallelMoveBeforeInstanceFieldGet(parallel_move2, field_get2);
+  }
+  it.Advance();
+
+  // MarkReferencesExplicitRBState or MarkReferencesImplicitRBState instruction.
+  if (it.Done() ||
+      (!it.Current()->IsMarkReferencesExplicitRBState() &&
+       !it.Current()->IsMarkReferencesImplicitRBState())) {
+    AddError(StringPrintf(
+        "Expected a MarkReferencesExplicitRBState or a MarkReferencesImplicitRBState instruction"
+        " after instructions %s:%d, %s:%d, and %s:%d.",
+        rb_state->DebugName(),
+        rb_state->GetId(),
+        field_get1->DebugName(),
+        field_get1->GetId(),
+        field_get2->DebugName(),
+        field_get2->GetId()));
+    return;
+  }
+  HInstruction* mark_refs = it.Current();
+  size_t expected_input_count = mark_refs->IsMarkReferencesExplicitRBState() ? 3u : 2u;
+  if (mark_refs->InputCount() != expected_input_count) {
+    AddError(StringPrintf("Instruction %s:%d has %zu inputs, expected %zu.",
+                          mark_refs->DebugName(),
+                          mark_refs->GetId(),
+                          mark_refs->InputCount(),
+                          expected_input_count));
+    return;
+  }
+  if (it.Current()->IsMarkReferencesExplicitRBState()) {
+    CheckInstructionInput(mark_refs, 0u, rb_state);
+    CheckInstructionInput(mark_refs, 1u, field_get1);
+    CheckInstructionInput(mark_refs, 2u, field_get2);
+  } else {
+    CheckInstructionInput(mark_refs, 0u, field_get1);
+    CheckInstructionInput(mark_refs, 1u, field_get2);
   }
 }
 

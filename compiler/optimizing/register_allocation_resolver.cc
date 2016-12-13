@@ -665,6 +665,27 @@ void RegisterAllocationResolver::InsertParallelMoveAtEntryOf(HBasicBlock* block,
   AddMove(move, source, destination, instruction, instruction->GetType());
 }
 
+// Find the MarkReferences{Explicit,Implicit}RBState using
+// InstanceFieldGet `iget`, or null if there is none.
+static const HInstruction* FindMarkReferencesForInstanceFieldGet(const HInstanceFieldGet* iget) {
+  const HInstruction* mark_refs = nullptr;
+  for (const HUseListNode<HInstruction*>& use : iget->GetUses()) {
+    HInstruction* user = use.GetUser();
+    // TODO: Optimization: In non-debug mode, exit the loop as soon as
+    // a MarkReference{Explicit,Implicit}RBState instruction has been
+    // found.  In debug mode, continue to iterate to find extra
+    // (erroneous) MarkReference{Explicit,Implicit}RBState users.
+    if (user->IsMarkReferencesExplicitRBState() ||
+        user->IsMarkReferencesImplicitRBState()) {
+      DCHECK(mark_refs == nullptr)
+          << "Instruction used by more than one MarkReferences{Explicit,Implicit}RBState"
+          << " instruction: " << iget->DebugName() << ' ' << iget->GetId();
+      mark_refs = user;
+    }
+  }
+  return mark_refs;
+}
+
 void RegisterAllocationResolver::InsertMoveAfter(HInstruction* instruction,
                                                  Location source,
                                                  Location destination) const {
@@ -676,15 +697,42 @@ void RegisterAllocationResolver::InsertMoveAfter(HInstruction* instruction,
     return;
   }
 
-  size_t position = instruction->GetLifetimePosition() + 1;
-  HParallelMove* move = instruction->GetNext()->AsParallelMove();
+  // Position for the possible insertion of a new ParallelMove instruction.
+  const HInstruction* cursor = instruction;
+
+  // Special case for InstanceFieldGet used as input of a
+  // MarkReferences{Explicit,Implicit}RBState instruction: make sure
+  // no ParallelMove is inserted between an InstanceFieldGet and its
+  // corresponding MarkReferences{Explicit,Implicit}RBState
+  // instruction.
+  if (instruction->IsInstanceFieldGet()) {
+    // Find a potential MarkReferences{Explicit,Implicit}RBState
+    // linked to that InstanceFieldGet.
+    const HInstruction* mark_refs =
+        FindMarkReferencesForInstanceFieldGet(instruction->AsInstanceFieldGet());
+    if (mark_refs != nullptr) {
+      DCHECK(mark_refs->IsMarkReferencesExplicitRBState() ||
+             mark_refs->IsMarkReferencesImplicitRBState());
+      DCHECK(kEmitCompilerReadBarrier);
+      DCHECK(kUseBakerReadBarrier);
+      // This InstanceFieldGet instruction is used by a
+      // MarkReferences{Explicit,Implicit}RBState instruction: move
+      // the ParallelMove insertion point after
+      // MarkReferences{Explicit,Implicit}RBState instruction.
+      cursor = mark_refs;
+    }
+  }
+
+  size_t position = cursor->GetLifetimePosition() + 1;
+  HParallelMove* move = cursor->GetNext()->AsParallelMove();
+
   // This is a parallel move for moving the output of an instruction. We need
   // to differentiate with input moves, moves for connecting siblings in a
   // and moves for connecting blocks.
   if (move == nullptr || move->GetLifetimePosition() != position) {
     move = new (allocator_) HParallelMove(allocator_);
     move->SetLifetimePosition(position);
-    instruction->GetBlock()->InsertInstructionBefore(move, instruction->GetNext());
+    cursor->GetBlock()->InsertInstructionBefore(move, cursor->GetNext());
   }
   AddMove(move, source, destination, instruction, instruction->GetType());
 }
