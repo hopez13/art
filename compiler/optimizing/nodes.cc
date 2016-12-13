@@ -2440,6 +2440,13 @@ std::ostream& operator<<(std::ostream& os, HInvokeStaticOrDirect::ClinitCheckReq
   }
 }
 
+// Do not use, this is a helper to save on copy/paste code but is
+// unsafe to use in pratically all places.
+static inline mirror::Class* AsMirrorInternal(uint64_t address) 
+    NO_THREAD_SAFETY_ANALYSIS {
+  return reinterpret_cast<StackReference<mirror::Class>*>(address)->AsMirrorPtr();
+}
+
 bool HLoadClass::InstructionDataEquals(const HInstruction* other) const {
   const HLoadClass* other_load_class = other->AsLoadClass();
   // TODO: To allow GVN for HLoadClass from different dex files, we should compare the type
@@ -2449,8 +2456,10 @@ bool HLoadClass::InstructionDataEquals(const HInstruction* other) const {
     return false;
   }
   LoadKind load_kind = GetLoadKind();
-  if (HasAddress(load_kind)) {
+  if (load_kind == LoadKind::kBootImageAddress) {
     return GetAddress() == other_load_class->GetAddress();
+  } else if (load_kind == LoadKind::kJitTableAddress) {
+    return AsMirrorInternal(GetAddress()) == AsMirrorInternal(other_load_class->GetAddress());
   } else if (HasTypeReference(load_kind)) {
     return IsSameDexFile(GetDexFile(), other_load_class->GetDexFile());
   } else {

@@ -5611,6 +5611,8 @@ class HLoadClass FINAL : public HInstruction {
     return load_data_.address;
   }
 
+  mirror::Class* GetMirrorClass() const;
+
   bool NeedsDexCacheOfDeclaringClass() const OVERRIDE {
     return !IsReferrersClass();
   }
