@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aca276f_16bb5ca8",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T15:27:39Z",
+      "side": 1,
+      "message": "Is it interrupt-safe to store anything below SP? Why don\u0027t we store it after finishing the frame setup like other architectures?",
+      "range": {
+        "startLine": 554,
+        "startChar": 39,
+        "endLine": 554,
+        "endChar": 69
+      },
+      "revId": "8cf965641b4899a7166d74a704784107136022f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
