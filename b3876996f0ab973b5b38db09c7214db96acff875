@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5af43b41_42d61412",
+        "filename": "runtime/class_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T10:21:33Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 119,
+        "startChar": 17,
+        "endLine": 119,
+        "endChar": 20
+      },
+      "revId": "b3876996f0ab973b5b38db09c7214db96acff875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_22db103a",
+        "filename": "runtime/class_table_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T10:21:33Z",
+      "side": 1,
+      "message": "Start with a WriteToMemory(nullptr) and write to the buffer only after the ASSERT_LE(count, kBufferSize).",
+      "revId": "b3876996f0ab973b5b38db09c7214db96acff875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
