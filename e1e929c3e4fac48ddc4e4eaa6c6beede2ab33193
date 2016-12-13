@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_46d1b40e",
+        "filename": "compiler/linker/mips64/relative_patcher_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-12-13T22:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daff4b21_5e4b91cc",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 67
+      },
+      "revId": "e1e929c3e4fac48ddc4e4eaa6c6beede2ab33193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a179337_5cfb91c6",
         "filename": "compiler/optimizing/code_generator_mips64.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-13T13:10:45Z",
       "side": 1,
       "message": "Copy-pasted obsolete comment.",
+      "range": {
+        "startLine": 411,
+        "startChar": 8,
+        "endLine": 411,
+        "endChar": 32
+      },
+      "revId": "e1e929c3e4fac48ddc4e4eaa6c6beede2ab33193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_26ccb87b",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-12-13T22:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a179337_5cfb91c6",
       "range": {
         "startLine": 411,
         "startChar": 8,
