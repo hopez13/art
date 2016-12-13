@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5af43b41_45abbe27",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T13:59:34Z",
+      "side": 1,
+      "message": "This is a weird comment. This should document why it\u0027s safe in HLoadClass::InstructionDataEquals().",
+      "range": {
+        "startLine": 2443,
+        "startChar": 3,
+        "endLine": 2443,
+        "endChar": 13
+      },
+      "revId": "defe21bcc0bb0fcf11a98bf40065270bd81de348",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
