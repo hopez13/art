@@ -122,9 +122,9 @@ class EntrypointsOrderTest : public CommonRuntimeTest {
 
     // Skip across the entrypoints structures.
 
-    EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_start, thread_local_pos, sizeof(void*));
     EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_pos, thread_local_end, sizeof(void*));
-    EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_end, thread_local_objects, sizeof(void*));
+    EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_end, thread_local_start, sizeof(void*));
+    EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_start, thread_local_objects, sizeof(void*));
     EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_local_objects, mterp_current_ibase, sizeof(size_t));
     EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, mterp_current_ibase, mterp_default_ibase, sizeof(void*));
     EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, mterp_default_ibase, mterp_alt_ibase, sizeof(void*));
@@ -392,8 +392,10 @@ class EntrypointsOrderTest : public CommonRuntimeTest {
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pReadBarrierMarkReg29, pReadBarrierSlow, sizeof(void*));
     EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pReadBarrierSlow, pReadBarrierForRootSlow,
                          sizeof(void*));
+    EXPECT_OFFSET_DIFFNP(QuickEntryPoints, pReadBarrierForRootSlow, pReadBarrierUpdateFields,
+                         sizeof(void*));
 
-    CHECKED(OFFSETOF_MEMBER(QuickEntryPoints, pReadBarrierForRootSlow)
+    CHECKED(OFFSETOF_MEMBER(QuickEntryPoints, pReadBarrierUpdateFields)
             + sizeof(void*) == sizeof(QuickEntryPoints), QuickEntryPoints_all);
   }
 };

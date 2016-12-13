@@ -1,0 +1,2 @@
+Test pre-emptive update of object fields to avoid read barriers on
+reference field accesses on the same object.
