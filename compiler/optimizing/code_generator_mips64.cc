@@ -3090,6 +3090,20 @@ void InstructionCodeGeneratorMIPS64::VisitInstanceFieldSet(HInstanceFieldSet* in
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderMIPS64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
 void InstructionCodeGeneratorMIPS64::GenerateGcRootFieldLoad(
     HInstruction* instruction ATTRIBUTE_UNUSED,
     Location root,

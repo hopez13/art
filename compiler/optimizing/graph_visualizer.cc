@@ -469,6 +469,17 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         iget->GetFieldInfo().GetDexFile().PrettyField(iget->GetFieldInfo().GetFieldIndex(),
                                                       /* with type */ false);
     StartAttributeStream("field_type") << iget->GetFieldType();
+    StartAttributeStream("generates_own_read_barrier")
+        << std::boolalpha << iget->GeneratesOwnReadBarrier() << std::noboolalpha;
+  }
+
+  void VisitUpdateFields(HUpdateFields* update_fields) OVERRIDE {
+    const FieldInfo& field1_info = update_fields->GetField1Info();
+    StartAttributeStream("field1_name")
+        << field1_info.GetDexFile().PrettyField(field1_info.GetFieldIndex(), /* with type */ false);
+    const FieldInfo& field2_info = update_fields->GetField2Info();
+    StartAttributeStream("field2_name")
+        << field2_info.GetDexFile().PrettyField(field2_info.GetFieldIndex(), /* with type */ false);
   }
 
   void VisitInstanceFieldSet(HInstanceFieldSet* iset) OVERRIDE {
