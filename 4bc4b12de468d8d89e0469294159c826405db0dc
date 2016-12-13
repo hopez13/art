@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facc0f55_ec13ab1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T14:18:56Z",
+      "side": 1,
+      "message": "Please add the commit hash: a9a8254c920ce8e22210abfc16c9842ce0aea28f\nThat is something that external devs can look up after checking out the AOSP.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 61
+      },
+      "revId": "4bc4b12de468d8d89e0469294159c826405db0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_05d6d6de",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-13T14:18:56Z",
+      "side": 1,
+      "message": "This is certainly not valid bytecode:\n\n  .method public static getObject()Ljava/lang/Object;\n    .registers 1\n    const/4 v0, +1     # Primitive type\n    return-object v0   # Assignable to Object?\n  .end method",
+      "range": {
+        "startLine": 352,
+        "startChar": 7,
+        "endLine": 352,
+        "endChar": 67
+      },
+      "revId": "4bc4b12de468d8d89e0469294159c826405db0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
