@@ -4650,6 +4650,41 @@ void InstructionCodeGeneratorARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instr
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderARMVIXL::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // TODO: Implement instruction HLoadReadBarrierState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitLoadReadBarrierState(
+    HLoadReadBarrierState* instruction) {
+  // TODO: Implement instruction HLoadReadBarrierState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderARMVIXL::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // TODO: Implement instruction HMarkReferencesExplicitRBState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // TODO: Implement instruction HMarkReferencesExplicitRBState for the ARM VIXL back end.
+  LOG(FATAL) << "Not-yet-implemented instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderARMVIXL::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // Instruction HMarkReferencesImplicitRBState is not used in the ARM VIXL back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // Instruction HMarkReferencesImplicitRBState is not used in the ARM VIXL back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
 void LocationsBuilderARMVIXL::VisitUnresolvedInstanceFieldGet(
     HUnresolvedInstanceFieldGet* instruction) {
   FieldAccessCallingConventionARMVIXL calling_convention;
@@ -7197,7 +7232,7 @@ void CodeGeneratorARMVIXL::MaybeGenerateReadBarrierSlow(HInstruction* instructio
                                                         Location index) {
   if (kEmitCompilerReadBarrier) {
     // Baker's read barriers shall be handled by the fast path
-    // (CodeGeneratorARM::GenerateReferenceLoadWithBakerReadBarrier).
+    // (CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier).
     DCHECK(!kUseBakerReadBarrier);
     // If heap poisoning is enabled, unpoisoning will be taken care of
     // by the runtime within the slow path.
