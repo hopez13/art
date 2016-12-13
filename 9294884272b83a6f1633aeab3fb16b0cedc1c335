@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a2b0780_18f631b7",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-13T18:49:19Z",
+      "side": 1,
+      "message": "Maybe mention that it\u0027s in the flag register to be clearer?",
+      "range": {
+        "startLine": 33,
+        "startChar": 33,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "9294884272b83a6f1633aeab3fb16b0cedc1c335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a2b0780_b8addd83",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-13T18:49:19Z",
+      "side": 1,
+      "message": "ReadBarrierStateKind could be misinterpreted as referring to the white/gray states, rather than where the loaded read barrier state resides? Maybe use a somewhat different name if you agree?",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9294884272b83a6f1633aeab3fb16b0cedc1c335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
