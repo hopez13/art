@@ -53,7 +53,6 @@ using helpers::DRegisterFrom;
 using helpers::FPRegisterFrom;
 using helpers::HeapOperand;
 using helpers::HeapOperandFrom;
-using helpers::InputCPURegisterAt;
 using helpers::InputCPURegisterOrZeroRegAt;
 using helpers::InputFPRegisterAt;
 using helpers::InputOperandAt;
@@ -1095,6 +1094,66 @@ class ReadBarrierForRootSlowPathARM64 : public SlowPathCodeARM64 {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathARM64);
 };
 
+// Slow path marking and updating two object references fields withing an object.
+class ReadBarrierUpdateFieldsSlowPathARM64 : public SlowPathCodeARM64 {
+ public:
+  ReadBarrierUpdateFieldsSlowPathARM64(HInstruction* instruction,
+                                       Location obj,
+                                       uint32_t field1_offset,
+                                       uint32_t field2_offset)
+      : SlowPathCodeARM64(instruction),
+        obj_(obj),
+        field1_offset_(field1_offset),
+        field2_offset_(field2_offset) {
+    DCHECK(kEmitCompilerReadBarrier);
+    DCHECK(kUseBakerReadBarrier);
+  }
+
+  void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    LocationSummary* locations = instruction_->GetLocations();
+    Primitive::Type type = Primitive::kPrimNot;
+    DCHECK(locations->CanCall());
+    DCHECK(obj_.IsRegister()) << obj_;
+    DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(obj_.reg()));
+    // This slow path is only used by the HUpdateFields instruction.
+    DCHECK(instruction_->IsUpdateFields())
+        << "Unexpected instruction in read barrier update fields slow path: "
+        << instruction_->DebugName();
+
+    __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);
+
+    InvokeRuntimeCallingConvention calling_convention;
+    CodeGeneratorARM64* arm64_codegen = down_cast<CodeGeneratorARM64*>(codegen);
+    arm64_codegen->MoveLocation(LocationFrom(calling_convention.GetRegisterAt(0)), obj_, type);
+    arm64_codegen->MoveConstant(LocationFrom(calling_convention.GetRegisterAt(1)), field1_offset_);
+    arm64_codegen->MoveConstant(LocationFrom(calling_convention.GetRegisterAt(2)), field2_offset_);
+    arm64_codegen->InvokeRuntime(kQuickReadBarrierUpdateFields,
+                                 instruction_,
+                                 instruction_->GetDexPc(),
+                                 this);
+    CheckEntrypointTypes<
+      kQuickReadBarrierUpdateFields, mirror::Object*, mirror::Object*, uint32_t, uint32_t>();
+    arm64_codegen->MoveLocation(obj_, calling_convention.GetReturnLocation(type), type);
+
+    RestoreLiveRegisters(codegen, locations);
+    __ B(GetExitLabel());
+  }
+
+  const char* GetDescription() const OVERRIDE { return "ReadBarrierUpdateFieldsSlowPathARM64"; }
+
+ private:
+  // The register containing the object holding the object reference
+  // fields to be marked and updated.
+  const Location obj_;
+  // The offsets of the object reference fields within `obj_` to mark
+  // and updated.
+  const uint32_t field1_offset_;
+  const uint32_t field2_offset_;
+
+  DISALLOW_COPY_AND_ASSIGN(ReadBarrierUpdateFieldsSlowPathARM64);
+};
+
 #undef __
 
 Location InvokeDexCallingConventionVisitorARM64::GetNextLocation(Primitive::Type type) {
@@ -1877,24 +1936,28 @@ void LocationsBuilderARM64::HandleFieldGet(HInstruction* instruction) {
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == Primitive::kPrimNot);
+  bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+      || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+  bool call_on_read_barrier_slow_path =
+      object_field_get_with_read_barrier && (!kUseBakerReadBarrier || generates_own_read_barrier);
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction,
-                                                   object_field_get_with_read_barrier ?
-                                                       LocationSummary::kCallOnSlowPath :
-                                                       LocationSummary::kNoCall);
-  if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
+                                                   call_on_read_barrier_slow_path
+                                                       ? LocationSummary::kCallOnSlowPath
+                                                       : LocationSummary::kNoCall);
+  if (call_on_read_barrier_slow_path) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
   if (Primitive::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
-    // The output overlaps for an object field get when read barriers
-    // are enabled: we do not want the load to overwrite the object's
-    // location, as we need it to emit the read barrier.
+    // The output overlaps for an object field get generating its
+    // (own) read barrier: we do not want the load to overwrite the
+    // object's location, as we need it to emit the read barrier.
     locations->SetOut(
         Location::RequiresRegister(),
-        object_field_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
+        call_on_read_barrier_slow_path ? Location::kOutputOverlap : Location::kNoOutputOverlap);
   }
 }
 
@@ -1903,7 +1966,7 @@ void InstructionCodeGeneratorARM64::HandleFieldGet(HInstruction* instruction,
   DCHECK(instruction->IsInstanceFieldGet() || instruction->IsStaticFieldGet());
   LocationSummary* locations = instruction->GetLocations();
   Location base_loc = locations->InAt(0);
-  Location out = locations->Out();
+  Location out_loc = locations->Out();
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
   Primitive::Type field_type = field_info.GetFieldType();
   BlockPoolsScope block_pools(GetVIXLAssembler());
@@ -1911,38 +1974,50 @@ void InstructionCodeGeneratorARM64::HandleFieldGet(HInstruction* instruction,
 
   if (field_type == Primitive::kPrimNot && kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
     // Object FieldGet with Baker's read barrier case.
-    MacroAssembler* masm = GetVIXLAssembler();
-    UseScratchRegisterScope temps(masm);
-    // /* HeapReference<Object> */ out = *(base + offset)
-    Register base = RegisterFrom(base_loc, Primitive::kPrimNot);
-    Register temp = temps.AcquireW();
-    // Note that potential implicit null checks are handled in this
-    // CodeGeneratorARM64::GenerateFieldLoadWithBakerReadBarrier call.
-    codegen_->GenerateFieldLoadWithBakerReadBarrier(
-        instruction,
-        out,
-        base,
-        offset,
-        temp,
-        /* needs_null_check */ true,
-        field_info.IsVolatile());
+    bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+        || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+    if (generates_own_read_barrier) {
+      MacroAssembler* masm = GetVIXLAssembler();
+      UseScratchRegisterScope temps(masm);
+      // /* HeapReference<Object> */ out = *(base + offset)
+      Register base = RegisterFrom(base_loc, Primitive::kPrimNot);
+      Register temp = temps.AcquireW();
+      bool use_load_acquire = field_info.IsVolatile();
+      // Note that potential implicit null checks are handled in this
+      // CodeGeneratorARM64::GenerateFieldLoadWithBakerReadBarrier call.
+      codegen_->GenerateFieldLoadWithBakerReadBarrier(
+          instruction, out_loc, base, offset, temp, /* needs_null_check */ true, use_load_acquire);
+    } else {
+      // This "reference field get" instruction loads a field that has
+      // already been updated by a HUpdateFields instruction.
+      //
+      // Note that a potential implicit null check is handled in
+      // InstructionCodeGeneratorARM64::VisitUpdateFields.
+      Register out_reg = OutputRegister(instruction);
+      if (field_info.IsVolatile()) {
+        codegen_->LoadAcquire(instruction, out_reg, field, /* needs_null_check */ false);
+      } else {
+        codegen_->Load(field_type, out_reg, field);
+      }
+      GetAssembler()->MaybeUnpoisonHeapReference(out_reg);
+    }
   } else {
     // General case.
+    CPURegister out_reg = OutputCPURegister(instruction);
     if (field_info.IsVolatile()) {
       // Note that a potential implicit null check is handled in this
       // CodeGeneratorARM64::LoadAcquire call.
       // NB: LoadAcquire will record the pc info if needed.
-      codegen_->LoadAcquire(
-          instruction, OutputCPURegister(instruction), field, /* needs_null_check */ true);
+      codegen_->LoadAcquire(instruction, out_reg, field, /* needs_null_check */ true);
     } else {
-      codegen_->Load(field_type, OutputCPURegister(instruction), field);
+      codegen_->Load(field_type, out_reg, field);
       codegen_->MaybeRecordImplicitNullCheck(instruction);
     }
     if (field_type == Primitive::kPrimNot) {
       // If read barriers are enabled, emit read barriers other than
       // Baker's using a slow path (and also unpoison the loaded
       // reference, if heap poisoning is enabled).
-      codegen_->MaybeGenerateReadBarrierSlow(instruction, out, out, base_loc, offset);
+      codegen_->MaybeGenerateReadBarrierSlow(instruction, out_loc, out_loc, base_loc, offset);
     }
   }
 }
@@ -3364,6 +3439,60 @@ void LocationsBuilderARM64::VisitInstanceFieldSet(HInstanceFieldSet* instruction
 
 void InstructionCodeGeneratorARM64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+}
+
+void LocationsBuilderARM64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void InstructionCodeGeneratorARM64::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  // Check whether `obj` is gray and update two of its fields (located
+  // at offsets `field1_offset` and `field2_offset`) if so.
+
+  LocationSummary* locations = instruction->GetLocations();
+  Location obj_loc = locations->InAt(0);
+  Register obj = InputRegisterAt(instruction, 0);
+  DCHECK(obj.IsW());
+
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register temp = temps.AcquireW();
+
+  uint32_t monitor_offset = mirror::Object::MonitorOffset().Int32Value();
+
+  // /* int32_t */ monitor = obj->monitor_
+  __ Ldr(temp, HeapOperand(obj, monitor_offset));
+  codegen_->MaybeRecordImplicitNullCheck(instruction);
+  // /* LockWord */ rb_state = LockWord(monitor)
+  static_assert(sizeof(LockWord) == sizeof(int32_t),
+                "art::LockWord and int32_t have different sizes.");
+
+  // No need for a load fence or artificial data dependency here, as
+  // we do not load the fields.
+
+  // Slow path updating `obj`'s reference fields at offsets `field1_offset` and
+  // `field2_offset` when `obj` is gray.
+  SlowPathCodeARM64* slow_path = new (GetGraph()->GetArena()) ReadBarrierUpdateFieldsSlowPathARM64(
+      instruction,
+      obj_loc,
+      instruction->GetField1Info().GetFieldOffset().Uint32Value(),
+      instruction->GetField2Info().GetFieldOffset().Uint32Value());
+  codegen_->AddSlowPath(slow_path);
+
+  // Given the numeric representation, it's enough to check the low bit of the rb_state.
+  static_assert(ReadBarrier::WhiteState() == 0, "Expecting white to have value 0");
+  static_assert(ReadBarrier::GrayState() == 1, "Expecting gray to have value 1");
+  __ Tbnz(temp, LockWord::kReadBarrierStateShift, slow_path->GetEntryLabel());
+  __ Bind(slow_path->GetExitLabel());
 }
 
 // Temp is used for read barrier.
@@ -5605,7 +5734,7 @@ void CodeGeneratorARM64::GenerateReferenceLoadWithBakerReadBarrier(HInstruction*
   // Object* ref = ref_addr->AsMirrorPtr()
   GetAssembler()->MaybeUnpoisonHeapReference(ref_reg);
 
-  // Slow path marking the object `ref` when it is gray.
+  // Slow path marking the object `ref` when `obj` is gray.
   SlowPathCodeARM64* slow_path;
   if (always_update_field) {
     // ReadBarrierMarkAndUpdateFieldSlowPathARM64 only supports

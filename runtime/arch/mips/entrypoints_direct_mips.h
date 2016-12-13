@@ -47,7 +47,8 @@ static constexpr bool IsDirectEntrypoint(QuickEntrypointEnum entrypoint) {
       entrypoint == kQuickCmplFloat ||
       entrypoint == kQuickReadBarrierJni ||
       entrypoint == kQuickReadBarrierSlow ||
-      entrypoint == kQuickReadBarrierForRootSlow;
+      entrypoint == kQuickReadBarrierForRootSlow ||
+      entrypoint == kQuickReadBarrierUpdateFields;
 }
 
 }  // namespace art
