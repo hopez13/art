@@ -100,7 +100,11 @@ class CHAStackVisitor FINAL  : public StackVisitor {
 
   bool VisitFrame() OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
     ArtMethod* method = GetMethod();
-    if (method == nullptr || method->IsRuntimeMethod() || method->IsNative()) {
+    // Avoid types of methods that do not have an oat quick method header.
+    if (method == nullptr ||
+        method->IsRuntimeMethod() ||
+        method->IsNative() ||
+        method->IsProxyMethod()) {
       return true;
     }
     if (GetCurrentQuickFrame() == nullptr) {
