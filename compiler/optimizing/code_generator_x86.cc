@@ -895,6 +895,67 @@ class ReadBarrierForRootSlowPathX86 : public SlowPathCode {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathX86);
 };
 
+// Slow path marking and updating two object references fields withing an object.
+class ReadBarrierUpdateFieldsSlowPathX86 : public SlowPathCode {
+ public:
+  ReadBarrierUpdateFieldsSlowPathX86(HInstruction* instruction,
+                                     Location obj,
+                                     uint32_t field1_offset,
+                                     uint32_t field2_offset)
+      : SlowPathCode(instruction),
+        obj_(obj),
+        field1_offset_(field1_offset),
+        field2_offset_(field2_offset) {
+    DCHECK(kEmitCompilerReadBarrier);
+    DCHECK(kUseBakerReadBarrier);
+  }
+
+  void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    LocationSummary* locations = instruction_->GetLocations();
+    Register reg_obj = obj_.AsRegister<Register>();
+    DCHECK(locations->CanCall());
+    DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(reg_obj));
+    // This slow path is only used by the HUpdateFields instruction.
+    DCHECK(instruction_->IsUpdateFields())
+        << "Unexpected instruction in read barrier update fields slow path: "
+        << instruction_->DebugName();
+
+    __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);
+
+    InvokeRuntimeCallingConvention calling_convention;
+    CodeGeneratorX86* x86_codegen = down_cast<CodeGeneratorX86*>(codegen);
+    x86_codegen->Move32(Location::RegisterLocation(calling_convention.GetRegisterAt(0)), obj_);
+    x86_codegen->MoveConstant(Location::RegisterLocation(calling_convention.GetRegisterAt(1)),
+                              field1_offset_);
+    x86_codegen->MoveConstant(Location::RegisterLocation(calling_convention.GetRegisterAt(2)),
+                              field2_offset_);
+    x86_codegen->InvokeRuntime(kQuickReadBarrierUpdateFields,
+                               instruction_,
+                               instruction_->GetDexPc(),
+                               this);
+    CheckEntrypointTypes<
+      kQuickReadBarrierUpdateFields, mirror::Object*, mirror::Object*, uint32_t, uint32_t>();
+    x86_codegen->Move32(obj_, Location::RegisterLocation(EAX));
+
+    RestoreLiveRegisters(codegen, locations);
+    __ jmp(GetExitLabel());
+  }
+
+  const char* GetDescription() const OVERRIDE { return "ReadBarrierUpdateFieldsSlowPathX86"; }
+
+ private:
+  // The register containing the object holding the object reference
+  // fields to be marked and updated.
+  const Location obj_;
+  // The offsets of the object reference fields within `obj_` to mark
+  // and updated.
+  const uint32_t field1_offset_;
+  const uint32_t field2_offset_;
+
+  DISALLOW_COPY_AND_ASSIGN(ReadBarrierUpdateFieldsSlowPathX86);
+};
+
 #undef __
 // NOLINT on __ macro to suppress wrong warning/fix (misc-macro-parentheses) from clang-tidy.
 #define __ down_cast<X86Assembler*>(GetAssembler())->  // NOLINT
@@ -4687,12 +4748,16 @@ void LocationsBuilderX86::HandleFieldGet(HInstruction* instruction, const FieldI
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == Primitive::kPrimNot);
+  bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+      || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+  bool call_on_read_barrier_slow_path =
+      object_field_get_with_read_barrier && (!kUseBakerReadBarrier || generates_own_read_barrier);
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction,
-                                                   kEmitCompilerReadBarrier ?
-                                                       LocationSummary::kCallOnSlowPath :
-                                                       LocationSummary::kNoCall);
-  if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
+                                                   call_on_read_barrier_slow_path
+                                                       ? LocationSummary::kCallOnSlowPath
+                                                       : LocationSummary::kNoCall);
+  if (call_on_read_barrier_slow_path) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
@@ -4701,15 +4766,15 @@ void LocationsBuilderX86::HandleFieldGet(HInstruction* instruction, const FieldI
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
     // The output overlaps in case of long: we don't want the low move
-    // to overwrite the object's location.  Likewise, in the case of
-    // an object field get with read barriers enabled, we do not want
-    // the move to overwrite the object's location, as we need it to emit
-    // the read barrier.
+    // to overwrite the object's location. Likewise, in the case of
+    // an object field get generating its (own) read barrier, we do
+    // not want the move to overwrite the object's location, as we
+    // need it to emit the read barrier.
     locations->SetOut(
         Location::RequiresRegister(),
-        (object_field_get_with_read_barrier || instruction->GetType() == Primitive::kPrimLong) ?
-            Location::kOutputOverlap :
-            Location::kNoOutputOverlap);
+        (instruction->GetType() == Primitive::kPrimLong || call_on_read_barrier_slow_path)
+            ? Location::kOutputOverlap
+            : Location::kNoOutputOverlap);
   }
 
   if (field_info.IsVolatile() && (field_info.GetFieldType() == Primitive::kPrimLong)) {
@@ -4761,14 +4826,28 @@ void InstructionCodeGeneratorX86::HandleFieldGet(HInstruction* instruction,
     case Primitive::kPrimNot: {
       // /* HeapReference<Object> */ out = *(base + offset)
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        // Note that a potential implicit null check is handled in this
-        // CodeGeneratorX86::GenerateFieldLoadWithBakerReadBarrier call.
-        codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            instruction, out, base, offset, /* needs_null_check */ true);
+        bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+            || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+        if (generates_own_read_barrier) {
+          // Note that a potential implicit null check is handled in this
+          // CodeGeneratorX86::GenerateFieldLoadWithBakerReadBarrier call.
+          codegen_->GenerateFieldLoadWithBakerReadBarrier(
+              instruction, out, base, offset, /* needs_null_check */ true);
+        } else {
+          // This "reference field get" instruction loads a field that
+          // has already been updated by a HUpdateFields instruction.
+          //
+          // Note that a potential implicit null check is handled in
+          // InstructionCodeGeneratorX86::VisitUpdateFields.
+          Register out_reg = out.AsRegister<Register>();
+          __ movl(out_reg, Address(base, offset));
+          __ MaybeUnpoisonHeapReference(out_reg);
+        }
         if (is_volatile) {
           codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
         }
       } else {
+        // Non-Baker read barrier cases.
         __ movl(out.AsRegister<Register>(), Address(base, offset));
         codegen_->MaybeRecordImplicitNullCheck(instruction);
         if (is_volatile) {
@@ -5032,6 +5111,57 @@ void LocationsBuilderX86::VisitInstanceFieldGet(HInstanceFieldGet* instruction) 
 
 void InstructionCodeGeneratorX86::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   HandleFieldGet(instruction, instruction->GetFieldInfo());
+}
+
+void LocationsBuilderX86::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void InstructionCodeGeneratorX86::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  // Check whether `obj` is gray and update two of its fields (located
+  // at offsets `field1_offset` and `field2_offset`) if so.
+
+  LocationSummary* locations = instruction->GetLocations();
+  Location obj_loc = locations->InAt(0);
+
+  uint32_t monitor_offset = mirror::Object::MonitorOffset().Int32Value();
+
+  // Given the numeric representation, it's enough to check the low bit of the rb_state.
+  static_assert(ReadBarrier::WhiteState() == 0, "Expecting white to have value 0");
+  static_assert(ReadBarrier::GrayState() == 1, "Expecting gray to have value 1");
+  constexpr uint32_t gray_byte_position = LockWord::kReadBarrierStateShift / kBitsPerByte;
+  constexpr uint32_t gray_bit_position = LockWord::kReadBarrierStateShift % kBitsPerByte;
+  constexpr int32_t test_value = static_cast<int8_t>(1 << gray_bit_position);
+
+  __ testb(Address(obj_loc.AsRegister<Register>(), monitor_offset + gray_byte_position),
+           Immediate(test_value));
+  codegen_->MaybeRecordImplicitNullCheck(instruction);
+
+  // Load fence to prevent load-load reordering.
+  // Note that this is a no-op, thanks to the x86 memory model.
+  codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
+
+  // Slow path updating `obj`'s reference fields at offsets `field1_offset` and
+  // `field2_offset` when `obj` is gray.
+  SlowPathCode* slow_path = new (GetGraph()->GetArena()) ReadBarrierUpdateFieldsSlowPathX86(
+      instruction,
+      obj_loc,
+      instruction->GetField1Info().GetFieldOffset().Uint32Value(),
+      instruction->GetField2Info().GetFieldOffset().Uint32Value());
+  codegen_->AddSlowPath(slow_path);
+
+  // We have done the "if" of the gray bit check above, now branch based on the flags.
+  __ j(kNotZero, slow_path->GetEntryLabel());
+  __ Bind(slow_path->GetExitLabel());
 }
 
 void LocationsBuilderX86::VisitUnresolvedInstanceFieldGet(
@@ -7245,7 +7375,7 @@ void CodeGeneratorX86::GenerateReferenceLoadWithBakerReadBarrier(HInstruction* i
   __ movl(ref_reg, src);  // Flags are unaffected.
 
   // Note: Reference unpoisoning modifies the flags, so we need to delay it after the branch.
-  // Slow path marking the object `ref` when it is gray.
+  // Slow path marking the object `ref` when `obj` is gray.
   SlowPathCode* slow_path;
   if (always_update_field) {
     DCHECK(temp != nullptr);

@@ -52,8 +52,11 @@ extern "C" mirror::Object* art_quick_read_barrier_mark_reg12(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg13(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg14(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg15(mirror::Object*);
+
 extern "C" mirror::Object* art_quick_read_barrier_slow(mirror::Object*, mirror::Object*, uint32_t);
 extern "C" mirror::Object* art_quick_read_barrier_for_root_slow(GcRoot<mirror::Object>*);
+extern "C" mirror::Object* art_quick_read_barrier_update_fields(
+    mirror::Object*, uint32_t, uint32_t);
 
 void UpdateReadBarrierEntrypoints(QuickEntryPoints* qpoints, bool is_marking) {
   qpoints->pReadBarrierMarkReg00 = is_marking ? art_quick_read_barrier_mark_reg00 : nullptr;
@@ -138,6 +141,7 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   qpoints->pReadBarrierMarkReg29 = nullptr;
   qpoints->pReadBarrierSlow = art_quick_read_barrier_slow;
   qpoints->pReadBarrierForRootSlow = art_quick_read_barrier_for_root_slow;
+  qpoints->pReadBarrierUpdateFields = art_quick_read_barrier_update_fields;
 #endif  // __APPLE__
 };
 

@@ -69,6 +69,7 @@
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
 #include "elf_writer_quick.h"
+#include "gc_optimizer.h"
 #include "graph_checker.h"
 #include "graph_visualizer.h"
 #include "gvn.h"
@@ -229,7 +230,8 @@ class PassObserver : public ValueObject {
         GraphChecker checker(graph_);
         checker.Run();
         if (!checker.IsValid()) {
-          LOG(FATAL) << "Error after " << pass_name << ": " << Dumpable<GraphChecker>(checker);
+          LOG(FATAL) << "Error after " << pass_name << ": " << Dumpable<GraphChecker>(checker)
+                     << " while compiling: " << GetMethodName();
         }
       }
     }
@@ -783,6 +785,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
       graph, stats, "instruction_simplifier$before_codegen");
   IntrinsicsRecognizer* intrinsics = new (arena) IntrinsicsRecognizer(graph, stats);
   CHAGuardOptimization* cha_guard = new (arena) CHAGuardOptimization(graph);
+  GcOptimizer* gc_optimize = new (arena) GcOptimizer(graph);
 
   HOptimization* optimizations1[] = {
     intrinsics,
@@ -817,6 +820,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
     // can satisfy. For example, the code generator does not expect to see a
     // HTypeConversion from a type to the same type.
     simplify4,
+    gc_optimize,
   };
   RunOptimizations(optimizations2, arraysize(optimizations2), pass_observer);
 
