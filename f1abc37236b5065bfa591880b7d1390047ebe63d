@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9a179337_bc0ced1f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "That is correct.  I expanded the comment about this.\n\nI was thinking about merging these classes (`ReadBarrierMarkSlowPathARM64` and `ReadBarrierMarkTwoReferencesSlowPathARM64`) into a more generic one as part of some refactoring effort (in a later CL).  Would that make sense to you?",
+      "parentUuid": "3a2b0780_561c96df",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 24
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_6bd1eb0e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-12T21:02:28Z",
       "side": 1,
       "message": "What does this \"Likewise\" refer to?",
+      "range": {
+        "startLine": 2026,
+        "startChar": 9,
+        "endLine": 2026,
+        "endChar": 18
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da182b71_b67086f4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "I think it is a stray comment; thanks for catching this!",
+      "parentUuid": "3a2b0780_6bd1eb0e",
       "range": {
         "startLine": 2026,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9aeeb371_c487d0a1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "Yes, unfortunately.  Note that I made sure those instructions would not be moved (e.g. by GVN) via the `CanBeMoved` method.   Also, I have extended the GraphChecker to catch erroneous reordering of these instruction.\n\nI don\u0027t know if it is possible to an create artificial (though explicit) dependency between two HIR instructions outside of the input/output flow.",
+      "parentUuid": "3a2b0780_96955e1f",
+      "range": {
+        "startLine": 3503,
+        "startChar": 17,
+        "endLine": 3503,
+        "endChar": 27
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_56b0168e",
         "filename": "compiler/optimizing/gc_optimizer.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-12T21:02:28Z",
       "side": 1,
       "message": "I see that this currently supports the case of two consecutive instance field gets on the same object.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 59
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_25e1dab4",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "Yes, I wanted to start with a simple pattern, and then extended from that base in follow-up CLs.",
+      "parentUuid": "3a2b0780_56b0168e",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5af43b41_e5d2d2e8",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "If you look at the generated code (e.g. in test/628-checker-read-barrier-merging/src/Main.java), the sequence is basically the same:\n\n  /// CHECK: \u003c\u003cObj:l\\d+\u003e\u003e     ParameterValue\n  /// CHECK: \u003c\u003cRBState:i\\d+\u003e\u003e LoadReadBarrierState [\u003c\u003cObj\u003e\u003e]\n  /// CHECK:                    ldr r0, [r1, #4]\n  /// CHECK:                    add r1, r0, lsr #32\n  /// CHECK: \u003c\u003cField1:l\\d+\u003e\u003e  InstanceFieldGet [\u003c\u003cObj\u003e\u003e] field_name:Main.o1 generates_own_read_barrier:false\n  /// CHECK:                    ldr r2, [r1, #8]\n  /// CHECK: \u003c\u003cField2:l\\d+\u003e\u003e  InstanceFieldGet [\u003c\u003cObj\u003e\u003e] field_name:Main.o2 generates_own_read_barrier:false\n  /// CHECK:                    ldr r1, [r1, #12]\n  /// CHECK:                  MarkReferencesExplicitRBState [\u003c\u003cRBState\u003e\u003e,\u003c\u003cField1\u003e\u003e,\u003c\u003cField2\u003e\u003e]\n  /// CHECK:                    lsrs r0, #29\n  /// CHECK:                    bcs\n  /// CHECK: disasm           ReadBarrierMarkTwoReferencesSlowPathARM\n  /// CHECK:                    ldr lr, [tr, #{{\\d+}}] ; pReadBarrierMarkReg02\n  /// CHECK:                    blx lr\n  /// CHECK:                    ldr lr, [tr, #{{\\d+}}] ; pReadBarrierMarkReg01\n  /// CHECK:                    blx lr\n  /// CHECK:                    b\n\nThe fake dependency is preserved because we make sure that the order between the LoadReadBarrierState, InstanceFieldGet\u0027s and MarkReferencesExplicitRBState instructions is preserved throughout the compilation.  I guess I could add `RBState` as a dependency of the InstanceFieldGet instructions (even though RBState is technically not used by these instructions); this would require some changes in the InstanceFieldGet class itself, or the introduction of a new instruction taking two inputs.\n\n\nIdeally, we would like to have multiple outputs and be able to express this pattern as:\n\n  (RBState, ObjPlusFakeDep):          LoadReadBarrierState [Obj]\n                                          ldr r0, [r1, #4]\n                                          add r1, r0, lsr #32\n  FieldGet1:                          InstanceFieldGet [ObjWithFakeDep] field_name:Field1\n                                          ldr r2, [r1, #8]\n  FieldGet2:                          InstanceFieldGet [ObjWithFakeDep] field_name:Field2\n                                          ldr r1, [r1, #12]\n  (MarkedFieldGet1, MarkedFieldGet2): MarkReferencesExplicitRBState [RBState, FieldGet1, FieldGet2]\n                                          lsrs r0, #29\n                                          bcs slowpath\n                                        done:\n  \n  [...]\n  \n  ReadBarrierMarkTwoReferencesSlowPathARM (generated by MarkReferencesExplicitRBState)\n                                        slowpath:\n                                          ldr lr, [tr, #pReadBarrierMarkReg02Offset]\n                                          blx lr\n                                          ldr lr, [tr, #pReadBarrierMarkReg01Offset] \n                                          blx lr\n                                          b done\n\nwith these locations:\n\n  Obj: r1\n  RBState: r0\n  ObjPlusFakeDep: r1\n  FieldGet1: r2\n  FieldGet2: r1\n  MarkedFieldGet1: r2\n  MarkedFieldGet2: r1\n\nUses of `FieldGet1` and `FieldGet2` would become uses of `MarkedFieldGet1` and `MarkedFieldGet2` (resp.) in the rest of the code, to preserve the from-space invariant.\n\nThis would require some changes in the register allocator though.\n\n\nI was also considering the idea of lowering instructions a bit more, so as to match the generated assembly code a bit more closely.  Maybe something like:\n\n  RBState:                            LoadReadBarrierState [Obj]\n                                          ldr r0, [r1, #4]\n  ObjPlusFakeDep:                     FakeDependency [RBState]\n                                          add r1, r0, lsr #32\n  FieldGet1:                          InstanceFieldGet [ObjWithFakeDep] field_name:Field1\n                                          ldr r2, [r1, #8]\n  FieldGet2:                          InstanceFieldGet [ObjWithFakeDep] field_name:Field2\n                                          ldr r1, [r1, #12]\n  UnusedRBState:                      TestReadBarrierState [RBState]\n                                          lsrs r0, #29\n                                          bcs slowpath\n                                        done:\n  MarkedFieldGet1:                    MarkReferenceExplicitRBState [UnusedRBState, FieldGet1]\n                                        \u003cnop\u003e\n  MarkedFieldGet2:                    MarkReferenceExplicitRBState [UnusedRBState, FieldGet2]\n                                        \u003cnop\u003e\n  \n  [...]\n  \n  ReadBarrierMarkTwoReferencesSlowPathARM (generated by TestReadBarrierState)\n                                        slowpath:\n                                          ldr lr, [tr, #pReadBarrierMarkReg02Offset]\n                                          blx lr\n                                          ldr lr, [tr, #pReadBarrierMarkReg01Offset] \n                                          blx lr\n                                          b done\n\nwith the same locations as above, plus this one:\n\n  UnusedRBState: r0",
+      "parentUuid": "3a2b0780_305fd22d",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 93
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_9070c6b9",
         "filename": "compiler/optimizing/gc_optimizer.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-12-12T21:02:28Z",
       "side": 1,
       "message": "Use bool or add a new enum for this type?",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 15
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5af43b41_e5b1b291",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-13T15:47:34Z",
+      "side": 1,
+      "message": "I added an enum in PS5 and rewrote related code.",
+      "parentUuid": "3a2b0780_9070c6b9",
       "range": {
         "startLine": 139,
         "startChar": 0,
