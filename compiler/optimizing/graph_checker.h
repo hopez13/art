@@ -61,6 +61,7 @@ class GraphChecker : public HGraphDelegateVisitor {
   void VisitIf(HIf* instruction) OVERRIDE;
   void VisitInstanceOf(HInstanceOf* check) OVERRIDE;
   void VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) OVERRIDE;
+  void VisitLoadReadBarrierState(HLoadReadBarrierState* rb_state) OVERRIDE;
   void VisitLoadException(HLoadException* load) OVERRIDE;
   void VisitNeg(HNeg* instruction) OVERRIDE;
   void VisitPackedSwitch(HPackedSwitch* instruction) OVERRIDE;
@@ -102,6 +103,17 @@ class GraphChecker : public HGraphDelegateVisitor {
   ArenaVector<std::string> errors_;
 
  private:
+  // Routines used to check a sequence of LoadReadBarrierState /
+  // InstanceFieldGet / MarkReferences{Explicit,Implicit}RBState
+  // instructions.
+  void CheckInstanceFieldGetWithLoadReadBarrierState(HLoadReadBarrierState* rb_state,
+                                                     HInstanceFieldGet* field_get);
+  void CheckParallelMoveBeforeInstanceFieldGet(HParallelMove* parallel_move,
+                                               HInstanceFieldGet* field_get);
+  void CheckInstructionInput(HInstruction* instruction,
+                             size_t input_index,
+                             HInstruction* expected_input);
+
   // String displayed before dumped errors.
   const char* const dump_prefix_;
   ArenaBitVector seen_ids_;
