@@ -55,6 +55,7 @@ art_cc_defaults {
         "optimizing/constant_folding.cc",
         "optimizing/dead_code_elimination.cc",
         "optimizing/escape.cc",
+        "optimizing/gc_optimizer.cc",
         "optimizing/graph_checker.cc",
         "optimizing/graph_visualizer.cc",
         "optimizing/gvn.cc",

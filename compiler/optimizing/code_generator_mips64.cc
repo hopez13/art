@@ -2929,6 +2929,40 @@ void InstructionCodeGeneratorMIPS64::VisitInstanceFieldSet(HInstanceFieldSet* in
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderMIPS64::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS64::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderMIPS64::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS64::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderMIPS64::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS64::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
 void LocationsBuilderMIPS64::VisitInstanceOf(HInstanceOf* instruction) {
   LocationSummary::CallKind call_kind =
       instruction->IsExactCheck() ? LocationSummary::kNoCall : LocationSummary::kCallOnSlowPath;
