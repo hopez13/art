@@ -469,6 +469,8 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         iget->GetFieldInfo().GetDexFile().PrettyField(iget->GetFieldInfo().GetFieldIndex(),
                                                       /* with type */ false);
     StartAttributeStream("field_type") << iget->GetFieldType();
+    StartAttributeStream("generates_own_read_barrier")
+        << std::boolalpha << iget->GeneratesOwnReadBarrier() << std::noboolalpha;
   }
 
   void VisitInstanceFieldSet(HInstanceFieldSet* iset) OVERRIDE {

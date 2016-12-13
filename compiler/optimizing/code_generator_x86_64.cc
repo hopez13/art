@@ -498,7 +498,7 @@ class ReadBarrierMarkSlowPathX86_64 : public SlowPathCode {
     // "Compact" slow path, saving two moves.
     //
     // Instead of using the standard runtime calling convention (input
-    // and output in R0):
+    // in RDI, output in RAX):
     //
     //   RDI <- ref
     //   RAX <- ReadBarrierMark(RDI)
@@ -523,6 +523,115 @@ class ReadBarrierMarkSlowPathX86_64 : public SlowPathCode {
   const bool unpoison_ref_before_marking_;
 
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierMarkSlowPathX86_64);
+};
+
+// Slow path marking two object references `ref1` and `ref2` held by
+// the same object `obj` during a read barrier. The fields
+// `obj.field1` and `obj.field2` holding respectively `ref1` and
+// `ref2` do not get updated by this slow path after marking.
+//
+// This means that after the execution of this slow path, `ref1` and
+// `ref2` will always be up-to-date, but `obj.field1` and `obj.field2`
+// may not; i.e., after the flip, `ref1` and `ref2` will be to-space
+// references, but `obj.field1` and `obj.field2` will probably still
+// be from-space references -- unless they get updated by another
+// thread, or if another thread installed another object reference
+// (different from `ref1` (resp. `ref2`)) in `obj.field1`
+// (resp. `obj.field2`).
+//
+// This slow path is essentially the same as
+// ReadBarrierMarkSlowPathX86_64, except that:
+// - it handles two references instead of just one;
+// - it has different assertions regarding its use cases (the only
+//   instruction that may use it is MarkReferencesImplicitRBState; the
+//   registers holding the references are expected to be live).
+class ReadBarrierMarkTwoReferencesSlowPathX86_64 : public SlowPathCode {
+ public:
+  ReadBarrierMarkTwoReferencesSlowPathX86_64(HInstruction* instruction,
+                                             Location ref1,
+                                             Location ref2,
+                                             bool unpoison_refs_before_marking)
+      : SlowPathCode(instruction),
+        ref1_(ref1),
+        ref2_(ref2),
+        unpoison_refs_before_marking_(unpoison_refs_before_marking) {
+    DCHECK(kEmitCompilerReadBarrier);
+  }
+
+  const char* GetDescription() const OVERRIDE {
+    return "ReadBarrierMarkTwoReferencesSlowPathX86_64";
+  }
+
+  void EmitNativeCode(CodeGenerator* codegen) OVERRIDE {
+    LocationSummary* locations = instruction_->GetLocations();
+    CpuRegister ref1_cpu_reg = ref1_.AsRegister<CpuRegister>();
+    Register ref1_reg = ref1_cpu_reg.AsRegister();
+    CpuRegister ref2_cpu_reg = ref2_.AsRegister<CpuRegister>();
+    Register ref2_reg = ref2_cpu_reg.AsRegister();
+    DCHECK(locations->CanCall());
+    // Note that contrary to other read barriers slow paths, registers
+    // `ref1_reg` and `ref2_reg` are expected to be live here, because
+    // they are used (and not defined) by the
+    // MarkReferencesImplicitRBState instruction.
+    DCHECK(locations->GetLiveRegisters()->ContainsCoreRegister(ref1_reg)) << ref1_reg;
+    DCHECK(locations->GetLiveRegisters()->ContainsCoreRegister(ref2_reg)) << ref2_reg;
+    DCHECK(instruction_->IsMarkReferencesImplicitRBState())
+        << "Unexpected instruction in read barrier marking slow path: "
+        << instruction_->DebugName();
+
+    __ Bind(GetEntryLabel());
+    if (unpoison_refs_before_marking_) {
+      // Object* ref1 = ref1_addr->AsMirrorPtr()
+      __ MaybeUnpoisonHeapReference(ref1_cpu_reg);
+      // Object* ref2 = ref2_addr->AsMirrorPtr()
+      __ MaybeUnpoisonHeapReference(ref2_cpu_reg);
+    }
+    // No need to save live registers; it's taken care of by the
+    // entrypoints. Also, there is no need to update the stack mask,
+    // as these runtime calls will not trigger a garbage collection.
+    CodeGeneratorX86_64* x86_64_codegen = down_cast<CodeGeneratorX86_64*>(codegen);
+    DCHECK_NE(ref1_reg, RSP);
+    DCHECK_NE(ref2_reg, RSP);
+    DCHECK(0 <= ref1_reg && ref1_reg < kNumberOfCpuRegisters) << ref1_reg;
+    DCHECK(0 <= ref2_reg && ref2_reg < kNumberOfCpuRegisters) << ref2_reg;
+    DCHECK_NE(ref1_reg, ref2_reg);
+    // "Compact" slow path, saving two moves per marking.
+    //
+    // Instead of using the standard runtime calling convention (input
+    // in RDI, output in RAX):
+    //
+    //   RDI <- ref1
+    //   RAX <- ReadBarrierMark(RDI)
+    //   ref1 <- RAX
+    //
+    //   RDI <- ref2
+    //   RAX <- ReadBarrierMark(RDI)
+    //   ref2 <- RAX
+    //
+    // we just use rX (resp. rY) (the register containing `ref1`
+    // (resp. `ref2`)) as input and output of dedicated entrypoints:
+    //
+    //   rX <- ReadBarrierMarkRegX(rX)
+    //   rY <- ReadBarrierMarkRegY(rY)
+    //
+    int32_t entry_point_offset1 =
+        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kX86_64PointerSize>(ref1_reg);
+    int32_t entry_point_offset2 =
+        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kX86_64PointerSize>(ref2_reg);
+    // These runtime calls do not require stack maps.
+    x86_64_codegen->InvokeRuntimeWithoutRecordingPcInfo(entry_point_offset1, instruction_, this);
+    x86_64_codegen->InvokeRuntimeWithoutRecordingPcInfo(entry_point_offset2, instruction_, this);
+    __ jmp(GetExitLabel());
+  }
+
+ private:
+  // The locations (registers) of the marked object references.
+  const Location ref1_;
+  const Location ref2_;
+  // Should the references in `ref1_` and `ref2_` be unpoisoned prior to marking them?
+  const bool unpoison_refs_before_marking_;
+
+  DISALLOW_COPY_AND_ASSIGN(ReadBarrierMarkTwoReferencesSlowPathX86_64);
 };
 
 // Slow path marking an object reference `ref` during a read barrier,
@@ -589,7 +698,7 @@ class ReadBarrierMarkAndUpdateFieldSlowPathX86_64 : public SlowPathCode {
     // "Compact" slow path, saving two moves.
     //
     // Instead of using the standard runtime calling convention (input
-    // and output in R0):
+    // in RDI, output in RAX):
     //
     //   RDI <- ref
     //   RAX <- ReadBarrierMark(RDI)
@@ -4218,24 +4327,29 @@ void LocationsBuilderX86_64::HandleFieldGet(HInstruction* instruction) {
 
   bool object_field_get_with_read_barrier =
       kEmitCompilerReadBarrier && (instruction->GetType() == Primitive::kPrimNot);
+  bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+      || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+  bool call_on_read_barrier_slow_path =
+      object_field_get_with_read_barrier && (!kUseBakerReadBarrier || generates_own_read_barrier);
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction,
-                                                   object_field_get_with_read_barrier ?
-                                                       LocationSummary::kCallOnSlowPath :
-                                                       LocationSummary::kNoCall);
-  if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
+                                                   call_on_read_barrier_slow_path
+                                                       ? LocationSummary::kCallOnSlowPath
+                                                       : LocationSummary::kNoCall);
+  if (call_on_read_barrier_slow_path) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
   locations->SetInAt(0, Location::RequiresRegister());
+
   if (Primitive::IsFloatingPointType(instruction->GetType())) {
     locations->SetOut(Location::RequiresFpuRegister());
   } else {
-    // The output overlaps for an object field get when read barriers
-    // are enabled: we do not want the move to overwrite the object's
-    // location, as we need it to emit the read barrier.
+    // The output overlaps for an object field get generating its
+    // (own) read barrier: we do not want the move to overwrite the
+    // object's location, as we need it to emit the read barrier.
     locations->SetOut(
         Location::RequiresRegister(),
-        object_field_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
+        call_on_read_barrier_slow_path ? Location::kOutputOverlap : Location::kNoOutputOverlap);
   }
 }
 
@@ -4280,14 +4394,31 @@ void InstructionCodeGeneratorX86_64::HandleFieldGet(HInstruction* instruction,
     case Primitive::kPrimNot: {
       // /* HeapReference<Object> */ out = *(base + offset)
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        // Note that a potential implicit null check is handled in this
-        // CodeGeneratorX86_64::GenerateFieldLoadWithBakerReadBarrier call.
-        codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            instruction, out, base, offset, /* needs_null_check */ true);
+        bool generates_own_read_barrier = !instruction->IsInstanceFieldGet()
+            || instruction->AsInstanceFieldGet()->GeneratesOwnReadBarrier();
+        if (generates_own_read_barrier) {
+          // Note that a potential implicit null check is handled in this
+          // CodeGeneratorX86_64::GenerateFieldLoadWithBakerReadBarrier call.
+          codegen_->GenerateFieldLoadWithBakerReadBarrier(
+              instruction, out, base, offset, /* needs_null_check */ true);
+        } else {
+          // This "reference field get" instruction is part of a
+          // sequence of "reference field get" instructions on the
+          // same object, preceded by a HLoadReadBarrierState
+          // instruction and followed by a
+          // HMarkReferencesImplicitRBState instruction.
+          //
+          // Note that a potential implicit null check is handled in
+          // InstructionCodeGeneratorX86_64::VisitLoadReadBarrierState.
+          // Likewise, potential heap unpoisoning is handled in
+          // InstructionCodeGeneratorX86_64::VisitMarkReferencesImplicitRBState.
+          __ movl(out.AsRegister<CpuRegister>(), Address(base, offset));  // Flags are unaffected.
+        }
         if (is_volatile) {
           codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
         }
       } else {
+        // Non-Baker read barrier cases.
         __ movl(out.AsRegister<CpuRegister>(), Address(base, offset));
         codegen_->MaybeRecordImplicitNullCheck(instruction);
         if (is_volatile) {
@@ -4528,6 +4659,98 @@ void LocationsBuilderX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
 
 void InstructionCodeGeneratorX86_64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
+}
+
+void LocationsBuilderX86_64::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
+  // The read barrier state is stored in the RFLAGS register and does
+  // not need an (out) location on x86-64.
+}
+
+void InstructionCodeGeneratorX86_64::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations = instruction->GetLocations();
+  CpuRegister obj = locations->InAt(0).AsRegister<CpuRegister>();
+  uint32_t monitor_offset = mirror::Object::MonitorOffset().Int32Value();
+
+  // Given the numeric representation, it's enough to check the low bit of the rb_state.
+  static_assert(ReadBarrier::WhiteState() == 0, "Expecting white to have value 0");
+  static_assert(ReadBarrier::GrayState() == 1, "Expecting gray to have value 1");
+  constexpr uint32_t gray_byte_position = LockWord::kReadBarrierStateShift / kBitsPerByte;
+  constexpr uint32_t gray_bit_position = LockWord::kReadBarrierStateShift % kBitsPerByte;
+  constexpr int32_t test_value = static_cast<int8_t>(1 << gray_bit_position);
+
+  // if (rb_state == ReadBarrier::GrayState())
+  //   // Mark references.
+  // At this point, just do the "if" and make sure that flags are preserved until the branch.
+  __ testb(Address(obj, monitor_offset + gray_byte_position), Immediate(test_value));
+  codegen_->MaybeRecordImplicitNullCheck(instruction);
+  // Load fence to prevent load-load reordering.
+  // Note that this is a no-op, thanks to the x86-64 memory model.
+  codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
+}
+
+void LocationsBuilderX86_64::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // Instruction HMarkReferencesExplicitRBState is not used in the x86-64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorX86_64::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // Instruction HMarkReferencesExplicitRBState is not used in the x86-64 back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderX86_64::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  // Note: The read barrier state (HLoadReadBarrierState instruction)
+  // is stored in the RFLAGS register and is not an input of the
+  // HMarkReferencesImplicitRBState instruction on x86-64.
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorX86_64::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LocationSummary* locations = instruction->GetLocations();
+  Location ref1 = locations->InAt(0);
+  CpuRegister ref1_reg = ref1.AsRegister<CpuRegister>();
+  Location ref2 = locations->InAt(1);
+  CpuRegister ref2_reg = ref2.AsRegister<CpuRegister>();
+  DCHECK_NE(ref1_reg.AsRegister(), ref2_reg.AsRegister());
+
+  // Note: Reference unpoisoning modifies the flags, so we need to delay it after the branch.
+  // Slow path marking both objects `ref1` and `ref2` when their holder is gray.
+  SlowPathCode* slow_path;
+    slow_path = new (GetGraph()->GetArena()) ReadBarrierMarkTwoReferencesSlowPathX86_64(
+        instruction, ref1, ref2, /* unpoison_ref_before_marking */ true);
+  codegen_->AddSlowPath(slow_path);
+
+  // We have done the "if" of the gray bit check above, now branch based on the flags.
+  __ j(kNotZero, slow_path->GetEntryLabel());
+
+  // Object* ref1 = ref1_addr->AsMirrorPtr()
+  __ MaybeUnpoisonHeapReference(ref1_reg);
+  // Object* ref2 = ref2_addr->AsMirrorPtr()
+  __ MaybeUnpoisonHeapReference(ref2_reg);
+
+  __ Bind(slow_path->GetExitLabel());
 }
 
 void LocationsBuilderX86_64::VisitUnresolvedInstanceFieldGet(
@@ -6628,7 +6851,7 @@ void CodeGeneratorX86_64::GenerateReferenceLoadWithBakerReadBarrier(HInstruction
   __ movl(ref_reg, src);  // Flags are unaffected.
 
   // Note: Reference unpoisoning modifies the flags, so we need to delay it after the branch.
-  // Slow path marking the object `ref` when it is gray.
+  // Slow path marking the object `ref` when `obj` is gray.
   SlowPathCode* slow_path;
   if (always_update_field) {
     DCHECK(temp1 != nullptr);
