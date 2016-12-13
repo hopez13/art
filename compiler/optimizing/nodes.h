@@ -1294,8 +1294,11 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(LessThanOrEqual, Condition)                                         \
   M(LoadClass, Instruction)                                             \
   M(LoadException, Instruction)                                         \
+  M(LoadReadBarrierState, Instruction)                                  \
   M(LoadString, Instruction)                                            \
   M(LongConstant, Constant)                                             \
+  M(MarkReferencesExplicitRBState, Instruction)                         \
+  M(MarkReferencesImplicitRBState, Instruction)                         \
   M(MemoryBarrier, Instruction)                                         \
   M(MonitorOperation, Instruction)                                      \
   M(Mul, BinaryOperation)                                               \
@@ -5109,11 +5112,35 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
                     field_idx,
                     declaring_class_def_index,
                     dex_file,
-                    dex_cache) {
+                    dex_cache),
+        // By default, when read barrier are enabled, an object
+        // reference HInstanceFieldGet instruction will generate its
+        // own read barrier.
+        generates_own_read_barrier_(kEmitCompilerReadBarrier && field_type == Primitive::kPrimNot) {
     SetRawInputAt(0, value);
   }
 
-  bool CanBeMoved() const OVERRIDE { return !IsVolatile(); }
+  bool CanBeMoved() const OVERRIDE {
+    // This InstanceFieldGet instruction cannot be moved when
+    // - the field is volatile, in order to honnor memory ordering
+    //   constraints;
+    // - or, in the case of read barriers, when this instruction won't
+    //   generate its own read barrier, in order to prevent the GVN
+    //   optimization pass run after the gc_optimizer pass
+    //   (GVN$after_arch) from breaking this pattern:
+    //
+    //     HLoadReadBarrierState
+    //     HInstanceFieldGet generates_own_read_barrier:false
+    //     HInstanceFieldGet generates_own_read_barrier:false
+    //     HMarkReferences{Explicit,Implicit}RBState
+    //
+    // TODO: Try to relax the condition on read barriers to improve the GVN
+    // optimization pass (GVN$after_arch)?
+    return !(IsVolatile()
+             || (kEmitCompilerReadBarrier
+                 && GetType() == Primitive::kPrimNot
+                 && !generates_own_read_barrier_));
+  }
 
   bool InstructionDataEquals(const HInstruction* other) const OVERRIDE {
     const HInstanceFieldGet* other_get = other->AsInstanceFieldGet();
@@ -5125,6 +5152,7 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
   }
 
   size_t ComputeHashCode() const OVERRIDE {
+    // TODO: Document this constant (7).
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
@@ -5133,12 +5161,95 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
   Primitive::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
 
+  // Will this instruction generate its own read barrier?
+  bool GeneratesOwnReadBarrier() const {
+    DCHECK(!generates_own_read_barrier_ ||
+           (kEmitCompilerReadBarrier && GetType() == Primitive::kPrimNot));
+    return generates_own_read_barrier_;
+  }
+  // Clear own read barrier emission.
+  void ClearGeneratesOwnReadBarrier() { generates_own_read_barrier_ = false; }
+
   DECLARE_INSTRUCTION(InstanceFieldGet);
 
  private:
   const FieldInfo field_info_;
 
+  // Does this instruction need to generate a read barrier on its own?
+  // (Note that this information is really only meaningful in the case
+  // of an object reference HInstanceFieldGet instructions and when
+  // read barriers are enabled.) If true, then the code generator has
+  // to generate a read barrier along with the field load itself. If
+  // false, it means that the read barrier is handled by a pair of
+  // HLoadReadBarrierState and
+  // HMarkReferencesExplicitRBState/HMarkReferencesImplicitRBState
+  // instructions.
+  bool generates_own_read_barrier_;
+
   DISALLOW_COPY_AND_ASSIGN(HInstanceFieldGet);
+};
+
+// Extract the read barrier state from an object reference. The output
+// of this instruction is architecture dependent (see
+// GcOptimizerVisitor::VisitInstanceFieldGet).
+class HLoadReadBarrierState FINAL : public HExpression<1> {
+ public:
+  HLoadReadBarrierState(Primitive::Type type, HInstruction* object, uint32_t dex_pc)
+      : HExpression(type, SideEffects::None(), dex_pc) {
+    SetRawInputAt(0, object);
+  }
+
+  DECLARE_INSTRUCTION(LoadReadBarrierState);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HLoadReadBarrierState);
+};
+
+// Mark the references loaded by two HInstanceFieldGet instructions if
+// the read barrier state of their holder is grey. The read barrier
+// state is an explicit input of this instruction. This instruction is
+// only used on ARM and ARM64.
+class HMarkReferencesExplicitRBState FINAL : public HTemplateInstruction<3> {
+ public:
+  HMarkReferencesExplicitRBState(HLoadReadBarrierState* read_barrier_state,
+                                 HInstanceFieldGet* field_get1,
+                                 HInstanceFieldGet* field_get2,
+                                 uint32_t dex_pc)
+      : HTemplateInstruction(SideEffects::None(), dex_pc) {
+    DCHECK(read_barrier_state->GetType() != Primitive::kPrimNot);
+    DCHECK(!field_get1->GeneratesOwnReadBarrier());
+    DCHECK(!field_get2->GeneratesOwnReadBarrier());
+    SetRawInputAt(0, read_barrier_state);
+    SetRawInputAt(1, field_get1);
+    SetRawInputAt(2, field_get2);
+  }
+
+  DECLARE_INSTRUCTION(MarkReferencesExplicitRBState);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HMarkReferencesExplicitRBState);
+};
+
+// Mark the references loaded by two HInstanceFieldGet instructions if
+// the read barrier state of their holder is grey. The read barrier
+// state is implicit: it is not an actual input of this instruction.
+// This instruction is only used on x86 and x86-64.
+class HMarkReferencesImplicitRBState FINAL : public HTemplateInstruction<2> {
+ public:
+  HMarkReferencesImplicitRBState(HInstanceFieldGet* field_get1,
+                                 HInstanceFieldGet* field_get2,
+                                 uint32_t dex_pc)
+      : HTemplateInstruction(SideEffects::None(), dex_pc) {
+    DCHECK(!field_get1->GeneratesOwnReadBarrier());
+    DCHECK(!field_get2->GeneratesOwnReadBarrier());
+    SetRawInputAt(0, field_get1);
+    SetRawInputAt(1, field_get2);
+  }
+
+  DECLARE_INSTRUCTION(MarkReferencesImplicitRBState);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HMarkReferencesImplicitRBState);
 };
 
 class HInstanceFieldSet FINAL : public HTemplateInstruction<2> {
@@ -5977,6 +6088,7 @@ class HStaticFieldGet FINAL : public HExpression<1> {
   }
 
   size_t ComputeHashCode() const OVERRIDE {
+    // TODO: Document this constant (7).
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
@@ -6607,7 +6719,13 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
               DCHECK_NE(destination.GetKind(), move.GetDestination().GetKind())
                   << "Doing parallel moves for the same instruction.";
             } else {
-              DCHECK(false) << "Doing parallel moves for the same instruction.";
+              DCHECK(false)
+                  << "Doing parallel moves for the same instruction:"
+                  << " source=" << source
+                  << " destination=" << destination
+                  << " type=" << type
+                  << " instruction=" << instruction->DebugName() << ' ' << instruction->GetId()
+                  << " move=" << move;
             }
           }
         }

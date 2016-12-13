@@ -4997,6 +4997,40 @@ void InstructionCodeGeneratorMIPS::VisitInstanceFieldSet(HInstanceFieldSet* inst
                  instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderMIPS::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS::VisitLoadReadBarrierState(HLoadReadBarrierState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderMIPS::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS::VisitMarkReferencesExplicitRBState(
+    HMarkReferencesExplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void LocationsBuilderMIPS::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS::VisitMarkReferencesImplicitRBState(
+    HMarkReferencesImplicitRBState* instruction) {
+  // This instruction is not supported by the MIPS back end.
+  LOG(FATAL) << "Unexpected instruction " << instruction->DebugName();
+}
+
 void InstructionCodeGeneratorMIPS::GenerateGcRootFieldLoad(
     HInstruction* instruction ATTRIBUTE_UNUSED,
     Location root,
