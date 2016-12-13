@@ -1330,6 +1330,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(Throw, Instruction)                                                 \
   M(TryBoundary, Instruction)                                           \
   M(TypeConversion, Instruction)                                        \
+  M(UpdateFields, Instruction)                                          \
   M(UShr, BinaryOperation)                                              \
   M(Xor, BinaryOperation)                                               \
 
@@ -5109,11 +5110,20 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
                     field_idx,
                     declaring_class_def_index,
                     dex_file,
-                    dex_cache) {
+                    dex_cache),
+        // By default, when read barrier are enabled, an object
+        // reference HInstanceFieldGet instruction will generate its
+        // own read barrier.
+        generates_own_read_barrier_(kEmitCompilerReadBarrier && field_type == Primitive::kPrimNot) {
     SetRawInputAt(0, value);
   }
 
-  bool CanBeMoved() const OVERRIDE { return !IsVolatile(); }
+  bool CanBeMoved() const OVERRIDE {
+    // This InstanceFieldGet instruction cannot be moved when
+    // the field is volatile, in order to honnor memory ordering
+    // constraints.
+    return !IsVolatile();
+  }
 
   bool InstructionDataEquals(const HInstruction* other) const OVERRIDE {
     const HInstanceFieldGet* other_get = other->AsInstanceFieldGet();
@@ -5125,6 +5135,7 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
   }
 
   size_t ComputeHashCode() const OVERRIDE {
+    // TODO: Document this constant (7).
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
@@ -5133,12 +5144,60 @@ class HInstanceFieldGet FINAL : public HExpression<1> {
   Primitive::Type GetFieldType() const { return field_info_.GetFieldType(); }
   bool IsVolatile() const { return field_info_.IsVolatile(); }
 
+  // Will this instruction generate its own read barrier?
+  bool GeneratesOwnReadBarrier() const {
+    DCHECK(!generates_own_read_barrier_ ||
+           (kEmitCompilerReadBarrier && GetType() == Primitive::kPrimNot));
+    return generates_own_read_barrier_;
+  }
+  // Clear own read barrier emission.
+  void ClearGeneratesOwnReadBarrier() { generates_own_read_barrier_ = false; }
+
   DECLARE_INSTRUCTION(InstanceFieldGet);
 
  private:
   const FieldInfo field_info_;
 
+  // Does this instruction need to generate a read barrier on its own?
+  // (Note that this information is really only meaningful in the case
+  // of an object reference HInstanceFieldGet instructions and when
+  // read barriers are enabled.) If true, then the code generator has
+  // to generate a read barrier along with the field load itself. If
+  // false, it means that the field is pre-emptively updated by a
+  // HUpdateFields ahead of this InstanceFieldGet instruction (thus
+  // removing the need for emitting a read barrier with this
+  // InstanceFieldGet).
+  bool generates_own_read_barrier_;
+
   DISALLOW_COPY_AND_ASSIGN(HInstanceFieldGet);
+};
+
+// Mark and update two fields in a object. HInstanceFieldGet instructions
+// having this node as input do not need a read barrier.
+// TODO: Extend to more than two fields.
+class HUpdateFields FINAL : public HExpression<1> {
+ public:
+  HUpdateFields(HInstruction* object, FieldInfo field1_info, FieldInfo field2_info, uint32_t dex_pc)
+      : HExpression(Primitive::kPrimNot, SideEffects::None(), dex_pc),
+        field1_info_(field1_info),
+        field2_info_(field2_info) {
+    DCHECK(kEmitCompilerReadBarrier);
+    DCHECK(kUseBakerReadBarrier);
+    DCHECK_EQ(field1_info.GetFieldType(), Primitive::kPrimNot);
+    DCHECK_EQ(field2_info.GetFieldType(), Primitive::kPrimNot);
+    SetRawInputAt(0, object);
+  }
+
+  const FieldInfo& GetField1Info() const { return field1_info_; }
+  const FieldInfo& GetField2Info() const { return field2_info_; }
+
+  DECLARE_INSTRUCTION(UpdateFields);
+
+ private:
+  const FieldInfo field1_info_;
+  const FieldInfo field2_info_;
+
+  DISALLOW_COPY_AND_ASSIGN(HUpdateFields);
 };
 
 class HInstanceFieldSet FINAL : public HTemplateInstruction<2> {
@@ -5965,6 +6024,7 @@ class HStaticFieldGet FINAL : public HExpression<1> {
   }
 
   size_t ComputeHashCode() const OVERRIDE {
+    // TODO: Document this constant (7).
     return (HInstruction::ComputeHashCode() << 7) | GetFieldOffset().SizeValue();
   }
 
@@ -6595,7 +6655,13 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
               DCHECK_NE(destination.GetKind(), move.GetDestination().GetKind())
                   << "Doing parallel moves for the same instruction.";
             } else {
-              DCHECK(false) << "Doing parallel moves for the same instruction.";
+              DCHECK(false)
+                  << "Doing parallel moves for the same instruction:"
+                  << " source=" << source
+                  << " destination=" << destination
+                  << " type=" << type
+                  << " instruction=" << instruction->DebugName() << ' ' << instruction->GetId()
+                  << " move=" << move;
             }
           }
         }

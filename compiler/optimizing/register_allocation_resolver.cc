@@ -676,15 +676,19 @@ void RegisterAllocationResolver::InsertMoveAfter(HInstruction* instruction,
     return;
   }
 
-  size_t position = instruction->GetLifetimePosition() + 1;
-  HParallelMove* move = instruction->GetNext()->AsParallelMove();
+  // Position for the possible insertion of a new ParallelMove instruction.
+  const HInstruction* cursor = instruction;
+
+  size_t position = cursor->GetLifetimePosition() + 1;
+  HParallelMove* move = cursor->GetNext()->AsParallelMove();
+
   // This is a parallel move for moving the output of an instruction. We need
   // to differentiate with input moves, moves for connecting siblings in a
   // and moves for connecting blocks.
   if (move == nullptr || move->GetLifetimePosition() != position) {
     move = new (allocator_) HParallelMove(allocator_);
     move->SetLifetimePosition(position);
-    instruction->GetBlock()->InsertInstructionBefore(move, instruction->GetNext());
+    cursor->GetBlock()->InsertInstructionBefore(move, cursor->GetNext());
   }
   AddMove(move, source, destination, instruction, instruction->GetType());
 }

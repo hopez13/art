@@ -4650,6 +4650,20 @@ void InstructionCodeGeneratorARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instr
   HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderARMVIXL::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
 void LocationsBuilderARMVIXL::VisitUnresolvedInstanceFieldGet(
     HUnresolvedInstanceFieldGet* instruction) {
   FieldAccessCallingConventionARMVIXL calling_convention;
@@ -7197,7 +7211,7 @@ void CodeGeneratorARMVIXL::MaybeGenerateReadBarrierSlow(HInstruction* instructio
                                                         Location index) {
   if (kEmitCompilerReadBarrier) {
     // Baker's read barriers shall be handled by the fast path
-    // (CodeGeneratorARM::GenerateReferenceLoadWithBakerReadBarrier).
+    // (CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier).
     DCHECK(!kUseBakerReadBarrier);
     // If heap poisoning is enabled, unpoisoning will be taken care of
     // by the runtime within the slow path.
