@@ -630,7 +630,7 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref ATTRIBUTE_UNUS
   DCHECK(kEmitCompilerReadBarrier);
   uint8_t* raw_addr = reinterpret_cast<uint8_t*>(obj) + offset;
   mirror::HeapReference<mirror::Object>* ref_addr =
-     reinterpret_cast<mirror::HeapReference<mirror::Object>*>(raw_addr);
+      reinterpret_cast<mirror::HeapReference<mirror::Object>*>(raw_addr);
   constexpr ReadBarrierOption kReadBarrierOption =
       kUseReadBarrier ? kWithReadBarrier : kWithoutReadBarrier;
   mirror::Object* result =
@@ -641,8 +641,47 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref ATTRIBUTE_UNUS
 }
 
 extern "C" mirror::Object* artReadBarrierForRootSlow(GcRoot<mirror::Object>* root) {
-  DCHECK(kEmitCompilerReadBarrier);
+  CHECK(kEmitCompilerReadBarrier);
   return root->Read();
+}
+
+ALWAYS_INLINE static inline void ReadBarrierUpdateFieldHelper(mirror::Object* obj,
+                                                              uint32_t offset)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK(kEmitCompilerReadBarrier);
+  CHECK(kUseBakerReadBarrier);
+
+  uint8_t* raw_addr = reinterpret_cast<uint8_t*>(obj) + offset;
+  mirror::HeapReference<mirror::Object>* ref_addr =
+      reinterpret_cast<mirror::HeapReference<mirror::Object>*>(raw_addr);
+
+  // Extracted and adapted from art::ReadBarrier::Barrier.
+  mirror::Object* ref = ref_addr->AsMirrorPtr();
+  // Check if `ref`'s mark bit is already set and if so, return early
+  // without calling art::ReadBarrier::Mark().
+  if (ref == nullptr || ref->GetMarkBit() != 0u) {
+    return;
+  }
+  mirror::Object* old_ref = ref;
+  ref = reinterpret_cast<mirror::Object*>(ReadBarrier::Mark(ref));
+  // Update the field atomically. This may fail if mutator updates before us, but it's OK.
+  if (ref != old_ref) {
+    obj->CasFieldStrongRelaxedObjectWithoutWriteBarrier<false, false>(
+        MemberOffset(offset), old_ref, ref);
+  }
+  ReadBarrier::AssertToSpaceInvariant(obj, MemberOffset(offset), ref);
+}
+
+extern "C" mirror::Object* artReadBarrierUpdateFields(mirror::Object* obj,
+                                                      uint32_t field1_offset,
+                                                      uint32_t field2_offset)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK(kEmitCompilerReadBarrier);
+  CHECK(kUseBakerReadBarrier);
+
+  ReadBarrierUpdateFieldHelper(obj, field1_offset);
+  ReadBarrierUpdateFieldHelper(obj, field2_offset);
+  return obj;
 }
 
 }  // namespace art

@@ -29,6 +29,15 @@ namespace art {
 
 using android::base::StringPrintf;
 
+// Syntactic sugar pretty printing object `x` (having an output stream
+// operator<<) as a C string.
+template <typename T>
+static const char* toCString(const T& x) {
+  std::ostringstream oss;
+  oss << x;
+  return oss.str().c_str();
+}
+
 static bool IsAllowedToJumpToExitBlock(HInstruction* instruction) {
   return instruction->IsThrow() || instruction->IsReturn() || instruction->IsReturnVoid();
 }
@@ -808,20 +817,16 @@ void GraphChecker::VisitPhi(HPhi* phi) {
       HPhi* other_phi = phi_it.Current()->AsPhi();
       if (phi != other_phi && phi->GetRegNumber() == other_phi->GetRegNumber()) {
         if (phi->GetType() == other_phi->GetType()) {
-          std::stringstream type_str;
-          type_str << phi->GetType();
           AddError(StringPrintf("Equivalent phi (%d) found for VReg %d with type: %s.",
                                 phi->GetId(),
                                 phi->GetRegNumber(),
-                                type_str.str().c_str()));
+                                toCString(phi->GetType())));
         } else if (phi->GetType() == Primitive::kPrimNot) {
-          std::stringstream type_str;
-          type_str << other_phi->GetType();
           AddError(StringPrintf(
               "Equivalent non-reference phi (%d) found for VReg %d with type: %s.",
               phi->GetId(),
               phi->GetRegNumber(),
-              type_str.str().c_str()));
+              toCString(other_phi->GetType())));
         } else {
           // If we get here, make sure we allocate all the necessary storage at once
           // because the BitVector reallocation strategy has very bad worst-case behavior.

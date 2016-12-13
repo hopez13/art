@@ -2210,6 +2210,16 @@ DEFINE_FUNCTION art_quick_read_barrier_for_root_slow
     ret
 END_FUNCTION art_quick_read_barrier_for_root_slow
 
+DEFINE_FUNCTION art_quick_read_barrier_update_fields
+    PUSH edx                                // pass arg3 - offset2
+    PUSH ecx                                // pass arg2 - offset1
+    PUSH eax                                // pass arg1 - obj
+    call SYMBOL(artReadBarrierUpdateFields) // artReadBarrierUpdateFields(obj, offset1, offset2)
+    addl LITERAL(12), %esp                  // pop arguments
+    CFI_ADJUST_CFA_OFFSET(-12)
+    ret
+END_FUNCTION art_quick_read_barrier_update_fields
+
   /*
      * On stack replacement stub.
      * On entry:

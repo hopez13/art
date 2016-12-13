@@ -41,8 +41,11 @@ extern "C" mirror::Object* art_quick_read_barrier_mark_reg03(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg05(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg06(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg07(mirror::Object*);
+
 extern "C" mirror::Object* art_quick_read_barrier_slow(mirror::Object*, mirror::Object*, uint32_t);
 extern "C" mirror::Object* art_quick_read_barrier_for_root_slow(GcRoot<mirror::Object>*);
+extern "C" mirror::Object* art_quick_read_barrier_update_fields(
+    mirror::Object*, uint32_t, uint32_t);
 
 void UpdateReadBarrierEntrypoints(QuickEntryPoints* qpoints, bool is_marking) {
   qpoints->pReadBarrierMarkReg00 = is_marking ? art_quick_read_barrier_mark_reg00 : nullptr;
@@ -124,6 +127,7 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   qpoints->pReadBarrierMarkReg29 = nullptr;
   qpoints->pReadBarrierSlow = art_quick_read_barrier_slow;
   qpoints->pReadBarrierForRootSlow = art_quick_read_barrier_for_root_slow;
+  qpoints->pReadBarrierUpdateFields = art_quick_read_barrier_update_fields;
 };
 
 }  // namespace art
