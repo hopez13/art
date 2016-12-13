@@ -1213,19 +1213,24 @@ void CodeGenerator::ValidateInvokeRuntime(QuickEntrypointEnum entrypoint,
           << instruction->GetSideEffects().ToString();
     } else {
       DCHECK(instruction->GetSideEffects().Includes(SideEffects::CanTriggerGC()) ||
-             // When (non-Baker) read barriers are enabled, some instructions
-             // use a slow path to emit a read barrier, which does not trigger
-             // GC.
              (kEmitCompilerReadBarrier &&
-              !kUseBakerReadBarrier &&
-              (instruction->IsInstanceFieldGet() ||
-               instruction->IsStaticFieldGet() ||
-               instruction->IsArrayGet() ||
-               instruction->IsLoadClass() ||
-               instruction->IsLoadString() ||
-               instruction->IsInstanceOf() ||
-               instruction->IsCheckCast() ||
-               (instruction->IsInvokeVirtual() && instruction->GetLocations()->Intrinsified()))))
+              // When Baker read barriers are enabled, HUpdateFields
+              // instructions use a slow path to emit a read barrier,
+              // which does not trigger GC.
+              ((kUseBakerReadBarrier && instruction->IsUpdateFields()) ||
+               // When non-Baker read barriers are enabled, some
+               // instructions use a slow path to emit a read barrier,
+               // which does not trigger GC.
+               (!kUseBakerReadBarrier &&
+                (instruction->IsInstanceFieldGet() ||
+                 instruction->IsStaticFieldGet() ||
+                 instruction->IsArrayGet() ||
+                 instruction->IsLoadClass() ||
+                 instruction->IsLoadString() ||
+                 instruction->IsInstanceOf() ||
+                 instruction->IsCheckCast() ||
+                 (instruction->IsInvokeVirtual() &&
+                  instruction->GetLocations()->Intrinsified()))))))
           << "instruction->DebugName()=" << instruction->DebugName()
           << " instruction->GetSideEffects().ToString()="
           << instruction->GetSideEffects().ToString()

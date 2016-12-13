@@ -105,6 +105,13 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref,
 extern "C" mirror::Object* artReadBarrierForRootSlow(GcRoot<mirror::Object>* root)
     REQUIRES_SHARED(Locks::mutator_lock_) HOT_ATTR;
 
+// Mark and update object reference fields at offsets `field1_offset`
+// and `field2_offset` in `obj`.  Return `obj`.
+extern "C" mirror::Object* artReadBarrierUpdateFields(mirror::Object* obj,
+                                                      uint32_t field1_offset,
+                                                      uint32_t field2_offset)
+    REQUIRES_SHARED(Locks::mutator_lock_) HOT_ATTR;
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_H_
