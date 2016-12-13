@@ -4997,6 +4997,20 @@ void InstructionCodeGeneratorMIPS::VisitInstanceFieldSet(HInstanceFieldSet* inst
                  instruction->GetValueCanBeNull());
 }
 
+void LocationsBuilderMIPS::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
+void InstructionCodeGeneratorMIPS::VisitUpdateFields(HUpdateFields* instruction) {
+  DCHECK(kEmitCompilerReadBarrier);
+  DCHECK(kUseBakerReadBarrier);
+
+  LOG(FATAL) << "Not yet implemented " << instruction->DebugName();
+}
+
 void InstructionCodeGeneratorMIPS::GenerateGcRootFieldLoad(
     HInstruction* instruction ATTRIBUTE_UNUSED,
     Location root,
