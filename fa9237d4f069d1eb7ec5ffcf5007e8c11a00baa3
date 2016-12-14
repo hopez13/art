@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7aa1ffa9_1019a492",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T13:49:38Z",
+      "side": 1,
+      "message": "Merge the strings.",
+      "range": {
+        "startLine": 226,
+        "startChar": 22,
+        "endLine": 226,
+        "endChar": 28
+      },
+      "revId": "fa9237d4f069d1eb7ec5ffcf5007e8c11a00baa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa1ffa9_d0eb9c31",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T13:49:38Z",
+      "side": 1,
+      "message": "Remove the space.",
+      "range": {
+        "startLine": 300,
+        "startChar": 44,
+        "endLine": 300,
+        "endChar": 45
+      },
+      "revId": "fa9237d4f069d1eb7ec5ffcf5007e8c11a00baa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa6fbc4_0f4a6529",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T13:49:38Z",
+      "side": 1,
+      "message": "certain",
+      "range": {
+        "startLine": 383,
+        "startChar": 30,
+        "endLine": 383,
+        "endChar": 37
+      },
+      "revId": "fa9237d4f069d1eb7ec5ffcf5007e8c11a00baa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_79780330",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T13:49:38Z",
+      "side": 1,
+      "message": "Needs a corresponding entry in ArenaAllocatorStatsImpl\u003ckCount\u003e::kAllocNames[].",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 23
+      },
+      "revId": "fa9237d4f069d1eb7ec5ffcf5007e8c11a00baa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
