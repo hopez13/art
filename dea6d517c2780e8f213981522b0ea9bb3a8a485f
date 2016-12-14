@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aa6fbc4_8fd0155b",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T10:22:12Z",
+      "side": 1,
+      "message": "Do you really want to emit code that will not be used?\n\nI would disable the stupid warning with #pragma. The code was WAI.",
+      "range": {
+        "startLine": 148,
+        "startChar": 39,
+        "endLine": 148,
+        "endChar": 43
+      },
+      "revId": "dea6d517c2780e8f213981522b0ea9bb3a8a485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
