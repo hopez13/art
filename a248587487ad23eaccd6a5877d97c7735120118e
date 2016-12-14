@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6aeb2c_78e1e5b3",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-14T03:16:36Z",
+      "side": 0,
+      "message": "Won\u0027t this go wrong if somebody now switches the flag to true?\n\nI think this should just always be true, and hopefully the linker throws away dead code?",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 72
+      },
+      "revId": "a248587487ad23eaccd6a5877d97c7735120118e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
