@@ -200,6 +200,9 @@ bool JdwpAdbState::Accept() {
       PLOG(ERROR) << "Could not create ADB control socket";
       return false;
     }
+    if (shutting_down_) {
+      return false;
+    }
 
     if (!MakePipe()) {
       return false;
