@@ -83,6 +83,7 @@ const char* const ArenaAllocatorStatsImpl<kCount>::kAllocNames[] = {
   "GraphChecker ",
   "Verifier     ",
   "CallingConv  ",
+  "ClassHier    ",
 };
 
 template <bool kCount>
@@ -143,8 +144,8 @@ void ArenaAllocatorStatsImpl<kCount>::Dump(std::ostream& os, const Arena* first,
   }
 }
 
-// Explicitly instantiate the used implementation.
-template class ArenaAllocatorStatsImpl<kArenaAllocatorCountAllocations>;
+// Explicitly instantiate the true implementation.
+template class ArenaAllocatorStatsImpl<true>;
 
 void ArenaAllocatorMemoryTool::DoMakeDefined(void* ptr, size_t size) {
   MEMORY_TOOL_MAKE_DEFINED(ptr, size);
