@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6aeb2c_fd1dc728",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-14T02:53:56Z",
+      "side": 1,
+      "message": "ART is not a Java VM.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "0f517cacf42cbf774f71616bb117d53e4da45f4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_7ddb9738",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-14T02:53:56Z",
+      "side": 1,
+      "message": "Document why this is here (instead of lower). I don\u0027t actually understand why you\u0027d place this here. Judging from your commit message, it\u0027s blocking in ReceiveClientFd? Then why not move the shutdown test there?\n\n(Overall this is racy, and probably requires adding some locking)",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 5
+      },
+      "revId": "0f517cacf42cbf774f71616bb117d53e4da45f4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
