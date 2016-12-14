@@ -22,6 +22,30 @@
       "revId": "e08c03f0c9aac235d1f42c28a1bbdc2facfce3b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba9b777b_32c23098",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T11:27:52Z",
+      "side": 1,
+      "message": "It\u0027s using the PS3 implementation; one of the registers for LDXP in the store() operation is XZR.",
+      "parentUuid": "da6aeb2c_92dbe2d6",
+      "range": {
+        "startLine": 425,
+        "startChar": 2,
+        "endLine": 425,
+        "endChar": 46
+      },
+      "revId": "e08c03f0c9aac235d1f42c28a1bbdc2facfce3b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
