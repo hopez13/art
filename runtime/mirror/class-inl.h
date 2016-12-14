@@ -937,12 +937,8 @@ inline uint32_t Class::NumDirectInterfaces() {
   }
 }
 
-inline void Class::SetDexCacheStrings(StringDexCacheType* new_dex_cache_strings) {
-  SetFieldPtr<false>(DexCacheStringsOffset(), new_dex_cache_strings);
-}
-
 inline StringDexCacheType* Class::GetDexCacheStrings() {
-  return GetFieldPtr64<StringDexCacheType*>(DexCacheStringsOffset());
+  return GetDexCache()->GetStrings();
 }
 
 template<ReadBarrierOption kReadBarrierOption, class Visitor>
@@ -1094,12 +1090,6 @@ inline void Class::FixupNativePointers(Class* dest,
   LengthPrefixedArray<ArtMethod>* new_methods = visitor(methods);
   if (methods != new_methods) {
     dest->SetMethodsPtrInternal(new_methods);
-  }
-  // Update dex cache strings.
-  StringDexCacheType* strings = GetDexCacheStrings();
-  StringDexCacheType* new_strings = visitor(strings);
-  if (strings != new_strings) {
-    dest->SetDexCacheStrings(new_strings);
   }
   // Fix up embedded tables.
   if (!IsTemp() && ShouldHaveEmbeddedVTable<kVerifyNone, kReadBarrierOption>()) {
