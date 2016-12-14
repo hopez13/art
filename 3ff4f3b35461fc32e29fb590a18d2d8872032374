@@ -22,6 +22,30 @@
       "revId": "3ff4f3b35461fc32e29fb590a18d2d8872032374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_c2eca7de",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-12-14T18:09:39Z",
+      "side": 1,
+      "message": "Why? It can\u0027t be anything else.",
+      "parentUuid": "da6aeb2c_42fa779b",
+      "range": {
+        "startLine": 99,
+        "startChar": 25,
+        "endLine": 99,
+        "endChar": 48
+      },
+      "revId": "3ff4f3b35461fc32e29fb590a18d2d8872032374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
