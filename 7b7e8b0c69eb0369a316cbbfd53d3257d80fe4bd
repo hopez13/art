@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa073a7_314f903a",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T16:17:33Z",
+      "side": 1,
+      "message": "Note: This will conflict with https://android-review.googlesource.com/313714 .",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
