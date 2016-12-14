@@ -19,6 +19,8 @@
 
 #include "indirect_reference_table.h"
 
+#include "android-base/stringprintf.h"
+
 #include "base/dumpable.h"
 #include "gc_root-inl.h"
 #include "obj_ptr-inl.h"
@@ -29,6 +31,8 @@ namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror
+
+using android::base::StringPrintf;
 
 // Verifies that the indirect table lookup is valid.
 // Returns "false" if something looks bad.

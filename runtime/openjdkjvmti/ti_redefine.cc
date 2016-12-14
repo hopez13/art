@@ -33,6 +33,8 @@
 
 #include <limits>
 
+#include "android-base/stringprintf.h"
+
 #include "art_jvmti.h"
 #include "base/logging.h"
 #include "events-inl.h"
@@ -50,6 +52,8 @@
 #include "ScopedLocalRef.h"
 
 namespace openjdkjvmti {
+
+using android::base::StringPrintf;
 
 // This visitor walks thread stacks and allocates and sets up the obsolete methods. It also does
 // some basic sanity checks that the obsolete method is sane.
@@ -122,7 +126,7 @@ class ObsoleteMethodStackVisitor : public art::StackVisitor {
       // works through runtime methods.
       // TODO b/33616143
       if (!IsShadowFrame() && prev_was_runtime_frame_) {
-        *error_msg_ = art::StringPrintf("Deoptimization failed due to runtime method in stack.");
+        *error_msg_ = StringPrintf("Deoptimization failed due to runtime method in stack.");
         *success_ = false;
         return false;
       }
@@ -144,8 +148,8 @@ class ObsoleteMethodStackVisitor : public art::StackVisitor {
         auto* method_storage = allocator_->Alloc(GetThread(), method_size);
         if (method_storage == nullptr) {
           *success_ = false;
-          *error_msg_ = art::StringPrintf("Unable to allocate storage for obsolete version of '%s'",
-                                          old_method->PrettyMethod().c_str());
+          *error_msg_ = StringPrintf("Unable to allocate storage for obsolete version of '%s'",
+                                     old_method->PrettyMethod().c_str());
           return false;
         }
         new_obsolete_method = new (method_storage) art::ArtMethod();
@@ -193,7 +197,7 @@ std::unique_ptr<art::MemMap> Redefiner::MoveDataToMemMap(const std::string& orig
                                                          unsigned char* dex_data,
                                                          std::string* error_msg) {
   std::unique_ptr<art::MemMap> map(art::MemMap::MapAnonymous(
-      art::StringPrintf("%s-transformed", original_location.c_str()).c_str(),
+      StringPrintf("%s-transformed", original_location.c_str()).c_str(),
       nullptr,
       data_len,
       PROT_READ|PROT_WRITE,
@@ -388,9 +392,9 @@ art::mirror::LongArray* Redefiner::AllocateDexFileCookie(
 }
 
 void Redefiner::RecordFailure(jvmtiError result, const std::string& error_msg) {
-  *error_msg_ = art::StringPrintf("Unable to perform redefinition of '%s': %s",
-                                  class_sig_,
-                                  error_msg.c_str());
+  *error_msg_ = StringPrintf("Unable to perform redefinition of '%s': %s",
+                             class_sig_,
+                             error_msg.c_str());
   result_ = result;
 }
 
@@ -480,8 +484,8 @@ bool Redefiner::AllocateObsoleteMethods(art::mirror::Class* art_klass) {
   AddAllDeclaredMethods(art_klass, art::kRuntimePointerSize, &ctx.obsolete_methods);
   for (art::ArtMethod* old_method : ctx.obsolete_methods) {
     if (old_method->IsIntrinsic()) {
-      *error_msg_ = art::StringPrintf("Method '%s' is intrinsic and cannot be made obsolete!",
-                                      old_method->PrettyMethod().c_str());
+      *error_msg_ = StringPrintf("Method '%s' is intrinsic and cannot be made obsolete!",
+                                 old_method->PrettyMethod().c_str());
       return false;
     }
   }

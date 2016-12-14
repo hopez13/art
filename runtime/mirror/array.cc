@@ -32,6 +32,8 @@
 namespace art {
 namespace mirror {
 
+using android::base::StringPrintf;
+
 // Create a multi-dimensional array of Objects or primitive types.
 //
 // We have to generate the names for X[], X[][], X[][][], and so on.  The
