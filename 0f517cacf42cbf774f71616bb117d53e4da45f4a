@@ -45,6 +45,30 @@
       "revId": "0f517cacf42cbf774f71616bb117d53e4da45f4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_bd9eef4c",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1071888
+      },
+      "writtenOn": "2016-12-14T03:10:27Z",
+      "side": 1,
+      "message": "I think in case we know we should shutdown, we want to return as early as possible?  if we don\u0027t return here, we could do connect/write  in follow up code. Although it doesn\u0027t hurt. But I think it\u0027s better not to run unuseful code? BTW, if shutting_down_ is false here,  then control_sock_ will be set to shutdown by inside Shutdown() function so  ReceiveClientFd won\u0027t really block.\nAdd some comments and hope it helps.",
+      "parentUuid": "da6aeb2c_7ddb9738",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 5
+      },
+      "revId": "0f517cacf42cbf774f71616bb117d53e4da45f4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
