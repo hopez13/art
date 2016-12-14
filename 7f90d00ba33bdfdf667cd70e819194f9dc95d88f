@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6aeb2c_32fb0ec8",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-14T01:23:04Z",
+      "side": 1,
+      "message": "It\u0027s surprising to me that this suffices. Presumably the caller needs to be able to dereference the pointer contained in the pair? How is it guaranteed that it sees correct values for the pointer target? Does the pointer actually point to statically allocated objects? Is there some other synchronization mechanism?",
+      "range": {
+        "startLine": 233,
+        "startChar": 29,
+        "endLine": 233,
+        "endChar": 49
+      },
+      "revId": "7f90d00ba33bdfdf667cd70e819194f9dc95d88f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
