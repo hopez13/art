@@ -46,6 +46,30 @@
       "revId": "3ff4f3b35461fc32e29fb590a18d2d8872032374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_65193d60",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-14T18:43:29Z",
+      "side": 1,
+      "message": "You\u0027re asserting an invariant here that isn\u0027t obvious, and could change in the future...",
+      "parentUuid": "da6aeb2c_c2eca7de",
+      "range": {
+        "startLine": 99,
+        "startChar": 25,
+        "endLine": 99,
+        "endChar": 48
+      },
+      "revId": "3ff4f3b35461fc32e29fb590a18d2d8872032374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
