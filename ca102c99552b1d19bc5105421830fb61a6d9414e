@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a199b0d_37b658b8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T22:04:40Z",
+      "side": 1,
+      "message": "I removed the entire line.",
+      "parentUuid": "1ac72367_751e484a",
+      "range": {
+        "startLine": 1413,
+        "startChar": 7,
+        "endLine": 1413,
+        "endChar": 14
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aa073a7_91e91cff",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5a199b0d_d7e11cb9",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T22:04:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa073a7_91e91cff",
+      "range": {
+        "startLine": 1250,
+        "startChar": 0,
+        "endLine": 1250,
+        "endChar": 81
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa940f52_ef9a7d47",
         "filename": "test/913-heaps/expected.txt",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-12-14T15:11:49Z",
       "side": 1,
       "message": "What\u0027s the meaning of the size? Why was it 123 before?",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_97dba409",
+        "filename": "test/913-heaps/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T22:04:40Z",
+      "side": 1,
+      "message": "No idea. Andreas?",
+      "parentUuid": "fa940f52_ef9a7d47",
       "range": {
         "startLine": 7,
         "startChar": 38,
