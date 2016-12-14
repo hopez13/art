@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_22c73b5a",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_99a31f84",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_d9cf5742",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_456e0172",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_d9cf5742",
       "range": {
         "startLine": 57,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_e5860dfe",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Good idea. I put it as a TODO and can enhance it later.",
+      "parentUuid": "3aca276f_d99d9742",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 37
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_19e2afbc",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Please add a comment on the compile-time cost of doing this.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_1b31c646",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "// We potentially need to traverse the full dominator chain to\n  // receiver_def_block, plus a linear search within one block for\n  // each guard removal.\n\nDoes that look good enough?",
+      "parentUuid": "3aca276f_19e2afbc",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_85cab93c",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_19bb8fa8",
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_39c04b1e",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "`dominator`.",
+      "range": {
+        "startLine": 123,
+        "startChar": 34,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_bbd512d4",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_39c04b1e",
       "range": {
         "startLine": 123,
         "startChar": 34,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_052889f4",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Changed it to:\nFlag and receiver are defined in the same block.",
+      "parentUuid": "3aca276f_59c5072d",
+      "range": {
+        "startLine": 127,
+        "startChar": 7,
+        "endLine": 127,
+        "endChar": 47
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_79cac33f",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 131,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 42
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_25f4a565",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_79cac33f",
       "range": {
         "startLine": 131,
         "startChar": 7,
@@ -197,6 +383,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_65ee9d99",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_99aebf64",
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_d9b837a7",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -208,6 +412,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Move this line 166?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 56
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_a50a5543",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_d9b837a7",
       "range": {
         "startLine": 156,
         "startChar": 4,
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_65f85d09",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done. Also added !loop_info-\u003eIsIrreducible() test.",
+      "parentUuid": "3aca276f_f9b5f3ab",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 53
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_b9ab7b53",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_451e017c",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_b9ab7b53",
+      "range": {
+        "startLine": 158,
+        "startChar": 20,
+        "endLine": 158,
+        "endChar": 32
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_59dc2701",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -277,6 +553,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Add a comment where you advance it (and why 2).",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_45452166",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_59dc2701",
       "range": {
         "startLine": 163,
         "startChar": 6,
@@ -335,6 +635,54 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_8591d9a0",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_39e76bcd",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 8
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_658cdd8b",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_79e1e3b3",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 84
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_99d5dfd4",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -346,6 +694,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Isn\u0027t that always true?",
+      "range": {
+        "startLine": 175,
+        "startChar": 6,
+        "endLine": 175,
+        "endChar": 38
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_057de983",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "I removed the test.",
+      "parentUuid": "3aca276f_99d5dfd4",
       "range": {
         "startLine": 175,
         "startChar": 6,
@@ -381,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_e0b7dbd3",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "How? Like HPhi instead of HExpression?",
+      "parentUuid": "3aca276f_b9d29be7",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_f9cc1350",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -392,6 +788,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Drop, and add a comment why SideEffects is None?",
+      "range": {
+        "startLine": 2909,
+        "startChar": 0,
+        "endLine": 2909,
+        "endChar": 62
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_dbabae52",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_f9cc1350",
       "range": {
         "startLine": 2909,
         "startChar": 0,
@@ -427,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_7b8aba00",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_39120bce",
+      "range": {
+        "startLine": 2917,
+        "startChar": 40,
+        "endLine": 2917,
+        "endChar": 41
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_364a18a1",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
@@ -438,6 +882,30 @@
       "writtenOn": "2016-12-14T14:16:49Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 779,
+        "startChar": 58,
+        "endLine": 779,
+        "endChar": 89
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_a2e96bfe",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-14T20:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aca276f_364a18a1",
       "range": {
         "startLine": 779,
         "startChar": 58,
