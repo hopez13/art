@@ -94,6 +94,30 @@
       "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_e539ad01",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-14T18:35:19Z",
+      "side": 1,
+      "message": "This is all well beyond any standard, so \"wrong\" is too strong. But it breaks code that I would expect to work, at least if is_lock_free() is true. Do you know if it does?\n\nIf I use atomics in a shared memory segment to communicate with another process, it\u0027s perfectly reasonable to map the segment read-only, and read from atomics.\n\nHaving is_lock_free return true and read-only accesses cause cache contention also seems really questionable.\n\nWith this implementation, it\u0027s also not at all clear what you can possibly do if some joker uses a load on a 16-bit volatile atomic. Generating a store really seems to be against the rules.\n\nLet me start an external email discussion on this issue. This is an ABI (and maybe API) issue, so I think it\u0027s really ARM\u0027s (and maybe WG21s) job to resolve this.",
+      "parentUuid": "7aa1ffa9_102c44c8",
+      "range": {
+        "startLine": 440,
+        "startChar": 6,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
