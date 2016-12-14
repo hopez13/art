@@ -75,9 +75,9 @@ class JdwpNetStateBase {
   explicit JdwpNetStateBase(JdwpState*);
   virtual ~JdwpNetStateBase();
 
-  virtual bool Accept() = 0;
+  virtual bool Accept(Thread* self) = 0;
   virtual bool Establish(const JdwpOptions*) = 0;
-  virtual void Shutdown() = 0;
+  virtual void Shutdown(Thread* self) = 0;
   virtual bool ProcessIncoming() = 0;
 
   void ConsumeBytes(size_t byte_count);

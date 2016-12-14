@@ -53,9 +53,9 @@ struct JdwpSocketState : public JdwpNetStateBase {
         remote_port_(0U) {
   }
 
-  virtual bool Accept();
+  virtual bool Accept(Thread* self);
   virtual bool Establish(const JdwpOptions*);
-  virtual void Shutdown();
+  virtual void Shutdown(Thread* self);
   virtual bool ProcessIncoming();
 
  private:
@@ -159,7 +159,7 @@ static JdwpSocketState* SocketStartup(JdwpState* state, uint16_t port, bool prob
   return netState;
 
  fail:
-  netState->Shutdown();
+  netState->Shutdown(nullptr /* unused */);
   delete netState;
   return nullptr;
 }
@@ -173,7 +173,7 @@ static JdwpSocketState* SocketStartup(JdwpState* state, uint16_t port, bool prob
  * (This is currently called several times during startup as we probe
  * for an open port.)
  */
-void JdwpSocketState::Shutdown() {
+void JdwpSocketState::Shutdown(Thread* self ATTRIBUTE_UNUSED) {
   int local_listenSock = this->listenSock;
   int local_clientSock = this->clientSock;
 
@@ -210,7 +210,7 @@ static int SetNoDelay(int fd) {
  * If that's not desirable, use checkConnection() to make sure something
  * is pending.
  */
-bool JdwpSocketState::Accept() {
+bool JdwpSocketState::Accept(Thread* self ATTRIBUTE_UNUSED) {
   union {
     sockaddr_in  addrInet;
     sockaddr     addrPlain;

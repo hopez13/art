@@ -359,7 +359,7 @@ JdwpState::~JdwpState() {
       }
 
       VLOG(jdwp) << "JDWP shutting down net...";
-      netState->Shutdown();
+      netState->Shutdown(self);
     }
 
     if (debug_thread_started_) {
@@ -477,7 +477,7 @@ void JdwpState::Run() {
        * Block forever, waiting for a connection.  To support the
        * "timeout=xxx" option we'll need to tweak this.
        */
-      if (!netState->Accept()) {
+      if (!netState->Accept(thread_)) {
         break;
       }
     } else {
