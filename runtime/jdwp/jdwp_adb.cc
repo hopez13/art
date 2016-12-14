@@ -200,6 +200,15 @@ bool JdwpAdbState::Accept() {
       PLOG(ERROR) << "Could not create ADB control socket";
       return false;
     }
+    /*
+     * If we know we are shutting down, we'd like to return as early as
+     * possible. If shutting_down_ is false here, that means Shutdown() hasn't
+     * been called yet. Shutdown() will shutdown control_sock_ here and donesn't
+     * block ReceiveClientFd
+     */
+    if (shutting_down_) {
+      return false;
+    }
 
     if (!MakePipe()) {
       return false;
