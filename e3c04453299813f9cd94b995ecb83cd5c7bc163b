@@ -46,6 +46,30 @@
       "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_f2b5f6ab",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-14T01:33:22Z",
+      "side": 1,
+      "message": "I remain nervous about relying on the fact the the compiler is broken to ensure that this doesn\u0027t get mixed with conventional atomic accesses.\n\nIf you really want to avoid locks here, then I\u0027m not sure this \"workaround\" can ever go away. I would personally not want a compiler to use this implementation implicitly, since it requires that loads have write permission. The \"fixed\" compiler may well use an underlying lock table (as it already should).",
+      "parentUuid": "0d5d2bd4_e5bc96a0",
+      "range": {
+        "startLine": 440,
+        "startChar": 6,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
