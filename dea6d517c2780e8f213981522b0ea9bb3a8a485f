@@ -22,6 +22,30 @@
       "revId": "dea6d517c2780e8f213981522b0ea9bb3a8a485f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_25174570",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-12-14T18:30:05Z",
+      "side": 1,
+      "message": "Sure, I can change it to the pragma, but that will have to be in a different change that gets submitted with the new toolchain.\n\nIn the meantime, can someone from ART fix the \"ClassHier\" issue I also added to this CL? Your code is bit-rotting, so I suggest that you move your static assert elsewhere, since it isn\u0027t having the effect that you want.",
+      "parentUuid": "5aa6fbc4_8fd0155b",
+      "range": {
+        "startLine": 148,
+        "startChar": 39,
+        "endLine": 148,
+        "endChar": 43
+      },
+      "revId": "dea6d517c2780e8f213981522b0ea9bb3a8a485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
