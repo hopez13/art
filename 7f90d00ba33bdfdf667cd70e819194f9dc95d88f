@@ -22,6 +22,30 @@
       "revId": "7f90d00ba33bdfdf667cd70e819194f9dc95d88f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa6fbc4_cfe3fd18",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T11:59:03Z",
+      "side": 1,
+      "message": "The status of a class is (Java) volatile, so status updates are StoreSequentiallyConsistent(). The field cache is populated only with fields of resolved classes and these fields are linked before we set the status to kStatusResolved. Is that enough?\n\n(Note: This is historical behavior, I\u0027m not changing anything here.)",
+      "parentUuid": "da6aeb2c_32fb0ec8",
+      "range": {
+        "startLine": 233,
+        "startChar": 29,
+        "endLine": 233,
+        "endChar": 49
+      },
+      "revId": "7f90d00ba33bdfdf667cd70e819194f9dc95d88f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
