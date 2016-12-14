@@ -1,0 +1,452 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aca276f_99a31f84",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add that, as a consequence, we decided not to rely on other passes to remove them (such as GVN or instruction simplifier).\n\nAlso say which of the three optimization puts you in that state.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_d9cf5742",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_d99d9742",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "How can we generalize this (eg a phi taking only HParameterValues)",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 37
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_19e2afbc",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Please add a comment on the compile-time cost of doing this.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_19bb8fa8",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add a comment \"At this point dominator is the block where receiver is defined.\"",
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_39c04b1e",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "`dominator`.",
+      "range": {
+        "startLine": 123,
+        "startChar": 34,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_59c5072d",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "flag is defined ..",
+      "range": {
+        "startLine": 127,
+        "startChar": 7,
+        "endLine": 127,
+        "endChar": 47
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_79cac33f",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 131,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 42
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_99aebf64",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add comments (like the other methods).",
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_d9b837a7",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Move this line 166?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 56
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_f9b5f3ab",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Simplify with if (loop_info !\u003d nullptr \u0026\u0026 loop_info-\u003eIsDefined...)",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 53
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_b9ab7b53",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "compare",
+      "range": {
+        "startLine": 158,
+        "startChar": 20,
+        "endLine": 158,
+        "endChar": 32
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_59dc2701",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add a comment where you advance it (and why 2).",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_79e1e3b3",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add a comment why you can\u0027t reuse the existing deopt instruction.",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 84
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_39e76bcd",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "2 more spaces",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 8
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_99d5dfd4",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Isn\u0027t that always true?",
+      "range": {
+        "startLine": 175,
+        "startChar": 6,
+        "endLine": 175,
+        "endChar": 38
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_b9d29be7",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "This is going to create an artificial range for the null value. I think you should make HShouldDeoptimizeFlag take 1 or 0 input.",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_f9cc1350",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Drop, and add a comment why SideEffects is None?",
+      "range": {
+        "startLine": 2909,
+        "startChar": 0,
+        "endLine": 2909,
+        "endChar": 62
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_39120bce",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Add: \"Therefore, we pretend this guard cannot be moved to avoid other optimizations trying to move it\".",
+      "range": {
+        "startLine": 2917,
+        "startChar": 40,
+        "endLine": 2917,
+        "endChar": 41
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aca276f_364a18a1",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-14T14:16:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 779,
+        "startChar": 58,
+        "endLine": 779,
+        "endChar": 89
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
