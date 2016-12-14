@@ -23,6 +23,7 @@
 #include "base/logging.h"
 #include "base/stringprintf.h"
 #include "jdwp/jdwp_priv.h"
+#include "thread-inl.h"
 
 #ifdef ART_TARGET_ANDROID
 #include "cutils/sockets.h"
@@ -54,7 +55,9 @@ namespace JDWP {
 
 struct JdwpAdbState : public JdwpNetStateBase {
  public:
-  explicit JdwpAdbState(JdwpState* state) : JdwpNetStateBase(state) {
+  explicit JdwpAdbState(JdwpState* state)
+      : JdwpNetStateBase(state),
+        state_lock_("JdwpAdbState lock", kJdwpAdbStateLock) {
     control_sock_ = -1;
     shutting_down_ = false;
 
@@ -74,20 +77,23 @@ struct JdwpAdbState : public JdwpNetStateBase {
     }
   }
 
-  virtual bool Accept();
+  virtual bool Accept() REQUIRES(!state_lock_);
 
   virtual bool Establish(const JdwpOptions*) {
     return false;
   }
 
-  virtual void Shutdown() {
-    shutting_down_ = true;
-
-    int control_sock = this->control_sock_;
-    int local_clientSock = this->clientSock;
-
-    /* clear these out so it doesn't wake up and try to reuse them */
-    this->control_sock_ = this->clientSock = -1;
+  virtual void Shutdown() REQUIRES(!state_lock_) {
+    int control_sock;
+    int local_clientSock;
+    {
+      MutexLock mu(Thread::Current(), state_lock_);
+      shutting_down_ = true;
+      control_sock = this->control_sock_;
+      local_clientSock = this->clientSock;
+      /* clear these out so it doesn't wake up and try to reuse them */
+      this->control_sock_ = this->clientSock = -1;
+    }
 
     if (local_clientSock != -1) {
       shutdown(local_clientSock, SHUT_RDWR);
@@ -107,6 +113,7 @@ struct JdwpAdbState : public JdwpNetStateBase {
 
   int control_sock_;
   bool shutting_down_;
+  Mutex state_lock_;
 
   socklen_t control_addr_len_;
   union {
@@ -195,14 +202,20 @@ bool JdwpAdbState::Accept() {
     const int  sleep_max_ms = 2*1000;
     char       buff[5];
 
-    control_sock_ = socket(PF_UNIX, SOCK_STREAM, 0);
-    if (control_sock_ < 0) {
+    int sock = socket(PF_UNIX, SOCK_STREAM, 0);
+    if (sock < 0) {
       PLOG(ERROR) << "Could not create ADB control socket";
       return false;
     }
-
-    if (!MakePipe()) {
-      return false;
+    {
+      MutexLock mu(Thread::Current(), state_lock_);
+      control_sock_ = sock;
+      if (shutting_down_) {
+        return false;
+      }
+      if (!MakePipe()) {
+        return false;
+      }
     }
 
     snprintf(buff, sizeof(buff), "%04x", getpid());
@@ -261,9 +274,13 @@ bool JdwpAdbState::Accept() {
 
   VLOG(jdwp) << "trying to receive file descriptor from ADB";
   /* now we can receive a client file descriptor */
-  clientSock = ReceiveClientFd();
-  if (shutting_down_) {
-    return false;       // suppress logs and additional activity
+  int sock = ReceiveClientFd();
+  {
+    MutexLock mu(Thread::Current(), state_lock_);
+    clientSock = sock;
+    if (shutting_down_) {
+      return false;       // suppress logs and additional activity
+    }
   }
   if (clientSock == -1) {
     if (++retryCount > 5) {
