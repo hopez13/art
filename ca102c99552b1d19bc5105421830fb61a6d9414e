@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ac72367_751e484a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T15:11:49Z",
+      "side": 1,
+      "message": "This word looks obsolete.",
+      "range": {
+        "startLine": 1413,
+        "startChar": 7,
+        "endLine": 1413,
+        "endChar": 14
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa073a7_91e91cff",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T15:11:49Z",
+      "side": 1,
+      "message": "Can we drop this method and update callers?",
+      "range": {
+        "startLine": 1250,
+        "startChar": 0,
+        "endLine": 1250,
+        "endChar": 81
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa940f52_ef9a7d47",
+        "filename": "test/913-heaps/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T15:11:49Z",
+      "side": 1,
+      "message": "What\u0027s the meaning of the size? Why was it 123 before?",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "ca102c99552b1d19bc5105421830fb61a6d9414e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
