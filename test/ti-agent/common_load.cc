@@ -68,6 +68,7 @@ AgentLib agents[] = {
   { "913-heaps", Test913Heaps::OnLoad, nullptr },
   { "914-hello-obsolescence", common_redefine::OnLoad, nullptr },
   { "915-obsolete-2", common_redefine::OnLoad, nullptr },
+  { "916-obsolete-jit", common_redefine::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
