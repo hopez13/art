@@ -70,6 +70,30 @@
       "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa1ffa9_102c44c8",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-14T11:27:52Z",
+      "side": 1,
+      "message": "Why is it so wrong for a compiler to assume that you have the write permission?",
+      "parentUuid": "da6aeb2c_f2b5f6ab",
+      "range": {
+        "startLine": 440,
+        "startChar": 6,
+        "endLine": 440,
+        "endChar": 35
+      },
+      "revId": "e3c04453299813f9cd94b995ecb83cd5c7bc163b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
