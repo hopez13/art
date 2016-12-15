@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a199b0d_3737380d",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:21:45Z",
+      "side": 1,
+      "message": "Is the LLVM rebase ready? Do we need to set the topic?\n\nAlternatively, is there perhaps a version check we can do for this, so that this CL can be submitted before the LLVM rebase?",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 69
+      },
+      "revId": "7d9b0ef5ec0700427317b081456621826402b2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
