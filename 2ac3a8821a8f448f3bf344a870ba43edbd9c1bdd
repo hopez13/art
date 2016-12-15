@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5ad35b96_071e36d6",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6056,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T18:47:23Z",
+      "side": 1,
+      "message": "VIXL places this literal in a veneer, right? What if the literal has already been placed? Will VIXL emit appropriate sequence when the literal is already too far behind for a single LDR (literal)?",
+      "revId": "2ac3a8821a8f448f3bf344a870ba43edbd9c1bdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab4f348_d144e4ba",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
