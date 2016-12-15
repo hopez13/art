@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "9ab4f348_91637c57",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-15T17:43:35Z",
+      "side": 1,
+      "message": "I would also add a rationale about why we think it\u0027s ok.",
+      "parentUuid": "da6aeb2c_1b31c646",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_19bb8fa8",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -765,6 +789,30 @@
       "side": 1,
       "message": "How? Like HPhi instead of HExpression?",
       "parentUuid": "3aca276f_b9d29be7",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab4f348_f1680835",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-15T17:43:35Z",
+      "side": 1,
+      "message": "Yeah, extending HInstruction.",
+      "parentUuid": "da6aeb2c_e0b7dbd3",
       "range": {
         "startLine": 190,
         "startChar": 2,
