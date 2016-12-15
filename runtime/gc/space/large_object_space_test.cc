@@ -153,7 +153,7 @@ void LargeObjectSpaceTest::RaceTest() {
     }
 
     Thread* self = Thread::Current();
-    ThreadPool thread_pool("Large object space test thread pool", kNumThreads);
+    ThreadPool thread_pool("Large object space test thread pool", kNumThreads, false);
     for (size_t i = 0; i < kNumThreads; ++i) {
       thread_pool.AddTask(self, new AllocRaceTask(i, kNumIterations, 16 * KB, los));
     }

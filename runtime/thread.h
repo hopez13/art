@@ -826,6 +826,15 @@ class Thread {
     return tlsPtr_.single_step_control;
   }
 
+  // Returns true if the thread is allowed to call into java.
+  bool CanCallIntoJava() const {
+    return tls32_.can_call_into_java;
+  }
+
+  void SetCanCallIntoJava(bool can_call_into_java) {
+    tls32_.can_call_into_java = can_call_into_java;
+  }
+
   // Indicates whether this thread is ready to invoke a method for debugging. This
   // is only true if the thread has been suspended by a debug event.
   bool IsReadyForDebugInvoke() const {
@@ -1311,7 +1320,7 @@ class Thread {
       suspend_count(0), debug_suspend_count(0), thin_lock_thread_id(0), tid(0),
       daemon(is_daemon), throwing_OutOfMemoryError(false), no_thread_suspension(0),
       thread_exit_check_count(0), handling_signal_(false),
-      is_transitioning_to_runnable(false), ready_for_debug_invoke(false),
+      is_transitioning_to_runnable(false), can_call_into_java(true), ready_for_debug_invoke(false),
       debug_method_entry_(false), is_gc_marking(false), weak_ref_access_enabled(true),
       disable_thread_flip_count(0) {
     }
@@ -1357,6 +1366,10 @@ class Thread {
     // non-runnable threads (eg. kNative, kWaiting) that are about to transition to runnable from
     // the rest of them.
     bool32_t is_transitioning_to_runnable;
+
+    // True if the thread is allowed to call back into java (for e.g. during class resolution).
+    // By default this is true.
+    bool32_t can_call_into_java;
 
     // True if the thread has been suspended by a debugger event. This is
     // used to invoke method from the debugger which is only allowed when

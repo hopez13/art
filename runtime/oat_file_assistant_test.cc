@@ -1167,7 +1167,7 @@ TEST_F(OatFileAssistantTest, RaceToGenerate) {
 
   const int kNumThreads = 32;
   Thread* self = Thread::Current();
-  ThreadPool thread_pool("Oat file assistant test thread pool", kNumThreads);
+  ThreadPool thread_pool("Oat file assistant test thread pool", kNumThreads, false);
   std::vector<std::unique_ptr<RaceGenerateTask>> tasks;
   for (int i = 0; i < kNumThreads; i++) {
     std::unique_ptr<RaceGenerateTask> task(new RaceGenerateTask(dex_location, oat_location));
