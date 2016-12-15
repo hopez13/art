@@ -318,7 +318,7 @@ static void CommonWaitSetup(MonitorTest* test, ClassLinker* class_linker, uint64
 
   // Need to drop the mutator lock to allow barriers.
   ScopedThreadSuspension sts(soa.Self(), kNative);
-  ThreadPool thread_pool(pool_name, 3);
+  ThreadPool thread_pool(pool_name, 3, false);
   thread_pool.AddTask(self, new CreateTask(test, create_sleep, c_millis, c_expected));
   if (interrupt) {
     thread_pool.AddTask(self, new InterruptTask(test, use_sleep, static_cast<uint64_t>(u_millis)));
@@ -399,7 +399,7 @@ TEST_F(MonitorTest, TestTryLock) {
   ScopedLogSeverity sls(LogSeverity::FATAL);
 
   Thread* const self = Thread::Current();
-  ThreadPool thread_pool("the pool", 2);
+  ThreadPool thread_pool("the pool", 2, false);
   ScopedObjectAccess soa(self);
   StackHandleScope<1> hs(self);
   Handle<mirror::Object> obj1(

@@ -864,7 +864,8 @@ void Heap::UpdateProcessState(ProcessState old_process_state, ProcessState new_p
 void Heap::CreateThreadPool() {
   const size_t num_threads = std::max(parallel_gc_threads_, conc_gc_threads_);
   if (num_threads != 0) {
-    thread_pool_.reset(new ThreadPool("Heap thread pool", num_threads));
+    thread_pool_.reset(new ThreadPool(
+        "Heap thread pool", num_threads, /*can_call_into_java*/false));
   }
 }
 

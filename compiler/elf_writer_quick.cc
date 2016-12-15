@@ -243,7 +243,7 @@ void ElfWriterQuick<ElfTypes>::PrepareDebugInfo(
                           text_size_,
                           method_infos));
     debug_info_thread_pool_ = std::unique_ptr<ThreadPool>(
-        new ThreadPool("Mini-debug-info writer", 1));
+        new ThreadPool("Mini-debug-info writer", 1, /*can_call_into_java*/false));
     debug_info_thread_pool_->AddTask(self, debug_info_task_.get());
     debug_info_thread_pool_->StartWorkers(self);
   }
