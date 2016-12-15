@@ -142,6 +142,30 @@
       "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab4f348_11b2ec95",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-15T18:29:09Z",
+      "side": 1,
+      "message": "mmm, right now only the same thing you mentioned in the TODO pops in my mind (the reverse lookup cache).",
+      "parentUuid": "9ab4f348_f1aac822",
+      "range": {
+        "startLine": 2989,
+        "startChar": 0,
+        "endLine": 3053,
+        "endChar": 56
+      },
+      "revId": "585da955bc8e5040705dcfd941b2131025ebcef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
