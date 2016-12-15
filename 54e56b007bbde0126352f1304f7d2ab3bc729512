@@ -22,6 +22,30 @@
       "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_d73ff5c6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T17:59:31Z",
+      "side": 1,
+      "message": "no, I think we really want a !\u003d nullptr test (we want a constructor on stringbuffer)\n\nlet me see if I can make a regression test",
+      "parentUuid": "9ab4f348_715d3890",
+      "range": {
+        "startLine": 1900,
+        "startChar": 11,
+        "endLine": 1900,
+        "endChar": 73
+      },
+      "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
