@@ -46,6 +46,30 @@
       "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab4f348_b1a04045",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-15T18:14:28Z",
+      "side": 1,
+      "message": "I know we want a consturctor on StrigBuffer, that\u0027s the reason for my other comment \"But given we\u0027re checking th einput line 1902, that shouldn\u0027t really matter :)\n\nI was just arguing about the conformity of checking whether it\u0027s a constructor call.\n\nBut we can stop this discussion. Sorry to have brought it up :)",
+      "parentUuid": "da6aeb2c_d73ff5c6",
+      "range": {
+        "startLine": 1900,
+        "startChar": 11,
+        "endLine": 1900,
+        "endChar": 73
+      },
+      "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
