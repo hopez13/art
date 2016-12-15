@@ -70,6 +70,30 @@
       "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_d28f030d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T18:36:47Z",
+      "side": 1,
+      "message": "Don\u0027t be sorry, anything that increases my understanding of HIR is useful! :-)\n\nI am still working on the regression test.....",
+      "parentUuid": "9ab4f348_b1a04045",
+      "range": {
+        "startLine": 1900,
+        "startChar": 11,
+        "endLine": 1900,
+        "endChar": 73
+      },
+      "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
