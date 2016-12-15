@@ -488,6 +488,10 @@ void Mips64Assembler::Aui(GpuRegister rt, GpuRegister rs, uint16_t imm16) {
   EmitI(0xf, rs, rt, imm16);
 }
 
+void Mips64Assembler::Daui(GpuRegister rt, GpuRegister rs, uint16_t imm16) {
+  EmitI(0x1d, rs, rt, imm16);
+}
+
 void Mips64Assembler::Dahi(GpuRegister rs, uint16_t imm16) {
   EmitI(1, rs, static_cast<GpuRegister>(6), imm16);
 }
@@ -2015,16 +2019,78 @@ void Mips64Assembler::Bc1nez(FpuRegister ft, Mips64Label* label) {
   Bcond(label, kCondT, static_cast<GpuRegister>(ft), ZERO);
 }
 
+void Mips64Assembler::AdjustBaseAndOffset(GpuRegister& base,
+                                          int32_t& offset,
+                                          bool is_doubleword) {
+  // This method is used to adjust the base register and offset pair
+  // for a load/store when the offset doesn't fit into int16_t.
+  // It is assumed that `base + offset` is sufficiently aligned for memory
+  // operands that are machine word in size or smaller. For doubleword-sized
+  // operands it's assumed that `base` is a multiple of 8, while `offset`
+  // may be a multiple of 4 (e.g. 4-byte-aligned long and double arguments
+  // and spilled variables on the stack accessed relative to the stack
+  // pointer register).
+  // We preserve the "alignment" of `offset` by adjusting it by a multiple of 8.
+  CHECK_NE(base, AT);  // Must not overwrite the register `base` while loading `offset`.
+
+  bool doubleword_aligned = IsAligned<kMips64DoublewordSize>(offset);
+  bool two_accesses = is_doubleword && !doubleword_aligned;
+
+  // IsInt<16> must be passed a signed value, hence the static cast below.
+  if (IsInt<16>(offset) &&
+      (!two_accesses || IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)))) {
+    // Nothing to do: `offset` (and, if needed, `offset + 4`) fits into int16_t.
+    return;
+  }
+
+  // Remember the "(mis)alignment" of `offset`, it will be checked at the end.
+  uint32_t misalignment = offset & (kMips64DoublewordSize - 1);
+
+  // Do not load the whole 32-bit `offset` if it can be represented as
+  // a sum of two 16-bit signed offsets. This can save an instruction or two.
+  // To simplify matters, only do this for a symmetric range of offsets from
+  // about -64KB to about +64KB, allowing further addition of 4 when accessing
+  // 64-bit variables with two 32-bit accesses.
+  constexpr int32_t kMinOffsetForSimpleAdjustment = 0x7ff8;  // Max int16_t that's a multiple of 8.
+  constexpr int32_t kMaxOffsetForSimpleAdjustment = 2 * kMinOffsetForSimpleAdjustment;
+
+  if (0 <= offset && offset <= kMaxOffsetForSimpleAdjustment) {
+    Daddiu(AT, base, kMinOffsetForSimpleAdjustment);
+    offset -= kMinOffsetForSimpleAdjustment;
+  } else if (-kMaxOffsetForSimpleAdjustment <= offset && offset < 0) {
+    Daddiu(AT, base, -kMinOffsetForSimpleAdjustment);
+    offset += kMinOffsetForSimpleAdjustment;
+  } else {
+    int16_t offset_low = Low16Bits(offset);
+    int32_t offset_low32 = offset_low;
+    uint16_t offset_high = High16Bits(offset);
+
+    if ((offset_low & 0x8000) != 0) {
+      offset_high++;
+    }
+
+    Daui(AT, base, offset_high);
+
+    if (two_accesses && !IsInt<16>(static_cast<int32_t>(offset_low32 + kMips64WordSize))) {
+      // Avoid overflow in the 16-bit offset of the load/store instruction when dadding 4.
+      Daddiu(AT, AT, kMips64DoublewordSize);
+      offset_low32 -= kMips64DoublewordSize;
+    }
+
+    offset = offset_low32;
+  }
+  base = AT;
+
+  CHECK(IsInt<16>(offset));
+  if (two_accesses) {
+    CHECK(IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)));
+  }
+  CHECK_EQ(misalignment, offset & (kMips64DoublewordSize - 1));
+}
+
 void Mips64Assembler::LoadFromOffset(LoadOperandType type, GpuRegister reg, GpuRegister base,
                                      int32_t offset) {
-  if (!IsInt<16>(offset) ||
-      (type == kLoadDoubleword && !IsAligned<kMips64DoublewordSize>(offset) &&
-       !IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)))) {
-    LoadConst32(AT, offset & ~(kMips64DoublewordSize - 1));
-    Daddu(AT, AT, base);
-    base = AT;
-    offset &= (kMips64DoublewordSize - 1);
-  }
+  AdjustBaseAndOffset(base, offset, /* is_doubleword */ (type == kLoadDoubleword));
 
   switch (type) {
     case kLoadSignedByte:
@@ -2062,14 +2128,7 @@ void Mips64Assembler::LoadFromOffset(LoadOperandType type, GpuRegister reg, GpuR
 
 void Mips64Assembler::LoadFpuFromOffset(LoadOperandType type, FpuRegister reg, GpuRegister base,
                                         int32_t offset) {
-  if (!IsInt<16>(offset) ||
-      (type == kLoadDoubleword && !IsAligned<kMips64DoublewordSize>(offset) &&
-       !IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)))) {
-    LoadConst32(AT, offset & ~(kMips64DoublewordSize - 1));
-    Daddu(AT, AT, base);
-    base = AT;
-    offset &= (kMips64DoublewordSize - 1);
-  }
+  AdjustBaseAndOffset(base, offset, /* is_doubleword */ (type == kLoadDoubleword));
 
   switch (type) {
     case kLoadWord:
@@ -2120,14 +2179,10 @@ void Mips64Assembler::EmitLoad(ManagedRegister m_dst, GpuRegister src_register, 
 
 void Mips64Assembler::StoreToOffset(StoreOperandType type, GpuRegister reg, GpuRegister base,
                                     int32_t offset) {
-  if (!IsInt<16>(offset) ||
-      (type == kStoreDoubleword && !IsAligned<kMips64DoublewordSize>(offset) &&
-       !IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)))) {
-    LoadConst32(AT, offset & ~(kMips64DoublewordSize - 1));
-    Daddu(AT, AT, base);
-    base = AT;
-    offset &= (kMips64DoublewordSize - 1);
-  }
+  // Must not use AT as `reg`, so as not to overwrite the value being stored
+  // with the adjusted `base`.
+  CHECK_NE(reg, AT);
+  AdjustBaseAndOffset(base, offset, /* is_doubleword */ (type == kStoreDoubleword));
 
   switch (type) {
     case kStoreByte:
@@ -2157,14 +2212,7 @@ void Mips64Assembler::StoreToOffset(StoreOperandType type, GpuRegister reg, GpuR
 
 void Mips64Assembler::StoreFpuToOffset(StoreOperandType type, FpuRegister reg, GpuRegister base,
                                        int32_t offset) {
-  if (!IsInt<16>(offset) ||
-      (type == kStoreDoubleword && !IsAligned<kMips64DoublewordSize>(offset) &&
-       !IsInt<16>(static_cast<int32_t>(offset + kMips64WordSize)))) {
-    LoadConst32(AT, offset & ~(kMips64DoublewordSize - 1));
-    Daddu(AT, AT, base);
-    base = AT;
-    offset &= (kMips64DoublewordSize - 1);
-  }
+  AdjustBaseAndOffset(base, offset, /* is_doubleword */ (type == kStoreDoubleword));
 
   switch (type) {
     case kStoreWord:

@@ -512,6 +512,7 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   void Ldpc(GpuRegister rs, uint32_t imm18);  // MIPS64
   void Lui(GpuRegister rt, uint16_t imm16);
   void Aui(GpuRegister rt, GpuRegister rs, uint16_t imm16);
+  void Daui(GpuRegister rt, GpuRegister rs, uint16_t imm16);  // MIPS64
   void Dahi(GpuRegister rs, uint16_t imm16);  // MIPS64
   void Dati(GpuRegister rs, uint16_t imm16);  // MIPS64
   void Sync(uint32_t stype);
@@ -733,6 +734,7 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   void Bc1nez(FpuRegister ft, Mips64Label* label);
 
   void EmitLoad(ManagedRegister m_dst, GpuRegister src_register, int32_t src_offset, size_t size);
+  void AdjustBaseAndOffset(GpuRegister& base, int32_t& offset, bool is_doubleword);
   void LoadFromOffset(LoadOperandType type, GpuRegister reg, GpuRegister base, int32_t offset);
   void LoadFpuFromOffset(LoadOperandType type, FpuRegister reg, GpuRegister base, int32_t offset);
   void StoreToOffset(StoreOperandType type, GpuRegister reg, GpuRegister base, int32_t offset);
