@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a199b0d_7764d03a",
+        "filename": "cmdline/cmdline.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:08:34Z",
+      "side": 1,
+      "message": "This function should really go to a .cc file.",
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_1771d4f7",
+        "filename": "cmdline/cmdline.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:08:34Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_d7991c0c",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:08:34Z",
+      "side": 1,
+      "message": "Use explicit android::base:: qualification for each call. This is a .h file.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_9793a4e8",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:08:34Z",
+      "side": 1,
+      "message": "Please add the #include. It\u0027s not clear how it\u0027s indirectly included.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_b7982805",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-15T12:08:34Z",
+      "side": 1,
+      "message": "Add the #include.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
