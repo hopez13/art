@@ -22,6 +22,30 @@
       "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_97f72418",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-15T14:19:17Z",
+      "side": 1,
+      "message": "Thanks, I can see the conflict is gone. The new patch (PS4) of that CL has avoided changing this line.",
+      "parentUuid": "9aa073a7_314f903a",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
