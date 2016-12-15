@@ -34,9 +34,10 @@ namespace art {
 static constexpr bool kMeasureWaitTime = false;
 
 ThreadPoolWorker::ThreadPoolWorker(ThreadPool* thread_pool, const std::string& name,
-                                   size_t stack_size)
+                                   size_t stack_size, bool can_call_into_java)
     : thread_pool_(thread_pool),
-      name_(name) {
+      name_(name),
+      can_call_into_java_(can_call_into_java) {
   // Add an inaccessible page to catch stack overflow.
   stack_size += kPageSize;
   std::string error_msg;
@@ -86,6 +87,7 @@ void* ThreadPoolWorker::Callback(void* arg) {
   Runtime* runtime = Runtime::Current();
   CHECK(runtime->AttachCurrentThread(worker->name_.c_str(), true, nullptr, false));
   worker->thread_ = Thread::Current();
+  worker->thread_->SetCanCallIntoJava(worker->can_call_into_java_);
   // Do work until its time to shut down.
   worker->Run();
   runtime->DetachCurrentThread();
@@ -106,7 +108,7 @@ void ThreadPool::RemoveAllTasks(Thread* self) {
   tasks_.clear();
 }
 
-ThreadPool::ThreadPool(const char* name, size_t num_threads)
+ThreadPool::ThreadPool(const char* name, size_t num_threads, bool can_call_into_java)
   : name_(name),
     task_queue_lock_("task queue lock"),
     task_queue_condition_("task queue condition", task_queue_lock_),
@@ -123,8 +125,10 @@ ThreadPool::ThreadPool(const char* name, size_t num_threads)
   while (GetThreadCount() < num_threads) {
     const std::string worker_name = StringPrintf("%s worker thread %zu", name_.c_str(),
                                                  GetThreadCount());
-    threads_.push_back(
-        new ThreadPoolWorker(this, worker_name, ThreadPoolWorker::kDefaultStackSize));
+    threads_.push_back(new ThreadPoolWorker(this,
+                                            worker_name,
+                                            ThreadPoolWorker::kDefaultStackSize,
+                                            can_call_into_java));
   }
   // Wait for all of the threads to attach.
   creation_barier_.Wait(self);
