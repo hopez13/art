@@ -152,7 +152,7 @@ mirror::Class* RegTypeCache::ResolveClass(const char* descriptor, mirror::ClassL
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(loader));
   mirror::Class* klass = nullptr;
   if (can_load_classes_) {
-    klass = class_linker->FindClass(self, descriptor, class_loader);
+    klass = class_linker->FindClass(self, descriptor, class_loader, /*can_call_into_java*/true);
   } else {
     klass = class_linker->LookupClass(self, descriptor, loader);
     if (klass != nullptr && !klass->IsResolved()) {

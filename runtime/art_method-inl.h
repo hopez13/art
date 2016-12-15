@@ -212,10 +212,11 @@ inline bool ArtMethod::HasSameDexCacheResolvedTypes(ArtMethod* other, PointerSiz
 
 inline mirror::Class* ArtMethod::GetClassFromTypeIndex(dex::TypeIndex type_idx,
                                                        bool resolve,
-                                                       PointerSize pointer_size) {
+                                                       PointerSize pointer_size,
+                                                       bool can_call_into_java) {
   mirror::Class* type = GetDexCacheResolvedType(type_idx, pointer_size);
   if (type == nullptr && resolve) {
-    type = Runtime::Current()->GetClassLinker()->ResolveType(type_idx, this);
+    type = Runtime::Current()->GetClassLinker()->ResolveType(type_idx, this, can_call_into_java);
     CHECK(type != nullptr || Thread::Current()->IsExceptionPending());
   }
   return type;
@@ -438,7 +439,8 @@ inline void ArtMethod::SetDexCacheResolvedTypes(GcRoot<mirror::Class>* new_dex_c
   SetNativePointer(DexCacheResolvedTypesOffset(pointer_size), new_dex_cache_types, pointer_size);
 }
 
-inline mirror::Class* ArtMethod::GetReturnType(bool resolve, PointerSize pointer_size) {
+inline mirror::Class* ArtMethod::GetReturnType(bool resolve, PointerSize pointer_size,
+      bool can_call_into_java) {
   DCHECK(!IsProxyMethod());
   const DexFile* dex_file = GetDexFile();
   const DexFile::MethodId& method_id = dex_file->GetMethodId(GetDexMethodIndex());
@@ -446,7 +448,8 @@ inline mirror::Class* ArtMethod::GetReturnType(bool resolve, PointerSize pointer
   dex::TypeIndex return_type_idx = proto_id.return_type_idx_;
   mirror::Class* type = GetDexCacheResolvedType(return_type_idx, pointer_size);
   if (type == nullptr && resolve) {
-    type = Runtime::Current()->GetClassLinker()->ResolveType(return_type_idx, this);
+    type = Runtime::Current()->GetClassLinker()->ResolveType(
+        return_type_idx, this, can_call_into_java);
     CHECK(type != nullptr || Thread::Current()->IsExceptionPending());
   }
   return type;

@@ -204,7 +204,7 @@ static jfieldID FindFieldID(const ScopedObjectAccess& soa, jclass jni_class, con
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   if (sig[1] != '\0') {
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(c->GetClassLoader()));
-    field_type = class_linker->FindClass(soa.Self(), sig, class_loader);
+    field_type = class_linker->FindClass(soa.Self(), sig, class_loader, /*can_call_into_java*/true);
   } else {
     field_type = class_linker->FindPrimitiveClass(*sig);
   }
@@ -358,7 +358,8 @@ class JNI {
     if (runtime->IsStarted()) {
       StackHandleScope<1> hs(soa.Self());
       Handle<mirror::ClassLoader> class_loader(hs.NewHandle(GetClassLoader(soa)));
-      c = class_linker->FindClass(soa.Self(), descriptor.c_str(), class_loader);
+      c = class_linker->FindClass(
+          soa.Self(), descriptor.c_str(), class_loader, /*can_call_into_java*/true);
     } else {
       c = class_linker->FindSystemClass(soa.Self(), descriptor.c_str());
     }

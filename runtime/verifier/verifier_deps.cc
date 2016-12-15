@@ -779,7 +779,8 @@ static mirror::Class* FindClassAndClearException(ClassLinker* class_linker,
                                                  const char* name,
                                                  Handle<mirror::ClassLoader> class_loader)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  mirror::Class* result = class_linker->FindClass(self, name, class_loader);
+  mirror::Class* result = class_linker->FindClass(
+      self, name, class_loader, /*can_call_into_java*/true);
   if (result == nullptr) {
     DCHECK(self->IsExceptionPending());
     self->ClearException();

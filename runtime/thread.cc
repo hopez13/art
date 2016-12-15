@@ -2457,7 +2457,8 @@ void Thread::ThrowNewWrappedException(const char* exception_class_descriptor,
   Runtime* runtime = Runtime::Current();
   auto* cl = runtime->GetClassLinker();
   Handle<mirror::Class> exception_class(
-      hs.NewHandle(cl->FindClass(this, exception_class_descriptor, class_loader)));
+      hs.NewHandle(cl->FindClass(
+          this, exception_class_descriptor, class_loader, /*can_call_into_java*/true)));
   if (UNLIKELY(exception_class.Get() == nullptr)) {
     CHECK(IsExceptionPending());
     LOG(ERROR) << "No exception class " << PrettyDescriptor(exception_class_descriptor);

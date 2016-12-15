@@ -120,13 +120,17 @@ static void ThrowNoClassDefFoundError(const char* fmt, ...) {
   va_end(args);
 }
 
-static bool HasInitWithString(Thread* self, ClassLinker* class_linker, const char* descriptor)
+static bool HasInitWithString(Thread* self,
+                              ClassLinker* class_linker,
+                              const char* descriptor)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ArtMethod* method = self->GetCurrentMethod(nullptr);
   StackHandleScope<1> hs(self);
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(method != nullptr ?
       method->GetDeclaringClass()->GetClassLoader() : nullptr));
-  ObjPtr<mirror::Class> exception_class = class_linker->FindClass(self, descriptor, class_loader);
+  // TODO(calin): can_call_into_java
+  ObjPtr<mirror::Class> exception_class = class_linker->FindClass(
+      self, descriptor, class_loader, /*can_call_into_java*/false);
 
   if (exception_class == nullptr) {
     // No exc class ~ no <init>-with-string.
@@ -2458,7 +2462,8 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
 
 mirror::Class* ClassLinker::FindClass(Thread* self,
                                       const char* descriptor,
-                                      Handle<mirror::ClassLoader> class_loader) {
+                                      Handle<mirror::ClassLoader> class_loader,
+                                      bool can_call_into_java) {
   DCHECK_NE(*descriptor, '\0') << "descriptor is empty string";
   DCHECK(self != nullptr);
   self->AssertNoPendingException();
@@ -2476,7 +2481,7 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
   }
   // Class is not yet loaded.
   if (descriptor[0] == '[') {
-    return CreateArrayClass(self, descriptor, hash, class_loader);
+    return CreateArrayClass(self, descriptor, hash, class_loader, can_call_into_java);
   } else if (class_loader.Get() == nullptr) {
     // The boot class loader, search the boot class path.
     ClassPathEntry pair = FindInClassPath(descriptor, hash, boot_class_path_);
@@ -2516,7 +2521,7 @@ mirror::Class* ClassLinker::FindClass(Thread* self,
       // the Java-side could still succeed for racy programs if another thread is actively
       // modifying the class loader's path list.
 
-      if (Runtime::Current()->IsAotCompiler()) {
+      if (can_call_into_java) {
         // Oops, compile-time, can't run actual class-loader code.
         ObjPtr<mirror::Throwable> pre_allocated =
             Runtime::Current()->GetPreAllocatedNoClassDefFoundError();
@@ -3467,13 +3472,16 @@ mirror::Class* ClassLinker::InitializePrimitiveClass(ObjPtr<mirror::Class> primi
 // array class; that always comes from the base element class.
 //
 // Returns null with an exception raised on failure.
-mirror::Class* ClassLinker::CreateArrayClass(Thread* self, const char* descriptor, size_t hash,
-                                             Handle<mirror::ClassLoader> class_loader) {
+mirror::Class* ClassLinker::CreateArrayClass(Thread* self,
+                                             const char* descriptor,
+                                             size_t hash,
+                                             Handle<mirror::ClassLoader> class_loader,
+                                             bool can_call_into_java) {
   // Identify the underlying component type
   CHECK_EQ('[', descriptor[0]);
   StackHandleScope<2> hs(self);
-  MutableHandle<mirror::Class> component_type(hs.NewHandle(FindClass(self, descriptor + 1,
-                                                                     class_loader)));
+  MutableHandle<mirror::Class> component_type(hs.NewHandle(FindClass(
+      self, descriptor + 1, class_loader, can_call_into_java)));
   if (component_type.Get() == nullptr) {
     DCHECK(self->IsExceptionPending());
     // We need to accept erroneous classes as component types.
@@ -7573,24 +7581,26 @@ ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(const DexFile& dex_file,
 
 mirror::Class* ClassLinker::ResolveType(const DexFile& dex_file,
                                         dex::TypeIndex type_idx,
-                                        ObjPtr<mirror::Class> referrer) {
+                                        ObjPtr<mirror::Class> referrer,
+                                        bool can_call_into_java) {
   StackHandleScope<2> hs(Thread::Current());
   Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
-  return ResolveType(dex_file, type_idx, dex_cache, class_loader);
+  return ResolveType(dex_file, type_idx, dex_cache, class_loader, can_call_into_java);
 }
 
 mirror::Class* ClassLinker::ResolveType(const DexFile& dex_file,
                                         dex::TypeIndex type_idx,
                                         Handle<mirror::DexCache> dex_cache,
-                                        Handle<mirror::ClassLoader> class_loader) {
+                                        Handle<mirror::ClassLoader> class_loader
+                                        bool can_call_into_java) {
   DCHECK(dex_cache.Get() != nullptr);
   Thread::PoisonObjectPointersIfDebug();
   ObjPtr<mirror::Class> resolved = dex_cache->GetResolvedType(type_idx);
   if (resolved == nullptr) {
     Thread* self = Thread::Current();
     const char* descriptor = dex_file.StringByTypeIdx(type_idx);
-    resolved = FindClass(self, descriptor, class_loader);
+    resolved = FindClass(self, descriptor, class_loader, can_call_into_java);
     if (resolved != nullptr) {
       // TODO: we used to throw here if resolved's class loader was not the
       //       boot class loader. This was to permit different classes with the

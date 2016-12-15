@@ -34,11 +34,13 @@
 namespace art {
 
 inline mirror::Class* ClassLinker::FindSystemClass(Thread* self, const char* descriptor) {
-  return FindClass(self, descriptor, ScopedNullHandle<mirror::ClassLoader>());
+  return FindClass(
+      self, descriptor, ScopedNullHandle<mirror::ClassLoader>(), /*can_call_into_java*/false);
 }
 
 inline mirror::Class* ClassLinker::FindArrayClass(Thread* self,
-                                                  ObjPtr<mirror::Class>* element_class) {
+                                                  ObjPtr<mirror::Class>* element_class,
+                                                  bool can_call_into_java) {
   for (size_t i = 0; i < kFindArrayCacheSize; ++i) {
     // Read the cached array class once to avoid races with other threads setting it.
     ObjPtr<mirror::Class> array_class = find_array_class_cache_[i].Read();
@@ -52,7 +54,8 @@ inline mirror::Class* ClassLinker::FindArrayClass(Thread* self,
   StackHandleScope<2> hs(Thread::Current());
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle((*element_class)->GetClassLoader()));
   HandleWrapperObjPtr<mirror::Class> h_element_class(hs.NewHandleWrapper(element_class));
-  ObjPtr<mirror::Class> array_class = FindClass(self, descriptor.c_str(), class_loader);
+  ObjPtr<mirror::Class> array_class = FindClass(
+      self, descriptor.c_str(), class_loader, can_call_into_java);
   if (array_class != nullptr) {
     // Benign races in storing array class and incrementing index.
     size_t victim_index = find_array_class_cache_next_victim_;
@@ -87,7 +90,9 @@ inline mirror::String* ClassLinker::ResolveString(dex::StringIndex string_idx,
   return string.Ptr();
 }
 
-inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer) {
+inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                               ArtMethod* referrer,
+                                               bool can_call_into_java) {
   Thread::PoisonObjectPointersIfDebug();
   ObjPtr<mirror::Class> resolved_type =
       referrer->GetDexCacheResolvedType(type_idx, image_pointer_size_);
@@ -97,14 +102,16 @@ inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtMetho
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(declaring_class->GetDexCache()));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
     const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
+    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader, can_call_into_java);
     // Note: We cannot check here to see whether we added the type to the cache. The type
     //       might be an erroneous class, which results in it being hidden from us.
   }
   return resolved_type.Ptr();
 }
 
-inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtField* referrer) {
+inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                               ArtField* referrer,
+                                               bool can_call_into_java) {
   Thread::PoisonObjectPointersIfDebug();
   ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
   ObjPtr<mirror::DexCache> dex_cache_ptr = declaring_class->GetDexCache();
@@ -114,7 +121,7 @@ inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtField
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(dex_cache_ptr));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
     const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
+    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader, can_call_into_java);
     // Note: We cannot check here to see whether we added the type to the cache. The type
     //       might be an erroneous class, which results in it being hidden from us.
   }
@@ -132,7 +139,8 @@ inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod*
 inline mirror::Class* ClassLinker::ResolveReferencedClassOfMethod(
     uint32_t method_idx,
     Handle<mirror::DexCache> dex_cache,
-    Handle<mirror::ClassLoader> class_loader) {
+    Handle<mirror::ClassLoader> class_loader,
+    bool can_call_into_java) {
   // NB: We cannot simply use `GetResolvedMethod(method_idx, ...)->GetDeclaringClass()`. This is
   // because if we did so than an invoke-super could be incorrectly dispatched in cases where
   // GetMethodId(method_idx).class_idx_ refers to a non-interface, non-direct-superclass
@@ -145,7 +153,8 @@ inline mirror::Class* ClassLinker::ResolveReferencedClassOfMethod(
   const DexFile::MethodId& method = dex_file->GetMethodId(method_idx);
   ObjPtr<mirror::Class> resolved_type = dex_cache->GetResolvedType(method.class_idx_);
   if (UNLIKELY(resolved_type == nullptr)) {
-    resolved_type = ResolveType(*dex_file, method.class_idx_, dex_cache, class_loader);
+    resolved_type = ResolveType(
+        *dex_file, method.class_idx_, dex_cache, class_loader, can_call_into_java);
   }
   return resolved_type.Ptr();
 }

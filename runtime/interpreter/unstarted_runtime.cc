@@ -123,7 +123,8 @@ static void UnstartedRuntimeFindClass(Thread* self, Handle<mirror::String> class
   std::string descriptor(DotToDescriptor(className->ToModifiedUtf8().c_str()));
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
 
-  mirror::Class* found = class_linker->FindClass(self, descriptor.c_str(), class_loader);
+  mirror::Class* found = class_linker->FindClass(
+      self, descriptor.c_str(), class_loader, /*can_call_into_java*/true);
   if (found == nullptr && abort_if_not_found) {
     if (!self->IsExceptionPending()) {
       AbortTransactionOrFail(self, "%s failed in un-started runtime for class: %s",
@@ -514,7 +515,8 @@ static void GetResourceAsStream(Thread* self,
   Handle<mirror::Class> h_class(hs.NewHandle(
       runtime->GetClassLinker()->FindClass(self,
                                            "Ljava/io/ByteArrayInputStream;",
-                                           ScopedNullHandle<mirror::ClassLoader>())));
+                                           ScopedNullHandle<mirror::ClassLoader>(),
+                                           /*can_call_into_java*/true)));
   if (h_class.Get() == nullptr) {
     AbortTransactionOrFail(self, "Could not find ByteArrayInputStream class");
     return;
@@ -773,7 +775,8 @@ static void GetSystemProperty(Thread* self,
   Handle<mirror::Class> h_props_class(hs.NewHandle(
       class_linker->FindClass(self,
                               "Ljava/lang/AndroidHardcodedSystemProperties;",
-                              ScopedNullHandle<mirror::ClassLoader>())));
+                              ScopedNullHandle<mirror::ClassLoader>(),
+                              /*can_call_into_java*/true)));
   if (h_props_class.Get() == nullptr) {
     AbortTransactionOrFail(self, "Could not find AndroidHardcodedSystemProperties");
     return;

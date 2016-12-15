@@ -510,7 +510,8 @@ static optimizer::DexToDexCompilationLevel GetDexToDexCompilationLevel(
   }
   const char* descriptor = dex_file.GetClassDescriptor(class_def);
   ClassLinker* class_linker = runtime->GetClassLinker();
-  mirror::Class* klass = class_linker->FindClass(self, descriptor, class_loader);
+  mirror::Class* klass = class_linker->FindClass(
+      self, descriptor, class_loader, /*can_call_into_java*/false);
   if (klass == nullptr) {
     CHECK(self->IsExceptionPending());
     self->ClearException();
@@ -2061,7 +2062,8 @@ void CompilerDriver::Verify(jobject jclass_loader,
         for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
           const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
           const char* descriptor = dex_file->GetClassDescriptor(class_def);
-          cls.Assign(class_linker->FindClass(soa.Self(), descriptor, class_loader));
+          cls.Assign(class_linker->FindClass(
+              soa.Self(), descriptor, class_loader, /*can_call_into_java*/false));
           if (cls.Get() == nullptr) {
             CHECK(soa.Self()->IsExceptionPending());
             soa.Self()->ClearException();
@@ -2143,7 +2145,8 @@ class VerifyClassVisitor : public CompilationVisitor {
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
     Handle<mirror::Class> klass(
-        hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor, class_loader)));
+        hs.NewHandle(class_linker->FindClass(
+            soa.Self(), descriptor, class_loader, /*can_call_into_java*/false)));
     verifier::MethodVerifier::FailureKind failure_kind;
     if (klass.Get() == nullptr) {
       CHECK(soa.Self()->IsExceptionPending());
@@ -2245,7 +2248,8 @@ class SetVerifiedClassVisitor : public CompilationVisitor {
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
     Handle<mirror::Class> klass(
-        hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor, class_loader)));
+        hs.NewHandle(class_linker->FindClass(
+            soa.Self(), descriptor, class_loader, /*can_call_into_java*/false)));
     // Class might have failed resolution. Then don't set it to verified.
     if (klass.Get() != nullptr) {
       // Only do this if the class is resolved. If even resolution fails, quickening will go very,
@@ -2307,7 +2311,8 @@ class InitializeClassVisitor : public CompilationVisitor {
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
     Handle<mirror::Class> klass(
-        hs.NewHandle(manager_->GetClassLinker()->FindClass(soa.Self(), descriptor, class_loader)));
+        hs.NewHandle(manager_->GetClassLinker()->FindClass(
+            soa.Self(), descriptor, class_loader, /*can_call_into_java*/false)));
 
     if (klass.Get() != nullptr && !SkipClass(jclass_loader, dex_file, klass.Get())) {
       // Only try to initialize classes that were successfully verified.
@@ -2557,7 +2562,8 @@ class CompileClassVisitor : public CompilationVisitor {
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
     Handle<mirror::Class> klass(
-        hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor, class_loader)));
+        hs.NewHandle(class_linker->FindClass(
+            soa.Self(), descriptor, class_loader, /*can_call_into_java*/false)));
     Handle<mirror::DexCache> dex_cache;
     if (klass.Get() == nullptr) {
       soa.Self()->AssertPendingException();

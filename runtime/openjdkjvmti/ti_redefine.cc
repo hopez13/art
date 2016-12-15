@@ -139,7 +139,7 @@ art::mirror::Object* Redefiner::FindSourceDexFileObject(
   art::Handle<art::mirror::ClassLoader> null_loader(hs.NewHandle<art::mirror::ClassLoader>(
       nullptr));
   art::Handle<art::mirror::Class> base_dex_loader_class(hs.NewHandle(class_linker->FindClass(
-      self_, dex_class_loader_name, null_loader)));
+      self_, dex_class_loader_name, null_loader, /*can_call_into_java*/true)));
 
   // Get all the ArtFields so we can look in the BaseDexClassLoader
   art::ArtField* path_list_field = base_dex_loader_class->FindDeclaredInstanceField(
@@ -147,13 +147,14 @@ art::mirror::Object* Redefiner::FindSourceDexFileObject(
   CHECK(path_list_field != nullptr);
 
   art::ArtField* dex_path_list_element_field =
-      class_linker->FindClass(self_, dex_path_list_name, null_loader)
+      class_linker->FindClass(self_, dex_path_list_name, null_loader, /*can_call_into_java*/true)
         ->FindDeclaredInstanceField("dexElements", dex_path_list_element_array_name);
   CHECK(dex_path_list_element_field != nullptr);
 
   art::ArtField* element_dex_file_field =
-      class_linker->FindClass(self_, dex_path_list_element_name, null_loader)
-        ->FindDeclaredInstanceField("dexFile", dex_file_name);
+      class_linker->FindClass(
+          self_, dex_path_list_element_name, null_loader, /*can_call_into_java*/true)
+              ->FindDeclaredInstanceField("dexFile", dex_file_name);
   CHECK(element_dex_file_field != nullptr);
 
   // Check if loader is a BaseDexClassLoader
@@ -187,7 +188,8 @@ art::mirror::Object* Redefiner::FindSourceDexFileObject(
     CHECK(dex_elements_list.Get() != nullptr);
     CHECK_EQ(current_element->GetClass(), class_linker->FindClass(self_,
                                                                   dex_path_list_element_name,
-                                                                  null_loader));
+                                                                  null_loader,
+                                                                  /*can_call_into_java*/true));
     // TODO It would be cleaner to put the art::DexFile into the dalvik.system.DexFile the class
     // comes from but it is more annoying because we would need to find this class. It is not
     // necessary for proper function since we just need to be in front of the classes old dex file

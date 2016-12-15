@@ -354,7 +354,8 @@ class ArtMethod FINAL {
   // Get the Class* from the type index into this method's dex cache.
   mirror::Class* GetClassFromTypeIndex(dex::TypeIndex type_idx,
                                        bool resolve,
-                                       PointerSize pointer_size)
+                                       PointerSize pointer_size,
+                                       bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if this method has the same name and signature of the other method.

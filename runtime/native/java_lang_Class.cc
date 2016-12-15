@@ -80,7 +80,8 @@ static jclass Class_classForName(JNIEnv* env, jclass, jstring javaName, jboolean
       hs.NewHandle(soa.Decode<mirror::ClassLoader>(javaLoader)));
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   Handle<mirror::Class> c(
-      hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor.c_str(), class_loader)));
+      hs.NewHandle(class_linker->FindClass(
+          soa.Self(), descriptor.c_str(), class_loader, /*can_call_into_java*/true)));
   if (c.Get() == nullptr) {
     ScopedLocalRef<jthrowable> cause(env, env->ExceptionOccurred());
     env->ExceptionClear();

@@ -2710,7 +2710,8 @@ class IMTDumper {
            ++class_def_index) {
         const DexFile::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
         const char* descriptor = dex_file->GetClassDescriptor(class_def);
-        h_klass.Assign(class_linker->FindClass(self, descriptor, h_class_loader));
+        h_klass.Assign(class_linker->FindClass(
+            self, descriptor, h_class_loader, /*can_call_into_java*/false));
         if (h_klass.Get() == nullptr) {
           std::cerr << "Warning: could not load " << descriptor << std::endl;
           continue;
@@ -2835,7 +2836,8 @@ class IMTDumper {
       descriptor = DotToDescriptor(class_name.c_str());
     }
 
-    mirror::Class* klass = runtime->GetClassLinker()->FindClass(self, descriptor.c_str(), h_loader);
+    mirror::Class* klass = runtime->GetClassLinker()->FindClass(
+        self, descriptor.c_str(), h_loader, /*can_call_into_java*/false);
 
     if (klass == nullptr) {
       self->ClearException();

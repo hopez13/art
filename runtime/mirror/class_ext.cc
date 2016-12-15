@@ -76,7 +76,8 @@ bool ClassExt::ExtendObsoleteArrays(Thread* self, uint32_t increase) {
       ObjectArray<DexCache>::Alloc(self,
                                    cl->FindClass(self,
                                                  "[Ljava/lang/DexCache;",
-                                                 ScopedNullHandle<ClassLoader>()),
+                                                 ScopedNullHandle<ClassLoader>(),
+                                                 /*can_call_into_java*/true),
                                    new_len)));
   if (new_dex_caches.IsNull()) {
     // Fail.

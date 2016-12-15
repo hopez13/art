@@ -171,7 +171,8 @@ class ClassLinker {
   // If class_loader is null, searches boot_class_path_.
   mirror::Class* FindClass(Thread* self,
                            const char* descriptor,
-                           Handle<mirror::ClassLoader> class_loader)
+                           Handle<mirror::ClassLoader> class_loader,
+                           bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
@@ -182,7 +183,9 @@ class ClassLinker {
       REQUIRES(!Locks::dex_lock_);
 
   // Finds the array class given for the element class.
-  mirror::Class* FindArrayClass(Thread* self, ObjPtr<mirror::Class>* element_class)
+  mirror::Class* FindArrayClass(Thread* self,
+                                ObjPtr<mirror::Class>* element_class,
+                                bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
@@ -249,18 +252,19 @@ class ClassLinker {
   // target DexCache and ClassLoader to use for resolution.
   mirror::Class* ResolveType(const DexFile& dex_file,
                              dex::TypeIndex type_idx,
-                             ObjPtr<mirror::Class> referrer)
+                             ObjPtr<mirror::Class> referrer,
+                             bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
   // Resolve a Type with the given index from the DexFile, storing the
   // result in the DexCache. The referrer is used to identify the
   // target DexCache and ClassLoader to use for resolution.
-  mirror::Class* ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer)
+  mirror::Class* ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer, bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  mirror::Class* ResolveType(dex::TypeIndex type_idx, ArtField* referrer)
+  mirror::Class* ResolveType(dex::TypeIndex type_idx, ArtField* referrer, bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
@@ -279,7 +283,8 @@ class ClassLinker {
   mirror::Class* ResolveType(const DexFile& dex_file,
                              dex::TypeIndex type_idx,
                              Handle<mirror::DexCache> dex_cache,
-                             Handle<mirror::ClassLoader> class_loader)
+                             Handle<mirror::ClassLoader> class_loader,
+                             bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
@@ -313,7 +318,8 @@ class ClassLinker {
   // miranda/default/conflict methods.
   mirror::Class* ResolveReferencedClassOfMethod(uint32_t method_idx,
                                                 Handle<mirror::DexCache> dex_cache,
-                                                Handle<mirror::ClassLoader> class_loader)
+                                                Handle<mirror::ClassLoader> class_loader,
+                                                bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
   template <ResolveMode kResolveMode>
@@ -729,7 +735,8 @@ class ClassLinker {
   mirror::Class* CreateArrayClass(Thread* self,
                                   const char* descriptor,
                                   size_t hash,
-                                  Handle<mirror::ClassLoader> class_loader)
+                                  Handle<mirror::ClassLoader> class_loader,
+                                  bool can_call_into_java)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
