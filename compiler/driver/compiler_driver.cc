@@ -423,7 +423,7 @@ INTRINSICS_LIST(SETUP_INTRINSICS)
   // Compile:
   // 1) Compile all classes and methods enabled for compilation. May fall back to dex-to-dex
   //    compilation.
-  if (!GetCompilerOptions().VerifyAtRuntime()) {
+  if (!GetCompilerOptions().VerifyAtRuntime() && !GetCompilerOptions().VerifyOnlyProfile()) {
     Compile(class_loader, dex_files, timings);
   }
   if (dump_stats_) {
@@ -492,6 +492,7 @@ void CompilerDriver::CompileAll(jobject class_loader,
     // TODO: we unquicken unconditionnally, as we don't know
     // if the boot image has changed. How exactly we'll know is under
     // experimentation.
+    TimingLogger::ScopedTiming t("Unquicken", timings);
     Unquicken(dex_files, vdex_file->GetQuickeningInfo());
     Runtime::Current()->GetCompilerCallbacks()->SetVerifierDeps(
         new verifier::VerifierDeps(dex_files, vdex_file->GetVerifierDepsData()));
@@ -983,8 +984,10 @@ void CompilerDriver::PreCompile(jobject class_loader,
                << "situations. Please check the log.";
   }
 
-  InitializeClasses(class_loader, dex_files, timings);
-  VLOG(compiler) << "InitializeClasses: " << GetMemoryUsageString(false);
+  if (!verify_only_profile) {
+    InitializeClasses(class_loader, dex_files, timings);
+    VLOG(compiler) << "InitializeClasses: " << GetMemoryUsageString(false);
+  }
 
   UpdateImageClasses(timings);
   VLOG(compiler) << "UpdateImageClasses: " << GetMemoryUsageString(false);
@@ -2044,8 +2047,6 @@ void CompilerDriver::Verify(jobject jclass_loader,
     StackHandleScope<2> hs(soa.Self());
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
-    MutableHandle<mirror::Class> cls(hs.NewHandle<mirror::Class>(nullptr));
-    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     if (verifier_deps->ValidateDependencies(class_loader, soa.Self())) {
       // We successfully validated the dependencies, now update class status
       // of verified classes. Note that the dependencies also record which classes
@@ -2060,21 +2061,18 @@ void CompilerDriver::Verify(jobject jclass_loader,
         std::set<dex::TypeIndex> set(unverified_classes.begin(), unverified_classes.end());
         for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
           const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
-          const char* descriptor = dex_file->GetClassDescriptor(class_def);
-          cls.Assign(class_linker->FindClass(soa.Self(), descriptor, class_loader));
-          if (cls.Get() == nullptr) {
-            CHECK(soa.Self()->IsExceptionPending());
-            soa.Self()->ClearException();
-          } else if (set.find(class_def.class_idx_) == set.end()) {
-            ObjectLock<mirror::Class> lock(soa.Self(), cls);
-            mirror::Class::SetStatus(cls, mirror::Class::kStatusVerified, soa.Self());
+          if (set.find(class_def.class_idx_) == set.end()) {
+            compiled_classes_.Overwrite(
+                ClassReference(dex_file, i), new CompiledClass(mirror::Class::kStatusVerified));
             // Create `VerifiedMethod`s for each methods, the compiler expects one for
             // quickening or compiling.
             // Note that this means:
             // - We're only going to compile methods that did verify.
             // - Quickening will not do checkcast ellision.
             // TODO(ngeoffray): Reconsider this once we refactor compiler filters.
-            PopulateVerifiedMethods(*dex_file, i, verification_results_);
+            if (!GetCompilerOptions().VerifyOnlyProfile()) {
+              PopulateVerifiedMethods(*dex_file, i, verification_results_);
+            }
           }
         }
       }
@@ -2680,7 +2678,9 @@ void CompilerDriver::RecordClassStatus(ClassReference ref, mirror::Class::Status
   if (it == compiled_classes_.end() || it->second->GetStatus() != status) {
     // An entry doesn't exist or the status is lower than the new status.
     if (it != compiled_classes_.end()) {
-      CHECK_GT(status, it->second->GetStatus());
+      if (it->second->GetStatus() > status) {
+        status = it->second->GetStatus();
+      }
       delete it->second;
     }
     switch (status) {
