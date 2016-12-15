@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_74239f70",
+        "filename": "cmdline/cmdline.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-15T16:50:40Z",
+      "side": 1,
+      "message": "I\u0027d rather make this a follow-up. This significantly changes the setup, as cmdline is header-only right now.",
+      "parentUuid": "5a199b0d_7764d03a",
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a199b0d_1771d4f7",
         "filename": "cmdline/cmdline.h",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_b42d175d",
+        "filename": "cmdline/cmdline.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-15T16:50:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "5a199b0d_1771d4f7",
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a199b0d_d7991c0c",
         "filename": "runtime/indirect_reference_table-inl.h",
         "patchSetId": 3
@@ -47,6 +83,30 @@
       "writtenOn": "2016-12-15T12:08:34Z",
       "side": 1,
       "message": "Use explicit android::base:: qualification for each call. This is a .h file.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_f416af0d",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-15T16:50:40Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "5a199b0d_d7991c0c",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_34868737",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-15T16:50:40Z",
+      "side": 1,
+      "message": "It\u0027s included from the array header - in which case it is our style to skip it in the cc.",
+      "parentUuid": "5a199b0d_9793a4e8",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a199b0d_b7982805",
         "filename": "runtime/reflection.cc",
         "patchSetId": 3
@@ -93,6 +177,30 @@
       "writtenOn": "2016-12-15T12:08:34Z",
       "side": 1,
       "message": "Add the #include.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "af1ff96432b393b61e779f86a9821f6676f304b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_54830325",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-15T16:50:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "5a199b0d_b7982805",
       "range": {
         "startLine": 37,
         "startChar": 0,
