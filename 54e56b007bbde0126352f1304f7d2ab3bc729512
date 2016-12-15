@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab4f348_715d3890",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-15T17:53:37Z",
+      "side": 1,
+      "message": "I think this should be \"... \u003d\u003d nullptr || ... \" as the nullptr case is the string constructor.\n\nBut given we\u0027re checking th einput line 1902, that shouldn\u0027t really matter.\n\nWhich makes me think we probably want a IsStringConstructor on HInvokeStaticOrDirect.",
+      "range": {
+        "startLine": 1900,
+        "startChar": 11,
+        "endLine": 1900,
+        "endChar": 73
+      },
+      "revId": "54e56b007bbde0126352f1304f7d2ab3bc729512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
