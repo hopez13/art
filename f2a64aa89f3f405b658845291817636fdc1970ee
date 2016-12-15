@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da6aeb2c_2f37170d",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T01:02:06Z",
+      "side": 1,
+      "message": "why not doc this method since you did all others?",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_affdc7f9",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T01:02:06Z",
+      "side": 1,
+      "message": "DCHECK that instruction is still in the graph (to verify your iteration around deletion logic is correct)?",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_efb17f91",
+        "filename": "compiler/optimizing/cha_guard_optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T01:02:06Z",
+      "side": 1,
+      "message": "every class needs its own doc; it seems some of the stuff in CC could better be placed here",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_ef55ff39",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T01:02:06Z",
+      "side": 1,
+      "message": "this is non trivial enough that you could add a small after the line comment",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_ef8a5fab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-15T01:02:06Z",
+      "side": 1,
+      "message": "doc this filed, like is done for most others",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
