@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a199b0d_3712d878",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-15T14:17:36Z",
+      "side": 1,
+      "message": "Small change on the indent to make sure it passes the cpplint check.",
+      "range": {
+        "startLine": 389,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 2
+      },
+      "revId": "45de0c676443c274644fc9cb573525329b7036ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a199b0d_d7fd9cfb",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-15T14:17:36Z",
+      "side": 1,
+      "message": "Make sure it passes the cpplint check.",
+      "revId": "45de0c676443c274644fc9cb573525329b7036ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
