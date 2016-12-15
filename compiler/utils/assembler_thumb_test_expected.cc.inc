@@ -5458,7 +5458,7 @@ const char* const CmpConstantResults[] = {
 };
 
 const char* const VixlJniHelpersResults[] = {
-  "   0:  e92d 4de0   stmdb sp!, {r5, r6, r7, r8, sl, fp, lr}\n",
+  "   0: e92d 4de0   stmdb sp!, {r5, r6, r7, r8, sl, fp, lr}\n",
   "   4:  ed2d 8a10   vpush {s16-s31}\n",
   "   8:  b089        sub sp, #36 ; 0x24\n",
   "   a:  9000        str r0, [sp, #0]\n",
@@ -5535,7 +5535,7 @@ const char* const VixlJniHelpersResults[] = {
   "  f0:  f1bc 0f00   cmp.w ip, #0\n",
   "  f4:  bf18        it  ne\n",
   "  f6:  f20d 4c01   addwne  ip, sp, #1025 ; 0x401\n",
-  "  fa:  f8d9 c084   ldr.w ip, [r9, #132]  ; 0x84\n",
+  "  fa:  f8d9 c08c   ldr.w ip, [r9, #140]  ; 0x8c\n",
   "  fe:  f1bc 0f00   cmp.w ip, #0\n",
   " 102:  d107        bne.n 114 <VixlJniHelpers+0x114>\n",
   " 104:  f50d 5d80   add.w sp, sp, #4096 ; 0x1000\n",
@@ -5544,7 +5544,7 @@ const char* const VixlJniHelpersResults[] = {
   " 10c:  ecbd 8a10   vpop  {s16-s31}\n",
   " 110:  e8bd 8de0   ldmia.w sp!, {r5, r6, r7, r8, sl, fp, pc}\n",
   " 114:  4660        mov r0, ip\n",
-  " 116:  f8d9 c2b0   ldr.w ip, [r9, #688]  ; 0x2b0\n",
+  " 116:  f8d9 c2b8   ldr.w ip, [r9, #696]  ; 0x2b8\n",
   " 11a:  47e0        blx ip\n",
   nullptr
 };

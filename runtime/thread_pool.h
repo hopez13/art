@@ -65,7 +65,10 @@ class ThreadPoolWorker {
   Thread* GetThread() const { return thread_; }
 
  protected:
-  ThreadPoolWorker(ThreadPool* thread_pool, const std::string& name, size_t stack_size);
+  ThreadPoolWorker(ThreadPool* thread_pool,
+                   const std::string& name,
+                   size_t stack_size,
+                   bool can_call_into_java);
   static void* Callback(void* arg) REQUIRES(!Locks::mutator_lock_);
   virtual void Run();
 
@@ -74,6 +77,7 @@ class ThreadPoolWorker {
   std::unique_ptr<MemMap> stack_;
   pthread_t pthread_;
   Thread* thread_;
+  const bool can_call_into_java_;
 
  private:
   friend class ThreadPool;
@@ -104,7 +108,7 @@ class ThreadPool {
   // Remove all tasks in the queue.
   void RemoveAllTasks(Thread* self) REQUIRES(!task_queue_lock_);
 
-  ThreadPool(const char* name, size_t num_threads);
+  ThreadPool(const char* name, size_t num_threads, bool can_call_into_java);
   virtual ~ThreadPool();
 
   // Wait for all tasks currently on queue to get completed. If the pool has been stopped, only

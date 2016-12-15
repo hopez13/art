@@ -2793,8 +2793,11 @@ bool CompilerDriver::MayInlineInternal(const DexFile* inlined_from,
 void CompilerDriver::InitializeThreadPools() {
   size_t parallel_count = parallel_thread_count_ > 0 ? parallel_thread_count_ - 1 : 0;
   parallel_thread_pool_.reset(
-      new ThreadPool("Compiler driver thread pool", parallel_count));
-  single_thread_pool_.reset(new ThreadPool("Single-threaded Compiler driver thread pool", 0));
+      new ThreadPool("Compiler driver thread pool", parallel_count, /*can_call_into_java*/false));
+  single_thread_pool_.reset(
+      new ThreadPool("Single-threaded Compiler driver thread pool",
+                     /*num_threads*/0,
+                     /*can_call_into_java*/false));
 }
 
 void CompilerDriver::FreeThreadPools() {

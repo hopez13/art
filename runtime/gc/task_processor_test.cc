@@ -63,7 +63,7 @@ class WorkUntilDoneTask : public SelfDeletingTask {
 };
 
 TEST_F(TaskProcessorTest, Interrupt) {
-  ThreadPool thread_pool("task processor test", 1U);
+  ThreadPool thread_pool("task processor test", 1U, false);
   Thread* const self = Thread::Current();
   TaskProcessor task_processor;
   static constexpr size_t kRecursion = 10;
@@ -133,7 +133,7 @@ TEST_F(TaskProcessorTest, Ordering) {
     auto* task = new TestOrderTask(pair.first, pair.second, &counter);
     task_processor.AddTask(self, task);
   }
-  ThreadPool thread_pool("task processor test", 1U);
+  ThreadPool thread_pool("task processor test", 1U, false);
   Atomic<bool> done_running(false);
   // Add a task which will wait until interrupted to the thread pool.
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
