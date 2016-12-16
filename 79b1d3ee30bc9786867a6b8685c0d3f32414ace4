@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51fff3_ad3f1aca",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-12-16T22:00:00Z",
+      "side": 1,
+      "message": "Add GUARDED_BY(state_lock_), fix up all other users?\n\n(Should control_sock_ also be annotated as guarded?)",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 21
+      },
+      "revId": "79b1d3ee30bc9786867a6b8685c0d3f32414ace4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
