@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_6438f28d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-16T17:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aa30717_4e37b30b",
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ac9e3ea_2567ee41",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 446,
         "endChar": 92
       },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_24ea6af2",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-16T17:21:07Z",
+      "side": 1,
+      "message": "Getting all of this error checking is rather complicated. It is way to big for one CL. There is also the fact that we need to figure out how much error checking/recovery is done during installation and how much can be done before. I believe we should be able to ensure prior to getting here that there is no way for these functions to fail but I am not 100% on that yet so these TODOs and CHECKS",
+      "parentUuid": "1ac9e3ea_2567ee41",
       "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_64eab2c1",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-16T17:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ac9e3ea_c581ba9a",
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ac9e3ea_05647239",
         "filename": "test/917-fields-transformation/info.txt",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 1,
         "endChar": 21
       },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_9fa0bf45",
+        "filename": "test/917-fields-transformation/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-16T17:21:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ac9e3ea_05647239",
       "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
