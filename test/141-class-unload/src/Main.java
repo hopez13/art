@@ -46,7 +46,7 @@ public class Main {
             // Stress test to make sure we dont leak memory.
             stressTest(constructor);
             // Test that the oat files are unloaded.
-            testOatFilesUnloaded(getPid());
+            testOatFilesUnloaded(constructor, getPid());
             // Test that objects keep class loader live for sticky GC.
             testStickyUnload(constructor);
         } catch (Exception e) {
@@ -54,10 +54,11 @@ public class Main {
         }
     }
 
-    private static void testOatFilesUnloaded(int pid) throws Exception {
+    private static void testOatFilesUnloaded(Constructor<?> constructor, int pid) throws Exception {
         BufferedReader reader = new BufferedReader(new FileReader ("/proc/" + pid + "/maps"));
         String line;
         int count = 0;
+        jitAction(constructor, "stopJit");
         Runtime.getRuntime().gc();
         System.runFinalization();
         while ((line = reader.readLine()) != null) {
@@ -67,6 +68,7 @@ public class Main {
             }
         }
         System.out.println("Number of loaded unload-ex maps " + count);
+        jitAction(constructor, "startJit");
     }
 
     private static void stressTest(Constructor<?> constructor) throws Exception {
@@ -224,6 +226,17 @@ public class Main {
         loadLibrary.invoke(intHolder, nativeLibraryName);
         waitForCompilation(intHolder);
         return new WeakReference(loader);
+    }
+
+    private static void jitAction(Constructor<?> constructor, String methodName)
+        throws Exception {
+        ClassLoader loader = (ClassLoader) constructor.newInstance(
+            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+        Class<?> intHolder = loader.loadClass("IntHolder");
+        Method loadLibrary = intHolder.getDeclaredMethod("loadLibrary", String.class);
+        loadLibrary.invoke(intHolder, nativeLibraryName);
+        Method action = intHolder.getDeclaredMethod(methodName);
+        action.invoke(intHolder);
     }
 
     private static int getPid() throws Exception {

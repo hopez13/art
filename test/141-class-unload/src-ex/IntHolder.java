@@ -36,6 +36,8 @@ public class IntHolder {
     }
 
     public static native void waitForCompilation();
+    public static native void stopJit();
+    public static native void startJit();
 
     public static Throwable generateStackTrace() {
       return new Exception("test");
