@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aba7b38_4f604d15",
+        "filename": "test/901-hello-ti-agent/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T16:17:13Z",
+      "side": 1,
+      "message": "Would be good to have these in --jvmti too.",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 51
+      },
+      "revId": "f74b4fbb5cbf078f27df46cd4499cdd9bb2169ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "faa88ff5_ac99030d",
+        "filename": "test/916-obsolete-jit/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T16:17:13Z",
+      "side": 1,
+      "message": "Add a comment what this is doing and why you need it.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "f74b4fbb5cbf078f27df46cd4499cdd9bb2169ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daa58b1c_ab160970",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T16:17:13Z",
+      "side": 1,
+      "message": "compilation",
+      "range": {
+        "startLine": 402,
+        "startChar": 22,
+        "endLine": 402,
+        "endChar": 29
+      },
+      "revId": "f74b4fbb5cbf078f27df46cd4499cdd9bb2169ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
