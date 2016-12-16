@@ -46,7 +46,7 @@ public class Main {
             // Stress test to make sure we dont leak memory.
             stressTest(constructor);
             // Test that the oat files are unloaded.
-            testOatFilesUnloaded(getPid());
+            testOatFilesUnloaded(constructor, getPid());
             // Test that objects keep class loader live for sticky GC.
             testStickyUnload(constructor);
         } catch (Exception e) {
@@ -54,10 +54,13 @@ public class Main {
         }
     }
 
-    private static void testOatFilesUnloaded(int pid) throws Exception {
+    private static void testOatFilesUnloaded(Constructor<?> constructor, int pid) throws Exception {
         BufferedReader reader = new BufferedReader(new FileReader ("/proc/" + pid + "/maps"));
         String line;
         int count = 0;
+        // Stop the JIT to ensure its threads and work queue are not keeping classes artifically alive.
+        System.loadLibrary(nativeLibraryName);
+        stopJit();
         Runtime.getRuntime().gc();
         System.runFinalization();
         while ((line = reader.readLine()) != null) {
@@ -67,6 +70,7 @@ public class Main {
             }
         }
         System.out.println("Number of loaded unload-ex maps " + count);
+        startJit();
     }
 
     private static void stressTest(Constructor<?> constructor) throws Exception {
@@ -229,4 +233,7 @@ public class Main {
     private static int getPid() throws Exception {
       return Integer.parseInt(new File("/proc/self").getCanonicalFile().getName());
     }
+
+    public static native void stopJit();
+    public static native void startJit();
 }
