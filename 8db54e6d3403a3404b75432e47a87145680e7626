@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aa30717_4e37b30b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T15:48:47Z",
+      "side": 1,
+      "message": "const art::DexFile::ClassDef\u0026",
+      "range": {
+        "startLine": 397,
+        "startChar": 30,
+        "endLine": 397,
+        "endChar": 59
+      },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ac9e3ea_2567ee41",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T15:48:47Z",
+      "side": 1,
+      "message": "Is it critical to get this change in now? Can you not address (and test) this as part of your change?",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 92
+      },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ac9e3ea_c581ba9a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T15:48:47Z",
+      "side": 1,
+      "message": "Add a comment we only need to update the field index (the other data has been previously checked to be the same).",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ac9e3ea_05647239",
+        "filename": "test/917-fields-transformation/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-16T15:48:47Z",
+      "side": 1,
+      "message": "field access after class redefinition",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "8db54e6d3403a3404b75432e47a87145680e7626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
