@@ -387,8 +387,6 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   using MethodToLiteralMap = ArenaSafeMap<MethodReference, Literal*, MethodReferenceComparator>;
   Literal* DeduplicateUint64Literal(uint64_t value);
   Literal* DeduplicateMethodLiteral(MethodReference target_method, MethodToLiteralMap* map);
-  Literal* DeduplicateMethodAddressLiteral(MethodReference target_method);
-  Literal* DeduplicateMethodCodeLiteral(MethodReference target_method);
 
   PcRelativePatchInfo* NewPcRelativePatch(const DexFile& dex_file,
                                           uint32_t offset_or_index,
@@ -410,12 +408,8 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   // Deduplication map for 64-bit literals, used for non-patchable method address or method code
   // address.
   Uint64ToLiteralMap uint64_literals_;
-  // Method patch info, map MethodReference to a literal for method address and method code.
-  MethodToLiteralMap method_patches_;
-  MethodToLiteralMap call_patches_;
   // PC-relative patch info.
   ArenaDeque<PcRelativePatchInfo> pc_relative_dex_cache_patches_;
-  ArenaDeque<PcRelativePatchInfo> relative_call_patches_;
 
   DISALLOW_COPY_AND_ASSIGN(CodeGeneratorMIPS64);
 };
