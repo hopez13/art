@@ -1107,14 +1107,6 @@ Literal* CodeGeneratorMIPS::DeduplicateMethodLiteral(MethodReference target_meth
       [this]() { return __ NewLiteral<uint32_t>(/* placeholder */ 0u); });
 }
 
-Literal* CodeGeneratorMIPS::DeduplicateMethodAddressLiteral(MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &method_patches_);
-}
-
-Literal* CodeGeneratorMIPS::DeduplicateMethodCodeLiteral(MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &call_patches_);
-}
-
 Literal* CodeGeneratorMIPS::DeduplicateBootImageStringLiteral(const DexFile& dex_file,
                                                               dex::StringIndex string_index) {
   return boot_image_string_patches_.GetOrCreate(
@@ -5157,22 +5149,7 @@ void LocationsBuilderMIPS::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invo
   // art::PrepareForRegisterAllocation.
   DCHECK(!invoke->IsStaticWithExplicitClinitCheck());
 
-  HInvokeStaticOrDirect::MethodLoadKind method_load_kind = invoke->GetMethodLoadKind();
-  HInvokeStaticOrDirect::CodePtrLocation code_ptr_location = invoke->GetCodePtrLocation();
-  bool isR6 = codegen_->GetInstructionSetFeatures().IsR6();
-
-  // kDirectAddressWithFixup and kCallDirectWithFixup need no extra input on R6 because
-  // R6 has PC-relative addressing.
-  bool has_extra_input = !isR6 &&
-      ((method_load_kind == HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup) ||
-       (code_ptr_location == HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup));
-
-  if (invoke->HasPcRelativeDexCache()) {
-    // kDexCachePcRelative is mutually exclusive with
-    // kDirectAddressWithFixup/kCallDirectWithFixup.
-    CHECK(!has_extra_input);
-    has_extra_input = true;
-  }
+  bool has_extra_input = invoke->HasPcRelativeDexCache();
 
   IntrinsicLocationsBuilderMIPS intrinsic(codegen_);
   if (intrinsic.TryDispatch(invoke)) {
@@ -5312,9 +5289,7 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorMIPS::GetSupportedInvokeStaticO
   // is incompatible with it.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
   bool fallback_load = true;
-  bool fallback_call = true;
   switch (dispatch_info.method_load_kind) {
-    case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup:
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
       fallback_load = has_irreducible_loops;
       break;
@@ -5322,24 +5297,9 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorMIPS::GetSupportedInvokeStaticO
       fallback_load = false;
       break;
   }
-  switch (dispatch_info.code_ptr_location) {
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      fallback_call = has_irreducible_loops;
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative:
-      // TODO: Implement this type.
-      break;
-    default:
-      fallback_call = false;
-      break;
-  }
   if (fallback_load) {
     dispatch_info.method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod;
     dispatch_info.method_load_data = 0;
-  }
-  if (fallback_call) {
-    dispatch_info.code_ptr_location = HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
-    dispatch_info.direct_code_ptr = 0;
   }
   return dispatch_info;
 }
@@ -5349,30 +5309,7 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
   Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
   HInvokeStaticOrDirect::MethodLoadKind method_load_kind = invoke->GetMethodLoadKind();
   HInvokeStaticOrDirect::CodePtrLocation code_ptr_location = invoke->GetCodePtrLocation();
-  bool isR6 = isa_features_.IsR6();
-  // kDirectAddressWithFixup and kCallDirectWithFixup have no extra input on R6 because
-  // R6 has PC-relative addressing.
-  bool has_extra_input = invoke->HasPcRelativeDexCache() ||
-      (!isR6 &&
-       ((method_load_kind == HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup) ||
-        (code_ptr_location == HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup)));
-  Register base_reg = has_extra_input
-      ? GetInvokeStaticOrDirectExtraParameter(invoke, temp.AsRegister<Register>())
-      : ZERO;
-
-  // For better instruction scheduling we load the direct code pointer before the method pointer.
-  switch (code_ptr_location) {
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // T9 = invoke->GetDirectCodePtr();
-      __ LoadConst32(T9, invoke->GetDirectCodePtr());
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // T9 = code address from literal pool with link-time patch.
-      __ LoadLiteral(T9, base_reg, DeduplicateMethodCodeLiteral(invoke->GetTargetMethod()));
-      break;
-    default:
-      break;
-  }
+  Register base_reg = ZERO;
 
   switch (method_load_kind) {
     case HInvokeStaticOrDirect::MethodLoadKind::kStringInit: {
@@ -5390,11 +5327,6 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ LoadConst32(temp.AsRegister<Register>(), invoke->GetMethodAddress());
-      break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup:
-      __ LoadLiteral(temp.AsRegister<Register>(),
-                     base_reg,
-                     DeduplicateMethodAddressLiteral(invoke->GetTargetMethod()));
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
       HMipsDexCacheArraysBase* base =
@@ -5438,18 +5370,6 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       __ Bal(&frame_entry_label_);
       break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // T9 prepared above for better instruction scheduling.
-      // T9()
-      __ Jalr(T9);
-      __ NopIfNoReordering();
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative:
-      // TODO: Implement this type.
-      // Currently filtered out by GetSupportedInvokeStaticOrDirectDispatch().
-      LOG(FATAL) << "Unsupported";
-      UNREACHABLE();
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
       // T9 = callee_method->entry_point_from_quick_compiled_code_;
       __ LoadFromOffset(kLoadWord,

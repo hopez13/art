@@ -700,8 +700,6 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
   VIXLUInt32Literal* DeduplicateUint32Literal(uint32_t value, Uint32ToLiteralMap* map);
   VIXLUInt32Literal* DeduplicateMethodLiteral(MethodReference target_method,
                                               MethodToLiteralMap* map);
-  VIXLUInt32Literal* DeduplicateMethodAddressLiteral(MethodReference target_method);
-  VIXLUInt32Literal* DeduplicateMethodCodeLiteral(MethodReference target_method);
   PcRelativePatchInfo* NewPcRelativePatch(const DexFile& dex_file,
                                           uint32_t offset_or_index,
                                           ArenaDeque<PcRelativePatchInfo>* patches);

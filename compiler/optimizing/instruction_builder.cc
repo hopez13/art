@@ -817,7 +817,6 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
         HInvokeStaticOrDirect::MethodLoadKind::kStringInit,
         HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod,
         dchecked_integral_cast<uint64_t>(string_init_entry_point),
-        0U
     };
     MethodReference target_method(dex_file_, method_idx);
     HInvoke* invoke = new (arena_) HInvokeStaticOrDirect(
@@ -862,8 +861,7 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
     HInvokeStaticOrDirect::DispatchInfo dispatch_info = {
         HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod,
         HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod,
-        0u,
-        0U
+        0u
     };
     MethodReference target_method(resolved_method->GetDexFile(),
                                   resolved_method->GetDexMethodIndex());

@@ -387,8 +387,6 @@ class CodeGeneratorMIPS64 : public CodeGenerator {
   using MethodToLiteralMap = ArenaSafeMap<MethodReference, Literal*, MethodReferenceComparator>;
   Literal* DeduplicateUint64Literal(uint64_t value);
   Literal* DeduplicateMethodLiteral(MethodReference target_method, MethodToLiteralMap* map);
-  Literal* DeduplicateMethodAddressLiteral(MethodReference target_method);
-  Literal* DeduplicateMethodCodeLiteral(MethodReference target_method);
 
   PcRelativePatchInfo* NewPcRelativePatch(const DexFile& dex_file,
                                           uint32_t offset_or_index,
