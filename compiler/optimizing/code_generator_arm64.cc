@@ -3971,23 +3971,6 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARM64::GetSupportedInvokeStatic
 }
 
 void CodeGeneratorARM64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke, Location temp) {
-  // For better instruction scheduling we load the direct code pointer before the method pointer.
-  bool direct_code_loaded = false;
-  switch (invoke->GetCodePtrLocation()) {
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // LR = code address from literal pool with link-time patch.
-      __ Ldr(lr, DeduplicateMethodCodeLiteral(invoke->GetTargetMethod()));
-      direct_code_loaded = true;
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // LR = invoke->GetDirectCodePtr();
-      __ Ldr(lr, DeduplicateUint64Literal(invoke->GetDirectCodePtr()));
-      direct_code_loaded = true;
-      break;
-    default:
-      break;
-  }
-
   // Make sure that ArtMethod* is passed in kArtMethodRegister as per the calling convention.
   Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
   switch (invoke->GetMethodLoadKind()) {
@@ -4004,11 +3987,6 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invok
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       // Load method address from literal pool.
       __ Ldr(XRegisterFrom(temp), DeduplicateUint64Literal(invoke->GetMethodAddress()));
-      break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup:
-      // Load method address from literal pool with a link-time patch.
-      __ Ldr(XRegisterFrom(temp),
-             DeduplicateMethodAddressLiteral(invoke->GetTargetMethod()));
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
       // Add ADRP with its PC-relative DexCache access patch.
@@ -4050,23 +4028,6 @@ void CodeGeneratorARM64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invok
   switch (invoke->GetCodePtrLocation()) {
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       __ Bl(&frame_entry_label_);
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative: {
-      relative_call_patches_.emplace_back(*invoke->GetTargetMethod().dex_file,
-                                          invoke->GetTargetMethod().dex_method_index);
-      vixl::aarch64::Label* label = &relative_call_patches_.back().label;
-      SingleEmissionCheckScope guard(GetVIXLAssembler());
-      __ Bind(label);
-      // Branch and link to itself. This will be overriden at link time.
-      __ bl(static_cast<int64_t>(0));
-      break;
-    }
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // LR prepared above for better instruction scheduling.
-      DCHECK(direct_code_loaded);
-      // lr()
-      __ Blr(lr);
       break;
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
       // LR = callee_method->entry_point_from_quick_compiled_code_;
@@ -4313,17 +4274,6 @@ vixl::aarch64::Literal<uint64_t>* CodeGeneratorARM64::DeduplicateMethodLiteral(
       target_method,
       [this]() { return __ CreateLiteralDestroyedWithPool<uint64_t>(/* placeholder */ 0u); });
 }
-
-vixl::aarch64::Literal<uint64_t>* CodeGeneratorARM64::DeduplicateMethodAddressLiteral(
-    MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &method_patches_);
-}
-
-vixl::aarch64::Literal<uint64_t>* CodeGeneratorARM64::DeduplicateMethodCodeLiteral(
-    MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &call_patches_);
-}
-
 
 void InstructionCodeGeneratorARM64::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invoke) {
   // Explicit clinit checks triggered by static invokes must have been pruned by

@@ -693,8 +693,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
   vixl::aarch64::Literal<uint64_t>* DeduplicateUint64Literal(uint64_t value);
   vixl::aarch64::Literal<uint64_t>* DeduplicateMethodLiteral(MethodReference target_method,
                                                              MethodToLiteralMap* map);
-  vixl::aarch64::Literal<uint64_t>* DeduplicateMethodAddressLiteral(MethodReference target_method);
-  vixl::aarch64::Literal<uint64_t>* DeduplicateMethodCodeLiteral(MethodReference target_method);
 
   // The PcRelativePatchInfo is used for PC-relative addressing of dex cache arrays
   // and boot image strings/types. The only difference is the interpretation of the
