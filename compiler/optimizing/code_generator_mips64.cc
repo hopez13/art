@@ -968,14 +968,6 @@ Literal* CodeGeneratorMIPS64::DeduplicateMethodLiteral(MethodReference target_me
       [this]() { return __ NewLiteral<uint32_t>(/* placeholder */ 0u); });
 }
 
-Literal* CodeGeneratorMIPS64::DeduplicateMethodAddressLiteral(MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &method_patches_);
-}
-
-Literal* CodeGeneratorMIPS64::DeduplicateMethodCodeLiteral(MethodReference target_method) {
-  return DeduplicateMethodLiteral(target_method, &call_patches_);
-}
-
 void CodeGeneratorMIPS64::EmitPcRelativeAddressPlaceholderHigh(PcRelativePatchInfo* info,
                                                                GpuRegister out) {
   __ Bind(&info->pc_rel_label);
@@ -3105,22 +3097,6 @@ void CodeGeneratorMIPS64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invo
   HInvokeStaticOrDirect::MethodLoadKind method_load_kind = invoke->GetMethodLoadKind();
   HInvokeStaticOrDirect::CodePtrLocation code_ptr_location = invoke->GetCodePtrLocation();
 
-  // For better instruction scheduling we load the direct code pointer before the method pointer.
-  switch (code_ptr_location) {
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // T9 = invoke->GetDirectCodePtr();
-      __ LoadLiteral(T9, kLoadDoubleword, DeduplicateUint64Literal(invoke->GetDirectCodePtr()));
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // T9 = code address from literal pool with link-time patch.
-      __ LoadLiteral(T9,
-                     kLoadUnsignedWord,
-                     DeduplicateMethodCodeLiteral(invoke->GetTargetMethod()));
-      break;
-    default:
-      break;
-  }
-
   switch (method_load_kind) {
     case HInvokeStaticOrDirect::MethodLoadKind::kStringInit: {
       // temp = thread->string_init_entrypoint
@@ -3139,11 +3115,6 @@ void CodeGeneratorMIPS64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invo
       __ LoadLiteral(temp.AsRegister<GpuRegister>(),
                      kLoadDoubleword,
                      DeduplicateUint64Literal(invoke->GetMethodAddress()));
-      break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup:
-      __ LoadLiteral(temp.AsRegister<GpuRegister>(),
-                     kLoadUnsignedWord,
-                     DeduplicateMethodAddressLiteral(invoke->GetTargetMethod()));
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
       uint32_t offset = invoke->GetDexCacheArrayOffset();
@@ -3187,21 +3158,6 @@ void CodeGeneratorMIPS64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invo
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       __ Balc(&frame_entry_label_);
       break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // T9 prepared above for better instruction scheduling.
-      // T9()
-      __ Jalr(T9);
-      __ Nop();
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative: {
-      CodeGeneratorMIPS64::PcRelativePatchInfo* info =
-          NewPcRelativeCallPatch(*invoke->GetTargetMethod().dex_file,
-                                 invoke->GetTargetMethod().dex_method_index);
-      EmitPcRelativeAddressPlaceholderHigh(info, AT);
-      __ Jialc(AT, /* placeholder */ 0x5678);
-      break;
-    }
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
       // T9 = callee_method->entry_point_from_quick_compiled_code_;
       __ LoadFromOffset(kLoadDoubleword,

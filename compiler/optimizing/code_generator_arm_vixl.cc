@@ -7233,7 +7233,7 @@ void CodeGeneratorARMVIXL::GenerateReadBarrierForRootSlow(HInstruction* instruct
 // otherwise return a fall-back info that should be used instead.
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARMVIXL::GetSupportedInvokeStaticOrDirectDispatch(
     const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
-    HInvokeStaticOrDirect* invoke) {
+    HInvokeStaticOrDirect* invoke ATTRIBUTE_UNUSED) {
   HInvokeStaticOrDirect::DispatchInfo dispatch_info = desired_dispatch_info;
   // We disable pc-relative load when there is an irreducible loop, as the optimization
   // is incompatible with it.
@@ -7245,24 +7245,6 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorARMVIXL::GetSupportedInvokeStat
     dispatch_info.method_load_kind = HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod;
   }
 
-  if (dispatch_info.code_ptr_location == HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative) {
-    const DexFile& outer_dex_file = GetGraph()->GetDexFile();
-    if (&outer_dex_file != invoke->GetTargetMethod().dex_file) {
-      // Calls across dex files are more likely to exceed the available BL range,
-      // so use absolute patch with fixup if available and kCallArtMethod otherwise.
-      HInvokeStaticOrDirect::CodePtrLocation code_ptr_location =
-          (desired_dispatch_info.method_load_kind ==
-           HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup)
-          ? HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup
-          : HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod;
-      return HInvokeStaticOrDirect::DispatchInfo {
-        dispatch_info.method_load_kind,
-        code_ptr_location,
-        dispatch_info.method_load_data,
-        0u
-      };
-    }
-  }
   return dispatch_info;
 }
 
@@ -7294,20 +7276,6 @@ vixl32::Register CodeGeneratorARMVIXL::GetInvokeStaticOrDirectExtraParameter(
 
 void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
     HInvokeStaticOrDirect* invoke, Location temp) {
-  // For better instruction scheduling we load the direct code pointer before the method pointer.
-  switch (invoke->GetCodePtrLocation()) {
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-      // LR = code address from literal pool with link-time patch.
-      __ Ldr(lr, DeduplicateMethodCodeLiteral(invoke->GetTargetMethod()));
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // LR = invoke->GetDirectCodePtr();
-      __ Mov(lr, Operand::From(invoke->GetDirectCodePtr()));
-      break;
-    default:
-      break;
-  }
-
   Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
   switch (invoke->GetMethodLoadKind()) {
     case HInvokeStaticOrDirect::MethodLoadKind::kStringInit: {
@@ -7322,9 +7290,6 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ Mov(RegisterFrom(temp), Operand::From(invoke->GetMethodAddress()));
-      break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddressWithFixup:
-      __ Ldr(RegisterFrom(temp), DeduplicateMethodAddressLiteral(invoke->GetTargetMethod()));
       break;
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
       HArmDexCacheArraysBase* base =
@@ -7364,30 +7329,6 @@ void CodeGeneratorARMVIXL::GenerateStaticOrDirectCall(
   switch (invoke->GetCodePtrLocation()) {
     case HInvokeStaticOrDirect::CodePtrLocation::kCallSelf:
       __ Bl(GetFrameEntryLabel());
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallPCRelative:
-      relative_call_patches_.emplace_back(*invoke->GetTargetMethod().dex_file,
-                                          invoke->GetTargetMethod().dex_method_index);
-      {
-        ExactAssemblyScope aas(GetVIXLAssembler(),
-                               vixl32::kMaxInstructionSizeInBytes,
-                               CodeBufferCheckScope::kMaximumSize);
-        __ bind(&relative_call_patches_.back().label);
-        // Arbitrarily branch to the BL itself, override at link time.
-        __ bl(&relative_call_patches_.back().label);
-      }
-      break;
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirectWithFixup:
-    case HInvokeStaticOrDirect::CodePtrLocation::kCallDirect:
-      // LR prepared above for better instruction scheduling.
-      // LR()
-      {
-        // blx in T32 has only 16bit encoding that's why a stricter check for the scope is used.
-        ExactAssemblyScope aas(GetVIXLAssembler(),
-                               vixl32::k16BitT32InstructionSizeInBytes,
-                               CodeBufferCheckScope::kExactSize);
-        __ blx(lr);
-      }
       break;
     case HInvokeStaticOrDirect::CodePtrLocation::kCallArtMethod:
       // LR = callee_method->entry_point_from_quick_compiled_code_
