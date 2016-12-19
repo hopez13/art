@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "372b2280_4ea53353",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T15:36:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "973ccec1_11f4ec62",
+      "range": {
+        "startLine": 24,
+        "startChar": 56,
+        "endLine": 24,
+        "endChar": 58
+      },
+      "revId": "e8724e0942f5efeb43fd6f9d4c048ae60f919b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_95ba246a",
         "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-19T14:50:34Z",
       "side": 1,
       "message": "... workaround dexmerger bug",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "e8724e0942f5efeb43fd6f9d4c048ae60f919b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7180671_937d9c85",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T15:36:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_95ba246a",
       "range": {
         "startLine": 32,
         "startChar": 3,
