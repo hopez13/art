@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_a8db817c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "I don\u0027t think I quite agree but let\u0027s table this discussion until we are actually able to use the current_method fix at all.",
+      "parentUuid": "5742564d_0f4605c3",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa88ff5_ecaaeb22",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -911,6 +929,24 @@
       "side": 1,
       "message": "OK, I still think you could ensure you don\u0027t have runtime method in these problematic places, but as this is temporary anyway, no need to sweat it.",
       "parentUuid": "7a51fff3_e8a02946",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_c8d8c582",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1728de81_cd8b69ae",
       "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
