@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_25d6da10",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Added a little more comments for the worst case for each guard.",
+      "parentUuid": "9ab4f348_91637c57",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aca276f_19bb8fa8",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 3
@@ -813,6 +837,30 @@
       "side": 1,
       "message": "Yeah, extending HInstruction.",
       "parentUuid": "da6aeb2c_e0b7dbd3",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "2fd34e8333c84c05d0d0768c58933099fac3e799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_05e1d6e6",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ab4f348_f1680835",
       "range": {
         "startLine": 190,
         "startChar": 2,
