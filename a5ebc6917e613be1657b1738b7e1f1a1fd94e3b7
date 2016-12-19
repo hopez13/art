@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "17237e9f_75442895",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-19T16:21:27Z",
+      "side": 1,
+      "message": "The commit message is utterly misleading. It looks as if you\u0027re adding a new sharpening kind where you\u0027re actually removing some kinds.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "a5ebc6917e613be1657b1738b7e1f1a1fd94e3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_1553b459",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-19T16:21:27Z",
+      "side": 1,
+      "message": "You are also removing stuff related to non-PIC on-device build of the boot image. Is that intended?",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "a5ebc6917e613be1657b1738b7e1f1a1fd94e3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_354eb0b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-19T16:21:27Z",
+      "side": 1,
+      "message": "Any benchmarks?",
+      "revId": "a5ebc6917e613be1657b1738b7e1f1a1fd94e3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_95d344bc",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 4
