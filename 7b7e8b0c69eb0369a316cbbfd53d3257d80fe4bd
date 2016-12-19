@@ -46,6 +46,30 @@
       "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_7518a88d",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-19T18:00:50Z",
+      "side": 1,
+      "message": "The new CL with \"CHA\" is https://android-review.googlesource.com/316183 .",
+      "parentUuid": "5a199b0d_97f72418",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
