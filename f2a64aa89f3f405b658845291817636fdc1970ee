@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_b06b5ad0",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "I doc\u0027ed the others more for the meaning of return value. Meaning of this (private) method is kind of obvious.",
+      "parentUuid": "da6aeb2c_2f37170d",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da6aeb2c_affdc7f9",
         "filename": "compiler/optimizing/cha_guard_optimization.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-12-15T01:02:06Z",
       "side": 1,
       "message": "DCHECK that instruction is still in the graph (to verify your iteration around deletion logic is correct)?",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_30868a69",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Added:\nDCHECK(it.Current()-\u003eIsInBlock());",
+      "parentUuid": "da6aeb2c_affdc7f9",
       "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_b040ba58",
+        "filename": "compiler/optimizing/cha_guard_optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Added some comments. .h for optimization pass is more like a shell now. The real stuffs are in .cc so I left more comments there.",
+      "parentUuid": "da6aeb2c_efb17f91",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da6aeb2c_ef55ff39",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "da6aeb2c_7b9e233f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Added:\n// HShouldDeoptimizeFlag can only be moved by CHAGuardOptimization.",
+      "parentUuid": "da6aeb2c_ef55ff39",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da6aeb2c_ef8a5fab",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -81,6 +153,24 @@
       "writtenOn": "2016-12-15T01:02:06Z",
       "side": 1,
       "message": "doc this filed, like is done for most others",
+      "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da6aeb2c_d0e1b6e7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-19T07:15:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da6aeb2c_ef8a5fab",
       "revId": "f2a64aa89f3f405b658845291817636fdc1970ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
