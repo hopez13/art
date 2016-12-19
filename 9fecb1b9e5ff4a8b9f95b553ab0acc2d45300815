@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aa30717_ee5adf0c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T10:28:50Z",
+      "side": 1,
+      "message": "You;re using Cnv in SolveCnv and Conv here. How about just Conversion uniformally?",
+      "range": {
+        "startLine": 78,
+        "startChar": 23,
+        "endLine": 78,
+        "endChar": 35
+      },
+      "revId": "9fecb1b9e5ff4a8b9f95b553ab0acc2d45300815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aba7b38_cf76fd7a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T10:28:50Z",
+      "side": 1,
+      "message": "Is that not affecting what you\u0027ve added below?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 3
+      },
+      "revId": "9fecb1b9e5ff4a8b9f95b553ab0acc2d45300815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ad35b96_eaeda79b",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T10:28:50Z",
+      "side": 1,
+      "message": "Replace with HGraph::GetConstant.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 1
+      },
+      "revId": "9fecb1b9e5ff4a8b9f95b553ab0acc2d45300815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
