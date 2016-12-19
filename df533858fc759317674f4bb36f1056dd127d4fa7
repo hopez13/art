@@ -22,6 +22,30 @@
       "revId": "df533858fc759317674f4bb36f1056dd127d4fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_55048c33",
+        "filename": "test/616-cha/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T17:17:37Z",
+      "side": 1,
+      "message": "Yep... verify at runtime will not generate an app image. Forgot that I already have a flag for that in the other CL.\n\nI rebased this and updated to docs.",
+      "parentUuid": "372b2280_ced923de",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "df533858fc759317674f4bb36f1056dd127d4fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
