@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "1728de81_2d166dc2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73712da_52fa7452",
+      "range": {
+        "startLine": 430,
+        "startChar": 83,
+        "endLine": 430,
+        "endChar": 85
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5742564d_0f1ba5e8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "yea, in compiler driver, L2211. I added a note.\n\n      // It is *very* problematic if there are verification errors in the boot classpath. For example,\n      // we rely on things working OK without verification when the decryption dialog is brought up.\n      // So abort in a debug build if we find this violated.\n      if (kIsDebugBuild) {\n        // TODO(narayan): Remove this special case for signature polymorphic\n        // invokes once verifier support is fully implemented.\n        if (manager_-\u003eGetCompiler()-\u003eGetCompilerOptions().IsBootImage() \u0026\u0026\n            !android::base::StartsWith(descriptor, \"Ljava/lang/invoke/\")) {\n          DCHECK(klass-\u003eIsVerified()) \u003c\u003c \"Boot classpath class \" \u003c\u003c klass-\u003ePrettyClass()\n              \u003c\u003c \" failed to fully verify: state\u003d \" \u003c\u003c klass-\u003eGetStatus();\n        }\n      }",
+      "parentUuid": "1728de81_0dc97148",
+      "range": {
+        "startLine": 429,
+        "startChar": 12,
+        "endLine": 430,
+        "endChar": 80
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5742564d_efad0169",
         "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2016-12-19T12:10:07Z",
       "side": 1,
       "message": "Add a comment that this is the instruction that will throw.",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5742564d_ef1f41d1",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5742564d_efad0169",
       "range": {
         "startLine": 24,
         "startChar": 3,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "773d9abc_b034f839",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "technically no, but I think it does a better job explaining the issue. And without the fix this actually causes the test to fail. So call it double testing.",
+      "parentUuid": "17237e9f_35c47032",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "372b2280_6e910f32",
         "filename": "test/706-jit-skip-compilation/src/Main.java",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2016-12-19T12:10:07Z",
       "side": 1,
       "message": "I\u0027d avoid the golden file and do:\nif (... !\u003d 0) throw...",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 58
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b73712da_32c370f5",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372b2280_6e910f32",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_f51f18d1",
+        "filename": "test/706-jit-skip-compilation/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773d9abc_90cd744b",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 58
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3726c2ad_969b4c4b",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2016-12-19T12:10:07Z",
       "side": 1,
       "message": "Add a comment.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 3
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b73712da_12c86c0b",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-19T14:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3726c2ad_969b4c4b",
       "range": {
         "startLine": 196,
         "startChar": 0,
