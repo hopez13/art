@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "1728de81_8d31e149",
+        "filename": "test/706-jit-skip-compilation/smali/errclass.smali",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:50:34Z",
+      "side": 1,
+      "message": "OK, please add a comment then that the compiler will crash with these lines.",
+      "parentUuid": "773d9abc_b034f839",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "aa75503a30e23937b54862576bfcc2d41f67ab18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "372b2280_6e910f32",
         "filename": "test/706-jit-skip-compilation/src/Main.java",
         "patchSetId": 6
