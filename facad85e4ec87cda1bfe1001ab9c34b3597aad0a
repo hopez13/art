@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7180671_53a5c452",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T12:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_1590542a",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 94
+      },
+      "revId": "facad85e4ec87cda1bfe1001ab9c34b3597aad0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_358b5004",
         "filename": "test/141-class-unload/src/Main.java",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2016-12-19T11:27:29Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "facad85e4ec87cda1bfe1001ab9c34b3597aad0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_15e294ba",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T12:52:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_358b5004",
       "revId": "facad85e4ec87cda1bfe1001ab9c34b3597aad0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
