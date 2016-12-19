@@ -371,7 +371,11 @@ if [ "$JIT" = "y" ]; then
     if [ "$VERIFY" = "y" ] ; then
       INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=interpret-only"
       COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=interpret-only"
-    else
+    elif [ "$VERIFY" = "s" ]; then
+      INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=verify-at-runtime"
+      COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=verify-at-runtime"
+      DEX_VERIFY="${DEX_VERIFY} -Xverify:softfail"
+    else # VERIFY = "n"
       INT_OPTS="${INT_OPTS} -Xcompiler-option --compiler-filter=verify-none"
       COMPILE_FLAGS="${COMPILE_FLAGS} --compiler-filter=verify-none"
       DEX_VERIFY="${DEX_VERIFY} -Xverify:none"
