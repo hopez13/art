@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f71b4a68_94cd844b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "You don\u0027t need this.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 60
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773d9abc_104624c3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "Add a note that all threads must be suspended for calling this method safely. (Don\u0027t we have a DCHECK we could use?)\n\nAlso, that the compiled code for method must not be in the call stack.",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 47
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "973ccec1_d1d304ed",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "Also call FreeCode (And ScopedCodeCacheWrite line 660).",
+      "range": {
+        "startLine": 660,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 3
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "973ccec1_b1d080e1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "Also call FreeCode.",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 3
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_151bb4e8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "Drop this check, you still need to deal with the profiling info, and the osr map.",
+      "range": {
+        "startLine": 682,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 3
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1728de81_8d268129",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T14:00:29Z",
+      "side": 1,
+      "message": "since the JIT might concurrently compile a method we are going to redefine.",
+      "range": {
+        "startLine": 257,
+        "startChar": 48,
+        "endLine": 258,
+        "endChar": 56
+      },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
