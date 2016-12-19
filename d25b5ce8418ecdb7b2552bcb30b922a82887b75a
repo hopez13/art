@@ -1807,6 +1807,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_352230bc",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-19T18:00:50Z",
+      "side": 1,
+      "message": "Are you saying that the template argument deduction for the array overload of ReverseRange() fails?",
+      "parentUuid": "5af43b41_1f2bc3af",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_c7275e28",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 12
