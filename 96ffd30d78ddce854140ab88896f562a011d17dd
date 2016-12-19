@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "5742564d_0f4605c3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T16:03:13Z",
+      "side": 1,
+      "message": "Yes. I\u0027m saying having current_method is not the fundamental fix you\u0027re looking for. It\u0027s a workaround.",
+      "parentUuid": "7a51fff3_a8346138",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa88ff5_ecaaeb22",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -875,6 +893,24 @@
       "side": 1,
       "message": "We need to ensure there are no runtime methods right around the redefined methods. ensureJitCompiled doesn\u0027t guarantee that.",
       "parentUuid": "d7180671_d362f42f",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1728de81_cd8b69ae",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T16:03:13Z",
+      "side": 1,
+      "message": "OK, I still think you could ensure you don\u0027t have runtime method in these problematic places, but as this is temporary anyway, no need to sweat it.",
+      "parentUuid": "7a51fff3_e8a02946",
       "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
