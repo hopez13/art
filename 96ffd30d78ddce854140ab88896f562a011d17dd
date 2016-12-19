@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_a8346138",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T15:28:04Z",
+      "side": 1,
+      "message": "The current plan is and has always been to disallow all inlining when method redefinition is enabled. If we allow inlining we will need to find every place the method was inlined and invalidate that code.",
+      "parentUuid": "17237e9f_5596cc2b",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa88ff5_ecaaeb22",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -839,6 +857,24 @@
       "side": 1,
       "message": "What state then? If you do ensureJitCompiled early on, then say_hi_method and do_call_method will be guaranteed to be compiled code. Isn\u0027t that the state you want?",
       "parentUuid": "7a51fff3_fa7476ad",
+      "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_e8a02946",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T15:28:04Z",
+      "side": 1,
+      "message": "We need to ensure there are no runtime methods right around the redefined methods. ensureJitCompiled doesn\u0027t guarantee that.",
+      "parentUuid": "d7180671_d362f42f",
       "revId": "96ffd30d78ddce854140ab88896f562a011d17dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
