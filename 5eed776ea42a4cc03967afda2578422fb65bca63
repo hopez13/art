@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_0bf9e75d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f71b4a68_94cd844b",
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "773d9abc_104624c3",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -42,6 +60,24 @@
         "endLine": 647,
         "endChar": 47
       },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_cbffdf3a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "We already have a REQUIRES(Locks::mutator_lock_) on the declaration which is pretty much the same thing. Don\u0027t know of any DCHECKs we could use.\n\ndone.",
+      "parentUuid": "773d9abc_104624c3",
       "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_4b45afb3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "973ccec1_d1d304ed",
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "973ccec1_b1d080e1",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 6
@@ -88,6 +142,24 @@
         "endLine": 671,
         "endChar": 3
       },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_8b37973c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Twice? Are you sure?",
+      "parentUuid": "973ccec1_b1d080e1",
       "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "7a51fff3_6b535387",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_151bb4e8",
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1728de81_8d268129",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 6
@@ -134,6 +224,24 @@
         "endLine": 258,
         "endChar": 56
       },
+      "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51fff3_4b1ccfdf",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-19T18:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1728de81_8d268129",
       "revId": "5eed776ea42a4cc03967afda2578422fb65bca63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
