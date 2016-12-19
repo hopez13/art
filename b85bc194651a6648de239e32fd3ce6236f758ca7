@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_b58520f5",
+        "filename": "test/627-checker-heap-poisoning/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-19T11:10:25Z",
+      "side": 1,
+      "message": "How hard would it be to recognize:\n/// CHECK-IF: ART_HEAP_POISOINING \u0026\u0026 ART_READ_BARRIER_TYPE !\u003d TABLELOOKUP\n\n?",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 62
+      },
+      "revId": "b85bc194651a6648de239e32fd3ce6236f758ca7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
