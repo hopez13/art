@@ -164,6 +164,7 @@ class OatWriter {
                             const InstructionSetFeatures* instruction_set_features,
                             SafeMap<std::string, std::string>* key_value_store,
                             bool verify,
+                            bool actually_write,
                             /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
                             /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
   bool WriteQuickeningInfo(OutputStream* vdex_out);
@@ -263,8 +264,11 @@ class OatWriter {
   // with a given DexMethodVisitor.
   bool VisitDexMethods(DexMethodVisitor* visitor);
 
-  bool WriteDexFiles(OutputStream* out, File* file);
-  bool WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
+  bool WriteDexFiles(OutputStream* out, File* file, bool update_input_vdex);
+  bool WriteDexFile(OutputStream* out,
+                    File* file,
+                    OatDexFile* oat_dex_file,
+                    bool update_input_vdex);
   bool SeekToDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file);
   bool LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_file);
   bool WriteDexFile(OutputStream* out,
@@ -275,7 +279,10 @@ class OatWriter {
                     File* file,
                     OatDexFile* oat_dex_file,
                     File* dex_file);
-  bool WriteDexFile(OutputStream* out, OatDexFile* oat_dex_file, const uint8_t* dex_file);
+  bool WriteDexFile(OutputStream* out,
+                    OatDexFile* oat_dex_file,
+                    const uint8_t* dex_file,
+                    bool update_input_vdex);
   bool OpenDexFiles(File* file,
                     bool verify,
                     /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
@@ -306,6 +313,7 @@ class OatWriter {
                              const std::vector<std::unique_ptr<const DexFile>>& opened_dex_files);
   bool WriteCodeAlignment(OutputStream* out, uint32_t aligned_code_delta);
   void SetMultiOatRelativePatcherAdjustment();
+  void CloseSources();
 
   enum class WriteState {
     kAddingDexFileSources,
