@@ -198,6 +198,7 @@ class OatTest : public CommonCompilerTest {
                                          compiler_driver_->GetInstructionSetFeatures(),
                                          &key_value_store,
                                          verify,
+                                         /* actually_write */ true,
                                          &opened_dex_files_map,
                                          &opened_dex_files)) {
       return false;

@@ -483,6 +483,7 @@ bool OatWriter::WriteAndOpenDexFiles(
     const InstructionSetFeatures* instruction_set_features,
     SafeMap<std::string, std::string>* key_value_store,
     bool verify,
+    bool actually_write,
     /*out*/ std::unique_ptr<MemMap>* opened_dex_files_map,
     /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files) {
   CHECK(write_state_ == WriteState::kAddingDexFileSources);
@@ -511,15 +512,38 @@ bool OatWriter::WriteAndOpenDexFiles(
   if (kIsVdexEnabled) {
     std::unique_ptr<BufferedOutputStream> vdex_out(
         MakeUnique<BufferedOutputStream>(MakeUnique<FileOutputStream>(vdex_file)));
-
-    // Write DEX files into VDEX, mmap and open them.
-    if (!WriteDexFiles(vdex_out.get(), vdex_file) ||
-        !OpenDexFiles(vdex_file, verify, &dex_files_map, &dex_files)) {
-      return false;
+    if (!actually_write) {
+      // We're doing an in-place update of the vdex file, mimic what WriteDexFiles
+      // would have done.
+      vdex_dex_files_offset_ = vdex_size_;
+      for (OatDexFile& oat_dex_file : oat_dex_files_) {
+        if (!SeekToDexFile(vdex_out.get(), vdex_file, &oat_dex_file)) {
+          return false;
+        }
+        DCHECK_EQ(vdex_size_, oat_dex_file.dex_file_offset_);
+        const UnalignedDexFileHeader* header =
+            AsUnalignedDexFileHeader(oat_dex_file.source_.GetRawData());
+        oat_dex_file.dex_file_size_ = header->file_size_;
+        oat_dex_file.class_offsets_.resize(header->class_defs_size_);
+        vdex_size_ += oat_dex_file.dex_file_size_;
+        size_dex_file_ += oat_dex_file.dex_file_size_;
+      }
+      CloseSources();
+      // Just mmap and open the dex files in the vdex.
+      if (!OpenDexFiles(vdex_file, verify, &dex_files_map, &dex_files)) {
+        return false;
+      }
+    } else {
+      // Write DEX files into VDEX, mmap and open them.
+      if (!WriteDexFiles(vdex_out.get(), vdex_file, actually_write) ||
+          !OpenDexFiles(vdex_file, verify, &dex_files_map, &dex_files)) {
+        return false;
+      }
     }
   } else {
+    DCHECK(actually_write);
     // Write DEX files into OAT, mmap and open them.
-    if (!WriteDexFiles(oat_rodata, vdex_file) ||
+    if (!WriteDexFiles(oat_rodata, vdex_file, actually_write) ||
         !OpenDexFiles(vdex_file, verify, &dex_files_map, &dex_files)) {
       return false;
     }
@@ -2096,29 +2120,35 @@ bool OatWriter::ValidateDexFileHeader(const uint8_t* raw_header, const char* loc
   return true;
 }
 
-bool OatWriter::WriteDexFiles(OutputStream* out, File* file) {
+bool OatWriter::WriteDexFiles(OutputStream* out, File* file, bool actually_write) {
   TimingLogger::ScopedTiming split("Write Dex files", timings_);
 
   vdex_dex_files_offset_ = vdex_size_;
 
   // Write dex files.
   for (OatDexFile& oat_dex_file : oat_dex_files_) {
-    if (!WriteDexFile(out, file, &oat_dex_file)) {
+    if (!WriteDexFile(out, file, &oat_dex_file, actually_write)) {
       return false;
     }
   }
 
-  // Close sources.
+  CloseSources();
+  return true;
+}
+
+void OatWriter::CloseSources() {
   for (OatDexFile& oat_dex_file : oat_dex_files_) {
     oat_dex_file.source_.Clear();  // Get rid of the reference, it's about to be invalidated.
   }
   zipped_dex_files_.clear();
   zip_archives_.clear();
   raw_dex_files_.clear();
-  return true;
 }
 
-bool OatWriter::WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_file) {
+bool OatWriter::WriteDexFile(OutputStream* out,
+                             File* file,
+                             OatDexFile* oat_dex_file,
+                             bool actually_write) {
   if (!SeekToDexFile(out, file, oat_dex_file)) {
     return false;
   }
@@ -2127,16 +2157,18 @@ bool OatWriter::WriteDexFile(OutputStream* out, File* file, OatDexFile* oat_dex_
       return false;
     }
   } else if (oat_dex_file->source_.IsZipEntry()) {
+    DCHECK(actually_write);
     if (!WriteDexFile(out, file, oat_dex_file, oat_dex_file->source_.GetZipEntry())) {
       return false;
     }
   } else if (oat_dex_file->source_.IsRawFile()) {
+    DCHECK(actually_write);
     if (!WriteDexFile(out, file, oat_dex_file, oat_dex_file->source_.GetRawFile())) {
       return false;
     }
   } else {
     DCHECK(oat_dex_file->source_.IsRawData());
-    if (!WriteDexFile(out, oat_dex_file, oat_dex_file->source_.GetRawData())) {
+    if (!WriteDexFile(out, oat_dex_file, oat_dex_file->source_.GetRawData(), actually_write)) {
       return false;
     }
   }
@@ -2216,7 +2248,7 @@ bool OatWriter::LayoutAndWriteDexFile(OutputStream* out, OatDexFile* oat_dex_fil
   DexLayout dex_layout(options, profile_compilation_info_, nullptr);
   dex_layout.ProcessDexFile(location.c_str(), dex_file.get(), 0);
   std::unique_ptr<MemMap> mem_map(dex_layout.GetAndReleaseMemMap());
-  if (!WriteDexFile(out, oat_dex_file, mem_map->Begin())) {
+  if (!WriteDexFile(out, oat_dex_file, mem_map->Begin(), /* actually_write */ true)) {
     return false;
   }
   // Set the checksum of the new oat dex file to be the original file's checksum.
@@ -2373,22 +2405,25 @@ bool OatWriter::WriteDexFile(OutputStream* out,
 
 bool OatWriter::WriteDexFile(OutputStream* out,
                              OatDexFile* oat_dex_file,
-                             const uint8_t* dex_file) {
+                             const uint8_t* dex_file,
+                             bool actually_write) {
   // Note: The raw data has already been checked to contain the header
   // and all the data that the header specifies as the file size.
   DCHECK(dex_file != nullptr);
   DCHECK(ValidateDexFileHeader(dex_file, oat_dex_file->GetLocation()));
   const UnalignedDexFileHeader* header = AsUnalignedDexFileHeader(dex_file);
 
-  if (!out->WriteFully(dex_file, header->file_size_)) {
-    PLOG(ERROR) << "Failed to write dex file " << oat_dex_file->GetLocation()
-                << " to " << out->GetLocation();
-    return false;
-  }
-  if (!out->Flush()) {
-    PLOG(ERROR) << "Failed to flush stream after writing dex file."
-                << " File: " << oat_dex_file->GetLocation();
-    return false;
+  if (actually_write) {
+    if (!out->WriteFully(dex_file, header->file_size_)) {
+      PLOG(ERROR) << "Failed to write dex file " << oat_dex_file->GetLocation()
+                  << " to " << out->GetLocation();
+      return false;
+    }
+    if (!out->Flush()) {
+      PLOG(ERROR) << "Failed to flush stream after writing dex file."
+                  << " File: " << oat_dex_file->GetLocation();
+      return false;
+    }
   }
 
   // Update dex file size and resize class offsets in the OatDexFile.
