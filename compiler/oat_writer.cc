@@ -1467,31 +1467,33 @@ bool OatWriter::VisitDexMethods(DexMethodVisitor* visitor) {
     for (size_t class_def_index = 0; class_def_index != class_def_count; ++class_def_index) {
       if (UNLIKELY(!visitor->StartClass(dex_file, class_def_index))) {
         return false;
-      }
-      const DexFile::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
-      const uint8_t* class_data = dex_file->GetClassData(class_def);
-      if (class_data != nullptr) {  // ie not an empty class, such as a marker interface
-        ClassDataItemIterator it(*dex_file, class_data);
-        while (it.HasNextStaticField()) {
-          it.Next();
-        }
-        while (it.HasNextInstanceField()) {
-          it.Next();
-        }
-        size_t class_def_method_index = 0u;
-        while (it.HasNextDirectMethod()) {
-          if (!visitor->VisitMethod(class_def_method_index, it)) {
-            return false;
+      } 
+      if (!compiler_driver_->GetCompilerOptions().VerifyOnlyProfile()) {
+        const DexFile::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
+        const uint8_t* class_data = dex_file->GetClassData(class_def);
+        if (class_data != nullptr) {  // ie not an empty class, such as a marker interface
+          ClassDataItemIterator it(*dex_file, class_data);
+          while (it.HasNextStaticField()) {
+            it.Next();
           }
-          ++class_def_method_index;
-          it.Next();
-        }
-        while (it.HasNextVirtualMethod()) {
-          if (UNLIKELY(!visitor->VisitMethod(class_def_method_index, it))) {
-            return false;
+          while (it.HasNextInstanceField()) {
+            it.Next();
           }
-          ++class_def_method_index;
-          it.Next();
+          size_t class_def_method_index = 0u;
+          while (it.HasNextDirectMethod()) {
+            if (!visitor->VisitMethod(class_def_method_index, it)) {
+              return false;
+            }
+            ++class_def_method_index;
+            it.Next();
+          }
+          while (it.HasNextVirtualMethod()) {
+            if (UNLIKELY(!visitor->VisitMethod(class_def_method_index, it))) {
+              return false;
+            }
+            ++class_def_method_index;
+            it.Next();
+          }
         }
       }
       if (UNLIKELY(!visitor->EndClass())) {
@@ -1548,6 +1550,9 @@ size_t OatWriter::InitOatClasses(size_t offset) {
 }
 
 size_t OatWriter::InitOatMaps(size_t offset) {
+  if (compiler_driver_->GetCompilerOptions().VerifyOnlyProfile()) {
+    return offset;
+  }
   InitMapMethodVisitor visitor(this, offset);
   bool success = VisitDexMethods(&visitor);
   DCHECK(success);
@@ -1594,6 +1599,9 @@ size_t OatWriter::InitOatCode(size_t offset) {
 }
 
 size_t OatWriter::InitOatCodeDexFiles(size_t offset) {
+  if (compiler_driver_->GetCompilerOptions().VerifyOnlyProfile()) {
+    return offset;
+  }
   InitCodeMethodVisitor code_visitor(this, offset, vdex_quickening_info_offset_);
   bool success = VisitDexMethods(&code_visitor);
   DCHECK(success);
@@ -1745,19 +1753,24 @@ bool OatWriter::WriteQuickeningInfo(OutputStream* vdex_out) {
     return false;
   }
 
-  WriteQuickeningInfoMethodVisitor visitor(this, vdex_out, start_offset);
-  if (!VisitDexMethods(&visitor)) {
-    PLOG(ERROR) << "Failed to write the vdex quickening info. File: " << vdex_out->GetLocation();
-    return false;
+  if (compiler_driver_->GetCompilerOptions().VerifyOnlyProfile()) {
+    // We don't quicken for verify-profile.
+    size_quickening_info_ = 0;
+  } else {
+    WriteQuickeningInfoMethodVisitor visitor(this, vdex_out, start_offset);
+    if (!VisitDexMethods(&visitor)) {
+      PLOG(ERROR) << "Failed to write the vdex quickening info. File: " << vdex_out->GetLocation();
+      return false;
+    }
+
+    if (!vdex_out->Flush()) {
+      PLOG(ERROR) << "Failed to flush stream after writing quickening info."
+                  << " File: " << vdex_out->GetLocation();
+      return false;
+    }
+    size_quickening_info_ = visitor.GetNumberOfWrittenBytes();
   }
 
-  if (!vdex_out->Flush()) {
-    PLOG(ERROR) << "Failed to flush stream after writing quickening info."
-                << " File: " << vdex_out->GetLocation();
-    return false;
-  }
-
-  size_quickening_info_ = visitor.GetNumberOfWrittenBytes();
   vdex_size_ += size_quickening_info_;
   return true;
 }
