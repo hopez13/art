@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_35c6b0ac",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-20T11:46:15Z",
+      "side": 1,
+      "message": "Yes I noticed the discussion in PS4 and PS12, and I agree that current interface forces the selector to go through the whole list of candidates.\n\nBut currently I want to keep it this way, because:\n- Due to the data \u0026 side-effect dependencies, the candidates list is usually a limited subset of instructions inside one basic block. They are a small number.\n- According to perf profiling, the biggest overhead of scheduler comes from the map between SchedulingNode and HInstruction (e.g. building dependency graph from HInstruction), not the selector. This is where I want to optimize the most. My next step is to try moving the scheduling information into HInstruction and eleminate the map overhead.",
+      "parentUuid": "17237e9f_353b50de",
+      "range": {
+        "startLine": 351,
+        "startChar": 26,
+        "endLine": 352,
+        "endChar": 78
+      },
+      "revId": "45de0c676443c274644fc9cb573525329b7036ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a199b0d_3712d878",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 20
@@ -59,6 +83,30 @@
       "writtenOn": "2016-12-19T18:00:50Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 444,
+        "startChar": 2,
+        "endLine": 444,
+        "endChar": 33
+      },
+      "revId": "45de0c676443c274644fc9cb573525329b7036ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_55c12c92",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-20T11:46:15Z",
+      "side": 1,
+      "message": "The SetOnlyOptimizeLoopBlocks() function allows setting this member, so it cannot be const.",
+      "parentUuid": "17237e9f_954b4475",
       "range": {
         "startLine": 444,
         "startChar": 2,
