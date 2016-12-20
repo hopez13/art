@@ -22,6 +22,30 @@
       "revId": "7a982537e3ac667fe7ed1b96050f077ef4327275",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_184649c3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-20T14:20:10Z",
+      "side": 1,
+      "message": "We chatted offline. Option 2, with passing a flag to the helper methods seems cleaner (together with a rename on \u0027actually_write\u0027. maybe \u0027update_vdex_inplace\u0027 or anything else along these lines).",
+      "parentUuid": "17237e9f_58fa8152",
+      "range": {
+        "startLine": 516,
+        "startChar": 6,
+        "endLine": 517,
+        "endChar": 25
+      },
+      "revId": "7a982537e3ac667fe7ed1b96050f077ef4327275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
