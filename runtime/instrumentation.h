@@ -229,7 +229,7 @@ class Instrumentation {
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
   // Update the code of a method respecting any installed stubs from debugger.
-  void UpdateMethodsCodeFromDebugger(ArtMethod* method, const void* quick_code)
+  void UpdateMethodsCodeForJavaDebuggable(ArtMethod* method, const void* quick_code)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!deoptimized_methods_lock_);
 
   // Get the quick code for the given method. More efficient than asking the class linker as it
