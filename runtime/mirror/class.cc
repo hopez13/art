@@ -951,7 +951,13 @@ ObjPtr<Class> Class::GetDirectInterface(Thread* self, ObjPtr<Class> klass, uint3
     return interfaces->Get(idx);
   } else {
     dex::TypeIndex type_idx = klass->GetDirectInterfaceTypeIdx(idx);
-    ObjPtr<Class> interface = klass->GetDexCache()->GetResolvedType(type_idx);
+    ObjPtr<DexCache> dex_cache = klass->GetDexCache();
+    ObjPtr<Class> interface = dex_cache->GetResolvedType(type_idx);
+    if (interface == nullptr) {
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      interface = class_linker->LookupResolvedType(
+          *dex_cache->GetDexFile(), type_idx, dex_cache, klass->GetClassLoader());
+    }
     return interface;
   }
 }
