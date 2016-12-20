@@ -722,10 +722,12 @@ void Instrumentation::UpdateMethodsCode(ArtMethod* method, const void* quick_cod
   UpdateMethodsCodeImpl(method, quick_code);
 }
 
-void Instrumentation::UpdateMethodsCodeFromDebugger(ArtMethod* method, const void* quick_code) {
-  // When debugger attaches, we may update the entry points of all methods of a class
-  // to the interpreter bridge. A method's declaring class might not be in resolved
-  // state yet in that case.
+void Instrumentation::UpdateMethodsCodeForJavaDebuggable(ArtMethod* method,
+                                                         const void* quick_code) {
+  // When the runtime is set to Java debuggable, we may update the entry points of
+  // all methods of a class to the interpreter bridge. A method's declaring class
+  // might not be in resolved state yet in that case, so we bypass the DCHECK in
+  // UpdateMethodsCode.
   UpdateMethodsCodeImpl(method, quick_code);
 }
 
@@ -1096,7 +1098,7 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self, uintpt
   bool deoptimize = (visitor.caller != nullptr) &&
                     (interpreter_stubs_installed_ || IsDeoptimized(visitor.caller) ||
                     Dbg::IsForcedInterpreterNeededForUpcall(self, visitor.caller));
-  if (deoptimize && Runtime::Current()->IsDeoptimizeable(*return_pc)) {
+  if (deoptimize && Runtime::Current()->IsAsyncDeoptimizeable(*return_pc)) {
     if (kVerboseInstrumentation) {
       LOG(INFO) << "Deoptimizing "
                 << visitor.caller->PrettyMethod()
@@ -1114,6 +1116,10 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self, uintpt
     return GetTwoWordSuccessValue(*return_pc,
                                   reinterpret_cast<uintptr_t>(GetQuickDeoptimizationEntryPoint()));
   } else {
+    if (deoptimize && !Runtime::Current()->IsAsyncDeoptimizeable(*return_pc)) {
+      LOG(WARNING) << "Got a deoptimization request on un-deoptimizable " << method->PrettyMethod()
+                   << " at PC " << reinterpret_cast<void*>(*return_pc);
+    }
     if (kVerboseInstrumentation) {
       LOG(INFO) << "Returning from " << method->PrettyMethod()
                 << " to PC " << reinterpret_cast<void*>(*return_pc);
