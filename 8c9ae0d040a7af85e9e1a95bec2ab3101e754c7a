@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_f9511b26",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-20T15:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_d878d12e",
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_b88515f5",
         "filename": "test/631-checker-fp-abs/src/Main.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-12-20T10:54:53Z",
       "side": 1,
       "message": "ditto",
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_d9545f19",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-20T15:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_b88515f5",
       "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_994ee785",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-20T15:16:53Z",
+      "side": 1,
+      "message": "Yes of course. And I am not even testing the all zeros bit pattern properly. What a bad \"typo\" :-)\nThanks for catching.",
+      "parentUuid": "17237e9f_988259e9",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 51
+      },
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_7891bd31",
         "filename": "test/631-checker-fp-abs/src/Main.java",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2016-12-20T10:54:53Z",
       "side": 1,
       "message": "Test absDP()?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 53
+      },
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_b94ba374",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-12-20T15:16:53Z",
+      "side": 1,
+      "message": "Ditto. Thanks.",
+      "parentUuid": "17237e9f_7891bd31",
       "range": {
         "startLine": 95,
         "startChar": 0,
