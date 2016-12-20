@@ -494,11 +494,15 @@ void CompilerDriver::CompileAll(jobject class_loader,
     // TODO: we unquicken unconditionnally, as we don't know
     // if the boot image has changed. How exactly we'll know is under
     // experimentation.
-    TimingLogger::ScopedTiming t("Unquicken", timings);
-    // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
-    // optimization does not depend on the boot image (the optimization relies on not
-    // having final fields in a class, which does not change for an app).
-    Unquicken(dex_files, vdex_file->GetQuickeningInfo(), /* decompile_return_instruction */ false);
+    if (vdex_file->GetQuickeningInfo().size() != 0) {
+      TimingLogger::ScopedTiming t("Unquicken", timings);
+      // We do not decompile a RETURN_VOID_NO_BARRIER into a RETURN_VOID, as the quickening
+      // optimization does not depend on the boot image (the optimization relies on not
+      // having final fields in a class, which does not change for an app).
+      Unquicken(dex_files,
+                vdex_file->GetQuickeningInfo(),
+                /* decompile_return_instruction */ false);
+    }
     Runtime::Current()->GetCompilerCallbacks()->SetVerifierDeps(
         new verifier::VerifierDeps(dex_files, vdex_file->GetVerifierDepsData()));
   }

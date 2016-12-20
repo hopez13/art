@@ -1745,19 +1745,24 @@ bool OatWriter::WriteQuickeningInfo(OutputStream* vdex_out) {
     return false;
   }
 
-  WriteQuickeningInfoMethodVisitor visitor(this, vdex_out, start_offset);
-  if (!VisitDexMethods(&visitor)) {
-    PLOG(ERROR) << "Failed to write the vdex quickening info. File: " << vdex_out->GetLocation();
-    return false;
+  if (compiler_driver_->GetCompilerOptions().VerifyOnlyProfile()) {
+    // We don't quicken for verify-profile.
+    size_quickening_info_ = 0;
+  } else {
+    WriteQuickeningInfoMethodVisitor visitor(this, vdex_out, start_offset);
+    if (!VisitDexMethods(&visitor)) {
+      PLOG(ERROR) << "Failed to write the vdex quickening info. File: " << vdex_out->GetLocation();
+      return false;
+    }
+
+    if (!vdex_out->Flush()) {
+      PLOG(ERROR) << "Failed to flush stream after writing quickening info."
+                  << " File: " << vdex_out->GetLocation();
+      return false;
+    }
+    size_quickening_info_ = visitor.GetNumberOfWrittenBytes();
   }
 
-  if (!vdex_out->Flush()) {
-    PLOG(ERROR) << "Failed to flush stream after writing quickening info."
-                << " File: " << vdex_out->GetLocation();
-    return false;
-  }
-
-  size_quickening_info_ = visitor.GetNumberOfWrittenBytes();
   vdex_size_ += size_quickening_info_;
   return true;
 }
