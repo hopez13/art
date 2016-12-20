@@ -1303,10 +1303,15 @@ class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
   }
 
   mirror::Class* GetTargetType(const LinkerPatch& patch) REQUIRES_SHARED(Locks::mutator_lock_) {
-    mirror::DexCache* dex_cache = GetDexCache(patch.TargetTypeDexFile());
-    mirror::Class* type = dex_cache->GetResolvedType(patch.TargetTypeIndex());
+    ObjPtr<mirror::DexCache> dex_cache = GetDexCache(patch.TargetTypeDexFile());
+    ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(patch.TargetTypeIndex());
+    if (type == nullptr) {
+      ObjPtr<mirror::ClassLoader> class_loader = writer_->image_writer_->GetClassLoader();
+      type = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+          *patch.TargetTypeDexFile(), patch.TargetTypeIndex(), dex_cache, class_loader);
+    }
     CHECK(type != nullptr);
-    return type;
+    return type.Ptr();
   }
 
   mirror::String* GetTargetString(const LinkerPatch& patch) REQUIRES_SHARED(Locks::mutator_lock_) {
