@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_d8cc51c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-20T22:41:57Z",
+      "side": 1,
+      "message": "java debuggable, I\u0027ve updated the message.",
+      "parentUuid": "f7a50a83_fa8ca659",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7a50a83_e415ef03",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_f8cf0dbb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-20T22:41:57Z",
+      "side": 1,
+      "message": "This is saying that JIT-at-first-use is a blocking operation for each first call of a method. Rephrased, is that better?",
+      "parentUuid": "f7a50a83_e415ef03",
+      "range": {
+        "startLine": 2855,
+        "startChar": 17,
+        "endLine": 2855,
+        "endChar": 25
+      },
+      "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7a50a83_1a52e22a",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -59,6 +107,24 @@
       "writtenOn": "2016-12-20T22:35:04Z",
       "side": 1,
       "message": "Guess the runtime hasn\u0027t been started yet. What\u0027s the purpose of this call here?",
+      "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_18cbe9b2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-20T22:41:57Z",
+      "side": 1,
+      "message": "To set is_java_debuggable_ to true, which will ensure only JITted code will be picked up. I could do it once the boot image is loaded which will be consistent with the post Zygote fork\u0027s SetJavaDebuggable. Would you prefer that?",
+      "parentUuid": "f7a50a83_1a52e22a",
       "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
