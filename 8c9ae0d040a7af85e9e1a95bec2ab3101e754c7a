@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_d878d12e",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T10:54:53Z",
+      "side": 1,
+      "message": "Prevent from inlining. We do not want this to be inlined and constant folded.",
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_b88515f5",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T10:54:53Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_988259e9",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T10:54:53Z",
+      "side": 1,
+      "message": "Did you mean to test absSP(+0.0f) and absSP(-0.0f)?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 51
+      },
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_7891bd31",
+        "filename": "test/631-checker-fp-abs/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T10:54:53Z",
+      "side": 1,
+      "message": "Test absDP()?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 53
+      },
+      "revId": "8c9ae0d040a7af85e9e1a95bec2ab3101e754c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
