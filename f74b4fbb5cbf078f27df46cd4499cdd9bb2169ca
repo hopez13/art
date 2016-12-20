@@ -97,6 +97,24 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_d9b9bfca",
+        "filename": "test/901-hello-ti-agent/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-20T16:40:54Z",
+      "side": 1,
+      "message": "\u003e What you\u0027re saying is that jmvti can work without those experimental flags?\n\nsort of. I can explain over IM if you want.\n\n\u003eI don\u0027t understand your other statement. Future readers of what? A reader can see this file or the implications of --jvmti either way.\n\nFuture readers of this file might not nessecarially know that --jvmti implies support for runtime-plugins. Furthermore since runtime plugins could be useful for more than just jvmti it is useful to have some place where one can see all the tests that exercise particular features, without having to dig through all of our byzantine run-test scripts.",
+      "parentUuid": "17237e9f_1853e959",
+      "revId": "f74b4fbb5cbf078f27df46cd4499cdd9bb2169ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "faa88ff5_ac99030d",
         "filename": "test/916-obsolete-jit/run",
         "patchSetId": 1
