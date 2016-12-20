@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_1890892a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T12:48:43Z",
+      "side": 1,
+      "message": "Something that calls a boot image method that calls another boot image method. For example, calling String.codePointAt(0) with the 0 hidden, preventing the elimination of the bound checks and inlining the String.codePointAt():\n\n  public static void $noinline$codePointAtLoop(String s, int index, int count) {\n    if (doThrow) { throw new Error(); }  // Prevent inlining.\n    for (int i \u003d 0; i \u003c count; ++i) {\n      s.codePointAt(index);  // Not inlined, may throw SIOOBE.\n    }\n  }",
+      "parentUuid": "17237e9f_35d0f00b",
+      "revId": "a5ebc6917e613be1657b1738b7e1f1a1fd94e3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_95d344bc",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 4
