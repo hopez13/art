@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7a50a83_59a5cfeb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-20T15:56:48Z",
+      "side": 1,
+      "message": "Reaching into and parsing part of the compiler arguments seems like a bad idea.",
+      "revId": "865071912dd17a95e0af1f4f8753a0f18f81f1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_d9b8df0f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-20T15:56:48Z",
+      "side": 1,
+      "message": "this could potentially match other options if any are added.\n\n(This is a reason why I think searching through compiler options is a bad idea).",
+      "revId": "865071912dd17a95e0af1f4f8753a0f18f81f1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_b9d64353",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-20T15:56:48Z",
+      "side": 1,
+      "message": "This seems wrong. class_linker_ is not created until line 1207 in this function but SetJavaDebuggable does a call into it.",
+      "revId": "865071912dd17a95e0af1f4f8753a0f18f81f1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_39a493ed",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-12-20T15:56:48Z",
+      "side": 1,
+      "message": "this function is called prior to class_linker_ being set.",
+      "range": {
+        "startLine": 2252,
+        "startChar": 6,
+        "endLine": 2252,
+        "endChar": 20
+      },
+      "revId": "865071912dd17a95e0af1f4f8753a0f18f81f1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
