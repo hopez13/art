@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_388d8586",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-20T18:48:05Z",
+      "side": 1,
+      "message": "Maybe mention, that until know the \"exact\" flag on upper bounds was there for convenience\n1) re-use of the same data structure\n2) it was true because we mostly cared about HLoadClass as upper bounds which cannot be the outcome of a phi.\n\nAnd that you need to change it because in the new use-case you want to check/force that the bound type has exactly the type of the upper bound.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "2533c1d426b6567d3509dbe97143ef18c917fa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
