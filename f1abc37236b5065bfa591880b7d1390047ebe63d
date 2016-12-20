@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_382225bc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-20T16:54:10Z",
+      "side": 1,
+      "message": "Thanks for your advice; I\u0027ll keep it as-is for now.",
+      "parentUuid": "3a2b0780_d89e69a1",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 24
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_6bd1eb0e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "It sounds fine as long as reordering is disallowed. Put that in a comment somewhere, if we don\u0027t already?",
       "parentUuid": "9aeeb371_c487d0a1",
+      "range": {
+        "startLine": 3503,
+        "startChar": 17,
+        "endLine": 3503,
+        "endChar": 27
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_b88875b2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-12-20T16:54:10Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll add a comment.",
+      "parentUuid": "3a2b0780_38e1ed10",
       "range": {
         "startLine": 3503,
         "startChar": 17,
