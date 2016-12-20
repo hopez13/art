@@ -70,6 +70,30 @@
       "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_75bc280e",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-20T11:46:15Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve merged the conflict here.",
+      "parentUuid": "17237e9f_7518a88d",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 18
+      },
+      "revId": "7b7e8b0c69eb0369a316cbbfd53d3257d80fe4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
