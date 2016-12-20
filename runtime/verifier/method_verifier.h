@@ -747,6 +747,9 @@ class MethodVerifier {
   const RegType& FromClass(const char* descriptor, mirror::Class* klass, bool precise)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  mirror::Class* LookupResolvedType(dex::TypeIndex class_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // The thread we're verifying on.
   Thread* const self_;
 

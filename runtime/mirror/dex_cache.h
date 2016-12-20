@@ -18,14 +18,14 @@
 #define ART_RUNTIME_MIRROR_DEX_CACHE_H_
 
 #include "array.h"
-#include "art_field.h"
-#include "class.h"
+#include "base/bit_utils.h"
 #include "dex_file_types.h"
 #include "object.h"
 #include "object_array.h"
 
 namespace art {
 
+class ArtField;
 class ArtMethod;
 struct DexCacheOffsets;
 class DexFile;
@@ -36,6 +36,7 @@ class Thread;
 
 namespace mirror {
 
+class Class;
 class MethodType;
 class String;
 
@@ -103,10 +104,13 @@ template <typename T> struct PACKED(8) DexCachePair {
   }
 };
 
-using StringDexCachePair = DexCachePair<mirror::String>;
+using TypeDexCachePair = DexCachePair<Class>;
+using TypeDexCacheType = std::atomic<TypeDexCachePair>;
+
+using StringDexCachePair = DexCachePair<String>;
 using StringDexCacheType = std::atomic<StringDexCachePair>;
 
-using MethodTypeDexCachePair = DexCachePair<mirror::MethodType>;
+using MethodTypeDexCachePair = DexCachePair<MethodType>;
 using MethodTypeDexCacheType = std::atomic<MethodTypeDexCachePair>;
 
 // C++ mirror of java.lang.DexCache.
@@ -114,6 +118,11 @@ class MANAGED DexCache FINAL : public Object {
  public:
   // Size of java.lang.DexCache.class.
   static uint32_t ClassSize(PointerSize pointer_size);
+
+  // Size of class dex cache. Needs to be a power of 2 for entrypoint assumptions to hold.
+  static constexpr size_t kDexCacheTypeCacheSize = 1024;
+  static_assert(IsPowerOfTwo(kDexCacheTypeCacheSize),
+                "Class dex cache size is not a power of 2.");
 
   // Size of string dex cache. Needs to be a power of 2 for entrypoint assumptions to hold.
   static constexpr size_t kDexCacheStringCacheSize = 1024;
@@ -125,6 +134,10 @@ class MANAGED DexCache FINAL : public Object {
   static constexpr size_t kDexCacheMethodTypeCacheSize = 1024;
   static_assert(IsPowerOfTwo(kDexCacheMethodTypeCacheSize),
                 "MethodType dex cache size is not a power of 2.");
+
+  static constexpr size_t StaticClassSize() {
+    return kDexCacheTypeCacheSize;
+  }
 
   static constexpr size_t StaticStringSize() {
     return kDexCacheStringCacheSize;
@@ -156,7 +169,7 @@ class MANAGED DexCache FINAL : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier, typename Visitor>
-  void FixupResolvedTypes(GcRoot<mirror::Class>* dest, const Visitor& visitor)
+  void FixupResolvedTypes(TypeDexCacheType* dest, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier, typename Visitor>
@@ -211,7 +224,7 @@ class MANAGED DexCache FINAL : public Object {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_method_types_);
   }
 
-  mirror::String* GetResolvedString(dex::StringIndex string_idx) ALWAYS_INLINE
+  String* GetResolvedString(dex::StringIndex string_idx) ALWAYS_INLINE
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void SetResolvedString(dex::StringIndex string_idx, ObjPtr<mirror::String> resolved) ALWAYS_INLINE
@@ -225,6 +238,8 @@ class MANAGED DexCache FINAL : public Object {
 
   void SetResolvedType(dex::TypeIndex type_idx, ObjPtr<Class> resolved)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void ClearResolvedType(dex::TypeIndex type_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE ArtMethod* GetResolvedMethod(uint32_t method_idx, PointerSize ptr_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -254,11 +269,11 @@ class MANAGED DexCache FINAL : public Object {
     SetFieldPtr<false>(StringsOffset(), strings);
   }
 
-  GcRoot<Class>* GetResolvedTypes() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr<GcRoot<Class>*>(ResolvedTypesOffset());
+  TypeDexCacheType* GetResolvedTypes() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldPtr<TypeDexCacheType*>(ResolvedTypesOffset());
   }
 
-  void SetResolvedTypes(GcRoot<Class>* resolved_types)
+  void SetResolvedTypes(TypeDexCacheType* resolved_types)
       ALWAYS_INLINE
       REQUIRES_SHARED(Locks::mutator_lock_) {
     SetFieldPtr<false>(ResolvedTypesOffset(), resolved_types);
@@ -323,7 +338,7 @@ class MANAGED DexCache FINAL : public Object {
     SetFieldPtr<false>(OFFSET_OF_OBJECT_MEMBER(DexCache, dex_file_), dex_file);
   }
 
-  void SetLocation(ObjPtr<mirror::String> location) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetLocation(ObjPtr<String> location) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // NOTE: Get/SetElementPtrSize() are intended for working with ArtMethod** and ArtField**
   // provided by GetResolvedMethods/Fields() and ArtMethod::GetDexCacheResolvedMethods(),
@@ -340,7 +355,7 @@ class MANAGED DexCache FINAL : public Object {
             ObjPtr<String> location,
             StringDexCacheType* strings,
             uint32_t num_strings,
-            GcRoot<Class>* resolved_types,
+            TypeDexCacheType* resolved_types,
             uint32_t num_resolved_types,
             ArtMethod** resolved_methods,
             uint32_t num_resolved_methods,
@@ -356,7 +371,7 @@ class MANAGED DexCache FINAL : public Object {
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
             ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
             typename Visitor>
-  void VisitReferences(ObjPtr<mirror::Class> klass, const Visitor& visitor)
+  void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
 
   HeapReference<Object> dex_;
@@ -366,7 +381,7 @@ class MANAGED DexCache FINAL : public Object {
   uint64_t resolved_method_types_;  // std::atomic<MethodTypeDexCachePair>* array with
                                     // num_resolved_method_types_ elements.
   uint64_t resolved_methods_;       // ArtMethod*, array with num_resolved_methods_ elements.
-  uint64_t resolved_types_;         // GcRoot<Class>*, array with num_resolved_types_ elements.
+  uint64_t resolved_types_;         // ClassDexCacheType*, array with num_resolved_types_ elements.
   uint64_t strings_;                // std::atomic<StringDexCachePair>*, array with num_strings_
                                     // elements.
 
