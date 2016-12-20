@@ -588,29 +588,6 @@ bool Dbg::RequiresDeoptimization() {
   return !Runtime::Current()->GetInstrumentation()->IsForcedInterpretOnly();
 }
 
-// Used to patch boot image method entry point to interpreter bridge.
-class UpdateEntryPointsClassVisitor : public ClassVisitor {
- public:
-  explicit UpdateEntryPointsClassVisitor(instrumentation::Instrumentation* instrumentation)
-      : instrumentation_(instrumentation) {}
-
-  bool operator()(ObjPtr<mirror::Class> klass) OVERRIDE REQUIRES(Locks::mutator_lock_) {
-    auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
-    for (auto& m : klass->GetMethods(pointer_size)) {
-      const void* code = m.GetEntryPointFromQuickCompiledCode();
-      if (Runtime::Current()->GetHeap()->IsInBootImageOatFile(code) &&
-          !m.IsNative() &&
-          !m.IsProxyMethod()) {
-        instrumentation_->UpdateMethodsCodeFromDebugger(&m, GetQuickToInterpreterBridge());
-      }
-    }
-    return true;
-  }
-
- private:
-  instrumentation::Instrumentation* const instrumentation_;
-};
-
 void Dbg::GoActive() {
   // Enable all debugging features, including scans for breakpoints.
   // This is a no-op if we're already active.
@@ -638,20 +615,9 @@ void Dbg::GoActive() {
     CHECK_EQ(exception_catch_event_ref_count_, 0U);
   }
 
-  Runtime* runtime = Runtime::Current();
-  // Since boot image code may be AOT compiled as not debuggable, we need to patch
-  // entry points of methods in boot image to interpreter bridge.
-  // However, the performance cost of this is non-negligible during native-debugging due to the
-  // forced JIT, so we keep the AOT code in that case in exchange for limited native debugging.
-  if (!runtime->GetInstrumentation()->IsForcedInterpretOnly() && !runtime->IsNativeDebuggable()) {
-    ScopedObjectAccess soa(self);
-    UpdateEntryPointsClassVisitor visitor(runtime->GetInstrumentation());
-    runtime->GetClassLinker()->VisitClasses(&visitor);
-  }
-
   ScopedSuspendAll ssa(__FUNCTION__);
   if (RequiresDeoptimization()) {
-    runtime->GetInstrumentation()->EnableDeoptimization();
+    Runtime::Current()->GetInstrumentation()->EnableDeoptimization();
   }
   instrumentation_events_ = 0;
   gDebuggerActive = true;
