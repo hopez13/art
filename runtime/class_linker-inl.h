@@ -71,10 +71,7 @@ inline mirror::String* ClassLinker::ResolveString(dex::StringIndex string_idx,
   ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
   // MethodVerifier refuses methods with string_idx out of bounds.
   DCHECK_LT(string_idx.index_, declaring_class->GetDexFile().NumStringIds());
-  ObjPtr<mirror::String> string =
-        mirror::StringDexCachePair::Lookup(declaring_class->GetDexCache()->GetStrings(),
-                                           string_idx.index_,
-                                           mirror::DexCache::kDexCacheStringCacheSize).Read();
+  ObjPtr<mirror::String> string = declaring_class->GetDexCache()->GetResolvedString(string_idx);
   if (UNLIKELY(string == nullptr)) {
     StackHandleScope<1> hs(Thread::Current());
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(declaring_class->GetDexCache()));
@@ -94,23 +91,6 @@ inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtMetho
     StackHandleScope<2> hs(Thread::Current());
     ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(declaring_class->GetDexCache()));
-    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
-    const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
-    // Note: We cannot check here to see whether we added the type to the cache. The type
-    //       might be an erroneous class, which results in it being hidden from us.
-  }
-  return resolved_type.Ptr();
-}
-
-inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtField* referrer) {
-  Thread::PoisonObjectPointersIfDebug();
-  ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
-  ObjPtr<mirror::DexCache> dex_cache_ptr = declaring_class->GetDexCache();
-  ObjPtr<mirror::Class> resolved_type = dex_cache_ptr->GetResolvedType(type_idx);
-  if (UNLIKELY(resolved_type == nullptr)) {
-    StackHandleScope<2> hs(Thread::Current());
-    Handle<mirror::DexCache> dex_cache(hs.NewHandle(dex_cache_ptr));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
     const DexFile& dex_file = *dex_cache->GetDexFile();
     resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
