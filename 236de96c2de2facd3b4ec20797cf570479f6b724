@@ -128,6 +128,24 @@
       "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_d5373b0b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-12-20T22:48:34Z",
+      "side": 1,
+      "message": "So this is the path for the non-Zygote case? Maybe add some comments.",
+      "parentUuid": "17237e9f_18cbe9b2",
+      "revId": "236de96c2de2facd3b4ec20797cf570479f6b724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
