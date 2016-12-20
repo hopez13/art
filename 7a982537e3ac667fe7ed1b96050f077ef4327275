@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_58fa8152",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-20T13:22:45Z",
+      "side": 1,
+      "message": "Vladimir, Calin: this code review includes the two ways we could approach this.\n\nThe code below is option 1, mimicing the side effects of invoking WriteDexFiles.\n\nThe code line 538 is option 2, where we pass \u0027actually_write\u0027 to the helper methods.\n\nLet me know which way you prefer. option 2 pollutes the helper methods, while option 1 duplicates logic.\n\nI don\u0027t have a strong preference.",
+      "range": {
+        "startLine": 516,
+        "startChar": 6,
+        "endLine": 517,
+        "endChar": 25
+      },
+      "revId": "7a982537e3ac667fe7ed1b96050f077ef4327275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
