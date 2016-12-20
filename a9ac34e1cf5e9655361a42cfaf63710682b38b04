@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_98b499b1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T12:48:43Z",
+      "side": 1,
+      "message": "You eliminated too much for invoke-\u003eHasPcRelativeDexCache().",
+      "range": {
+        "startLine": 5312,
+        "startChar": 22,
+        "endLine": 5312,
+        "endChar": 26
+      },
+      "revId": "a9ac34e1cf5e9655361a42cfaf63710682b38b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_f8d6edde",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T12:48:43Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 819,
+        "startChar": 65,
+        "endLine": 819,
+        "endChar": 66
+      },
+      "revId": "a9ac34e1cf5e9655361a42cfaf63710682b38b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_d8d331ed",
+        "filename": "compiler/optimizing/pc_relative_fixups_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-12-20T12:48:43Z",
+      "side": 1,
+      "message": "Looks useless now.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 3
+      },
+      "revId": "a9ac34e1cf5e9655361a42cfaf63710682b38b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
