@@ -402,17 +402,41 @@ void VerifierDeps::AddAssignability(const DexFile& dex_file,
     return;
   }
 
-  if (!IsInClassPath(source) && !source->IsInterface() && !destination->IsInterface()) {
-    // Find the super class at the classpath boundary. Only that class
-    // can change the assignability.
-    // TODO: also chase the boundary for interfaces.
-    do {
-      source = source->GetSuperClass();
-    } while (!IsInClassPath(source));
+  if (is_assignable && !IsInClassPath(source)) {
+    if (!destination->IsInterface()) {
+      DCHECK(!source->IsInterface());
+      // Find the super class at the classpath boundary. Only that class
+      // can change the assignability.
+      do {
+        source = source->GetSuperClass();
+      } while (!IsInClassPath(source));
 
-    // If that class is the actual destination, no need to record it.
-    if (source == destination) {
-      return;
+      // If that class is the actual destination, no need to record it.
+      if (source == destination) {
+        return;
+      }
+    } else {
+      // We only check for one super type being assignable to the destination. If
+      // there are multiple ways of being assignable to the destination, we do not
+      // encode it for simplicity (ideally that would require encoding an 'or' in the
+      // list of dependencies, but we treat all items in the list as 'and').
+      if (source->NumDirectInterfaces() == 0) {
+        // We can find the assignability at the classptah boundary through the super class.
+        AddAssignability(dex_file,
+                         destination,
+                         source->GetSuperClass(),
+                         is_strict,
+                         is_assignable);
+        return;
+      } else {
+        // If the destination is a direct interface of the source, no need to record it.
+        Thread* thread = Thread::Current();
+        for (size_t i = 0; i < source->NumDirectInterfaces(); ++i) {
+          if (mirror::Class::GetDirectInterface(thread, source, i) == destination) {
+            return;
+          }
+        }
+      }
     }
   }
 
