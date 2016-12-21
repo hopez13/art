@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_3b169fc2",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-21T11:14:44Z",
+      "side": 1,
+      "message": "this reads weirds \"Assume classes are verified when kVerifyNone?\". But don\u0027t have a better suggestion outside renaming the actual filter.",
+      "range": {
+        "startLine": 112,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "60ca949cc39936b1f18853922d0dcafdda3b9322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
