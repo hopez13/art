@@ -24,7 +24,7 @@ public class JniPerfBenchmark {
   public void timeFastJNI(int N) {
     // TODO: This might be an intrinsic.
     for (long i = 0; i < N; i++) {
-      char c = MSG.charAt(2);
+      char c = MSG.charAt(3);
     }
   }
 
