@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_3b221fbc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-21T14:50:30Z",
+      "side": 1,
+      "message": "No, they may be unrelated (therefore the code dominated by the bound type is dead), and that would fail the DCHECK.",
+      "parentUuid": "17237e9f_7b18978d",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 9
+      },
+      "revId": "b7e95b282dec1ecdadc192d048dfc473eb13c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_9be9333b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-21T14:45:24Z",
       "side": 1,
       "message": "this unrelated scares me a bit since it means, that\u0027s dead code and shouldn\u0027t matter.",
+      "range": {
+        "startLine": 814,
+        "startChar": 39,
+        "endLine": 814,
+        "endChar": 48
+      },
+      "revId": "b7e95b282dec1ecdadc192d048dfc473eb13c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_fb2b8792",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-21T14:50:30Z",
+      "side": 1,
+      "message": "It\u0027s related to the comment on TOT:\n\nNote that the input might be exact, in which case we know the branch leading to the bound type is dead. We play it safe by not marking the bound type as exact.\n\nI hate this vague \"we play it safe\". That\u0027s probably related to interfaces / abstract classes. I\u0027ll write a test.",
+      "parentUuid": "17237e9f_9be9333b",
       "range": {
         "startLine": 814,
         "startChar": 39,
