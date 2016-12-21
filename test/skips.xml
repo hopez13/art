@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- TODO Need to give register-allocator its own option. Having to double everything for optimizing
+     is annoying -->
+<art-skips>
+  <skip description="Tests that are broken on all configurations">
+    <test name="080-oom-fragmentation" reason="Flakes. b/33795328"/>
+    <test name="153-reference-stress" reason="temporary until a fix arrives. b/33289020"/>
+    <test name="149-suspend-all-stress" reason="output is flaky b/28988206" />
+    <test name="577-profile-foreign-dex" reason="b/27454772" />
+  </skip>
+
+  <skip description="Tests that are timing sensitive and should be disabled on loaded systems"
+    dist="True">
+    <test name="002-sleep" reason="Timing sensitive with dist-goal"/>
+    <test name="053-wait-some" reason="Timing sensitive with dist-goal"/>
+    <test name="055-enum-performance" reason="Timing sensitive with dist-goal"/>
+    <test name="133-static-invoke-super" reason="Timing sensitive with dist-goal"/>
+  </skip>
+
+  <skip description="Tests that are broken when run on the target device" host="target">
+
+    <test name="115-native-bridge"
+      reason="Setup is complicated. Need to implement it correctly for the target."/>
+    <test name="130-hprof"
+      reason="dumps the heap and runs hprof-conv to check whether the file is somewhat readable. This is only possible on the host."/>
+    <test name="147-stripped-dex-fallback"
+      reason="isn't supported on device because --strip-dex requires the zip command"/>
+    <test name="569-checker-pattern-replacement" reason="tests behavior present only on host"/>
+    <test name="902-hello-transformation"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="903-hello-tagging"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="904-object-allocation"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="905-object-free"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="906-iterate-heap"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="907-get-loaded-classes"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="908-gc-start-finish"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="909-attach-agent"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="910-methods"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="911-get-stack-trace"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="912-classes"
+      reason="Not supported on host due to linker restrictions. b/31681198" />
+    <test name="913-heaps" reason="Not supported on host due to linker restrictions. b/31681198" />
+  </skip>
+
+  <skip description="Tests that are broken when run on the host" host="host">
+  </skip>
+
+  <skip description="Tests that are broken when used with the prebuild configuration"
+    prebuild="prebuild">
+
+    <test name="116-nodex2oat"
+      reason="Tests behavior that is not needed in the prebuild configuration"/>
+    <test name="118-noimage-dex2oat"
+      reason="Tests behavior that is not needed in the prebuild configuration"/>
+    <test name="134-nodex2oat-nofallback"
+      reason="Tests behavior that is not needed in the prebuild configuration"/>
+  </skip>
+
+  <skip description="Tests that are broken when used with the no-prebuild configuration"
+    prebuild="no-prebuild">
+
+    <test name="117-nopatchoat"
+      reason="Tests behavior that is not needed in the no-prebuild configuration"/>
+    <test name="147-stripped-dex-fallback" reason="UNKNOWN"/>
+    <test name="554-jit-profile-file"
+      reason="disabled because it needs a primary oat file to know what it should save"/>
+    <test name="529-checker-unresolved" reason="b/27784033"/>
+    <test name="555-checker-regression-x86const" reason="b/27784033"/>
+    <test name="608-checker-unresolved-lse" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when used with the no-relocate configuration"
+    prebuild="no-relocate">
+    <test name="117-nopatchoat"
+      reason="Tests behavior that is not needed in the no-patchoat configuration"/>
+    <test name="118-noimage-dex2oat"
+      reason="Tests behavior that is not needed in the no-patchoat configuration"/>
+    <test name="119-noimage-patchoat"
+      reason="Tests behavior that is not needed in the no-patchoat configuration"/>
+    <test name="554-jit-profile-file" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when forcing access checks in the interpreter"
+    compiler="interp-ac">
+    <test name="137-cfi" reason="b/22414682"/>
+    <test name="629-vdex-speed" reason="requires compilation"/>
+  </skip>
+
+  <skip description="Tests that are broken with gcstress"
+    gc="gcstress">
+    <test name="137-cfi"
+      reason="Needs to unwind a second forked process. We're using a primitive sleep to wait till we hope the second process got into the expected state. The slowness of gcstress makes this bad."/>
+    <test name="908-gc-start-finish"
+      reason="Expects GCs only to be run at clear points. The reduced heap size makes this non-deterministic."/>
+    <test name="913-heaps"
+      reason="Expects GCs only to be run at clear points. The reduced heap size makes this non-deterministic."/>
+    <test name="961-default-iface-resolution-gen"
+      reason="Very long test that often will take more than the timeout to run when gcstress is enabled. This is because gcstress slows down allocations significantly which these test does a lot."/>
+    <test name="964-default-iface-init-gen"
+      reason="Very long test that often will take more than the timeout to run when gcstress is enabled. This is because gcstress slows down allocations significantly which these test does a lot."/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the 'debug' configuration"
+    run_type="debug">
+    <test name="131-structural-change"
+      reason="Is an old test. The functionality has been implemented at an earlier stage and is checked in tests 138. Blacklisted for debug builds since these builds have duplicate classes checks which punt to interpreter."/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the 'ndebug' configuration"
+    run_type="ndebug">
+    <test name="138-duplicate-classes-check"
+      reason="Turned on only for debug builds since debug builds have duplicate classes checks enabled, b/2133391."/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the no-dex2oat configuration"
+    prebuild="no-dex2oat">
+    <test name="116-nodex2oat" reason=""/>
+    <test name="117-nopatchoat" reason=""/>
+    <test name="118-noimage-dex2oat" reason=""/>
+    <test name="119-noimage-patchoat" reason=""/>
+    <test name="137-cfi" reason=""/>
+    <test name="138-duplicate-classes-check2" reason=""/>
+    <test name="147-stripped-dex-fallback" reason="requires --prebuild"/>
+    <test name="554-jit-profile-file" reason="needs primary oat file to know what it should save"/>
+    <test name="629-vdex-speed" reason="requires compiled code"/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the relocate-npatchoat configuration"
+    relocate="relocate-npatchoat">
+    <test name="116-nodex2oat" reason=""/>
+    <test name="117-nopatchoat" reason=""/>
+    <test name="118-noimage-dex2oat" reason=""/>
+    <test name="119-noimage-patchoat" reason=""/>
+    <test name="137-cfi" reason=""/>
+    <test name="138-duplicate-classes-check2" reason=""/>
+    <test name="147-stripped-dex-fallback" reason="requires --prebuild"/>
+    <test name="554-jit-profile-file" reason="needs primary oat file to know what it should save"/>
+    <test name="629-vdex-speed" reason="requires compiled code"/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the no-image configuration"
+    image="no-image">
+    <test name="116-nodex2oat" reason=""/>
+    <test name="117-nopatchoat" reason=""/>
+    <test name="118-noimage-dex2oat" reason=""/>
+    <test name="119-noimage-patchoat" reason=""/>
+    <test name="137-cfi" reason=""/>
+    <test name="137-cfi" reason=""/>
+    <test name="138-duplicate-classes-check" reason=""/>
+    <test name="138-duplicate-classes-check2" reason=""/>
+    <test name="147-stripped-dex-fallback" reason="requires --prebuild"/>
+    <test name="554-jit-profile-file" reason="needs primary oat file to know what it should save"/>
+    <test name="629-vdex-speed" reason="requires compiled code"/>
+    <test name="964-default-iface-init" reason="often times out due to large number of classes."/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the 'trace' configuration"
+    trace="trace">
+    <test name="087-gc-after-link" reason=""/>
+    <test name="130-hprof" reason="occasional timeout b/32383962"/>
+    <test name="137-cfi"
+      reason="This test unrolls and expects managed frames, but tracing means we run the interpreter."/>
+    <test name="141-class-unload" reason=""/>
+    <test name="570-checker-osr"
+      reason="This test dynamically enables tracing to force a deoptimization. This makes the test meaningless when already tracing, and writes an error message that we do not want to check for."/>
+    <test name="629-vdex-speed"
+      reason="requires comiplation"/>
+    <test name="802-deoptimization"
+      reason="This test dynamically enables tracing to force a deoptimization. This makes the test meaningless when already tracing, and writes an error message that we do not want to check for."/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the 'trace' configuration"
+    trace="stream">
+    <test name="087-gc-after-link" reason=""/>
+    <test name="130-hprof" reason="occasional timeout b/32383962"/>
+    <test name="137-cfi"
+      reason="This test unrolls and expects managed frames, but tracing means we run the interpreter."/>
+    <test name="141-class-unload" reason=""/>
+    <test name="570-checker-osr"
+      reason="This test dynamically enables tracing to force a deoptimization. This makes the test meaningless when already tracing, and writes an error message that we do not want to check for."/>
+    <test name="629-vdex-speed"
+      reason="requires comiplation"/>
+    <test name="802-deoptimization"
+      reason="This test dynamically enables tracing to force a deoptimization. This makes the test meaningless when already tracing, and writes an error message that we do not want to check for."/>
+  </skip>
+
+  <skip description="Tests that expect jit compilation which is suppressed by tracing"
+    compiler="jit" trace="trace">
+    <test name="604-hot-static-interface" reason="Expects jit compilation"/>
+    <test name="612-jit-dex-cache" reason="Expects jit compilation"/>
+    <test name="613-inlining-dex-cache" reason="Expects jit compilation"/>
+    <test name="616-cha" reason="Expects jit compilation"/>
+    <test name="626-set-resolved-string" reason="Expects jit compilation"/>
+  </skip>
+
+  <skip description="Tests that expect jit compilation which is suppressed by tracing"
+    compiler="jit" trace="stream">
+    <test name="604-hot-static-interface" reason="Expects jit compilation"/>
+    <test name="612-jit-dex-cache" reason="Expects jit compilation"/>
+    <test name="613-inlining-dex-cache" reason="Expects jit compilation"/>
+    <test name="616-cha" reason="Expects jit compilation"/>
+    <test name="626-set-resolved-string" reason="Expects jit compilation"/>
+  </skip>
+
+  <skip description="Tests that are broken when running with the 'interpreter' configuration"
+    compiler="interpreter">
+    <test name="137-cfi" reason="Expects managed frames"/>
+    <test name="554-jit-profile-file" reason="Requires Compilation"/>
+    <test name="629-vdex-speed" reason="Requires Compilation"/>
+  </skip>
+
+  <skip description="Tests that are broken for the JIT"
+    compiler="jit">
+    <test name="137-cfi"
+      reason="Expects managed frames but the test does not iterate enough to compile. Also we use GenericJNI instead of the JNI compiler."/>
+    <test name="626-const-class-linking" reason="Can deadlock with JIT compiler. b/33567581"/>
+    <test name="629-vdex-speed" reason="requires compilation"/>
+    <test name="902-hello-transformation" reason="hits races with the jit compiler. b/32821077"/>
+    <test name="904-object-allocation" reason="UNKNOWN"/>
+    <test name="906-iterate-heap"
+      reason="Iterates the heap filtering with different options. No instances should be created between those runs to be able to have precise checks."/>
+  </skip>
+
+  <skip description="Tests that are broken for the graph coloring register allocator"
+    compiler="regalloc_gc">
+    <test name="570-checker-select" reason="Based on the linear scan allocator"/>
+    <test name="484-checker-register-hints" reason="Based on the linear scan allocator"/>
+  </skip>
+
+  <skip description="Tests that are broken when using the vixl backend"
+    host="target" vixl="True" target_arch="arm" compiler="optimizing">
+    <test name="562-checker-no-intermediate" reason="UNKNOWN"/>
+    <test name="624-checker-stringops" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when using the vixl backend"
+    host="target" vixl="True" target_arch="arm" compiler="regalloc_gc">
+    <test name="562-checker-no-intermediate" reason="UNKNOWN"/>
+    <test name="624-checker-stringops" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when non-debuggable"
+    debuggable="ndebuggable" compiler="optimizing">
+    <test name="454-get-vreg" reason="UNKNOWN"/>
+    <test name="457-regs" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when non-debuggable"
+    debuggable="ndebuggable" compiler="regalloc_gc">
+    <test name="454-get-vreg" reason="UNKNOWN"/>
+    <test name="457-regs" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken when using non-baker read barriers"
+    read_barrier="Non-Baker" compiler="optimizing">
+    <test name="537-checker-arraycopy"
+      reason="Expects an array copy to be intrinsified, but calling-on-slowpath intrinsics are not yet handled in non-Baker read barrier configurations."/>
+  </skip>
+
+  <skip description="Tests that are broken when using non-baker read barriers"
+    read_barrier="Non-Baker" compiler="regalloc_gc">
+    <test name="537-checker-arraycopy"
+      reason="Expects an array copy to be intrinsified, but calling-on-slowpath intrinsics are not yet handled in non-Baker read barrier configurations."/>
+  </skip>
+
+  <skip description="Tests that are broken when using non-baker read barriers and jit"
+    read_barrier="Non-Baker" compiler="jit">
+    <test name="537-checker-arraycopy"
+      reason="Expects an array copy to be intrinsified, but calling-on-slowpath intrinsics are not yet handled in non-Baker read barrier configurations."/>
+  </skip>
+
+  <skip description="Tests that are broken when npic" pic="npictest">
+    <test name="596-app-images" reason="UNKNOWN"/>
+  </skip>
+
+  <skip description="Tests that are broken with heap poisoning in optimizing compiler"
+    heap_poisoning="True" compiler="optimizing">
+    <test name="055-enum-performance"
+      reason="Exceeds run time limits due to heap poisoning instrumentation (on ARM and ARM64 devices)."/>
+  </skip>
+
+  <skip description="Tests that are broken with heap poisoning in optimizing compiler"
+    heap_poisoning="True" compiler="regalloc_gc">
+    <test name="055-enum-performance"
+      reason="Exceeds run time limits due to heap poisoning instrumentation (on ARM and ARM64 devices)."/>
+  </skip>
+
+  <skip description="Tests that are broken with bisection enabled"
+    bisect="True" compiler="optimizing">
+    <test name="000-nop" reason="Does not compile anything"/>
+    <test name="134-nodex2oat-nofallback" reason="Does not compile anything"/>
+    <test name="147-stripped-dex-fallback" reason="Does not compile anything"/>
+    <test name="595-profile-saving" reason="Does not compile anything"/>
+    <test name="089-many-methods" reason="Tests a build failure"/>
+    <test name="018-stack-overflow" reason="run dalvikvm more than once"/>
+    <test name="116-nodex2oat" reason="run dalvikvm more than once"/>
+    <test name="117-nopatchoat" reason="run dalvikvm more than once"/>
+    <test name="118-noimage-dex2oat" reason="run dalvikvm more than once"/>
+    <test name="119-noimage-patchoat" reason="run dalvikvm more than once"/>
+    <test name="126-miranda-multidex" reason="run dalvikvm more than once"/>
+    <test name="137-cfi" reason="run dalvikvm more than once"/>
+    <test name="115-native-bridge" reason="requires compilation"/>
+    <test name="088-monitor-verification" reason="requires compilation"/>
+    <test name="055-enum-performance" reason="tests performance"/>
+  </skip>
+
+  <skip description="Tests that are broken with bisection enabled"
+    bisect="True" compiler="regalloc_gc">
+    <test name="000-nop" reason="Does not compile anything"/>
+    <test name="134-nodex2oat-nofallback" reason="Does not compile anything"/>
+    <test name="147-stripped-dex-fallback" reason="Does not compile anything"/>
+    <test name="595-profile-saving" reason="Does not compile anything"/>
+    <test name="089-many-methods" reason="Tests a build failure"/>
+    <test name="018-stack-overflow" reason="run dalvikvm more than once"/>
+    <test name="116-nodex2oat" reason="run dalvikvm more than once"/>
+    <test name="117-nopatchoat" reason="run dalvikvm more than once"/>
+    <test name="118-noimage-dex2oat" reason="run dalvikvm more than once"/>
+    <test name="119-noimage-patchoat" reason="run dalvikvm more than once"/>
+    <test name="126-miranda-multidex" reason="run dalvikvm more than once"/>
+    <test name="137-cfi" reason="run dalvikvm more than once"/>
+    <test name="115-native-bridge" reason="requires compilation"/>
+    <test name="088-monitor-verification" reason="requires compilation"/>
+    <test name="055-enum-performance" reason="tests performance"/>
+  </skip>
+</art-skips>
