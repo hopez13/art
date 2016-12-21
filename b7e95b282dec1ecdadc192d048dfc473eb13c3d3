@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_fb54a718",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-12-21T15:13:04Z",
+      "side": 1,
+      "message": "we should. instrunction simplifier should change an instance of with false and DCE should remove it.\n\ne.g.\nFoo x \u003d new Foo();\nif (x instanceof Bar()) { // mark Bar final to get is_exact set tot true.\n }",
+      "parentUuid": "17237e9f_5b46fb75",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 9
+      },
+      "revId": "b7e95b282dec1ecdadc192d048dfc473eb13c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_9be9333b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
