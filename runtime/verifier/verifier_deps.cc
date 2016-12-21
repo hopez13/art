@@ -334,6 +334,53 @@ void VerifierDeps::AddMethodResolution(const DexFile& dex_file,
   }
 }
 
+mirror::Class* VerifierDeps::FindOneClassPathBoundaryForInterface(mirror::Class* destination,
+                                                                  mirror::Class* source) const {
+  DCHECK(destination->IsInterface());
+  DCHECK(IsInClassPath(destination));
+  Thread* thread = Thread::Current();
+  mirror::Class* current = source;
+  // If the destination is a direct interface of a class defined in the DEX files being
+  // compiled, no need to record it.
+  while (!IsInClassPath(current)) {
+    for (size_t i = 0; i < current->NumDirectInterfaces(); ++i) {
+      if (mirror::Class::GetDirectInterface(thread, current, i) == destination) {
+        return nullptr;
+      }
+    }
+    current = current->GetSuperClass();
+  }
+
+  // Check if we have an interface defined in the DEX files being compiled, direclty
+  // inheriting `destination`.
+  int32_t iftable_count = source->GetIfTableCount();
+  ObjPtr<mirror::IfTable> iftable = source->GetIfTable();
+  for (int32_t i = 0; i < iftable_count; ++i) {
+    mirror::Class* itf = iftable->GetInterface(i);
+    if (!IsInClassPath(itf)) {
+      for (size_t j = 0; j < itf->NumDirectInterfaces(); ++j) {
+        if (mirror::Class::GetDirectInterface(thread, itf, j) == destination) {
+          return nullptr;
+        }
+      }
+    }
+  }
+
+  if (destination->IsAssignableFrom(current)) {
+    // We found a boundary through the super class chain.
+    return current;
+  }
+
+  // Find the boundary through interfaces. We must find one.
+  for (int32_t i = 0; i < iftable_count; i++) {
+    mirror::Class* itf = iftable->GetInterface(i);
+    if (itf != destination && IsInClassPath(itf) && destination->IsAssignableFrom(itf)) {
+      return itf;
+    }
+  }
+  UNREACHABLE();
+}
+
 void VerifierDeps::AddAssignability(const DexFile& dex_file,
                                     mirror::Class* destination,
                                     mirror::Class* source,
@@ -402,17 +449,26 @@ void VerifierDeps::AddAssignability(const DexFile& dex_file,
     return;
   }
 
-  if (!IsInClassPath(source) && !source->IsInterface() && !destination->IsInterface()) {
-    // Find the super class at the classpath boundary. Only that class
-    // can change the assignability.
-    // TODO: also chase the boundary for interfaces.
-    do {
-      source = source->GetSuperClass();
-    } while (!IsInClassPath(source));
+  if (is_assignable && !IsInClassPath(source)) {
+    if (!destination->IsInterface()) {
+      DCHECK(!source->IsInterface());
+      // Find the super class at the classpath boundary. Only that class
+      // can change the assignability.
+      do {
+        source = source->GetSuperClass();
+      } while (!IsInClassPath(source));
 
-    // If that class is the actual destination, no need to record it.
-    if (source == destination) {
-      return;
+      // If that class is the actual destination, no need to record it.
+      if (source == destination) {
+        return;
+      }
+    } else {
+      source = FindOneClassPathBoundaryForInterface(destination, source);
+      if (source == nullptr) {
+        // There was no classpath boundary, no need to record.
+        return;
+      }
+      DCHECK(IsInClassPath(source));
     }
   }
 
