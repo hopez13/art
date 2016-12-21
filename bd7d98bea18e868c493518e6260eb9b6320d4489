@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_bd185e8e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-21T18:27:37Z",
+      "side": 1,
+      "message": "Yes. The go link from the commit message would be good.",
+      "parentUuid": "17237e9f_5b1b9b99",
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_e4e75863",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -190,6 +208,30 @@
       "side": 1,
       "message": "The previous implementation incremented the native gc watermark by at most max_free_. This is intended to match that increment, using the assumption that the increase in the native gc watermark would exceed max_free_ based solely on the target utilization and the typical amount of memory used by an Android application. Using max_free_ instead of the target utilization means we don\u0027t have to keep track of the current number of registered native allocations.",
       "parentUuid": "ade97f6b_622a2b42",
+      "range": {
+        "startLine": 3885,
+        "startChar": 35,
+        "endLine": 3885,
+        "endChar": 44
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_7d7426ad",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3885,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-21T18:27:37Z",
+      "side": 1,
+      "message": "OK. How about also mentioning in the above comment the rationale and that using max_free_ or 4*max_free_ (particularly the 4* part) is a heuristic that we currently use to sort of mirror what happens for the managed heap?",
+      "parentUuid": "17237e9f_986c9922",
       "range": {
         "startLine": 3885,
         "startChar": 35,
@@ -437,6 +479,30 @@
       "side": 1,
       "message": "\"since_last_gc\" is slightly misleading, because it isn\u0027t reset by normal GC (perhaps it should be?).\n\nHow about \"recent_native_bytes_allocated_\"?",
       "parentUuid": "ade97f6b_c26c57b1",
+      "range": {
+        "startLine": 1185,
+        "startChar": 17,
+        "endLine": 1185,
+        "endChar": 40
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7a50a83_7d5ae60d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-21T18:27:37Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "17237e9f_7872dd04",
       "range": {
         "startLine": 1185,
         "startChar": 17,
