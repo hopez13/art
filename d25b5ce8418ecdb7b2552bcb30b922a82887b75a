@@ -1879,6 +1879,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_bb298ffb",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-12-21T12:01:26Z",
+      "side": 1,
+      "message": "Sure. I am happy to make this change, and make this test cover the ReverseRange() for array.\nI don\u0027t think any other test covers array overload of this function? :)",
+      "parentUuid": "17237e9f_f85dcd32",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 47
+      },
+      "revId": "d25b5ce8418ecdb7b2552bcb30b922a82887b75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "617f90e7_c7275e28",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 12
