@@ -524,7 +524,7 @@ TEST_F(VerifierDepsTest, Assignable_DestinationInBoot3) {
                                          /* src */ "LMyThreadSet;",
                                          /* is_strict */ true,
                                          /* is_assignable */ true));
-  ASSERT_TRUE(HasAssignable("Ljava/util/Collection;", "LMyThreadSet;", true));
+  ASSERT_TRUE(HasAssignable("Ljava/util/Collection;", "Ljava/util/Set;", true));
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
@@ -1110,7 +1110,7 @@ TEST_F(VerifierDepsTest, InvokeInterface_Unresolved2) {
 TEST_F(VerifierDepsTest, InvokeSuper_ThisAssignable) {
   ASSERT_TRUE(VerifyMethod("InvokeSuper_ThisAssignable"));
   ASSERT_TRUE(HasClass("Ljava/lang/Runnable;", true, "public abstract interface"));
-  ASSERT_TRUE(HasAssignable("Ljava/lang/Runnable;", "LMain;", true));
+  ASSERT_TRUE(HasAssignable("Ljava/lang/Runnable;", "Ljava/lang/Thread;", true));
   ASSERT_TRUE(HasMethod("interface",
                         "Ljava/lang/Runnable;",
                         "run",
