@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_7b6ad7cd",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-12-21T15:17:56Z",
+      "side": 1,
+      "message": "See instruction_simplifier.cc:516, code following a know-failing checkcast doesn\u0027t get removed.",
+      "parentUuid": "17237e9f_fb54a718",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 9
+      },
+      "revId": "b7e95b282dec1ecdadc192d048dfc473eb13c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_9be9333b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
