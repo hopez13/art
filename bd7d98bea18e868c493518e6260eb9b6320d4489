@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_9b37f30c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d90030a_02a90c58",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 65
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_4248472a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-29T21:46:10Z",
       "side": 1,
       "message": "Can you describe the new design in a comment?",
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_5b1b9b99",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "I can try. Is this okay? Would it be better to put a link to the doc I wrote?",
+      "parentUuid": "ade97f6b_4248472a",
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -136,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_986c9922",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3885,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "The previous implementation incremented the native gc watermark by at most max_free_. This is intended to match that increment, using the assumption that the increase in the native gc watermark would exceed max_free_ based solely on the target utilization and the typical amount of memory used by an Android application. Using max_free_ instead of the target utilization means we don\u0027t have to keep track of the current number of registered native allocations.",
+      "parentUuid": "ade97f6b_622a2b42",
+      "range": {
+        "startLine": 3885,
+        "startChar": 35,
+        "endLine": 3885,
+        "endChar": 44
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_072c9606",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -153,6 +219,24 @@
         "endLine": 3888,
         "endChar": 55
       },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_d8545140",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3888,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d266fad_072c9606",
       "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -253,6 +337,24 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_b861951c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade97f6b_bfcbb032",
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_a7028224",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -311,6 +413,30 @@
       "writtenOn": "2016-11-29T21:46:10Z",
       "side": 1,
       "message": "Would native_bytes_allocated_since_last_gc_ be a better name?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 17,
+        "endLine": 1185,
+        "endChar": 40
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_7872dd04",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 1,
+      "message": "\"since_last_gc\" is slightly misleading, because it isn\u0027t reset by normal GC (perhaps it should be?).\n\nHow about \"recent_native_bytes_allocated_\"?",
+      "parentUuid": "ade97f6b_c26c57b1",
       "range": {
         "startLine": 1185,
         "startChar": 17,

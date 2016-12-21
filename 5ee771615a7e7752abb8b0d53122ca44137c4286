@@ -22,6 +22,30 @@
       "revId": "5ee771615a7e7752abb8b0d53122ca44137c4286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_587721f3",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-12-21T14:36:10Z",
+      "side": 0,
+      "message": "The original purpose of the histogram was to help debug the case where we constantly GC for alloc once the growth limit is exceeded. Because this CL removes that case, I don\u0027t see any point in keeping the histogram. The code is marginally cleaner without the histogram.",
+      "parentUuid": "ade97f6b_62758b72",
+      "range": {
+        "startLine": 1196,
+        "startChar": 2,
+        "endLine": 1196,
+        "endChar": 29
+      },
+      "revId": "5ee771615a7e7752abb8b0d53122ca44137c4286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
