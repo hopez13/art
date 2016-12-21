@@ -168,6 +168,14 @@ while true; do
         testlib="arttest"
         run_args="${run_args} -O"
         shift
+    elif [ "x$1" = "x--tmp-dir" ]; then
+        shift
+        tmp_dir=$1/$test_dir
+        shift
+    elif [ "x$1" = "x--jack-classpath" ]; then
+        shift
+        export JACK_CLASSPATH="$1"
+        shift
     elif [ "x$1" = "x--dalvik" ]; then
         lib="libdvm.so"
         runtime="dalvik"
