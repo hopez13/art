@@ -286,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_6f61beba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3885,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-12-22T18:52:17Z",
+      "side": 1,
+      "message": "I don\u0027t have an objection to using max_free_ as in PS2. We just need to explain that in a comment. And if we need to in the future, we could try tuning it.\n\nCode-searching by \"heapmaxfree\" indicates that there are some device types that override the HeapMaxFree values. So, if we add options for native max free, we may want to allow the \"native max free\" to be overridden there as well.\n\nIt seems to make sense to me to either, use max_free_ for native allocations and add a comment that it happens to use the same max free for managed and native, or add separate options for the \"native max free\" and add overrides for the devices. The former may be easier, but up to you.",
+      "parentUuid": "17237e9f_1ec99148",
+      "range": {
+        "startLine": 3885,
+        "startChar": 35,
+        "endLine": 3885,
+        "endChar": 44
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_072c9606",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
