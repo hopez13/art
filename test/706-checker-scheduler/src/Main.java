@@ -18,28 +18,7 @@ public class Main {
 
   static int static_variable = 0;
 
-  /// CHECK-START-ARM64: int Main.arrayAccess() scheduler (before)
-  /// CHECK:    <<Const1:i\d+>>       IntConstant 1
-  /// CHECK:    <<i0:i\d+>>           Phi
-  /// CHECK:    <<res0:i\d+>>         Phi
-  /// CHECK:    <<Array:i\d+>>        IntermediateAddress
-  /// CHECK:    <<ArrayGet1:i\d+>>    ArrayGet [<<Array>>,<<i0>>]
-  /// CHECK:    <<res1:i\d+>>         Add [<<res0>>,<<ArrayGet1>>]
-  /// CHECK:    <<i1:i\d+>>           Add [<<i0>>,<<Const1>>]
-  /// CHECK:    <<ArrayGet2:i\d+>>    ArrayGet [<<Array>>,<<i1>>]
-  /// CHECK:                          Add [<<res1>>,<<ArrayGet2>>]
-
-  /// CHECK-START-ARM64: int Main.arrayAccess() scheduler (after)
-  /// CHECK:    <<Const1:i\d+>>       IntConstant 1
-  /// CHECK:    <<i0:i\d+>>           Phi
-  /// CHECK:    <<res0:i\d+>>         Phi
-  /// CHECK:    <<Array:i\d+>>        IntermediateAddress
-  /// CHECK:    <<ArrayGet1:i\d+>>    ArrayGet [<<Array>>,<<i0>>]
-  /// CHECK:    <<i1:i\d+>>           Add [<<i0>>,<<Const1>>]
-  /// CHECK:    <<ArrayGet2:i\d+>>    ArrayGet [<<Array>>,<<i1>>]
-  /// CHECK:    <<res1:i\d+>>         Add [<<res0>>,<<ArrayGet1>>]
-  /// CHECK:                          Add [<<res1>>,<<ArrayGet2>>]
-
+  // TODO(xueliang): enable checker test for this method.
   public static int arrayAccess() {
     int res = 0;
     int [] array = new int[10];
@@ -50,18 +29,7 @@ public class Main {
     return res;
   }
 
-  /// CHECK-START-ARM64: int Main.intDiv(int) scheduler (before)
-  /// CHECK:               Sub
-  /// CHECK:               DivZeroCheck
-  /// CHECK:               Div
-  /// CHECK:               StaticFieldSet
-
-  /// CHECK-START-ARM64: int Main.intDiv(int) scheduler (after)
-  /// CHECK:               Sub
-  /// CHECK-NOT:           StaticFieldSet
-  /// CHECK:               DivZeroCheck
-  /// CHECK-NOT:           Sub
-  /// CHECK:               Div
+  // TODO(xueliang): enable checker test for this method.
   public static int intDiv(int arg) {
     int res = 0;
     int tmp = arg;
