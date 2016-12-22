@@ -510,6 +510,30 @@
     },
     {
       "key": {
+        "uuid": "f7a50a83_92ef7d92",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3912,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-12-22T18:55:58Z",
+      "side": 1,
+      "message": "I\u0027m OK with either option, assuming we don\u0027t currently have clients that will suffer from this.",
+      "parentUuid": "4d90030a_e2e8a8f7",
+      "range": {
+        "startLine": 3911,
+        "startChar": 2,
+        "endLine": 3912,
+        "endChar": 37
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ade97f6b_c26c57b1",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
