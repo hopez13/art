@@ -1041,6 +1041,27 @@ TEST_F(CodegenTest, ComparisonsLong) {
   }
 }
 
+TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
+  std::unique_ptr<const ArmInstructionSetFeatures> features(
+      ArmInstructionSetFeatures::FromCppDefines());
+  ArenaPool pool;
+  ArenaAllocator allocator(&pool);
+  HGraph* graph = CreateGraph(&allocator);
+  arm::CodeGeneratorARMVIXL codegen(graph, *features.get(), CompilerOptions());
+
+  codegen.Initialize();
+
+  // This test checks that void ParallelMoveResolverARMVIXL::Exchange(int mem1, int mem2)
+  // doesn't exhaust general purpose scratch register.
+  HParallelMove* move = new (graph->GetArena()) HParallelMove(graph->GetArena());
+  move->AddMove(Location::StackSlot(0), Location::StackSlot(8192), Primitive::kPrimInt, nullptr);
+  move->AddMove(Location::StackSlot(8192), Location::StackSlot(0), Primitive::kPrimInt, nullptr);
+  codegen.GetMoveResolver()->EmitNativeCode(move);
+
+  InternalCodeAllocator code_allocator;
+  codegen.Finalize(&code_allocator);
+}
+
 #ifdef ART_ENABLE_CODEGEN_mips
 TEST_F(CodegenTest, MipsClobberRA) {
   std::unique_ptr<const MipsInstructionSetFeatures> features_mips(
