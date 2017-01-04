@@ -258,8 +258,10 @@ class LoadClassSlowPathMIPS : public SlowPathCodeMIPS {
       DCHECK_NE(out.AsRegister<Register>(), AT);
       CodeGeneratorMIPS::PcRelativePatchInfo* info =
           mips_codegen->NewTypeBssEntryPatch(cls_->GetDexFile(), type_index);
-      mips_codegen->EmitPcRelativeAddressPlaceholder(info, TMP, base);
-      __ StoreToOffset(kStoreWord, out.AsRegister<Register>(), TMP, 0);
+      bool reordering = __ SetReorder(false);
+      mips_codegen->EmitPcRelativeAddressPlaceholderHigh(info, TMP, base);
+      __ StoreToOffset(kStoreWord, out.AsRegister<Register>(), TMP, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
     }
     __ B(GetExitLabel());
   }
@@ -313,8 +315,10 @@ class LoadStringSlowPathMIPS : public SlowPathCodeMIPS {
     DCHECK_NE(out, AT);
     CodeGeneratorMIPS::PcRelativePatchInfo* info =
         mips_codegen->NewPcRelativeStringPatch(load->GetDexFile(), string_index);
-    mips_codegen->EmitPcRelativeAddressPlaceholder(info, TMP, base);
-    __ StoreToOffset(kStoreWord, out, TMP, 0);
+    bool reordering = __ SetReorder(false);
+    mips_codegen->EmitPcRelativeAddressPlaceholderHigh(info, TMP, base);
+    __ StoreToOffset(kStoreWord, out, TMP, /* placeholder */ 0x5678);
+    __ SetReorder(reordering);
 
     __ B(GetExitLabel());
   }
@@ -1126,16 +1130,15 @@ Literal* CodeGeneratorMIPS::DeduplicateBootImageAddressLiteral(uint32_t address)
   return DeduplicateUint32Literal(dchecked_integral_cast<uint32_t>(address), map);
 }
 
-void CodeGeneratorMIPS::EmitPcRelativeAddressPlaceholder(
-    PcRelativePatchInfo* info, Register out, Register base) {
-  bool reordering = __ SetReorder(false);
+void CodeGeneratorMIPS::EmitPcRelativeAddressPlaceholderHigh(PcRelativePatchInfo* info,
+                                                             Register out,
+                                                             Register base) {
   if (GetInstructionSetFeatures().IsR6()) {
     DCHECK_EQ(base, ZERO);
     __ Bind(&info->high_label);
     __ Bind(&info->pc_rel_label);
-    // Add a 32-bit offset to PC.
+    // Add the high half of a 32-bit offset to PC.
     __ Auipc(out, /* placeholder */ 0x1234);
-    __ Addiu(out, out, /* placeholder */ 0x5678);
   } else {
     // If base is ZERO, emit NAL to obtain the actual base.
     if (base == ZERO) {
@@ -1149,11 +1152,11 @@ void CodeGeneratorMIPS::EmitPcRelativeAddressPlaceholder(
     if (base == ZERO) {
       __ Bind(&info->pc_rel_label);
     }
-    __ Ori(out, out, /* placeholder */ 0x5678);
-    // Add a 32-bit offset to PC.
+    // Add the high half of a 32-bit offset to PC.
     __ Addu(out, out, (base == ZERO) ? RA : base);
   }
-  __ SetReorder(reordering);
+  // The immediately following instruction will add the sign-extended low half of the 32-bit
+  // offset to `out` (e.g. lw, jialc, addiu).
 }
 
 void CodeGeneratorMIPS::MarkGCCard(Register object,
@@ -5158,7 +5161,8 @@ void LocationsBuilderMIPS::VisitInvokeStaticOrDirect(HInvokeStaticOrDirect* invo
   // art::PrepareForRegisterAllocation.
   DCHECK(!invoke->IsStaticWithExplicitClinitCheck());
 
-  bool has_extra_input = invoke->HasPcRelativeDexCache();
+  bool is_r6 = codegen_->GetInstructionSetFeatures().IsR6();
+  bool has_extra_input = invoke->HasPcRelativeDexCache() && !is_r6;
 
   IntrinsicLocationsBuilderMIPS intrinsic(codegen_);
   if (intrinsic.TryDispatch(invoke)) {
@@ -5199,12 +5203,13 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
   if (kEmitCompilerReadBarrier) {
     UNIMPLEMENTED(FATAL) << "for read barrier";
   }
-  // We disable PC-relative load when there is an irreducible loop, as the optimization
+  // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
   // TODO: Create as many MipsDexCacheArraysBase instructions as needed for methods
   // with irreducible loops.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
-  bool fallback_load = has_irreducible_loops;
+  bool is_r6 = GetInstructionSetFeatures().IsR6();
+  bool fallback_load = has_irreducible_loops && !is_r6;
   switch (desired_string_load_kind) {
     case HLoadString::LoadKind::kBootImageLinkTimeAddress:
       DCHECK(!GetCompilerOptions().GetCompilePic());
@@ -5237,10 +5242,11 @@ HLoadClass::LoadKind CodeGeneratorMIPS::GetSupportedLoadClassKind(
   if (kEmitCompilerReadBarrier) {
     UNIMPLEMENTED(FATAL) << "for read barrier";
   }
-  // We disable pc-relative load when there is an irreducible loop, as the optimization
+  // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
-  bool fallback_load = has_irreducible_loops;
+  bool is_r6 = GetInstructionSetFeatures().IsR6();
+  bool fallback_load = has_irreducible_loops && !is_r6;
   switch (desired_class_load_kind) {
     case HLoadClass::LoadKind::kReferrersClass:
       fallback_load = false;
@@ -5258,6 +5264,7 @@ HLoadClass::LoadKind CodeGeneratorMIPS::GetSupportedLoadClassKind(
       break;
     case HLoadClass::LoadKind::kJitTableAddress:
       DCHECK(Runtime::Current()->UseJitCompilation());
+      // TODO: implement.
       fallback_load = true;
       break;
     case HLoadClass::LoadKind::kDexCacheViaMethod:
@@ -5272,6 +5279,7 @@ HLoadClass::LoadKind CodeGeneratorMIPS::GetSupportedLoadClassKind(
 
 Register CodeGeneratorMIPS::GetInvokeStaticOrDirectExtraParameter(HInvokeStaticOrDirect* invoke,
                                                                   Register temp) {
+  CHECK(!GetInstructionSetFeatures().IsR6());
   CHECK_EQ(invoke->InputCount(), invoke->GetNumberOfArguments() + 1u);
   Location location = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
   if (!invoke->GetLocations()->Intrinsified()) {
@@ -5300,13 +5308,13 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorMIPS::GetSupportedInvokeStaticO
       const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
       HInvokeStaticOrDirect* invoke ATTRIBUTE_UNUSED) {
   HInvokeStaticOrDirect::DispatchInfo dispatch_info = desired_dispatch_info;
-  // We disable PC-relative load when there is an irreducible loop, as the optimization
+  // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
   bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
-  bool fallback_load = true;
+  bool is_r6 = GetInstructionSetFeatures().IsR6();
+  bool fallback_load = has_irreducible_loops && !is_r6;
   switch (dispatch_info.method_load_kind) {
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
-      fallback_load = has_irreducible_loops;
       break;
     default:
       fallback_load = false;
@@ -5324,7 +5332,8 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
   Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
   HInvokeStaticOrDirect::MethodLoadKind method_load_kind = invoke->GetMethodLoadKind();
   HInvokeStaticOrDirect::CodePtrLocation code_ptr_location = invoke->GetCodePtrLocation();
-  Register base_reg = invoke->HasPcRelativeDexCache()
+  bool is_r6 = GetInstructionSetFeatures().IsR6();
+  Register base_reg = (invoke->HasPcRelativeDexCache() && !is_r6)
       ? GetInvokeStaticOrDirectExtraParameter(invoke, temp.AsRegister<Register>())
       : ZERO;
 
@@ -5345,14 +5354,23 @@ void CodeGeneratorMIPS::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke
     case HInvokeStaticOrDirect::MethodLoadKind::kDirectAddress:
       __ LoadConst32(temp.AsRegister<Register>(), invoke->GetMethodAddress());
       break;
-    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative: {
-      HMipsDexCacheArraysBase* base =
-          invoke->InputAt(invoke->GetSpecialInputIndex())->AsMipsDexCacheArraysBase();
-      int32_t offset =
-          invoke->GetDexCacheArrayOffset() - base->GetElementOffset() - kDexCacheArrayLwOffset;
-      __ LoadFromOffset(kLoadWord, temp.AsRegister<Register>(), base_reg, offset);
+    case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
+      if (is_r6) {
+        uint32_t offset = invoke->GetDexCacheArrayOffset();
+        CodeGeneratorMIPS::PcRelativePatchInfo* info =
+            NewPcRelativeDexCacheArrayPatch(invoke->GetDexFileForPcRelativeDexCache(), offset);
+        bool reordering = __ SetReorder(false);
+        EmitPcRelativeAddressPlaceholderHigh(info, TMP, ZERO);
+        __ Lw(temp.AsRegister<Register>(), TMP, /* placeholder */ 0x5678);
+        __ SetReorder(reordering);
+      } else {
+        HMipsDexCacheArraysBase* base =
+            invoke->InputAt(invoke->GetSpecialInputIndex())->AsMipsDexCacheArraysBase();
+        int32_t offset =
+            invoke->GetDexCacheArrayOffset() - base->GetElementOffset() - kDexCacheArrayLwOffset;
+        __ LoadFromOffset(kLoadWord, temp.AsRegister<Register>(), base_reg, offset);
+      }
       break;
-    }
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCacheViaMethod: {
       Location current_method = invoke->GetLocations()->InAt(invoke->GetSpecialInputIndex());
       Register reg = temp.AsRegister<Register>();
@@ -5545,7 +5563,10 @@ void InstructionCodeGeneratorMIPS::VisitLoadClass(HLoadClass* cls) NO_THREAD_SAF
       DCHECK(codegen_->GetCompilerOptions().IsBootImage());
       CodeGeneratorMIPS::PcRelativePatchInfo* info =
           codegen_->NewPcRelativeTypePatch(cls->GetDexFile(), cls->GetTypeIndex());
-      codegen_->EmitPcRelativeAddressPlaceholder(info, out, base_or_current_method_reg);
+      bool reordering = __ SetReorder(false);
+      codegen_->EmitPcRelativeAddressPlaceholderHigh(info, out, base_or_current_method_reg);
+      __ Addiu(out, out, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
       break;
     }
     case HLoadClass::LoadKind::kBootImageAddress: {
@@ -5561,8 +5582,10 @@ void InstructionCodeGeneratorMIPS::VisitLoadClass(HLoadClass* cls) NO_THREAD_SAF
     case HLoadClass::LoadKind::kBssEntry: {
       CodeGeneratorMIPS::PcRelativePatchInfo* info =
           codegen_->NewTypeBssEntryPatch(cls->GetDexFile(), cls->GetTypeIndex());
-      codegen_->EmitPcRelativeAddressPlaceholder(info, out, base_or_current_method_reg);
-      __ LoadFromOffset(kLoadWord, out, out, 0);
+      bool reordering = __ SetReorder(false);
+      codegen_->EmitPcRelativeAddressPlaceholderHigh(info, out, base_or_current_method_reg);
+      __ LoadFromOffset(kLoadWord, out, out, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
       generate_null_check = true;
       break;
     }
@@ -5677,7 +5700,10 @@ void InstructionCodeGeneratorMIPS::VisitLoadString(HLoadString* load) NO_THREAD_
       DCHECK(codegen_->GetCompilerOptions().IsBootImage());
       CodeGeneratorMIPS::PcRelativePatchInfo* info =
           codegen_->NewPcRelativeStringPatch(load->GetDexFile(), load->GetStringIndex());
-      codegen_->EmitPcRelativeAddressPlaceholder(info, out, base_or_current_method_reg);
+      bool reordering = __ SetReorder(false);
+      codegen_->EmitPcRelativeAddressPlaceholderHigh(info, out, base_or_current_method_reg);
+      __ Addiu(out, out, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
       return;  // No dex cache slow path.
     }
     case HLoadString::LoadKind::kBootImageAddress: {
@@ -5693,8 +5719,10 @@ void InstructionCodeGeneratorMIPS::VisitLoadString(HLoadString* load) NO_THREAD_
       DCHECK(!codegen_->GetCompilerOptions().IsBootImage());
       CodeGeneratorMIPS::PcRelativePatchInfo* info =
           codegen_->NewPcRelativeStringPatch(load->GetDexFile(), load->GetStringIndex());
-      codegen_->EmitPcRelativeAddressPlaceholder(info, out, base_or_current_method_reg);
-      __ LoadFromOffset(kLoadWord, out, out, 0);
+      bool reordering = __ SetReorder(false);
+      codegen_->EmitPcRelativeAddressPlaceholderHigh(info, out, base_or_current_method_reg);
+      __ LoadFromOffset(kLoadWord, out, out, /* placeholder */ 0x5678);
+      __ SetReorder(reordering);
       SlowPathCodeMIPS* slow_path = new (GetGraph()->GetArena()) LoadStringSlowPathMIPS(load);
       codegen_->AddSlowPath(slow_path);
       __ Beqz(out, slow_path->GetEntryLabel());
@@ -6900,8 +6928,12 @@ void InstructionCodeGeneratorMIPS::VisitMipsDexCacheArraysBase(HMipsDexCacheArra
   Register reg = base->GetLocations()->Out().AsRegister<Register>();
   CodeGeneratorMIPS::PcRelativePatchInfo* info =
       codegen_->NewPcRelativeDexCacheArrayPatch(base->GetDexFile(), base->GetElementOffset());
+  CHECK(!codegen_->GetInstructionSetFeatures().IsR6());
+  bool reordering = __ SetReorder(false);
   // TODO: Reuse MipsComputeBaseMethodAddress on R2 instead of passing ZERO to force emitting NAL.
-  codegen_->EmitPcRelativeAddressPlaceholder(info, reg, ZERO);
+  codegen_->EmitPcRelativeAddressPlaceholderHigh(info, reg, ZERO);
+  __ Addiu(reg, reg, /* placeholder */ 0x5678);
+  __ SetReorder(reordering);
 }
 
 void LocationsBuilderMIPS::VisitInvokeUnresolved(HInvokeUnresolved* invoke) {
