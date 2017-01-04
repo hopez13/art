@@ -117,6 +117,30 @@
       "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_b56d3743",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-04T21:37:38Z",
+      "side": 0,
+      "message": "We need the safe-casts for quickening. Only if we accept to re-run the verifier in the dex-to-dex-compiler can we decouple things.\n\nWe can run experiments to see how many there are in practice. Maybe we can save processing time by just flagging that no casts are safe.",
+      "parentUuid": "17237e9f_4faab123",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
