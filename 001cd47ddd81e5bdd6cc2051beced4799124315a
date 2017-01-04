@@ -93,6 +93,30 @@
       "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_4faab123",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-04T21:35:25Z",
+      "side": 0,
+      "message": "One more reason to drop this data structure...",
+      "parentUuid": "b7b632e5_1a0ff2e2",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
