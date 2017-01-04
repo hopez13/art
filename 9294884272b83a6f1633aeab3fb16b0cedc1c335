@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_04ba60be",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-04T16:05:17Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "17237e9f_9885b99c",
+      "range": {
+        "startLine": 33,
+        "startChar": 33,
+        "endLine": 33,
+        "endChar": 68
+      },
+      "revId": "9294884272b83a6f1633aeab3fb16b0cedc1c335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_b8addd83",
         "filename": "compiler/optimizing/gc_optimizer.cc",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Indeed; perhaps I could rename it as `LoadReadBarrierStateKind`?",
       "parentUuid": "3a2b0780_b8addd83",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9294884272b83a6f1633aeab3fb16b0cedc1c335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_a4c04c3a",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-04T16:05:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_78441d95",
       "range": {
         "startLine": 34,
         "startChar": 13,
