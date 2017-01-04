@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_013b09f9",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-01-04T18:59:23Z",
+      "side": 1,
+      "message": "What is this change actually doing ? Is it unconditionally increasing bit-size of branch target encoding?",
+      "revId": "8f840f805579896809f6a17705402a85793ebce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
