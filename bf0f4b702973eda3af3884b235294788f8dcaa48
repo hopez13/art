@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_245f3b59",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-04T19:42:59Z",
+      "side": 1,
+      "message": "Use QuasiAtomic::ThreadFenceAcquire() to follow the existing convention (or at least add \"std::\")?",
+      "range": {
+        "startLine": 952,
+        "startChar": 8,
+        "endLine": 952,
+        "endChar": 54
+      },
+      "revId": "bf0f4b702973eda3af3884b235294788f8dcaa48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
