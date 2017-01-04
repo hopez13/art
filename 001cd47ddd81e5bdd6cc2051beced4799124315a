@@ -141,6 +141,30 @@
       "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_0fb4b981",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-04T21:41:16Z",
+      "side": 0,
+      "message": "This discussion should be in another forum, but we could work on moving back the checkcast quickening (and maybe quickening entirely) in the verifier.",
+      "parentUuid": "b7b632e5_b56d3743",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
