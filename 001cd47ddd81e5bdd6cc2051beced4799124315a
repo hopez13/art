@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_6f4c4de3",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-04T21:16:52Z",
+      "side": 0,
+      "message": "Remove.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_2f4655c3",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-04T21:16:52Z",
+      "side": 0,
+      "message": "Since this isn\u0027t called anymore, are you telling me adding an (empty) SafeMap to VerifiedMethod is costing 8MB on that well-known large app?",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "001cd47ddd81e5bdd6cc2051beced4799124315a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
