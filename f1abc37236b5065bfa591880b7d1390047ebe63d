@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_c4ea28be",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3503,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-04T16:05:17Z",
+      "side": 1,
+      "message": "I added a comment to GcOptimizerVisitor::VisitInstanceFieldGet.",
+      "parentUuid": "17237e9f_b88875b2",
+      "range": {
+        "startLine": 3503,
+        "startChar": 17,
+        "endLine": 3503,
+        "endChar": 27
+      },
+      "revId": "f1abc37236b5065bfa591880b7d1390047ebe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2b0780_56b0168e",
         "filename": "compiler/optimizing/gc_optimizer.cc",
         "patchSetId": 3
