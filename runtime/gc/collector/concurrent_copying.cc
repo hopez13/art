@@ -16,6 +16,8 @@
 
 #include "concurrent_copying.h"
 
+#include <backtrace/BacktraceMap.h>
+
 #include "art_field-inl.h"
 #include "base/enums.h"
 #include "base/histogram-inl.h"
@@ -843,8 +845,27 @@ void ConcurrentCopying::IssueEmptyCheckpoint() {
         ss << "\n";
         Locks::mutator_lock_->Dump(ss);
         ss << "\n";
-        runtime->GetThreadList()->Dump(ss);
-        LOG(FATAL) << ss.str();
+        LOG(FATAL_WITHOUT_ABORT) << ss.str();
+        // Some threads in 'runnable_thread_ids' are probably stuck. Try to dump their stacks.
+        // Avoid using ThreadList::Dump() because it is likely to get stuck as well.
+        std::ostringstream dump_ss;
+        {
+          ReaderMutexLock mu0(self, *Locks::mutator_lock_);
+          MutexLock mu1(self, *Locks::thread_list_lock_);
+          for (Thread* thread : runtime->GetThreadList()->GetList()) {
+            uint32_t tid = thread->GetThreadId();
+            bool is_in_runnable_thread_ids =
+                std::find(runnable_thread_ids.begin(), runnable_thread_ids.end(), tid) !=
+                runnable_thread_ids.end();
+            if (is_in_runnable_thread_ids &&
+                thread->ReadFlag(kEmptyCheckpointRequest)) {
+              // Found a runnable thread that hasn't responded to the empty checkpoint request.
+              // Assume it's stuck and safe to dump its stack.
+              thread->Dump(dump_ss, /*dump_native_stack*/true, BacktraceMap::Create(getpid()));
+            }
+          }
+        }
+        LOG(FATAL) << dump_ss.str();
       }
     } else {
       barrier->Increment(self, barrier_count);
