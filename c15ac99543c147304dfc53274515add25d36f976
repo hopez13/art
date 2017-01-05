@@ -45,6 +45,30 @@
       "revId": "c15ac99543c147304dfc53274515add25d36f976",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_cf67e1fe",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-01-05T14:07:06Z",
+      "side": 1,
+      "message": "This will result in calling EmitSwap -\u003e void ParallelMoveResolverARMVIXL::Exchange(int mem1, int mem2) which was faulty before the patch.\nSo previously GPR and FP scratch registers were used as temps; however GPR scratch register is required for big stack offsets which don\u0027t fit LDR encoding.",
+      "parentUuid": "17237e9f_8fffa9f2",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1058,
+        "endChar": 96
+      },
+      "revId": "c15ac99543c147304dfc53274515add25d36f976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
