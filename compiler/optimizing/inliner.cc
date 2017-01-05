@@ -304,7 +304,8 @@ ArtMethod* HInliner::TryCHADevirtualization(ArtMethod* resolved_method) {
     // We do not support HDeoptimize in OSR methods.
     return nullptr;
   }
-  return resolved_method->GetSingleImplementation();
+  return resolved_method->GetSingleImplementation(
+      caller_compilation_unit_.GetClassLinker()->GetImagePointerSize());
 }
 
 bool HInliner::TryInline(HInvoke* invoke_instruction) {
