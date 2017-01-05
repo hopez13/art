@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_0fba79be",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-05T17:04:18Z",
+      "side": 1,
+      "message": "\" is \"",
+      "range": {
+        "startLine": 179,
+        "startChar": 16,
+        "endLine": 179,
+        "endChar": 17
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_efb61dda",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-05T17:04:18Z",
+      "side": 1,
+      "message": "this change seems unrelated to compiler support - however, i have no objections to it being included in this change. please make a note of it in the commit message, though.",
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_8fafa97c",
+        "filename": "test/953-invoke-polymorphic-compiler/run",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-05T17:04:18Z",
+      "side": 1,
+      "message": "general question about this test: why do we need a separate test for compiler support ? do we do anything special to make sure that the test is run JITed (or AOTed) and not interpreted ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 48
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_afc0253a",
+        "filename": "test/957-methodhandle-transforms/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-05T17:04:18Z",
+      "side": 1,
+      "message": "(this could have gone into a separate change too)",
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
