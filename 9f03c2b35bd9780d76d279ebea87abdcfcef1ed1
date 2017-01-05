@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_cf4ec186",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-05T12:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_cf35a1ee",
+      "range": {
+        "startLine": 599,
+        "startChar": 0,
+        "endLine": 600,
+        "endChar": 41
+      },
+      "revId": "9f03c2b35bd9780d76d279ebea87abdcfcef1ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_af326502",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_af4b8574",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-05T12:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_af326502",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 41
+      },
+      "revId": "9f03c2b35bd9780d76d279ebea87abdcfcef1ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_6f468d76",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-05T12:06:26Z",
       "side": 1,
       "message": "IIUC, this is only valid for non-static method calls. Is this assumption always true here?",
+      "range": {
+        "startLine": 1323,
+        "startChar": 12,
+        "endLine": 1323,
+        "endChar": 59
+      },
+      "revId": "9f03c2b35bd9780d76d279ebea87abdcfcef1ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_8f6a09cb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-05T12:39:33Z",
+      "side": 1,
+      "message": "Yes. If the method is static, receiver type is invalid. I\u0027ve added checks to ensure it.",
+      "parentUuid": "17237e9f_6f468d76",
       "range": {
         "startLine": 1323,
         "startChar": 12,
