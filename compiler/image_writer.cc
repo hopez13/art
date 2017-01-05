@@ -2341,6 +2341,14 @@ const uint8_t* ImageWriter::GetQuickCode(ArtMethod* method,
 void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
                                      ArtMethod* copy,
                                      const ImageInfo& image_info) {
+  if (orig->IsAbstract()) {
+    // Ignore the single-implementation info for abstract method.
+    // TODO: handle fixup of single-implementation method for abstract method.
+    orig->SetHasSingleImplementation(false);
+    orig->SetSingleImplementation(
+        nullptr, Runtime::Current()->GetClassLinker()->GetImagePointerSize());
+  }
+
   memcpy(copy, orig, ArtMethod::Size(target_ptr_size_));
 
   copy->SetDeclaringClass(GetImageAddress(orig->GetDeclaringClassUnchecked()));
