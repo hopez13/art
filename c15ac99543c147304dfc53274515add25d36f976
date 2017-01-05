@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "17237e9f_6f1d6d7c",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-05T11:21:54Z",
+      "side": 1,
+      "message": "This test case should probably be guarded too (using `#ifdef ART_ENABLE_CODEGEN_arm`).",
+      "range": {
+        "startLine": 1044,
+        "startChar": 20,
+        "endLine": 1044,
+        "endChar": 47
+      },
+      "revId": "c15ac99543c147304dfc53274515add25d36f976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_8fffa9f2",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 2
