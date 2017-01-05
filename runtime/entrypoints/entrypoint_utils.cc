@@ -284,6 +284,7 @@ ArtMethod* GetCalleeSaveMethodCaller(ArtMethod** sp,
       uintptr_t native_pc_offset = current_code->NativeQuickPcOffset(caller_pc);
       CodeInfo code_info = current_code->GetOptimizedCodeInfo();
       CodeInfoEncoding encoding = code_info.ExtractEncoding();
+      code_info.AssertValidStackMap(encoding);
       StackMap stack_map = code_info.GetStackMapForNativePcOffset(native_pc_offset, encoding);
       DCHECK(stack_map.IsValid());
       if (stack_map.HasInlineInfo(encoding.stack_map_encoding)) {
