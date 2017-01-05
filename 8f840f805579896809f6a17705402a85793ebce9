@@ -16,6 +16,24 @@
       "revId": "8f840f805579896809f6a17705402a85793ebce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_af6ca521",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-01-05T09:13:53Z",
+      "side": 1,
+      "message": "No; the change adds \"AddBranchLabel(label)\" to register the branch with the veneer manager (vixl interface has changed and this place was forgotten to fix). This branch will always have 16bit encoding.",
+      "parentUuid": "b7b632e5_013b09f9",
+      "revId": "8f840f805579896809f6a17705402a85793ebce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
