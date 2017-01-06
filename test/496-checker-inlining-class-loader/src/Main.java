@@ -108,8 +108,11 @@ class LoadedByMyClassLoader {
   /// CHECK:      LoadClass gen_clinit_check:true
                 /* Load and initialize System */
   // There may be MipsComputeBaseMethodAddress here.
-  /// CHECK:      LoadClass gen_clinit_check:true
-  /// CHECK-NEXT: StaticFieldGet
+  /// CHECK:      LoadClass
+  // The ClinitCheck may (PIC) or may not (non-PIC) be merged into the LoadClass.
+  // (The merging checks for environment match but HLoadClass/kBootImageAddress
+  // used for non-PIC mode does not have an environment at all.)
+  /// CHECK:      StaticFieldGet
   // There may be HArmDexCacheArraysBase or HX86ComputeBaseMethodAddress here.
   /// CHECK:      LoadString
   /// CHECK-NEXT: NullCheck
