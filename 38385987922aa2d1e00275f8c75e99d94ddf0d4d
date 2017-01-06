@@ -22,6 +22,30 @@
       "revId": "38385987922aa2d1e00275f8c75e99d94ddf0d4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_0a414778",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3863,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-06T15:34:53Z",
+      "side": 1,
+      "message": "I reorganized the logic a little to avoid this problem.",
+      "parentUuid": "f7a50a83_12d14de4",
+      "range": {
+        "startLine": 3863,
+        "startChar": 4,
+        "endLine": 3863,
+        "endChar": 84
+      },
+      "revId": "38385987922aa2d1e00275f8c75e99d94ddf0d4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
