@@ -3319,9 +3319,6 @@ HLoadClass::LoadKind CodeGeneratorMIPS64::GetSupportedLoadClassKind(
       // TODO: implement.
       fallback_load = true;
       break;
-    case HLoadClass::LoadKind::kDexCachePcRelative:
-      DCHECK(!Runtime::Current()->UseJitCompilation());
-      break;
     case HLoadClass::LoadKind::kDexCacheViaMethod:
       break;
   }
@@ -3551,16 +3548,6 @@ void InstructionCodeGeneratorMIPS64::VisitLoadClass(HLoadClass* cls) {
     }
     case HLoadClass::LoadKind::kJitTableAddress: {
       LOG(FATAL) << "Unimplemented";
-      break;
-    }
-    case HLoadClass::LoadKind::kDexCachePcRelative: {
-      uint32_t element_offset = cls->GetDexCacheElementOffset();
-      CodeGeneratorMIPS64::PcRelativePatchInfo* info =
-          codegen_->NewPcRelativeDexCacheArrayPatch(cls->GetDexFile(), element_offset);
-      codegen_->EmitPcRelativeAddressPlaceholderHigh(info, AT);
-      // /* GcRoot<mirror::Class> */ out = *address  /* PC-relative */
-      GenerateGcRootFieldLoad(cls, out_loc, AT, /* placeholder */ 0x5678);
-      generate_null_check = !cls->IsInDexCache();
       break;
     }
     case HLoadClass::LoadKind::kDexCacheViaMethod: {
