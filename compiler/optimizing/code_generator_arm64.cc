@@ -4307,13 +4307,13 @@ HLoadClass::LoadKind CodeGeneratorARM64::GetSupportedLoadClassKind(
 }
 
 void LocationsBuilderARM64::VisitLoadClass(HLoadClass* cls) {
-  if (cls->NeedsAccessCheck()) {
+  HLoadClass::LoadKind load_kind = cls->GetLoadKind();
+  if (cls->NeedsAccessCheck() || load_kind == HLoadClass::LoadKind::kDexCacheViaMethod) {
     InvokeRuntimeCallingConvention calling_convention;
-    CodeGenerator::CreateLoadClassLocationSummary(
+    CodeGenerator::CreateLoadClassRuntimeCallLocationSummary(
         cls,
         LocationFrom(calling_convention.GetRegisterAt(0)),
-        LocationFrom(vixl::aarch64::x0),
-        /* code_generator_supports_read_barrier */ true);
+        LocationFrom(vixl::aarch64::x0));
     return;
   }
 
@@ -4326,19 +4326,16 @@ void LocationsBuilderARM64::VisitLoadClass(HLoadClass* cls) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
   }
 
-  HLoadClass::LoadKind load_kind = cls->GetLoadKind();
-  if (load_kind == HLoadClass::LoadKind::kReferrersClass ||
-      load_kind == HLoadClass::LoadKind::kDexCacheViaMethod) {
+  if (load_kind == HLoadClass::LoadKind::kReferrersClass) {
     locations->SetInAt(0, Location::RequiresRegister());
   }
   locations->SetOut(Location::RequiresRegister());
 }
 
 void InstructionCodeGeneratorARM64::VisitLoadClass(HLoadClass* cls) {
-  if (cls->NeedsAccessCheck()) {
-    codegen_->MoveConstant(cls->GetLocations()->GetTemp(0), cls->GetTypeIndex().index_);
-    codegen_->InvokeRuntime(kQuickInitializeTypeAndVerifyAccess, cls, cls->GetDexPc());
-    CheckEntrypointTypes<kQuickInitializeTypeAndVerifyAccess, void*, uint32_t>();
+  HLoadClass::LoadKind load_kind = cls->GetLoadKind();
+  if (cls->NeedsAccessCheck() || load_kind == HLoadClass::LoadKind::kDexCacheViaMethod) {
+    codegen_->GenerateLoadClassRuntimeCall(cls);
     return;
   }
 
@@ -4349,7 +4346,7 @@ void InstructionCodeGeneratorARM64::VisitLoadClass(HLoadClass* cls) {
       ? kWithoutReadBarrier
       : kCompilerReadBarrierOption;
   bool generate_null_check = false;
-  switch (cls->GetLoadKind()) {
+  switch (load_kind) {
     case HLoadClass::LoadKind::kReferrersClass: {
       DCHECK(!cls->CanCallRuntime());
       DCHECK(!cls->MustGenerateClinitCheck());
@@ -4399,23 +4396,9 @@ void InstructionCodeGeneratorARM64::VisitLoadClass(HLoadClass* cls) {
                               kCompilerReadBarrierOption);
       break;
     }
-    case HLoadClass::LoadKind::kDexCacheViaMethod: {
-      MemberOffset resolved_types_offset =
-          ArtMethod::DexCacheResolvedTypesOffset(kArm64PointerSize);
-      // /* GcRoot<mirror::Class>[] */ out =
-      //        current_method.ptr_sized_fields_->dex_cache_resolved_types_
-      Register current_method = InputRegisterAt(cls, 0);
-      __ Ldr(out.X(), MemOperand(current_method, resolved_types_offset.Int32Value()));
-      // /* GcRoot<mirror::Class> */ out = out[type_index]
-      GenerateGcRootFieldLoad(cls,
-                              out_loc,
-                              out.X(),
-                              CodeGenerator::GetCacheOffset(cls->GetTypeIndex().index_),
-                              /* fixup_label */ nullptr,
-                              read_barrier_option);
-      generate_null_check = !cls->IsInDexCache();
-      break;
-    }
+    case HLoadClass::LoadKind::kDexCacheViaMethod:
+      LOG(FATAL) << "UNREACHABLE";
+      UNREACHABLE();
   }
 
   if (generate_null_check || cls->MustGenerateClinitCheck()) {
