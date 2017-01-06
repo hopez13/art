@@ -5527,7 +5527,6 @@ class HLoadClass FINAL : public HInstruction {
     SetPackedField<LoadKindField>(
         is_referrers_class ? LoadKind::kReferrersClass : LoadKind::kDexCacheViaMethod);
     SetPackedFlag<kFlagNeedsAccessCheck>(needs_access_check);
-    SetPackedFlag<kFlagIsInDexCache>(false);
     SetPackedFlag<kFlagIsInBootImage>(false);
     SetPackedFlag<kFlagGenerateClInitCheck>(false);
   }
@@ -5572,13 +5571,15 @@ class HLoadClass FINAL : public HInstruction {
   }
 
   bool CanCallRuntime() const {
-    return MustGenerateClinitCheck() ||
-           (!IsReferrersClass() && !IsInDexCache()) ||
-           NeedsAccessCheck();
+    return NeedsAccessCheck() ||
+           MustGenerateClinitCheck() ||
+           GetLoadKind() == LoadKind::kDexCacheViaMethod;
   }
 
   bool CanThrow() const OVERRIDE {
-    return CanCallRuntime();
+    return NeedsAccessCheck() ||
+           MustGenerateClinitCheck() ||
+           (GetLoadKind() == LoadKind::kDexCacheViaMethod && !IsInBootImage());
   }
 
   ReferenceTypeInfo GetLoadedClassRTI() {
@@ -5600,7 +5601,7 @@ class HLoadClass FINAL : public HInstruction {
   }
 
   bool NeedsDexCacheOfDeclaringClass() const OVERRIDE {
-    return !IsReferrersClass();
+    return GetLoadKind() == LoadKind::kDexCacheViaMethod;
   }
 
   static SideEffects SideEffectsForArchRuntimeCalls() {
@@ -5609,16 +5610,8 @@ class HLoadClass FINAL : public HInstruction {
 
   bool IsReferrersClass() const { return GetLoadKind() == LoadKind::kReferrersClass; }
   bool NeedsAccessCheck() const { return GetPackedFlag<kFlagNeedsAccessCheck>(); }
-  bool IsInDexCache() const { return GetPackedFlag<kFlagIsInDexCache>(); }
   bool IsInBootImage() const { return GetPackedFlag<kFlagIsInBootImage>(); }
   bool MustGenerateClinitCheck() const { return GetPackedFlag<kFlagGenerateClInitCheck>(); }
-
-  void MarkInDexCache() {
-    SetPackedFlag<kFlagIsInDexCache>(true);
-    DCHECK(!NeedsEnvironment());
-    RemoveEnvironment();
-    SetSideEffects(SideEffects::None());
-  }
 
   void MarkInBootImage() {
     SetPackedFlag<kFlagIsInBootImage>(true);
@@ -5640,8 +5633,7 @@ class HLoadClass FINAL : public HInstruction {
 
  private:
   static constexpr size_t kFlagNeedsAccessCheck    = kNumberOfGenericPackedBits;
-  static constexpr size_t kFlagIsInDexCache        = kFlagNeedsAccessCheck + 1;
-  static constexpr size_t kFlagIsInBootImage       = kFlagIsInDexCache + 1;
+  static constexpr size_t kFlagIsInBootImage       = kFlagNeedsAccessCheck + 1;
   // Whether this instruction must generate the initialization check.
   // Used for code generation.
   static constexpr size_t kFlagGenerateClInitCheck = kFlagIsInBootImage + 1;
