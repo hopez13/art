@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b7b632e5_fef060b0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T00:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_3120545e",
+      "range": {
+        "startLine": 851,
+        "startChar": 8,
+        "endLine": 851,
+        "endChar": 35
+      },
+      "revId": "8067b7a269a6d808393e53d42dddfd2c03b78574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_714bac2c",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -59,6 +83,54 @@
       "writtenOn": "2017-01-05T07:11:29Z",
       "side": 1,
       "message": "Unnecessary, and you\u0027re leaking it. Either create it outside of the loop, or use null (and let the underlying code handle it), in which case you can also remove the include.",
+      "range": {
+        "startLine": 864,
+        "startChar": 63,
+        "endLine": 864,
+        "endChar": 93
+      },
+      "revId": "8067b7a269a6d808393e53d42dddfd2c03b78574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_d91bb6e5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T00:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_714bac2c",
+      "range": {
+        "startLine": 864,
+        "startChar": 36,
+        "endLine": 864,
+        "endChar": 61
+      },
+      "revId": "8067b7a269a6d808393e53d42dddfd2c03b78574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_191d2ed9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T00:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_511dc825",
       "range": {
         "startLine": 864,
         "startChar": 63,
