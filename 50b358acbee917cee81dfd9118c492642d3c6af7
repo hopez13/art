@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_b649a1ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T23:00:55Z",
+      "side": 1,
+      "message": "typo: identifying",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "50b358acbee917cee81dfd9118c492642d3c6af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_96f57d65",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T23:00:55Z",
+      "side": 1,
+      "message": "Use CHECK since these are compile-time constants?",
+      "range": {
+        "startLine": 651,
+        "startChar": 2,
+        "endLine": 651,
+        "endChar": 8
+      },
+      "revId": "50b358acbee917cee81dfd9118c492642d3c6af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_56be8561",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T23:00:55Z",
+      "side": 1,
+      "message": "We could also check if ref\u0027s mark bit is already set and if so, return early without calling Mark(), as in, \n\nif (ref \u003d\u003d nullptr || ref-\u003eGetMarkBit() !\u003d 0) {\n  return;\n}",
+      "revId": "50b358acbee917cee81dfd9118c492642d3c6af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_565cc593",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T23:00:55Z",
+      "side": 1,
+      "message": "REQUIRES_SHARED(Locks::mutator_lock_)?",
+      "revId": "50b358acbee917cee81dfd9118c492642d3c6af7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
