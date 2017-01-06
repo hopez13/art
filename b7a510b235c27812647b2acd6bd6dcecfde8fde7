@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7b632e5_36ebdcf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "is the memory increase relevant?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_6a779bf3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -49,6 +72,98 @@
     },
     {
       "key": {
+        "uuid": "b7b632e5_f673248b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "document",
+      "range": {
+        "startLine": 197,
+        "startChar": 12,
+        "endLine": 197,
+        "endChar": 23
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_368d9c54",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "quite  a stretch on the \"natural\" iterator assumptions.",
+      "range": {
+        "startLine": 206,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 9
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_dfce331b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "maybe reverse condition to reduce the nesting level.",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_bf9b3f01",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "document the recognized pattern",
+      "range": {
+        "startLine": 244,
+        "startChar": 12,
+        "endLine": 244,
+        "endChar": 34
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_4a7cdfd3",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
@@ -89,6 +204,52 @@
         "startChar": 7,
         "endLine": 263,
         "endChar": 9
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_3f2c8fab",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "GetObjectClassHandle()-\u003eGetInstanceField(0).",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 63
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_ff2777e1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-06T17:20:00Z",
+      "side": 1,
+      "message": "We usually modify the graph in instruction simplifier. No reason other than \"conceptual\" friendly separation. \n\nIs it too convoluted to move the update there?\n\nIf we can\u0027t, please update the docs saying that this modifies the graph and why we can\u0027t move it to the simplifier.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 5
       },
       "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
