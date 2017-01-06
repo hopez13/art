@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7b632e5_76d714aa",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-06T02:06:15Z",
+      "side": 1,
+      "message": "Just move this right before the SuspendAll to avoid doing allocations with disabled GC?",
+      "range": {
+        "startLine": 273,
+        "startChar": 10,
+        "endLine": 273,
+        "endChar": 34
+      },
+      "revId": "a54b637a2ccfcf1f49f7c98bc172aa415f854d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_d64c60e5",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
