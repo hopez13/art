@@ -39,6 +39,7 @@
 #include "base/logging.h"
 #include "events-inl.h"
 #include "gc/allocation_listener.h"
+#include "gc/heap.h"
 #include "instrumentation.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
@@ -266,7 +267,16 @@ jvmtiError Redefiner::RedefineClass(ArtJvmTiEnv* env,
   Redefiner r(runtime, self, klass, signature_ptr, dex_file, error_msg);
   // Lock around this class to avoid races.
   art::ObjectLock<art::mirror::Class> lock(self, hs.NewHandle(r.GetMirrorClass()));
-  return r.Run();
+  art::gc::Heap* heap = art::Runtime::Current()->GetHeap();
+  if (heap->IsGcConcurrentAndMoving()) {
+    // GC moving objects can cause deadlocks as we are deoptimizing the stack.
+    heap->IncrementDisableMovingGC(self);
+  }
+  jvmtiError res = r.Run();
+  if (heap->IsGcConcurrentAndMoving()) {
+    heap->DecrementDisableMovingGC(self);
+  }
+  return res;
 }
 
 // TODO *MAJOR* This should return the actual source java.lang.DexFile object for the klass.
