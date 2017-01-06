@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_2a2c03c4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3885,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-06T15:34:53Z",
+      "side": 1,
+      "message": "I prefer to have separate options for Java max_free_/growth_limit_ and Native gc_watermark/blocking_gc_watermark, because they aren\u0027t directly analogous. I\u0027ve added some options for tuning the native allocation watermarks.",
+      "parentUuid": "f7a50a83_6f61beba",
+      "range": {
+        "startLine": 3885,
+        "startChar": 35,
+        "endLine": 3885,
+        "endChar": 44
+      },
+      "revId": "bd7d98bea18e868c493518e6260eb9b6320d4489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d266fad_072c9606",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
