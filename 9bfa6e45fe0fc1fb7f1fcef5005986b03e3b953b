@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_ea5093d7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3847,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T18:19:44Z",
+      "side": 1,
+      "message": "Why aren\u0027t we triggering a blocking GC any more, but just waiting for an already-running GC to finish, in PS4?",
+      "range": {
+        "startLine": 3847,
+        "startChar": 4,
+        "endLine": 3847,
+        "endChar": 23
+      },
+      "revId": "9bfa6e45fe0fc1fb7f1fcef5005986b03e3b953b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_8ae55721",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-06T18:19:44Z",
+      "side": 1,
+      "message": "Line too long?",
+      "revId": "9bfa6e45fe0fc1fb7f1fcef5005986b03e3b953b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
