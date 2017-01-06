@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_d64c60e5",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-06T02:00:17Z",
+      "side": 1,
+      "message": "That isn\u0027t good if you disable the GC...",
+      "range": {
+        "startLine": 575,
+        "startChar": 7,
+        "endLine": 575,
+        "endChar": 33
+      },
+      "revId": "a54b637a2ccfcf1f49f7c98bc172aa415f854d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
