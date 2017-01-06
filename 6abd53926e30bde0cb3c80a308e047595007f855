@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17237e9f_4aef3f93",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-06T09:16:59Z",
+      "side": 1,
+      "message": "Move this line 582?",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 32
+      },
+      "revId": "6abd53926e30bde0cb3c80a308e047595007f855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_2af40363",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-06T09:16:59Z",
+      "side": 1,
+      "message": "I find this hard to read. Why would \"GC moving objects\" cause deadlocks? It\u0027d be nicer to explain exactly why the GC algorithm deadlocks with stack deoptimization.",
+      "range": {
+        "startLine": 582,
+        "startChar": 4,
+        "endLine": 582,
+        "endChar": 78
+      },
+      "revId": "6abd53926e30bde0cb3c80a308e047595007f855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
