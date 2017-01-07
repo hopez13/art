@@ -22,6 +22,30 @@
       "revId": "8f5b603c7d1a373f2a00530f7cc8078a992e3dd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_ac79506f",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-07T00:48:49Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the spec for this.",
+      "parentUuid": "b7b632e5_cc55a4df",
+      "range": {
+        "startLine": 326,
+        "startChar": 59,
+        "endLine": 326,
+        "endChar": 73
+      },
+      "revId": "8f5b603c7d1a373f2a00530f7cc8078a992e3dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
