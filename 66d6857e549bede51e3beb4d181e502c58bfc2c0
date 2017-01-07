@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_2c2c60ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-07T00:47:16Z",
+      "side": 1,
+      "message": "How about:\n\n\"Use relative futex timeout in SuspendAllInternal\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 71
+      },
+      "revId": "66d6857e549bede51e3beb4d181e502c58bfc2c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_4c5b543d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-07T00:47:16Z",
+      "side": 1,
+      "message": "How about:\n\nThis erroneously used an absolute timeout for FUTEX_WAIT,\npotentially causing it to block for MUCH longer than 10\nseconds.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "66d6857e549bede51e3beb4d181e502c58bfc2c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
