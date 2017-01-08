@@ -252,6 +252,11 @@ bool JdwpAdbState::Accept() {
        * up after a few minutes in case somebody ships an app with
        * the debuggable flag set.
        */
+      struct timeval timeout;
+      timeout.tv_sec = 1;
+      timeout.tv_usec = 0;
+      setsockopt(ControlSock(), SOL_SOCKET, SO_SNDTIMEO, &timeout,
+                 sizeof(timeout));
       int  ret = connect(ControlSock(), &control_addr_.controlAddrPlain, control_addr_len_);
       if (!ret) {
         int control_sock = ControlSock();
