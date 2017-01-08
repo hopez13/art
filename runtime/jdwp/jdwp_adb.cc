@@ -224,6 +224,10 @@ bool JdwpAdbState::Accept() {
       PLOG(ERROR) << "Could not create ADB control socket";
       return false;
     }
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;
+    setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout));
     {
       MutexLock mu(Thread::Current(), state_lock_);
       control_sock_ = sock;
