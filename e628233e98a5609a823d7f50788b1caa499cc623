@@ -81,6 +81,24 @@
       "revId": "e628233e98a5609a823d7f50788b1caa499cc623",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_a462391d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-09T22:34:42Z",
+      "side": 1,
+      "message": "It should be consistent, though (especially since IsModifiableClass is base spec required). That\u0027s why I thought it\u0027s better to put in what you have. I\u0027ll leave it up to you.",
+      "parentUuid": "b7b632e5_3969f935",
+      "revId": "e628233e98a5609a823d7f50788b1caa499cc623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
