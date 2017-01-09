@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_c4b56dad",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-09T22:25:05Z",
+      "side": 1,
+      "message": "const char* instead of array.",
+      "range": {
+        "startLine": 50,
+        "startChar": 17,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "48fe7948f235efc52a219a2724d9902b54d80dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
