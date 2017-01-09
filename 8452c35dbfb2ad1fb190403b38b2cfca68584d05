@@ -844,6 +844,30 @@
       "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7af12f5_f22648e6",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "Do we really have suspend checks in the header which are not followed by a goto? In which case?",
+      "parentUuid": "17237e9f_6fbfad92",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
