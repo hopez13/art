@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37a32217_ce2443d8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3847,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-09T14:44:40Z",
+      "side": 1,
+      "message": "The important thing is that we need to slow down the allocating thread to let GC catch up. Waiting for the existing GC to finish is an effective way to slow down the allocating thread. Triggering a blocking GC in addition seems like overkill and requires some additional form of synchronization to avoid having threads queue up multiple back-to-back blocking GCs.",
+      "parentUuid": "b7b632e5_ea5093d7",
+      "range": {
+        "startLine": 3847,
+        "startChar": 4,
+        "endLine": 3847,
+        "endChar": 23
+      },
+      "revId": "9bfa6e45fe0fc1fb7f1fcef5005986b03e3b953b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_8ae55721",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 4
