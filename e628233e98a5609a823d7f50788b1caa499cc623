@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "b7b632e5_79529184",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-09T19:39:18Z",
+      "side": 1,
+      "message": "removed phrase",
+      "parentUuid": "b7b632e5_3e28ffb0",
+      "revId": "e628233e98a5609a823d7f50788b1caa499cc623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_fe44c796",
         "filename": "runtime/openjdkjvmti/ti_redefine.h",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 160,
         "endChar": 69
       },
+      "revId": "e628233e98a5609a823d7f50788b1caa499cc623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_3969f935",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-09T19:39:18Z",
+      "side": 1,
+      "message": "I would like to wait until I have a full implementation for that and put it in a different cl.",
+      "parentUuid": "b7b632e5_fe44c796",
       "revId": "e628233e98a5609a823d7f50788b1caa499cc623",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
