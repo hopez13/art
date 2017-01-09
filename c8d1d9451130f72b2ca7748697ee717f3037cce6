@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "377a4269_f6766043",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T20:32:26Z",
+      "side": 1,
+      "message": "can you say how barely? I guess there\u0027s some lookup in the spec that relies on it?",
+      "range": {
+        "startLine": 609,
+        "startChar": 31,
+        "endLine": 609,
+        "endChar": 53
+      },
+      "revId": "c8d1d9451130f72b2ca7748697ee717f3037cce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b74b9245_b295c01f",
+        "filename": "test/921-hello-failure/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T20:32:26Z",
+      "side": 1,
+      "message": "Use --jvmti?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "c8d1d9451130f72b2ca7748697ee717f3037cce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
