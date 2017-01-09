@@ -122,11 +122,6 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   return inlined_method;
 }
 
-inline ArtMethod* GetCalleeSaveMethodCaller(Thread* self, Runtime::CalleeSaveType type) {
-  return GetCalleeSaveMethodCaller(
-      self->GetManagedStack()->GetTopQuickFrame(), type, true /* do_caller_check */);
-}
-
 template <const bool kAccessCheck>
 ALWAYS_INLINE
 inline mirror::Class* CheckObjectAlloc(dex::TypeIndex type_idx,

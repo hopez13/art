@@ -2486,6 +2486,8 @@ std::ostream& operator<<(std::ostream& os, HLoadClass::LoadKind rhs) {
       return os << "BootImageLinkTimePcRelative";
     case HLoadClass::LoadKind::kBootImageAddress:
       return os << "BootImageAddress";
+    case HLoadClass::LoadKind::kBssEntry:
+      return os << "BssEntry";
     case HLoadClass::LoadKind::kJitTableAddress:
       return os << "JitTableAddress";
     case HLoadClass::LoadKind::kDexCacheViaMethod:
@@ -2538,10 +2540,10 @@ std::ostream& operator<<(std::ostream& os, HLoadString::LoadKind rhs) {
       return os << "BootImageAddress";
     case HLoadString::LoadKind::kBssEntry:
       return os << "BssEntry";
-    case HLoadString::LoadKind::kDexCacheViaMethod:
-      return os << "DexCacheViaMethod";
     case HLoadString::LoadKind::kJitTableAddress:
       return os << "JitTableAddress";
+    case HLoadString::LoadKind::kDexCacheViaMethod:
+      return os << "DexCacheViaMethod";
     default:
       LOG(FATAL) << "Unknown HLoadString::LoadKind: " << static_cast<int>(rhs);
       UNREACHABLE();
