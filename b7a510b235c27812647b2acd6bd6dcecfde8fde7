@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "b7b632e5_53412c58",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T18:23:32Z",
+      "side": 1,
+      "message": "Right.... :), code motion is annoying in gerrit.",
+      "parentUuid": "17f29e18_a0311420",
+      "range": {
+        "startLine": 206,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 9
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_dfce331b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
@@ -413,6 +437,30 @@
       "side": 1,
       "message": "We would need to do the same pattern recognition, which is why I preferred doing it only here. No strong preference though, so let me know if you\u0027d rather have it in instruction simplifier.",
       "parentUuid": "b7b632e5_ff2777e1",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 5
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_581eab48",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T18:23:32Z",
+      "side": 1,
+      "message": "I think you were the one who convince me to move all the graph updates there :).\n\nI\u0027d do it for consistency.",
+      "parentUuid": "f7fa6af1_1cdaf5d1",
       "range": {
         "startLine": 285,
         "startChar": 0,
