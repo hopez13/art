@@ -22,6 +22,30 @@
       "revId": "0f8da622f36a9da0e4dd74c354a358c4cb8e4d92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f796eac7_1cae9564",
+        "filename": "test/632-checker-char-at-bounds/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T20:38:52Z",
+      "side": 1,
+      "message": "Thanks for catching this.",
+      "parentUuid": "b7b632e5_d832bb4b",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 68
+      },
+      "revId": "0f8da622f36a9da0e4dd74c354a358c4cb8e4d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
