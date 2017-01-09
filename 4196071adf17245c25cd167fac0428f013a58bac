@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37a32217_ee677f61",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:22:23Z",
+      "side": 1,
+      "message": "Maybe add that the copy is required by the spec and which part of the spec says so?",
+      "range": {
+        "startLine": 1070,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 85
+      },
+      "revId": "4196071adf17245c25cd167fac0428f013a58bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
