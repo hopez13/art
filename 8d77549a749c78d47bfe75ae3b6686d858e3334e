@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_7e551712",
+        "filename": "runtime/jdwp/jdwp_adb.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-09T19:02:17Z",
+      "side": 1,
+      "message": "Please put the \"1\" into a constexpr at the top of the file, and comment there. And give a reasoning why we should timeout every second. Why not a minute? (See the comment in lines 250ff)",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 24
+      },
+      "revId": "8d77549a749c78d47bfe75ae3b6686d858e3334e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
