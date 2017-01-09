@@ -22,6 +22,24 @@
       "revId": "7851d2a6095ffe0bbbf34529d11d0a21cd1f177c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_242389c0",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-09T22:40:05Z",
+      "side": 1,
+      "message": "Name changed to CheckClass and comment expanded.",
+      "parentUuid": "b7b632e5_c432cd4b",
+      "revId": "7851d2a6095ffe0bbbf34529d11d0a21cd1f177c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
