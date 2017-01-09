@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "37f5e2fe_de99a508",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "just static without polluting  SchedulingGraph?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 22
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ec163c_3f588771",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "instructions",
+      "range": {
+        "startLine": 175,
+        "startChar": 12,
+        "endLine": 175,
+        "endChar": 24
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77b59a43_50eaac2e",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "is a",
+      "range": {
+        "startLine": 176,
+        "startChar": 74,
+        "endLine": 176,
+        "endChar": 77
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "171b7e2a_d51cdc50",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "instructions",
+      "range": {
+        "startLine": 194,
+        "startChar": 12,
+        "endLine": 194,
+        "endChar": 24
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77003ab3_b82cb9c8",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "is a",
+      "range": {
+        "startLine": 195,
+        "startChar": 73,
+        "endLine": 195,
+        "endChar": 75
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37f5e2fe_1e630d36",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 24
@@ -41,6 +156,29 @@
         "startChar": 0,
         "endLine": 331,
         "endChar": 51
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77b59a43_b017985e",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-09T10:57:52Z",
+      "side": 1,
+      "message": "I cannot parse this comment.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 71
       },
       "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
