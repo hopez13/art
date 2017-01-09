@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_39de59f9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T19:39:43Z",
+      "side": 1,
+      "message": "down the line there\u0027s a DCHECK that the invoke is either static or the rti is valid. Seems it doesn\u0027t hold for this code path, or did I miss something?",
+      "range": {
+        "startLine": 802,
+        "startChar": 25,
+        "endLine": 802,
+        "endChar": 60
+      },
+      "revId": "0f001b7e83f672f77208ccfb941c870565d2b32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_19335527",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T19:39:43Z",
+      "side": 1,
+      "message": "would read better to add a boolean isReceiver.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 44,
+        "endLine": 1322,
+        "endChar": 65
+      },
+      "revId": "0f001b7e83f672f77208ccfb941c870565d2b32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_d938fdfc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T19:39:43Z",
+      "side": 1,
+      "message": "according to the DCHCECK this is redundant, since you test for IsValid.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 12,
+        "endLine": 1322,
+        "endChar": 40
+      },
+      "revId": "0f001b7e83f672f77208ccfb941c870565d2b32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_7958d171",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-09T19:39:43Z",
+      "side": 1,
+      "message": "receiver_type could still be the same as argument-\u003eGetReferenceTypeInfo(), in which case is a waste to run RTP. I think you can drop run_rtp and only rely on ArgumentTypesMoreSpecific.\n\nAlso, maybe add a DCHECK that argument rti is assignable from receiver_type.",
+      "range": {
+        "startLine": 1324,
+        "startChar": 40,
+        "endLine": 1324,
+        "endChar": 53
+      },
+      "revId": "0f001b7e83f672f77208ccfb941c870565d2b32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
