@@ -172,6 +172,8 @@ public class Main {
     };
     do {
       w.clear();
+      ensureJitCompiled(Transform.class, "sayHi");
+      ensureJitCompiled(Main.class, "doCall");
       // Wait for the methods to be jitted
       long j = 0;
       do {
@@ -182,7 +184,7 @@ public class Main {
           w.clear();
         }
         t.sayHi(check_interpreting, w);
-        if (j >= 1000000) {
+        if (j >= 100000000) {
           System.out.println("FAIL: Could not make sayHi be Jitted!");
           return;
         }
@@ -202,6 +204,8 @@ public class Main {
   private static native boolean hasJit();
 
   private static native boolean isInterpretedFunction(Method m, boolean require_deoptimizable);
+
+  private static native void ensureJitCompiled(Class c, String name);
 
   // Transforms the class
   private static native void doCommonClassRedefinition(Class<?> target,
