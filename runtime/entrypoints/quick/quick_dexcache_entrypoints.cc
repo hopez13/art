@@ -31,6 +31,24 @@
 
 namespace art {
 
+static inline void BssWriteBarrier(ArtMethod* caller) REQUIRES_SHARED(Locks::mutator_lock_) {
+  // For AOT code, we need a write barrier for the class loader that holds
+  // the GC roots in the .bss.
+  const DexFile* dex_file = caller->GetDexFile();
+  if (dex_file != nullptr &&
+      dex_file->GetOatDexFile() != nullptr &&
+      !dex_file->GetOatDexFile()->GetOatFile()->GetBssGcRoots().empty()) {
+    mirror::ClassLoader* class_loader = caller->GetDeclaringClass()->GetClassLoader();
+    DCHECK(class_loader != nullptr);  // We do not use .bss GC roots for boot image.
+    DCHECK(!class_loader->GetClassTable()->InsertOatFile(dex_file->GetOatDexFile()->GetOatFile()))
+        << "Oat file with .bss GC roots was not registered in class table: "
+        << dex_file->GetOatDexFile()->GetOatFile()->GetLocation();
+    // Note that we emit the barrier before the compiled code stores the string as GC root.
+    // This is OK as there is no suspend point point in between.
+    Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
+  }
+}
+
 extern "C" mirror::Class* artInitializeStaticStorageFromCode(uint32_t type_idx, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Called to ensure static storage base is initialized for direct static field reads and writes.
@@ -38,7 +56,11 @@ extern "C" mirror::Class* artInitializeStaticStorageFromCode(uint32_t type_idx, 
   // given by inheritance.
   ScopedQuickEntrypointChecks sqec(self);
   auto* caller = GetCalleeSaveMethodCaller(self, Runtime::kSaveRefsOnly);
-  return ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, true, false);
+  auto* result = ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, true, false);
+  if (LIKELY(result != nullptr)) {
+    BssWriteBarrier(caller);
+  }
+  return result;
 }
 
 extern "C" mirror::Class* artInitializeTypeFromCode(uint32_t type_idx, Thread* self)
@@ -46,7 +68,11 @@ extern "C" mirror::Class* artInitializeTypeFromCode(uint32_t type_idx, Thread* s
   // Called when method->dex_cache_resolved_types_[] misses.
   ScopedQuickEntrypointChecks sqec(self);
   auto* caller = GetCalleeSaveMethodCaller(self, Runtime::kSaveRefsOnly);
-  return ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, false, false);
+  auto* result = ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, false, false);
+  if (LIKELY(result != nullptr)) {
+    BssWriteBarrier(caller);
+  }
+  return result;
 }
 
 extern "C" mirror::Class* artInitializeTypeAndVerifyAccessFromCode(uint32_t type_idx, Thread* self)
@@ -55,7 +81,11 @@ extern "C" mirror::Class* artInitializeTypeAndVerifyAccessFromCode(uint32_t type
   // unpopulated.
   ScopedQuickEntrypointChecks sqec(self);
   auto* caller = GetCalleeSaveMethodCaller(self, Runtime::kSaveRefsOnly);
-  return ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, false, true);
+  auto* result = ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, false, true);
+  if (LIKELY(result != nullptr)) {
+    BssWriteBarrier(caller);
+  }
+  return result;
 }
 
 extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* self)
@@ -68,22 +98,7 @@ extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* 
                                                        : Runtime::kSaveEverything);
   mirror::String* result = ResolveStringFromCode(caller, dex::StringIndex(string_idx));
   if (LIKELY(result != nullptr)) {
-    // For AOT code, we need a write barrier for the class loader that holds
-    // the GC roots in the .bss.
-    const DexFile* dex_file = caller->GetDexFile();
-    if (dex_file != nullptr &&
-        dex_file->GetOatDexFile() != nullptr &&
-        !dex_file->GetOatDexFile()->GetOatFile()->GetBssGcRoots().empty()) {
-      mirror::ClassLoader* class_loader = caller->GetDeclaringClass()->GetClassLoader();
-      DCHECK(class_loader != nullptr);  // We do not use .bss GC roots for boot image.
-      DCHECK(
-          !class_loader->GetClassTable()->InsertOatFile(dex_file->GetOatDexFile()->GetOatFile()))
-          << "Oat file with .bss GC roots was not registered in class table: "
-          << dex_file->GetOatDexFile()->GetOatFile()->GetLocation();
-      // Note that we emit the barrier before the compiled code stores the string as GC root.
-      // This is OK as there is no suspend point point in between.
-      Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(class_loader);
-    }
+    BssWriteBarrier(caller);
   }
   return result;
 }
