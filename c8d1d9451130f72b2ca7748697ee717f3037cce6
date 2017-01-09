@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "b7b632e5_4e26dedf",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-09T21:21:29Z",
+      "side": 1,
+      "message": "it affects the initialization order in some cases. Also this is the RI behavior so we might as well match it.",
+      "parentUuid": "377a4269_f6766043",
+      "revId": "c8d1d9451130f72b2ca7748697ee717f3037cce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b74b9245_b295c01f",
         "filename": "test/921-hello-failure/run",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 44,
         "endChar": 32
       },
+      "revId": "c8d1d9451130f72b2ca7748697ee717f3037cce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_8ef0f61e",
+        "filename": "test/921-hello-failure/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-09T21:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74b9245_b295c01f",
       "revId": "c8d1d9451130f72b2ca7748697ee717f3037cce6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
