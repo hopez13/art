@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37f5e2fe_1e630d36",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "this change is for cpplint.py\u0027s complain: const or *",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 278,
+        "endChar": 33
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_7e7051f5",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "this change is for cpplint.py\u0027s complain: const or *",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 51
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_9e76fdf4",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Fix cpplint.py\u0027s complain: use rand_r() instead of rand().",
+      "range": {
+        "startLine": 379,
+        "startChar": 20,
+        "endLine": 379,
+        "endChar": 26
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
