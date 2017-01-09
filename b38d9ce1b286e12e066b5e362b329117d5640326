@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_de3fe5c5",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-09T15:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a32217_8e487ba8",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 10
+      },
+      "revId": "b38d9ce1b286e12e066b5e362b329117d5640326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7af12f5_921c1c82",
         "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-09T13:41:38Z",
       "side": 1,
       "message": "Fits on one line.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 73
+      },
+      "revId": "b38d9ce1b286e12e066b5e362b329117d5640326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_3e552913",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-09T15:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7af12f5_921c1c82",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_1e52ed2a",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-09T15:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37f5e2fe_3e0a4945",
+      "range": {
+        "startLine": 79,
+        "startChar": 33,
+        "endLine": 79,
+        "endChar": 68
+      },
+      "revId": "b38d9ce1b286e12e066b5e362b329117d5640326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7af12f5_b217a05e",
         "filename": "runtime/arch/x86/instruction_set_features_x86.h",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_7e4fb182",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-09T15:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7af12f5_b217a05e",
+      "range": {
+        "startLine": 81,
+        "startChar": 28,
+        "endLine": 82,
+        "endChar": 72
+      },
+      "revId": "b38d9ce1b286e12e066b5e362b329117d5640326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37a32217_ee4dbfb6",
         "filename": "runtime/arch/x86_64/instruction_set_features_x86_64.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2017-01-09T13:41:38Z",
       "side": 1,
       "message": "one parameter per line",
+      "range": {
+        "startLine": 77,
+        "startChar": 31,
+        "endLine": 78,
+        "endChar": 75
+      },
+      "revId": "b38d9ce1b286e12e066b5e362b329117d5640326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_5e4c758c",
+        "filename": "runtime/arch/x86_64/instruction_set_features_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-09T15:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a32217_ee4dbfb6",
       "range": {
         "startLine": 77,
         "startChar": 31,
