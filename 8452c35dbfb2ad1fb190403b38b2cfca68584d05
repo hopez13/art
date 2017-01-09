@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3745e284_07b85ca2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done. I\u0027ve moved the function to scheduler.cc because it is the only user.",
+      "range": {
+        "startLine": 1641,
+        "startChar": 0,
+        "endLine": 1649,
+        "endChar": 3
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7180671_8df455b0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 22
@@ -13,6 +36,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "Instead of introducing this notion of globally/locally, I think I\u0027d prefer a MoveBefore(HInstruction* cursor, bool do_checks \u003d true).",
+      "range": {
+        "startLine": 2089,
+        "startChar": 46,
+        "endLine": 2089,
+        "endChar": 55
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_2fc9b548",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "OK. I can change this function into MoveBefore(HInstruction* cursor, bool do_checks \u003d true). And avoid introducing MoveAfter() here.\nIn scheduler, I just simply call MoveBefore(cursur-\u003eGetNext(), false) with a few checks before the call.",
+      "parentUuid": "d7180671_8df455b0",
       "range": {
         "startLine": 2089,
         "startChar": 46,
@@ -48,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_2f5f75fd",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "In the new patch I\u0027ve removed the change here.\nI don\u0027t like having scheduler calling into PrepareForRegisterAllocation, and I think this call from scheduler is actually not needed.",
+      "parentUuid": "17237e9f_69cb2d64",
+      "range": {
+        "startLine": 170,
+        "startChar": 35,
+        "endLine": 170,
+        "endChar": 59
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "773d9abc_7979db6c",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 22
@@ -59,6 +130,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "If this is the only user, would it make sense to move this method here?",
+      "range": {
+        "startLine": 49,
+        "startChar": 29,
+        "endLine": 49,
+        "endChar": 56
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_0f20390f",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773d9abc_7979db6c",
       "range": {
         "startLine": 49,
         "startChar": 29,
@@ -94,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_ef1cddde",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done. In the new patch PS24, I\u0027ve changed them into lots of simple \"if() return\".",
+      "parentUuid": "d7180671_4dfe3d8e",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f71b4a68_1d53d759",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 22
@@ -105,6 +224,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "What does that mean? Please add a comment.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 3
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_af26e528",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f71b4a68_1d53d759",
       "range": {
         "startLine": 146,
         "startChar": 0,
@@ -140,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_8ff56965",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1728de81_216d5641",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f71b4a68_fd57fb41",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 22
@@ -151,6 +318,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "Say why.",
+      "range": {
+        "startLine": 503,
+        "startChar": 2,
+        "endLine": 503,
+        "endChar": 55
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_5e6d951b",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "I\u0027ve added comment and example in the new patch PS24.",
+      "parentUuid": "f71b4a68_fd57fb41",
       "range": {
         "startLine": 503,
         "startChar": 2,
@@ -186,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_6f132d43",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_a9994564",
+      "range": {
+        "startLine": 538,
+        "startChar": 39,
+        "endLine": 538,
+        "endChar": 57
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_49d0710c",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 22
@@ -203,6 +418,24 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_6ffa0d53",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_49d0710c",
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_29d535fc",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 22
@@ -214,6 +447,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "All const?",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 30
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_efaa9d4e",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Yes, some of the members can be const, like is_scheduling_barrier_.\n\nSome of the members needs to set/get, which cannot be const. E.g. the latency_/internal_latency_ values are set according to target specific latency visitor.",
+      "parentUuid": "17237e9f_29d535fc",
       "range": {
         "startLine": 200,
         "startChar": 0,
@@ -249,6 +506,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_4fef5193",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_09ba79be",
+      "range": {
+        "startLine": 241,
+        "startChar": 21,
+        "endLine": 241,
+        "endChar": 22
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_e9b61dda",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 22
@@ -260,6 +541,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 243,
+        "startChar": 2,
+        "endLine": 243,
+        "endChar": 10
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_2ff41563",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_e9b61dda",
       "range": {
         "startLine": 243,
         "startChar": 2,
@@ -295,6 +600,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_0f095997",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_c9c36146",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 31
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_a9c0253a",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 22
@@ -306,6 +635,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "const or *.",
+      "range": {
+        "startLine": 286,
+        "startChar": 22,
+        "endLine": 286,
+        "endChar": 70
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_afff053b",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_a9c0253a",
       "range": {
         "startLine": 286,
         "startChar": 22,
@@ -341,6 +694,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_ef05fd7c",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_09a39996",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 42
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_89afa97c",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 22
@@ -352,6 +729,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "const or *",
+      "range": {
+        "startLine": 351,
+        "startChar": 49,
+        "endLine": 351,
+        "endChar": 78
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_afb4a5b0",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "I guess you meant cpplint issue \"Is this a non-const reference? If so, make const or use a pointer.\" ?\nI\u0027ve changed it to pointer to fix the cpplint issue.",
+      "parentUuid": "17237e9f_89afa97c",
       "range": {
         "startLine": 351,
         "startChar": 49,
@@ -381,6 +782,24 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_cf024173",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_69b44dce",
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_e99f3d48",
         "filename": "compiler/optimizing/scheduler_arm64.cc",
         "patchSetId": 22
@@ -392,6 +811,30 @@
       "writtenOn": "2017-01-03T10:32:10Z",
       "side": 1,
       "message": "Isn\u0027t that dead code? The two ifs above should cover all our suspend checks.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_6fbfad92",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-09T10:49:07Z",
+      "side": 1,
+      "message": "Above checks don\u0027t cover all suspend checks. Please note that there is a \"\u0026\u0026 IsGoto()\" in the second if() check.\nAnd the code you marked here are the \u0027latency\u0027 of instructions generated by GenerateSuspendCheck() in codegen.",
+      "parentUuid": "17237e9f_e99f3d48",
       "range": {
         "startLine": 188,
         "startChar": 0,
