@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_1ea2ed80",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_8a4797c1",
+      "range": {
+        "startLine": 911,
+        "startChar": 68,
+        "endLine": 911,
+        "endChar": 84
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_0fba79be",
         "filename": "compiler/optimizing/instruction_builder.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-05T17:04:18Z",
       "side": 1,
       "message": "\" is \"",
+      "range": {
+        "startLine": 179,
+        "startChar": 16,
+        "endLine": 179,
+        "endChar": 17
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_6afafb52",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_0fba79be",
       "range": {
         "startLine": 179,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_7e9fb138",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2080,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_4a417fa9",
+      "range": {
+        "startLine": 2080,
+        "startChar": 7,
+        "endLine": 2080,
+        "endChar": 19
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_2a4643c3",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-06T11:36:16Z",
       "side": 1,
       "message": "while you\u0027re at it: \"..., and there will be ...\"",
+      "range": {
+        "startLine": 471,
+        "startChar": 25,
+        "endLine": 471,
+        "endChar": 56
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_3ea52989",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_2a4643c3",
       "range": {
         "startLine": 471,
         "startChar": 25,
@@ -111,6 +207,47 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_aafff33a",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done.\n\nWhen enabling the verifier, the code was missing \"just_set_result \u003d true\" which caused a failure and instruction dump that was opaque.",
+      "parentUuid": "17237e9f_efb61dda",
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_6fe20dee",
+        "filename": "runtime/entrypoints/quick/quick_default_externs.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Fix declaration.\nDone.",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_0a3b872b",
         "filename": "runtime/entrypoints/quick/quick_default_init_entrypoints.h",
         "patchSetId": 6
@@ -134,6 +271,53 @@
     },
     {
       "key": {
+        "uuid": "37f5e2fe_5e9c7542",
+        "filename": "runtime/entrypoints/quick/quick_default_init_entrypoints.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "17237e9f_0a3b872b",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 35
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_4fd7510e",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Fix name and signature info.\n\nDone.",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 46
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_ea372b3d",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 6
@@ -145,6 +329,30 @@
       "writtenOn": "2017-01-06T11:36:16Z",
       "side": 1,
       "message": "Also add a comment that this information is static, so we could have made the compiler handle it, but for simplcity reasons (need only one entrypoint) we did not.",
+      "range": {
+        "startLine": 2396,
+        "startChar": 0,
+        "endLine": 2396,
+        "endChar": 89
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_defd25f8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_ea372b3d",
       "range": {
         "startLine": 2396,
         "startChar": 0,
@@ -180,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "77b59a43_50090c0c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2416,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Placed a RememberForGCArgumentVisitor before this which ensures the GC sees them.",
+      "parentUuid": "17237e9f_aa313349",
+      "range": {
+        "startLine": 2416,
+        "startChar": 31,
+        "endLine": 2416,
+        "endChar": 53
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_ca346f3b",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 6
@@ -191,6 +423,30 @@
       "writtenOn": "2017-01-06T11:36:16Z",
       "side": 1,
       "message": "Shouldn\u0027t that be line 2404? All the arguments are in the stack or in registers, which the GC doesn\u0027t know about.",
+      "range": {
+        "startLine": 2451,
+        "startChar": 2,
+        "endLine": 2451,
+        "endChar": 99
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_3ef3692d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2451,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17237e9f_ca346f3b",
       "range": {
         "startLine": 2451,
         "startChar": 2,
@@ -226,6 +482,30 @@
     },
     {
       "key": {
+        "uuid": "17237e9f_ea05eb7c",
+        "filename": "test/953-invoke-polymorphic-compiler/run",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "There are --interpreter and -jit options in art/test/etc/run-test-jar that we might be able to use to force passes with both the interpreter and JIT.\n\nJIT compilation is forced in 953 using the $opt$ prefix in method names (strictly just has to appear in the method name).\n\nThe compiler tests were helpful in progressing the compiler, ie focus on making sure argument passing works, then focus on return value propagation, then worry about exceptions. Our existing tests were failing, but needed to disentangle the failures.",
+      "parentUuid": "17237e9f_8fafa97c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 48
+      },
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_afc0253a",
         "filename": "test/957-methodhandle-transforms/src/Main.java",
         "patchSetId": 6
@@ -237,6 +517,24 @@
       "writtenOn": "2017-01-05T17:04:18Z",
       "side": 1,
       "message": "(this could have gone into a separate change too)",
+      "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17237e9f_8a5e7791",
+        "filename": "test/957-methodhandle-transforms/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-09T14:54:27Z",
+      "side": 1,
+      "message": "Updated commit message to include this. Some of these tests were being JIT compiled and failing with \"Unexpected value:\" which wasn\u0027t otherwise possible to track down.",
+      "parentUuid": "17237e9f_afc0253a",
       "revId": "7468faa06b35b2edc25590495d2ddb90ffa14a20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
