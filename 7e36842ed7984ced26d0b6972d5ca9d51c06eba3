@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97e68e58_213cee7f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T09:27:10Z",
+      "side": 1,
+      "message": "I think I\u0027d like having raw_method_handle \u003d nullptr to prevent ourselves shooting in the foot, but I don\u0027t think this has been the style in ART. So up to you if you think it\u0027s worthwhile.",
+      "range": {
+        "startLine": 2431,
+        "startChar": 0,
+        "endLine": 2434,
+        "endChar": 93
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f71d0a4e_0452d683",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T09:27:10Z",
+      "side": 1,
+      "message": "You could DHCECK this with WellKnownClasses::.. right?",
+      "range": {
+        "startLine": 2437,
+        "startChar": 23,
+        "endLine": 2437,
+        "endChar": 86
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7e1d242_82da1a77",
+        "filename": "runtime/oat.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T09:27:10Z",
+      "side": 1,
+      "message": "Add a // new method handle entry point.\n\n(reason is we want to force a merge conflict if someone else concurrently increase the version).",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
