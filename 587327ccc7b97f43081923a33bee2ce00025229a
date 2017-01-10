@@ -22,6 +22,30 @@
       "revId": "587327ccc7b97f43081923a33bee2ce00025229a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d752c6c5_c30dd620",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-10T10:59:54Z",
+      "side": 1,
+      "message": "Shall remove in https://android-review.googlesource.com/320330 .",
+      "parentUuid": "b7b632e5_4effbeef",
+      "range": {
+        "startLine": 172,
+        "startChar": 9,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "587327ccc7b97f43081923a33bee2ce00025229a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
