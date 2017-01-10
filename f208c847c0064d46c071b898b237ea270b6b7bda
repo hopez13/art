@@ -46,6 +46,30 @@
       "revId": "f208c847c0064d46c071b898b237ea270b6b7bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37608288_49202511",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2017-01-10T16:06:10Z",
+      "side": 1,
+      "message": "Sorry, these are not leftovers, Proxy init needs to be late, since its clinit calls JNI now (yay, an improvement...)\n\nOtherwise you get a \n  at void android.system.OsConstants.initConstants() (OsConstants.java:-2)\n  at void android.system.OsConstants.\u003cclinit\u003e() (OsConstants.java:899)\n  at int java.lang.Runtime.availableProcessors() (Runtime.java:710)\n  at void java.util.concurrent.ConcurrentHashMap.\u003cclinit\u003e() (ConcurrentHashMap.java:597)\n  at void java.lang.reflect.WeakCache.\u003cinit\u003e(java.util.function.BiFunction, java.util.function.BiFunction) (WeakCache.java:63)\n  at void java.lang.reflect.Proxy.\u003cclinit\u003e() (Proxy.java:253)\n\nin test-art-host-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-119-noimage-patchoat32",
+      "parentUuid": "d752c6c5_2384ea2c",
+      "range": {
+        "startLine": 396,
+        "startChar": 1,
+        "endLine": 397,
+        "endChar": 124
+      },
+      "revId": "f208c847c0064d46c071b898b237ea270b6b7bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
