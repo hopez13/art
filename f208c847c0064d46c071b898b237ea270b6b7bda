@@ -70,6 +70,30 @@
       "revId": "f208c847c0064d46c071b898b237ea270b6b7bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70ab2d0_dd8fdf0b",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T16:46:50Z",
+      "side": 1,
+      "message": "But then remove the other places where those two static variables are initialized?",
+      "parentUuid": "37608288_49202511",
+      "range": {
+        "startLine": 396,
+        "startChar": 1,
+        "endLine": 397,
+        "endChar": 124
+      },
+      "revId": "f208c847c0064d46c071b898b237ea270b6b7bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
