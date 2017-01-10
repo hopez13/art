@@ -46,6 +46,30 @@
       "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371ec218_3920ab10",
+        "filename": "runtime/openjdkjvmti/ti_properties.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T16:45:03Z",
+      "side": 1,
+      "message": "Unclear to me why duplication is better.\n\nBut at least move this in a header file in the runtime directory and not in jvmti?",
+      "parentUuid": "b7b632e5_b1d19212",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 2
+      },
+      "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
