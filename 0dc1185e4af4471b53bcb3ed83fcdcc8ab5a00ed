@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_25b9c0a7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2621,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "length_is_input_length not checked here. Why?",
+      "range": {
+        "startLine": 2621,
+        "startChar": 0,
+        "endLine": 2621,
+        "endChar": 51
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_2504607e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2632,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "If this path is taken, we also generate the Lw before it and some code after it. Can we write this entire method in the same way as on x86 and ARM in terms of structure and logic?",
+      "range": {
+        "startLine": 2630,
+        "startChar": 0,
+        "endLine": 2632,
+        "endChar": 49
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_4264eaf9",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2645,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Always false because Location::RegisterLocation(count) is passed as length.",
+      "range": {
+        "startLine": 2645,
+        "startChar": 6,
+        "endLine": 2645,
+        "endChar": 25
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_faa5ac54",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Is this really needed? This isn\u0027t done for x86 or ARM.",
+      "range": {
+        "startLine": 2683,
+        "startChar": 0,
+        "endLine": 2689,
+        "endChar": 3
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_82cd2221",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2734,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Use Addiu32().",
+      "range": {
+        "startLine": 2729,
+        "startChar": 0,
+        "endLine": 2734,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_2271b6f8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Use Addiu32().",
+      "range": {
+        "startLine": 2736,
+        "startChar": 0,
+        "endLine": 2741,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_e23b3e28",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2752,
+        "startChar": 0,
+        "endLine": 2757,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_e2b41e85",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2764,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:46:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2759,
+        "startChar": 0,
+        "endLine": 2764,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
