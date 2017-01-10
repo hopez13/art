@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_2888ab07",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T21:27:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d752c6c5_867b6cdc",
+      "range": {
+        "startLine": 5968,
+        "startChar": 10,
+        "endLine": 5968,
+        "endChar": 36
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7e1d242_05aa9422",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_088de717",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T21:27:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e1d242_05aa9422",
+      "range": {
+        "startLine": 7326,
+        "startChar": 48,
+        "endLine": 7326,
+        "endChar": 74
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e68e58_21eeaed3",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-10T18:07:56Z",
       "side": 1,
       "message": "This still prevents GVN across dex files.",
+      "range": {
+        "startLine": 2516,
+        "startChar": 6,
+        "endLine": 2516,
+        "endChar": 55
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_e8a17386",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2516,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T21:27:42Z",
+      "side": 1,
+      "message": "Yes, in the commit message I say \"Makes it possible\" :) I may address this with proper checker tests in a follow-up CL.",
+      "parentUuid": "97e68e58_21eeaed3",
       "range": {
         "startLine": 2516,
         "startChar": 6,
