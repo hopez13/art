@@ -892,6 +892,30 @@
       "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70ab2d0_fac5899f",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T10:47:04Z",
+      "side": 1,
+      "message": "Hmmm, I see the code generators have their VisitSuspendCheck with the same checks.\n\nBut I think you could DCHECK here that this is dead code.",
+      "parentUuid": "b70ab2d0_3a870167",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
