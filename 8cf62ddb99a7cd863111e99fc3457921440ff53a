@@ -46,6 +46,30 @@
       "revId": "8cf62ddb99a7cd863111e99fc3457921440ff53a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_515e765c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3562,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2017-01-10T11:26:17Z",
+      "side": 0,
+      "message": "Currently EmitPcRelativeAddressPlaceholderHigh() supplies bits 16 through 31 of the relative address using the auipc instruction and GenerateGcRootFieldLoad() supplies bits 0 through 15 of the relative address in the offset operand of the load instruction. The relative patcher patches the immediate operands in auipc and the load and expects no gaps between the two instructions. If GenerateGcRootFieldLoad() needs to do something before the load, this will break the instruction sequence that the patcher expects and so the code will need to be reworked. That\u0027s all.",
+      "parentUuid": "97e68e58_a1cabe5d",
+      "range": {
+        "startLine": 3562,
+        "startChar": 0,
+        "endLine": 3562,
+        "endChar": 74
+      },
+      "revId": "8cf62ddb99a7cd863111e99fc3457921440ff53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
