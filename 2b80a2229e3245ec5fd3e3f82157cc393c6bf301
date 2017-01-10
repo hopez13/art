@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "175d3ed4_056e92aa",
+        "filename": "runtime/openjdkjvmti/ti_properties.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T10:19:07Z",
+      "side": 1,
+      "message": "Why do we duplicate that list? Can we avoid it?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 2
+      },
+      "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
