@@ -620,7 +620,17 @@ class JvmtiFunctions {
   static jvmtiError RedefineClasses(jvmtiEnv* env,
                                     jint class_count,
                                     const jvmtiClassDefinition* class_definitions) {
-    return ERR(NOT_IMPLEMENTED);
+    std::string error_msg;
+    jvmtiError res = Redefiner::RedefineClasses(ArtJvmTiEnv::AsArtJvmTiEnv(env),
+                                                art::Runtime::Current(),
+                                                art::Thread::Current(),
+                                                class_count,
+                                                class_definitions,
+                                                &error_msg);
+    if (res != OK) {
+      LOG(WARNING) << "FAILURE TO REDEFINE " << error_msg;
+    }
+    return res;
   }
 
   static jvmtiError GetObjectSize(jvmtiEnv* env, jobject object, jlong* size_ptr) {
@@ -1172,28 +1182,30 @@ class JvmtiFunctions {
                                         jclass klass,
                                         jint dex_size,
                                         unsigned char* dex_file) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
-    jvmtiError ret = OK;
-    std::string location;
-    if ((ret = GetClassLocation(env, klass, &location)) != OK) {
-      // TODO Do something more here? Maybe give log statements?
-      return ret;
-    }
-    std::string error;
-    ret = Redefiner::RedefineClass(env,
-                                    art::Runtime::Current(),
-                                    art::Thread::Current(),
-                                    klass,
-                                    location,
-                                    dex_size,
-                                    reinterpret_cast<uint8_t*>(dex_file),
-                                    &error);
-    if (ret != OK) {
-      LOG(WARNING) << "FAILURE TO REDEFINE " << error;
-    }
-    return ret;
+    jvmtiClassDefinition def = { klass, dex_size, dex_file };
+    return env->RedefineClasses(1, &def);
+    // if (!IsValidEnv(env)) {
+    //   return ERR(INVALID_ENVIRONMENT);
+    // }
+    // jvmtiError ret = OK;
+    // std::string location;
+    // if ((ret = GetClassLocation(env, klass, &location)) != OK) {
+    //   // TODO Do something more here? Maybe give log statements?
+    //   return ret;
+    // }
+    // std::string error;
+    // ret = Redefiner::RedefineClass(env,
+    //                                 art::Runtime::Current(),
+    //                                 art::Thread::Current(),
+    //                                 klass,
+    //                                 location,
+    //                                 dex_size,
+    //                                 reinterpret_cast<uint8_t*>(dex_file),
+    //                                 &error);
+    // if (ret != OK) {
+    //   LOG(WARNING) << "FAILURE TO REDEFINE " << error;
+    // }
+    // return ret;
   }
 
   // TODO This will be called by the event handler for the art::ti Event Load Event
@@ -1240,14 +1252,13 @@ class JvmtiFunctions {
            /*out*/&new_dex_data);
       // Check if anything actually changed.
       if ((new_data_len != 0 || new_dex_data != nullptr) && new_dex_data != dex_data) {
-        res = Redefiner::RedefineClass(env,
-                                       art::Runtime::Current(),
-                                       art::Thread::Current(),
-                                       klass,
-                                       location,
-                                       new_data_len,
-                                       new_dex_data,
-                                       &error);
+        jvmtiClassDefinition def = { klass, new_data_len, new_dex_data };
+        res = Redefiner::RedefineClasses(env,
+                                         art::Runtime::Current(),
+                                         art::Thread::Current(),
+                                         1,
+                                         &def,
+                                         &error);
         env->Deallocate(new_dex_data);
       }
       // Deallocate the old dex data.
