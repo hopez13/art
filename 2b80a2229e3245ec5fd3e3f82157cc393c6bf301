@@ -22,6 +22,30 @@
       "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_b1d19212",
+        "filename": "runtime/openjdkjvmti/ti_properties.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-10T15:53:11Z",
+      "side": 1,
+      "message": "I\u0027d rather not deduplicate. Having these on the Java side makes libcore complete and allows a simple specialization in the Unstarted Runtime for compile-time initialization. Also, there\u0027s more in the list that\u0027s somewhat esoteric (certain debug switches) that doesn\u0027t make sense here.\n\nWe can\u0027t do the same here because these are supposed to be available during runtime startup. (At least the base things.)",
+      "parentUuid": "175d3ed4_056e92aa",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 2
+      },
+      "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
