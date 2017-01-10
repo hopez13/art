@@ -473,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "97712e5a_8c670763",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T14:12:23Z",
+      "side": 1,
+      "message": ":) Better be consistent with myself then :)\n\nDone. And I\u0027ve also added more checker tests.",
+      "parentUuid": "b7b632e5_581eab48",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 5
+      },
+      "revId": "b7a510b235c27812647b2acd6bd6dcecfde8fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17237e9f_0a66e745",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
