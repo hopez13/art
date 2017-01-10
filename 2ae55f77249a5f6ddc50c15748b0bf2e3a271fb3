@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7b632e5_bd624052",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-10T22:12:13Z",
+      "side": 1,
+      "message": "Reorder for better readability",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "2ae55f77249a5f6ddc50c15748b0bf2e3a271fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_bd1c0082",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-10T22:12:13Z",
+      "side": 1,
+      "message": "Active voice, please.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 20
+      },
+      "revId": "2ae55f77249a5f6ddc50c15748b0bf2e3a271fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_1d2deca7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-10T22:12:13Z",
+      "side": 1,
+      "message": "\"This will simplify\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "2ae55f77249a5f6ddc50c15748b0bf2e3a271fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_3d28f095",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-10T22:12:13Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "2ae55f77249a5f6ddc50c15748b0bf2e3a271fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_8898b756",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
