@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d752c6c5_a66c6845",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T16:57:28Z",
+      "side": 1,
+      "message": "Could you add a comment that we initialize these late as CacheField and CacheMethod initialize the classes?",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 1
+      },
+      "revId": "c64a70c229dfcb59a4562863f61f4c59be7ec900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
