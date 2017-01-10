@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "175d3ed4_e54fb635",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-10T12:17:37Z",
+      "side": 1,
+      "message": "raw_method_handle after EndAssertNoThreadSuspension is unsafe to use (as it may have been moved). So setting null to it prevents us from using an invalid object.\n\nIs that clearer?",
+      "parentUuid": "d752c6c5_03b3ee32",
+      "range": {
+        "startLine": 2431,
+        "startChar": 0,
+        "endLine": 2434,
+        "endChar": 93
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f71d0a4e_0452d683",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 12
