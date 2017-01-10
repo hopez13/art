@@ -94,6 +94,24 @@
       "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_9f45746a",
+        "filename": "runtime/openjdkjvmti/ti_properties.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-10T20:49:35Z",
+      "side": 1,
+      "message": "I agree with agampe@. These need to be available before we are able to read them from libcore. Since the runtime \u0026 the rest of the openjdkjvmti plugin don\u0027t need to see them I don\u0027t see any reason to put them into a header either.",
+      "parentUuid": "b7b632e5_7c48b1cf",
+      "revId": "2b80a2229e3245ec5fd3e3f82157cc393c6bf301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
