@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b70ab2d0_7a9df94e",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-10T16:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d752c6c5_a3dbfa36",
+      "range": {
+        "startLine": 181,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 9
+      },
+      "revId": "6d15085e92442b131b0c6246a71fb598ded759b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7f72608_db49b332",
         "filename": "compiler/optimizing/scheduler_arm64.cc",
         "patchSetId": 26
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-10T14:43:24Z",
       "side": 1,
       "message": "Do you still need this then?",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 1
+      },
+      "revId": "6d15085e92442b131b0c6246a71fb598ded759b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97e68e58_24da3cd2",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-10T16:27:15Z",
+      "side": 1,
+      "message": "Yes I do.\nSince this HSuspendCheck doesn\u0027t generate any code, it should be 0 latency. I\u0027ve added setting it to 0 in the new patch.\nBy default, HInstruction without a visitor function in this file would have the default kArm64IntegerOpLatency.",
+      "parentUuid": "d7f72608_db49b332",
       "range": {
         "startLine": 178,
         "startChar": 0,
