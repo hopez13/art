@@ -868,6 +868,30 @@
       "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70ab2d0_3a870167",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-10T10:23:19Z",
+      "side": 1,
+      "message": "This latency visitor faithfully follows the code generator code and calculate latency for each HInstruction.\nNicolas, I think above checks are introduced by you two years ago:\nhttps://android-review.googlesource.com/#/c/108834/3/compiler/optimizing/code_generator_x86_64.cc@1426",
+      "parentUuid": "b7af12f5_f22648e6",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
