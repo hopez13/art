@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7b632e5_65cad809",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-10T01:49:35Z",
+      "side": 1,
+      "message": "I believe, more testing is due than mentioned here.\n1. boot R2 \u0026 R6.\n2. all tests on R2 \u0026 R6, not just 011-array-copy.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_25b9c0a7",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
