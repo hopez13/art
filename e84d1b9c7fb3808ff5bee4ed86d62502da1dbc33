@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d752c6c5_867b6cdc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-10T18:07:56Z",
+      "side": 1,
+      "message": "This is broken, trying to cast directly from 32-bit pointer to uint64_t can surprisingly yield sign-extended result. reinterpret_cast\u003cuintptr_t\u003e() is correct. Alternatively, use reinterpret_cast64\u003cuint64_t\u003e() from casts.h. (Apply to all codegens.)\n\nAdd CHECK_NE(address, 0u);",
+      "range": {
+        "startLine": 5968,
+        "startChar": 10,
+        "endLine": 5968,
+        "endChar": 36
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7e1d242_05aa9422",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-10T18:07:56Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 7326,
+        "startChar": 48,
+        "endLine": 7326,
+        "endChar": 74
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97e68e58_21eeaed3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-10T18:07:56Z",
+      "side": 1,
+      "message": "This still prevents GVN across dex files.",
+      "range": {
+        "startLine": 2516,
+        "startChar": 6,
+        "endLine": 2516,
+        "endChar": 55
+      },
+      "revId": "e84d1b9c7fb3808ff5bee4ed86d62502da1dbc33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
