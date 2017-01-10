@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b632e5_17e78e29",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3839,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-10T18:46:44Z",
+      "side": 1,
+      "message": "Maybe move this to heap.h to ensure inlining or add \"ALWAYS_INLINE inline\" to this here in .cc?",
+      "range": {
+        "startLine": 3839,
+        "startChar": 14,
+        "endLine": 3839,
+        "endChar": 41
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_d7527653",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3858,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-10T18:46:44Z",
+      "side": 1,
+      "message": "Re: size_t vs ssize_t, the current seems fine to me, as long as we don\u0027t expect native allocations to exceed 2 GB. An alternative may be to change this to size_t and cast it to ssize_t internally in this function before using it (and remove the CHECK_GE).",
+      "range": {
+        "startLine": 3858,
+        "startChar": 49,
+        "endLine": 3858,
+        "endChar": 56
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
