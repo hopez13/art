@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d752c6c5_03b3ee32",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2434,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-10T10:59:25Z",
+      "side": 1,
+      "message": "Sorry, I couldn\u0027t follow - can you rephrase? Thanks.",
+      "parentUuid": "97e68e58_213cee7f",
+      "range": {
+        "startLine": 2431,
+        "startChar": 0,
+        "endLine": 2434,
+        "endChar": 93
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f71d0a4e_0452d683",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "37608288_e6a9fec7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-10T10:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f71d0a4e_0452d683",
+      "range": {
+        "startLine": 2437,
+        "startChar": 23,
+        "endLine": 2437,
+        "endChar": 86
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7e1d242_82da1a77",
         "filename": "runtime/oat.h",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-10T09:27:10Z",
       "side": 1,
       "message": "Add a // new method handle entry point.\n\n(reason is we want to force a merge conflict if someone else concurrently increase the version).",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "7e36842ed7984ced26d0b6972d5ca9d51c06eba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70ab2d0_5a7e3580",
+        "filename": "runtime/oat.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-10T10:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e1d242_82da1a77",
       "range": {
         "startLine": 35,
         "startChar": 65,
