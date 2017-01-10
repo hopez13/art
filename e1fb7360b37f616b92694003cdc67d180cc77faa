@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b70ab2d0_ba6951da",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-10T10:23:19Z",
+      "side": 1,
+      "message": "Sure. I\u0027ll do it in the next patch.",
+      "parentUuid": "37f5e2fe_de99a508",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 22
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57ec163c_3f588771",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 24
@@ -174,6 +198,30 @@
       "writtenOn": "2017-01-09T10:57:52Z",
       "side": 1,
       "message": "I cannot parse this comment.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 71
+      },
+      "revId": "e1fb7360b37f616b92694003cdc67d180cc77faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f5e2fe_bea499f1",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-01-10T10:23:19Z",
+      "side": 1,
+      "message": "I was trying to add comment to explain why we don\u0027t schedule blocks that are part of try-catch. How about following comment, does it make things clear?\n\n // Do not schedule blocks that are part of try-catch.\n // Because scheduler cannot see if catch block has assumptions on the instruction order in\n // the try block. In following example, if we enable scheduler for the try block,\n // MulitiplyAccumulate may be scheduled before DivZeroCheck, \n // which can result in an incorrect value in the catch block.\n //   try {\n //     a \u003d a/b;    // DivZeroCheck\n //                 // Div\n //     c \u003d c*d+e;  // MulitiplyAccumulate\n //   } catch {System.out.print(c); }",
+      "parentUuid": "77b59a43_b017985e",
       "range": {
         "startLine": 550,
         "startChar": 0,
