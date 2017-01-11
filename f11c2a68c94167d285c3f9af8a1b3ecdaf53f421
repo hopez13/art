@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_b7f72762",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3481,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-11T20:35:19Z",
+      "side": 1,
+      "message": "Do we need a fake dependency to the monitor load from the read-barrier-less load in the subsequent InstanceFieldGet by having \"obj \u003d obj \u0026 (temp \u003e\u003e 32)\" here?",
+      "range": {
+        "startLine": 3480,
+        "startChar": 0,
+        "endLine": 3481,
+        "endChar": 31
+      },
+      "revId": "f11c2a68c94167d285c3f9af8a1b3ecdaf53f421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
