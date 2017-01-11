@@ -744,14 +744,55 @@ void IntrinsicCodeGeneratorMIPS::VisitLongBitCount(HInvoke* invoke) {
   GenBitCount(invoke->GetLocations(), Primitive::kPrimLong, IsR6(), GetAssembler());
 }
 
-static void MathAbsFP(LocationSummary* locations, bool is64bit, MipsAssembler* assembler) {
+static void MathAbsFP(LocationSummary* locations,
+                      bool is64bit,
+                      bool isR2OrNewer,
+                      bool isR6,
+                      MipsAssembler* assembler) {
   FRegister in = locations->InAt(0).AsFpuRegister<FRegister>();
   FRegister out = locations->Out().AsFpuRegister<FRegister>();
 
-  if (is64bit) {
-    __ AbsD(out, in);
+  // Documentation for float/double java.lang.Math.abs(float/double) instructs:
+  //
+  // The result is the same as the value of the expression:
+  //   - float: Float.intBitsToFloat(0x7fffffff & Float.floatToIntBits(a))
+  //   - double: Double.longBitsToDouble((Double.doubleToLongBits(a)<<1)>>>1)
+  //
+  // The ABS.fmt instructions (abs.s and abs.d) do the same when NAN2008=1 (R6). For this case, both
+  // regular floating point numbers and NAN values are treated alike, only the sign bit is affected
+  // by this instruction.
+  // But when NAN2008=0 (R2 and before), the ABS.fmt instructions can't be used. For this case, any
+  // NaN operand signals invalid operation. This means that other bits (not just sign bit) might be
+  // changed when doing abs(NaN). Because of that, we clear sign bit in a different way.
+  if (isR6) {
+    if (is64bit) {
+      __ AbsD(out, in);
+    } else {
+      __ AbsS(out, in);
+    }
   } else {
-    __ AbsS(out, in);
+    if (is64bit) {
+      __ MovD(out, in);
+      __ Mfc1(TMP, static_cast<FRegister>(in + 1));
+      // ins instruction is not available for R1.
+      if (isR2OrNewer) {
+        __ Ins(TMP, ZERO, 31, 1);
+      } else {
+        __ Sll(TMP, TMP, 1);
+        __ Srl(TMP, TMP, 1);
+      }
+      __ Mtc1(TMP, static_cast<FRegister>(out + 1));
+    } else {
+      __ Mfc1(TMP, in);
+      // ins instruction is not available for R1.
+      if (isR2OrNewer) {
+        __ Ins(TMP, ZERO, 31, 1);
+      } else {
+        __ Sll(TMP, TMP, 1);
+        __ Srl(TMP, TMP, 1);
+      }
+      __ Mtc1(TMP, out);
+    }
   }
 }
 
@@ -761,7 +802,7 @@ void IntrinsicLocationsBuilderMIPS::VisitMathAbsDouble(HInvoke* invoke) {
 }
 
 void IntrinsicCodeGeneratorMIPS::VisitMathAbsDouble(HInvoke* invoke) {
-  MathAbsFP(invoke->GetLocations(), /* is64bit */ true, GetAssembler());
+  MathAbsFP(invoke->GetLocations(), /* is64bit */ true, IsR2OrNewer(), IsR6(), GetAssembler());
 }
 
 // float java.lang.Math.abs(float)
@@ -770,7 +811,7 @@ void IntrinsicLocationsBuilderMIPS::VisitMathAbsFloat(HInvoke* invoke) {
 }
 
 void IntrinsicCodeGeneratorMIPS::VisitMathAbsFloat(HInvoke* invoke) {
-  MathAbsFP(invoke->GetLocations(), /* is64bit */ false, GetAssembler());
+  MathAbsFP(invoke->GetLocations(), /* is64bit */ false, IsR2OrNewer(), IsR6(), GetAssembler());
 }
 
 static void GenAbsInteger(LocationSummary* locations, bool is64bit, MipsAssembler* assembler) {
