@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_ffd82b61",
+        "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/Fuzzer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-11T18:26:01Z",
+      "side": 1,
+      "message": "actually, you always needs to run it at least once (so divergenceRetry should be \u003e\u003d 1, not \u003e\u003d 0 as tested in the main driver). So, I would add the value 1 here (so that the name is really the number of retries).",
+      "revId": "3caf1addbff1a91fcfa4fc4dc9923eda7c46cc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
