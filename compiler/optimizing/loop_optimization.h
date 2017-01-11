@@ -60,19 +60,21 @@ class HLoopOptimization : public HOptimization {
 
   void TraverseLoopsInnerToOuter(LoopNode* node);
 
+  // Simplification.
   void SimplifyInduction(LoopNode* node);
   void SimplifyBlocks(LoopNode* node);
-  void RemoveIfEmptyInnerLoop(LoopNode* node);
+  void SimplifyInnerLoop(LoopNode* node);
 
+  // Helpers.
   bool IsPhiInduction(HPhi* phi);
   bool IsEmptyHeader(HBasicBlock* block);
   bool IsEmptyBody(HBasicBlock* block);
-
   bool IsOnlyUsedAfterLoop(HLoopInformation* loop_info,
                            HInstruction* instruction,
+                           bool collect,
                            /*out*/ int32_t* use_count);
-  void ReplaceAllUses(HInstruction* instruction, HInstruction* replacement);
   bool TryReplaceWithLastValue(HInstruction* instruction, HBasicBlock* block);
+  void RemoveDeadInstructions(const HInstructionList& list);
 
   // Range information based on prior induction variable analysis.
   InductionVarRange induction_range_;
