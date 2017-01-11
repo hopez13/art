@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_30b9fd8a",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T22:38:52Z",
+      "side": 1,
+      "message": "Removed this part in the latest CL.",
+      "parentUuid": "a3d9950f_b72ac747",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 20
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_aa6823f9",
         "filename": "runtime/openjdkjvmti/ti_monitor.cc",
         "patchSetId": 3
