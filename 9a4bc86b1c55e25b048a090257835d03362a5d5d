@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a356f512_a84b7b68",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-11T13:14:00Z",
+      "side": 1,
+      "message": "Also mention that you update new_native_bytes_allocated to 0.",
+      "range": {
+        "startLine": 2630,
+        "startChar": 0,
+        "endLine": 2631,
+        "endChar": 32
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_17e78e29",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
@@ -41,6 +64,29 @@
         "startChar": 49,
         "endLine": 3858,
         "endChar": 56
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_8848b76c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3889,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-11T13:14:00Z",
+      "side": 1,
+      "message": "Please add comments about the logic here. It\u0027s unclear why you need to decrement both counters.",
+      "range": {
+        "startLine": 3888,
+        "startChar": 0,
+        "endLine": 3889,
+        "endChar": 52
       },
       "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
