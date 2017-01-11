@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_d031910d",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T23:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_ed0e42eb",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_ea5e2b55",
         "filename": "runtime/openjdkjvmti/ti_monitor.cc",
         "patchSetId": 3
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "Good. It needs to be removed because the break in the critical section is unexpected.",
       "parentUuid": "a3d9950f_30b9fd8a",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 20
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_703ea5df",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T23:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_106e3917",
       "range": {
         "startLine": 163,
         "startChar": 4,
