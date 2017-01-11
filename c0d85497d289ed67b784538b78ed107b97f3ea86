@@ -164,6 +164,30 @@
       "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_08e72725",
+        "filename": "test/496-checker-inlining-class-loader/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T15:43:00Z",
+      "side": 1,
+      "message": "Done, using the class_name attribute. (It was already mentioned in the comment above.)",
+      "parentUuid": "a356f512_280b0b0f",
+      "range": {
+        "startLine": 112,
+        "startChar": 5,
+        "endLine": 112,
+        "endChar": 81
+      },
+      "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
