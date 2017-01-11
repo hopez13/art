@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_f0a13586",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-11T22:46:36Z",
+      "side": 1,
+      "message": "Although I probably voted for this API, the naming here seems awful enough, and this is obscure enough, that I would be tempted to add a comment. It really means \"don\u0027t release the lock\".",
+      "range": {
+        "startLine": 151,
+        "startChar": 6,
+        "endLine": 151,
+        "endChar": 19
+      },
+      "revId": "d05754a2f3971ee3dd9a497a404a0f7b0eca3756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_70d6a5aa",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-11T22:46:36Z",
+      "side": 1,
+      "message": "My previous comment was too delicate here. This is incorrect by Java monitor semantics. notify() doesn\u0027t break the critical section. (See the java.lang.Object documentation.)\n\nA good way to think of Java monitors is that, if you only worry about partial correctness, and not termination or performance, wait() is just unlock followed by lock, and notify is a no-op.\n\nBut I saw you now fixed it.",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 174,
+        "endChar": 20
+      },
+      "revId": "d05754a2f3971ee3dd9a497a404a0f7b0eca3756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
