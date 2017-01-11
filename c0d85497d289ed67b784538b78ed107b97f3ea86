@@ -140,6 +140,30 @@
       "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_280b0b0f",
+        "filename": "test/496-checker-inlining-class-loader/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-11T14:42:32Z",
+      "side": 1,
+      "message": "Ah I see. Please also mention that the LoadClass is for java.lang.System.",
+      "parentUuid": "a356f512_c84eaf7a",
+      "range": {
+        "startLine": 112,
+        "startChar": 5,
+        "endLine": 112,
+        "endChar": 81
+      },
+      "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
