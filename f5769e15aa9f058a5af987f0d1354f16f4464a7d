@@ -22,6 +22,30 @@
       "revId": "f5769e15aa9f058a5af987f0d1354f16f4464a7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7b632e5_2ee7d429",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-11T00:18:32Z",
+      "side": 1,
+      "message": "The stack gc root handling would need to be fixed for GetPendingExceptionAsGCRoot.",
+      "parentUuid": "b7b632e5_ce19f860",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 190,
+        "endChar": 20
+      },
+      "revId": "f5769e15aa9f058a5af987f0d1354f16f4464a7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
