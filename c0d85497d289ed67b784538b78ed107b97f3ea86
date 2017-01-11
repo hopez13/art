@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_4843df55",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T14:06:06Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "a356f512_c86d8f1b",
+      "range": {
+        "startLine": 497,
+        "startChar": 9,
+        "endLine": 497,
+        "endChar": 32
+      },
+      "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_68a4634a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_a8349bfe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T14:06:06Z",
+      "side": 1,
+      "message": "One good reason is that this makes the DCE for boot image classes consistent between PIC (kDexCacheViaMethod; later with kBssEntry) and non-PIC (kBootImageAddress).",
+      "parentUuid": "a356f512_68a4634a",
+      "range": {
+        "startLine": 5582,
+        "startChar": 12,
+        "endLine": 5582,
+        "endChar": 77
+      },
+      "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_684b4398",
         "filename": "test/496-checker-inlining-class-loader/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-11T11:46:05Z",
       "side": 1,
       "message": "Can you explain why? FirstSeenByMyClassLoader being an app class I can\u0027t easily see why that would be the case.",
+      "range": {
+        "startLine": 112,
+        "startChar": 5,
+        "endLine": 112,
+        "endChar": 81
+      },
+      "revId": "c0d85497d289ed67b784538b78ed107b97f3ea86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_c84eaf7a",
+        "filename": "test/496-checker-inlining-class-loader/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T14:06:06Z",
+      "side": 1,
+      "message": "This LoadClass is for java.lang.System. Fixed the comment (was the other way around) and added some explanation.",
+      "parentUuid": "a356f512_684b4398",
       "range": {
         "startLine": 112,
         "startChar": 5,
