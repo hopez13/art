@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4328d982_70d68eaa",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T16:00:52Z",
+      "side": 1,
+      "message": "Note that this is not using floatToRawIntBits()/doubleToRawLongBits(), so this would return the canonical NaN. However, we concluded that the documentation is overall unclear and this is actually a matter of QoI (Quality of Implementation).",
+      "range": {
+        "startLine": 758,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 77
+      },
+      "revId": "456aebb5b0b2bcc6ef235cad533721721cbb8d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_083cc798",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T16:00:52Z",
+      "side": 1,
+      "message": "Why not two shifts? (x \u003c\u003c 1) \u003e\u003e\u003e 1.",
+      "range": {
+        "startLine": 781,
+        "startChar": 0,
+        "endLine": 783,
+        "endChar": 29
+      },
+      "revId": "456aebb5b0b2bcc6ef235cad533721721cbb8d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_a82a5b47",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-11T16:00:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 29
+      },
+      "revId": "456aebb5b0b2bcc6ef235cad533721721cbb8d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
