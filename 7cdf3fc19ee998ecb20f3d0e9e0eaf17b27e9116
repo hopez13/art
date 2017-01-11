@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_f7728f8b",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T21:15:23Z",
+      "side": 1,
+      "message": "Do you want me to put this into the comment?",
+      "parentUuid": "a3d9950f_4a12d7d2",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_ea5e2b55",
         "filename": "runtime/openjdkjvmti/ti_monitor.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-11T19:41:28Z",
       "side": 1,
       "message": "My immediate inclination would be to treat that as a spec bug, and assume spurious wakeups are allowed. But it may be worth checking what the RI does.\n\nThis spec seems to be full of holes that implicitly assume you look at the Java Object definitions.",
+      "range": {
+        "startLine": 146,
+        "startChar": 4,
+        "endLine": 146,
+        "endChar": 69
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_f7992f9d",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T21:15:23Z",
+      "side": 1,
+      "message": "Comment removed.",
+      "parentUuid": "a3d9950f_ea5e2b55",
       "range": {
         "startLine": 146,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_d790ab6e",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T21:15:23Z",
+      "side": 1,
+      "message": "Yeah, I was trying to be careful with the adopt_lock, but then forgot. Thanks for spotting this!",
+      "parentUuid": "a3d9950f_45a3a83f",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 16
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_2a551332",
         "filename": "runtime/openjdkjvmti/ti_monitor.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-11T19:41:28Z",
       "side": 1,
       "message": "Java or pthread notify doesn\u0027t release and reacquire the lock. The spec is completely unclear, but I wouldn\u0027t expect that to be intended here either.",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 20
+      },
+      "revId": "7cdf3fc19ee998ecb20f3d0e9e0eaf17b27e9116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_b72ac747",
+        "filename": "runtime/openjdkjvmti/ti_monitor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-11T21:15:23Z",
+      "side": 1,
+      "message": "It\u0027s not clear. I followed the Java monitor semantics, as the API seems to be modeled after it. (However, most likely this thread will race and acquire the lock again, anyways)",
+      "parentUuid": "a3d9950f_2a551332",
       "range": {
         "startLine": 163,
         "startChar": 4,
