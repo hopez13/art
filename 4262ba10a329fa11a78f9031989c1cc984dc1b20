@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_7f942686",
+        "filename": "runtime/openjdkjvmti/art_jvmti.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T22:52:16Z",
+      "side": 1,
+      "message": "Please remove this. We don\u0027t support the full spec, I\u0027d rather you remove the ENSURE_CAP.",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 57
+      },
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_fffed6b6",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T22:52:16Z",
+      "side": 1,
+      "message": "Can use JvmtiUniquePtr",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 332,
+        "endChar": 72
+      },
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_5f704282",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T22:52:16Z",
+      "side": 1,
+      "message": "Can make this general by templatizing the constructor. Or pass in a MutableHandle instead.",
+      "range": {
+        "startLine": 711,
+        "startChar": 47,
+        "endLine": 711,
+        "endChar": 48
+      },
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
