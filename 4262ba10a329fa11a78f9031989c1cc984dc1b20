@@ -194,6 +194,24 @@
       "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_a2a3553e",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-12T23:23:07Z",
+      "side": 1,
+      "message": "Ah, you could pass in a ::MutableHandle\u003cart::mirror::ObjectArray\u003cart::mirror::Object\u003e\u003e as the arg instead of a StackHandleScope I suppose.",
+      "parentUuid": "a3d9950f_a2bef570",
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
