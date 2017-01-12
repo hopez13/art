@@ -16,6 +16,24 @@
       "revId": "9bf24bde81a45ff66358b9aea0770fbcf6c5c232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_5c5a9a63",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T01:25:55Z",
+      "side": 1,
+      "message": "Feels like that should be left to the plugin (and making all the calls it makes properly protected), but for now I\u0027ll put that in.",
+      "parentUuid": "a3d9950f_1ca65296",
+      "revId": "9bf24bde81a45ff66358b9aea0770fbcf6c5c232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
