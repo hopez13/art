@@ -41,6 +41,7 @@
 #include "920-objects/objects.h"
 #include "922-properties/properties.h"
 #include "923-monitors/monitors.h"
+#include "924-threads/threads.h"
 
 namespace art {
 
@@ -80,6 +81,7 @@ AgentLib agents[] = {
   { "921-hello-failure", common_redefine::OnLoad, nullptr },
   { "922-properties", Test922Properties::OnLoad, nullptr },
   { "923-monitors", Test923Monitors::OnLoad, nullptr },
+  { "924-threads", Test924Threads::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
