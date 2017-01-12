@@ -176,6 +176,24 @@
       "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_027b41d8",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:22:08Z",
+      "side": 1,
+      "message": "\u003e My point was that SHS\u003c1\u003e is restrictive. So could templatize the size of the handle scope. Or pass a MutableHandle already generated.\n\nThis is what I initially did but you aparently cannot explicitly specify template args on constructors and clang was unable to figure out that the correct typename was SHS\u003c1\u003e.",
+      "parentUuid": "a3d9950f_a2bef570",
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
