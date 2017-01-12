@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a356f512_4b375920",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-12T14:45:05Z",
+      "side": 1,
+      "message": "With the new implementation, that maximum number of outstanding native bytes expected is:\n  2*B + R + T,\nwhere\n  B is the blocking gc watermark\n  R is the number of retained native bytes.\n  T is the number of bytes allocated before GC is triggered due to the normal gc watermark.\n\nFor this test case, in the current configuration, we have:\n  maxMem \u003d 256MB\n  B \u003d 128MB\n  T \u003d 8MB  (2MB watermark that\u0027s triggered from an 8MB allocation)\n  R \u003d (16 + 1) * 8MB\n\nSo the expected maximum native bytes value is 400MB. I\u0027ve rounded up to 2 * maxMem for simplicity.",
+      "range": {
+        "startLine": 39,
+        "startChar": 37,
+        "endLine": 39,
+        "endChar": 43
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
