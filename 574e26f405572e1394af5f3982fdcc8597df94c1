@@ -40,6 +40,24 @@
       "revId": "574e26f405572e1394af5f3982fdcc8597df94c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c6c94209",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T23:23:49Z",
+      "side": 1,
+      "message": "OK, so here\u0027s what I think would make the workaround easier to understand:\n\n1) Say you do ensureJitCompiled in the loop because GC might collect the JIT code.\n\n2) Remove the loop lines 180-185. This was only to make the methods jitted right? You shouldn\u0027t need that anymore.\n\n3) Remove the j variable. We should always eventually succeed, and the test harness already has a timeout.\n\n4) Maybe remove the whole loop from 179-192? You already looping back line 199, so I don\u0027t think trying your best to pass at the first try is worth it. Again, we will eventually succeed, right?\n\nSo the outcome of this cleanup is a simpler test, potentially slower for now, but we know once the workaround is not needed will just have to have its loop removed.",
+      "parentUuid": "a3d9950f_c28e9917",
+      "revId": "574e26f405572e1394af5f3982fdcc8597df94c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
