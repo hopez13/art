@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_82889109",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T23:05:10Z",
+      "side": 1,
+      "message": "Can this be null at any point we could call this? Startup? Shutdown? I think you should be more defensive.",
+      "range": {
+        "startLine": 42,
+        "startChar": 59,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "52b941bfa667f93fe62f07ffc35501316a01aa29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
