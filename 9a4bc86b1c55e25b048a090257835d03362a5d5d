@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_4bdbd9d0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2631,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-12T14:45:05Z",
+      "side": 1,
+      "message": "Better now?",
+      "parentUuid": "a356f512_a84b7b68",
+      "range": {
+        "startLine": 2630,
+        "startChar": 0,
+        "endLine": 2631,
+        "endChar": 32
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_17e78e29",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-10T18:46:44Z",
       "side": 1,
       "message": "Maybe move this to heap.h to ensure inlining or add \"ALWAYS_INLINE inline\" to this here in .cc?",
+      "range": {
+        "startLine": 3839,
+        "startChar": 14,
+        "endLine": 3839,
+        "endChar": 41
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_0b604141",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3839,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-12T14:45:05Z",
+      "side": 1,
+      "message": "Done. I like having the documentation for the function and its implementation in the same place too.",
+      "parentUuid": "b7b632e5_17e78e29",
       "range": {
         "startLine": 3839,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a356f512_eb44cdb3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3858,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-12T14:45:05Z",
+      "side": 1,
+      "message": "I decided to eliminate the case where new_native_bytes_allocated could go negative. This way I can use size_t everywhere, which I think is cleaner all around.",
+      "parentUuid": "b7b632e5_d7527653",
+      "range": {
+        "startLine": 3858,
+        "startChar": 49,
+        "endLine": 3858,
+        "endChar": 56
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_8848b76c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-11T13:14:00Z",
       "side": 1,
       "message": "Please add comments about the logic here. It\u0027s unclear why you need to decrement both counters.",
+      "range": {
+        "startLine": 3888,
+        "startChar": 0,
+        "endLine": 3889,
+        "endChar": 52
+      },
+      "revId": "9a4bc86b1c55e25b048a090257835d03362a5d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_abcc9519",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3889,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-12T14:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_8848b76c",
       "range": {
         "startLine": 3888,
         "startChar": 0,
