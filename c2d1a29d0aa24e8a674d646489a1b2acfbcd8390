@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_41e4f5af",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-12T00:50:08Z",
+      "side": 1,
+      "message": "Do this only if out !\u003d in (they are allowed to be the same in CreateFPToFPLocations(), there\u0027s kNoOutputOverlap).",
+      "range": {
+        "startLine": 775,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 23
+      },
+      "revId": "c2d1a29d0aa24e8a674d646489a1b2acfbcd8390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_01f58dd3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-12T00:50:08Z",
+      "side": 1,
+      "message": "Use MoveFromFpuHigh(TMP, in), let it handle the register number and account for 32-bit vs 64-bit FPUs.",
+      "range": {
+        "startLine": 776,
+        "startChar": 9,
+        "endLine": 776,
+        "endChar": 50
+      },
+      "revId": "c2d1a29d0aa24e8a674d646489a1b2acfbcd8390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_61e7b924",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-12T00:50:08Z",
+      "side": 1,
+      "message": "Use MoveToFpuHigh(TMP, out).",
+      "range": {
+        "startLine": 784,
+        "startChar": 9,
+        "endLine": 784,
+        "endChar": 51
+      },
+      "revId": "c2d1a29d0aa24e8a674d646489a1b2acfbcd8390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
