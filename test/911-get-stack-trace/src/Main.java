@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 public class Main {
@@ -24,6 +27,10 @@ public class Main {
     doTest();
     doTestOtherThreadWait();
     doTestOtherThreadBusyLoop();
+
+    doTestAllStackTraces();
+
+    System.out.println("Done");
   }
 
   public static void doTest() throws Exception {
@@ -109,6 +116,64 @@ public class Main {
     t.join();
   }
 
+  private static void tryClean() throws Exception {
+    // Run GCs to get rid of finalized objects.
+    Runtime.getRuntime().gc();
+    System.runFinalization();
+    Runtime.getRuntime().gc();
+    System.runFinalization();
+    Thread.currentThread().sleep(250);
+  }
+
+  public static void doTestAllStackTraces() throws Exception {
+    System.out.println();
+    System.out.println("################################");
+    System.out.println("### Other threads (suspended) ###");
+    System.out.println("################################");
+
+    final int N = 10;
+
+    final ControlData data = new ControlData(N);
+    data.waitFor = new Object();
+
+    Thread threads[] = new Thread[N];
+
+    for (int i = 0; i < N; i++) {
+      Thread t = new Thread() {
+        public void run() {
+          Recurse.foo(4, 0, 0, data);
+        }
+      };
+      t.start();
+      threads[i] = t;
+    }
+    data.reached.await();
+    Thread.yield();
+    Thread.sleep(500);  // A little bit of time...
+
+    tryClean();
+
+    printAll(0);
+
+    tryClean();
+
+    printAll(5);
+
+    tryClean();
+
+    printAll(25);
+
+    tryClean();
+
+    // Let the thread make progress and die.
+    synchronized(data.waitFor) {
+      data.waitFor.notifyAll();
+    }
+    for (int i = 0; i < N; i++) {
+      threads[i].join();
+    }
+  }
+
   public static void print(String[][] stack) {
     System.out.println("---------");
     for (String[] stackElement : stack) {
@@ -122,6 +187,32 @@ public class Main {
 
   public static void print(Thread t, int start, int max) {
     print(getStackTrace(t, start, max));
+  }
+
+  public static void printAll(String[][][] stacks) {
+    List<String> stringified = new ArrayList<String>(stacks.length);
+    for (String[][] stack : stacks) {
+      StringBuilder sb = new StringBuilder();
+      for (String[] stackElement : stack) {
+        for (String part : stackElement) {
+          sb.append(' ');
+          sb.append(part);
+        }
+        sb.append('\n');
+      }
+      stringified.add(sb.toString());
+    }
+
+    Collections.sort(stringified);
+
+    for (String s : stringified) {
+      System.out.println("---------");
+      System.out.println(s);
+    }
+  }
+
+  public static void printAll(int max) {
+    printAll(getAllStackTraces(max));
   }
 
   // Wrap generated stack traces into a class to separate them nicely.
@@ -170,10 +261,19 @@ public class Main {
   }
 
   public static class ControlData {
-    CountDownLatch reached = new CountDownLatch(1);
+    CountDownLatch reached;
     Object waitFor = null;
     volatile boolean stop = false;
+
+    public ControlData() {
+      this(1);
+    }
+
+    public ControlData(int latchCount) {
+      reached = new CountDownLatch(latchCount);
+    }
   }
 
   public static native String[][] getStackTrace(Thread thread, int start, int max);
+  public static native String[][][] getAllStackTraces(int max);
 }
