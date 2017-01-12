@@ -140,6 +140,24 @@
       "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_02f82151",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-12T23:13:48Z",
+      "side": 1,
+      "message": "Can you clarify what you would want to have as the template arg?",
+      "parentUuid": "a3d9950f_ff9d7657",
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
