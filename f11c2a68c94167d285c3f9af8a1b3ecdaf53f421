@@ -46,6 +46,30 @@
       "revId": "f11c2a68c94167d285c3f9af8a1b3ecdaf53f421",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c6982258",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3481,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-12T17:24:12Z",
+      "side": 1,
+      "message": "Fixed in PS9.",
+      "parentUuid": "a356f512_4ba99920",
+      "range": {
+        "startLine": 3480,
+        "startChar": 0,
+        "endLine": 3481,
+        "endChar": 31
+      },
+      "revId": "f11c2a68c94167d285c3f9af8a1b3ecdaf53f421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
