@@ -22,6 +22,24 @@
       "revId": "574e26f405572e1394af5f3982fdcc8597df94c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_c28e9917",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:04:20Z",
+      "side": 1,
+      "message": "They don\u0027t actually guarantee that we\u0027re in the right state WRT runtime methods on the stack so we need to wait/keep trying anyway.",
+      "parentUuid": "631cfdaf_46bef273",
+      "revId": "574e26f405572e1394af5f3982fdcc8597df94c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
