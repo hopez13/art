@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a356f512_cb090953",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-12T16:00:36Z",
+      "side": 1,
+      "message": "Use a flag in packed_fields_.",
+      "range": {
+        "startLine": 5437,
+        "startChar": 2,
+        "endLine": 5437,
+        "endChar": 32
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_8b31d10e",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-12T16:00:36Z",
+      "side": 1,
+      "message": "I think we need the method index in caller\u0027s dex file and this may be a method index in a different dex file. The caller\u0027s dex file may not even have a MethodId for this method.",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 77
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
