@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a356f512_ab3ff5f2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3876,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T15:07:22Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 3876,
+        "startChar": 0,
+        "endLine": 3876,
+        "endChar": 108
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_4b375920",
         "filename": "test/004-NativeAllocations/src/Main.java",
         "patchSetId": 7
