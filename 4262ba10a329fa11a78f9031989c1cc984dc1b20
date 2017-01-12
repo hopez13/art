@@ -158,6 +158,24 @@
       "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_a2bef570",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-12T23:20:14Z",
+      "side": 1,
+      "message": "My point was that SHS\u003c1\u003e is restrictive. So could templatize the size of the handle scope. Or pass a MutableHandle already generated.",
+      "parentUuid": "a3d9950f_02f82151",
+      "revId": "4262ba10a329fa11a78f9031989c1cc984dc1b20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
