@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d9950f_1ca65296",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T01:08:16Z",
+      "side": 1,
+      "message": "We probably want to at least SuspendAll before doing this. We can mess with internal data structures during this call.",
+      "revId": "9bf24bde81a45ff66358b9aea0770fbcf6c5c232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
