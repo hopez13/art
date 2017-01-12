@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_77ff70ef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3877,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-12T19:48:23Z",
+      "side": 1,
+      "message": "As a performance hack, I would also make this conditional on bytes !\u003d new_freed_bytes, which is presumably a rare case. FetchAndSubRelaxed is not that cheap.",
+      "parentUuid": "a3d9950f_5cd613d8",
+      "range": {
+        "startLine": 3877,
+        "startChar": 2,
+        "endLine": 3877,
+        "endChar": 29
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_11a4f4a4",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 7
