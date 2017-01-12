@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_46bef273",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T22:44:54Z",
+      "side": 1,
+      "message": "The two lines you added block until the methods are jitted. Why do you  still have the loop?",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 42
+      },
+      "revId": "574e26f405572e1394af5f3982fdcc8597df94c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
