@@ -2387,6 +2387,12 @@ bool HInvoke::NeedsEnvironment() const {
   return !opt.GetDoesNotNeedEnvironment();
 }
 
+const DexFile& HInvokeStaticOrDirect::GetDexFileForPcRelativeDexCache() const {
+  ArtMethod* caller = GetEnvironment()->GetMethod();
+  ScopedObjectAccess soa(Thread::Current());
+  return caller == nullptr ? GetBlock()->GetGraph()->GetDexFile() : *caller->GetDexFile();
+}
+
 bool HInvokeStaticOrDirect::NeedsDexCacheOfDeclaringClass() const {
   if (GetMethodLoadKind() != MethodLoadKind::kDexCacheViaMethod) {
     return false;
