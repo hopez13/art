@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_1de1627a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_46d55298",
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a33d15bf_b684f0f8",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 7
@@ -42,6 +60,24 @@
         "endLine": 511,
         "endChar": 27
       },
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_bdaff63e",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a33d15bf_b684f0f8",
       "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_fd257e10",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:53:27Z",
+      "side": 1,
+      "message": "It\u0027s an array so it cannot be a reference. Also we want to match the jvmti api.",
+      "parentUuid": "631cfdaf_a6e9a668",
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_e6e39e82",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
@@ -88,6 +142,24 @@
         "endLine": 569,
         "endChar": 11
       },
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_7dd0aea9",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-12T23:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_e6e39e82",
       "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
