@@ -17,6 +17,7 @@
 #include "dalvik_system_VMStack.h"
 
 #include "art_method-inl.h"
+#include "gc/task_processor.h"
 #include "jni_internal.h"
 #include "nth_caller_visitor.h"
 #include "mirror/class-inl.h"
@@ -31,9 +32,16 @@ namespace art {
 static jobject GetThreadStack(const ScopedFastNativeObjectAccess& soa, jobject peer)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   jobject trace = nullptr;
-  if (soa.Decode<mirror::Object>(peer) == soa.Self()->GetPeer()) {
+  ObjPtr<mirror::Object> decoded_peer = soa.Decode<mirror::Object>(peer);
+  if (decoded_peer == soa.Self()->GetPeer()) {
     trace = soa.Self()->CreateInternalStackTrace<false>(soa);
   } else {
+    // Never allow suspending the GC thread since it may deadlock if allocations are required for
+    // the stack trace.
+    if (decoded_peer ==
+        Runtime::Current()->GetHeap()->GetTaskProcessor()->GetRunningThread()->GetPeer()) {
+      return nullptr;
+    }
     // Suspend thread to build stack trace.
     ScopedThreadSuspension sts(soa.Self(), kNative);
     ThreadList* thread_list = Runtime::Current()->GetThreadList();
