@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a356f512_4b43d955",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T16:13:00Z",
+      "side": 1,
+      "message": "We haven\u0027t filed one, Hiroshi just reverted the change that revealed the problem (https://android-review.googlesource.com/#/c/321632/).",
+      "parentUuid": "a356f512_abedb542",
+      "revId": "e40483435982692f8770cfe3d6cce50d3f99d023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_2bfae5ff",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-01-12T15:53:15Z",
       "side": 1,
       "message": "We can still use range based loop... but maybe we don\u0027t like non-const references to pointers?\n\n    for (ArtMethod*\u0026 mir_method : miranda_methods_) { ... }\n\nSame at lines 6979-6980 and 7001-7002.",
+      "range": {
+        "startLine": 6956,
+        "startChar": 0,
+        "endLine": 6957,
+        "endChar": 48
+      },
+      "revId": "e40483435982692f8770cfe3d6cce50d3f99d023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_eb516d1c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6957,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T16:13:00Z",
+      "side": 1,
+      "message": "Good point. I\u0027d prefer keeping the current way though, \u0027*\u0026\u0027 isn\u0027t nice to read.",
+      "parentUuid": "a356f512_2bfae5ff",
       "range": {
         "startLine": 6956,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "a356f512_2b38a5ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6993,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T16:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_0bff21f0",
+      "revId": "e40483435982692f8770cfe3d6cce50d3f99d023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_cbf0e91c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2017-01-12T15:53:15Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "e40483435982692f8770cfe3d6cce50d3f99d023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a356f512_0b3de1dd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7020,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-12T16:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_cbf0e91c",
       "revId": "e40483435982692f8770cfe3d6cce50d3f99d023",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
