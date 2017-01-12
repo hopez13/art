@@ -25,6 +25,75 @@
     },
     {
       "key": {
+        "uuid": "a3d9950f_5cd613d8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3877,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-12T18:37:29Z",
+      "side": 1,
+      "message": "Does this mean that old_native_bytes_allocated can still go negative? Is it okay?",
+      "range": {
+        "startLine": 3877,
+        "startChar": 2,
+        "endLine": 3877,
+        "endChar": 29
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_11a4f4a4",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-12T18:37:29Z",
+      "side": 1,
+      "message": "Move this to the beginning to the line (there was an issue some compiler didn\u0027t recognize it here)?",
+      "range": {
+        "startLine": 1067,
+        "startChar": 45,
+        "endLine": 1067,
+        "endChar": 58
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_31a1f894",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-12T18:37:29Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 53,
+        "endLine": 1078,
+        "endChar": 66
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_4b375920",
         "filename": "test/004-NativeAllocations/src/Main.java",
         "patchSetId": 7
