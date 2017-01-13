@@ -140,6 +140,7 @@ class DexFileVerifier {
   bool CheckInterFieldIdItem();
   bool CheckInterMethodIdItem();
   bool CheckInterClassDefItem();
+  bool CheckInterHeaderExtensionItem();
   bool CheckInterAnnotationSetRefList();
   bool CheckInterAnnotationSetItem();
   bool CheckInterClassDataItem();
