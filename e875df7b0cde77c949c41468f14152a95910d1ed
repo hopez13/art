@@ -22,6 +22,30 @@
       "revId": "e875df7b0cde77c949c41468f14152a95910d1ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_788bb974",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T18:51:59Z",
+      "side": 1,
+      "message": "Try running in the gcstress mode?",
+      "parentUuid": "631cfdaf_061cfa86",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "e875df7b0cde77c949c41468f14152a95910d1ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
