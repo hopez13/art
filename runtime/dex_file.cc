@@ -478,6 +478,7 @@ std::unique_ptr<DexFile> DexFile::OpenCommon(const uint8_t* base,
   if (verify_result != nullptr) {
     *verify_result = VerifyResult::kVerifySucceeded;
   }
+  dex_file->InitializeSectionsFromMapList();
   return dex_file;
 }
 
@@ -497,6 +498,10 @@ DexFile::DexFile(const uint8_t* base,
       method_ids_(reinterpret_cast<const MethodId*>(base + header_->method_ids_off_)),
       proto_ids_(reinterpret_cast<const ProtoId*>(base + header_->proto_ids_off_)),
       class_defs_(reinterpret_cast<const ClassDef*>(base + header_->class_defs_off_)),
+      method_handles_(nullptr),
+      num_method_handles_(0),
+      call_site_ids_(nullptr),
+      num_call_site_ids_(0),
       oat_dex_file_(oat_dex_file) {
   CHECK(begin_ != nullptr) << GetLocation();
   CHECK_GT(size_, 0U) << GetLocation();
@@ -538,6 +543,23 @@ bool DexFile::CheckMagicAndVersion(std::string* error_msg) const {
     return false;
   }
   return true;
+}
+
+void DexFile::InitializeSectionsFromMapList() {
+  // The DEX file verifier has checked integrity.
+  const MapList* map_list = reinterpret_cast<const MapList*>(begin_ + header_->map_off_);
+  const size_t count = map_list->size_;
+
+  for (size_t i = 0; i < count; ++i) {
+    const MapItem& map_item = map_list->list_[i];
+    if (map_item.type_ == kDexTypeMethodHandleItem) {
+      method_handles_ = reinterpret_cast<const MethodHandleItem*>(begin_ + map_item.offset_);
+      num_method_handles_ = map_item.size_;
+    } else if (map_item.type_ == kDexTypeCallSiteIdItem) {
+      call_site_ids_ = reinterpret_cast<const CallSiteIdItem*>(begin_ + map_item.offset_);
+      num_call_site_ids_ = map_item.size_;
+    }
+  }
 }
 
 bool DexFile::IsMagicValid(const uint8_t* magic) {
@@ -1386,6 +1408,8 @@ void EncodedStaticFieldValueIterator::Next() {
     break;
   case kString:
   case kType:
+  case kMethodType:
+  case kMethodHandle:
     jval_.i = DexFile::ReadUnsignedInt(ptr_, value_arg, false);
     break;
   case kField:

@@ -46,8 +46,8 @@ static bool IsValidTypeId(uint16_t low ATTRIBUTE_UNUSED, uint16_t high) {
   return (high == 0);
 }
 
-static uint32_t MapTypeToBitMask(uint32_t map_type) {
-  switch (map_type) {
+static uint32_t MapTypeToBitMask(DexFile::MapItemType map_item_type) {
+  switch (map_item_type) {
     case DexFile::kDexTypeHeaderItem:               return 1 << 0;
     case DexFile::kDexTypeStringIdItem:             return 1 << 1;
     case DexFile::kDexTypeTypeIdItem:               return 1 << 2;
@@ -55,23 +55,25 @@ static uint32_t MapTypeToBitMask(uint32_t map_type) {
     case DexFile::kDexTypeFieldIdItem:              return 1 << 4;
     case DexFile::kDexTypeMethodIdItem:             return 1 << 5;
     case DexFile::kDexTypeClassDefItem:             return 1 << 6;
-    case DexFile::kDexTypeMapList:                  return 1 << 7;
-    case DexFile::kDexTypeTypeList:                 return 1 << 8;
-    case DexFile::kDexTypeAnnotationSetRefList:     return 1 << 9;
-    case DexFile::kDexTypeAnnotationSetItem:        return 1 << 10;
-    case DexFile::kDexTypeClassDataItem:            return 1 << 11;
-    case DexFile::kDexTypeCodeItem:                 return 1 << 12;
-    case DexFile::kDexTypeStringDataItem:           return 1 << 13;
-    case DexFile::kDexTypeDebugInfoItem:            return 1 << 14;
-    case DexFile::kDexTypeAnnotationItem:           return 1 << 15;
-    case DexFile::kDexTypeEncodedArrayItem:         return 1 << 16;
-    case DexFile::kDexTypeAnnotationsDirectoryItem: return 1 << 17;
+    case DexFile::kDexTypeCallSiteIdItem:           return 1 << 7;
+    case DexFile::kDexTypeMethodHandleItem:         return 1 << 8;
+    case DexFile::kDexTypeMapList:                  return 1 << 9;
+    case DexFile::kDexTypeTypeList:                 return 1 << 10;
+    case DexFile::kDexTypeAnnotationSetRefList:     return 1 << 11;
+    case DexFile::kDexTypeAnnotationSetItem:        return 1 << 12;
+    case DexFile::kDexTypeClassDataItem:            return 1 << 13;
+    case DexFile::kDexTypeCodeItem:                 return 1 << 14;
+    case DexFile::kDexTypeStringDataItem:           return 1 << 15;
+    case DexFile::kDexTypeDebugInfoItem:            return 1 << 16;
+    case DexFile::kDexTypeAnnotationItem:           return 1 << 17;
+    case DexFile::kDexTypeEncodedArrayItem:         return 1 << 18;
+    case DexFile::kDexTypeAnnotationsDirectoryItem: return 1 << 19;
   }
   return 0;
 }
 
-static bool IsDataSectionType(uint32_t map_type) {
-  switch (map_type) {
+static bool IsDataSectionType(DexFile::MapItemType map_item_type) {
+  switch (map_item_type) {
     case DexFile::kDexTypeHeaderItem:
     case DexFile::kDexTypeStringIdItem:
     case DexFile::kDexTypeTypeIdItem:
@@ -80,6 +82,20 @@ static bool IsDataSectionType(uint32_t map_type) {
     case DexFile::kDexTypeMethodIdItem:
     case DexFile::kDexTypeClassDefItem:
       return false;
+    case DexFile::kDexTypeCallSiteIdItem:
+    case DexFile::kDexTypeMethodHandleItem:
+    case DexFile::kDexTypeMapList:
+    case DexFile::kDexTypeTypeList:
+    case DexFile::kDexTypeAnnotationSetRefList:
+    case DexFile::kDexTypeAnnotationSetItem:
+    case DexFile::kDexTypeClassDataItem:
+    case DexFile::kDexTypeCodeItem:
+    case DexFile::kDexTypeStringDataItem:
+    case DexFile::kDexTypeDebugInfoItem:
+    case DexFile::kDexTypeAnnotationItem:
+    case DexFile::kDexTypeEncodedArrayItem:
+    case DexFile::kDexTypeAnnotationsDirectoryItem:
+      return true;
   }
   return true;
 }
@@ -388,7 +404,8 @@ bool DexFileVerifier::CheckMap() {
       return false;
     }
 
-    if (IsDataSectionType(item->type_)) {
+    DexFile::MapItemType item_type = static_cast<DexFile::MapItemType>(item->type_);
+    if (IsDataSectionType(item_type)) {
       uint32_t icount = item->size_;
       if (UNLIKELY(icount > data_items_left)) {
         ErrorStringPrintf("Too many items in data section: %ud", data_item_count + icount);
@@ -398,7 +415,7 @@ bool DexFileVerifier::CheckMap() {
       data_item_count += icount;
     }
 
-    uint32_t bit = MapTypeToBitMask(item->type_);
+    uint32_t bit = MapTypeToBitMask(item_type);
 
     if (UNLIKELY(bit == 0)) {
       ErrorStringPrintf("Unknown map section type %x", item->type_);
@@ -1369,7 +1386,7 @@ bool DexFileVerifier::CheckIntraAnnotationsDirectoryItem() {
 }
 
 bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_count,
-                                               uint16_t type) {
+                                               DexFile::MapItemType type) {
   // Get the right alignment mask for the type of section.
   size_t alignment_mask;
   switch (type) {
@@ -1395,6 +1412,7 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
     }
 
     // Check depending on the section type.
+    const uint8_t* start_ptr = ptr_;
     switch (type) {
       case DexFile::kDexTypeStringIdItem: {
         if (!CheckListSize(ptr_, 1, sizeof(DexFile::StringId), "string_ids")) {
@@ -1436,6 +1454,20 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
           return false;
         }
         ptr_ += sizeof(DexFile::ClassDef);
+        break;
+      }
+      case DexFile::kDexTypeCallSiteIdItem: {
+        if (!CheckListSize(ptr_, 1, sizeof(DexFile::CallSiteIdItem), "call_site_ids")) {
+          return false;
+        }
+        ptr_ += sizeof(DexFile::CallSiteIdItem);
+        break;
+      }
+      case DexFile::kDexTypeMethodHandleItem: {
+        if (!CheckListSize(ptr_, 1, sizeof(DexFile::MethodHandleItem), "method_handles")) {
+          return false;
+        }
+        ptr_ += sizeof(DexFile::MethodHandleItem);
         break;
       }
       case DexFile::kDexTypeTypeList: {
@@ -1498,9 +1530,14 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
         }
         break;
       }
-      default:
-        ErrorStringPrintf("Unknown map item type %x", type);
-        return false;
+      case DexFile::kDexTypeHeaderItem:
+      case DexFile::kDexTypeMapList:
+        break;
+    }
+
+    if (start_ptr == ptr_) {
+      ErrorStringPrintf("Unknown map item type %x", type);
+      return false;
     }
 
     if (IsDataSectionType(type)) {
@@ -1524,7 +1561,9 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
   return true;
 }
 
-bool DexFileVerifier::CheckIntraIdSection(size_t offset, uint32_t count, uint16_t type) {
+bool DexFileVerifier::CheckIntraIdSection(size_t offset,
+                                          uint32_t count,
+                                          DexFile::MapItemType type) {
   uint32_t expected_offset;
   uint32_t expected_size;
 
@@ -1572,7 +1611,9 @@ bool DexFileVerifier::CheckIntraIdSection(size_t offset, uint32_t count, uint16_
   return CheckIntraSectionIterate(offset, count, type);
 }
 
-bool DexFileVerifier::CheckIntraDataSection(size_t offset, uint32_t count, uint16_t type) {
+bool DexFileVerifier::CheckIntraDataSection(size_t offset,
+                                            uint32_t count,
+                                            DexFile::MapItemType type) {
   size_t data_start = header_->data_off_;
   size_t data_end = data_start + header_->data_size_;
 
@@ -1598,16 +1639,16 @@ bool DexFileVerifier::CheckIntraDataSection(size_t offset, uint32_t count, uint1
 bool DexFileVerifier::CheckIntraSection() {
   const DexFile::MapList* map = reinterpret_cast<const DexFile::MapList*>(begin_ + header_->map_off_);
   const DexFile::MapItem* item = map->list_;
-
-  uint32_t count = map->size_;
   size_t offset = 0;
+  uint32_t count = map->size_;
   ptr_ = begin_;
 
   // Check the items listed in the map.
   while (count--) {
+    const size_t current_offset = offset;
     uint32_t section_offset = item->offset_;
     uint32_t section_count = item->size_;
-    uint16_t type = item->type_;
+    DexFile::MapItemType type = static_cast<DexFile::MapItemType>(item->type_);
 
     // Check for padding and overlap between items.
     if (!CheckPadding(offset, section_offset)) {
@@ -1655,6 +1696,8 @@ bool DexFileVerifier::CheckIntraSection() {
         ptr_ += sizeof(uint32_t) + (map->size_ * sizeof(DexFile::MapItem));
         offset = section_offset + sizeof(uint32_t) + (map->size_ * sizeof(DexFile::MapItem));
         break;
+      case DexFile::kDexTypeCallSiteIdItem:
+      case DexFile::kDexTypeMethodHandleItem:
       case DexFile::kDexTypeTypeList:
       case DexFile::kDexTypeAnnotationSetRefList:
       case DexFile::kDexTypeAnnotationSetItem:
@@ -1670,7 +1713,9 @@ bool DexFileVerifier::CheckIntraSection() {
         }
         offset = ptr_ - begin_;
         break;
-      default:
+    }
+
+    if (offset == current_offset) {
         ErrorStringPrintf("Unknown map item type %x", type);
         return false;
     }
@@ -2151,6 +2196,35 @@ bool DexFileVerifier::CheckInterClassDefItem() {
   return true;
 }
 
+bool DexFileVerifier::CheckInterCallSiteIdItem() {
+  const DexFile::CallSiteIdItem* item = reinterpret_cast<const DexFile::CallSiteIdItem*>(ptr_);
+
+  // Check call site referenced by item is in encoded array section.
+  if (!CheckOffsetToTypeMap(item->data_off_, DexFile::kDexTypeEncodedArrayItem)) {
+    return false;
+  }
+
+  ptr_ += sizeof(DexFile::CallSiteIdItem);
+  return true;
+}
+
+bool DexFileVerifier::CheckInterMethodHandleItem() {
+  const DexFile::MethodHandleItem* item = reinterpret_cast<const DexFile::MethodHandleItem*>(ptr_);
+
+  DexFile::MethodHandleType method_handle_type =
+      static_cast<DexFile::MethodHandleType>(item->method_handle_type_);
+  if (method_handle_type > DexFile::MethodHandleType::kLast) {
+    ErrorStringPrintf("Bad method handle type %x", item->method_handle_type_);
+    return false;
+  }
+
+  // TODO(oth): Check item->field_or_method_idx_. What is the right
+  // way to disambiguate whether it's a field index or a method index?
+
+  ptr_ += sizeof(DexFile::MethodHandleItem);
+  return true;
+}
+
 bool DexFileVerifier::CheckInterAnnotationSetRefList() {
   const DexFile::AnnotationSetRefList* list =
       reinterpret_cast<const DexFile::AnnotationSetRefList*>(ptr_);
@@ -2300,7 +2374,9 @@ bool DexFileVerifier::CheckInterAnnotationsDirectoryItem() {
   return true;
 }
 
-bool DexFileVerifier::CheckInterSectionIterate(size_t offset, uint32_t count, uint16_t type) {
+bool DexFileVerifier::CheckInterSectionIterate(size_t offset,
+                                               uint32_t count,
+                                               DexFile::MapItemType type) {
   // Get the right alignment mask for the type of section.
   size_t alignment_mask;
   switch (type) {
@@ -2319,8 +2395,22 @@ bool DexFileVerifier::CheckInterSectionIterate(size_t offset, uint32_t count, ui
     ptr_ = begin_ + new_offset;
     const uint8_t* prev_ptr = ptr_;
 
+    if (MapTypeToBitMask(type) == 0) {
+      ErrorStringPrintf("Unknown map item type %x", type);
+      return false;
+    }
+
     // Check depending on the section type.
     switch (type) {
+      case DexFile::kDexTypeHeaderItem:
+      case DexFile::kDexTypeMapList:
+      case DexFile::kDexTypeTypeList:
+      case DexFile::kDexTypeCodeItem:
+      case DexFile::kDexTypeStringDataItem:
+      case DexFile::kDexTypeDebugInfoItem:
+      case DexFile::kDexTypeAnnotationItem:
+      case DexFile::kDexTypeEncodedArrayItem:
+        break;
       case DexFile::kDexTypeStringIdItem: {
         if (!CheckInterStringIdItem()) {
           return false;
@@ -2365,6 +2455,18 @@ bool DexFileVerifier::CheckInterSectionIterate(size_t offset, uint32_t count, ui
         }
         break;
       }
+      case DexFile::kDexTypeCallSiteIdItem: {
+        if (!CheckInterCallSiteIdItem()) {
+          return false;
+        }
+        break;
+      }
+      case DexFile::kDexTypeMethodHandleItem: {
+        if (!CheckInterMethodHandleItem()) {
+          return false;
+        }
+        break;
+      }
       case DexFile::kDexTypeAnnotationSetRefList: {
         if (!CheckInterAnnotationSetRefList()) {
           return false;
@@ -2397,9 +2499,6 @@ bool DexFileVerifier::CheckInterSectionIterate(size_t offset, uint32_t count, ui
         }
         break;
       }
-      default:
-        ErrorStringPrintf("Unknown map item type %x", type);
-        return false;
     }
 
     previous_item_ = prev_ptr;
@@ -2418,7 +2517,8 @@ bool DexFileVerifier::CheckInterSection() {
   while (count--) {
     uint32_t section_offset = item->offset_;
     uint32_t section_count = item->size_;
-    uint16_t type = item->type_;
+    DexFile::MapItemType type = static_cast<DexFile::MapItemType>(item->type_);
+    bool found = false;
 
     switch (type) {
       case DexFile::kDexTypeHeaderItem:
@@ -2429,6 +2529,7 @@ bool DexFileVerifier::CheckInterSection() {
       case DexFile::kDexTypeDebugInfoItem:
       case DexFile::kDexTypeAnnotationItem:
       case DexFile::kDexTypeEncodedArrayItem:
+        found = true;
         break;
       case DexFile::kDexTypeStringIdItem:
       case DexFile::kDexTypeTypeIdItem:
@@ -2436,6 +2537,8 @@ bool DexFileVerifier::CheckInterSection() {
       case DexFile::kDexTypeFieldIdItem:
       case DexFile::kDexTypeMethodIdItem:
       case DexFile::kDexTypeClassDefItem:
+      case DexFile::kDexTypeCallSiteIdItem:
+      case DexFile::kDexTypeMethodHandleItem:
       case DexFile::kDexTypeAnnotationSetRefList:
       case DexFile::kDexTypeAnnotationSetItem:
       case DexFile::kDexTypeClassDataItem:
@@ -2443,11 +2546,14 @@ bool DexFileVerifier::CheckInterSection() {
         if (!CheckInterSectionIterate(section_offset, section_count, type)) {
           return false;
         }
+        found = true;
         break;
       }
-      default:
-        ErrorStringPrintf("Unknown map item type %x", type);
-        return false;
+    }
+
+    if (!found) {
+      ErrorStringPrintf("Unknown map item type %x", item->type_);
+      return false;
     }
 
     item++;
