@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_38b5b1d7",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-13T19:18:19Z",
+      "side": 1,
+      "message": "constexpr\n\nI think Nicolas doesn\u0027t like local constants. I\u0027m fine with it, though.",
+      "range": {
+        "startLine": 563,
+        "startChar": 2,
+        "endLine": 563,
+        "endChar": 14
+      },
+      "revId": "5a3f34018a899c00b236138a96124c2c2acf216b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_3bdbebd1",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-13T19:18:19Z",
+      "side": 1,
+      "message": "What does this mean? I would have thought size and off can be checked right now to fall into the dex file, but the contents can\u0027t?",
+      "range": {
+        "startLine": 2196,
+        "startChar": 2,
+        "endLine": 2196,
+        "endChar": 53
+      },
+      "revId": "5a3f34018a899c00b236138a96124c2c2acf216b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
