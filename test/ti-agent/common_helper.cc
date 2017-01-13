@@ -62,15 +62,16 @@ bool JvmtiErrorToException(JNIEnv* env, jvmtiError error) {
 
 namespace common_redefine {
 
-static void throwRedefinitionError(jvmtiEnv* jvmti,
-                                   JNIEnv* env,
-                                   jint num_targets,
-                                   jclass* target,
-                                   jvmtiError res) {
+template <bool is_redefine>
+static void throwCommonRedefinitionError(jvmtiEnv* jvmti,
+                                         JNIEnv* env,
+                                         jint num_targets,
+                                         jclass* target,
+                                         jvmtiError res) {
   std::stringstream err;
   char* error = nullptr;
   jvmti->GetErrorName(res, &error);
-  err << "Failed to redefine class";
+  err << "Failed to " << (is_redefine ? "redefine" : "retransform") << " class";
   if (num_targets > 1) {
     err << "es";
   }
@@ -92,6 +93,22 @@ static void throwRedefinitionError(jvmtiEnv* jvmti,
   env->ThrowNew(env->FindClass("java/lang/Exception"), message.c_str());
 }
 
+static void throwRetransformationError(jvmtiEnv* jvmti,
+                                       JNIEnv* env,
+                                       jint num_targets,
+                                       jclass* target,
+                                       jvmtiError res) {
+  return throwCommonRedefinitionError<false>(jvmti, env, num_targets, target, res);
+}
+
+static void throwRedefinitionError(jvmtiEnv* jvmti,
+                                   JNIEnv* env,
+                                   jint num_targets,
+                                   jclass* target,
+                                   jvmtiError res) {
+  return throwCommonRedefinitionError<true>(jvmti, env, num_targets, target, res);
+}
+
 static void DoMultiClassRedefine(jvmtiEnv* jvmti_env,
                                  JNIEnv* env,
                                  jint num_redefines,
@@ -110,6 +127,25 @@ static void DoMultiClassRedefine(jvmtiEnv* jvmti_env,
   if (res != JVMTI_ERROR_NONE) {
     throwRedefinitionError(jvmti_env, env, num_redefines, targets, res);
   }
+}
+
+static void DoClassRetransformation(jvmtiEnv* jvmti_env, JNIEnv* env, jobjectArray targets) {
+  std::vector<jclass> classes;
+  jint len = env->GetArrayLength(targets);
+  for (jint i = 0; i < len; i++) {
+    classes.push_back(static_cast<jclass>(env->GetObjectArrayElement(targets, i)));
+  }
+  jvmtiError res = jvmti_env->RetransformClasses(len, classes.data());
+  if (res != JVMTI_ERROR_NONE) {
+    throwRetransformationError(jvmti_env, env, num_classes, classes.data(), res);
+  }
+}
+
+// TODO Write something useful.
+extern "C" JNIEXPORT void JNICALL Java_Main_doCommonClassRetransformation(JNIEnv* env,
+                                                                          jclass,
+                                                                          jobjectArray targets) {
+  DoClassRetransformation(jvmti_env, env, targets);
 }
 
 static void DoClassRedefine(jvmtiEnv* jvmti_env,
