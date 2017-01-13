@@ -631,7 +631,31 @@ class JvmtiFunctions {
   }
 
   static jvmtiError RetransformClasses(jvmtiEnv* env, jint class_count, const jclass* classes) {
-    return ERR(NOT_IMPLEMENTED);
+    std::string error_msg;
+    jvmtiError res = Transformer::RetransformClasses(ArtJvmTiEnv::AsArtJvmTiEnv(env),
+                                                     art::Runtime::Current(),
+                                                     art::Thread::Current(),
+                                                     class_count,
+                                                     classes,
+                                                     &error_msg);
+    if (res != OK) {
+      LOG(WARNING) << "FAILURE TO RETRANFORM " << error_msg;
+    }
+    return res;
+    // jint new_class_data_len = 0;
+    // unsigned char* new_class_data = nullptr;
+    // gEventHandler.DispatchEvent(art::Thread::Self(),
+    //                             kClassFileLoadHookNonRetransformable,
+    //                             static_cast<JNIEnv*>(art::Thread::Self()->GetJniEnv()),
+    //                             classes[0],
+    //                             static_cast<jobject>(nullptr),
+    //                             static_cast<const char*>("temp"),
+    //                             static_cast<jobject>(nullptr),
+    //                             static_cast<jint>(12),
+    //                             static_cast<const unsigned char*>("abcdefghijklmnopqrstuv"),
+    //                             &new_class_data_len,
+    //                             &new_class_data);
+    // return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError RedefineClasses(jvmtiEnv* env,
@@ -1269,63 +1293,64 @@ class JvmtiFunctions {
   static jvmtiError RetransformClassesWithHook(ArtJvmTiEnv* env,
                                                const std::vector<jclass>& classes,
                                                jvmtiEventClassFileLoadHook hook) {
-    if (!IsValidEnv(env)) {
-      return ERR(INVALID_ENVIRONMENT);
-    }
-    jvmtiError res = OK;
-    std::string error;
-    for (jclass klass : classes) {
-      JNIEnv* jni_env = nullptr;
-      jobject loader = nullptr;
-      std::string name;
-      jobject protection_domain = nullptr;
-      jint data_len = 0;
-      unsigned char* dex_data = nullptr;
-      jvmtiError ret = OK;
-      std::string location;
-      if ((ret = GetTransformationData(env,
-                                       klass,
-                                       /*out*/&location,
-                                       /*out*/&jni_env,
-                                       /*out*/&loader,
-                                       /*out*/&name,
-                                       /*out*/&protection_domain,
-                                       /*out*/&data_len,
-                                       /*out*/&dex_data)) != OK) {
-        // TODO Do something more here? Maybe give log statements?
-        return ret;
-      }
-      jint new_data_len = 0;
-      unsigned char* new_dex_data = nullptr;
-      hook(env,
-           jni_env,
-           klass,
-           loader,
-           name.c_str(),
-           protection_domain,
-           data_len,
-           dex_data,
-           /*out*/&new_data_len,
-           /*out*/&new_dex_data);
-      // Check if anything actually changed.
-      if ((new_data_len != 0 || new_dex_data != nullptr) && new_dex_data != dex_data) {
-        jvmtiClassDefinition def = { klass, new_data_len, new_dex_data };
-        res = Redefiner::RedefineClasses(env,
-                                         art::Runtime::Current(),
-                                         art::Thread::Current(),
-                                         1,
-                                         &def,
-                                         &error);
-        env->Deallocate(new_dex_data);
-      }
-      // Deallocate the old dex data.
-      env->Deallocate(dex_data);
-      if (res != OK) {
-        LOG(ERROR) << "FAILURE TO REDEFINE " << error;
-        return res;
-      }
-    }
-    return OK;
+    // if (!IsValidEnv(env)) {
+    //   return ERR(INVALID_ENVIRONMENT);
+    // }
+    // jvmtiError res = OK;
+    // std::string error;
+    // for (jclass klass : classes) {
+    //   JNIEnv* jni_env = nullptr;
+    //   jobject loader = nullptr;
+    //   std::string name;
+    //   jobject protection_domain = nullptr;
+    //   jint data_len = 0;
+    //   unsigned char* dex_data = nullptr;
+    //   jvmtiError ret = OK;
+    //   std::string location;
+    //   if ((ret = GetTransformationData(env,
+    //                                    klass,
+    //                                    /*out*/&location,
+    //                                    /*out*/&jni_env,
+    //                                    /*out*/&loader,
+    //                                    /*out*/&name,
+    //                                    /*out*/&protection_domain,
+    //                                    /*out*/&data_len,
+    //                                    /*out*/&dex_data)) != OK) {
+    //     // TODO Do something more here? Maybe give log statements?
+    //     return ret;
+    //   }
+    //   jint new_data_len = 0;
+    //   unsigned char* new_dex_data = nullptr;
+    //   hook(env,
+    //        jni_env,
+    //        klass,
+    //        loader,
+    //        name.c_str(),
+    //        protection_domain,
+    //        data_len,
+    //        dex_data,
+    //        /*out*/&new_data_len,
+    //        /*out*/&new_dex_data);
+    //   // Check if anything actually changed.
+    //   if ((new_data_len != 0 || new_dex_data != nullptr) && new_dex_data != dex_data) {
+    //     jvmtiClassDefinition def = { klass, new_data_len, new_dex_data };
+    //     res = Redefiner::RedefineClasses(env,
+    //                                      art::Runtime::Current(),
+    //                                      art::Thread::Current(),
+    //                                      1,
+    //                                      &def,
+    //                                      &error);
+    //     env->Deallocate(new_dex_data);
+    //   }
+    //   // Deallocate the old dex data.
+    //   env->Deallocate(dex_data);
+    //   if (res != OK) {
+    //     LOG(ERROR) << "FAILURE TO REDEFINE " << error;
+    //     return res;
+    //   }
+    // }
+    LOG(WARNING) << "Invalid function!";
+    return ERR(INTERNAL);
   }
 };
 
