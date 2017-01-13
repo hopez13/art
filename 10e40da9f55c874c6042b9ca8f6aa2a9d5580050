@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a356f512_0be96187",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T12:41:03Z",
+      "side": 1,
+      "message": "/* ... */",
+      "range": {
+        "startLine": 202,
+        "startChar": 50,
+        "endLine": 202,
+        "endChar": 55
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_0606ba05",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T12:41:03Z",
+      "side": 1,
+      "message": "Does that handle try handler blocks? I think those shouldn\u0027t be merged.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_660b2e0e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T12:41:03Z",
+      "side": 1,
+      "message": "/* ... */",
+      "range": {
+        "startLine": 289,
+        "startChar": 50,
+        "endLine": 289,
+        "endChar": 54
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_4610b238",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T12:41:03Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_867c6a89",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T12:41:03Z",
+      "side": 1,
+      "message": "Name is a bit generic. Having a comment would be nice.",
+      "range": {
+        "startLine": 74,
+        "startChar": 27,
+        "endLine": 74,
+        "endChar": 39
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
