@@ -242,14 +242,12 @@ Redefiner::ClassRedefinition::~ClassRedefinition() {
   }
 }
 
-// TODO This should handle doing multiple classes at once so we need to do less cleanup when things
-// go wrong.
 jvmtiError Redefiner::RedefineClasses(ArtJvmTiEnv* env,
                                       art::Runtime* runtime,
                                       art::Thread* self,
                                       jint class_count,
                                       const jvmtiClassDefinition* definitions,
-                                      std::string* error_msg) {
+                                      /*out*/std::string* error_msg) {
   if (env == nullptr) {
     *error_msg = "env was null!";
     return ERR(INVALID_ENVIRONMENT);
@@ -263,24 +261,61 @@ jvmtiError Redefiner::RedefineClasses(ArtJvmTiEnv* env,
     *error_msg = "null definitions!";
     return ERR(NULL_POINTER);
   }
+  std::vector<ArtClassDefinition> def_vector;
+  def_vector.reserve(class_count);
+  for (jint i = 0; i < class_count; i++) {
+    ArtClassDefinition def;
+    def.dex_len = definitions[i].class_byte_count;
+    def.dex_data = MakeJvmtiUniquePtr(env, const_cast<unsigned char*>(definitions[i].class_bytes));
+    // We are definitely modified.
+    def.modified = true;
+    jvmtiError res = Transformer::FillInTransformationData(env, definitions[i].klass, &def);
+    if (res != OK) {
+      return res;
+    }
+    def_vector.push_back(std::move(def));
+  }
+  // Call all the transformation events.
+  jvmtiError res = Transformer::RetransformClassesDirect(env,
+                                                         self,
+                                                         &def_vector);
+  if (res != OK) {
+    // Something went wrong with transformation!
+    return res;
+  }
+  return RedefineClassesDirect(env, runtime, self, def_vector, error_msg);
+}
+
+jvmtiError Redefiner::RedefineClassesDirect(ArtJvmTiEnv* env,
+                                            art::Runtime* runtime,
+                                            art::Thread* self,
+                                            const std::vector<ArtClassDefinition>& definitions,
+                                            std::string* error_msg) {
+  DCHECK(env != nullptr);
+  if (definitions.size() == 0) {
+    // We don't actually need to do anything. Just return OK.
+    return OK;
+  }
   // Stop JIT for the duration of this redefine since the JIT might concurrently compile a method we
   // are going to redefine.
   art::jit::ScopedJitSuspend suspend_jit;
   // Get shared mutator lock so we can lock all the classes.
   art::ScopedObjectAccess soa(self);
   std::vector<Redefiner::ClassRedefinition> redefinitions;
-  redefinitions.reserve(class_count);
+  redefinitions.reserve(definitions.size());
   Redefiner r(runtime, self, error_msg);
-  for (jint i = 0; i < class_count; i++) {
-    jvmtiError res = r.AddRedefinition(env, definitions[i]);
-    if (res != OK) {
-      return res;
+  for (const ArtClassDefinition& def : definitions) {
+    if (def.modified) {
+      jvmtiError res = r.AddRedefinition(env, def);
+      if (res != OK) {
+        return res;
+      }
     }
   }
   return r.Run();
 }
 
-jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const jvmtiClassDefinition& def) {
+jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const ArtClassDefinition& def) {
   std::string original_dex_location;
   jvmtiError ret = OK;
   if ((ret = GetClassLocation(env, def.klass, &original_dex_location))) {
@@ -288,21 +323,12 @@ jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const jvmtiClassDefiniti
     return ret;
   }
   std::unique_ptr<art::MemMap> map(MoveDataToMemMap(original_dex_location,
-                                                    def.class_byte_count,
-                                                    def.class_bytes,
+                                                    def.dex_len,
+                                                    def.dex_data.get(),
                                                     error_msg_));
   std::ostringstream os;
-  char* generic_ptr_unused = nullptr;
-  char* signature_ptr = nullptr;
-  if (env->GetClassSignature(def.klass, &signature_ptr, &generic_ptr_unused) != OK) {
-    *error_msg_ = "A jclass passed in does not seem to be valid";
-    return ERR(INVALID_CLASS);
-  }
-  // These will make sure we deallocate the signature.
-  JvmtiUniquePtr sig_unique_ptr(MakeJvmtiUniquePtr(env, signature_ptr));
-  JvmtiUniquePtr generic_unique_ptr(MakeJvmtiUniquePtr(env, generic_ptr_unused));
   if (map.get() == nullptr) {
-    os << "Failed to create anonymous mmap for modified dex file of class " << signature_ptr
+    os << "Failed to create anonymous mmap for modified dex file of class " << def.name
        << "in dex file " << original_dex_location << " because: " << *error_msg_;
     *error_msg_ = os.str();
     return ERR(OUT_OF_MEMORY);
@@ -319,12 +345,12 @@ jvmtiError Redefiner::AddRedefinition(ArtJvmTiEnv* env, const jvmtiClassDefiniti
                                                                   /*verify_checksum*/true,
                                                                   error_msg_));
   if (dex_file.get() == nullptr) {
-    os << "Unable to load modified dex file for " << signature_ptr << ": " << *error_msg_;
+    os << "Unable to load modified dex file for " << def.name << ": " << *error_msg_;
     *error_msg_ = os.str();
     return ERR(INVALID_CLASS_FORMAT);
   }
   redefinitions_.push_back(
-      Redefiner::ClassRedefinition(this, def.klass, dex_file.release(), signature_ptr));
+      Redefiner::ClassRedefinition(this, def.klass, dex_file.release(), def.name.c_str()));
   return OK;
 }
 
