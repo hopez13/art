@@ -111,6 +111,8 @@ class DexFile {
     kDexTypeFieldIdItem              = 0x0004,
     kDexTypeMethodIdItem             = 0x0005,
     kDexTypeClassDefItem             = 0x0006,
+    kDexTypeCallSiteIdItem           = 0x0007,
+    kDexTypeMethodHandleItem         = 0x0008,
     kDexTypeMapList                  = 0x1000,
     kDexTypeTypeList                 = 0x1001,
     kDexTypeAnnotationSetRefList     = 0x1002,
@@ -258,6 +260,37 @@ class DexFile {
     uint32_t size_;  // size of the list, in entries
     TypeItem list_[1];  // elements of the list
     DISALLOW_COPY_AND_ASSIGN(TypeList);
+  };
+
+  // MethodHandle Types
+  enum class MethodHandleType : uint16_t { // private
+    kPutStatic         = 0x0000, // a setter for a given static field.
+    kGetStatic         = 0x0001, // a getter for a given static field.
+    kPutInstance       = 0x0002, // a setter for a given instance field.
+    kGetInstance       = 0x0003, // a getter for a given instance field.
+    kInvokeStatic      = 0x0004, // an invoker for a given static method
+    kInvokeInstance    = 0x0005, // invoke_instance : an invoker for a given instance method. This
+                                 // can be any non-static method on any class (or interface) except
+                                 // for “<init>”.
+    kInvokeConstructor = 0x0006,  // an invoker for a given constructor.
+    kLast = kInvokeConstructor
+  };
+
+  // raw method_handle_item
+  struct MethodHandleItem {
+    uint16_t method_handle_type_;
+    uint16_t reserved1_;
+    uint16_t field_or_method_idx_;
+    uint16_t reserved2_;
+   private:
+    DISALLOW_COPY_AND_ASSIGN(MethodHandleItem);
+  };
+
+  // raw call_site_id_item
+  struct CallSiteIdItem {
+    uint32_t data_off_;  // Offset into data section pointing to encoded array items.
+   private:
+    DISALLOW_COPY_AND_ASSIGN(CallSiteIdItem);
   };
 
   // Raw code_item.
@@ -1101,6 +1134,9 @@ class DexFile {
   // Returns true if the header magic and version numbers are of the expected values.
   bool CheckMagicAndVersion(std::string* error_msg) const;
 
+  // Initialize section info for sections only found in map. Returns true on success.
+  void InitializeSectionsFromMapList();
+
   // Check whether a location denotes a multidex dex file. This is a very simple check: returns
   // whether the string contains the separator character.
   static bool IsMultiDexLocation(const char* location);
@@ -1142,6 +1178,18 @@ class DexFile {
 
   // Points to the base of the class definition list.
   const ClassDef* const class_defs_;
+
+  // Points to the base of the method handles list.
+  const MethodHandleItem* method_handles_;
+
+  // Number of method handles in list.
+  size_t num_method_handles_;
+
+  // Points to the base of the call sites id list.
+  const CallSiteIdItem* call_site_ids_;
+
+  // Number of method handles in list.
+  size_t num_call_site_ids_;
 
   // If this dex file was loaded from an oat file, oat_dex_file_ contains a
   // pointer to the OatDexFile it was loaded from. Otherwise oat_dex_file_ is
@@ -1416,22 +1464,24 @@ class EncodedStaticFieldValueIterator {
   void Next();
 
   enum ValueType {
-    kByte = 0x00,
-    kShort = 0x02,
-    kChar = 0x03,
-    kInt = 0x04,
-    kLong = 0x06,
-    kFloat = 0x10,
-    kDouble = 0x11,
-    kString = 0x17,
-    kType = 0x18,
-    kField = 0x19,
-    kMethod = 0x1a,
-    kEnum = 0x1b,
-    kArray = 0x1c,
-    kAnnotation = 0x1d,
-    kNull = 0x1e,
-    kBoolean = 0x1f
+    kByte         = 0x00,
+    kShort        = 0x02,
+    kChar         = 0x03,
+    kInt          = 0x04,
+    kLong         = 0x06,
+    kFloat        = 0x10,
+    kDouble       = 0x11,
+    kMethodType   = 0x15,
+    kMethodHandle = 0x16,
+    kString       = 0x17,
+    kType         = 0x18,
+    kField        = 0x19,
+    kMethod       = 0x1a,
+    kEnum         = 0x1b,
+    kArray        = 0x1c,
+    kAnnotation   = 0x1d,
+    kNull         = 0x1e,
+    kBoolean      = 0x1f,
   };
 
   ValueType GetValueType() const { return type_; }
