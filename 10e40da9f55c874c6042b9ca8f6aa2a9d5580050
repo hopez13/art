@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_d2180431",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T16:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_0be96187",
+      "range": {
+        "startLine": 202,
+        "startChar": 50,
+        "endLine": 202,
+        "endChar": 55
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_0606ba05",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-13T12:41:03Z",
       "side": 1,
       "message": "Does that handle try handler blocks? I think those shouldn\u0027t be merged.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_920e7cea",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T16:56:35Z",
+      "side": 1,
+      "message": "This simplification was inspired on what I saw in dead code elimination, were there is no such test either. What is protecting it there?",
+      "parentUuid": "631cfdaf_0606ba05",
       "range": {
         "startLine": 222,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_12fb6c9e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T16:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_660b2e0e",
+      "range": {
+        "startLine": 289,
+        "startChar": 50,
+        "endLine": 289,
+        "endChar": 54
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_4610b238",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-13T12:41:03Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_f23ee885",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T16:56:35Z",
+      "side": 1,
+      "message": "Do you mean the merging of the two methods (I thought the try method was just too silly small, but I can unmerge it), or putting the increment here (I prefer to do it here instead of in all callers, that it is easy to forget, as in one case).",
+      "parentUuid": "631cfdaf_4610b238",
       "range": {
         "startLine": 401,
         "startChar": 0,
