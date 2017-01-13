@@ -559,6 +559,22 @@ uint32_t DexFile::Header::GetVersion() const {
   return atoi(version);
 }
 
+bool DexFile::Header::VersionSupportsHeaderExtensions() const {
+  static constexpr uint32_t kMinimumVersionForHeaderExtensions = 38;
+  return GetVersion() >= kMinimumVersionForHeaderExtensions;
+}
+
+const DexFile::HeaderExtension& DexFile::GetHeaderExtension(uint32_t extension_idx) const {
+  DCHECK(header_->VersionSupportsHeaderExtensions() &&
+         extension_idx < GetHeader().extensions_size_);
+  const uint8_t* ptr = begin_ + header_->extensions_off_;
+  return reinterpret_cast<const HeaderExtension*>(ptr)[extension_idx];
+}
+
+std::string DexFile::GetHeaderExtensionName(const HeaderExtension& extension) {
+  return StringPrintf("unknown-%04x", extension.type_);
+}
+
 const DexFile::ClassDef* DexFile::FindClassDef(dex::TypeIndex type_idx) const {
   size_t num_class_defs = NumClassDefs();
   // Fast path for rare no class defs case.

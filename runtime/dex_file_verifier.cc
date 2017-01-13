@@ -55,17 +55,18 @@ static uint32_t MapTypeToBitMask(uint32_t map_type) {
     case DexFile::kDexTypeFieldIdItem:              return 1 << 4;
     case DexFile::kDexTypeMethodIdItem:             return 1 << 5;
     case DexFile::kDexTypeClassDefItem:             return 1 << 6;
-    case DexFile::kDexTypeMapList:                  return 1 << 7;
-    case DexFile::kDexTypeTypeList:                 return 1 << 8;
-    case DexFile::kDexTypeAnnotationSetRefList:     return 1 << 9;
-    case DexFile::kDexTypeAnnotationSetItem:        return 1 << 10;
-    case DexFile::kDexTypeClassDataItem:            return 1 << 11;
-    case DexFile::kDexTypeCodeItem:                 return 1 << 12;
-    case DexFile::kDexTypeStringDataItem:           return 1 << 13;
-    case DexFile::kDexTypeDebugInfoItem:            return 1 << 14;
-    case DexFile::kDexTypeAnnotationItem:           return 1 << 15;
-    case DexFile::kDexTypeEncodedArrayItem:         return 1 << 16;
-    case DexFile::kDexTypeAnnotationsDirectoryItem: return 1 << 17;
+    case DexFile::kDexTypeHeaderExtensionItem:      return 1 << 7;
+    case DexFile::kDexTypeMapList:                  return 1 << 8;
+    case DexFile::kDexTypeTypeList:                 return 1 << 9;
+    case DexFile::kDexTypeAnnotationSetRefList:     return 1 << 10;
+    case DexFile::kDexTypeAnnotationSetItem:        return 1 << 11;
+    case DexFile::kDexTypeClassDataItem:            return 1 << 12;
+    case DexFile::kDexTypeCodeItem:                 return 1 << 13;
+    case DexFile::kDexTypeStringDataItem:           return 1 << 14;
+    case DexFile::kDexTypeDebugInfoItem:            return 1 << 15;
+    case DexFile::kDexTypeAnnotationItem:           return 1 << 16;
+    case DexFile::kDexTypeEncodedArrayItem:         return 1 << 17;
+    case DexFile::kDexTypeAnnotationsDirectoryItem: return 1 << 18;
   }
   return 0;
 }
@@ -79,6 +80,7 @@ static bool IsDataSectionType(uint32_t map_type) {
     case DexFile::kDexTypeFieldIdItem:
     case DexFile::kDexTypeMethodIdItem:
     case DexFile::kDexTypeClassDefItem:
+    case DexFile::kDexTypeHeaderExtensionItem:
       return false;
   }
   return true;
@@ -313,10 +315,6 @@ bool DexFileVerifier::CheckHeader() {
 
   // Check that all offsets are inside the file.
   bool result =
-      CheckValidOffsetAndSize(header_->link_off_,
-                              header_->link_size_,
-                              0 /* unaligned */,
-                              "link") &&
       CheckValidOffsetAndSize(header_->map_off_,
                               header_->map_off_,
                               4,
@@ -352,6 +350,22 @@ bool DexFileVerifier::CheckHeader() {
                               0,  // Unaligned, spec doesn't talk about it, even though size
                                   // is supposed to be a multiple of 4.
                               "data");
+  if (header_->VersionSupportsHeaderExtensions()) {
+    for (uint32_t i = 0; i < header_->extensions_size_; ++i) {
+      const DexFile::HeaderExtension& extension = dex_file_->GetHeaderExtension(i);
+      const std::string& name = DexFile::GetHeaderExtensionName(extension);
+      result &= CheckValidOffsetAndSize(extension.off_,
+                                        extension.size_,
+                                        4,
+                                        name.c_str());
+    }
+  } else {
+    // Prior to version 38 the extension fields were link fields that have any alignment.
+    CheckValidOffsetAndSize(header_->extensions_off_,
+                            header_->extensions_size_,
+                            0,
+                            "link");
+  }
   return result;
 }
 
@@ -453,6 +467,13 @@ bool DexFileVerifier::CheckMap() {
                ((header_->class_defs_off_ != 0) || (header_->class_defs_size_ != 0)))) {
     ErrorStringPrintf("Map is missing class_defs entry");
     return false;
+  }
+  if (header_->VersionSupportsHeaderExtensions()) {
+    if (UNLIKELY((used_bits & MapTypeToBitMask(DexFile::kDexTypeHeaderExtensionItem)) == 0 &&
+                 ((header_->extensions_off_ != 0) || (header_->extensions_size_ != 0)))) {
+      ErrorStringPrintf("Map is missing header_extensions entry");
+      return false;
+    }
   }
   return true;
 }
@@ -1438,6 +1459,14 @@ bool DexFileVerifier::CheckIntraSectionIterate(size_t offset, uint32_t section_c
         ptr_ += sizeof(DexFile::ClassDef);
         break;
       }
+      case DexFile::kDexTypeHeaderExtensionItem: {
+        if (!header_->VersionSupportsHeaderExtensions()) return false;
+        if (!CheckListSize(ptr_, 1, sizeof(DexFile::HeaderExtension), "header_exts")) {
+          return false;
+        }
+        ptr_ += sizeof(DexFile::HeaderExtension);
+        break;
+      }
       case DexFile::kDexTypeTypeList: {
         if (!CheckList(sizeof(DexFile::TypeItem), "type_list", &ptr_)) {
           return false;
@@ -1554,6 +1583,14 @@ bool DexFileVerifier::CheckIntraIdSection(size_t offset, uint32_t count, uint16_
       expected_offset = header_->class_defs_off_;
       expected_size = header_->class_defs_size_;
       break;
+    case DexFile::kDexTypeHeaderExtensionItem: {
+      if (header_->VersionSupportsHeaderExtensions()) {
+        expected_offset = header_->extensions_off_;
+        expected_size = header_->extensions_size_;
+        break;
+      }
+    }
+    FALLTHROUGH_INTENDED;
     default:
       ErrorStringPrintf("Bad type for id section: %x", type);
       return false;
@@ -1637,6 +1674,7 @@ bool DexFileVerifier::CheckIntraSection() {
       case DexFile::kDexTypeFieldIdItem:
       case DexFile::kDexTypeMethodIdItem:
       case DexFile::kDexTypeClassDefItem:
+      case DexFile::kDexTypeHeaderExtensionItem:
         if (!CheckIntraIdSection(section_offset, section_count, type)) {
           return false;
         }
@@ -2151,6 +2189,38 @@ bool DexFileVerifier::CheckInterClassDefItem() {
   return true;
 }
 
+bool DexFileVerifier::CheckInterHeaderExtensionItem() {
+  const DexFile::HeaderExtension* item = reinterpret_cast<const DexFile::HeaderExtension*>(ptr_);
+  const std::string& extension_name = DexFile::GetHeaderExtensionName(*item);
+
+  // 1) Check extension type is within defined range. TODO(oth).
+
+  // 2) Check previous extension type (if any) < current extension type.
+  if (previous_item_ != nullptr) {
+    const DexFile::HeaderExtension* prev_item =
+        reinterpret_cast<const DexFile::HeaderExtension*>(previous_item_);
+    if (UNLIKELY(prev_item->type_ >= item->type_)) {
+      ErrorStringPrintf("Out-of-order header extension types: %x then %x",
+                        prev_item->type_,
+                        item->type_);
+      return false;
+    }
+  }
+
+  // 3) Check sizes and offsets are aligned and inside bounds of file.
+  if (item->off_ >= size_) {
+    ErrorStringPrintf("Header extension %s offset out of bounds: %u >= %zu",
+                      extension_name.c_str(),
+                      item->off_,
+                      size_);
+    return false;
+  }
+  // TODO(oth): Check alignment and limit (dependent on type).
+
+  ptr_ += sizeof(DexFile::HeaderExtension);
+  return true;
+}
+
 bool DexFileVerifier::CheckInterAnnotationSetRefList() {
   const DexFile::AnnotationSetRefList* list =
       reinterpret_cast<const DexFile::AnnotationSetRefList*>(ptr_);
@@ -2365,6 +2435,16 @@ bool DexFileVerifier::CheckInterSectionIterate(size_t offset, uint32_t count, ui
         }
         break;
       }
+      case DexFile::kDexTypeHeaderExtensionItem: {
+        if (!header_->VersionSupportsHeaderExtensions()) {
+          ErrorStringPrintf("Header extension appearing where not supported");
+          return false;
+        }
+        if (!CheckInterHeaderExtensionItem()) {
+          return false;
+        }
+        break;
+      }
       case DexFile::kDexTypeAnnotationSetRefList: {
         if (!CheckInterAnnotationSetRefList()) {
           return false;
@@ -2436,6 +2516,7 @@ bool DexFileVerifier::CheckInterSection() {
       case DexFile::kDexTypeFieldIdItem:
       case DexFile::kDexTypeMethodIdItem:
       case DexFile::kDexTypeClassDefItem:
+      case DexFile::kDexTypeHeaderExtensionItem:
       case DexFile::kDexTypeAnnotationSetRefList:
       case DexFile::kDexTypeAnnotationSetItem:
       case DexFile::kDexTypeClassDataItem:
