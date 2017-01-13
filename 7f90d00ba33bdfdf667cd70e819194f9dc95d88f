@@ -70,6 +70,30 @@
       "revId": "7f90d00ba33bdfdf667cd70e819194f9dc95d88f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_460a72d9",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-13T18:22:08Z",
+      "side": 1,
+      "message": "For static field, readers are guaranteed to check the class status but for instance fields they are not.\n\nI\u0027m going to change this to \"store release\" to align with the SetResolvedType(). I\u0027ll keep the \"load relaxed\" in line with GetResolvedType(). See PS10. (PS9 shuashes the custom atomics into this CL.)",
+      "parentUuid": "da6aeb2c_5b709eb8",
+      "range": {
+        "startLine": 233,
+        "startChar": 29,
+        "endLine": 233,
+        "endChar": 49
+      },
+      "revId": "7f90d00ba33bdfdf667cd70e819194f9dc95d88f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
