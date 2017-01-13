@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_5b218fbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "Can you add more description to what this change does?",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_5bfa6f00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "Can you test this with CC if not?",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_5b234fd8",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "We don\u0027t need a read barrier when loading a class that\u0027s  in the boot image, but we still need a read barrier if we load a non-boot-image class from the boot image\u0027s BSS (which I thought was what this change introduces). Is this handled properly?",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 194,
+        "endChar": 58
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_580515c7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "Only CMS uses kVisitRootFlagNewRoots. CC uses kVisitRootFlagAllRoots, that is, we must not reach here if running with CC (we could assert CHECK(!kUseReadBarrier) here.)\n\nChange this comment to say, \"We shouldn\u0027t reach here for concurrent moving GC\"?\n\nBTW, what the to-space invariant gives us for CC is that when we update a ref in the bss, we don\u0027t need a write barrier. So, we don\u0027t need to call WriteBarrierForBootOatFileBssRoots() for CC.",
+      "range": {
+        "startLine": 1942,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 37
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_b8f281b1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "We need do this only for CMS.",
+      "range": {
+        "startLine": 3680,
+        "startChar": 0,
+        "endLine": 3684,
+        "endChar": 3
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_78e1f9dd",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "I think we can say this is used only for CMS.",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_3b376b21",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-13T19:33:50Z",
+      "side": 1,
+      "message": "Surround this with \"if (!kUseReadBarrier) {}\"?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
