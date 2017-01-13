@@ -1542,6 +1542,8 @@ class Thread {
     JniEntryPoints jni_entrypoints;
     QuickEntryPoints quick_entrypoints;
 
+    uintptr_t align_;  // TODO: REMOVE after MH entrypoint gets in.
+
     // Thread-local allocation pointer. Moved here to force alignment for thread_local_pos on ARM.
     uint8_t* thread_local_start;
     // thread_local_pos and thread_local_end must be consecutive for ldrd and are 8 byte aligned for
