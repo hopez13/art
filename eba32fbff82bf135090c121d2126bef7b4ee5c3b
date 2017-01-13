@@ -22,6 +22,30 @@
       "revId": "eba32fbff82bf135090c121d2126bef7b4ee5c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_d241e4f8",
+        "filename": "runtime/openjdkjvmti/ti_stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-13T16:54:26Z",
+      "side": 1,
+      "message": "Didn\u0027t want to introduce yet another level, and this is kinda debugging. :-)\n\nIf/when we move the debugger, we\u0027ll have to clean up.",
+      "parentUuid": "e39b8d7a_12860c3f",
+      "range": {
+        "startLine": 419,
+        "startChar": 50,
+        "endLine": 419,
+        "endChar": 79
+      },
+      "revId": "eba32fbff82bf135090c121d2126bef7b4ee5c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
