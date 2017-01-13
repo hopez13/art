@@ -3194,6 +3194,8 @@ void IntrinsicCodeGeneratorX86::VisitSystemArrayCopy(HInvoke* invoke) {
   }
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
+    // TODO: Also convert this intrinsic to the IsGcMarking strategy?
+
     // If it is needed (in the case of the fast-path loop), the base
     // destination address is computed later, as `temp2` is used for
     // intermediate computations.

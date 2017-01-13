@@ -1393,6 +1393,8 @@ void IntrinsicCodeGeneratorX86_64::VisitSystemArrayCopy(HInvoke* invoke) {
   }
 
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
+    // TODO: Also convert this intrinsic to the IsGcMarking strategy?
+
     // SystemArrayCopy implementation for Baker read barriers (see
     // also CodeGeneratorX86_64::GenerateReferenceLoadWithBakerReadBarrier):
     //
