@@ -3496,7 +3496,9 @@ void LocationsBuilderMIPS64::VisitLoadClass(HLoadClass* cls) {
   locations->SetOut(Location::RequiresRegister());
 }
 
-void InstructionCodeGeneratorMIPS64::VisitLoadClass(HLoadClass* cls) {
+// NO_THREAD_SAFETY_ANALYSIS as we manipulate handles whose internal object we know does not
+// move.
+void InstructionCodeGeneratorMIPS64::VisitLoadClass(HLoadClass* cls) NO_THREAD_SAFETY_ANALYSIS {
   LocationSummary* locations = cls->GetLocations();
   if (cls->NeedsAccessCheck()) {
     codegen_->MoveConstant(locations->GetTemp(0), cls->GetTypeIndex().index_);
@@ -3542,8 +3544,9 @@ void InstructionCodeGeneratorMIPS64::VisitLoadClass(HLoadClass* cls) {
     }
     case HLoadClass::LoadKind::kBootImageAddress: {
       DCHECK(!kEmitCompilerReadBarrier);
-      DCHECK_NE(cls->GetAddress(), 0u);
-      uint32_t address = dchecked_integral_cast<uint32_t>(cls->GetAddress());
+      uint32_t address = dchecked_integral_cast<uint32_t>(
+          reinterpret_cast<uintptr_t>(cls->GetClass().Get()));
+      DCHECK_NE(address, 0u);
       __ LoadLiteral(out,
                      kLoadUnsignedWord,
                      codegen_->DeduplicateBootImageAddressLiteral(address));
