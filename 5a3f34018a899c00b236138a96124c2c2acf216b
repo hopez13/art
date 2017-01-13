@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e39b8d7a_06b08ac7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-01-13T20:05:11Z",
+      "side": 1,
+      "message": "Excluding the magic, checksum, signature and file size, the dex file header is a subset of the map_list:\nhttps://source.android.com/devices/tech/dalvik/dex-format.html#map-list\nThe declaration of header extensions is identical to map_items:\nhttps://source.android.com/devices/tech/dalvik/dex-format.html#map-item\nIf extensions describe existing sections, then this is redundant wrt the map_list. If you are adding new sections, why not just add them to the map_list? They should appear there anyway for the property that the map_list fully describes the file.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "5a3f34018a899c00b236138a96124c2c2acf216b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_38b5b1d7",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
