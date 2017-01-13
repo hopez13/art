@@ -45,6 +45,52 @@
       "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_2fcae925",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-13T05:24:14Z",
+      "side": 1,
+      "message": "document here, or somewhere else, that his is the \"extra_data\".",
+      "range": {
+        "startLine": 945,
+        "startChar": 6,
+        "endLine": 945,
+        "endChar": 32
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d9950f_2f9c294a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-13T05:24:14Z",
+      "side": 1,
+      "message": "i wonder if the if-condition is actually faster than the extra instructions on the else branch :)",
+      "range": {
+        "startLine": 1004,
+        "startChar": 4,
+        "endLine": 1004,
+        "endChar": 25
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
