@@ -64,6 +64,7 @@ class ImtConflictTable;
 template<typename T> class LengthPrefixedArray;
 template<class T> class MutableHandle;
 class InternTable;
+class OatFile;
 template<class T> class ObjectLock;
 class Runtime;
 class ScopedObjectAccessAlreadyRunnable;
@@ -532,6 +533,11 @@ class ClassLinker {
   // the class was inserted, otherwise returns an existing class with
   // the same descriptor and ClassLoader.
   mirror::Class* InsertClass(const char* descriptor, ObjPtr<mirror::Class> klass, size_t hash)
+      REQUIRES(!Locks::classlinker_classes_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // TODO: Document this function.
+  void WriteBarrierForBootOatFileBssRoots(const OatFile* oat_file)
       REQUIRES(!Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -1130,6 +1136,10 @@ class ClassLinker {
   // New class roots, only used by CMS since the GC needs to mark these in the pause.
   std::vector<GcRoot<mirror::Class>> new_class_roots_ GUARDED_BY(Locks::classlinker_classes_lock_);
 
+  // Boot image oat files with new .bss GC roots to be visited
+  std::vector<const OatFile*> new_bss_roots_boot_oat_files_
+      GUARDED_BY(Locks::classlinker_classes_lock_);
+
   // Number of times we've searched dex caches for a class. After a certain number of misses we move
   // the classes into the class_table_ to avoid dex cache based searches.
   Atomic<uint32_t> failed_dex_cache_class_lookups_;
@@ -1147,7 +1157,7 @@ class ClassLinker {
   size_t find_array_class_cache_next_victim_;
 
   bool init_done_;
-  bool log_new_class_table_roots_ GUARDED_BY(Locks::classlinker_classes_lock_);
+  bool log_new_roots_ GUARDED_BY(Locks::classlinker_classes_lock_);
 
   InternTable* intern_table_;
 
