@@ -68,6 +68,12 @@ class MANAGED ClassExt : public Object {
   bool ExtendObsoleteArrays(Thread* self, uint32_t increase)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  DexCache* GetOriginalDexCache() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetFieldObject<DexCache>(OFFSET_OF_OBJECT_MEMBER(ClassExt, original_dex_cache_));
+  }
+
+  void SetOriginalDexCache(ObjPtr<DexCache> dex_cache) REQUIRES_SHARED(Locks::mutator_lock_);
+
   static void SetClass(ObjPtr<Class> dalvik_system_ClassExt);
   static void ResetClass();
   static void VisitRoots(RootVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_);

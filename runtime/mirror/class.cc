@@ -46,6 +46,20 @@ using android::base::StringPrintf;
 
 GcRoot<Class> Class::java_lang_Class_;
 
+const DexFile& Class::GetDexFileForRetransformation() {
+  StackHandleScope<2> hs(Thread::Current());
+  Handle<ClassExt> ext(hs.NewHandle(GetExtData()));
+  if (LIKELY(ext.IsNull())) {
+    return GetDexFile();
+  }
+  Handle<DexCache> original_dex_cache(hs.NewHandle(ext->GetOriginalDexCache()));
+  if (original_dex_cache.IsNull()) {
+    return GetDexFile();
+  } else {
+    return *original_dex_cache->GetDexFile();
+  }
+}
+
 void Class::SetClassClass(ObjPtr<Class> java_lang_Class) {
   CHECK(java_lang_Class_.IsNull())
       << java_lang_Class_.Read()
