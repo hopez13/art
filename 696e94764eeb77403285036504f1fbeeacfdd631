@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6354fd0e_8990bd6d",
+        "filename": "runtime/arch/arm/instruction_set_features_assembly_tests.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-13T14:01:44Z",
+      "side": 1,
+      "message": "remove? (or move after \"signal handler\")",
+      "range": {
+        "startLine": 22,
+        "startChar": 65,
+        "endLine": 22,
+        "endChar": 83
+      },
+      "revId": "696e94764eeb77403285036504f1fbeeacfdd631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_0664fac7",
+        "filename": "runtime/arch/arm/instruction_set_features_assembly_tests.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-13T14:01:44Z",
+      "side": 1,
+      "message": "Do you mean \"uses\"?",
+      "range": {
+        "startLine": 53,
+        "startChar": 61,
+        "endLine": 53,
+        "endChar": 65
+      },
+      "revId": "696e94764eeb77403285036504f1fbeeacfdd631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
