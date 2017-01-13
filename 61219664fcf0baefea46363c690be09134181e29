@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_86f2aab1",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-13T16:39:50Z",
+      "side": 1,
+      "message": "What about:\n\n  const DexCompilationUnit* compilation_unit \u003d\n      outer ? outer_compilation_unit_ : dex_compilation_unit_;\n  const DexFile\u0026 dex_file \u003d *compilation_unit-\u003eGetDexFile();\n  Handle\u003cmirror::DexCache\u003e dex_cache \u003d compilation_unit_-\u003eGetDexCache();\n\n?",
+      "range": {
+        "startLine": 1619,
+        "startChar": 0,
+        "endLine": 1624,
+        "endChar": 45
+      },
+      "revId": "61219664fcf0baefea46363c690be09134181e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
