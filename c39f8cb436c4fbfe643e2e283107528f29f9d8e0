@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_06507a41",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T09:16:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_cb090953",
+      "range": {
+        "startLine": 5437,
+        "startChar": 2,
+        "endLine": 5437,
+        "endChar": 32
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a356f512_8b31d10e",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-12T16:00:36Z",
       "side": 1,
       "message": "I think we need the method index in caller\u0027s dex file and this may be a method index in a different dex file. The caller\u0027s dex file may not even have a MethodId for this method.",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 77
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6655ee31",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T09:16:39Z",
+      "side": 1,
+      "message": "As discussed, currently all inlined methods that need a stack map under AOT are in the same dex file. I added a DCHECK.\n\nI will follow-up with changes that will remove this restriction, but will still most probably use the method index of the ArtMethod.",
+      "parentUuid": "a356f512_8b31d10e",
       "range": {
         "startLine": 118,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_a65ec653",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T09:16:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_2fcae925",
+      "range": {
+        "startLine": 945,
+        "startChar": 6,
+        "endLine": 945,
+        "endChar": 32
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_2f9c294a",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-13T05:24:14Z",
       "side": 1,
       "message": "i wonder if the if-condition is actually faster than the extra instructions on the else branch :)",
+      "range": {
+        "startLine": 1004,
+        "startChar": 4,
+        "endLine": 1004,
+        "endChar": 25
+      },
+      "revId": "c39f8cb436c4fbfe643e2e283107528f29f9d8e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c665c220",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T09:16:39Z",
+      "side": 1,
+      "message": "I think it\u0027s more the idea of creating an uint64_t on a 32bit system and then converting into a pointer that bugs me.\n\nBut no strong preference.",
+      "parentUuid": "a3d9950f_2f9c294a",
       "range": {
         "startLine": 1004,
         "startChar": 4,
