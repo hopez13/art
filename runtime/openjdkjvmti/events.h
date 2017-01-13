@@ -30,22 +30,82 @@ struct ArtJvmTiEnv;
 class JvmtiAllocationListener;
 class JvmtiGcPauseListener;
 
+// an enum for ArtEvents. This differs from the JVMTI events only in that we distinguish between
+// retransformation capable and incapable loading
+enum class ArtJvmtiEvent {
+    kMinEventTypeVal = 50,
+    kVmInit = 50,
+    kVmDeath = 51,
+    kThreadStart = 52,
+    kThreadEnd = 53,
+    kClassFileLoadHookNonRetransformable = 54,
+    kClassLoad = 55,
+    kClassPrepare = 56,
+    kVmStart = 57,
+    kException = 58,
+    kExceptionCatch = 59,
+    kSingleStep = 60,
+    kFramePop = 61,
+    kBreakpoint = 62,
+    kFieldAccess = 63,
+    kFieldModification = 64,
+    kMethodEntry = 65,
+    kMethodExit = 66,
+    kNativeMethodBind = 67,
+    kCompiledMethodLoad = 68,
+    kCompiledMethodUnload = 69,
+    kDynamicCodeGenerated = 70,
+    kDataDumpRequest = 71,
+    kMonitorWait = 73,
+    kMonitorWaited = 74,
+    kMonitorContendedEnter = 75,
+    kMonitorContendedEntered = 76,
+    kResourceExhausted = 80,
+    kGarbageCollectionStart = 81,
+    kGarbageCollectionFinish = 82,
+    kObjectFree = 83,
+    kVmObjectAlloc = 84,
+    kClassFileLoadHookRetransformable = 85,
+    kMaxEventTypeVal = 85
+};
+
+// Convert a jvmtiEvent into a ArtJvmtiEvent
+static inline ArtJvmtiEvent GetArtJvmtiEvent(jvmtiEvent e) {
+  CHECK_NE(e, JVMTI_EVENT_CLASS_FILE_LOAD_HOOK);
+  return static_cast<ArtJvmtiEvent>(e);
+}
+
+// Convert a jvmtiEvent into a ArtJvmtiEvent
+static inline ArtJvmtiEvent GetArtJvmtiEvent(ArtJvmTiEnv* env, jvmtiEvent e);
+
+static inline jvmtiEvent GetJvmtiEvent(ArtJvmtiEvent e) {
+  if (UNLIKELY(e == ArtJvmtiEvent::kClassFileLoadHookRetransformable)) {
+    return JVMTI_EVENT_CLASS_FILE_LOAD_HOOK;
+  } else {
+    return static_cast<jvmtiEvent>(e);
+  }
+}
+
 struct EventMask {
-  static constexpr size_t kEventsSize = JVMTI_MAX_EVENT_TYPE_VAL - JVMTI_MIN_EVENT_TYPE_VAL + 1;
+  static constexpr size_t kEventsSize =
+      static_cast<size_t>(ArtJvmtiEvent::kMaxEventTypeVal) -
+      static_cast<size_t>(ArtJvmtiEvent::kMinEventTypeVal) + 1;
   std::bitset<kEventsSize> bit_set;
 
-  static bool EventIsInRange(jvmtiEvent event) {
-    return event >= JVMTI_MIN_EVENT_TYPE_VAL && event <= JVMTI_MAX_EVENT_TYPE_VAL;
+  static bool EventIsInRange(ArtJvmtiEvent event) {
+    return event >= ArtJvmtiEvent::kMinEventTypeVal && event <= ArtJvmtiEvent::kMaxEventTypeVal;
   }
 
-  void Set(jvmtiEvent event, bool value = true) {
+  void Set(ArtJvmtiEvent event, bool value = true) {
     DCHECK(EventIsInRange(event));
-    bit_set.set(event - JVMTI_MIN_EVENT_TYPE_VAL, value);
+    bit_set.set(static_cast<size_t>(event) - static_cast<size_t>(ArtJvmtiEvent::kMinEventTypeVal),
+                value);
   }
 
-  bool Test(jvmtiEvent event) const {
+  bool Test(ArtJvmtiEvent event) const {
     DCHECK(EventIsInRange(event));
-    return bit_set.test(event - JVMTI_MIN_EVENT_TYPE_VAL);
+    return bit_set.test(
+        static_cast<size_t>(event) - static_cast<size_t>(ArtJvmtiEvent::kMinEventTypeVal));
   }
 };
 
@@ -68,8 +128,8 @@ struct EventMasks {
 
   EventMask& GetEventMask(art::Thread* thread);
   EventMask* GetEventMaskOrNull(art::Thread* thread);
-  void EnableEvent(art::Thread* thread, jvmtiEvent event);
-  void DisableEvent(art::Thread* thread, jvmtiEvent event);
+  void EnableEvent(art::Thread* thread, ArtJvmtiEvent event);
+  void DisableEvent(art::Thread* thread, ArtJvmtiEvent event);
 };
 
 // Helper class for event handling.
@@ -82,20 +142,35 @@ class EventHandler {
   // enabled, yet.
   void RegisterArtJvmTiEnv(ArtJvmTiEnv* env);
 
-  bool IsEventEnabledAnywhere(jvmtiEvent event) {
+  bool IsEventEnabledAnywhere(ArtJvmtiEvent event) const {
     if (!EventMask::EventIsInRange(event)) {
       return false;
     }
     return global_mask.Test(event);
   }
 
-  jvmtiError SetEvent(ArtJvmTiEnv* env, art::Thread* thread, jvmtiEvent event, jvmtiEventMode mode);
+  jvmtiError SetEvent(ArtJvmTiEnv* env,
+                      art::Thread* thread,
+                      ArtJvmtiEvent event,
+                      jvmtiEventMode mode);
 
-  template <typename ...Args>
-  ALWAYS_INLINE inline void DispatchEvent(art::Thread* thread, jvmtiEvent event, Args... args);
+  template <typename ...Args> ALWAYS_INLINE inline
+  void DispatchEvent(art::Thread* thread, ArtJvmtiEvent event, Args... args) const;
 
  private:
-  void HandleEventType(jvmtiEvent event, bool enable);
+  template <typename ...Args>
+  ALWAYS_INLINE inline void GenericDispatchEvent(art::Thread* thread,
+                                                 ArtJvmtiEvent event,
+                                                 Args... args) const;
+  template <typename ...Args>
+  ALWAYS_INLINE inline void DispatchClassFileLoadHookEvent(art::Thread* thread,
+                                                           ArtJvmtiEvent event,
+                                                           Args... args) const;
+
+  ALWAYS_INLINE
+  static inline bool ShouldDispatch(ArtJvmtiEvent event, ArtJvmTiEnv* env, art::Thread* thread);
+
+  void HandleEventType(ArtJvmtiEvent event, bool enable);
 
   // List of all JvmTiEnv objects that have been created, in their creation order.
   std::vector<ArtJvmTiEnv*> envs;
