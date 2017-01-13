@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_860bcad9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-13T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4328d982_a1e02677",
+      "revId": "55b3ddd71a2dc60e39077b95d83da1dab80bab53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "233125ed_12e98c87",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2017-01-13T15:32:43Z",
       "side": 1,
       "message": "I guess that\u0027s ok because registers here are 64bits, but maybe comment that our references are compressed and always 32bits.",
+      "range": {
+        "startLine": 2434,
+        "startChar": 33,
+        "endLine": 2434,
+        "endChar": 37
+      },
+      "revId": "55b3ddd71a2dc60e39077b95d83da1dab80bab53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_a60ec6e9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2434,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-13T16:17:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "233125ed_12e98c87",
       "range": {
         "startLine": 2434,
         "startChar": 33,
