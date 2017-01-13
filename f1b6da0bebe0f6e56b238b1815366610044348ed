@@ -16,6 +16,29 @@
       "revId": "f1b6da0bebe0f6e56b238b1815366610044348ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_06051a31",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-13T09:44:40Z",
+      "side": 1,
+      "message": "Please add a comment why runtime can be null (ie running RI, right?)",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 3
+      },
+      "revId": "f1b6da0bebe0f6e56b238b1815366610044348ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
