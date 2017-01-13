@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_152d1667",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T18:02:30Z",
+      "side": 1,
+      "message": "In any case, the loop optimizer currently is protected with graph_-\u003eHasTryCatch(), so we don\u0027t have the problem. Remind me when we ever change that :-) :-)",
+      "parentUuid": "e39b8d7a_920e7cea",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_660b2e0e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -201,6 +225,30 @@
       "writtenOn": "2017-01-13T12:41:03Z",
       "side": 1,
       "message": "Name is a bit generic. Having a comment would be nice.",
+      "range": {
+        "startLine": 74,
+        "startChar": 27,
+        "endLine": 74,
+        "endChar": 39
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_d54b8e67",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-13T18:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_867c6a89",
       "range": {
         "startLine": 74,
         "startChar": 27,
