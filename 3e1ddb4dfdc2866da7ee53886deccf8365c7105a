@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_a697e6d7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3876,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a356f512_ab3ff5f2",
+      "range": {
+        "startLine": 3876,
+        "startChar": 0,
+        "endLine": 3876,
+        "endChar": 108
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_5cd613d8",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -72,6 +96,54 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_465a7263",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3877,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "There are two cases when old_native_bytes_allocated_ can go negative:\n\n1. If the user calls RegisterNativeFree for more bytes than were passed to RegisterNativeAllocation.\n\n2. If a call to RegisterNativeFree interleaves with when we are moving bytes from new_native_bytes_allocated_ to old_native_bytes_allocated_ at the start of GC. In this case old_native_bytes_allocated_ will only be negative until the move has a chance to complete.\n\nIt is okay for old_native_bytes_allocated_ to go negative because it is only used for debugging purposes. Worst case we print an absurd number of registered native allocations when we dump for sig quit.",
+      "parentUuid": "a3d9950f_5cd613d8",
+      "range": {
+        "startLine": 3877,
+        "startChar": 2,
+        "endLine": 3877,
+        "endChar": 29
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c68e62c0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3877,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_77ff70ef",
+      "range": {
+        "startLine": 3877,
+        "startChar": 2,
+        "endLine": 3877,
+        "endChar": 29
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_11a4f4a4",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 7
@@ -95,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_86946ad4",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_11a4f4a4",
+      "range": {
+        "startLine": 1067,
+        "startChar": 45,
+        "endLine": 1067,
+        "endChar": 58
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_31a1f894",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 7
@@ -106,6 +202,30 @@
       "writtenOn": "2017-01-12T18:37:29Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 53,
+        "endLine": 1078,
+        "endChar": 66
+      },
+      "revId": "3e1ddb4dfdc2866da7ee53886deccf8365c7105a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_e691dee2",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d9950f_31a1f894",
       "range": {
         "startLine": 1078,
         "startChar": 53,
