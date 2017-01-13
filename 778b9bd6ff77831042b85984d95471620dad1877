@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_c627827e",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-13T15:05:16Z",
+      "side": 1,
+      "message": "Actually, this is an obsolete comment. Removed.",
+      "parentUuid": "631cfdaf_6637aeb7",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 69
+      },
+      "revId": "778b9bd6ff77831042b85984d95471620dad1877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_a620866a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-13T14:59:18Z",
       "side": 1,
       "message": "Should new_bss_roots_boot_oat_files_ be a set instead?",
+      "range": {
+        "startLine": 3682,
+        "startChar": 21,
+        "endLine": 3682,
+        "endChar": 81
+      },
+      "revId": "778b9bd6ff77831042b85984d95471620dad1877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e360ede6_8d3e8585",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3682,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-13T15:05:16Z",
+      "side": 1,
+      "message": "The size is limited to the number of boot*.oat files. Vector usually performs better for such small sets.",
+      "parentUuid": "631cfdaf_a620866a",
       "range": {
         "startLine": 3682,
         "startChar": 21,
