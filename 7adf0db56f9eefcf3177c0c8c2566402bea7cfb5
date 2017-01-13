@@ -179,6 +179,24 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_f58172e7",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-13T17:05:37Z",
+      "side": 1,
+      "message": "I don\u0027t see anything about that \u0026 we\u0027re android; we ignore a bunch of that anyway. Also I want to match the external jvmti API.",
+      "parentUuid": "631cfdaf_26c9365f",
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_e6e39e82",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
