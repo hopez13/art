@@ -1223,6 +1223,10 @@ class MANAGED Class FINAL : public Object {
 
   const DexFile& GetDexFile() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns the DexFile we should use for retransformation. This is the dex file that was passed to
+  // a RedefineClasses call or the output of the last non-transformation capable agent.
+  const DexFile& GetDexFileForRetransformation() REQUIRES_SHARED(Locks::mutator_lock_);
+
   const DexFile::TypeList* GetInterfaceTypeList() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Asserts we are initialized or initializing in the given thread.

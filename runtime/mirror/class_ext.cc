@@ -34,6 +34,14 @@ namespace mirror {
 
 GcRoot<Class> ClassExt::dalvik_system_ClassExt_;
 
+void ClassExt::SetOriginalDexCache(ObjPtr<DexCache> dex_cache) {
+  if (Runtime::Current()->IsActiveTransaction()) {
+    SetFieldObject<true>(OFFSET_OF_OBJECT_MEMBER(ClassExt, original_dex_cache_), dex_cache);
+  } else {
+    SetFieldObject<false>(OFFSET_OF_OBJECT_MEMBER(ClassExt, original_dex_cache_), dex_cache);
+  }
+}
+
 void ClassExt::SetObsoleteArrays(ObjPtr<PointerArray> methods,
                                  ObjPtr<ObjectArray<DexCache>> dex_caches) {
   DCHECK_EQ(GetLockOwnerThreadId(), Thread::Current()->GetThreadId())
