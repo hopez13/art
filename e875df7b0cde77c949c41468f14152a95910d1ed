@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_061cfa86",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-13T10:39:12Z",
+      "side": 1,
+      "message": "I\u0027ve seen this fail locally, but I\u0027m having a hard time reproducing it. I worry this may be a flaky test now.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "e875df7b0cde77c949c41468f14152a95910d1ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
