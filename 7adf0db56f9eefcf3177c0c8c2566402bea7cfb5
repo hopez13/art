@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_26c9365f",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-13T16:53:33Z",
+      "side": 1,
+      "message": "I thought the google3 style guide mandated\n\nconst jvmtiClassDefinition definitions[])\n\nin that case, but i could be wrong - i haven\u0027t read it for years",
+      "parentUuid": "e39b8d7a_f276e8a4",
+      "revId": "7adf0db56f9eefcf3177c0c8c2566402bea7cfb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_e6e39e82",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
