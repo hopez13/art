@@ -22,6 +22,30 @@
       "revId": "8580744607a963d408956c3eb712b0e070c139b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_92ff51ee",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-14T01:33:10Z",
+      "side": 1,
+      "message": "GetList is always making a copy, anyways, to protect the internal list.\n\n(Yes, for simplicity keeping the lock, to ensure the peers are kept alive, not that there\u0027s a suspend point.)",
+      "parentUuid": "e39b8d7a_b24455b3",
+      "range": {
+        "startLine": 370,
+        "startChar": 26,
+        "endLine": 370,
+        "endChar": 37
+      },
+      "revId": "8580744607a963d408956c3eb712b0e070c139b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
