@@ -33,12 +33,16 @@ namespace art {
 
 // public static native boolean hasJit();
 
-extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJit(JNIEnv*, jclass) {
+static jboolean HasJit() {
   Runtime* runtime = Runtime::Current();
   return runtime != nullptr
       && runtime->GetJit() != nullptr
       && runtime->GetInstrumentation()->GetCurrentInstrumentationLevel() !=
             instrumentation::Instrumentation::InstrumentationLevel::kInstrumentWithInterpreter;
+}
+
+extern "C" JNIEXPORT jboolean JNICALL Java_Main_hasJit(JNIEnv*, jclass) {
+  return HasJit();
 }
 
 // public static native boolean hasOatFile();
@@ -152,8 +156,16 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureJitCompiled(JNIEnv* env,
                                                              jclass,
                                                              jclass cls,
                                                              jstring method_name) {
-  jit::Jit* jit = Runtime::Current()->GetJit();
+  Runtime* runtime = Runtime::Current();
+  if (runtime == nullptr) {
+    // We must be on the RI. We will just roll with it.
+    return;
+  }
+  jit::Jit* jit = runtime->GetJit();
   if (jit == nullptr) {
+    return;
+  }
+  if (!HasJit()) {
     return;
   }
 
@@ -166,6 +178,11 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureJitCompiled(JNIEnv* env,
     CHECK(chars.c_str() != nullptr);
     method = soa.Decode<mirror::Class>(cls)->FindDeclaredDirectMethodByName(
         chars.c_str(), kRuntimePointerSize);
+    if (method == nullptr) {
+      method = soa.Decode<mirror::Class>(cls)->FindDeclaredVirtualMethodByName(
+          chars.c_str(), kRuntimePointerSize);
+    }
+    DCHECK(method != nullptr) << "Unable to find method called " << chars.c_str();
   }
 
   jit::JitCodeCache* code_cache = jit->GetCodeCache();
