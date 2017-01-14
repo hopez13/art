@@ -31,6 +31,7 @@ cc_defaults {
            "ti_redefine.cc",
            "ti_thread.cc",
            "ti_threadgroup.cc",
+           "ti_timers.cc",
            "transform.cc"],
     include_dirs: ["art/runtime"],
     shared_libs: [

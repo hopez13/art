@@ -57,6 +57,7 @@
 #include "ti_stack.h"
 #include "ti_thread.h"
 #include "ti_threadgroup.h"
+#include "ti_timers.h"
 #include "transform.h"
 
 // TODO Remove this at some point by annotating all the methods. It was put in to make the skeleton
@@ -1027,15 +1028,15 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    return TimerUtil::GetTimerInfo(env, info_ptr);
   }
 
   static jvmtiError GetTime(jvmtiEnv* env, jlong* nanos_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    return TimerUtil::GetTime(env, nanos_ptr);
   }
 
   static jvmtiError GetAvailableProcessors(jvmtiEnv* env, jint* processor_count_ptr) {
-    return ERR(NOT_IMPLEMENTED);
+    return TimerUtil::GetAvailableProcessors(env, processor_count_ptr);
   }
 
   static jvmtiError AddToBootstrapClassLoaderSearch(jvmtiEnv* env, const char* segment) {
