@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43aa999c_1d4c73d6",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2292,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "This isn\u0027t quite right. On MIPS32 the caller (I\u0027m talking about the call to artInvokePolymorphic a few lines below) has to always reserve 16 bytes of the stack space for the called subroutine, which the latter can use any way it wishes. This is most useful when calling things like printf, so the first register arguments can be spilled onto the stack and then accessed via va_arg(), that is, pointer arithmetic. But even if it\u0027s not that case, the C/C++ compiler is free to generate code to use that space and so JValue may be overwritten if it falls in the space from sp to sp+16.\n\nAllocate 8+16\u003d24 bytes.",
+      "range": {
+        "startLine": 2289,
+        "startChar": 0,
+        "endLine": 2292,
+        "endChar": 23
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_59b43493",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "Assembler\u0027s instruction reordering mode is off here, so jalr will \"steal\" the immediately following instruction (li $t0, \u0027V\u0027) into its delay slot. We don\u0027t want that instruction to execute right before the call.\n\nAdd a nop after this jalr or move another useful instruction into the delay slot.",
+      "range": {
+        "startLine": 2295,
+        "startChar": 0,
+        "endLine": 2295,
+        "endChar": 84
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_790bb80d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2336,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "RESTORE_SAVE_REFS_AND_ARGS_FRAME restores t0 and t1 (as of recently they are used as additional argument registers on top of the standard a0-a3).\n\nUse e.g. t7 instead of t0.",
+      "range": {
+        "startLine": 2334,
+        "startChar": 0,
+        "endLine": 2336,
+        "endChar": 83
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_9c8ccad5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "sd",
+      "range": {
+        "startLine": 2134,
+        "startChar": 4,
+        "endLine": 2134,
+        "endChar": 6
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_7cfac600",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "nop or a useful instruction to follow jal (e.g. move \"move $a0, $sp\" to after jal) because jal will expand into an address load followed by jalr with a delay slot.",
+      "range": {
+        "startLine": 2136,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 85
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_f2341d00",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "Introduce \u0027store_ref_result\u0027 with the lwu instruction, it will load bits 0 through 31 and zero out bits 32 through 63 (there are no 32-bit addresses on MIPS64, bits 32 through 63 can\u0027t be ignored when using a register as an address in memory loads and stores, so they must be zero).",
+      "range": {
+        "startLine": 2142,
+        "startChar": 0,
+        "endLine": 2142,
+        "endChar": 92
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_520889a1",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2143,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "Introduce \u0027store_int_result\u0027 with the lw instruction, it will load bits 0 through 31 and sign-extend into bits 32 through 63, ensuring the integer is proper 32-bit (all 32-bit arithmetic operations on MIPS64 require all 32-bit operands sign-extended to 64 bits (including when dealing with unsigned 32-bit integers)).",
+      "range": {
+        "startLine": 2143,
+        "startChar": 0,
+        "endLine": 2143,
+        "endChar": 46
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_92d5919b",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "int",
+      "range": {
+        "startLine": 2145,
+        "startChar": 35,
+        "endLine": 2145,
+        "endChar": 39
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_f2e33d82",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2149,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "int",
+      "range": {
+        "startLine": 2149,
+        "startChar": 35,
+        "endLine": 2149,
+        "endChar": 39
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_effef6b6",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-14T01:39:29Z",
+      "side": 1,
+      "message": "ld",
+      "range": {
+        "startLine": 2167,
+        "startChar": 4,
+        "endLine": 2167,
+        "endChar": 6
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
