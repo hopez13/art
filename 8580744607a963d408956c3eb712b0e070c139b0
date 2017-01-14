@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_b24455b3",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-14T01:19:37Z",
+      "side": 1,
+      "message": "Why do you need to make a copy? You should be able to call env-\u003eAllocate while holding thread list lock?",
+      "range": {
+        "startLine": 370,
+        "startChar": 26,
+        "endLine": 370,
+        "endChar": 37
+      },
+      "revId": "8580744607a963d408956c3eb712b0e070c139b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
