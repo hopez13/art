@@ -1140,6 +1140,14 @@ class Thread {
     return debug_disallow_read_barrier_;
   }
 
+  const void* GetCustomTLS() const {
+    return tlsPtr_.custom_tls_;
+  }
+
+  void SetCustomTLS(const void* data) {
+    tlsPtr_.custom_tls_ = data;
+  }
+
   // Returns true if the current thread is the jit sensitive thread.
   bool IsJitSensitiveThread() const {
     return this == jit_sensitive_thread_;
@@ -1422,7 +1430,8 @@ class Thread {
       thread_local_objects(0), mterp_current_ibase(nullptr), mterp_default_ibase(nullptr),
       mterp_alt_ibase(nullptr), thread_local_alloc_stack_top(nullptr),
       thread_local_alloc_stack_end(nullptr), nested_signal_state(nullptr),
-      flip_function(nullptr), method_verifier(nullptr), thread_local_mark_stack(nullptr) {
+      flip_function(nullptr), method_verifier(nullptr), thread_local_mark_stack(nullptr),
+      custom_tls_(nullptr) {
       std::fill(held_mutexes, held_mutexes + kLockLevelCount, nullptr);
     }
 
@@ -1577,6 +1586,10 @@ class Thread {
 
     // Thread-local mark stack for the concurrent copying collector.
     gc::accounting::AtomicStack<mirror::Object>* thread_local_mark_stack;
+
+    // Custom TLS field that can be used by plugins.
+    // TODO: Generalize once we have more plugins.
+    const void* custom_tls_;
   } tlsPtr_;
 
   // Guards the 'interrupted_' and 'wait_monitor_' members.
