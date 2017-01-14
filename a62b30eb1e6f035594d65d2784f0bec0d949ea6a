@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_12c4413e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1592,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-14T02:09:02Z",
+      "side": 1,
+      "message": "If it\u0027s not used for cross compilation, you can put it outside the tlsPtr stuff.",
+      "range": {
+        "startLine": 1592,
+        "startChar": 16,
+        "endLine": 1592,
+        "endChar": 27
+      },
+      "revId": "a62b30eb1e6f035594d65d2784f0bec0d949ea6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
