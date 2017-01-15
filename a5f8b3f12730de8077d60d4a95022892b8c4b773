@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_69e4a1b0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2292,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done. Explanation appreciated.",
+      "parentUuid": "43aa999c_1d4c73d6",
+      "range": {
+        "startLine": 2289,
+        "startChar": 0,
+        "endLine": 2292,
+        "endChar": 23
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_59b43493",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-14T01:39:29Z",
       "side": 1,
       "message": "Assembler\u0027s instruction reordering mode is off here, so jalr will \"steal\" the immediately following instruction (li $t0, \u0027V\u0027) into its delay slot. We don\u0027t want that instruction to execute right before the call.\n\nAdd a nop after this jalr or move another useful instruction into the delay slot.",
+      "range": {
+        "startLine": 2295,
+        "startChar": 0,
+        "endLine": 2295,
+        "endChar": 84
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_49e9e586",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_59b43493",
       "range": {
         "startLine": 2295,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6354fd0e_0c605b41",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2336,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_790bb80d",
+      "range": {
+        "startLine": 2334,
+        "startChar": 0,
+        "endLine": 2336,
+        "endChar": 83
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_9c8ccad5",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-14T01:39:29Z",
       "side": 1,
       "message": "sd",
+      "range": {
+        "startLine": 2134,
+        "startChar": 4,
+        "endLine": 2134,
+        "endChar": 6
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_89fabd4a",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_9c8ccad5",
       "range": {
         "startLine": 2134,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_e9f7f160",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_7cfac600",
+      "range": {
+        "startLine": 2136,
+        "startChar": 0,
+        "endLine": 2136,
+        "endChar": 85
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_f2341d00",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2017-01-14T01:39:29Z",
       "side": 1,
       "message": "Introduce \u0027store_ref_result\u0027 with the lwu instruction, it will load bits 0 through 31 and zero out bits 32 through 63 (there are no 32-bit addresses on MIPS64, bits 32 through 63 can\u0027t be ignored when using a register as an address in memory loads and stores, so they must be zero).",
+      "range": {
+        "startLine": 2142,
+        "startChar": 0,
+        "endLine": 2142,
+        "endChar": 92
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "233125ed_f245e076",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_f2341d00",
       "range": {
         "startLine": 2142,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_c9f4b55f",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2143,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "The JValue accessors in jvalue.h sign extend the value in the JValue to 64-bits for byte, short, and int.",
+      "parentUuid": "e39b8d7a_520889a1",
+      "range": {
+        "startLine": 2143,
+        "startChar": 0,
+        "endLine": 2143,
+        "endChar": 46
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_92d5919b",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2017-01-14T01:39:29Z",
       "side": 1,
       "message": "int",
+      "range": {
+        "startLine": 2145,
+        "startChar": 35,
+        "endLine": 2145,
+        "endChar": 39
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032ee190_34bfd6a1",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Extended in JValue accessor when set.",
+      "parentUuid": "e39b8d7a_92d5919b",
       "range": {
         "startLine": 2145,
         "startChar": 35,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_29510978",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2149,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Extended in JValue accessor when set.",
+      "parentUuid": "e39b8d7a_f2e33d82",
+      "range": {
+        "startLine": 2149,
+        "startChar": 35,
+        "endLine": 2149,
+        "endChar": 39
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_effef6b6",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2017-01-14T01:39:29Z",
       "side": 1,
       "message": "ld",
+      "range": {
+        "startLine": 2167,
+        "startChar": 4,
+        "endLine": 2167,
+        "endChar": 6
+      },
+      "revId": "a5f8b3f12730de8077d60d4a95022892b8c4b773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032ee190_d4a5328a",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T08:49:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_effef6b6",
       "range": {
         "startLine": 2167,
         "startChar": 4,
