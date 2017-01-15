@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "233125ed_f20cc064",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T11:45:28Z",
+      "side": 1,
+      "message": "There are two new sections in the pipeline for method handles - CallSites and MethodHandles:\n\n  https://goo.gl/Sk5J5C\n\nThere\u0027s a note here on alternatives considered:\n\n  https://goo.gl/nfbG3i\n\nNot sure about \"why not just add them to the map_list\". The new sections will definitely have to appear there, and also the extension header info. It seemed appropriate to have a way of reaching them from the header as it looks like only the DexFileVerifier consumes the map_list.\n\nIt might be better to have the map_list item for extension headers be a HeaderExtensionList as it would allow pointing to the same block of data as the header and/or allow doing a memory comparison that the header extension lists are the same from the header or map_item.",
+      "parentUuid": "e39b8d7a_06b08ac7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "5a3f34018a899c00b236138a96124c2c2acf216b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_38b5b1d7",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
