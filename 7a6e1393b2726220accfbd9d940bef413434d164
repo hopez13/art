@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_093d2d30",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T14:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_7e32b65f",
+      "range": {
+        "startLine": 2309,
+        "startChar": 0,
+        "endLine": 2311,
+        "endChar": 26
+      },
+      "revId": "7a6e1393b2726220accfbd9d940bef413434d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_3eaf4e41",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 7
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a33d15bf_19e9af87",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2173,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T14:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_debf226b",
+      "range": {
+        "startLine": 2173,
+        "startChar": 4,
+        "endLine": 2173,
+        "endChar": 6
+      },
+      "revId": "7a6e1393b2726220accfbd9d940bef413434d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_5eb41293",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 7
@@ -105,6 +153,30 @@
       "writtenOn": "2017-01-15T10:34:43Z",
       "side": 1,
       "message": "$t0 was correct for MIPS64. $t4-$t7 don\u0027t exist on MIPS64, although $t8-$t9 do. The reason is that on MIPS64 there are more argument registers in the standard n64 ABI, $a0-$a7 (and only $a0-$a3 on MIPS32 in the standard o32 ABI), and so there are fewer temporary registers on MIPS64.\n\ndex2oat on MIPS64 follows the standard n64 ABI closely (except, perhaps, the on-stack argument alignment, which is forced by ART to be 4 bytes).\n\ndex2oat on MIPS32 deviates from the standard o32 ABI by passing more arguments in registers and in that being closer to n64. This saves some code and stack reads/writes. The deviation was introduced here, if you\u0027re interested:\nhttps://android-review.googlesource.com/#/c/304843/",
+      "range": {
+        "startLine": 2178,
+        "startChar": 11,
+        "endLine": 2180,
+        "endChar": 14
+      },
+      "revId": "7a6e1393b2726220accfbd9d940bef413434d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "032ee190_54e142af",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-15T14:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_bec25ee4",
       "range": {
         "startLine": 2178,
         "startChar": 11,
