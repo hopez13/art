@@ -22,6 +22,52 @@
       "revId": "f0391258488b204537bcc888eff39e7264757151",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c9d2f53c",
+        "filename": "test/633-checker-rtp-getclass/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T16:08:07Z",
+      "side": 1,
+      "message": "We have 382 \"if (doThrow)\" lines in art/test/:\n    189: if (doThrow) { throw new Error(); }\n     84: if (doThrow) throw new Error();\n     86: if (doThrow) {\u003cEOL\u003e\n     14: if (doThrow) throw new Error(\"\");\n      9: if (doThrow) { throw new Error(\"\"); }\nMaybe we should stick to the most used.\n\nWhen it comes to throwing Error on its own line,\n    103: throw new Error();\n     12: throw new Error(\"\");",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "f0391258488b204537bcc888eff39e7264757151",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_696941a0",
+        "filename": "test/633-checker-rtp-getclass/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T16:08:07Z",
+      "side": 1,
+      "message": "Is it intentional that the first comparison is \"\u003d\u003d\" and the second is \"!\u003d\"? (Also the order of definitions of foo() and bar() below is weird which makes this code pretty confusing. I would expect foo() to return odd numbers and bar() to return even.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "f0391258488b204537bcc888eff39e7264757151",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
