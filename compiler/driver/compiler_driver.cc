@@ -1990,8 +1990,13 @@ void CompilerDriver::Verify(jobject jclass_loader,
               const char* descriptor = dex_file->GetClassDescriptor(class_def);
               cls.Assign(class_linker->FindClass(soa.Self(), descriptor, class_loader));
               if (cls.Get() != nullptr) {
-                ObjectLock<mirror::Class> lock(soa.Self(), cls);
-                mirror::Class::SetStatus(cls, mirror::Class::kStatusVerified, soa.Self());
+                // Check that the class is resolved with the current dex file. We might get
+                // a boot image class, or a class in a different dex file for multidex, and
+                // we should not update the status in that case.
+                if (&cls->GetDexFile() == dex_file) {
+                  ObjectLock<mirror::Class> lock(soa.Self(), cls);
+                  mirror::Class::SetStatus(cls, mirror::Class::kStatusVerified, soa.Self());
+                }
               } else {
                 DCHECK(soa.Self()->IsExceptionPending());
                 soa.Self()->ClearException();
@@ -2061,7 +2066,10 @@ class VerifyClassVisitor : public CompilationVisitor {
     ScopedObjectAccess soa(Thread::Current());
     const DexFile& dex_file = *manager_->GetDexFile();
     if (!manager_->GetCompiler()->ShouldVerifyClassBasedOnProfile(dex_file, class_def_index)) {
-      // Skip verification since the class is not in the profile.
+      // Skip verification since the class is not in the profile, and let the VerifierDeps know
+      // that the class will need to be verified at runtime.
+      verifier::VerifierDeps::MaybeRecordVerificationStatus(
+          dex_file, dex::TypeIndex(class_def_index), verifier::MethodVerifier::kSoftFailure);
       return;
     }
     const DexFile::ClassDef& class_def = dex_file.GetClassDef(class_def_index);
