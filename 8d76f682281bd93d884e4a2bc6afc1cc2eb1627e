@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_c374a6ab",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-16T21:08:14Z",
+      "side": 1,
+      "message": "Considering it\u0027s single-threaded at this point and thus not contended, would it make sense to be future-proof and just take the lock?",
+      "range": {
+        "startLine": 438,
+        "startChar": 2,
+        "endLine": 439,
+        "endChar": 25
+      },
+      "revId": "8d76f682281bd93d884e4a2bc6afc1cc2eb1627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_4349966e",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-16T21:08:14Z",
+      "side": 1,
+      "message": "4-space indent.",
+      "range": {
+        "startLine": 443,
+        "startChar": 2,
+        "endLine": 443,
+        "endChar": 4
+      },
+      "revId": "8d76f682281bd93d884e4a2bc6afc1cc2eb1627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
