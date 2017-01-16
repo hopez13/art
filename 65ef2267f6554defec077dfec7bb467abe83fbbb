@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_03cdce3d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-16T18:12:10Z",
+      "side": 1,
+      "message": "Since you\u0027re touching this: mind moving it to its own method? Then Verify could be something like this:\n\n if (FastVerify(...)) {\n   return;\n }\n // Regular/full verification.\n ...\n\nwhich is IMHO more readable.\n\n(Not sure how the code below cleans up. I don\u0027t understand why creating verifier_deps is restricted to non-boot-image compilation...)",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 2017,
+        "endChar": 3
+      },
+      "revId": "65ef2267f6554defec077dfec7bb467abe83fbbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
