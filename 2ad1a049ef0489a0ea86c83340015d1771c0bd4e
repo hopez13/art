@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_cc984358",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T23:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_e618be30",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "2ad1a049ef0489a0ea86c83340015d1771c0bd4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_66dcce27",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-13T16:24:30Z",
       "side": 1,
       "message": "Tired of the \"start\" dancing around \"pos/end\"?",
+      "range": {
+        "startLine": 1545,
+        "startChar": 4,
+        "endLine": 1545,
+        "endChar": 67
+      },
+      "revId": "2ad1a049ef0489a0ea86c83340015d1771c0bd4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_2cb597c0",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T23:35:09Z",
+      "side": 1,
+      "message": ";-) Synced after oth\u0027s change.",
+      "parentUuid": "631cfdaf_66dcce27",
       "range": {
         "startLine": 1545,
         "startChar": 4,
