@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_a920596a",
+        "filename": "compiler/utils/assembler_thumb_test_expected.cc.inc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-16T17:24:24Z",
+      "side": 1,
+      "message": "Note: This difference is due to the DeliverException entry point being pushed three pointers further by this CL.",
+      "range": {
+        "startLine": 5613,
+        "startChar": 36,
+        "endLine": 5613,
+        "endChar": 39
+      },
+      "revId": "2f1111d49c530fa87bd43f6050b81cccb5113703",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
