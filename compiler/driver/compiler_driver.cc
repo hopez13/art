@@ -1053,20 +1053,28 @@ bool CompilerDriver::ShouldVerifyClassBasedOnProfile(const DexFile& dex_file,
 
 class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
  public:
-  explicit ResolveCatchBlockExceptionsClassVisitor(
-      std::set<std::pair<dex::TypeIndex, const DexFile*>>& exceptions_to_resolve)
-     : exceptions_to_resolve_(exceptions_to_resolve) {}
+  ResolveCatchBlockExceptionsClassVisitor() : classes_() {}
 
   virtual bool operator()(ObjPtr<mirror::Class> c) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
-    const auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
-    for (auto& m : c->GetMethods(pointer_size)) {
-      ResolveExceptionsForMethod(&m, pointer_size);
-    }
+    classes_.push_back(c);
     return true;
   }
 
+  void FindExceptionTypesToResolve(
+      std::set<std::pair<dex::TypeIndex, const DexFile*>>* exceptions_to_resolve)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    const auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+    for (ObjPtr<mirror::Class> klass : classes_) {
+      for (ArtMethod& method : klass->GetMethods(pointer_size)) {
+        FindExceptionTypesToResolveForMethod(&method, exceptions_to_resolve);
+      }
+    }
+  }
+
  private:
-  void ResolveExceptionsForMethod(ArtMethod* method_handle, PointerSize pointer_size)
+  void FindExceptionTypesToResolveForMethod(
+      ArtMethod* method_handle,
+      std::set<std::pair<dex::TypeIndex, const DexFile*>>* exceptions_to_resolve)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const DexFile::CodeItem* code_item = method_handle->GetCodeItem();
     if (code_item == nullptr) {
@@ -1088,9 +1096,8 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
         dex::TypeIndex encoded_catch_handler_handlers_type_idx =
             dex::TypeIndex(DecodeUnsignedLeb128(&encoded_catch_handler_list));
         // Add to set of types to resolve if not already in the dex cache resolved types
-        if (!method_handle->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx,
-                                              pointer_size)) {
-          exceptions_to_resolve_.emplace(encoded_catch_handler_handlers_type_idx,
+        if (!method_handle->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx)) {
+          exceptions_to_resolve->emplace(encoded_catch_handler_handlers_type_idx,
                                          method_handle->GetDexFile());
         }
         // ignore address associated with catch handler
@@ -1103,7 +1110,7 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
     }
   }
 
-  std::set<std::pair<dex::TypeIndex, const DexFile*>>& exceptions_to_resolve_;
+  std::vector<ObjPtr<mirror::Class>> classes_;
 };
 
 class RecordImageClassesVisitor : public ClassVisitor {
@@ -1157,8 +1164,9 @@ void CompilerDriver::LoadImageClasses(TimingLogger* timings) {
       hs.NewHandle(class_linker->FindSystemClass(self, "Ljava/lang/Throwable;")));
   do {
     unresolved_exception_types.clear();
-    ResolveCatchBlockExceptionsClassVisitor visitor(unresolved_exception_types);
+    ResolveCatchBlockExceptionsClassVisitor visitor;
     class_linker->VisitClasses(&visitor);
+    visitor.FindExceptionTypesToResolve(&unresolved_exception_types);
     for (const auto& exception_type : unresolved_exception_types) {
       dex::TypeIndex exception_type_idx = exception_type.first;
       const DexFile* dex_file = exception_type.second;
