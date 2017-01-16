@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_a9585939",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T13:24:48Z",
+      "side": 1,
+      "message": "Ah, maybe DCE knows what I was anticipating cannnot happen.",
+      "parentUuid": "e39b8d7a_152d1667",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_660b2e0e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "Do you mean the merging of the two methods (I thought the try method was just too silly small, but I can unmerge it), or putting the increment here (I prefer to do it here instead of in all callers, that it is easy to forget, as in one case).",
       "parentUuid": "631cfdaf_4610b238",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "10e40da9f55c874c6042b9ca8f6aa2a9d5580050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6354fd0e_2c21d7bf",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T13:24:48Z",
+      "side": 1,
+      "message": "I meant the merging. Your answer sgtm.",
+      "parentUuid": "e39b8d7a_f23ee885",
       "range": {
         "startLine": 401,
         "startChar": 0,
