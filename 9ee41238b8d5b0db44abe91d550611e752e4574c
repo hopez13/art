@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_e9cc111b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Call it dexoptneeded to match the OatFileAssistant and DexFile API?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_29d629a9",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Would it make more sense to print the GetDexOptNeeded status to stdout rather than return it using an exit code?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c9c95509",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "If the exit code is 100, does that mean the runtime couldn\u0027t be created, or that no dexopt is needed?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_297d89d1",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Is there any user facing documentation of the exit code? Maybe add that here?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 51
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_49d56598",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Image location or image filename? It may help to include an example filename here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_09db6dd1",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Add this option to the Usage documentation.",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 46
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_69d021aa",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Why add a command line option for this when the environment variable can already be set by the user?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 60
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c9e03579",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Why add the special case here instead of relying on the oat file assistant logic?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_e9e37182",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Too many s\u0027s?",
+      "range": {
+        "startLine": 193,
+        "startChar": 64,
+        "endLine": 193,
+        "endChar": 68
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "835bb13e_8de0c577",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Have you considered testing this with a run test instead of a gtest? That seems more natural for testing a command line program.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "233125ed_3286c86d",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-16T09:36:39Z",
+      "side": 1,
+      "message": "Copying all of the tests from oat_file_assistant_test seems like overkill to me. These take a while to run and are a pain to maintain when there are changes to the OatFileAssistant. Maybe test just three cases: no dexopt needed, some form of dexopt needed on the oat file, and some form of dexopt needed on the odex file?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 79
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
