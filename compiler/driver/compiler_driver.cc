@@ -1088,8 +1088,7 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
         dex::TypeIndex encoded_catch_handler_handlers_type_idx =
             dex::TypeIndex(DecodeUnsignedLeb128(&encoded_catch_handler_list));
         // Add to set of types to resolve if not already in the dex cache resolved types
-        if (!method_handle->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx,
-                                              pointer_size)) {
+        if (!method_handle->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx)) {
           exceptions_to_resolve_.emplace(encoded_catch_handler_handlers_type_idx,
                                          method_handle->GetDexFile());
         }
