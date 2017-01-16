@@ -90,15 +90,16 @@ ADD_TEST_EQ(THREAD_SELF_OFFSET,
             art::Thread::SelfOffset<POINTER_SIZE>().Int32Value())
 
 // Offset of field Thread::tlsPtr_.thread_local_pos.
-#define THREAD_LOCAL_POS_OFFSET (THREAD_CARD_TABLE_OFFSET + 198 * __SIZEOF_POINTER__)
+#define THREAD_LOCAL_POS_OFFSET (THREAD_CARD_TABLE_OFFSET + 34 * __SIZEOF_POINTER__)
 ADD_TEST_EQ(THREAD_LOCAL_POS_OFFSET,
             art::Thread::ThreadLocalPosOffset<POINTER_SIZE>().Int32Value())
 // Offset of field Thread::tlsPtr_.thread_local_end.
 #define THREAD_LOCAL_END_OFFSET (THREAD_LOCAL_POS_OFFSET + __SIZEOF_POINTER__)
 ADD_TEST_EQ(THREAD_LOCAL_END_OFFSET,
             art::Thread::ThreadLocalEndOffset<POINTER_SIZE>().Int32Value())
+
 // Offset of field Thread::tlsPtr_.thread_local_objects.
-#define THREAD_LOCAL_OBJECTS_OFFSET (THREAD_LOCAL_END_OFFSET + 2 * __SIZEOF_POINTER__)
+#define THREAD_LOCAL_OBJECTS_OFFSET (THREAD_LOCAL_END_OFFSET + (1 + 1 + 164) * __SIZEOF_POINTER__)
 ADD_TEST_EQ(THREAD_LOCAL_OBJECTS_OFFSET,
             art::Thread::ThreadLocalObjectsOffset<POINTER_SIZE>().Int32Value())
 // Offset of field Thread::tlsPtr_.mterp_current_ibase.
