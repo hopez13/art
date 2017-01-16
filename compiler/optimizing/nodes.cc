@@ -2436,12 +2436,8 @@ std::ostream& operator<<(std::ostream& os, HInvokeStaticOrDirect::ClinitCheckReq
 
 // Helper for InstructionDataEquals to fetch the mirror Class out
 // from a kJitTableAddress LoadClass kind.
-// NO_THREAD_SAFETY_ANALYSIS because even though we're accessing
-// mirrors, they are stored in a variable size handle scope which is always
-// visited during a pause. Also, the only caller of this helper
-// only uses the mirror for pointer comparison.
 static inline mirror::Class* AsMirrorInternal(uint64_t address)
-    NO_THREAD_SAFETY_ANALYSIS {
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   return reinterpret_cast<StackReference<mirror::Class>*>(address)->AsMirrorPtr();
 }
 
@@ -2456,8 +2452,10 @@ bool HLoadClass::InstructionDataEquals(const HInstruction* other) const {
   switch (GetLoadKind()) {
     case LoadKind::kBootImageAddress:
       return GetAddress() == other_load_class->GetAddress();
-    case LoadKind::kJitTableAddress:
+    case LoadKind::kJitTableAddress: {
+      ScopedObjectAccess soa(Thread::Current());
       return AsMirrorInternal(GetAddress()) == AsMirrorInternal(other_load_class->GetAddress());
+    }
     default:
       DCHECK(HasTypeReference(GetLoadKind()));
       return IsSameDexFile(GetDexFile(), other_load_class->GetDexFile());
@@ -2502,17 +2500,6 @@ std::ostream& operator<<(std::ostream& os, HLoadClass::LoadKind rhs) {
   }
 }
 
-// Helper for InstructionDataEquals to fetch the mirror String out
-// from a kJitTableAddress LoadString kind.
-// NO_THREAD_SAFETY_ANALYSIS because even though we're accessing
-// mirrors, they are stored in a variable size handle scope which is always
-// visited during a pause. Also, the only caller of this helper
-// only uses the mirror for pointer comparison.
-static inline mirror::String* AsMirrorInternal(Handle<mirror::String> handle)
-    NO_THREAD_SAFETY_ANALYSIS {
-  return handle.Get();
-}
-
 bool HLoadString::InstructionDataEquals(const HInstruction* other) const {
   const HLoadString* other_load_string = other->AsLoadString();
   // TODO: To allow GVN for HLoadString from different dex files, we should compare the strings
@@ -2523,8 +2510,10 @@ bool HLoadString::InstructionDataEquals(const HInstruction* other) const {
   }
   switch (GetLoadKind()) {
     case LoadKind::kBootImageAddress:
-    case LoadKind::kJitTableAddress:
-      return AsMirrorInternal(GetString()) == AsMirrorInternal(other_load_string->GetString());
+    case LoadKind::kJitTableAddress: {
+      ScopedObjectAccess soa(Thread::Current());
+      return GetString().Get() == other_load_string->GetString().Get();
+    }
     default:
       return IsSameDexFile(GetDexFile(), other_load_string->GetDexFile());
   }
