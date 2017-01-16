@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_0991ada6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T13:41:13Z",
+      "side": 1,
+      "message": "Maybe the whole \"if ((flags \u0026 kVisitRootFlagNewRoots) !\u003d 0)\" and other ifs below should receive a \"!kUseReadBarrier \u0026\u0026\"?\n\nMaybe we should DCHECK() that we don\u0027t see kVisitRootFlagNewRoots, kVisitRootFlagStartLoggingNewRoots, kVisitRootFlagStopLoggingNewRoots and   kVisitRootFlagClearRootLog for CC in ClassLinker::VisitClassRoots()?",
+      "parentUuid": "e39b8d7a_580515c7",
+      "range": {
+        "startLine": 1942,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 37
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_b8f281b1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -153,6 +177,30 @@
       "writtenOn": "2017-01-13T19:33:50Z",
       "side": 1,
       "message": "We need do this only for CMS.",
+      "range": {
+        "startLine": 3680,
+        "startChar": 0,
+        "endLine": 3684,
+        "endChar": 3
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6986616e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T13:41:13Z",
+      "side": 1,
+      "message": "Do you want \"if (!kUseReadBaerrier) { ... }\"?",
+      "parentUuid": "e39b8d7a_b8f281b1",
       "range": {
         "startLine": 3680,
         "startChar": 0,
@@ -193,6 +241,30 @@
       "writtenOn": "2017-01-13T19:33:50Z",
       "side": 1,
       "message": "Surround this with \"if (!kUseReadBarrier) {}\"?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_c95f951d",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T13:41:13Z",
+      "side": 1,
+      "message": "Maybe the whole BssWriteBarrier() should be a no-op for CC?",
+      "parentUuid": "e39b8d7a_3b376b21",
       "range": {
         "startLine": 50,
         "startChar": 0,
