@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_2369f2fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "I plan to add more to this tool (e.g. get the status of the oat file) and I don\u0027t what to have such a strong name correlation.",
+      "parentUuid": "631cfdaf_e9cc111b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_29d629a9",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-16T09:36:39Z",
       "side": 1,
       "message": "Would it make more sense to print the GetDexOptNeeded status to stdout rather than return it using an exit code?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_c331062a",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "Not imo. Parsing text from command line is sucky :)",
+      "parentUuid": "631cfdaf_29d629a9",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_c32666d7",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "It\u0027s an invocation error caused by the fact the runtime could not be created.  Is the name not clear enough?",
+      "parentUuid": "631cfdaf_c9c95509",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_297d89d1",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-16T09:36:39Z",
       "side": 1,
       "message": "Is there any user facing documentation of the exit code? Maybe add that here?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 51
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_e32a8a9a",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "What sort of documentation would you like? Would you like to print the docs from OatFileAssistant::DexOptNeeded? (to me seems a bit overkill but let me know)",
+      "parentUuid": "631cfdaf_297d89d1",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_23401263",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "done for the example.\n\nDon\u0027t have  a strong opinion but I do prefer shorter names. It\u0027s the same name we use for dex2oat  as well.",
+      "parentUuid": "631cfdaf_49d56598",
+      "range": {
+        "startLine": 87,
+        "startChar": 16,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_09db6dd1",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-01-16T09:36:39Z",
       "side": 1,
       "message": "Add this option to the Usage documentation.",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 46
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_c3ff46ed",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_09db6dd1",
       "range": {
         "startLine": 117,
         "startChar": 11,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_a32162c1",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "It\u0027s easier to setup from gtest and makes things more obvious. Prefer to keep it unless there are strong opinions.",
+      "parentUuid": "631cfdaf_69d021aa",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 60
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_c9e03579",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-01-16T09:36:39Z",
       "side": 1,
       "message": "Why add the special case here instead of relying on the oat file assistant logic?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_23ee523e",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "I don\u0027t need to create a runtime. It\u0027s a fast path.",
+      "parentUuid": "631cfdaf_c9e03579",
       "range": {
         "startLine": 182,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_831c5e89",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_e9e37182",
+      "range": {
+        "startLine": 193,
+        "startChar": 64,
+        "endLine": 193,
+        "endChar": 68
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "835bb13e_8de0c577",
         "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
         "patchSetId": 2
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_8337fe1e",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "i find it more natural to test it with a gtest. The tool is executed from installd in a similar way,",
+      "parentUuid": "835bb13e_8de0c577",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "233125ed_3286c86d",
         "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
         "patchSetId": 2
@@ -243,6 +483,30 @@
       "writtenOn": "2017-01-16T09:36:39Z",
       "side": 1,
       "message": "Copying all of the tests from oat_file_assistant_test seems like overkill to me. These take a while to run and are a pain to maintain when there are changes to the OatFileAssistant. Maybe test just three cases: no dexopt needed, some form of dexopt needed on the oat file, and some form of dexopt needed on the odex file?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 79
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_a32c02d2",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1050426
+      },
+      "writtenOn": "2017-01-16T20:57:52Z",
+      "side": 1,
+      "message": "Why would it be a pain to maintain? These verify that the output of dexoptanalyzer is the same as the output of OatFileAssistant.  It does not check the exact return codes.",
+      "parentUuid": "233125ed_3286c86d",
       "range": {
         "startLine": 72,
         "startChar": 0,
