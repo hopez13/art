@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_4c761343",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T21:48:51Z",
+      "side": 1,
+      "message": "It seemed like a waste to lock for vdex, where you want to quickly get done. But I don\u0027t have a strong opinion. We know we\u0027re correct either way.",
+      "parentUuid": "e39b8d7a_c374a6ab",
+      "range": {
+        "startLine": 438,
+        "startChar": 2,
+        "endLine": 439,
+        "endChar": 25
+      },
+      "revId": "8d76f682281bd93d884e4a2bc6afc1cc2eb1627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_4349966e",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-16T21:08:14Z",
       "side": 1,
       "message": "4-space indent.",
+      "range": {
+        "startLine": 443,
+        "startChar": 2,
+        "endLine": 443,
+        "endChar": 4
+      },
+      "revId": "8d76f682281bd93d884e4a2bc6afc1cc2eb1627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6c714f49",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T21:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_4349966e",
       "range": {
         "startLine": 443,
         "startChar": 2,
