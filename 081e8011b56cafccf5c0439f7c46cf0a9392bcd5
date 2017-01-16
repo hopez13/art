@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_c9eaf527",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T12:07:56Z",
+      "side": 1,
+      "message": "I don\u0027t know what else I should add.",
+      "parentUuid": "e39b8d7a_5b218fbe",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_5bfa6f00",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_e9ed3142",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T12:07:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_5bfa6f00",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_5b234fd8",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 4
@@ -47,6 +83,30 @@
       "writtenOn": "2017-01-13T19:33:50Z",
       "side": 1,
       "message": "We don\u0027t need a read barrier when loading a class that\u0027s  in the boot image, but we still need a read barrier if we load a non-boot-image class from the boot image\u0027s BSS (which I thought was what this change introduces). Is this handled properly?",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 194,
+        "endChar": 58
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_a997b9d7",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T12:07:56Z",
+      "side": 1,
+      "message": "Yes, codegens use GenerateGcRootFieldLoad() for this.",
+      "parentUuid": "e39b8d7a_5b234fd8",
       "range": {
         "startLine": 194,
         "startChar": 6,
