@@ -230,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_c97675a5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-16T13:52:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39b8d7a_78e1f9dd",
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_3b376b21",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 4
