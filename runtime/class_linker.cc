@@ -3307,7 +3307,7 @@ void ClassLinker::RegisterDexFileLocked(const DexFile& dex_file,
   DexCacheData data;
   data.weak_root = dex_cache_jweak;
   data.dex_file = dex_cache->GetDexFile();
-  data.resolved_types = dex_cache->GetResolvedTypes();
+  data.resolved_methods = dex_cache->GetResolvedMethods();
   dex_caches_.push_back(data);
 }
 
@@ -4377,8 +4377,7 @@ void ClassLinker::CheckProxyMethod(ArtMethod* method, ArtMethod* prototype) cons
   CHECK_STREQ(np->GetName(), prototype->GetName());
   CHECK_STREQ(np->GetShorty(), prototype->GetShorty());
   // More complex sanity - via dex cache
-  CHECK_EQ(np->GetReturnType(true /* resolve */, image_pointer_size_),
-           prototype->GetReturnType(true /* resolve */, image_pointer_size_));
+  CHECK_EQ(np->GetReturnType(true /* resolve */), prototype->GetReturnType(true /* resolve */));
 }
 
 bool ClassLinker::CanWeInitializeClass(ObjPtr<mirror::Class> klass, bool can_init_statics,
@@ -4840,7 +4839,6 @@ static void ThrowSignatureMismatch(Handle<mirror::Class> klass,
 }
 
 static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
-                                                      PointerSize pointer_size,
                                                       Handle<mirror::Class> klass,
                                                       Handle<mirror::Class> super_klass,
                                                       ArtMethod* method1,
@@ -4848,14 +4846,12 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   {
     StackHandleScope<1> hs(self);
-    Handle<mirror::Class> return_type(hs.NewHandle(method1->GetReturnType(true /* resolve */,
-                                                                          pointer_size)));
+    Handle<mirror::Class> return_type(hs.NewHandle(method1->GetReturnType(true /* resolve */)));
     if (UNLIKELY(return_type.Get() == nullptr)) {
       ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method1, method1);
       return false;
     }
-    ObjPtr<mirror::Class> other_return_type = method2->GetReturnType(true /* resolve */,
-                                                              pointer_size);
+    ObjPtr<mirror::Class> other_return_type = method2->GetReturnType(true /* resolve */);
     if (UNLIKELY(other_return_type == nullptr)) {
       ThrowSignatureCheckResolveReturnTypeException(klass, super_klass, method1, method2);
       return false;
@@ -4900,7 +4896,7 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     StackHandleScope<1> hs(self);
     dex::TypeIndex param_type_idx = types1->GetTypeItem(i).type_idx_;
     Handle<mirror::Class> param_type(hs.NewHandle(
-        method1->GetClassFromTypeIndex(param_type_idx, true /* resolve */, pointer_size)));
+        method1->GetClassFromTypeIndex(param_type_idx, true /* resolve */)));
     if (UNLIKELY(param_type.Get() == nullptr)) {
       ThrowSignatureCheckResolveArgException(klass, super_klass, method1,
                                              method1, i, param_type_idx);
@@ -4908,7 +4904,7 @@ static bool HasSameSignatureWithDifferentClassLoaders(Thread* self,
     }
     dex::TypeIndex other_param_type_idx = types2->GetTypeItem(i).type_idx_;
     ObjPtr<mirror::Class> other_param_type =
-        method2->GetClassFromTypeIndex(other_param_type_idx, true /* resolve */, pointer_size);
+        method2->GetClassFromTypeIndex(other_param_type_idx, true /* resolve */);
     if (UNLIKELY(other_param_type == nullptr)) {
       ThrowSignatureCheckResolveArgException(klass, super_klass, method1,
                                              method2, i, other_param_type_idx);
@@ -4944,9 +4940,11 @@ bool ClassLinker::ValidateSuperClassDescriptors(Handle<mirror::Class> klass) {
       auto* m = klass->GetVTableEntry(i, image_pointer_size_);
       auto* super_m = klass->GetSuperClass()->GetVTableEntry(i, image_pointer_size_);
       if (m != super_m) {
-        if (UNLIKELY(!HasSameSignatureWithDifferentClassLoaders(self, image_pointer_size_,
-                                                                klass, super_klass,
-                                                                m, super_m))) {
+        if (UNLIKELY(!HasSameSignatureWithDifferentClassLoaders(self,
+                                                                klass,
+                                                                super_klass,
+                                                                m,
+                                                                super_m))) {
           self->AssertPendingException();
           return false;
         }
@@ -4962,9 +4960,11 @@ bool ClassLinker::ValidateSuperClassDescriptors(Handle<mirror::Class> klass) {
             j, image_pointer_size_);
         auto* super_m = super_klass->GetVirtualMethod(j, image_pointer_size_);
         if (m != super_m) {
-          if (UNLIKELY(!HasSameSignatureWithDifferentClassLoaders(self, image_pointer_size_,
-                                                                  klass, super_klass,
-                                                                  m, super_m))) {
+          if (UNLIKELY(!HasSameSignatureWithDifferentClassLoaders(self,
+                                                                  klass,
+                                                                  super_klass,
+                                                                  m,
+                                                                  super_m))) {
             self->AssertPendingException();
             return false;
           }

@@ -91,7 +91,7 @@ inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtMetho
     Thread::Current()->AssertNoPendingException();
   }
   ObjPtr<mirror::Class> resolved_type =
-      referrer->GetDexCacheResolvedType(type_idx, image_pointer_size_);
+      referrer->GetDexCache()->GetResolvedType(type_idx);
   if (UNLIKELY(resolved_type == nullptr)) {
     StackHandleScope<2> hs(Thread::Current());
     // There could be an out of bounds exception from GetDexCacheResolvedType, don't call
@@ -256,8 +256,8 @@ ArtMethod* ClassLinker::FindMethodForProxy(ObjPtr<mirror::Class> proxy_class,
     // Locate the dex cache of the original interface/Object
     for (const DexCacheData& data : dex_caches_) {
       if (!self->IsJWeakCleared(data.weak_root) &&
-          proxy_method->HasSameDexCacheResolvedTypes(data.resolved_types,
-                                                     image_pointer_size_)) {
+          proxy_method->HasSameDexCacheResolvedMethods(data.resolved_methods,
+                                                       image_pointer_size_)) {
         ObjPtr<mirror::DexCache> dex_cache =
             ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(data.weak_root));
         if (dex_cache != nullptr) {

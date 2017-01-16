@@ -848,7 +848,7 @@ void ReferenceTypePropagation::RTPVisitor::VisitInvoke(HInvoke* instr) {
       FindDexCacheWithHint(soa.Self(), instr->GetDexFile(), hint_dex_cache_);
   PointerSize pointer_size = cl->GetImagePointerSize();
   ArtMethod* method = dex_cache->GetResolvedMethod(instr->GetDexMethodIndex(), pointer_size);
-  mirror::Class* klass = (method == nullptr) ? nullptr : method->GetReturnType(false, pointer_size);
+  mirror::Class* klass = (method == nullptr) ? nullptr : method->GetReturnType(false);
   SetClassAsTypeInfo(instr, klass, /* is_exact */ false);
 }
 
