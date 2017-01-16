@@ -22,6 +22,30 @@
       "revId": "65ef2267f6554defec077dfec7bb467abe83fbbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_a9a3399d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-16T20:58:43Z",
+      "side": 1,
+      "message": "Done.\n\n(boot image compilation doesn\u0027t have a verifier deps, we\u0027re not collecting verification data for it).",
+      "parentUuid": "e39b8d7a_03cdce3d",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 2017,
+        "endChar": 3
+      },
+      "revId": "65ef2267f6554defec077dfec7bb467abe83fbbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
