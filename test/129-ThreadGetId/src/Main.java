@@ -23,7 +23,6 @@ public class Main implements Runnable {
 
     public static void main(String[] args) throws Exception {
         final Thread[] threads = new Thread[numberOfThreads];
-        test_getStackTraces();
         for (int t = 0; t < threads.length; t++) {
             threads[t] = new Thread(new Main());
             threads[t].start();
@@ -31,6 +30,7 @@ public class Main implements Runnable {
         for (Thread t : threads) {
             t.join();
         }
+        test_getStackTraces();
         System.out.println("Finishing");
     }
 
