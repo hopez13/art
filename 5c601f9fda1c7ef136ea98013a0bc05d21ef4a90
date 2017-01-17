@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8319f110_b7758836",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:00:15Z",
+      "side": 1,
+      "message": "Can you add a comment in the test that we want to run this last to make sure the GC thread is active?",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "5c601f9fda1c7ef136ea98013a0bc05d21ef4a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
