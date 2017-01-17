@@ -22,6 +22,30 @@
       "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_5afb379d",
+        "filename": "runtime/openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-17T18:47:06Z",
+      "side": 1,
+      "message": "We\u0027re using the exact same code in debugger.cc, so my assumption was someone smarter than me had an argument that threads won\u0027t die prematurely...",
+      "parentUuid": "e39b8d7a_daad67dc",
+      "range": {
+        "startLine": 177,
+        "startChar": 24,
+        "endLine": 177,
+        "endChar": 40
+      },
+      "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
