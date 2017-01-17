@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_5a86d73f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-17T18:44:06Z",
+      "side": 1,
+      "message": "DCHECK() would be good.",
+      "parentUuid": "631cfdaf_0991ada6",
+      "range": {
+        "startLine": 1942,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 37
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_b8f281b1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -201,6 +225,30 @@
       "side": 1,
       "message": "Do you want \"if (!kUseReadBaerrier) { ... }\"?",
       "parentUuid": "e39b8d7a_b8f281b1",
+      "range": {
+        "startLine": 3680,
+        "startChar": 0,
+        "endLine": 3684,
+        "endChar": 3
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_fa6f8ba0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-17T18:44:06Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "631cfdaf_6986616e",
       "range": {
         "startLine": 3680,
         "startChar": 0,
@@ -283,6 +331,30 @@
       "side": 1,
       "message": "Maybe the whole BssWriteBarrier() should be a no-op for CC?",
       "parentUuid": "e39b8d7a_3b376b21",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "081e8011b56cafccf5c0439f7c46cf0a9392bcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e39b8d7a_5a5fb7f5",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-17T18:44:06Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "631cfdaf_c95f951d",
       "range": {
         "startLine": 50,
         "startChar": 0,
