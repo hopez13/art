@@ -22,6 +22,30 @@
       "revId": "c9f76628ce1dc54f852b689ed1722b7e154b2a9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_ec4edfd0",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-17T10:17:20Z",
+      "side": 1,
+      "message": "That\u0027s how it has always been (see go/patchoat).\n\nI think we usually know from the calling context what the input image file is, so we could pass the file name instead of the image location.\n\nOn the other hand, it may make more sense to pass a location in the case of multi-image, where passing a specific image file name may be confusing. Currently only the directory portion of the output file option is used.\n\nRegardless, changing the existing command line options is not in the scope of this CL.",
+      "parentUuid": "032ee190_7fe897f6",
+      "range": {
+        "startLine": 707,
+        "startChar": 30,
+        "endLine": 707,
+        "endChar": 38
+      },
+      "revId": "c9f76628ce1dc54f852b689ed1722b7e154b2a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
