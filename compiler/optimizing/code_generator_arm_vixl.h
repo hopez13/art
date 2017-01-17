@@ -625,6 +625,15 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                                  bool always_update_field = false,
                                                  vixl::aarch32::Register* temp2 = nullptr);
 
+  // Generate a heap reference load (with no read barrier).
+  void GenerateRawReferenceLoad(HInstruction* instruction,
+                                Location ref,
+                                vixl::aarch32::Register obj,
+                                uint32_t offset,
+                                Location index,
+                                ScaleFactor scale_factor,
+                                bool needs_null_check);
+
   // Generate a read barrier for a heap reference within `instruction`
   // using a slow path.
   //
