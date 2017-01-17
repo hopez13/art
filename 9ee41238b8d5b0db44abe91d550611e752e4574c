@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "e39b8d7a_aa1cce88",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T20:40:10Z",
+      "side": 1,
+      "message": "Nope, it will still be based on return codes.\n\nFor e.g. passing --status or -- dexopt-needed will have a different meaning for the return codes. The RETURN_CODE_BASE will be the same to make things easier.\n\nI didn\u0027t added that yet because I don\u0027t need it and smaller changes are better.",
+      "parentUuid": "631cfdaf_ccc96309",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_c9c95509",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -215,6 +239,29 @@
     },
     {
       "key": {
+        "uuid": "03f7c1e2_a3cf9a08",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T20:40:10Z",
+      "side": 1,
+      "message": "I will add some docs for the command output in the usage section.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_297d89d1",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -274,6 +321,29 @@
       "side": 1,
       "message": "I think it wouldn\u0027t be bad to print the docs from OatFileAssistant::DexOptNeeded. I\u0027m also okay with referring the user to the version of the docs in dalvik.system.DexFile.\n\nMore importantly, you should document that the result of running dexoptanalyzer is returned using exit codes, that exit code 100 + i corresponds to enum i (from OatFileAssistant or dalvik.system.DexFile) for the oat location, 100 - i corresponds to enum i for the odex location, and 200 indicates an error.",
       "parentUuid": "e39b8d7a_e32a8a9a",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 51
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "834011d5_3fc7071d",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T20:40:10Z",
+      "side": 1,
+      "message": "Ok. I will add more docs here.",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -498,6 +568,29 @@
     },
     {
       "key": {
+        "uuid": "e3354d63_a2be9ea1",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T20:40:10Z",
+      "side": 1,
+      "message": "Agree that we shouldn\u0027t need it but our current infrastructure relies on the runtime to create the image space which the assistant uses.\n\nDropping the dependency can be don in another CL, and I suspect it will be more work.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_e9e37182",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 2
@@ -675,6 +768,29 @@
       "side": 1,
       "message": "You already know the output of dexoptanalyzer is the same as the output of OatFileAssistant, because that is how it is implemented. I think it\u0027s more important to test the interface to dexoptanalyzer is working. It should be sufficient to test the oat case, the odex case, the nodexopt needed case, and the runtime creation failed case.\n\nIf I add or remove an OatFileAssistant test, am I expected to add a copy of that test or remove the corresponding test here?",
       "parentUuid": "e39b8d7a_a32c02d2",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 79
+      },
+      "revId": "9ee41238b8d5b0db44abe91d550611e752e4574c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "434619f3_3d238f0d",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T20:40:10Z",
+      "side": 1,
+      "message": "I think there\u0027s value to list the cases since they depend on the state of the image and how the runtime is created which may introduce difference in the results. (a few of them failed in the beginning due to incorrect image setup).\n\nI don\u0027t expect to add all assistant tests here, i.e. i don\u0027t think it\u0027s necessary to keep them in perfect sync. It was just convenient to exercise most of the cases we already have code for. \n\nThat said, the code is now simple, and I don\u0027t have such a strong opinion, so let me know if you want me to update any of these.",
       "range": {
         "startLine": 72,
         "startChar": 0,
