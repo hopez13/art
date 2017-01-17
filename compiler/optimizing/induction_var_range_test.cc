@@ -697,13 +697,7 @@ TEST_F(InductionVarRangeTest, MaxValue) {
 }
 
 TEST_F(InductionVarRangeTest, ArrayLengthAndHints) {
-  HInstruction* new_array = new (&allocator_)
-      HNewArray(x_,
-                graph_->GetCurrentMethod(),
-                0,
-                dex::TypeIndex(Primitive::kPrimInt),
-                graph_->GetDexFile(),
-                kQuickAllocArray);
+  HInstruction* new_array = new (&allocator_) HNewArray(graph_->GetCurrentMethod(), x_, 0);
   entry_block_->AddInstruction(new_array);
   HInstruction* array_length = new (&allocator_) HArrayLength(new_array, 0);
   entry_block_->AddInstruction(array_length);
