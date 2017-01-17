@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_daad67dc",
+        "filename": "runtime/openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-17T18:42:27Z",
+      "side": 1,
+      "message": "Is this really safe? How do you know a thread won\u0027t unregister and leave a dangling Thread* after you release the thread list lock?",
+      "range": {
+        "startLine": 177,
+        "startChar": 24,
+        "endLine": 177,
+        "endChar": 40
+      },
+      "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
