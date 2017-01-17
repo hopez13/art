@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_ec79bf97",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:46:56Z",
+      "side": 1,
+      "message": "Why do we need the changes in this file?",
+      "revId": "3e6e35e995af36c2f05206e31835a0c40b9b78cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_2cb3d74d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:46:56Z",
+      "side": 1,
+      "message": "Add /* resolve */.",
+      "range": {
+        "startLine": 844,
+        "startChar": 79,
+        "endLine": 844,
+        "endChar": 84
+      },
+      "revId": "3e6e35e995af36c2f05206e31835a0c40b9b78cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
