@@ -1899,9 +1899,9 @@ void LocationsBuilderMIPS::VisitArrayGet(HArrayGet* instruction) {
   }
 }
 
-auto InstructionCodeGeneratorMIPS::GetImplicitNullChecker(HInstruction* instruction) {
-  auto null_checker = [this, instruction]() {
-    this->codegen_->MaybeRecordImplicitNullCheck(instruction);
+static auto GetImplicitNullChecker(HInstruction* instruction, CodeGeneratorMIPS* codegen) {
+  auto null_checker = [codegen, instruction]() {
+    codegen->MaybeRecordImplicitNullCheck(instruction);
   };
   return null_checker;
 }
@@ -1911,7 +1911,7 @@ void InstructionCodeGeneratorMIPS::VisitArrayGet(HArrayGet* instruction) {
   Register obj = locations->InAt(0).AsRegister<Register>();
   Location index = locations->InAt(1);
   uint32_t data_offset = CodeGenerator::GetArrayDataOffset(instruction);
-  auto null_checker = GetImplicitNullChecker(instruction);
+  auto null_checker = GetImplicitNullChecker(instruction, codegen_);
 
   Primitive::Type type = instruction->GetType();
   switch (type) {
@@ -2097,7 +2097,7 @@ void InstructionCodeGeneratorMIPS::VisitArraySet(HArraySet* instruction) {
   bool needs_runtime_call = locations->WillCall();
   bool needs_write_barrier =
       CodeGenerator::StoreNeedsWriteBarrier(value_type, instruction->GetValue());
-  auto null_checker = GetImplicitNullChecker(instruction);
+  auto null_checker = GetImplicitNullChecker(instruction, codegen_);
   Register base_reg = index.IsConstant() ? obj : TMP;
 
   switch (value_type) {
@@ -4845,7 +4845,7 @@ void InstructionCodeGeneratorMIPS::HandleFieldGet(HInstruction* instruction,
   LoadOperandType load_type = kLoadUnsignedByte;
   bool is_volatile = field_info.IsVolatile();
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
-  auto null_checker = GetImplicitNullChecker(instruction);
+  auto null_checker = GetImplicitNullChecker(instruction, codegen_);
 
   switch (type) {
     case Primitive::kPrimBoolean:
@@ -4970,7 +4970,7 @@ void InstructionCodeGeneratorMIPS::HandleFieldSet(HInstruction* instruction,
   StoreOperandType store_type = kStoreByte;
   bool is_volatile = field_info.IsVolatile();
   uint32_t offset = field_info.GetFieldOffset().Uint32Value();
-  auto null_checker = GetImplicitNullChecker(instruction);
+  auto null_checker = GetImplicitNullChecker(instruction, codegen_);
 
   switch (type) {
     case Primitive::kPrimBoolean:
