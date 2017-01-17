@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "631cfdaf_2c6597f6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "unique",
+      "range": {
+        "startLine": 229,
+        "startChar": 40,
+        "endLine": 229,
+        "endChar": 44
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_0c6a5bc6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 228,
+        "startChar": 69,
+        "endLine": 230,
+        "endChar": 48
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6c6f8fd6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "/* expected_method */ ?",
+      "range": {
+        "startLine": 245,
+        "startChar": 36,
+        "endLine": 245,
+        "endChar": 43
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_4c7453a9",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "hierarchy",
+      "range": {
+        "startLine": 257,
+        "startChar": 36,
+        "endLine": 257,
+        "endChar": 46
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_8c55ab01",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "Isn\u0027t it more the subclass hasn\u0027t provided a concrete implementation of the abstract method?",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 269,
+        "endChar": 88
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_0c91bba6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "Add a DCHECK that method_in_super has single implementation?",
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6c866f6e",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "How can that happen?",
+      "range": {
+        "startLine": 363,
+        "startChar": 9,
+        "endLine": 363,
+        "endChar": 19
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_ec4b7f67",
+        "filename": "runtime/cha.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T15:25:24Z",
+      "side": 1,
+      "message": "Can you rephrase this comment? I have a hard time parsing it.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
