@@ -22,6 +22,30 @@
       "revId": "dc7d051b7e8e6d8d35662df9df43347a394643d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_ecf7ff60",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-17T09:36:03Z",
+      "side": 1,
+      "message": "I removed this comment, now that it is no longer needed to distinguish among the different overloadings of Patch.",
+      "parentUuid": "631cfdaf_e6843efa",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 42
+      },
+      "revId": "dc7d051b7e8e6d8d35662df9df43347a394643d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
