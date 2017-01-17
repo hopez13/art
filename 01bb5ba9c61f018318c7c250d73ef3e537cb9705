@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_4c6e13aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-17T17:04:10Z",
+      "side": 1,
+      "message": "yes, i\u0027ll rephrase this.",
+      "parentUuid": "631cfdaf_ecfedfb6",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "01bb5ba9c61f018318c7c250d73ef3e537cb9705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_acf34727",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-17T14:23:40Z",
       "side": 1,
       "message": "Why not dropping this?",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 3
+      },
+      "revId": "01bb5ba9c61f018318c7c250d73ef3e537cb9705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_6c694fa0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-17T17:04:10Z",
+      "side": 1,
+      "message": "Will do it in a follow up change - will give this a little bit of soak time first.",
+      "parentUuid": "631cfdaf_acf34727",
       "range": {
         "startLine": 306,
         "startChar": 0,
