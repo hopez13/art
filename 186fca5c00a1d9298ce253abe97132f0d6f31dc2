@@ -138,6 +138,29 @@
       "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8319f110_7778502c",
+        "filename": "test/925-threadgroups/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:26:32Z",
+      "side": 1,
+      "message": "In the expected file, you have a list of those daemons you expect right? So the test does know what daemons to expect. Can you just make sure those ones have started?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
