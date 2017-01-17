@@ -115,6 +115,29 @@
       "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "434619f3_5da45ba5",
+        "filename": "test/925-threadgroups/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-17T21:21:04Z",
+      "side": 1,
+      "message": "The runtime doesn\u0027t even know about all daemons. E.g., the finalizer watchdog daemon. So what is it supposed to do?\n\nWe\u0027d have to add something in the libcore side, and that would couple things that the regular runtime doesn\u0027t care about at all.\n\nI can write a really ugly check that collects all threads and waits (with timeout) till a certain threshold is reached.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
