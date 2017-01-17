@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "631cfdaf_2c9ab7b5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-17T15:59:27Z",
+      "side": 1,
+      "message": "I guess we don\u0027t. I somehow pulled it into this CL but it will probably fit better with the next.",
+      "parentUuid": "631cfdaf_ec79bf97",
+      "revId": "3e6e35e995af36c2f05206e31835a0c40b9b78cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_2cb3d74d",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2017-01-17T15:46:56Z",
       "side": 1,
       "message": "Add /* resolve */.",
+      "range": {
+        "startLine": 844,
+        "startChar": 79,
+        "endLine": 844,
+        "endChar": 84
+      },
+      "revId": "3e6e35e995af36c2f05206e31835a0c40b9b78cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631cfdaf_4c99f3bc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-17T15:59:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_2cb3d74d",
       "range": {
         "startLine": 844,
         "startChar": 79,
