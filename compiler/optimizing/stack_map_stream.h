@@ -104,6 +104,8 @@ class StackMapStream : public ValueObject {
     size_t same_dex_register_map_as_;
     uint32_t stack_mask_index;
     uint32_t register_mask_index;
+    InvokeType invoke_type;
+    uint32_t dex_method_index;
   };
 
   struct InlineInfoEntry {
@@ -124,6 +126,8 @@ class StackMapStream : public ValueObject {
   void EndStackMapEntry();
 
   void AddDexRegisterEntry(DexRegisterLocation::Kind kind, int32_t value);
+
+  void AddInvoke(InvokeType type, uint32_t dex_method_index);
 
   void BeginInlineInfoEntry(ArtMethod* method,
                             uint32_t dex_pc,
@@ -163,6 +167,8 @@ class StackMapStream : public ValueObject {
 
   // Returns the number of unique register masks.
   size_t PrepareRegisterMasks();
+
+  void ComputeInvokeInfoEncoding(CodeInfoEncoding* encoding);
 
   // Returns the index of an entry with the same dex register map as the current_entry,
   // or kNoSameDexMapFound if no such entry exists.

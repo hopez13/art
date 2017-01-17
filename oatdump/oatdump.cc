@@ -588,7 +588,7 @@ class OatDumper {
       kByteKindCodeInfoDexRegisterMap,
       kByteKindCodeInfoInlineInfo,
       kByteKindCodeInfoEncoding,
-      kByteKindCodeInfoOther,
+      kByteKindCodeInfoInvokeInfo,
       kByteKindCodeInfoStackMasks,
       kByteKindCodeInfoRegisterMasks,
       kByteKindStackMapNativePc,
@@ -598,7 +598,7 @@ class OatDumper {
       kByteKindStackMapRegisterMaskIndex,
       kByteKindStackMapStackMaskIndex,
       kByteKindCount,
-      kByteKindStackMapFirst = kByteKindCodeInfoOther,
+      kByteKindStackMapFirst = kByteKindStackMapNativePc,
       kByteKindStackMapLast = kByteKindStackMapStackMaskIndex,
     };
     int64_t bits[kByteKindCount] = {};
@@ -635,6 +635,7 @@ class OatDumper {
         Dump(os, "CodeInfoInlineInfo              ", bits[kByteKindCodeInfoInlineInfo], sum);
         Dump(os, "CodeInfoStackMasks              ", bits[kByteKindCodeInfoStackMasks], sum);
         Dump(os, "CodeInfoRegisterMasks           ", bits[kByteKindCodeInfoRegisterMasks], sum);
+        Dump(os, "CodeInfoInvokeInfo              ", bits[kByteKindCodeInfoInvokeInfo], sum);
         Dump(os, "CodeInfoStackMap                ", stack_map_bits, sum);
         {
           ScopedIndentation indent1(&os);
@@ -1556,7 +1557,7 @@ class OatDumper {
         std::vector<uint8_t> size_vector;
         encoding.Compress(&size_vector);
         if (stats_.AddBitsIfUnique(Stats::kByteKindCodeInfoEncoding,
-                                   size_vector.size() * kBitsPerByte,
+                                   3 * kBitsPerByte,
                                    oat_method.GetVmapTable())) {
           stats_.AddBits(
               Stats::kByteKindStackMapNativePc,
@@ -1582,6 +1583,9 @@ class OatDumper {
           stats_.AddBits(
               Stats::kByteKindCodeInfoRegisterMasks,
               encoding.register_mask.encoding.BitSize() * encoding.register_mask.num_entries);
+          stats_.AddBits(
+              Stats::kByteKindCodeInfoInvokeInfo,
+              encoding.invoke_info.encoding.BitSize() * encoding.invoke_info.num_entries);
           const size_t location_catalog_bytes =
               helper.GetCodeInfo().GetDexRegisterLocationCatalogSize(encoding);
           stats_.AddBits(Stats::kByteKindCodeInfoLocationCatalog,

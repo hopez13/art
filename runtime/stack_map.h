@@ -1141,6 +1141,88 @@ struct ByteSizedTable {
   }
 };
 
+// Format is [native pc, invoke type, method index].
+class InvokeInfoEncoding {
+ public:
+  void SetFromSizes(size_t native_pc_max,
+                    size_t invoke_type_max,
+                    size_t method_index_max) {
+    total_bit_size_ = 0;
+    DCHECK_EQ(kNativePcBitOffset, total_bit_size_);
+    total_bit_size_ += MinimumBitsToStore(native_pc_max);
+    invoke_type_bit_offset_ = total_bit_size_;
+    total_bit_size_ += MinimumBitsToStore(method_index_max);
+    method_index_bit_offset_ = total_bit_size_;
+    total_bit_size_ += MinimumBitsToStore(method_index_max);
+  }
+
+  ALWAYS_INLINE FieldEncoding GetNativePcEncoding() const {
+    return FieldEncoding(kNativePcBitOffset, invoke_type_bit_offset_);
+  }
+
+  ALWAYS_INLINE FieldEncoding GetInvokeTypeEncoding() const {
+    return FieldEncoding(invoke_type_bit_offset_, method_index_bit_offset_);
+  }
+
+  ALWAYS_INLINE FieldEncoding GetMethodIndexEncoding() const {
+    return FieldEncoding(method_index_bit_offset_, total_bit_size_);
+  }
+
+  ALWAYS_INLINE size_t BitSize() const {
+    return total_bit_size_;
+  }
+
+  template<typename Vector>
+  void Encode(Vector* dest) const {
+    static_assert(alignof(InvokeInfoEncoding) == 1, "Should not require alignment");
+    const uint8_t* ptr = reinterpret_cast<const uint8_t*>(this);
+    dest->insert(dest->end(), ptr, ptr + sizeof(*this));
+  }
+
+  void Decode(const uint8_t** ptr) {
+    *this = *reinterpret_cast<const InvokeInfoEncoding*>(*ptr);
+    *ptr += sizeof(*this);
+  }
+
+ private:
+  static constexpr uint8_t kNativePcBitOffset = 0;
+  uint8_t invoke_type_bit_offset_;
+  uint8_t method_index_bit_offset_;
+  uint8_t total_bit_size_;
+};
+
+class InvokeInfo {
+ public:
+  explicit InvokeInfo(BitMemoryRegion region) : region_(region) {}
+
+  ALWAYS_INLINE uint32_t GetNativePc(const InvokeInfoEncoding& encoding) const {
+    return encoding.GetNativePcEncoding().Load(region_);
+  }
+
+  ALWAYS_INLINE void SetNativePc(const InvokeInfoEncoding& encoding, uint32_t pc) {
+    encoding.GetNativePcEncoding().Store(region_, pc);
+  }
+
+  ALWAYS_INLINE uint32_t GetInvokeType(const InvokeInfoEncoding& encoding) const {
+    return encoding.GetInvokeTypeEncoding().Load(region_);
+  }
+
+  ALWAYS_INLINE void SetInvokeType(const InvokeInfoEncoding& encoding, uint32_t invoke_type) {
+    encoding.GetInvokeTypeEncoding().Store(region_, invoke_type);
+  }
+
+  ALWAYS_INLINE uint32_t GetMethodIndex(const InvokeInfoEncoding& encoding) const {
+    return encoding.GetMethodIndexEncoding().Load(region_);
+  }
+
+  ALWAYS_INLINE void SetMethodIndex(const InvokeInfoEncoding& encoding, uint32_t method_index) {
+    encoding.GetMethodIndexEncoding().Store(region_, method_index);
+  }
+
+ private:
+  BitMemoryRegion region_;
+};
+
 // Most of the fields are encoded as ULEB128 to save space.
 struct CodeInfoEncoding {
   static constexpr uint32_t kInvalidSize = static_cast<size_t>(-1);
@@ -1150,6 +1232,7 @@ struct CodeInfoEncoding {
   BitEncodingTable<StackMapEncoding> stack_map;
   BitEncodingTable<BitRegionEncoding> register_mask;
   BitEncodingTable<BitRegionEncoding> stack_mask;
+  BitEncodingTable<InvokeInfoEncoding> invoke_info;
   BitEncodingTable<InlineInfoEncoding> inline_info;
 
   CodeInfoEncoding() {}
@@ -1161,6 +1244,7 @@ struct CodeInfoEncoding {
     stack_map.Decode(&ptr);
     register_mask.Decode(&ptr);
     stack_mask.Decode(&ptr);
+    invoke_info.Decode(&ptr);
     if (stack_map.encoding.GetInlineInfoEncoding().BitSize() > 0) {
       inline_info.Decode(&ptr);
     } else {
@@ -1178,6 +1262,7 @@ struct CodeInfoEncoding {
     stack_map.Encode(dest);
     register_mask.Encode(dest);
     stack_mask.Encode(dest);
+    invoke_info.Encode(dest);
     if (stack_map.encoding.GetInlineInfoEncoding().BitSize() > 0) {
       inline_info.Encode(dest);
     }
@@ -1194,6 +1279,7 @@ struct CodeInfoEncoding {
     stack_map.UpdateBitOffset(&bit_offset);
     register_mask.UpdateBitOffset(&bit_offset);
     stack_mask.UpdateBitOffset(&bit_offset);
+    invoke_info.UpdateBitOffset(&bit_offset);
     inline_info.UpdateBitOffset(&bit_offset);
     cache_non_header_size = RoundUp(bit_offset, kBitsPerByte) / kBitsPerByte - HeaderSize();
   }
@@ -1290,6 +1376,10 @@ class CodeInfo {
   // Get the size of all the stack maps of this CodeInfo object, in bits. Not byte aligned.
   ALWAYS_INLINE size_t GetStackMapsSizeInBits(const CodeInfoEncoding& encoding) const {
     return encoding.stack_map.encoding.BitSize() * GetNumberOfStackMaps(encoding);
+  }
+
+  InvokeInfo GetInvokeInfo(const CodeInfoEncoding& encoding, size_t index) const {
+    return InvokeInfo(encoding.invoke_info.BitRegion(region_, index));
   }
 
   DexRegisterMap GetDexRegisterMapOf(StackMap stack_map,

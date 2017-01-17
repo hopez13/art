@@ -801,7 +801,17 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
                                        outer_environment_size,
                                        inlining_depth);
 
-  EmitEnvironment(instruction->GetEnvironment(), slow_path);
+  HEnvironment* const environment = instruction->GetEnvironment();
+  EmitEnvironment(environment, slow_path);
+  // Record invoke info, the common case for the trampoline is super and static invokes. Only
+  // record these to reduce oat file size.
+  if (environment != nullptr &&
+      instruction->IsInvoke() &&
+      !instruction->IsInvokeVirtual() &&
+      !instruction->IsInvokeInterface()) {
+    HInvoke* const invoke = instruction->AsInvoke();
+    stack_map_stream_.AddInvoke(invoke->GetInvokeType(), invoke->GetDexMethodIndex());
+  }
   stack_map_stream_.EndStackMapEntry();
 
   HLoopInformation* info = instruction->GetBlock()->GetLoopInformation();
@@ -818,7 +828,6 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
     EmitEnvironment(instruction->GetEnvironment(), slow_path);
     stack_map_stream_.EndStackMapEntry();
     if (kIsDebugBuild) {
-      HEnvironment* environment = instruction->GetEnvironment();
       for (size_t i = 0, environment_size = environment->Size(); i < environment_size; ++i) {
         HInstruction* in_environment = environment->GetInstructionAt(i);
         if (in_environment != nullptr) {
