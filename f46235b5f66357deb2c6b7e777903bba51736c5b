@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e39b8d7a_eff26bb2",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-17T18:04:55Z",
+      "side": 1,
+      "message": "Code might look cleaner if you return the Jit* here instead of bool. Then 159ff wouldn\u0027t replicate that much code.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 1
+      },
+      "revId": "f46235b5f66357deb2c6b7e777903bba51736c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
