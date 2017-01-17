@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23b3e516_859a6890",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T22:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "432ff922_7578482c",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 38
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03250143_b3759836",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-17T21:38:22Z",
       "side": 1,
       "message": "Please add a comment on why you need to pass all of these options.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 63
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63adddb0_a72568cc",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T22:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03250143_b3759836",
       "range": {
         "startLine": 170,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "036b4132_9dc213e5",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T22:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43745943_cd666992",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 5
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03250143_537be429",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-17T21:38:22Z",
       "side": 1,
       "message": "Sounds like this should be in OatFileAssistant?",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 5
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a39fd578_892cc1ff",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-17T22:41:59Z",
+      "side": 1,
+      "message": "should be.\n\nI\u0027ll add a TODO but the change should be in a different CL.",
+      "parentUuid": "03250143_537be429",
       "range": {
         "startLine": 201,
         "startChar": 0,
