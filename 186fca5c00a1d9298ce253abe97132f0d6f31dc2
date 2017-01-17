@@ -46,6 +46,29 @@
       "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "432ff922_95708447",
+        "filename": "test/925-threadgroups/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T20:58:41Z",
+      "side": 1,
+      "message": "Huh, how is that going to make sure you fix the flakes you\u0027ve seen? You cannot depend on the kernel scheduler.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "186fca5c00a1d9298ce253abe97132f0d6f31dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
