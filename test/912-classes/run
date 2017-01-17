@@ -16,4 +16,5 @@
 
 ./default-run "$@" --experimental agents \
                    --experimental runtime-plugins \
-                   --jvmti
+                   --jvmti \
+                   --no-app-image
