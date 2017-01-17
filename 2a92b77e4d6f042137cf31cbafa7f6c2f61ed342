@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "432ff922_7578482c",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:38:22Z",
+      "side": 1,
+      "message": "Can\u0027t you include some utils.h for this?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 38
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03250143_b3759836",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:38:22Z",
+      "side": 1,
+      "message": "Please add a comment on why you need to pass all of these options.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 63
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43745943_cd666992",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:38:22Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 5
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03250143_537be429",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-17T21:38:22Z",
+      "side": 1,
+      "message": "Sounds like this should be in OatFileAssistant?",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 5
+      },
+      "revId": "2a92b77e4d6f042137cf31cbafa7f6c2f61ed342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
