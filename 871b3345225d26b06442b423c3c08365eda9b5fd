@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43753906_ce9137e3",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-01-17T22:11:51Z",
+      "side": 1,
+      "message": "nit: missing comment",
+      "revId": "871b3345225d26b06442b423c3c08365eda9b5fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23b3e516_059ad8b5",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-01-17T22:11:51Z",
+      "side": 1,
+      "message": "nit: This is a bit vague, can you mention the specific JVMTI function that allows the override to happen\n\nSomething more like this will be simpler to understand too:\n\n  Cannot enable CheckJNI after JVMTI_???? has been used to override JNI function table. Ignoring SetCheckJniEnabled(true).",
+      "revId": "871b3345225d26b06442b423c3c08365eda9b5fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
