@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "036b4132_8512b9cf",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T06:09:18Z",
+      "side": 1,
+      "message": "This is currently modeled after other callbacks, where we basically say \"you better not delete this somewhere else.\" This one is slightly better, there\u0027s a removal function, because it is not in _very_ sensitive code paths.\n\nShould I maybe rather skip these structs? If I use functions, we can avoid global objects. (However, still has the problem of code going avoid when unloaded...)\n\nAnother alternative would be unique_ptr here, to make it clear where it belongs.",
+      "range": {
+        "startLine": 43,
+        "startChar": 14,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "bef1c43442b07eb80d966cce3a66953c64cd4065",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
