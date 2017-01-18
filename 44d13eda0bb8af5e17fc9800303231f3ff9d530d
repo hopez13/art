@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_4cfbff50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-18T19:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_c1e6f8f8",
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_01d8f028",
         "filename": "runtime/openjdkjvmti/events-inl.h",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 26,
         "endChar": 13
       },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_ece3f3a6",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-18T19:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_01d8f028",
       "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_8cc7d71a",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-18T19:04:53Z",
+      "side": 1,
+      "message": "It\u0027s longer when we put the code for splitting JVMTI_EVENT_CLASS_FILE_LOAD_HOOK back in.",
+      "parentUuid": "a35c3506_ec705348",
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_0c8d8717",
         "filename": "runtime/openjdkjvmti/events.h",
         "patchSetId": 3
@@ -88,6 +142,24 @@
         "endLine": 145,
         "endChar": 50
       },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_0c12e7d1",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-18T19:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_0c8d8717",
       "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
