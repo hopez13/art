@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a35c3506_3b452305",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T17:14:33Z",
+      "side": 1,
+      "message": "Should probably go to cc file.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 1
+      },
+      "revId": "f7a2988ab3d6b061ab66912ad0aa1fdd50ea0abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_fb6d6bac",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T17:14:33Z",
+      "side": 1,
+      "message": "Use the JVMTI_X definitions? Otherwise there should be a test that the numbers match, so the static_cast below is guaranteed correct.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "f7a2988ab3d6b061ab66912ad0aa1fdd50ea0abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
