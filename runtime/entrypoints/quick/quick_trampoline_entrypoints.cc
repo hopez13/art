@@ -2435,8 +2435,8 @@ extern "C" uintptr_t artInvokePolymorphic(
 
   // Wrap raw_method_handle in a Handle for safety.
   StackHandleScope<5> hs(self);
-  Handle<mirror::MethodHandleImpl> method_handle(
-      hs.NewHandle(ObjPtr<mirror::MethodHandleImpl>::DownCast(MakeObjPtr(raw_method_handle))));
+  Handle<mirror::MethodHandle> method_handle(
+      hs.NewHandle(ObjPtr<mirror::MethodHandle>::DownCast(MakeObjPtr(raw_method_handle))));
   raw_method_handle = nullptr;
   self->EndAssertNoThreadSuspension(old_cause);
 
