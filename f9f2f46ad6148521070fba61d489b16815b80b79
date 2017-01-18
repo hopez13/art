@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_21733492",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "What part do you actually consider complex here? They are just return codes...\n\nIf I document that:\n\nreturn 100 -\u003e kNoDexOptNeeded\nreturn 101 -\u003e kDex2OatFromScratch\n\nreturn 102 -\u003e kDex2OatForBootImageOat\nreturn 103 -\u003e kDex2OatForFilterOat\nreturn 104 -\u003e kDex2OatForRelocationOat\n\nreturn 98 -\u003e kDex2OatForBootImageOdex\nreturn 97 -\u003e kDex2OatForFilterOdex\nreturn 96 -\u003e kDex2OatForRelocationOdex\n\nwould that be better for you? I can even map them to 0-9 codes, doesn\u0027t really matter.\n\nThis can\u0027t be a shared library, it needs to be executed from installd under different capabilities as a standalone binary.\n\nI disagree with regards to parsing. IMO it\u0027s just simpler and cleaner to deal with return codes in this particular case, rather than capturing the output and parsing.\n\ninstalld WIP is here: go/ag/1786897",
+      "parentUuid": "633f9d98_4ef87353",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8e37bb4f",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-18T12:03:08Z",
       "side": 1,
       "message": "What do you think about calling this \"--profile-changed\" instead? It\u0027s shorter that way.",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 40
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_013c7098",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "I like having \"assume\" in front. It better reveals that\u0027s an assumption when viewed in the context of dexoptanalyzer (e.g. there\u0027s no way you could dcheck that\u0027s indeed the case).",
+      "parentUuid": "633f9d98_8e37bb4f",
       "range": {
         "startLine": 89,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_a1fae497",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633f9d98_ce31c35b",
+      "range": {
+        "startLine": 97,
+        "startChar": 45,
+        "endLine": 97,
+        "endChar": 46
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8eaedb41",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-18T12:03:08Z",
       "side": 1,
       "message": "\"relocate\" \u003d\u003e \"relocate the boot image\"",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 42
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_410ca8f1",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633f9d98_8eaedb41",
       "range": {
         "startLine": 183,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_4c785f2c",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633f9d98_aeb397aa",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 5
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_aedab7ca",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2017-01-18T12:03:08Z",
       "side": 1,
       "message": "Why should this check be in the OatFileAssistant and where in the OatFileAssistant would you put it? Does it matter what the result of dexoptanalyzer is for dex files on the boot class path?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 5
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_2cd08bd7",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "Seems natural to me for GetDexOptNeeded to cover all cases so that we don\u0027t need to do extra checks before invoking it.",
+      "parentUuid": "633f9d98_aedab7ca",
       "range": {
         "startLine": 209,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_6ca8c3c9",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "EXIT_FAILURE is 1 while valid dexopt returns are map in 98+ range. I\u0027ll introduce a local constant to make things clearer.",
+      "parentUuid": "633f9d98_0eeaeb5b",
+      "range": {
+        "startLine": 229,
+        "startChar": 53,
+        "endLine": 229,
+        "endChar": 77
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_4ee4f38b",
         "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2017-01-18T12:03:08Z",
       "side": 1,
       "message": "I do not like having such a tight coupling between the DexoptAnalyzerTest and OatFileAssistantTest.\n\nCan you copy-paste just what you need for the DexoptAnalyzerTest instead? Or, would it be too weird to test dexoptanalyzer in the existing OatFileAssistantTest cases?\n\nIs the presubmit failure of the dexopt analyzer test relevant here? Do you know why the test is failing?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_27f4240f",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "Could you provide a rationale?\n\nWhy would you prefer copy-paste code?\n\nDon\u0027t mind testing dexoptanalyzer in OatFileAssistantTest but I find the separation better.\n\nThe presubmit failure are not related to this CL.",
+      "parentUuid": "633f9d98_4ee4f38b",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -220,6 +412,54 @@
       "writtenOn": "2017-01-18T12:03:08Z",
       "side": 1,
       "message": "Is dexoptanalyzer the only user of this? Has there been a notion of a default boot image location before this?\n\nIf not, why introduce a default boot image location now?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 64
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_876090e0",
+        "filename": "runtime/utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "we have he same pattern in other cases (e.g. GetDalvikCache). I prefer std::string to const char*. Easier to reason about ownership.",
+      "parentUuid": "633f9d98_8e7c1bd6",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 11
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_072640d7",
+        "filename": "runtime/utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-18T20:00:48Z",
+      "side": 1,
+      "message": "We have 2 other cases which I\u0027ll move over in another CL.",
+      "parentUuid": "c3820982_212c0efe",
       "range": {
         "startLine": 154,
         "startChar": 0,
