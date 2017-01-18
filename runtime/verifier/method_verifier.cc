@@ -3114,6 +3114,32 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
       just_set_result = true;
       break;
     }
+    case Instruction::INVOKE_CUSTOM:
+    case Instruction::INVOKE_CUSTOM_RANGE: {
+      // Verify registers based on method_type in the call site.
+      bool is_range = (inst->Opcode() == Instruction::INVOKE_CUSTOM_RANGE);
+      const uint32_t call_site_idx = is_range ? inst->VRegB_3rc() : inst->VRegB_35c();
+      CallSiteArrayValueIterator it(*dex_file_, dex_file_->GetCallSiteId(call_site_idx));
+      it.Next();  // Skip the linker method handle.
+      it.Next();  // Skip the method name passed to linker method handle.
+      const uint32_t proto_idx = static_cast<uint32_t>(it.GetJavaValue().i);
+      const DexFile::ProtoId& proto_id = dex_file_->GetProtoId(proto_idx);
+      DexFileParameterIterator param_it(*dex_file_, proto_id);
+      // Treat method as static as it has yet to be determined.
+      VerifyInvocationArgsFromIterator(&param_it, inst, METHOD_STATIC, is_range, nullptr);
+      const char* return_descriptor =
+          dex_file_->GetReturnTypeDescriptor(proto_id);
+      const RegType& return_type =
+          reg_types_.FromDescriptor(GetClassLoader(), return_descriptor, false);
+      if (!return_type.IsLowHalf()) {
+        work_line_->SetResultRegisterType(this, return_type);
+      } else {
+        work_line_->SetResultRegisterTypeWide(return_type, return_type.HighHalf(&reg_types_));
+      }
+      just_set_result = true;
+      Fail(VERIFY_ERROR_FORCE_INTERPRETER);
+      break;
+    }
     case Instruction::NEG_INT:
     case Instruction::NOT_INT:
       work_line_->CheckUnaryOp(this, inst, reg_types_.Integer(), reg_types_.Integer());
@@ -3423,7 +3449,7 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
     /* These should never appear during verification. */
     case Instruction::UNUSED_3E ... Instruction::UNUSED_43:
     case Instruction::UNUSED_F3 ... Instruction::UNUSED_F9:
-    case Instruction::UNUSED_FC ... Instruction::UNUSED_FF:
+    case Instruction::UNUSED_FE ... Instruction::UNUSED_FF:
     case Instruction::UNUSED_79:
     case Instruction::UNUSED_7A:
       Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "Unexpected opcode " << inst->DumpString(dex_file_);
