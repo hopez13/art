@@ -22,6 +22,30 @@
       "revId": "d18d9e2a94445d4b42e4bc6f0e642e6f76b4706d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a39fd578_8f9a8190",
+        "filename": "test/925-threadgroups/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T00:05:35Z",
+      "side": 1,
+      "message": "I prefer to be defensive. This way it\u0027s also possible to have smaller timeouts.",
+      "parentUuid": "03250143_53a2048c",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "d18d9e2a94445d4b42e4bc6f0e642e6f76b4706d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
