@@ -555,7 +555,7 @@ static inline bool DoCallTransform(ArtMethod* called_method,
                                    Handle<mirror::MethodType> callee_type,
                                    Thread* self,
                                    ShadowFrame& shadow_frame,
-                                   Handle<mirror::MethodHandleImpl> receiver,
+                                   Handle<mirror::MethodHandle> receiver,
                                    const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                                    uint32_t first_arg,
                                    JValue* result)
@@ -645,7 +645,7 @@ inline static ObjPtr<mirror::Class> GetAndInitializeDeclaringClass(Thread* self,
 template <bool is_range>
 bool DoInvokePolymorphicUnchecked(Thread* self,
                                   ShadowFrame& shadow_frame,
-                                  Handle<mirror::MethodHandleImpl> method_handle,
+                                  Handle<mirror::MethodHandle> method_handle,
                                   Handle<mirror::MethodType> callsite_type,
                                   const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                                   uint32_t first_arg,
@@ -858,7 +858,7 @@ static JValue GetValueFromShadowFrame(const ShadowFrame& shadow_frame,
 template <bool is_range, bool do_conversions, bool do_assignability_check>
 bool DoInvokePolymorphicFieldAccess(Thread* self,
                                     ShadowFrame& shadow_frame,
-                                    Handle<mirror::MethodHandleImpl> method_handle,
+                                    Handle<mirror::MethodHandle> method_handle,
                                     Handle<mirror::MethodType> callsite_type,
                                     const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                                     uint32_t first_arg,
@@ -938,7 +938,7 @@ bool DoInvokePolymorphicFieldAccess(Thread* self,
 template <bool is_range, bool do_assignability_check>
 static inline bool DoInvokePolymorphicNonExact(Thread* self,
                                                ShadowFrame& shadow_frame,
-                                               Handle<mirror::MethodHandleImpl> method_handle,
+                                               Handle<mirror::MethodHandle> method_handle,
                                                Handle<mirror::MethodType> callsite_type,
                                                const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                                                uint32_t first_arg,
@@ -1002,7 +1002,7 @@ static inline bool DoInvokePolymorphicNonExact(Thread* self,
 template <bool is_range, bool do_assignability_check>
 bool DoInvokePolymorphicExact(Thread* self,
                               ShadowFrame& shadow_frame,
-                              Handle<mirror::MethodHandleImpl> method_handle,
+                              Handle<mirror::MethodHandle> method_handle,
                               Handle<mirror::MethodType> callsite_type,
                               const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                               uint32_t first_arg,
@@ -1061,7 +1061,7 @@ template <bool is_range, bool do_assignability_check>
 bool DoInvokePolymorphic(Thread* self,
                          ArtMethod* invoke_method,
                          ShadowFrame& shadow_frame,
-                         Handle<mirror::MethodHandleImpl> method_handle,
+                         Handle<mirror::MethodHandle> method_handle,
                          Handle<mirror::MethodType> callsite_type,
                          const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                          uint32_t first_arg,
@@ -1092,7 +1092,7 @@ bool DoInvokePolymorphic<_is_range, _do_assignability_check>(                   
     Thread* self,                                                                        \
     ArtMethod* invoke_method,                                                            \
     ShadowFrame& shadow_frame,                                                           \
-    Handle<mirror::MethodHandleImpl> method_handle,                                      \
+    Handle<mirror::MethodHandle> method_handle,                                          \
     Handle<mirror::MethodType> callsite_type,                                            \
     const uint32_t (&args)[Instruction::kMaxVarArgRegs],                                 \
     uint32_t first_arg,                                                                  \
