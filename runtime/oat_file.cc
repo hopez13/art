@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2011 The Android Open Source Project
  *
@@ -501,7 +502,7 @@ bool OatFileBase::Setup(const char* abs_dex_location, std::string* error_msg) {
 
     uint8_t* current_dex_cache_arrays = nullptr;
     if (dex_cache_arrays != nullptr) {
-      DexCacheArraysLayout layout(pointer_size, *header);
+      DexCacheArraysLayout layout(pointer_size, *header, 0 /* TODO(oth) */);
       if (layout.Size() != 0u) {
         if (static_cast<size_t>(dex_cache_arrays_end - dex_cache_arrays) < layout.Size()) {
           *error_msg = StringPrintf("In oat file '%s' found OatDexFile #%zu for '%s' with "
