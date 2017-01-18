@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "633f9d98_6e4c4fd8",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-18T11:32:23Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "633f9d98_ce0c63b7",
+      "range": {
+        "startLine": 1232,
+        "startChar": 9,
+        "endLine": 1232,
+        "endChar": 45
+      },
+      "revId": "bea5f85f6cc574934b692ea28e61a756c1a0b102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_4eca3327",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-18T11:17:47Z",
       "side": 0,
       "message": "The order of the checks shall change. I think this change of behavior is good but can you check if JLS says anything about that?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 3
+      },
+      "revId": "bea5f85f6cc574934b692ea28e61a756c1a0b102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "633f9d98_ae3c7734",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-18T11:32:23Z",
+      "side": 0,
+      "message": "Yes, spec says \"linking can throw exception, otherwise if component_count is negative ...\"",
+      "parentUuid": "633f9d98_4eca3327",
       "range": {
         "startLine": 304,
         "startChar": 0,
