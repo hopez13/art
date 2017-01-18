@@ -40,9 +40,11 @@
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "handle_scope-inl.h"
 #include "jit/jit.h"
+#include "mirror/call_site.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache.h"
 #include "mirror/method.h"
+#include "mirror/method_handles_lookup.h"
 #include "mirror/object-inl.h"
 #include "mirror/object_array-inl.h"
 #include "mirror/string-inl.h"
@@ -156,6 +158,14 @@ static inline bool DoInvoke(Thread* self,
 // Performs a signature polymorphic invoke (invoke-polymorphic/invoke-polymorphic-range).
 template<bool is_range, bool do_access_check>
 bool DoInvokePolymorphic(Thread* self,
+                         ShadowFrame& shadow_frame,
+                         const Instruction* inst,
+                         uint16_t inst_data,
+                         JValue* result);
+
+// Performs a signature custom invoke (invoke-custom/invoke-custom-range).
+template<bool is_range, bool do_access_check>
+bool DoInvokeCustom(Thread* self,
                          ShadowFrame& shadow_frame,
                          const Instruction* inst,
                          uint16_t inst_data,
