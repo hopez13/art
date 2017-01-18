@@ -23,9 +23,16 @@
 
 namespace openjdkjvmti {
 
-static inline ArtJvmtiEvent GetArtJvmtiEvent(ArtJvmTiEnv* env ATTRIBUTE_UNUSED,
-                                                           jvmtiEvent e) {
-  return static_cast<ArtJvmtiEvent>(e);
+static inline ArtJvmtiEvent GetArtJvmtiEvent(ArtJvmTiEnv* env, jvmtiEvent e) {
+  if (UNLIKELY(e == JVMTI_EVENT_CLASS_FILE_LOAD_HOOK) {
+    if (env->capabilities.can_retransform_classes) {
+      return ArtJvmtiEvent::kClassFileLoadHookRetransformable;
+    } else {
+      return ArtJvmtiEvent::kClassFileLoadHookNonRetransformable;
+    }
+  } else {
+    return static_cast<ArtJvmtiEvent>(e);
+  }
 }
 
 template <typename FnType>
@@ -46,7 +53,8 @@ ALWAYS_INLINE static inline FnType* GetCallback(ArtJvmTiEnv* env, ArtJvmtiEvent 
       return reinterpret_cast<FnType*>(env->event_callbacks->ThreadStart);
     case ArtJvmtiEvent::kThreadEnd:
       return reinterpret_cast<FnType*>(env->event_callbacks->ThreadEnd);
-    case ArtJvmtiEvent::kClassFileLoadHook:
+    case ArtJvmtiEvent::kClassFileLoadHookRetransformable:
+    case ArtJvmtiEvent::kClassFileLoadHookNonRetransformable:
       return reinterpret_cast<FnType*>(env->event_callbacks->ClassFileLoadHook);
     case ArtJvmtiEvent::kClassLoad:
       return reinterpret_cast<FnType*>(env->event_callbacks->ClassLoad);
