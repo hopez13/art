@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_2170ce45",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_9b31cf2e",
+      "range": {
+        "startLine": 131,
+        "startChar": 5,
+        "endLine": 131,
+        "endChar": 20
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_9b4aaf92",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-18T16:45:11Z",
       "side": 1,
       "message": "It\u0027s probably a bit more efficient to order this for the common case and avoid calls. First test whether it starts with \u0027\u003c\u0027?",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 3
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a88b32df_2070ca45",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_9b4aaf92",
       "range": {
         "startLine": 132,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_4175d234",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_1b985f08",
+      "range": {
+        "startLine": 676,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 70
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_5b92d7e7",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-18T16:45:11Z",
       "side": 1,
       "message": "Remove?",
+      "range": {
+        "startLine": 696,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 85
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_e1798630",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_5b92d7e7",
       "range": {
         "startLine": 696,
         "startChar": 0,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "48963609_5d661b95",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_5b69f7fb",
+      "range": {
+        "startLine": 2776,
+        "startChar": 32,
+        "endLine": 2776,
+        "endChar": 77
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_0177ca3d",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_7b66bb2c",
+      "range": {
+        "startLine": 2776,
+        "startChar": 2,
+        "endLine": 2776,
+        "endChar": 6
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_bb1db395",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 12
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_c18002e6",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2944,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a35c3506_bb1db395",
+      "range": {
+        "startLine": 2944,
+        "startChar": 5,
+        "endLine": 2944,
+        "endChar": 42
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a35c3506_fb272be1",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 12
@@ -174,6 +342,30 @@
       "writtenOn": "2017-01-18T16:45:11Z",
       "side": 1,
       "message": "Bad grammar.",
+      "range": {
+        "startLine": 2946,
+        "startChar": 16,
+        "endLine": 2946,
+        "endChar": 68
+      },
+      "revId": "6e7c730f4c234440ada5c7c50fc864cf6575f9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_a1837ef0",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2946,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-18T22:22:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35c3506_fb272be1",
       "range": {
         "startLine": 2946,
         "startChar": 16,
