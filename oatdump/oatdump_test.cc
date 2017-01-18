@@ -98,6 +98,7 @@ class OatDumpTest : public CommonRuntimeTest {
       expected_prefixes.push_back("LOCATION:");
       expected_prefixes.push_back("MAGIC:");
       expected_prefixes.push_back("DEX FILE COUNT:");
+      expected_prefixes.push_back("CodeInfoEncoding");
       if (display == kListAndCode) {
         // Code and dex code do not show up if list only.
         expected_prefixes.push_back("DEX CODE:");
