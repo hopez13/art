@@ -1272,6 +1272,15 @@ class ImageSpaceLoader {
           }
           dex_cache->FixupResolvedMethodTypes<kWithoutReadBarrier>(new_method_types, fixup_adapter);
         }
+        mirror::CallSiteDexCacheType* call_sites = dex_cache->GetResolvedCallSites();
+        if (call_sites != nullptr) {
+          mirror::CallSiteDexCacheType* new_call_sites =
+              fixup_adapter.ForwardObject(call_sites);
+          if (call_sites != new_call_sites) {
+            dex_cache->SetResolvedCallSites(new_call_sites);
+          }
+          dex_cache->FixupResolvedCallSites<kWithoutReadBarrier>(new_call_sites, fixup_adapter);
+        }
       }
     }
     {
