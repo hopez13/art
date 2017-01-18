@@ -22,6 +22,30 @@
       "revId": "c8f5846ccb5af49fa8a45ba21c8d420021f9e103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_5b4f37cd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T16:06:18Z",
+      "side": 1,
+      "message": "More control at callsites, to, e.g., merge lock acquisitions? Can change if you prefer.",
+      "parentUuid": "633f9d98_ce22a3d4",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 64
+      },
+      "revId": "c8f5846ccb5af49fa8a45ba21c8d420021f9e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
