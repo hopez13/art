@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a35c3506_475cb85b",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-18T21:06:28Z",
+      "side": 1,
+      "message": "It doesn\u0027t look to me like the current C++ interfaces easily allow that. Abusing SweepMonitorList seems dicey. Especially in the 32 bit case, nothing else seems to track inflated monitors.\n\nI could easily add a size() function to MonitorList, though it would have to lock. Worth it?",
+      "parentUuid": "a3d9950f_a1e7e1f4",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 59
+      },
+      "revId": "e04075058f4946420e32aff73b71286c07cdc923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d9950f_41d3950e",
         "filename": "test/596-monitor-inflation/src/Main.java",
         "patchSetId": 4
