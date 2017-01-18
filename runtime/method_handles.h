@@ -27,7 +27,7 @@
 namespace art {
 
 namespace mirror {
-  class MethodHandleImpl;
+  class MethodHandle;
   class MethodType;
 }  // mirror
 
@@ -206,7 +206,7 @@ template <bool is_range, bool do_assignability_check>
 bool DoInvokePolymorphic(Thread* self,
                          ArtMethod* invoke_method,
                          ShadowFrame& shadow_frame,
-                         Handle<mirror::MethodHandleImpl> method_handle,
+                         Handle<mirror::MethodHandle> method_handle,
                          Handle<mirror::MethodType> callsite_type,
                          const uint32_t (&args)[Instruction::kMaxVarArgRegs],
                          uint32_t first_arg,

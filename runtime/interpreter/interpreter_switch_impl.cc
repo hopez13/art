@@ -1537,6 +1537,22 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
         POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_4xx);
         break;
       }
+      case Instruction::INVOKE_CUSTOM: {
+        PREAMBLE();
+        DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+        bool success = DoInvokeCustom<false, do_access_check>(
+            self, shadow_frame, inst, inst_data, &result_register);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        break;
+      }
+      case Instruction::INVOKE_CUSTOM_RANGE: {
+        PREAMBLE();
+        DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+        bool success = DoInvokeCustom<true, do_access_check>(
+            self, shadow_frame, inst, inst_data, &result_register);
+        POSSIBLY_HANDLE_PENDING_EXCEPTION(!success, Next_3xx);
+        break;
+      }
       case Instruction::NEG_INT:
         PREAMBLE();
         shadow_frame.SetVReg(
@@ -2315,7 +2331,7 @@ JValue ExecuteSwitchImpl(Thread* self, const DexFile::CodeItem* code_item,
         break;
       case Instruction::UNUSED_3E ... Instruction::UNUSED_43:
       case Instruction::UNUSED_F3 ... Instruction::UNUSED_F9:
-      case Instruction::UNUSED_FC ... Instruction::UNUSED_FF:
+      case Instruction::UNUSED_FE ... Instruction::UNUSED_FF:
       case Instruction::UNUSED_79:
       case Instruction::UNUSED_7A:
         UnexpectedOpcode(inst, shadow_frame);
