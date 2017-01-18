@@ -70,6 +70,30 @@
       "revId": "c8f5846ccb5af49fa8a45ba21c8d420021f9e103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_8a78af69",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T22:52:53Z",
+      "side": 1,
+      "message": "mathieuc thinks caller locking is better at the moment.\n\nIf it gets too annoying, I\u0027ll change it.",
+      "parentUuid": "633f9d98_ae9e37a6",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 64
+      },
+      "revId": "c8f5846ccb5af49fa8a45ba21c8d420021f9e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
