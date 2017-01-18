@@ -56,6 +56,29 @@
       "revId": "cc99df230feb46ba717252f002d0cc2da6828421",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_cd3c6936",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1648,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-18T20:47:35Z",
+      "side": 1,
+      "message": "Where do we still use this?",
+      "range": {
+        "startLine": 1648,
+        "startChar": 0,
+        "endLine": 1648,
+        "endChar": 64
+      },
+      "revId": "cc99df230feb46ba717252f002d0cc2da6828421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
