@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "633f9d98_ae1b978f",
+        "filename": "runtime/dex2oat_environment_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-18T15:32:39Z",
+      "side": 1,
+      "message": "There are no build rules to build core-multi.art on the target, which is why the oat file assistant test failed on target.\n\nAll that matters is the image checksum is different from core.art. I\u0027ll switch to using the interpreter image instead of the multi image.",
+      "range": {
+        "startLine": 163,
+        "startChar": 1,
+        "endLine": 163,
+        "endChar": 51
+      },
+      "revId": "dc7a34e5f77496ab4c4765c21cdb8fbb33327dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
