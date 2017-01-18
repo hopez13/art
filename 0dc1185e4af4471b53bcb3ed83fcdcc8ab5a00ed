@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "57ba5638_752a40f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "This was done but not reported here. Will add this info to the next version of the patch.",
+      "parentUuid": "b7b632e5_65cad809",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_25b9c0a7",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-10T01:46:50Z",
       "side": 1,
       "message": "length_is_input_length not checked here. Why?",
+      "range": {
+        "startLine": 2621,
+        "startChar": 0,
+        "endLine": 2621,
+        "endChar": 51
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08199e72_13250ccc",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2621,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "I\u0027ve changed the code to work the same way as other architectures.",
+      "parentUuid": "b7b632e5_25b9c0a7",
       "range": {
         "startLine": 2621,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "57ba5638_b50b089c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2632,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Logic is reverted to mirror logic for ARM \u0026 x86.",
+      "parentUuid": "b7b632e5_2504607e",
+      "range": {
+        "startLine": 2630,
+        "startChar": 0,
+        "endLine": 2632,
+        "endChar": 49
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_4264eaf9",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-10T01:46:50Z",
       "side": 1,
       "message": "Always false because Location::RegisterLocation(count) is passed as length.",
+      "range": {
+        "startLine": 2645,
+        "startChar": 6,
+        "endLine": 2645,
+        "endChar": 25
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ba5638_d27862a1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2645,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "So far this is true. I started with the x86 code, and the x86 implementation also supports the SystemArrayCopy intrinsic. In the x86 code it\u0027s not true that length.IsConstant() will always be false. Likewise, I expect that when the SystemArrayCopy intrinsic is implemented for MIPS that length.IsConstant() will sometimes be true.",
+      "parentUuid": "b7b632e5_4264eaf9",
       "range": {
         "startLine": 2645,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "57ba5638_92453a6a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Perhaps not since if the register used to hold src is the same register used to hold dest the next instruction will catch the case and execute the slow path. I added it because while debugging the code I noticed that the compiler was sometimes using the same register to hold both the src, and dest pointers and I thought this test was more descriptive of the issue that was causing the code to take the slow path.\n\nBy adding this code to a case where the register holding src is the same register holding dest there is a lot of code below which will never be generated, and smaller code puts less pressure in the cache.",
+      "parentUuid": "b7b632e5_faa5ac54",
+      "range": {
+        "startLine": 2683,
+        "startChar": 0,
+        "endLine": 2689,
+        "endChar": 3
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_82cd2221",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-01-10T01:46:50Z",
       "side": 1,
       "message": "Use Addiu32().",
+      "range": {
+        "startLine": 2729,
+        "startChar": 0,
+        "endLine": 2734,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ba5638_951084c7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2734,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_82cd2221",
       "range": {
         "startLine": 2729,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "57ba5638_f51590b5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_2271b6f8",
+      "range": {
+        "startLine": 2736,
+        "startChar": 0,
+        "endLine": 2741,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_e23b3e28",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "57ba5638_d51a0ce3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_e23b3e28",
+      "range": {
+        "startLine": 2752,
+        "startChar": 0,
+        "endLine": 2757,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7b632e5_e2b41e85",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -197,6 +389,30 @@
       "writtenOn": "2017-01-10T01:46:50Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2759,
+        "startChar": 0,
+        "endLine": 2764,
+        "endChar": 5
+      },
+      "revId": "0dc1185e4af4471b53bcb3ed83fcdcc8ab5a00ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ba5638_3520b810",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2764,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-01-18T21:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7b632e5_e2b41e85",
       "range": {
         "startLine": 2759,
         "startChar": 0,
