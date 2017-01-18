@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "633f9d98_ce22a3d4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-18T13:50:05Z",
+      "side": 1,
+      "message": "Why pushing the lock here instead of making it something intenral to RuntimeCallbacks?",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 64
+      },
+      "revId": "c8f5846ccb5af49fa8a45ba21c8d420021f9e103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
