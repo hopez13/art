@@ -26,6 +26,7 @@
 #include "base/logging.h"
 #include "gc_root.h"
 #include "mirror/class.h"
+#include "mirror/call_site.h"
 #include "mirror/method_type.h"
 #include "runtime.h"
 #include "obj_ptr.h"
@@ -104,6 +105,27 @@ inline void DexCache::SetResolvedMethodType(uint32_t proto_idx, MethodType* reso
                                  NumResolvedMethodTypes());
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
+}
+
+inline CallSite* DexCache::GetResolvedCallSite(uint32_t call_site_idx) {
+  DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+  DCHECK_LT(call_site_idx, GetDexFile()->NumCallSiteIds());
+  // TODO(oth): CallSite's are direct mapped. Do not need index entry of DexCachePair.
+  return GetResolvedCallSites()[call_site_idx].load(
+      std::memory_order_relaxed).GetObjectForIndexUnchecked(call_site_idx);
+}
+
+inline CallSite* DexCache::SetResolvedCallSite(uint32_t call_site_idx, CallSite* resolved) {
+  DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
+  DCHECK_LT(call_site_idx, GetDexFile()->NumCallSiteIds());
+  // TODO(oth): CallSite's are direct mapped. Do not need index entry of DexCachePair.
+  // TODO(oth): There should be an atomic compare and should return the
+  // current value if non-null.
+  GetResolvedCallSites()[call_site_idx].store(
+      CallSiteDexCachePair(resolved, call_site_idx), std::memory_order_relaxed);
+  // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
+  Runtime::Current()->GetHeap()->WriteBarrierEveryFieldOf(this);
+  return resolved;
 }
 
 inline ArtField* DexCache::GetResolvedField(uint32_t field_idx, PointerSize ptr_size) {
@@ -208,6 +230,8 @@ inline void DexCache::VisitReferences(ObjPtr<Class> klass, const Visitor& visito
 
     VisitDexCachePairs<mirror::MethodType, kReadBarrierOption, Visitor>(
         GetResolvedMethodTypes(), NumResolvedMethodTypes(), visitor);
+    VisitDexCachePairs<mirror::CallSite, kReadBarrierOption, Visitor>(
+        GetResolvedCallSites(), NumResolvedCallSites(), visitor);
   }
 }
 
@@ -242,6 +266,19 @@ inline void DexCache::FixupResolvedMethodTypes(mirror::MethodTypeDexCacheType* d
     mirror::MethodType* ptr = source.object.Read<kReadBarrierOption>();
     mirror::MethodType* new_source = visitor(ptr);
     source.object = GcRoot<MethodType>(new_source);
+    dest[i].store(source, std::memory_order_relaxed);
+  }
+}
+
+template <ReadBarrierOption kReadBarrierOption, typename Visitor>
+inline void DexCache::FixupResolvedCallSites(mirror::CallSiteDexCacheType* dest,
+                                               const Visitor& visitor) {
+  mirror::CallSiteDexCacheType* src = GetResolvedCallSites();
+  for (size_t i = 0, count = NumResolvedCallSites(); i < count; ++i) {
+    CallSiteDexCachePair source = src[i].load(std::memory_order_relaxed);
+    mirror::CallSite* ptr = source.object.Read<kReadBarrierOption>();
+    mirror::CallSite* new_source = visitor(ptr);
+    source.object = GcRoot<CallSite>(new_source);
     dest[i].store(source, std::memory_order_relaxed);
   }
 }
