@@ -33,6 +33,7 @@
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "utils.h"
+#include "vdex_file.h"
 
 namespace art {
 
@@ -216,28 +217,34 @@ std::string OatFileAssistant::GetStatusDump() {
   bool oat_file_exists = false;
   bool odex_file_exists = false;
   if (oat_.Status() != kOatCannotOpen) {
-    // If we can open the file, neither Filename nor GetFile should return null.
+    // If we can open the file, Filename should not return null.
     CHECK(oat_.Filename() != nullptr);
-    CHECK(oat_.GetFile() != nullptr);
 
     oat_file_exists = true;
-    status << *oat_.Filename() << " [compilation_filter=";
-    status << CompilerFilter::NameOfFilter(oat_.GetFile()->GetCompilerFilter());
-    status << ", status=" << oat_.Status();
+    status << *oat_.Filename() << "[status=" << oat_.Status() << ", ";
+    const OatFile* file = oat_.GetFile();
+    if (file == nullptr) {
+      status << "vdex-only";
+    } else {
+      status << "compilation_filter=" << CompilerFilter::NameOfFilter(file->GetCompilerFilter());
+    }
   }
 
   if (odex_.Status() != kOatCannotOpen) {
-    // If we can open the file, neither Filename nor GetFile should return null.
+    // If we can open the file, Filename should not return null.
     CHECK(odex_.Filename() != nullptr);
-    CHECK(odex_.GetFile() != nullptr);
 
     odex_file_exists = true;
     if (oat_file_exists) {
       status << "] ";
     }
-    status << *odex_.Filename() << " [compilation_filter=";
-    status << CompilerFilter::NameOfFilter(odex_.GetFile()->GetCompilerFilter());
-    status << ", status=" << odex_.Status();
+    status << *odex_.Filename() << "[status=" << odex_.Status() << ", ";
+    const OatFile* file = odex_.GetFile();
+    if (file == nullptr) {
+      status << "vdex-only";
+    } else {
+      status << "compilation_filter=" << CompilerFilter::NameOfFilter(file->GetCompilerFilter());
+    }
   }
 
   if (!oat_file_exists && !odex_file_exists) {
@@ -303,47 +310,36 @@ OatFileAssistant::OatStatus OatFileAssistant::OatFileStatus() {
   return oat_.Status();
 }
 
-OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& file) {
-  // Verify the ART_USE_READ_BARRIER state.
-  const bool is_cc = file.GetOatHeader().IsConcurrentCopying();
-  constexpr bool kRuntimeIsCC = kUseReadBarrier;
-  if (is_cc != kRuntimeIsCC) {
-    return kOatCannotOpen;
-  }
-
-  // Verify the dex checksum.
-  // Note: GetOatDexFile will return null if the dex checksum doesn't match
-  // what we provide, which verifies the primary dex checksum for us.
-  std::string error_msg;
+bool OatFileAssistant::DexChecksumUpToDate(const VdexFile& file, std::string* error_msg) {
+  // TODO: Use GetRequiredDexChecksum to get secondary checksums as well, not
+  // just the primary. Because otherwise we may fail to see a secondary
+  // checksum failure in the case when the original (multidex) files are
+  // stripped but we have a newer odex file.
   const uint32_t* dex_checksum_pointer = GetRequiredDexChecksum();
-  const OatFile::OatDexFile* oat_dex_file = file.GetOatDexFile(
-      dex_location_.c_str(), dex_checksum_pointer, &error_msg);
-  if (oat_dex_file == nullptr) {
-    LOG(ERROR) << error_msg;
-    return kOatDexOutOfDate;
+  if (dex_checksum_pointer != nullptr) {
+    uint32_t actual_checksum = file.GetLocationChecksum(0);
+    if (*dex_checksum_pointer != actual_checksum) {
+      VLOG(oat) << "Dex checksum does not match for primary dex: " << dex_location_
+        << ". Expected: " << *dex_checksum_pointer
+        << ", Actual: " << actual_checksum;
+      return false;
+    }
   }
 
   // Verify the dex checksums for any secondary multidex files
-  for (size_t i = 1; ; i++) {
+  for (uint32_t i = 1; i < file.GetHeader().GetNumberOfDexFiles(); i++) {
     std::string secondary_dex_location = DexFile::GetMultiDexLocation(i, dex_location_.c_str());
-    const OatFile::OatDexFile* secondary_oat_dex_file
-      = file.GetOatDexFile(secondary_dex_location.c_str(), nullptr);
-    if (secondary_oat_dex_file == nullptr) {
-      // There are no more secondary dex files to check.
-      break;
-    }
-
     uint32_t expected_secondary_checksum = 0;
     if (DexFile::GetChecksum(secondary_dex_location.c_str(),
-          &expected_secondary_checksum, &error_msg)) {
-      uint32_t actual_secondary_checksum
-        = secondary_oat_dex_file->GetDexFileLocationChecksum();
+                             &expected_secondary_checksum,
+                             error_msg)) {
+      uint32_t actual_secondary_checksum = file.GetLocationChecksum(i);
       if (expected_secondary_checksum != actual_secondary_checksum) {
         VLOG(oat) << "Dex checksum does not match for secondary dex: "
           << secondary_dex_location
           << ". Expected: " << expected_secondary_checksum
           << ", Actual: " << actual_secondary_checksum;
-        return kOatDexOutOfDate;
+        return false;
       }
     } else {
       // If we can't get the checksum for the secondary location, we assume
@@ -351,6 +347,32 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
       // files.
       break;
     }
+  }
+  return true;
+}
+
+OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& file) {
+  // Verify the ART_USE_READ_BARRIER state.
+  // TODO: The check here for ART_USE_READ_BARRIER is wrong. It should be
+  // moved to oat_file.cc if it makes the oat file unusable, or elsewhere as
+  // appropriate in this function if the vdex file or oat file is still partially
+  // useable.
+  const bool is_cc = file.GetOatHeader().IsConcurrentCopying();
+  constexpr bool kRuntimeIsCC = kUseReadBarrier;
+  if (is_cc != kRuntimeIsCC) {
+    return kOatCannotOpen;
+  }
+
+  // Verify the dex checksum.
+  // TODO: Support the case when vdex is disabled or remove the option to
+  // disable vdex?
+  static_assert(kIsVdexEnabled, "OatFileAssistant assumes vdex is enabled");
+  std::string error_msg;
+  VdexFile* vdex = file.GetVdexFile();
+  CHECK(vdex != nullptr);
+  if (!DexChecksumUpToDate(*vdex, &error_msg)) {
+    LOG(ERROR) << error_msg;
+    return kOatDexOutOfDate;
   }
 
   CompilerFilter::Filter current_compiler_filter = file.GetCompilerFilter();
@@ -777,7 +799,27 @@ OatFileAssistant::OatStatus OatFileAssistant::OatFileInfo::Status() {
     status_attempted_ = true;
     const OatFile* file = GetFile();
     if (file == nullptr) {
-      status_ = kOatCannotOpen;
+      // Check to see if there is a vdex file we can make use of.
+      std::string error_msg;
+      std::string vdex_filename = ReplaceFileExtension(filename_, "vdex");
+      std::unique_ptr<VdexFile> vdex(VdexFile::Open(vdex_filename,
+                                                    /*writeable*/false,
+                                                    /*low_4gb*/false,
+                                                    &error_msg));
+      if (vdex == nullptr) {
+        status_ = kOatCannotOpen;
+        VLOG(oat) << "unable to open vdex file " << vdex_filename << ": " << error_msg;
+      } else {
+        if (oat_file_assistant_->DexChecksumUpToDate(*vdex, &error_msg)) {
+          // The vdex file does not contain enough information to determine
+          // whether it is up to date with respect to the boot image, so we
+          // assume it is out of date.
+          VLOG(oat) << error_msg;
+          status_ = kOatBootImageOutOfDate;
+        } else {
+          status_ = kOatDexOutOfDate;
+        }
+      }
     } else {
       status_ = oat_file_assistant_->GivenOatFileStatus(*file);
       VLOG(oat) << file->GetLocation() << " is " << status_
