@@ -2694,6 +2694,14 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
     return nullptr;
   }
   CHECK(klass->IsLoaded());
+
+  // At this point the class is loaded. Publish a ClassLoad even.
+  // Note: this may be a temporary class. It is a listener's responsibility to handle this.
+  {
+    ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
+    Runtime::Current()->GetRuntimeCallbacks().ClassLoad(klass);
+  }
+
   // Link the class (if necessary)
   CHECK(!klass->IsResolved());
   // TODO: Use fast jobjects?
@@ -2734,7 +2742,10 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
    * The class has been prepared and resolved but possibly not yet verified
    * at this point.
    */
-  Dbg::PostClassPrepare(h_new_class.Get());
+  {
+    ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
+    Runtime::Current()->GetRuntimeCallbacks().ClassPrepare(h_new_class);
+  }
 
   // Notify native debugger of the new class and its layout.
   jit::Jit::NewTypeLoadedIfUsingJit(h_new_class.Get());
