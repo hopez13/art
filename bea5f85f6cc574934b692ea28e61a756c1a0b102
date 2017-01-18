@@ -93,6 +93,29 @@
       "revId": "bea5f85f6cc574934b692ea28e61a756c1a0b102",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "633f9d98_eebd9f76",
+        "filename": "tools/cpp-define-generator/offset_dexcache.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-18T11:44:53Z",
+      "side": 0,
+      "message": "Do you need to run some script to update asm_support_gen.h?",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "bea5f85f6cc574934b692ea28e61a756c1a0b102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
