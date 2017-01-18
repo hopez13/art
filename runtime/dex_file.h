@@ -722,6 +722,20 @@ class DexFile {
     return num_method_handles_;
   }
 
+  const MethodHandleItem& GetMethodHandle(uint32_t idx) const {
+    CHECK_LT(idx, NumMethodHandles());
+    return method_handles_[idx];
+  }
+
+  uint32_t NumCallSiteIds() const {
+    return num_call_site_ids_;
+  }
+
+  const CallSiteIdItem& GetCallSiteId(uint32_t idx) const {
+    CHECK_LT(idx, NumCallSiteIds());
+    return call_site_ids_[idx];
+  }
+
   // Returns a pointer to the raw memory mapped class_data_item
   const uint8_t* GetClassData(const ClassDef& class_def) const {
     if (class_def.class_data_off_ == 0) {
