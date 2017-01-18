@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a35c3506_c1e6f8f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T19:00:44Z",
+      "side": 1,
+      "message": "Please also add the events bug #",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_01d8f028",
+        "filename": "runtime/openjdkjvmti/events-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T19:00:44Z",
+      "side": 1,
+      "message": "I think that was my mistake. This goes onto the declaration in the header.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_ec705348",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T19:00:44Z",
+      "side": 1,
+      "message": "What\u0027s the reason this is in the inl, but not the one below?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 77
+      },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a35c3506_0c8d8717",
+        "filename": "runtime/openjdkjvmti/events.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-18T19:00:44Z",
+      "side": 1,
+      "message": "Not sure what our style guide says to this. It does look ugly. I\u0027d prefer\n\n template ...\n ALWAYS_INLINE\n inline void ...\n\n(At least the \"inline\" should go with the void)",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 50
+      },
+      "revId": "44d13eda0bb8af5e17fc9800303231f3ff9d530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
