@@ -187,6 +187,30 @@
       "revId": "e15be0199bb2985adf2a2af239aeacc565ff8205",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "633f9d98_4ecdd313",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-18T11:44:53Z",
+      "side": 1,
+      "message": "OK (but every entrypoint change needs oat version bump).",
+      "parentUuid": "633f9d98_ee367f50",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "e15be0199bb2985adf2a2af239aeacc565ff8205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
