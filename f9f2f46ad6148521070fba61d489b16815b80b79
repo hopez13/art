@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_c112427e",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:33:53Z",
+      "side": 1,
+      "message": "For the record, I agree the exit code mapping is gross, but given it\u0027s a contract between two internal tools, I could be fine with it.\n\nIt does come as a surprise though to anyone starting looking at this. And it\u0027s adding another hacked contract: we already have the -/+ hack, now we have the exit code one. Maybe parsing the output (and the output being the -/+ hack, not the actual kDex2oat*) is not that bad.",
+      "parentUuid": "a35c3506_21733492",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8e37bb4f",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
