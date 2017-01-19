@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_815afae9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-19T15:35:34Z",
+      "side": 1,
+      "message": "The current implementation assumes kIsVdexEnabled is true. Should I make an implementation that works in both cases? It will require adding extra logic for checking dex checksums from the oat file that won\u0027t be tested unless kIsVdexEnabled is false, and it means predicating the test cases on kIsVdexEnabled, but otherwise shouldn\u0027t be too hard.",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 76
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
