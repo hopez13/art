@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_591165cc",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T22:09:56Z",
+      "side": 1,
+      "message": "Yeah, probably should delete it at the end.",
+      "parentUuid": "284ae270_56e252e5",
+      "range": {
+        "startLine": 475,
+        "startChar": 2,
+        "endLine": 475,
+        "endChar": 6
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "284ae270_36f7d6a7",
         "filename": "runtime/openjdkjvmti/ti_thread.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_59ea857c",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T22:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ae270_36f7d6a7",
+      "range": {
+        "startLine": 500,
+        "startChar": 47,
+        "endLine": 500,
+        "endChar": 49
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "284ae270_f6837eef",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-19T19:34:19Z",
       "side": 1,
       "message": "Better variable name please?",
+      "range": {
+        "startLine": 760,
+        "startChar": 7,
+        "endLine": 760,
+        "endChar": 8
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_d94af5ba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T22:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ae270_f6837eef",
       "range": {
         "startLine": 760,
         "startChar": 7,
