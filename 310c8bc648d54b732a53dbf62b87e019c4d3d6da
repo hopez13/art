@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_21044ecc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-19T16:03:33Z",
+      "side": 1,
+      "message": "Also dexlayout/dex_ir.h:744.",
+      "range": {
+        "startLine": 287,
+        "startChar": 49,
+        "endLine": 287,
+        "endChar": 56
+      },
+      "revId": "310c8bc648d54b732a53dbf62b87e019c4d3d6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_c13fa280",
+        "filename": "runtime/gc/scoped_gc_critical_section.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-19T16:03:33Z",
+      "side": 1,
+      "message": "S/GC/the GC/",
+      "range": {
+        "startLine": 30,
+        "startChar": 50,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "310c8bc648d54b732a53dbf62b87e019c4d3d6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_81ff5a87",
+        "filename": "runtime/interpreter/mterp/arm64/op_iput_wide_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-19T16:03:33Z",
+      "side": 1,
+      "message": "This typo also exists in mterp_arm64.S.",
+      "revId": "310c8bc648d54b732a53dbf62b87e019c4d3d6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
