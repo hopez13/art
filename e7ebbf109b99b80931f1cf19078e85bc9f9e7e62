@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_1832d52e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "I changed it to \"fixup\". Better?",
+      "parentUuid": "17237e9f_6a631b59",
+      "range": {
+        "startLine": 2346,
+        "startChar": 20,
+        "endLine": 2346,
+        "endChar": 30
+      },
+      "revId": "e7ebbf109b99b80931f1cf19078e85bc9f9e7e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e39b8d7a_f8a409f5",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
