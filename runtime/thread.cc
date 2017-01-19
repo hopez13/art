@@ -67,6 +67,7 @@
 #include "quick/quick_method_frame_info.h"
 #include "reflection.h"
 #include "runtime.h"
+#include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedLocalRef.h"
 #include "ScopedUtfChars.h"
@@ -433,7 +434,7 @@ void* Thread::CreateCallback(void* arg) {
     self->SetNativePriority(priorityField->GetInt(self->tlsPtr_.opeer));
     {
       ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
-      runtime->GetRuntimeCallbacks().ThreadStart(self);
+      runtime->GetRuntimeCallbacks()->ThreadStart(self);
     }
 
     // Invoke the 'run' method of our java.lang.Thread.
@@ -797,7 +798,7 @@ Thread* Thread::Attach(const char* thread_name, bool as_daemon, jobject thread_g
   {
     ScopedObjectAccess soa(self);
     ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
-    runtime->GetRuntimeCallbacks().ThreadStart(self);
+    runtime->GetRuntimeCallbacks()->ThreadStart(self);
   }
 
   return self;
@@ -1936,7 +1937,7 @@ void Thread::Destroy() {
     Runtime* runtime = Runtime::Current();
     if (runtime != nullptr) {
       ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
-      runtime->GetRuntimeCallbacks().ThreadDeath(self);
+      runtime->GetRuntimeCallbacks()->ThreadDeath(self);
     }
 
 

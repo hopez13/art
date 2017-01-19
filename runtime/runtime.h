@@ -40,7 +40,6 @@
 #include "offsets.h"
 #include "process_state.h"
 #include "quick/quick_method_frame_info.h"
-#include "runtime_callbacks.h"
 #include "runtime_stats.h"
 #include "safe_map.h"
 
@@ -92,6 +91,7 @@ class NullPointerHandler;
 class OatFileManager;
 class Plugin;
 struct RuntimeArgumentMap;
+class RuntimeCallbacks;
 class SignalCatcher;
 class StackOverflowHandler;
 class SuspensionHandler;
@@ -662,9 +662,7 @@ class Runtime {
 
   void AttachAgent(const std::string& agent_arg);
 
-  RuntimeCallbacks& GetRuntimeCallbacks() {
-    return callbacks_;
-  }
+  RuntimeCallbacks* GetRuntimeCallbacks();
 
  private:
   static void InitPlatformSignalHandlers();
@@ -923,7 +921,7 @@ class Runtime {
 
   ClassHierarchyAnalysis* cha_;
 
-  RuntimeCallbacks callbacks_;
+  std::unique_ptr<RuntimeCallbacks> callbacks_;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
 };

@@ -96,6 +96,7 @@
 #include "object_lock.h"
 #include "os.h"
 #include "runtime.h"
+#include "runtime_callbacks.h"
 #include "ScopedLocalRef.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -2699,7 +2700,7 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
   // Note: this may be a temporary class. It is a listener's responsibility to handle this.
   {
     ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
-    Runtime::Current()->GetRuntimeCallbacks().ClassLoad(klass);
+    Runtime::Current()->GetRuntimeCallbacks()->ClassLoad(klass);
   }
 
   // Link the class (if necessary)
@@ -2744,7 +2745,7 @@ mirror::Class* ClassLinker::DefineClass(Thread* self,
    */
   {
     ReaderMutexLock mu(self, *Locks::runtime_callbacks_lock_);
-    Runtime::Current()->GetRuntimeCallbacks().ClassPrepare(h_new_class);
+    Runtime::Current()->GetRuntimeCallbacks()->ClassPrepare(h_new_class);
   }
 
   // Notify native debugger of the new class and its layout.
