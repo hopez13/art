@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_902c516b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T18:45:38Z",
+      "side": 1,
+      "message": "Please don\u0027t put this here. This should go into the plugin, IMHO.",
+      "range": {
+        "startLine": 1226,
+        "startChar": 0,
+        "endLine": 1228,
+        "endChar": 87
+      },
+      "revId": "4be8f33f86c71a37d981019874c0bb1b75ff7df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_d029a954",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T18:45:38Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 35
+      },
+      "revId": "4be8f33f86c71a37d981019874c0bb1b75ff7df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_905571bf",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T18:45:38Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1296,
+        "startChar": 4,
+        "endLine": 1351,
+        "endChar": 8
+      },
+      "revId": "4be8f33f86c71a37d981019874c0bb1b75ff7df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_10f741a7",
+        "filename": "runtime/openjdkjvmti/transform.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T18:45:38Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "4be8f33f86c71a37d981019874c0bb1b75ff7df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
