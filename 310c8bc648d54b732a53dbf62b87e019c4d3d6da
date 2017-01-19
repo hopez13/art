@@ -62,6 +62,24 @@
       "revId": "310c8bc648d54b732a53dbf62b87e019c4d3d6da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a864120b_fb95abd0",
+        "filename": "runtime/interpreter/mterp/arm64/op_iput_wide_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T16:11:26Z",
+      "side": 1,
+      "message": "This means Roland needs to generate it. Roland, see README instructions in mterp.",
+      "parentUuid": "c88a26db_81ff5a87",
+      "revId": "310c8bc648d54b732a53dbf62b87e019c4d3d6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
