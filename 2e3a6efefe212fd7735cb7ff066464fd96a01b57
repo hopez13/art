@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_ebcf13ab",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T23:49:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good idea.",
+      "range": {
+        "startLine": 63,
+        "startChar": 57,
+        "endLine": 63,
+        "endChar": 70
+      },
+      "revId": "2e3a6efefe212fd7735cb7ff066464fd96a01b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_4b54e7bd",
+        "filename": "runtime/arch/code_offset.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T23:49:09Z",
+      "side": 1,
+      "message": "Please add a class comment what this is good for.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "2e3a6efefe212fd7735cb7ff066464fd96a01b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_6b81e323",
+        "filename": "runtime/arch/code_offset.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T23:49:09Z",
+      "side": 1,
+      "message": "Not needed.",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 29
+      },
+      "revId": "2e3a6efefe212fd7735cb7ff066464fd96a01b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_2b208b69",
+        "filename": "runtime/arch/code_offset.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T23:49:09Z",
+      "side": 1,
+      "message": "We prefer LOG(FATAL) before...",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "2e3a6efefe212fd7735cb7ff066464fd96a01b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_6b3683bd",
+        "filename": "runtime/arch/code_offset.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T23:49:09Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 29
+      },
+      "revId": "2e3a6efefe212fd7735cb7ff066464fd96a01b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
