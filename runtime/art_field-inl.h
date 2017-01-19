@@ -132,7 +132,6 @@ inline void ArtField::SetObj(ObjPtr<mirror::Object> object, ObjPtr<mirror::Objec
   return (object)->GetField ## type(GetOffset());
 
 #define FIELD_SET(object, type, value) \
-  DCHECK_EQ(Primitive::kPrim ## type, GetTypeAsPrimitiveType()) << PrettyField(); \
   DCHECK((object) != nullptr) << PrettyField(); \
   DCHECK(!IsStatic() || ((object) == GetDeclaringClass()) || !Runtime::Current()->IsStarted()); \
   if (UNLIKELY(IsVolatile())) { \
@@ -147,6 +146,10 @@ inline uint8_t ArtField::GetBoolean(ObjPtr<mirror::Object> object) {
 
 template<bool kTransactionActive>
 inline void ArtField::SetBoolean(ObjPtr<mirror::Object> object, uint8_t z) {
+  if (kIsDebugBuild) {
+    Primitive::Type type = GetTypeAsPrimitiveType();
+    DCHECK(type == Primitive::kPrimBoolean || type == Primitive::kPrimByte) << PrettyField();
+  }
   FIELD_SET(object, Boolean, z);
 }
 
@@ -156,6 +159,7 @@ inline int8_t ArtField::GetByte(ObjPtr<mirror::Object> object) {
 
 template<bool kTransactionActive>
 inline void ArtField::SetByte(ObjPtr<mirror::Object> object, int8_t b) {
+  DCHECK_EQ(Primitive::kPrimByte, GetTypeAsPrimitiveType()) << PrettyField();
   FIELD_SET(object, Byte, b);
 }
 
@@ -165,6 +169,10 @@ inline uint16_t ArtField::GetChar(ObjPtr<mirror::Object> object) {
 
 template<bool kTransactionActive>
 inline void ArtField::SetChar(ObjPtr<mirror::Object> object, uint16_t c) {
+  if (kIsDebugBuild) {
+    Primitive::Type type = GetTypeAsPrimitiveType();
+    DCHECK(type == Primitive::kPrimChar || type == Primitive::kPrimShort) << PrettyField();
+  }
   FIELD_SET(object, Char, c);
 }
 
@@ -174,6 +182,7 @@ inline int16_t ArtField::GetShort(ObjPtr<mirror::Object> object) {
 
 template<bool kTransactionActive>
 inline void ArtField::SetShort(ObjPtr<mirror::Object> object, int16_t s) {
+  DCHECK_EQ(Primitive::kPrimShort, GetTypeAsPrimitiveType()) << PrettyField();
   FIELD_SET(object, Short, s);
 }
 
