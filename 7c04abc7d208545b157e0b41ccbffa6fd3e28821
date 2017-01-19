@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c88a26db_c1ed62d0",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T17:40:52Z",
+      "side": 1,
+      "message": "Please add a comment what this means.",
+      "range": {
+        "startLine": 227,
+        "startChar": 6,
+        "endLine": 227,
+        "endChar": 28
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_815afae9",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 1
@@ -18,6 +41,76 @@
         "startChar": 0,
         "endLine": 369,
         "endChar": 76
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68993a37_fef041e5",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T17:40:52Z",
+      "side": 1,
+      "message": "Maybe do it still, given we know it would be broken otherwise? In the event we need to set the flag to false, it would be good to not have to fix too much things.",
+      "parentUuid": "c88a26db_815afae9",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 76
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_64026485",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T17:40:52Z",
+      "side": 1,
+      "message": "why this?",
+      "range": {
+        "startLine": 344,
+        "startChar": 43,
+        "endLine": 344,
+        "endChar": 48
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a88b32df_a0cffaab",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T17:40:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 375,
+        "startChar": 43,
+        "endLine": 375,
+        "endChar": 47
       },
       "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
