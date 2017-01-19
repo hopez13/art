@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "284ae270_908d718c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-19T18:30:12Z",
+      "side": 1,
+      "message": "remove \"us\"\n\nCheck static flags that prevent using intrinsic.",
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a33d15bf_569144a5",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -112,6 +129,46 @@
         "startChar": 19,
         "endLine": 2803,
         "endChar": 32
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_d07ac989",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-19T18:30:12Z",
+      "side": 1,
+      "message": "same",
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_90b21148",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2730,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-19T18:30:12Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 2730,
+        "startChar": 33,
+        "endLine": 2730,
+        "endChar": 34
       },
       "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
