@@ -80,6 +80,11 @@ func globalFlags(ctx android.BaseContext) ([]string, []string) {
 		asflags = append(asflags, "-DART_USE_VIXL_ARM_BACKEND=1")
 	}
 
+	if envTrue(ctx, "ART_ANDROID_SIGNAL_HANDLER_DUMP_TO_LOGCAT") {
+		// Used to enable crash dumping to the logcat when running on Android.
+		cflags = append(cflags, "-DART_ANDROID_SIGNAL_HANDLER_DUMP_TO_LOGCAT=1")
+	}
+
 	return cflags, asflags
 }
 

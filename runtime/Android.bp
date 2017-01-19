@@ -184,6 +184,7 @@ cc_defaults {
         "reference_table.cc",
         "reflection.cc",
         "runtime.cc",
+        "runtime_common.cc",
         "runtime_options.cc",
         "signal_catcher.cc",
         "stack.cc",
