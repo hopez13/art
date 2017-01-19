@@ -1428,17 +1428,6 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
                        << " it is in a different dex file and requires access to the dex cache";
         return false;
       }
-
-      if (current->IsUnresolvedStaticFieldGet() ||
-          current->IsUnresolvedInstanceFieldGet() ||
-          current->IsUnresolvedStaticFieldSet() ||
-          current->IsUnresolvedInstanceFieldSet()) {
-        // Entrypoint for unresolved fields does not handle inlined frames.
-        VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
-                       << " could not be inlined because it is using an unresolved"
-                       << " entrypoint";
-        return false;
-      }
     }
   }
   number_of_inlined_instructions_ += number_of_instructions;
