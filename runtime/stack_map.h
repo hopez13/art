@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_STACK_MAP_H_
 #define ART_RUNTIME_STACK_MAP_H_
 
+#include "arch/code_offset.h"
 #include "base/bit_vector.h"
 #include "base/bit_utils.h"
 #include "dex_file.h"
@@ -805,12 +806,13 @@ class StackMap {
     encoding.GetDexPcEncoding().Store(region_, dex_pc);
   }
 
-  ALWAYS_INLINE uint32_t GetNativePcOffset(const StackMapEncoding& encoding) const {
-    return encoding.GetNativePcEncoding().Load(region_);
+  ALWAYS_INLINE CodeOffset GetNativePcOffset(const StackMapEncoding& encoding) const {
+    return CodeOffset::FromCompressedOffset(encoding.GetNativePcEncoding().Load(region_));
   }
 
-  ALWAYS_INLINE void SetNativePcOffset(const StackMapEncoding& encoding, uint32_t native_pc_offset) {
-    encoding.GetNativePcEncoding().Store(region_, native_pc_offset);
+  ALWAYS_INLINE void SetNativePcOffset(const StackMapEncoding& encoding,
+                                       CodeOffset native_pc_offset) {
+    encoding.GetNativePcEncoding().Store(region_, native_pc_offset.CompressedValue());
   }
 
   ALWAYS_INLINE uint32_t GetDexRegisterMapOffset(const StackMapEncoding& encoding) const {
@@ -866,6 +868,7 @@ class StackMap {
             const CodeInfoEncoding& encoding,
             uint32_t code_offset,
             uint16_t number_of_dex_registers,
+            InstructionSet instruction_set,
             const std::string& header_suffix = "") const;
 
   // Special (invalid) offset for the DexRegisterMapOffset field meaning
@@ -1258,7 +1261,8 @@ class CodeInfo {
     //       we could do binary search.
     for (size_t i = 0, e = GetNumberOfStackMaps(encoding); i < e; ++i) {
       StackMap stack_map = GetStackMapAt(i, encoding);
-      if (stack_map.GetNativePcOffset(encoding.stack_map_encoding) == native_pc_offset) {
+      if (stack_map.GetNativePcOffset(encoding.stack_map_encoding).Uint32Value() ==
+          native_pc_offset) {
         return stack_map;
       }
     }
@@ -1273,7 +1277,8 @@ class CodeInfo {
   void Dump(VariableIndentationOutputStream* vios,
             uint32_t code_offset,
             uint16_t number_of_dex_registers,
-            bool dump_stack_maps) const;
+            bool dump_stack_maps,
+            InstructionSet instruction_set) const;
 
   // Check that the code info has valid stack map and abort if it does not.
   void AssertValidStackMap(const CodeInfoEncoding& encoding) const {

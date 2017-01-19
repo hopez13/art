@@ -75,6 +75,14 @@ static constexpr size_t kMipsAlignment = 8;
 // X86 instruction alignment. This is the recommended alignment for maximum performance.
 static constexpr size_t kX86Alignment = 16;
 
+// Different than code alignment since code alignment is only first instruction of method.
+static constexpr size_t kThumb2InstructionAlignment = 2;
+static constexpr size_t kArm64InstructionAlignment = 4;
+static constexpr size_t kX86InstructionAlignment = 1;
+static constexpr size_t kX86_64InstructionAlignment = 1;
+static constexpr size_t kMipsInstructionAlignment = 2;
+static constexpr size_t kMips64InstructionAlignment = 2;
+
 const char* GetInstructionSetString(InstructionSet isa);
 
 // Note: Returns kNone when the string cannot be parsed to a known value.
