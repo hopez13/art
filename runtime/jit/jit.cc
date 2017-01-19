@@ -514,7 +514,7 @@ bool Jit::MaybeDoOnStackReplacement(Thread* thread,
       }
     }
 
-    native_pc = stack_map.GetNativePcOffset(encoding.stack_map_encoding) +
+    native_pc = stack_map.GetNativePcOffset(encoding.stack_map_encoding).Uint32Value() +
         osr_method->GetEntryPoint();
     VLOG(jit) << "Jumping to "
               << method_name

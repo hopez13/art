@@ -1223,7 +1223,8 @@ class OatDumper {
     code_info.Dump(vios,
                    oat_method.GetCodeOffset(),
                    code_item.registers_size_,
-                   options_.dump_code_info_stack_maps_);
+                   options_.dump_code_info_stack_maps_,
+                   instruction_set_);
   }
 
   void DumpVregLocations(std::ostream& os, const OatFile::OatMethod& oat_method,
@@ -1329,13 +1330,14 @@ class OatDumper {
   // For identical native PCs, the order from the CodeInfo is preserved.
   class StackMapsHelper {
    public:
-    explicit StackMapsHelper(const uint8_t* raw_code_info)
+    explicit StackMapsHelper(const uint8_t* raw_code_info, InstructionSet instruction_set)
         : code_info_(raw_code_info),
           encoding_(code_info_.ExtractEncoding()),
           number_of_stack_maps_(code_info_.GetNumberOfStackMaps(encoding_)),
           indexes_(),
-          offset_(static_cast<size_t>(-1)),
-          stack_map_index_(0u) {
+          offset_(CodeOffset::FromOffset(0x1000000, instruction_set)),
+          stack_map_index_(0u),
+          instruction_set_(instruction_set) {
       if (number_of_stack_maps_ != 0u) {
         // Check if native PCs are ordered.
         bool ordered = true;
@@ -1359,9 +1361,11 @@ class OatDumper {
                     indexes_.end(),
                     [this](size_t lhs, size_t rhs) {
                       StackMap left = code_info_.GetStackMapAt(lhs, encoding_);
-                      uint32_t left_pc = left.GetNativePcOffset(encoding_.stack_map_encoding);
+                      uint32_t left_pc = left.GetNativePcOffset(encoding_.stack_map_encoding).
+                          Uint32Value(instruction_set_);
                       StackMap right = code_info_.GetStackMapAt(rhs, encoding_);
-                      uint32_t right_pc = right.GetNativePcOffset(encoding_.stack_map_encoding);
+                      uint32_t right_pc = right.GetNativePcOffset(encoding_.stack_map_encoding).
+                          Uint32Value(instruction_set_);
                       // If the PCs are the same, compare indexes to preserve the original order.
                       return (left_pc < right_pc) || (left_pc == right_pc && lhs < rhs);
                     });
@@ -1378,7 +1382,7 @@ class OatDumper {
       return encoding_;
     }
 
-    size_t GetOffset() const {
+    CodeOffset GetOffset() const {
       return offset_;
     }
 
@@ -1389,7 +1393,7 @@ class OatDumper {
     void Next() {
       ++stack_map_index_;
       offset_ = (stack_map_index_ == number_of_stack_maps_)
-          ? static_cast<size_t>(-1)
+          ? CodeOffset::FromOffset(0x1000000, instruction_set_)
           : GetStackMapAt(stack_map_index_).GetNativePcOffset(encoding_.stack_map_encoding);
     }
 
@@ -1406,8 +1410,9 @@ class OatDumper {
     const CodeInfoEncoding encoding_;
     const size_t number_of_stack_maps_;
     dchecked_vector<size_t> indexes_;  // Used if stack map native PCs are not ordered.
-    size_t offset_;
+    CodeOffset offset_;
     size_t stack_map_index_;
+    const InstructionSet instruction_set_;
   };
 
   void DumpCode(VariableIndentationOutputStream* vios,
@@ -1423,12 +1428,12 @@ class OatDumper {
       return;
     } else if (!bad_input && IsMethodGeneratedByOptimizingCompiler(oat_method, code_item)) {
       // The optimizing compiler outputs its CodeInfo data in the vmap table.
-      StackMapsHelper helper(oat_method.GetVmapTable());
+      StackMapsHelper helper(oat_method.GetVmapTable(), instruction_set_);
       const uint8_t* quick_native_pc = reinterpret_cast<const uint8_t*>(quick_code);
       size_t offset = 0;
       while (offset < code_size) {
         offset += disassembler_->Dump(vios->Stream(), quick_native_pc + offset);
-        if (offset == helper.GetOffset()) {
+        if (offset == helper.GetOffset().Uint32Value(instruction_set_)) {
           ScopedIndentation indent1(vios);
           StackMap stack_map = helper.GetStackMap();
           DCHECK(stack_map.IsValid());
@@ -1436,13 +1441,14 @@ class OatDumper {
                          helper.GetCodeInfo(),
                          helper.GetEncoding(),
                          oat_method.GetCodeOffset(),
-                         code_item->registers_size_);
+                         code_item->registers_size_,
+                         instruction_set_);
           do {
             helper.Next();
             // There may be multiple stack maps at a given PC. We display only the first one.
-          } while (offset == helper.GetOffset());
+          } while (offset == helper.GetOffset().Uint32Value(instruction_set_));
         }
-        DCHECK_LT(offset, helper.GetOffset());
+        DCHECK_LT(offset, helper.GetOffset().Uint32Value(instruction_set_));
       }
     } else {
       const uint8_t* quick_native_pc = reinterpret_cast<const uint8_t*>(quick_code);

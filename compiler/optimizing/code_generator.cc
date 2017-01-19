@@ -848,7 +848,8 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
 bool CodeGenerator::HasStackMapAtCurrentPc() {
   uint32_t pc = GetAssembler()->CodeSize();
   size_t count = stack_map_stream_.GetNumberOfStackMaps();
-  return count > 0 && stack_map_stream_.GetStackMap(count - 1).native_pc_offset == pc;
+  return count > 0 && stack_map_stream_.GetStackMap(count - 1).native_pc_offset.
+      Uint32Value(GetInstructionSet()) == pc;
 }
 
 void CodeGenerator::MaybeRecordNativeDebugInfo(HInstruction* instruction,
