@@ -304,6 +304,18 @@ OatFileAssistant::OatStatus OatFileAssistant::OatFileStatus() {
 }
 
 OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& file) {
+  // Verify the ART_USE_READ_BARRIER state.
+  const bool is_cc = file.GetOatHeader().IsConcurrentCopying();
+  constexpr bool kRuntimeIsCC =
+#ifdef ART_USE_READ_BARRIER
+      true;
+#else
+      false;
+#endif
+  if (is_cc != kRuntimeIsCC) {
+    return kOatCannotOpen;
+  }
+
   // Verify the dex checksum.
   // Note: GetOatDexFile will return null if the dex checksum doesn't match
   // what we provide, which verifies the primary dex checksum for us.
