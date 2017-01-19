@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_a194de63",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-19T15:11:58Z",
+      "side": 1,
+      "message": "As you say, I find the separation better.\n\nMore specifically, if OatFileAssistantTest is being subclassed by other tests, it is difficult to reason about the OatFileAssistantTest in isolation. Instead the behavior of every test that subclasses it must be considered before any changes can be made. This increases the development effort and time required to change the OatFileAssistantTest (I make changes to the OatFileAssitantTest fairly often).\n\nSubclassing also makes it harder to identify the cause and owner of a test failure. If the dexopt analyzer test fails, is it because of a bug in dexopt analyzer, a bug in dexopt analyzer test, a bug in the oat file assistant, or a bug in the oat file assistant test? For example, it is not obvious to me whether the presubmit failure is a problem with the oat file assistant test infrastructure I should be looking into, or if it is a problem with the dexopt analyzer specifically.\n\nI would prefer copy-paste code in this case because I expect more tests and complexity will be added to the oat file assistant test that are not relevant to the dexopt analyzer tests, and more tests will be added to the dexopt analyzer test that are not relevant to the oat file assistant tests. Allowing the two tests to grow independently avoids the creation and need to maintain a cross product of testing functionality that is not (and should not be) fully exercised.",
+      "parentUuid": "a35c3506_27f4240f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8e7c1bd6",
         "filename": "runtime/utils.h",
         "patchSetId": 7
