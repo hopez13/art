@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_56e252e5",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-19T19:34:19Z",
+      "side": 1,
+      "message": "Is data leaking? The thread has ownership of data here.",
+      "range": {
+        "startLine": 475,
+        "startChar": 2,
+        "endLine": 475,
+        "endChar": 6
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_36f7d6a7",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-19T19:34:19Z",
+      "side": 1,
+      "message": "Unnecessary",
+      "range": {
+        "startLine": 500,
+        "startChar": 47,
+        "endLine": 500,
+        "endChar": 49
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_f6837eef",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-19T19:34:19Z",
+      "side": 1,
+      "message": "Better variable name please?",
+      "range": {
+        "startLine": 760,
+        "startChar": 7,
+        "endLine": 760,
+        "endChar": 8
+      },
+      "revId": "dd97016cb06b394de332369e91c2ba8df429817d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
