@@ -1809,8 +1809,80 @@ END \name
 // Generate the allocation entrypoints for each allocator.
 GENERATE_ALLOC_ENTRYPOINTS_FOR_EACH_ALLOCATOR
 
+// A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_rosalloc, RosAlloc)
+ENTRY art_quick_alloc_object_resolved_rosalloc
+    # Fast path rosalloc allocation
+    # a0: type
+    # s1: Thread::Current
+    # -----------------------------
+    # t1: object size
+    # t2: rosalloc run
+    # t3: thread stack top offset
+    # t4: thread stack bottom offset
+    # v0: free list head
+    #
+    # t5, t6 : temps
+    lw    $t3, THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET($s1)        # Check if thread local allocation
+    lw    $t4, THREAD_LOCAL_ALLOC_STACK_END_OFFSET($s1)        # stack has any room left.
+    bgeu  $t3, $t4, .Lart_quick_alloc_object_resolved_rosalloc_slow_path
 
-GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_rosalloc, RosAlloc)
+    lw    $t1, MIRROR_CLASS_OBJECT_SIZE_ALLOC_FAST_PATH_OFFSET($a0)  # Load object size (t1).
+    li    $t5, ROSALLOC_MAX_THREAD_LOCAL_BRACKET_SIZE          # Check if size is for a thread local
+                                                               # allocation. Also does the
+                                                               # initialized and finalizable checks.
+    bgtu  $t1, $t5, .Lart_quick_alloc_object_resolved_rosalloc_slow_path
+
+    # Compute the rosalloc bracket index from the size. Since the size is already aligned we can
+    # combine the two shifts together.
+    srl   $t1, $t1, (ROSALLOC_BRACKET_QUANTUM_SIZE_SHIFT - POINTER_SIZE_SHIFT)
+
+    addu  $t2, $t1, $s1
+    lw    $t2, (THREAD_ROSALLOC_RUNS_OFFSET - __SIZEOF_POINTER__)($t2)  # Load rosalloc run (t2).
+
+    # Load the free list head (v0).
+    # NOTE: this will be the return val.
+    lw    $v0, (ROSALLOC_RUN_FREE_LIST_OFFSET + ROSALLOC_RUN_FREE_LIST_HEAD_OFFSET)($t2)
+    beqz  $v0, .Lart_quick_alloc_object_resolved_rosalloc_slow_path
+    nop
+
+    # Load the next pointer of the head and update the list head with the next pointer.
+    lw    $t5, ROSALLOC_SLOT_NEXT_OFFSET($v0)
+    sw    $t5, (ROSALLOC_RUN_FREE_LIST_OFFSET + ROSALLOC_RUN_FREE_LIST_HEAD_OFFSET)($t2)
+
+    # Store the class pointer in the header. This also overwrites the first pointer. The offsets are
+    # asserted to match.
+
+#if ROSALLOC_SLOT_NEXT_OFFSET != MIRROR_OBJECT_CLASS_OFFSET
+#error "Class pointer needs to overwrite next pointer."
+#endif
+
+    POISON_HEAP_REF $a0
+    sw    $a0, MIRROR_OBJECT_CLASS_OFFSET($v0)
+
+    # Push the new object onto the thread local allocation stack and increment the thread local
+    # allocation stack top.
+    sw    $v0, 0($t3)
+    addiu $t3, $t3, COMPRESSED_REFERENCE_SIZE
+    sw    $t3, THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET($s1)
+
+    # Decrement the size of the free list.
+    lw    $t5, (ROSALLOC_RUN_FREE_LIST_OFFSET + ROSALLOC_RUN_FREE_LIST_SIZE_OFFSET)($t2)
+    addiu $t5, $t5, -1
+    sw    $t5, (ROSALLOC_RUN_FREE_LIST_OFFSET + ROSALLOC_RUN_FREE_LIST_SIZE_OFFSET)($t2)
+
+    sync                                                          # Fence.
+
+    jalr  $zero, $ra
+    nop
+
+  .Lart_quick_alloc_object_resolved_rosalloc_slow_path:
+    SETUP_SAVE_REFS_ONLY_FRAME
+    la    $t9, artAllocObjectFromCodeResolvedRosAlloc
+    jalr  $t9
+    move  $a1, $s1                                                # Pass self as argument.
+    RETURN_IF_RESULT_IS_NON_ZERO_OR_DELIVER
+END art_quick_alloc_object_resolved_rosalloc
+
 GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_tlab, TLAB)
 GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_region_tlab, RegionTLAB)
 
