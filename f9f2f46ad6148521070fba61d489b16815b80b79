@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "48963609_9da823c9",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T22:40:49Z",
+      "side": 1,
+      "message": "Yeah, +/- is a hack, we should return a pair really.\n\nThe main benefit I see from not using exit codes is the principle of least surprise.  But once again, as the tools involved are highly correlated, I don\u0027t mind using exit codes.",
+      "parentUuid": "284ae270_ffe4718e",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8e37bb4f",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
