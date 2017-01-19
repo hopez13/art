@@ -68,6 +68,30 @@
       "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b252c3_28320b2f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-19T14:36:13Z",
+      "side": 1,
+      "message": "The result from GenerateCalleeMethodStaticOrDirectCall() is an object location, this object resided in heap thus I use HeapOperand() to get it\u0027s declaring class. If I allocate a X register, the following statement will be changed to __ Ldr(temp0.W(), HeapOperand(temp0.W(), ...)), is it better? please give any comment.",
+      "parentUuid": "e360ede6_4d32cdc8",
+      "range": {
+        "startLine": 2803,
+        "startChar": 19,
+        "endLine": 2803,
+        "endChar": 32
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
