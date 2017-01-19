@@ -175,6 +175,14 @@ static constexpr bool kIsVdexEnabled = false;
 // Size of a heap reference.
 static constexpr size_t kHeapReferenceSize = sizeof(uint32_t);
 
+// Should the signal handler dump crash information to the logcat when
+// running on Android?
+#ifdef ART_ANDROID_SIGNAL_HANDLER_DUMP_TO_LOGCAT
+static constexpr bool kAndroidSignalHandlerDumpToLogcat = true;
+#else
+static constexpr bool kAndroidSignalHandlerDumpToLogcat = false;
+#endif
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_GLOBALS_H_
