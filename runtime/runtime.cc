@@ -1552,6 +1552,12 @@ void Runtime::DumpForSigQuit(std::ostream& os) {
 
   thread_list_->DumpForSigQuit(os);
   BaseMutex::DumpAll(os);
+
+  // Inform anyone else who is interested in SigQuit.
+  {
+    ReaderMutexLock mu(Thread::Current(), *Locks::runtime_callbacks_lock_);
+    callbacks_->SigQuit();
+  }
 }
 
 void Runtime::DumpLockHolders(std::ostream& os) {

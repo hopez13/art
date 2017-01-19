@@ -33,6 +33,13 @@ class ClassLoadCallback;
 class Thread;
 class ThreadLifecycleCallback;
 
+class RuntimeSigQuitCallback {
+ public:
+  virtual ~RuntimeSigQuitCallback() {}
+
+  virtual void SigQuit() = 0;
+};
+
 class RuntimeCallbacks {
  public:
   void AddThreadLifecycleCallback(ThreadLifecycleCallback* cb)
@@ -55,10 +62,19 @@ class RuntimeCallbacks {
   void ClassPrepare(Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::runtime_callbacks_lock_);
 
+  void AddRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb)
+      REQUIRES(Locks::runtime_callbacks_lock_);
+  void RemoveRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb)
+      REQUIRES(Locks::runtime_callbacks_lock_);
+
+  void SigQuit() REQUIRES_SHARED(Locks::runtime_callbacks_lock_);
+
  private:
   std::vector<ThreadLifecycleCallback*> thread_callbacks_
       GUARDED_BY(Locks::runtime_callbacks_lock_);
   std::vector<ClassLoadCallback*> class_callbacks_
+      GUARDED_BY(Locks::runtime_callbacks_lock_);
+  std::vector<RuntimeSigQuitCallback*> sigquit_callbacks_
       GUARDED_BY(Locks::runtime_callbacks_lock_);
 };
 
