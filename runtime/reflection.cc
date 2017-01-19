@@ -224,35 +224,41 @@ class ArgArray {
     if (receiver != nullptr) {
       Append(receiver);
     }
+    ScopedObjectAccessUnchecked soa(Thread::Current());
+    StackHandleScope<1> hs(soa.Self());
+    MutableHandle<mirror::Object> arg(hs.NewHandle<mirror::Object>(nullptr));
     for (size_t i = 1, args_offset = 0; i < shorty_len_; ++i, ++args_offset) {
-      ObjPtr<mirror::Object> arg(args->Get(args_offset));
-      if (((shorty_[i] == 'L') && (arg != nullptr)) || ((arg == nullptr && shorty_[i] != 'L'))) {
-        // Note: The method's parameter's type must have been previously resolved.
+      arg.Assign(args->Get(args_offset));
+      if (((shorty_[i] == 'L') && (arg.Get() != nullptr)) ||
+          ((arg.Get() == nullptr && shorty_[i] != 'L'))) {
+        // TODO: The method's parameter's type must have been previously resolved, yet
+        // we've seen cases where it's not b/34440020.
         ObjPtr<mirror::Class> dst_class(
             m->GetClassFromTypeIndex(classes->GetTypeItem(args_offset).type_idx_,
-                                     false /* resolve */));
+                                     true /* resolve */));
         DCHECK(dst_class != nullptr) << m->PrettyMethod() << " arg #" << i;
-        if (UNLIKELY(arg == nullptr || !arg->InstanceOf(dst_class))) {
+        if (UNLIKELY(arg.Get() == nullptr || !arg->InstanceOf(dst_class))) {
           ThrowIllegalArgumentException(
               StringPrintf("method %s argument %zd has type %s, got %s",
                   m->PrettyMethod(false).c_str(),
                   args_offset + 1,  // Humans don't count from 0.
                   mirror::Class::PrettyDescriptor(dst_class).c_str(),
-                  mirror::Object::PrettyTypeOf(arg).c_str()).c_str());
+                  mirror::Object::PrettyTypeOf(arg.Get()).c_str()).c_str());
           return false;
         }
       }
 
 #define DO_FIRST_ARG(match_descriptor, get_fn, append) { \
-          if (LIKELY(arg != nullptr && arg->GetClass()->DescriptorEquals(match_descriptor))) { \
+          if (LIKELY(arg.Get() != nullptr && \
+              arg->GetClass()->DescriptorEquals(match_descriptor))) { \
             ArtField* primitive_field = arg->GetClass()->GetInstanceField(0); \
-            append(primitive_field-> get_fn(arg));
+            append(primitive_field-> get_fn(arg.Get()));
 
 #define DO_ARG(match_descriptor, get_fn, append) \
-          } else if (LIKELY(arg != nullptr && \
+          } else if (LIKELY(arg.Get() != nullptr && \
                             arg->GetClass<>()->DescriptorEquals(match_descriptor))) { \
             ArtField* primitive_field = arg->GetClass()->GetInstanceField(0); \
-            append(primitive_field-> get_fn(arg));
+            append(primitive_field-> get_fn(arg.Get()));
 
 #define DO_FAIL(expected) \
           } else { \
@@ -266,14 +272,14 @@ class ArgArray {
                       ArtMethod::PrettyMethod(m, false).c_str(), \
                       args_offset + 1, \
                       expected, \
-                      mirror::Object::PrettyTypeOf(arg).c_str()).c_str()); \
+                      mirror::Object::PrettyTypeOf(arg.Get()).c_str()).c_str()); \
             } \
             return false; \
           } }
 
       switch (shorty_[i]) {
         case 'L':
-          Append(arg);
+          Append(arg.Get());
           break;
         case 'Z':
           DO_FIRST_ARG("Ljava/lang/Boolean;", GetBoolean, Append)
