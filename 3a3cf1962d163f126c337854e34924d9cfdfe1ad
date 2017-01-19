@@ -22,6 +22,29 @@
       "revId": "3a3cf1962d163f126c337854e34924d9cfdfe1ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_3a321e2f",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-19T16:29:17Z",
+      "side": 1,
+      "message": "Why a Soa here? Why not just Thread::Current in the hs?",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 55
+      },
+      "revId": "3a3cf1962d163f126c337854e34924d9cfdfe1ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
