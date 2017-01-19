@@ -134,4 +134,4 @@ vogar_args="$vogar_args --vm-arg -Xusejit:$use_jit"
 # Run the tests using vogar.
 echo "Running tests for the following test packages:"
 echo ${working_packages[@]} | tr " " "\n"
-vogar $vogar_args $expectations $(cparg $DEPS) ${working_packages[@]}
+vogar $vogar_args $expectations $(cparg $DEPS) dalvik.system.DexClassLoaderTest#test_oneJar_getResourceAsStream
