@@ -45,6 +45,29 @@
       "revId": "b4a8cdde0326508afe1b0a807ae6998947c583ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_04a03880",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-19T16:50:47Z",
+      "side": 1,
+      "message": "If we\u0027re resolving, we can presumably get some exception, at least OOME.",
+      "range": {
+        "startLine": 238,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 36
+      },
+      "revId": "b4a8cdde0326508afe1b0a807ae6998947c583ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
