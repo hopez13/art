@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_c48010e6",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-19T16:48:53Z",
+      "side": 1,
+      "message": "The caller could pass the thread.",
+      "range": {
+        "startLine": 227,
+        "startChar": 27,
+        "endLine": 227,
+        "endChar": 44
+      },
+      "revId": "b4a8cdde0326508afe1b0a807ae6998947c583ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_84944829",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-19T16:48:53Z",
+      "side": 1,
+      "message": "`args` also needs a Handle\u003c\u003e.",
+      "range": {
+        "startLine": 230,
+        "startChar": 17,
+        "endLine": 230,
+        "endChar": 21
+      },
+      "revId": "b4a8cdde0326508afe1b0a807ae6998947c583ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
