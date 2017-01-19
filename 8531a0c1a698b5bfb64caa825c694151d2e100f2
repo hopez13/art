@@ -22,6 +22,30 @@
       "revId": "8531a0c1a698b5bfb64caa825c694151d2e100f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_d5263b1d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T17:37:56Z",
+      "side": 1,
+      "message": "I just removed \"neighboring\".",
+      "parentUuid": "c88a26db_0144aa78",
+      "range": {
+        "startLine": 230,
+        "startChar": 6,
+        "endLine": 230,
+        "endChar": 24
+      },
+      "revId": "8531a0c1a698b5bfb64caa825c694151d2e100f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
