@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_33337265",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_2c6597f6",
+      "range": {
+        "startLine": 229,
+        "startChar": 40,
+        "endLine": 229,
+        "endChar": 44
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_0c6a5bc6",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-17T15:25:24Z",
       "side": 1,
       "message": "What\u0027s that?",
+      "range": {
+        "startLine": 228,
+        "startChar": 69,
+        "endLine": 230,
+        "endChar": 48
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_f8aed9d5",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "I added an example, hopefully can make it clearer.",
+      "parentUuid": "631cfdaf_0c6a5bc6",
       "range": {
         "startLine": 228,
         "startChar": 69,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_98a5a5f2",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "I named it excluded_method and updated the method signature also.",
+      "parentUuid": "631cfdaf_6c6f8fd6",
+      "range": {
+        "startLine": 245,
+        "startChar": 36,
+        "endLine": 245,
+        "endChar": 43
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_4c7453a9",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-17T15:25:24Z",
       "side": 1,
       "message": "hierarchy",
+      "range": {
+        "startLine": 257,
+        "startChar": 36,
+        "endLine": 257,
+        "endChar": 46
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_1886553d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_4c7453a9",
       "range": {
         "startLine": 257,
         "startChar": 36,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_3389320c",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "Yes. I added more comments. It\u0027s an instantiable subclass. javac should usually fail the case with something like:\n xx is not abstract and does not override abstract method xxx",
+      "parentUuid": "631cfdaf_8c55ab01",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 269,
+        "endChar": 88
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_0c91bba6",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
@@ -128,6 +248,24 @@
       "writtenOn": "2017-01-17T15:25:24Z",
       "side": 1,
       "message": "Add a DCHECK that method_in_super has single implementation?",
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_335a5293",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "631cfdaf_0c91bba6",
       "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_934a26ba",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "There is one test that does this case. So we do allow it.",
+      "parentUuid": "631cfdaf_6c866f6e",
+      "range": {
+        "startLine": 363,
+        "startChar": 9,
+        "endLine": 363,
+        "endChar": 19
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_ec4b7f67",
         "filename": "runtime/cha.h",
         "patchSetId": 2
@@ -168,6 +330,30 @@
       "writtenOn": "2017-01-17T15:25:24Z",
       "side": 1,
       "message": "Can you rephrase this comment? I have a hard time parsing it.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "6359d7a00aaf1160b4bdb41b2bc5c44b3c70bf1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_938fc6bb",
+        "filename": "runtime/cha.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-19T01:00:08Z",
+      "side": 1,
+      "message": "Changed it to:\n  // For all methods in vtable slot at `verify_index` of `verify_class` and its\n  // superclasses, single-implementation status should be false, except if the\n  // method is `excluded_method`.",
+      "parentUuid": "631cfdaf_ec4b7f67",
       "range": {
         "startLine": 132,
         "startChar": 0,
