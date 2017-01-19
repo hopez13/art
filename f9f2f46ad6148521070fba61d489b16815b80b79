@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_ffe4718e",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-19T21:01:39Z",
+      "side": 1,
+      "message": "Well, was the +- really a hack in the end? We kinda need it for vdex to know where to find it and I thought the only reason to go with +- is because we were lazy enough to add extra dexopt codes. We can \"easily\" fix it by expanding our enum base. Do I like it? no, I don\u0027t think these is how these details should flow (leak) between art, pm and installd. But I don see a better way without bigger refactoring.\n\n\nRegarding the use of return codes instead of the std::out print. I am fully aware that the conventional way for unix cmds is to return 0 for success or other values for error codes. However, in this particular case, I don\u0027t see what it would buy us and that\u0027s the reason I didn\u0027t want to do it. What actual benefits do you see from it? (except \"that\u0027s how it\u0027s usually done\").\n\nI can only see the additional complexity and overhead of redirecting std::out and parse the output in installd (or pipe-ing which is more or less the same).",
+      "parentUuid": "c88a26db_c112427e",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633f9d98_8e37bb4f",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 7
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "As you say, I find the separation better.\n\nMore specifically, if OatFileAssistantTest is being subclassed by other tests, it is difficult to reason about the OatFileAssistantTest in isolation. Instead the behavior of every test that subclasses it must be considered before any changes can be made. This increases the development effort and time required to change the OatFileAssistantTest (I make changes to the OatFileAssitantTest fairly often).\n\nSubclassing also makes it harder to identify the cause and owner of a test failure. If the dexopt analyzer test fails, is it because of a bug in dexopt analyzer, a bug in dexopt analyzer test, a bug in the oat file assistant, or a bug in the oat file assistant test? For example, it is not obvious to me whether the presubmit failure is a problem with the oat file assistant test infrastructure I should be looking into, or if it is a problem with the dexopt analyzer specifically.\n\nI would prefer copy-paste code in this case because I expect more tests and complexity will be added to the oat file assistant test that are not relevant to the dexopt analyzer tests, and more tests will be added to the dexopt analyzer test that are not relevant to the oat file assistant tests. Allowing the two tests to grow independently avoids the creation and need to maintain a cross product of testing functionality that is not (and should not be) fully exercised.",
       "parentUuid": "a35c3506_27f4240f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "f9f2f46ad6148521070fba61d489b16815b80b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_991d9d95",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-19T21:01:39Z",
+      "side": 1,
+      "message": "I can\u0027t say that I fully follow.\n\nThe only thing that oat_file_assistant.h contains is runtime setup and the oat/odex file generation. Nothing I\u0027d say is too specific or tied to the actual tests. Or did I miss something?\n\nAnd since the goal is to have the same behavior between OatFileAssistant and dexoptanalyzer, shouldn\u0027t that be an extra reason to share the setup code?\n\nDuplicating means that any adjustments we make will need to be applied identically in two different places, cause the stuff that went into the header will need to be copy pasted.",
+      "parentUuid": "c88a26db_a194de63",
       "range": {
         "startLine": 27,
         "startChar": 0,
