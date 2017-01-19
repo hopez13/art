@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "838e517f_6f9f3141",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "2 more spaces (here and other backends)",
+      "range": {
+        "startLine": 1135,
+        "startChar": 0,
+        "endLine": 1135,
+        "endChar": 6
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "432ff922_b58ca01c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4457,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "I\u0027d prefer having the overlap boolean for better readability of what is going on.",
+      "range": {
+        "startLine": 4456,
+        "startChar": 0,
+        "endLine": 4457,
+        "endChar": 40
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_c130020c",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "Not really. Should you rename to bool previous_instruction_match?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_a1337e16",
+        "filename": "compiler/optimizing/gc_optimizer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "How about a VisitInstruction that sets prev_inst to null, and VisitInstanceFieldGet can set it when it succeeds?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_4125d2ca",
+        "filename": "compiler/optimizing/gc_optimizer.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_2139aef1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "barriers",
+      "range": {
+        "startLine": 5140,
+        "startChar": 33,
+        "endLine": 5140,
+        "endChar": 40
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_413e32db",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "Remove? That\u0027s probably just to fit SizeValue?",
+      "range": {
+        "startLine": 5164,
+        "startChar": 4,
+        "endLine": 5164,
+        "endChar": 40
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "089c3e29_7b819f9c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "nit: Return whether ...",
+      "range": {
+        "startLine": 5173,
+        "startChar": 2,
+        "endLine": 5173,
+        "endChar": 9
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_e152e620",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "WDYM? This flag is in the HInstanceFieldGet class.",
+      "range": {
+        "startLine": 5189,
+        "startChar": 28,
+        "endLine": 5189,
+        "endChar": 45
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "089c3e29_1b865bb6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "Use PackedFields.",
+      "range": {
+        "startLine": 5187,
+        "startChar": 0,
+        "endLine": 5196,
+        "endChar": 35
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_01502a16",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 6023,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6023,
+        "startChar": 4,
+        "endLine": 6023,
+        "endChar": 40
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_a14cde80",
+        "filename": "compiler/optimizing/register_allocation_resolver.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "I feel this makes the reading confusing, having two variables for the same thing. Do you want to rename instruction to cursor instead line 649?",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 680,
+        "endChar": 43
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_c149e26f",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "Can you add a ScopedAssertNoThreadSuspension?",
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_616496fb",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T11:54:35Z",
+      "side": 1,
+      "message": "Add ScopedQuickEntrypointChecks sqec(self);?",
+      "range": {
+        "startLine": 678,
+        "startChar": 42,
+        "endLine": 678,
+        "endChar": 43
+      },
+      "revId": "314e33a179f2cb30477879802f31fb495e5041ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
