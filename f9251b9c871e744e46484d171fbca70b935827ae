@@ -22,6 +22,30 @@
       "revId": "f9251b9c871e744e46484d171fbca70b935827ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_e12c2600",
+        "filename": "compiler/verifier_deps_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-19T09:38:11Z",
+      "side": 1,
+      "message": "That\u0027s because below we are fiddling with the method kind we are trying to lookup (see line 1428, GetNextResolutionKind). I\u0027ve improved the comment.",
+      "parentUuid": "284ae270_e4fe3a40",
+      "range": {
+        "startLine": 1417,
+        "startChar": 3,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "f9251b9c871e744e46484d171fbca70b935827ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
