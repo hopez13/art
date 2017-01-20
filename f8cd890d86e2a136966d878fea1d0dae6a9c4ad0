@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_ee071791",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-20T16:32:53Z",
+      "side": 1,
+      "message": "It changes generated code (and Java object parts in the art files). The oat file *is* readable, and a loader would load them and bind methods just as usual - either way around. However, the read barrier code will be incorrect.\n\nThe dex code is still fine. Object layout doesn\u0027t change AFAIK.",
+      "parentUuid": "c88a26db_415f1282",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "f8cd890d86e2a136966d878fea1d0dae6a9c4ad0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_215a0e93",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-19T09:26:01Z",
       "side": 1,
       "message": "To be consistent with the version check, this check should be done in oat_file.cc when opening the oat file.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 3
+      },
+      "revId": "f8cd890d86e2a136966d878fea1d0dae6a9c4ad0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_4e206b18",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-20T16:32:53Z",
+      "side": 1,
+      "message": "The counter point is that oatdump could open these files just fine (see the commit message comment). It\u0027s really just about not wanting to run the code.",
+      "parentUuid": "c88a26db_215a0e93",
       "range": {
         "startLine": 307,
         "startChar": 0,
