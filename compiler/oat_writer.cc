@@ -716,7 +716,7 @@ class OatWriter::InitOatClassesMethodVisitor : public DexMethodVisitor {
     if (compiled_class != nullptr) {
       status = compiled_class->GetStatus();
     } else if (writer_->compiler_driver_->GetVerificationResults()->IsClassRejected(class_ref)) {
-      status = mirror::Class::kStatusError;
+      status = mirror::Class::kStatusErrorUnresolved;
     } else {
       status = mirror::Class::kStatusNotReady;
     }
