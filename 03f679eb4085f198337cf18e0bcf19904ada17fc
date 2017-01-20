@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e85a8a67_603b06a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c49b3060",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_6766e695",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "Test the oat file assistant tests as well. You may also want to try building from scratch to double check the test dependencies are correct in the build files.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 56
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_3781fee7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Already tested. I mentioned only the new test here.",
+      "parentUuid": "c88a26db_6766e695",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_11673291",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_876bea58",
+      "range": {
+        "startLine": 93,
+        "startChar": 45,
+        "endLine": 94,
+        "endChar": 50
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_0777da3d",
         "filename": "dexoptanalyzer/dexoptanalyzer.cc",
         "patchSetId": 11
@@ -105,6 +177,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "Too many sss.",
+      "range": {
+        "startLine": 226,
+        "startChar": 26,
+        "endLine": 226,
+        "endChar": 30
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_b175fe37",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "weird, I fixed in another PS. Must have messed up with my repos.\n\nDone",
+      "parentUuid": "c88a26db_0777da3d",
       "range": {
         "startLine": 226,
         "startChar": 26,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_31afce69",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c78012e6",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_678fc613",
         "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
         "patchSetId": 11
@@ -151,6 +271,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "Remove, etc.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 41
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_71a54689",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_678fc613",
       "range": {
         "startLine": 99,
         "startChar": 0,
@@ -209,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_77bf766c",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_2789be0b",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_478e4215",
         "filename": "runtime/oat_file_assistant_test.h",
         "patchSetId": 11
@@ -220,6 +388,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "Put implementations in a separate .cc file instead of inline in the header.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_57cc7a17",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_478e4215",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -255,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_d7d18aaf",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "This is just code motion. \n\nDone.",
+      "parentUuid": "c88a26db_e7a2f68a",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 84
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_07a03a80",
         "filename": "runtime/oat_file_assistant_test.h",
         "patchSetId": 11
@@ -266,6 +482,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "Document what the arguments mean and what this function does in more detail.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 54
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_d722aad4",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Just code motion here.\n\nDone.",
+      "parentUuid": "c88a26db_07a03a80",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -301,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_57959a5d",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_a79cee4a",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 5
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_c799f259",
         "filename": "runtime/oat_file_assistant_test.h",
         "patchSetId": 11
@@ -312,6 +576,30 @@
       "writtenOn": "2017-01-20T16:31:44Z",
       "side": 1,
       "message": "This is specific to OatFileAssistantTest. It should go in oat_file_assistant_test.cc.",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 2
+      },
+      "revId": "03f679eb4085f198337cf18e0bcf19904ada17fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_f73126c4",
+        "filename": "runtime/oat_file_assistant_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c799f259",
       "range": {
         "startLine": 260,
         "startChar": 0,
