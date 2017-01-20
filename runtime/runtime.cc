@@ -1383,6 +1383,10 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       LOG(ERROR) << "Unable to load an agent: " << err;
     }
   }
+  {
+    ScopedObjectAccess soa(self);
+    callbacks_->NextRuntimePhase(RuntimePhaseCallback::RuntimePhase::kInitialAgents);
+  }
 
   VLOG(startup) << "Runtime::Init exiting";
 
