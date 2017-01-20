@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a88b32df_032a70e1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-20T19:06:08Z",
+      "side": 1,
+      "message": "Can you elaborate? I\u0027d expect that you can instantiate only if the class status is kStatusInitialized or kStatusInitializing, the latter allowing instantiation only on the initializer thread.",
+      "range": {
+        "startLine": 5117,
+        "startChar": 0,
+        "endLine": 5119,
+        "endChar": 30
+      },
+      "revId": "063fc772b5b8aed7d769cd7cccb6ddc7619326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
