@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_e7c85f04",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-20T03:36:43Z",
+      "side": 1,
+      "message": "Mistake, thanks.",
+      "parentUuid": "284ae270_472df3f8",
+      "range": {
+        "startLine": 743,
+        "startChar": 2,
+        "endLine": 743,
+        "endChar": 20
+      },
+      "revId": "edc8d1ec292a8a3c7fbdec7071aeb0165cdd2525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "284ae270_87b88b86",
         "filename": "runtime/runtime_callbacks.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-20T03:30:18Z",
       "side": 1,
       "message": "seems weird to see this on an abstract method. Please document before submit.",
+      "range": {
+        "startLine": 68,
+        "startChar": 52,
+        "endLine": 68,
+        "endChar": 89
+      },
+      "revId": "edc8d1ec292a8a3c7fbdec7071aeb0165cdd2525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_67d6afa8",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-20T03:36:43Z",
+      "side": 1,
+      "message": "The Clang annotalysis will not enforce this for implementations, sadly. But it is the expectation that counts - implementors will likely need this. So this ensures that the implementation of the RuntimeCallbacks would complain.\n\nThis is standard, and no documentation required normally.",
+      "parentUuid": "284ae270_87b88b86",
       "range": {
         "startLine": 68,
         "startChar": 52,
