@@ -46,6 +46,30 @@
       "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_6e0b27da",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T17:44:58Z",
+      "side": 1,
+      "message": "Mathieu is not the first one to try adding a state here. I remember at least a few other persons updating this class with a state (I think dserbesky was the last one).\n\nWe should add a comment on the class to make this design decision explicit.\n\n\nMathieu, could this be carried around in the econding itself?",
+      "parentUuid": "284ae270_ce369bbb",
+      "range": {
+        "startLine": 890,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 25
+      },
+      "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
