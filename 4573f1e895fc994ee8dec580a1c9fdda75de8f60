@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_239c1d58",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-20T23:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_a7262e1c",
+      "range": {
+        "startLine": 147,
+        "startChar": 46,
+        "endLine": 147,
+        "endChar": 51
+      },
+      "revId": "4573f1e895fc994ee8dec580a1c9fdda75de8f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_c723320b",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-20T22:47:00Z",
       "side": 1,
       "message": "Rename this native_pc_code_offset?",
+      "range": {
+        "startLine": 100,
+        "startChar": 15,
+        "endLine": 100,
+        "endChar": 31
+      },
+      "revId": "4573f1e895fc994ee8dec580a1c9fdda75de8f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_a3d7edf9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-20T23:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c723320b",
       "range": {
         "startLine": 100,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_035fe1f5",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-20T23:47:34Z",
+      "side": 1,
+      "message": "True, I could pass the isa everywhere. I think there are a few other callers though.",
+      "parentUuid": "284ae270_83c6319a",
+      "range": {
+        "startLine": 1364,
+        "startChar": 48,
+        "endLine": 1364,
+        "endChar": 69
+      },
+      "revId": "4573f1e895fc994ee8dec580a1c9fdda75de8f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_072a7ae1",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-20T22:47:00Z",
       "side": 1,
       "message": "SetNativePcCodeOffset (for consistency?)",
+      "range": {
+        "startLine": 818,
+        "startChar": 21,
+        "endLine": 818,
+        "endChar": 38
+      },
+      "revId": "4573f1e895fc994ee8dec580a1c9fdda75de8f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_de6bde57",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-20T23:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_072a7ae1",
       "range": {
         "startLine": 818,
         "startChar": 21,
