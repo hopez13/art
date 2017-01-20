@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88690ee7_1afbb903",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-20T17:03:27Z",
+      "side": 1,
+      "message": "Nit: Break line after `\u003d` instead (here and elsewhere)?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "5e18ea3ed55750806792cb9a894134127a83cf7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87306cf_bf307f0a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-20T17:03:27Z",
+      "side": 1,
+      "message": "Nit: Add parentheses around the operands of `\u0026\u0026`?",
+      "range": {
+        "startLine": 851,
+        "startChar": 9,
+        "endLine": 852,
+        "endChar": 44
+      },
+      "revId": "5e18ea3ed55750806792cb9a894134127a83cf7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_849208ab",
+        "filename": "runtime/arch/code_offset.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-20T17:03:27Z",
+      "side": 1,
+      "message": "What about introducing a function (maybe in runtime/arch/instruction_set.h) to factor this switch and the one from FromOffset:\n\n  constexpr uint32_t GetInstructionAlignment(InstructionSet isa) {\n    // ...\n  }\n\n?",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 42
+      },
+      "revId": "5e18ea3ed55750806792cb9a894134127a83cf7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_448c008b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-20T17:03:27Z",
+      "side": 1,
+      "message": "Should we DCHECK that the loaded value won\u0027t overflow `uint32_t` once inflated:\n\n  DCHECK_LE(encoding.GetNativePcEncoding().Load(region_),\n            std::numeric_limits\u003cuint32_t\u003e::max() / GetInstructionAlignment(isa));\n\n?",
+      "range": {
+        "startLine": 810,
+        "startChar": 44,
+        "endLine": 810,
+        "endChar": 88
+      },
+      "revId": "5e18ea3ed55750806792cb9a894134127a83cf7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
