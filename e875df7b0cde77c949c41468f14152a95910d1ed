@@ -46,6 +46,30 @@
       "revId": "e875df7b0cde77c949c41468f14152a95910d1ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_c478106b",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-20T16:16:59Z",
+      "side": 1,
+      "message": "gcstress mode didn\u0027t effect how reproducible this was.\n\nThere are two potential causes for the failure that I can think of:\n1. If we run sticky GCs that don\u0027t collect everything free on the app heap.\n2. If the timeout is reached with RunFinalization is called.\n\nBoth of these cases effectively increase the number of retained bytes, which increases the expected upper bound on outstanding allocations. I have not been able to confirm the test was failing for one of these reasons, but they would explain the test failure in theory.\n\nI\u0027ll change the implementation to ensure we always run non-sticky GCs as necessary and update the test case to prevent the case of RunFinalization timing out.",
+      "parentUuid": "e39b8d7a_788bb974",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "e875df7b0cde77c949c41468f14152a95910d1ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
