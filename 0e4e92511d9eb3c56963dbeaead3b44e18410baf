@@ -22,6 +22,30 @@
       "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_ce369bbb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-20T17:35:41Z",
+      "side": 1,
+      "message": "So you\u0027d prefer something like like passing in the bit offset for each getter and setter function?",
+      "parentUuid": "c88a26db_6416e46b",
+      "range": {
+        "startLine": 890,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 25
+      },
+      "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
