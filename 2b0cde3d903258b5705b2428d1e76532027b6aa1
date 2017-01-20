@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_e23966f2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3859,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-20T19:26:56Z",
+      "side": 1,
+      "message": "Since this is a combined if statement now, when we are over the blocking GC watermark and a gc request is not pending, we don\u0027t do as much as the old code (eg we don\u0027t wait for finalization). Is it as intended?",
+      "range": {
+        "startLine": 3855,
+        "startChar": 0,
+        "endLine": 3859,
+        "endChar": 65
+      },
+      "revId": "2b0cde3d903258b5705b2428d1e76532027b6aa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
