@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "089c3e29_3e2785e6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-20T19:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_443e40db",
+      "range": {
+        "startLine": 1169,
+        "startChar": 6,
+        "endLine": 1169,
+        "endChar": 7
+      },
+      "revId": "9d55de36c2806f5f501314d7ffe33e43c156bebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_e452f420",
         "filename": "runtime/class_table.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-20T10:29:40Z",
       "side": 1,
       "message": "\u0026 (code below shows it cannot be null).",
+      "range": {
+        "startLine": 132,
+        "startChar": 50,
+        "endLine": 132,
+        "endChar": 51
+      },
+      "revId": "9d55de36c2806f5f501314d7ffe33e43c156bebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88902e0b_e2f668a9",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-20T19:00:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_e452f420",
       "range": {
         "startLine": 132,
         "startChar": 50,
