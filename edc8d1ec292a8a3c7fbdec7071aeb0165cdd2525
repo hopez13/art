@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_472df3f8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T03:30:18Z",
+      "side": 1,
+      "message": "why the move?",
+      "range": {
+        "startLine": 743,
+        "startChar": 2,
+        "endLine": 743,
+        "endChar": 20
+      },
+      "revId": "edc8d1ec292a8a3c7fbdec7071aeb0165cdd2525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_87b88b86",
+        "filename": "runtime/runtime_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-20T03:30:18Z",
+      "side": 1,
+      "message": "seems weird to see this on an abstract method. Please document before submit.",
+      "range": {
+        "startLine": 68,
+        "startChar": 52,
+        "endLine": 68,
+        "endChar": 89
+      },
+      "revId": "edc8d1ec292a8a3c7fbdec7071aeb0165cdd2525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
