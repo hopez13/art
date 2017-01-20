@@ -716,7 +716,9 @@ class OatWriter::InitOatClassesMethodVisitor : public DexMethodVisitor {
     if (compiled_class != nullptr) {
       status = compiled_class->GetStatus();
     } else if (writer_->compiler_driver_->GetVerificationResults()->IsClassRejected(class_ref)) {
-      status = mirror::Class::kStatusError;
+      // The oat class status is used only for verification of resolved classes and
+      // that verification happens only after the class has been resolved.
+      status = mirror::Class::kStatusErrorResolved;
     } else {
       status = mirror::Class::kStatusNotReady;
     }
