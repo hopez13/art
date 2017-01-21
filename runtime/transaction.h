@@ -76,7 +76,8 @@ class Transaction FINAL {
       REQUIRES(!log_lock_);
   void RecordWriteFieldReference(mirror::Object* obj, MemberOffset field_offset,
                                  mirror::Object* value, bool is_volatile)
-      REQUIRES(!log_lock_);
+      REQUIRES(!log_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Record array change.
   void RecordWriteArray(mirror::Array* array, size_t index, uint64_t value)
