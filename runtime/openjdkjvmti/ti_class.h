@@ -37,8 +37,12 @@
 
 namespace openjdkjvmti {
 
+class EventHandler;
+
 class ClassUtil {
  public:
+  static void Register(EventHandler* event_handler);
+
   static jvmtiError GetClassFields(jvmtiEnv* env,
                                    jclass klass,
                                    jint* field_count_ptr,
