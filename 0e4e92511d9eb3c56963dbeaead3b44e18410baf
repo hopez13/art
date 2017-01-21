@@ -70,6 +70,30 @@
       "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_c350a219",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-21T02:43:53Z",
+      "side": 1,
+      "message": "Actually, that would not work since the encoding is shared for all the stack maps. What I am thinking now is changing\nStackMap to StackMaps and having an index for most of the getters. Example:\nStackMaps m \u003d encoding.GetStackMaps();\nsize_t index \u003d encoding.GetStackMapIndexForNativePcOffset(native_pc);\nfor (...) {\n  x \u003d code_info.GetDexRegisterMapOf(stack_maps, index, encoding, number_of_dex_registers);\n}\n\nThis change would be much more invasive compared to adding a bit of state, what are your thoughts?\n\nOtherwise I could add something like a BitMemoryRegion abstraction and use that in StackMap. BitMemoryRegion would support bit offsets instead of only byte offsets.",
+      "parentUuid": "284ae270_6e0b27da",
+      "range": {
+        "startLine": 890,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 25
+      },
+      "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
