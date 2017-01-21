@@ -46,6 +46,30 @@
       "revId": "4bcf464fa1f6da7e34d060238afe5377b9230c35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_ae96adda",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-21T05:17:21Z",
+      "side": 1,
+      "message": "I think heavily depends. begin() and end() are standard, but size is only partially so:\n\n $ grep -r \u0027size_t size()\u0027 | wc -l\n 8\n $ grep -r \u0027size_t Size()\u0027 | wc -l\n 30\n\nSome containers are in the former set, while others are in the latter.",
+      "parentUuid": "284ae270_0e8a6100",
+      "range": {
+        "startLine": 334,
+        "startChar": 9,
+        "endLine": 334,
+        "endChar": 13
+      },
+      "revId": "4bcf464fa1f6da7e34d060238afe5377b9230c35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
