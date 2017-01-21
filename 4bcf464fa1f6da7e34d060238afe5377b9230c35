@@ -22,6 +22,30 @@
       "revId": "4bcf464fa1f6da7e34d060238afe5377b9230c35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "284ae270_0e8a6100",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-01-21T03:48:48Z",
+      "side": 1,
+      "message": "We do that even for standard vocabulary functions? Presumably we don\u0027t do it for begin() and end(), since that would break all sorts of stuff, like foreach loops?\n\nI\u0027ll go ahead and capitalize this, but I\u0027m curious.",
+      "parentUuid": "284ae270_fdea1d7a",
+      "range": {
+        "startLine": 334,
+        "startChar": 9,
+        "endLine": 334,
+        "endChar": 13
+      },
+      "revId": "4bcf464fa1f6da7e34d060238afe5377b9230c35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
