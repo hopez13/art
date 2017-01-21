@@ -153,6 +153,10 @@ void Transaction::RecordWriteField64(mirror::Object* obj, MemberOffset field_off
 void Transaction::RecordWriteFieldReference(mirror::Object* obj, MemberOffset field_offset,
                                             mirror::Object* value, bool is_volatile) {
   DCHECK(obj != nullptr);
+  if (kUseReadBarrier) {
+    ReadBarrier::AssertToSpaceInvariant(obj);
+    ReadBarrier::AssertToSpaceInvariant(value);
+  }
   MutexLock mu(Thread::Current(), log_lock_);
   ObjectLog& object_log = object_logs_[obj];
   object_log.LogReferenceValue(field_offset, value, is_volatile);
