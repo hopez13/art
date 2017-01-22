@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c87306cf_62500c75",
+        "filename": "runtime/interpreter/mterp/arm/op_sput_boolean.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-22T15:48:39Z",
+      "side": 1,
+      "message": "I haven\u0027t done all mterp files as I went to the solution of renaming the entrypoints the compiler calls (eg artSet8StaticFromCompiledCode). Updating all mterp files would have been another option, but wanted to check what you think first before doing an overhaul rewrite.",
+      "range": {
+        "startLine": 1,
+        "startChar": 36,
+        "endLine": 1,
+        "endChar": 63
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
