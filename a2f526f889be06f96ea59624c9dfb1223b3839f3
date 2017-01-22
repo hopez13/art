@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284ae270_d42a9699",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-22T18:05:42Z",
+      "side": 1,
+      "message": "MIPS instructions are 4-byte-aligned since we aren\u0027t using MIPS16e or microMIPS ISAs.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "a2f526f889be06f96ea59624c9dfb1223b3839f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
