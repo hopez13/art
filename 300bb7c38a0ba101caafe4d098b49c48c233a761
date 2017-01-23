@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_4a8ba7bb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T22:11:41Z",
+      "side": 1,
+      "message": "Or should that be \"resolved\"? Or do we need to record that in the verification results? (There are also 2 places in class_linker.cc that are related to this.)",
+      "range": {
+        "startLine": 719,
+        "startChar": 15,
+        "endLine": 719,
+        "endChar": 52
+      },
+      "revId": "300bb7c38a0ba101caafe4d098b49c48c233a761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
