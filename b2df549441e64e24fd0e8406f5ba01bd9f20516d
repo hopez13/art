@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_07f4ba9e",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-01-23T15:43:10Z",
+      "side": 1,
+      "message": "I think this was okay - the References are plural, rather possessive. Alternatively the text here could use \"java.lang.ref.Reference instances\" instead.",
+      "range": {
+        "startLine": 45,
+        "startChar": 42,
+        "endLine": 45,
+        "endChar": 44
+      },
+      "revId": "b2df549441e64e24fd0e8406f5ba01bd9f20516d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
