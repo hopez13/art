@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "284ae270_441955a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-23T16:33:18Z",
+      "side": 1,
+      "message": "I would like Hiroshi\u0027s or Mathieu\u0027s feedback on that. We don\u0027t store this info in the art files, and I wonder whether there is a visible difference expected in there (I don\u0027t think so, but the lockword has some different states available), even when we don\u0027t compile code (e.g., a boot image with interpret-only).",
+      "parentUuid": "c87306cf_222d34cc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "f8cd890d86e2a136966d878fea1d0dae6a9c4ad0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_215a0e93",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 3
