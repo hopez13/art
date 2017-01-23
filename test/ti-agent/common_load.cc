@@ -28,6 +28,7 @@
 
 #include "901-hello-ti-agent/basics.h"
 #include "909-attach-agent/attach.h"
+#include "934-search-onload/search_onload.h"
 
 namespace art {
 
@@ -110,6 +111,7 @@ static AgentLib agents[] = {
   { "926-multi-obsolescence", common_redefine::OnLoad, nullptr },
   { "930-hello-retransform", common_retransform::OnLoad, nullptr },
   { "932-transform-saves", common_retransform::OnLoad, nullptr },
+  { "934-search-onload", Test934SearchOnload::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
