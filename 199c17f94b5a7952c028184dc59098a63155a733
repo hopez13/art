@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88690ee7_7d63cfc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_07983a95",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_e79af68f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 13
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_2ae503ad",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "I don\u0027t know the utility of the method. It just build the test and doesn\u0027t run it. If there is any requirement for just building the test and not running it, I can move this part in python too.",
+      "parentUuid": "c88a26db_8731aac5",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 23
+      },
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_e70d16ef",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 13
@@ -105,6 +153,30 @@
       "writtenOn": "2017-01-23T15:20:24Z",
       "side": 1,
       "message": "who is expected to use these test-art-run-test-group rules ?",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 67
+      },
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68993a37_c48fb2ba",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "Currently, the build bots uses these targets to build and run the tests.",
+      "parentUuid": "c88a26db_e70d16ef",
       "range": {
         "startLine": 333,
         "startChar": 0,
@@ -134,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_0afcbf45",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_a794ee63",
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68993a37_84f0ca70",
         "filename": "test/testrunner/env.py",
         "patchSetId": 13
@@ -157,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_6a50eb74",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "This has been used at several places including build/envsetup.sh to fetch build variables. I will document this.",
+      "parentUuid": "68993a37_84f0ca70",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_672ca66a",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 13
@@ -168,6 +282,24 @@
       "writtenOn": "2017-01-23T15:20:24Z",
       "side": 1,
       "message": "copyright notice..",
+      "revId": "199c17f94b5a7952c028184dc59098a63155a733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_8a552f66",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-23T17:13:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_672ca66a",
       "revId": "199c17f94b5a7952c028184dc59098a63155a733",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
