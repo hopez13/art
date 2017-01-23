@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_ea795b30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_87068a3d",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88902e0b_65334236",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-23T09:51:13Z",
       "side": 1,
       "message": "indentation differs from functions above and below. e.g. opening line has different indent. Trailing brace in column 0 rather that column 2.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 95,
+        "endChar": 5
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_0a77df3d",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88902e0b_65334236",
       "range": {
         "startLine": 95,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_ca8017e6",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88690ee7_5d028b84",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a864120b_41d628a8",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-23T09:51:13Z",
       "side": 1,
       "message": "Change in alignment of trailing continuation character.",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 5
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_6a8f8b13",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a864120b_41d628a8",
       "range": {
         "startLine": 177,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_8a944f29",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87306cf_0244b078",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 3
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_c712527e",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c88a26db_2a89830b",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c712527e",
+      "range": {
+        "startLine": 191,
+        "startChar": 2,
+        "endLine": 191,
+        "endChar": 4
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e86e0ae9_1d4f372a",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2017-01-23T09:51:13Z",
       "side": 1,
       "message": "newline",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 3
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_4a8e4715",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-23T16:14:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e86e0ae9_1d4f372a",
       "range": {
         "startLine": 199,
         "startChar": 2,
