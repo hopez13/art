@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48963609_801bd88e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68993a37_a48386f0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88690ee7_9d67c329",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4609,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "I would condition this on the load kind (kBootImageLinkTimeAddress or kBootImageLinkTimePcRelative) or on the GetCompilerOptions().GetCompilePic() with a DCHECK() that address !\u003d nullptr for PIC.",
+      "range": {
+        "startLine": 4609,
+        "startChar": 42,
+        "endLine": 4609,
+        "endChar": 74
+      },
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a864120b_81ee8000",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4619,
+        "startChar": 42,
+        "endLine": 4619,
+        "endChar": 73
+      },
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "089c3e29_fe0a7dd4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7666,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "089c3e29_3e09c5e2",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-23T13:26:00Z",
+      "side": 1,
+      "message": "Move struct definition and function declaration before data members.",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 0
+      },
+      "revId": "8a5db14edaa419c56d60f5ebb95a921a39428526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
