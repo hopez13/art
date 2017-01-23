@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_476de2a9",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-23T14:47:47Z",
+      "side": 1,
+      "message": "What about turning this into a static function (taking the code generator as extra argument), and removing it from the interface of InstructionCodeGeneratorMIPS64?",
+      "range": {
+        "startLine": 1441,
+        "startChar": 37,
+        "endLine": 1441,
+        "endChar": 59
+      },
+      "revId": "ea23faafc898a46a09d1745c6bf367b5c1aab818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_a77b8e65",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-23T14:47:47Z",
+      "side": 1,
+      "message": "Please document this.",
+      "range": {
+        "startLine": 738,
+        "startChar": 9,
+        "endLine": 738,
+        "endChar": 30
+      },
+      "revId": "ea23faafc898a46a09d1745c6bf367b5c1aab818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_c778126b",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-23T14:47:47Z",
+      "side": 1,
+      "message": "Maybe add `const` to that method?",
+      "range": {
+        "startLine": 739,
+        "startChar": 9,
+        "endLine": 739,
+        "endChar": 17
+      },
+      "revId": "ea23faafc898a46a09d1745c6bf367b5c1aab818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
