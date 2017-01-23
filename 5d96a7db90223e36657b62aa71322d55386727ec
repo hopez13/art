@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "a8b252c3_a8ed9bd0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "refer to https://android-review.googlesource.com/#/c/229405/\nI tested with ART_HEAP_POISONING\u003dtrue\nis this comment unnecessary ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_c6d2e23c",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2017-01-13T14:01:38Z",
       "side": 1,
       "message": "Nit: Put first argument on the previous line?",
+      "range": {
+        "startLine": 7327,
+        "startChar": 4,
+        "endLine": 7327,
+        "endChar": 33
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b252c3_abfa75bf",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7327,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631cfdaf_c6d2e23c",
       "range": {
         "startLine": 7327,
         "startChar": 4,
@@ -65,6 +112,24 @@
     },
     {
       "key": {
+        "uuid": "a8b252c3_2b0f6519",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2634,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ae270_908d718c",
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a33d15bf_569144a5",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -76,6 +141,30 @@
       "writtenOn": "2017-01-13T14:01:38Z",
       "side": 1,
       "message": "Is this really needed?",
+      "range": {
+        "startLine": 2637,
+        "startChar": 38,
+        "endLine": 2637,
+        "endChar": 44
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b252c3_cbf329f0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2637,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a33d15bf_569144a5",
       "range": {
         "startLine": 2637,
         "startChar": 38,
@@ -159,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "a8b252c3_cbdc8956",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "OIC, thx",
+      "parentUuid": "c88a26db_e11f4627",
+      "range": {
+        "startLine": 2803,
+        "startChar": 19,
+        "endLine": 2803,
+        "endChar": 32
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "284ae270_d07ac989",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -176,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "a8b252c3_8bfd31bc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ae270_d07ac989",
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "284ae270_90b21148",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -187,6 +318,30 @@
       "writtenOn": "2017-01-19T18:30:12Z",
       "side": 1,
       "message": "and here",
+      "range": {
+        "startLine": 2730,
+        "startChar": 33,
+        "endLine": 2730,
+        "endChar": 34
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b252c3_2be8c5f1",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2730,
+      "author": {
+        "id": 1116373
+      },
+      "writtenOn": "2017-01-23T11:32:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ae270_90b21148",
       "range": {
         "startLine": 2730,
         "startChar": 33,
