@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c87306cf_224f742a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-23T14:21:55Z",
+      "side": 1,
+      "message": "I see; that reverted revert was to fix heap poisoning in the x86 and x86-64 implementations.  I\u0027ve edited the commit message to list \"Test:\" lines with and without heap poisoning turned on.",
+      "parentUuid": "a8b252c3_a8ed9bd0",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "5d96a7db90223e36657b62aa71322d55386727ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631cfdaf_c6d2e23c",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
