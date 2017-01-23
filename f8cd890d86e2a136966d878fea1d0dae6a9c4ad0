@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c87306cf_222d34cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T09:37:12Z",
+      "side": 1,
+      "message": "Thanks.\n\nIn this case, we should move the check a little later in the oat file assistant so that we don\u0027t reject oat files without compiled code. I\u0027ll make the change in a followup CL.",
+      "parentUuid": "284ae270_ee071791",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "f8cd890d86e2a136966d878fea1d0dae6a9c4ad0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_215a0e93",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 3
