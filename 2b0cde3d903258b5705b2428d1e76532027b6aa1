@@ -22,6 +22,30 @@
       "revId": "2b0cde3d903258b5705b2428d1e76532027b6aa1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e86e0ae9_1d3657bc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3859,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T09:19:44Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll go back to the previous behavior. I was mostly trying to put the check for the first watermark first for aesthetic reasons.",
+      "parentUuid": "284ae270_e23966f2",
+      "range": {
+        "startLine": 3855,
+        "startChar": 0,
+        "endLine": 3859,
+        "endChar": 65
+      },
+      "revId": "2b0cde3d903258b5705b2428d1e76532027b6aa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
