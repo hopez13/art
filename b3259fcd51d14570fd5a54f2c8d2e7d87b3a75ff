@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e86e0ae9_dd48df1f",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T10:37:35Z",
+      "side": 1,
+      "message": "Use dex2oat_environment_test_DEX_DEPS instead.",
+      "range": {
+        "startLine": 103,
+        "startChar": 43,
+        "endLine": 103,
+        "endChar": 86
+      },
+      "revId": "b3259fcd51d14570fd5a54f2c8d2e7d87b3a75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87306cf_e2297ca6",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T10:37:35Z",
+      "side": 1,
+      "message": "Aside from dex2oat_environment_test.h and mem_map.h, are any of the rest of these needed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "b3259fcd51d14570fd5a54f2c8d2e7d87b3a75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a864120b_81aa0014",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T10:37:35Z",
+      "side": 1,
+      "message": "the generated oat file will be relocated with respect to the boot image. Otherwise the generated oat file will not be relocated.",
+      "range": {
+        "startLine": 48,
+        "startChar": 26,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "b3259fcd51d14570fd5a54f2c8d2e7d87b3a75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_e7f43613",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T10:37:35Z",
+      "side": 1,
+      "message": "if true, the oat file will be generated with an image checksum different from the current image checksum.",
+      "range": {
+        "startLine": 50,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 49
+      },
+      "revId": "b3259fcd51d14570fd5a54f2c8d2e7d87b3a75ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
