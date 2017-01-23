@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a88b32df_a3ee243b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T13:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c88a26db_c1ed62d0",
+      "range": {
+        "startLine": 227,
+        "startChar": 6,
+        "endLine": 227,
+        "endChar": 28
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_815afae9",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a88b32df_e3298ca6",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T13:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68993a37_fef041e5",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 76
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_64026485",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "88902e0b_252d3acc",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T13:35:27Z",
+      "side": 1,
+      "message": "To indicate that we are testing the case when the vdex file is in the ODEX location, as opposed to the OAT location.",
+      "parentUuid": "c88a26db_64026485",
+      "range": {
+        "startLine": 344,
+        "startChar": 43,
+        "endLine": 344,
+        "endChar": 48
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a88b32df_a0cffaab",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 1
@@ -106,6 +178,30 @@
       "writtenOn": "2017-01-19T17:40:52Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 375,
+        "startChar": 43,
+        "endLine": 375,
+        "endChar": 47
+      },
+      "revId": "7c04abc7d208545b157e0b41ccbffa6fd3e28821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e86e0ae9_3d547bbd",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-23T13:35:27Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "a88b32df_a0cffaab",
       "range": {
         "startLine": 375,
         "startChar": 43,
