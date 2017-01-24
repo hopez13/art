@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c88a26db_8a1bef8e",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T10:01:50Z",
+      "side": 1,
+      "message": "!HasSingleImplementation ?",
+      "range": {
+        "startLine": 289,
+        "startChar": 27,
+        "endLine": 289,
+        "endChar": 75
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e86e0ae9_80443a5f",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T10:01:50Z",
+      "side": 1,
+      "message": "Why do you need this now and not in the original change?",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 76
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
