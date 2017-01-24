@@ -408,7 +408,7 @@ tmp_dir="`cd $oldwd ; python -c "import os; print os.path.realpath('$tmp_dir')"`
 mkdir -p $tmp_dir
 
 # Add thread suspend timeout flag
-run_args="${run_args} --runtime-option -XX:ThreadSuspendTimeout=$suspend_timeout"
+run_args="${run_args} --android-runtime-option -XX:ThreadSuspendTimeout=$suspend_timeout"
 
 if [ "$basic_verify" = "true" ]; then
   # Set HspaceCompactForOOMMinIntervalMs to zero to run hspace compaction for OOM more frequently in tests.
