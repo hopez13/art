@@ -94,6 +94,30 @@
       "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_0a1d9f2e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2017-01-24T13:57:18Z",
+      "side": 1,
+      "message": "BitMemoryRegion - that was my first though as well.\n\nIndexes - I do not like the invasive change of the API - and further bloating of it.  On the other hand, we could replace bit_offset_ with index_ and have have region_ point to the whole stackmaps area.  It is equivalent to the current version, but with slightly different API for the FieldEncoding.\n\nAdding state - Nicolas might not like me here.  I do not see a problem with adding state like this.  It is equivalent with regards to performance, and it keeps the API simple.",
+      "parentUuid": "284ae270_c350a219",
+      "range": {
+        "startLine": 890,
+        "startChar": 0,
+        "endLine": 890,
+        "endChar": 25
+      },
+      "revId": "0e4e92511d9eb3c56963dbeaead3b44e18410baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
