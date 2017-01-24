@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68993a37_84e8cac5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T13:08:24Z",
+      "side": 1,
+      "message": "This is odd: are we exposing our internal implementation (temporary classes) to the listener, eg jvmti agent?",
+      "range": {
+        "startLine": 1206,
+        "startChar": 5,
+        "endLine": 1206,
+        "endChar": 37
+      },
+      "revId": "b0f1192bfac159008e1f2367751083740ba05698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_cafa57c1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T13:08:24Z",
+      "side": 1,
+      "message": "class_def?",
+      "range": {
+        "startLine": 1216,
+        "startChar": 69,
+        "endLine": 1216,
+        "endChar": 78
+      },
+      "revId": "b0f1192bfac159008e1f2367751083740ba05698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
