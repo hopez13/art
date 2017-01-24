@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a864120b_ecf3b3ef",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-24T08:45:15Z",
+      "side": 1,
+      "message": "$(TARGET_OUT_EXECUTABLES)/dexoptanalyzerd ?",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 16
+      },
+      "revId": "b425e7b8cf3209c5cf8ad86bec65662ab707f4ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_ea463b83",
+        "filename": "dexoptanalyzer/dexoptanalyzer_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-24T08:45:15Z",
+      "side": 1,
+      "message": "Remove this test, because the OatFileAssistant no longer rejects an odex file for a different dex location (as of go/aog/325480).",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 1
+      },
+      "revId": "b425e7b8cf3209c5cf8ad86bec65662ab707f4ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a864120b_2ce3eb1a",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-24T08:45:15Z",
+      "side": 1,
+      "message": "ed",
+      "range": {
+        "startLine": 40,
+        "startChar": 54,
+        "endLine": 40,
+        "endChar": 55
+      },
+      "revId": "b425e7b8cf3209c5cf8ad86bec65662ab707f4ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_0a44bf78",
+        "filename": "runtime/dexopt_test.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-24T08:45:15Z",
+      "side": 1,
+      "message": "will",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 43
+      },
+      "revId": "b425e7b8cf3209c5cf8ad86bec65662ab707f4ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
