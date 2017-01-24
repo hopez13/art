@@ -22,6 +22,30 @@
       "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f9028e_528cf48a",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-01-24T01:29:42Z",
+      "side": 1,
+      "message": "push/pop only works for diagnostics based on my search through the documentation. This seems to be the preferred way from some google searching. I also might experiment with \"optnone\" as an attribute, or \"noinline\", since those might make the bug disappear, while giving better results to differentiate between working/broken configurations.",
+      "parentUuid": "28f9028e_5238743c",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
