@@ -46,6 +46,52 @@
       "revId": "c9569731061e560cb56116255b00a49d6a5daeb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bffc7d7_fbc00239",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-24T19:07:11Z",
+      "side": 0,
+      "message": "Yep, but this enables inlining for even more methods, which seems orthogonal. And if something goes wrong just because of it you\u0027ll need to revert the entire thing :) I\u0027m not too fussed about it, so up to you :)",
+      "range": {
+        "startLine": 1432,
+        "startChar": 6,
+        "endLine": 1441,
+        "endChar": 7
+      },
+      "revId": "c9569731061e560cb56116255b00a49d6a5daeb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02e7368_7e215af1",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-24T19:07:11Z",
+      "side": 0,
+      "message": "I think it\u0027s helpful to keep this comment around. Currently it\u0027s not obvious just by looking at the macros who/when the exception will be thrown if needed.",
+      "range": {
+        "startLine": 111,
+        "startChar": 12,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "c9569731061e560cb56116255b00a49d6a5daeb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
