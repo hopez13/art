@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4819d6bf_854f4275",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-01-24T10:18:32Z",
+      "side": 1,
+      "message": "It isn\u0027t clear yet whether this is directly an ART bug or a compiler bug. This workaround has been added so that we can proceed with upgrading the toolchain, where this is the only pending potential compiler issue. We are hoping that someone more familiar with fugu can take a look at the generated code in the future (Intel and/or Android ART folks).",
+      "parentUuid": "c88a26db_2afbc303",
+      "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f9028e_5238743c",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
