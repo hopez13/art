@@ -153,8 +153,8 @@ inline void EventHandler::DispatchClassFileLoadHookEvent(art::Thread* thread,
   ArtJvmTiEnv* last_env = nullptr;
   for (ArtJvmTiEnv* env : envs) {
     if (ShouldDispatch(event, env, thread)) {
-      jint new_len;
-      unsigned char* new_data;
+      jint new_len = 0;
+      unsigned char* new_data = nullptr;
       FnType* callback = GetCallback<FnType>(env, event);
       callback(env,
                jnienv,

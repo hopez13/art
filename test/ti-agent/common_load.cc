@@ -110,6 +110,7 @@ static AgentLib agents[] = {
   { "926-multi-obsolescence", common_redefine::OnLoad, nullptr },
   { "930-hello-retransform", common_retransform::OnLoad, nullptr },
   { "932-transform-saves", common_retransform::OnLoad, nullptr },
+  { "934-load-transform", common_retransform::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
