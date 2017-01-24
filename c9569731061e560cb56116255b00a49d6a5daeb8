@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4819d6bf_a52cfefe",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-24T08:30:44Z",
+      "side": 0,
+      "message": "you could split this in another CL and keep this one as pure refactor.",
+      "range": {
+        "startLine": 1432,
+        "startChar": 6,
+        "endLine": 1441,
+        "endChar": 7
+      },
+      "revId": "c9569731061e560cb56116255b00a49d6a5daeb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
