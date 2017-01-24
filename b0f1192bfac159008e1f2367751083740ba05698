@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "b0d4f5e5_82faf350",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-24T16:46:05Z",
+      "side": 1,
+      "message": "Yes. Everything else would make the core implementation rather complicated.",
+      "range": {
+        "startLine": 1206,
+        "startChar": 5,
+        "endLine": 1206,
+        "endChar": 37
+      },
+      "revId": "b0f1192bfac159008e1f2367751083740ba05698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a26db_cafa57c1",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
