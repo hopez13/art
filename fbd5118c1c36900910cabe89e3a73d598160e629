@@ -46,6 +46,30 @@
       "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4819d6bf_455f0a82",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1087371
+      },
+      "writtenOn": "2017-01-24T08:16:48Z",
+      "side": 1,
+      "message": "I suspect using noinline will also get rid of the problem.",
+      "parentUuid": "28f9028e_528cf48a",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
