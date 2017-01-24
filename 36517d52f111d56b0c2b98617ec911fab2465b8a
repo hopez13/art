@@ -22,6 +22,30 @@
       "revId": "36517d52f111d56b0c2b98617ec911fab2465b8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_75ae9044",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-24T17:14:37Z",
+      "side": 1,
+      "message": "Done. Not caught by cpplint-art because it doesn\u0027t lint tests.",
+      "parentUuid": "c88a26db_55110ccc",
+      "range": {
+        "startLine": 746,
+        "startChar": 0,
+        "endLine": 746,
+        "endChar": 104
+      },
+      "revId": "36517d52f111d56b0c2b98617ec911fab2465b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
