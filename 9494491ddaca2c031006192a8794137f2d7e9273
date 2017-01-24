@@ -22,6 +22,30 @@
       "revId": "9494491ddaca2c031006192a8794137f2d7e9273",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87306cf_0d6f01a3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-24T12:45:00Z",
+      "side": 1,
+      "message": "Done, the comment in PS6 is finally meaningful.",
+      "parentUuid": "c88a26db_2abc2319",
+      "range": {
+        "startLine": 719,
+        "startChar": 71,
+        "endLine": 719,
+        "endChar": 72
+      },
+      "revId": "9494491ddaca2c031006192a8794137f2d7e9273",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
