@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c88a26db_2afbc303",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T09:46:28Z",
+      "side": 1,
+      "message": "I find the wording confusing: is the issue in the compiler, or in the fugu hardware?",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f9028e_5238743c",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
