@@ -22,6 +22,29 @@
       "revId": "72a328949cb6a882762ef140ae306f1fafd24c7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3161b62b_9034516a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-24T22:04:00Z",
+      "side": 1,
+      "message": "Not sure yet. We could change reserving TLAB to not count towards concurrent GC watermark right away, or reduce CC TLAB size as two other options.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "72a328949cb6a882762ef140ae306f1fafd24c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
