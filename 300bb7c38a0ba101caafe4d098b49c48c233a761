@@ -22,6 +22,30 @@
       "revId": "300bb7c38a0ba101caafe4d098b49c48c233a761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a88b32df_8681ae9f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T10:14:54Z",
+      "side": 1,
+      "message": "Given ClassRejected is called from the method_verifier, I think that should be kStatusErrorResolved.",
+      "parentUuid": "c88a26db_4a8ba7bb",
+      "range": {
+        "startLine": 719,
+        "startChar": 15,
+        "endLine": 719,
+        "endChar": 52
+      },
+      "revId": "300bb7c38a0ba101caafe4d098b49c48c233a761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

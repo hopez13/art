@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c87306cf_0d55c1ff",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T10:14:54Z",
+      "side": 0,
+      "message": "Do you need this change as part of this CL? Looking at b/28787733, there could be some app compat issues, and it\u0027d be better to have an offending change be a small change to this file, rather than a mirror::Class new status update change.",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 91,
+        "endChar": 88
+      },
+      "revId": "839320b9918e3543186dc367c382a4908fe0b85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
