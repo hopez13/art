@@ -445,6 +445,29 @@
       "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fa7e7b5_da19b235",
+        "filename": "runtime/interpreter/mterp/arm/op_sput_boolean.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-24T22:37:47Z",
+      "side": 1,
+      "message": "We chatted offline. sgtm to keep the current interpreter calls and just delegate to *FromCompiledCode in the entrypoint.",
+      "range": {
+        "startLine": 1,
+        "startChar": 36,
+        "endLine": 1,
+        "endChar": 63
+      },
+      "revId": "7a942c6cc4f69a37c89d90c74a019f089a1b761f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
