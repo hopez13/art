@@ -22,6 +22,30 @@
       "revId": "839320b9918e3543186dc367c382a4908fe0b85e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_0a503f16",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-24T11:00:47Z",
+      "side": 0,
+      "message": "As the commit message explains, EIIE cannot reach this path anymore because \"c-\u003eIsResolved()\" above shall now return true and we shall return the erroneous class. This is a deliberate change of behavior to make everything consistent. It\u0027s also consistent with the RI according to https://googleplex-android-review.git.corp.google.com/#/c/1037105/1/luni/src/test/java/libcore/java/lang/ClassTest.java .",
+      "parentUuid": "c87306cf_0d55c1ff",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 91,
+        "endChar": 88
+      },
+      "revId": "839320b9918e3543186dc367c382a4908fe0b85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

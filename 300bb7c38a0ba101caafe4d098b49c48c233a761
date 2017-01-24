@@ -46,6 +46,30 @@
       "revId": "300bb7c38a0ba101caafe4d098b49c48c233a761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_2a6e63d9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-24T11:00:47Z",
+      "side": 1,
+      "message": "Additionally, the oat class status is used only for verification of an already resolved class.\n\nI\u0027m going to use kStatusErrorUnresolved here but I\u0027ll defensively use IsErroneous() in the class_linker.cc .",
+      "parentUuid": "a88b32df_8681ae9f",
+      "range": {
+        "startLine": 719,
+        "startChar": 15,
+        "endLine": 719,
+        "endChar": 52
+      },
+      "revId": "300bb7c38a0ba101caafe4d098b49c48c233a761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
