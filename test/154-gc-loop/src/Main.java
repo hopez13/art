@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,25 +15,31 @@
  */
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 
 public class Main {
   static final class GcWatcher {
     protected void finalize() throws Throwable {
         watcher = new WeakReference<GcWatcher>(new GcWatcher());
+        ++finalizeCounter;
     }
   }
   static WeakReference<GcWatcher> watcher = new WeakReference<GcWatcher>(new GcWatcher());
   static Object o = new Object();
+  static int finalizeCounter = 0;
 
   public static void main(String[] args) {
+    System.loadLibrary(args[0]);
+    backgroundProcessState();
     try {
         Runtime.getRuntime().gc();
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 10; ++i) {
             o = new Object();
             Thread.sleep(1000);
         }
     } catch (Exception e) {}
-    System.out.println("Hello, world!");
+    System.out.println("Finalize count too large: " +
+            ((finalizeCounter >= 10) ? Integer.toString(finalizeCounter) : "false"));
   }
+  
+  private static native void backgroundProcessState();
 }

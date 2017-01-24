@@ -3543,8 +3543,9 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   collector::GcType gc_type = collector_ran->GetGcType();
   const double multiplier = HeapGrowthMultiplier();  // Use the multiplier to grow more for
   // foreground.
-  const uint64_t adjusted_min_free = static_cast<uint64_t>(min_free_ * multiplier);
-  const uint64_t adjusted_max_free = static_cast<uint64_t>(max_free_ * multiplier);
+  // Add extra 2 MB to temporarily fix excessive GC caused by TLAB ergonomics.
+  const uint64_t adjusted_min_free = static_cast<uint64_t>(min_free_ * multiplier) + 2 * MB;
+  const uint64_t adjusted_max_free = static_cast<uint64_t>(max_free_ * multiplier) + 2 * MB;
   if (gc_type != collector::kGcTypeSticky) {
     // Grow the heap for non sticky GC.
     ssize_t delta = bytes_allocated / GetTargetHeapUtilization() - bytes_allocated;
