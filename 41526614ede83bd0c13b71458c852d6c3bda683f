@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c87306cf_ad15b568",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-24T08:57:32Z",
+      "side": 1,
+      "message": "Not sure you\u0027re fixing this though, the JIT might be jitting methods from the bootclasspath concurrently.",
+      "range": {
+        "startLine": 13,
+        "startChar": 26,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "41526614ede83bd0c13b71458c852d6c3bda683f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
