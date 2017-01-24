@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6dae3b4_420bb920",
+        "filename": "runtime/dex_cache_resolved_classes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-24T22:14:02Z",
+      "side": 1,
+      "message": "It would be more intuitive if the parameter was an index that didn\u0027t have an associated dex file that is ignored.",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "b3a92f5c537cd601c8846b31aecf3c3e93db8a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
