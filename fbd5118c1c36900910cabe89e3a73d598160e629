@@ -61,6 +61,23 @@
     },
     {
       "key": {
+        "uuid": "dfee05e3_67fef078",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-01-24T18:40:16Z",
+      "side": 1,
+      "message": "host/x86 doesn\u0027t seem to be impacted. I ran test-art-host just fine before ever even trying fugu, so perhaps that can help someone debugging this further.",
+      "revId": "fbd5118c1c36900910cabe89e3a73d598160e629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f9028e_5238743c",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
