@@ -202,6 +202,23 @@
     },
     {
       "key": {
+        "uuid": "59115115_a5f72bf5",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "I meant a helper in this file taking care of the null etc. This didn\u0027t really save any lines here. Similar to the dex file...",
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "481f2956_9a7f1377",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 1
