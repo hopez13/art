@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "65a36a7f_258956b9",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15a69096_8a253f16",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 1
@@ -42,6 +59,23 @@
         "endLine": 90,
         "endChar": 5
       },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bbf50d8_7cde6820",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Done",
       "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +105,23 @@
     },
     {
       "key": {
+        "uuid": "ec940fd6_308a59c6",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Actually we don\u0027t need this at all with some other changes.\n\nAlso the problem is that all of these pointers might be identical and we don\u0027t have ref-counting or anything so using unique_ptr is annoying.",
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beba4a3a_b6f31e12",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 1
@@ -88,6 +139,23 @@
         "endLine": 160,
         "endChar": 54
       },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "016d7f4b_3f315c1c",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Done",
       "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +185,23 @@
     },
     {
       "key": {
+        "uuid": "4bb5646f_6bb305da",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "481f2956_9a7f1377",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 1
@@ -134,6 +219,23 @@
         "endLine": 234,
         "endChar": 7
       },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb193e5_9f12ec63",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-25T02:26:54Z",
+      "side": 1,
+      "message": "Done",
       "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
