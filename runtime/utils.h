@@ -31,6 +31,7 @@
 #include "base/casts.h"
 #include "base/logging.h"
 #include "base/stringpiece.h"
+#include "dex_file.h"
 #include "globals.h"
 #include "primitive.h"
 
@@ -100,6 +101,11 @@ std::string PrettySize(int64_t size_in_bytes);
 // Performs JNI name mangling as described in section 11.3 "Linking Native Methods"
 // of the JNI spec.
 std::string MangleForJni(const std::string& s);
+
+std::string GetJniShortName(const std::string& class_name, const std::string& method_name);
+std::string GetJniLongName(const std::string& class_name,
+                           const std::string& method_name,
+                           const Signature& sig);
 
 // Turn "java.lang.String" into "Ljava/lang/String;".
 std::string DotToDescriptor(const char* class_name);

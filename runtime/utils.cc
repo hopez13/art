@@ -415,6 +415,37 @@ std::string PrintableString(const char* utf) {
   return result;
 }
 
+std::string GetJniShortName(const std::string& class_descriptor, const std::string& method) {
+  // Remove the leading 'L' and trailing ';'...
+  std::string class_name(class_descriptor);
+  CHECK_EQ(class_name[0], 'L') << class_name;
+  CHECK_EQ(class_name[class_name.size() - 1], ';') << class_name;
+  class_name.erase(0, 1);
+  class_name.erase(class_name.size() - 1, 1);
+
+  std::string short_name;
+  short_name += "Java_";
+  short_name += MangleForJni(class_name);
+  short_name += "_";
+  short_name += MangleForJni(method);
+  return short_name;
+}
+
+std::string GetJniLongName(const std::string& class_name,
+                           const std::string& method_name,
+                           const Signature& sig) {
+  std::string long_name;
+  long_name += GetJniShortName(class_name, method_name);
+  long_name += "__";
+
+  std::string signature(sig.ToString());
+  signature.erase(0, 1);
+  signature.erase(signature.begin() + signature.find(')'), signature.end());
+
+  long_name += MangleForJni(signature);
+
+  return long_name;
+}
 // See http://java.sun.com/j2se/1.5.0/docs/guide/jni/spec/design.html#wp615 for the full rules.
 std::string MangleForJni(const std::string& s) {
   std::string result;
