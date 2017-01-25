@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e966a1dd_581af635",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4001,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-01-25T18:02:21Z",
+      "side": 1,
+      "message": "You haven\u0027t decreased the reg number as you did it for arm backend. I can push a patch for it.",
+      "range": {
+        "startLine": 4001,
+        "startChar": 70,
+        "endLine": 4001,
+        "endChar": 71
+      },
+      "revId": "e761bccf9f0d884cc4d4ec104568cef968296492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
