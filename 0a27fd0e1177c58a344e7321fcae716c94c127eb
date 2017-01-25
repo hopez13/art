@@ -22,6 +22,29 @@
       "revId": "0a27fd0e1177c58a344e7321fcae716c94c127eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d0ddf3_1133baf3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T21:09:58Z",
+      "side": 1,
+      "message": "It\u0027s a debug check, so won\u0027t matter much for the time being (with this only continuously being exercised in preopting, which uses speed and thus complete resolution, anyways).\n\nShould be fixed in a follow-up.",
+      "range": {
+        "startLine": 956,
+        "startChar": 31,
+        "endLine": 956,
+        "endChar": 40
+      },
+      "revId": "0a27fd0e1177c58a344e7321fcae716c94c127eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
