@@ -219,6 +219,14 @@ public class Main {
     }
     final ClassLoader boot = cl;
 
+    // The JIT may deeply inline and load some classes. Preload these for test determinism.
+    final String PRELOAD_FOR_JIT[] = {
+        "java.nio.charset.CoderMalfunctionError"
+    };
+    for (String s : PRELOAD_FOR_JIT) {
+      Class.forName(s);
+    }
+
     Runnable r = new Runnable() {
       @Override
       public void run() {
@@ -238,7 +246,7 @@ public class Main {
 
     ensureJitCompiled(Main.class, "testClassEvents");
 
-    enableClassLoadEvents(true);
+    enableClassLoadPreparePrintEvents(true);
 
     ClassLoader cl1 = create(boot, DEX1, DEX2);
     System.out.println("B, false");
@@ -270,7 +278,31 @@ public class Main {
     t.start();
     t.join();
 
-    enableClassLoadEvents(false);
+    enableClassLoadPreparePrintEvents(false);
+
+    if (hasJit() && !isLoadedClass("Main$ClassD")) {
+      testClassEventsJit();
+    }
+  }
+
+  private static void testClassEventsJit() throws Exception {
+    enableClassLoadSeenEvents(true);
+
+    testClassEventsJitImpl();
+
+    enableClassLoadSeenEvents(false);
+
+    if (!hadLoadEvent()) {
+      throw new RuntimeException("Did not get expected load event.");
+    }
+  }
+
+  private static void testClassEventsJitImpl() throws Exception {
+    ensureJitCompiled(Main.class, "testClassEventsJitImpl");
+
+    if (ClassD.x != 1) {
+      throw new RuntimeException("Unexpected value");
+    }
   }
 
   private static void printClassLoaderClasses(ClassLoader cl) {
@@ -335,9 +367,14 @@ public class Main {
 
   private static native int[] getClassVersion(Class<?> c);
 
-  private static native void enableClassLoadEvents(boolean b);
+  private static native void enableClassLoadPreparePrintEvents(boolean b);
 
-  private static native void ensureJitCompiled(Class c, String name);
+  private static native void ensureJitCompiled(Class<?> c, String name);
+
+  private static native boolean hasJit();
+  private static native boolean isLoadedClass(String name);
+  private static native void enableClassLoadSeenEvents(boolean b);
+  private static native boolean hadLoadEvent();
 
   private static class TestForNonInit {
     public static double dummy = Math.random();  // So it can't be compile-time initialized.
@@ -359,6 +396,10 @@ public class Main {
   public abstract static class ClassB extends ClassA implements InfB {
   }
   public abstract static class ClassC implements InfA, InfC {
+  }
+
+  public static class ClassD {
+    static int x = 1;
   }
 
   private static final String DEX1 = System.getenv("DEX_LOCATION") + "/912-classes.jar";
