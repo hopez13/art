@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d2e9aa8_1806eacc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-25T17:22:08Z",
+      "side": 1,
+      "message": "Do we really want to allocate classes here? Shoudn\u0027t we just LookupClass()?",
+      "range": {
+        "startLine": 956,
+        "startChar": 31,
+        "endLine": 956,
+        "endChar": 40
+      },
+      "revId": "0a27fd0e1177c58a344e7321fcae716c94c127eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
