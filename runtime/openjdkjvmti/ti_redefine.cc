@@ -490,6 +490,143 @@ void Redefiner::ClassRedefinition::FillObsoleteMethodMap(
   }
 }
 
+bool Redefiner::ClassRedefinition::CheckSameMethods() {
+  art::StackHandleScope<1> hs(driver_->self_);
+  art::Handle<art::mirror::Class> h_klass(hs.NewHandle(GetMirrorClass()));
+  DCHECK_EQ(dex_file_->NumClassDefs(), 1u);
+  art::ClassDataItemIterator iter(*dex_file_, dex_file_->GetClassData(dex_file_->GetClassDef(0)));
+  // Just do a simple count to see if we added or removed any methods.
+  if (iter.NumDirectMethods() != h_klass->NumDirectMethods() ||
+      iter.NumVirtualMethods() != h_klass->NumVirtualMethods()) {
+    jvmtiError diff = (iter.NumDirectMethods() > h_klass->NumDirectMethods() ||
+                       iter.NumVirtualMethods() > h_klass->NumVirtualMethods())
+        ? ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED)
+        : ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED);
+    RecordFailure(diff, "Some method was added or removed from class");
+    return false;
+  }
+
+  // Skip fields. We check them elsewhere.
+  while (iter.HasNextStaticField() || iter.HasNextInstanceField()) {
+    iter.Next();
+  }
+
+  // Direct methods are first.
+  bool is_virtual = false;
+  while (iter.HasNextVirtualMethod() || iter.HasNextDirectMethod()) {
+    // Iterate through all the dex methods of the given type
+    for (; is_virtual ? iter.HasNextVirtualMethod() : iter.HasNextDirectMethod(); iter.Next()) {
+      bool found_method = false;
+
+      // Get the data on the method we are searching for
+      const art::DexFile::MethodId& method_id = dex_file_->GetMethodId(iter.GetMemberIndex());
+      const char* method_name = dex_file_->GetMethodName(method_id);
+      art::Signature method_signature = dex_file_->GetMethodSignature(method_id);
+
+      // Search all methods for the one we want. We need to do this Since the RI does not require
+      // that the methods be in the same order in the redefined class so we will not either.
+      auto method_iter = is_virtual ? h_klass->GetVirtualMethods(art::kRuntimePointerSize)
+                                    : h_klass->GetDirectMethods(art::kRuntimePointerSize);
+      for (art::ArtMethod& a_method : method_iter) {
+        DCHECK(!found_method);
+        // Check name and signature to see if this is the same ArtMethod as the dex method.
+        if (strcmp(a_method.GetName(), method_name) != 0 ||
+            a_method.GetSignature() != method_signature) {
+          // Try the next method.
+          continue;
+        }
+
+        // We have the method that corresponds to the dex method. Check flags.
+        uint32_t cur_access_flags = a_method.GetAccessFlags() & art::kAccValidMethodFlags;
+        if (iter.GetMethodAccessFlags() != cur_access_flags) {
+          RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_MODIFIERS_CHANGED),
+                        StringPrintf("%s method %s type changed access flags!",
+                                     is_virtual ? "Virtual" : "Direct",
+                                     method_name));
+          return false;
+        }
+        // TODO are there any other differences that could cause METHOD_MODIFIERS_CHANGED.
+        found_method = true;
+        break;
+      }
+      if (!found_method) {
+        // We never saw a method with the same name and signature as the one are looking at from the
+        // dex file. Since the number of methods total is the same there must have been both a
+        // method added and one deleted so we could return either error code. We will return
+        // METHOD_ADDED since we can give a more helpful error message.
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+                      StringPrintf("%s method %s (sig: %s) is not present in the loaded class!",
+                                   is_virtual ? "Virtual" : "Direct",
+                                   method_name,
+                                   method_signature.ToString().c_str()));
+        return false;
+      }
+    }
+    // Try the other type.
+    is_virtual = true;
+  }
+  return true;
+}
+
+bool Redefiner::ClassRedefinition::CheckSameFields() {
+  art::StackHandleScope<1> hs(driver_->self_);
+  art::Handle<art::mirror::Class> h_klass(hs.NewHandle(GetMirrorClass()));
+  DCHECK_EQ(dex_file_->NumClassDefs(), 1u);
+  art::ClassDataItemIterator iter(*dex_file_, dex_file_->GetClassData(dex_file_->GetClassDef(0)));
+  if (iter.NumStaticFields() != h_klass->NumStaticFields() ||
+      iter.NumInstanceFields() != h_klass->NumInstanceFields()) {
+    RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                  "Field was added or removed from class");
+    return false;
+  }
+
+  bool is_instance = false;
+  while (iter.HasNextStaticField() || iter.HasNextInstanceField()) {
+    // NB The RI requires fields stay in the same order so we will as well. It makes things easier
+    // anyway so why not.
+    for (uint32_t idx = 0;
+         is_instance ? iter.HasNextInstanceField() : iter.HasNextStaticField();
+         idx++, iter.Next()) {
+      art::ArtField* a_field =
+          is_instance ? h_klass->GetInstanceField(idx) : h_klass->GetStaticField(idx);
+      uint32_t field_idx = iter.GetMemberIndex();
+      const art::DexFile::FieldId& field_id = dex_file_->GetFieldId(field_idx);
+      // Check name.
+      if (strcmp(a_field->GetName(), dex_file_->GetFieldName(field_id)) != 0) {
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("%s field %d name changed from '%s' to '%s'.",
+                                   is_instance ? "Instance" : "Static",
+                                   idx,
+                                   a_field->GetName(),
+                                   dex_file_->GetFieldName(field_id)));
+        return false;
+      }
+
+      // Check type.
+      if (strcmp(a_field->GetTypeDescriptor(), dex_file_->GetFieldTypeDescriptor(field_id)) != 0) {
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("%s field %d type changed from '%s' to '%s'.",
+                                   is_instance ? "Instance" : "Static",
+                                   idx,
+                                   a_field->GetTypeDescriptor(),
+                                   dex_file_->GetFieldTypeDescriptor(field_id)));
+        return false;
+      }
+
+      // Check Access Flags.
+      if (iter.GetFieldAccessFlags() != (a_field->GetAccessFlags() & art::kAccValidFieldFlags)) {
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("%s field %d type changed access flags!",
+                                   is_instance ? "Instance" : "Static",
+                                   idx));
+        return false;
+      }
+    }
+    is_instance = true;
+  }
+  return true;
+}
+
 bool Redefiner::ClassRedefinition::CheckClass() {
   // TODO Might just want to put it in a ObjPtr and NoSuspend assert.
   art::StackHandleScope<1> hs(driver_->self_);
