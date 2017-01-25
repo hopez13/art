@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "2ff60be1_0c241bf6",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-25T00:04:13Z",
+      "side": 1,
+      "message": "HasSingleImplementation() was tested on line 244 (testing the flag). Here we check if there is a single-impl for the abstract method.",
+      "range": {
+        "startLine": 289,
+        "startChar": 27,
+        "endLine": 289,
+        "endChar": 75
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e86e0ae9_80443a5f",
         "filename": "runtime/cha.cc",
         "patchSetId": 2
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-24T10:01:50Z",
       "side": 1,
       "message": "Why do you need this now and not in the original change?",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 76
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0db0ca7_3bc08307",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-25T00:04:13Z",
+      "side": 1,
+      "message": "This isn\u0027t related to the fix. I just thought it\u0027s cleaner to clear the field here. Doesn\u0027t have to.",
       "range": {
         "startLine": 462,
         "startChar": 0,
