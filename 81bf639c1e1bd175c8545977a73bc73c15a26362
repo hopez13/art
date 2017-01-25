@@ -22,6 +22,29 @@
       "revId": "81bf639c1e1bd175c8545977a73bc73c15a26362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665efac8_fb4195cc",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 16
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-25T00:18:58Z",
+      "side": 1,
+      "message": "Yes, it is the same variable as in the other files. This is an environment variable, and if it is marked as true, the following test will be marked as disabled.",
+      "range": {
+        "startLine": 345,
+        "startChar": 22,
+        "endLine": 345,
+        "endChar": 42
+      },
+      "revId": "81bf639c1e1bd175c8545977a73bc73c15a26362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
