@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b216b6e_554f850d",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T18:37:14Z",
+      "side": 1,
+      "message": "Style nit: Either put it on one line, or align \u0027:\u0027 with \u0027?\u0027 or, the preferred way:\n\n streamingOutput\n     ? ...\n     : ...;",
+      "range": {
+        "startLine": 112,
+        "startChar": 38,
+        "endLine": 113,
+        "endChar": 68
+      },
+      "revId": "fa1b2ac3b53a5d1fe755f0c439cee2e1f65fa2fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
