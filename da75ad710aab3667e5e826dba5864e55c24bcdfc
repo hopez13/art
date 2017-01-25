@@ -22,6 +22,29 @@
       "revId": "da75ad710aab3667e5e826dba5864e55c24bcdfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7d8305f_e63eb3f3",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-25T18:26:11Z",
+      "side": 1,
+      "message": "Now both PRODUCT_ART_USE_READ_BARRIER and ART_USE_READ_BARRIER are true by default and setting either to false should turn read barriers off.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 79
+      },
+      "revId": "da75ad710aab3667e5e826dba5864e55c24bcdfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
