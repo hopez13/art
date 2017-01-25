@@ -48,7 +48,7 @@
 #include "jit/jit_code_cache.h"
 #include "jni_env_ext-inl.h"
 #include "jvmti_allocator.h"
-#include "mirror/class.h"
+#include "mirror/class-inl.h"
 #include "mirror/class_ext.h"
 #include "mirror/object.h"
 #include "object_lock.h"
@@ -487,6 +487,186 @@ void Redefiner::ClassRedefinition::FillObsoleteMethodMap(
     obsolete_methods->SetElementPtrSize(index, obs.second, art::kRuntimePointerSize);
     obsolete_dex_caches->Set(index, art_klass->GetDexCache());
     index++;
+  }
+}
+
+bool Redefiner::ClassRedefinition::CheckSameMethods() {
+  art::StackHandleScope<1> hs(driver_->self_);
+  art::Handle<art::mirror::Class> h_klass(hs.NewHandle(GetMirrorClass()));
+  DCHECK_EQ(dex_file_->NumClassDefs(), 1u);
+  art::ClassDataItemIterator new_iter(*dex_file_,
+                                      dex_file_->GetClassData(dex_file_->GetClassDef(0)));
+  const art::DexFile& old_dex_file = h_klass->GetDexFile();
+  art::ClassDataItemIterator old_iter(old_dex_file,
+                                      old_dex_file.GetClassData(*h_klass->GetClassDef()));
+  // Skip all of the fields. We should have already checked this.
+  while (new_iter.HasNextStaticField() || new_iter.HasNextInstanceField()) {
+    DCHECK(old_iter.HasNextInstanceField() || old_iter.HasNextStaticField());
+    new_iter.Next();
+    old_iter.Next();
+  }
+  bool is_virtual = false;
+  while (true) {
+    while (is_virtual ? new_iter.HasNextVirtualMethod() : new_iter.HasNextDirectMethod()) {
+      // Get the data on the method we are searching for
+      const art::DexFile::MethodId& new_method_id =
+          dex_file_->GetMethodId(new_iter.GetMemberIndex());
+      const char* new_method_name = dex_file_->GetMethodName(new_method_id);
+      art::Signature new_method_signature = dex_file_->GetMethodSignature(new_method_id);
+
+      if (!(is_virtual ? old_iter.HasNextVirtualMethod() : old_iter.HasNextDirectMethod())) {
+        // We are missing the old version of this method!
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+                      StringPrintf("Unknown %s method '%s' (sig: %s) added!",
+                                   is_virtual ? "virtual" : "direct",
+                                   new_method_name,
+                                   new_method_signature.ToString().c_str()));
+        return false;
+      }
+
+      const art::DexFile::MethodId& old_method_id =
+          old_dex_file.GetMethodId(old_iter.GetMemberIndex());
+      const char* old_method_name = old_dex_file.GetMethodName(old_method_id);
+      art::Signature old_method_signature = old_dex_file.GetMethodSignature(old_method_id);
+
+      // Check name and signature.
+      if (strcmp(old_method_name, new_method_name) != 0 ||
+          old_method_signature != new_method_signature) {
+        // Check if the new_method is anywhere.
+        bool has_new_method =
+            is_virtual ? h_klass->FindDeclaredVirtualMethod(new_method_name,
+                                                            new_method_signature,
+                                                            art::kRuntimePointerSize) != nullptr
+                       : h_klass->FindDeclaredDirectMethod(new_method_name,
+                                                           new_method_signature,
+                                                           art::kRuntimePointerSize) != nullptr;
+        if (has_new_method) {
+          // the new dex file is missing some method!
+          RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED),
+                        StringPrintf("%s method '%s' (sig: %s) was deleted!",
+                                     is_virtual ? "Virtual" : "Direct",
+                                     old_method_name,
+                                     old_method_signature.ToString().c_str()));
+        } else {
+          // the new dex file is missing some method!
+          RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_ADDED),
+                        StringPrintf("Unknown %s method '%s' (sig: %s) was added!",
+                                     is_virtual ? "Virtual" : "Direct",
+                                     new_method_name,
+                                     new_method_signature.ToString().c_str()));
+        }
+        return false;
+      }
+
+      if (new_iter.GetMethodAccessFlags() != old_iter.GetMethodAccessFlags()) {
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_MODIFIERS_CHANGED),
+                      StringPrintf("%s method '%s' (sig: %s) had different access flags",
+                                   is_virtual ? "Virtual" : "Direct",
+                                   new_method_name,
+                                   new_method_signature.ToString().c_str()));
+        return false;
+      }
+
+      new_iter.Next();
+      old_iter.Next();
+    }
+    if (is_virtual ? old_iter.HasNextVirtualMethod() : old_iter.HasNextDirectMethod()) {
+      // we are missing the new version of this method!
+      RecordFailure(ERR(UNSUPPORTED_REDEFINITION_METHOD_DELETED),
+                    StringPrintf("%s method '%s' (sig: %s) is missing!",
+                                 is_virtual ? "virtual" : "direct",
+                                 old_dex_file.GetMethodName(old_dex_file.GetMethodId(
+                                     old_iter.GetMemberIndex())),
+                                 old_dex_file.GetMethodSignature(old_dex_file.GetMethodId(
+                                     old_iter.GetMemberIndex())).ToString().c_str()));
+      return false;
+    }
+    if (is_virtual) {
+      return true;
+    } else {
+      is_virtual = true;
+    }
+  }
+}
+
+bool Redefiner::ClassRedefinition::CheckSameFields() {
+  art::StackHandleScope<1> hs(driver_->self_);
+  art::Handle<art::mirror::Class> h_klass(hs.NewHandle(GetMirrorClass()));
+  DCHECK_EQ(dex_file_->NumClassDefs(), 1u);
+  art::ClassDataItemIterator new_iter(*dex_file_,
+                                      dex_file_->GetClassData(dex_file_->GetClassDef(0)));
+  const art::DexFile& old_dex_file = h_klass->GetDexFile();
+  art::ClassDataItemIterator old_iter(old_dex_file,
+                                      old_dex_file.GetClassData(*h_klass->GetClassDef()));
+  bool is_instance = false;
+  uint32_t cnt = 0;
+  while (true) {
+    while (is_instance ? new_iter.HasNextInstanceField() : new_iter.HasNextStaticField()) {
+      // Get the data on the method we are searching for
+      const art::DexFile::FieldId& new_field_id = dex_file_->GetFieldId(new_iter.GetMemberIndex());
+      const char* new_field_name = dex_file_->GetFieldName(new_field_id);
+      const char* new_field_type = dex_file_->GetFieldTypeDescriptor(new_field_id);
+
+      if (!(is_instance ? old_iter.HasNextInstanceField() : old_iter.HasNextStaticField())) {
+        // We are missing the old version of this method!
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("Unknown %s field %d '%s' (type: %s) added!",
+                                   is_instance ? "instance" : "static",
+                                   cnt,
+                                   new_field_name,
+                                   new_field_type));
+        return false;
+      }
+
+      const art::DexFile::FieldId& old_field_id =
+          old_dex_file.GetFieldId(old_iter.GetMemberIndex());
+      const char* old_field_name = old_dex_file.GetFieldName(old_field_id);
+      const char* old_field_type = old_dex_file.GetFieldTypeDescriptor(old_field_id);
+
+      // Check name and signature.
+      if (strcmp(old_field_name, new_field_name) != 0 ||
+          strcmp(old_field_type, new_field_type) != 0) {
+        // the new dex file is missing some method!
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("%s field %d changed from '%s' (sig: %s) to '%s' (sig: %s)!",
+                                   is_instance ? "instance" : "static",
+                                   cnt,
+                                   old_field_name,
+                                   old_field_type,
+                                   new_field_name,
+                                   new_field_type));
+        return false;
+      }
+
+      if (new_iter.GetMethodAccessFlags() != old_iter.GetMethodAccessFlags()) {
+        RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                      StringPrintf("%s field %d '%s' (sig: %s) had different access flags",
+                                   is_instance ? "Instance" : "Static",
+                                   cnt,
+                                   new_field_name,
+                                   new_field_type));
+        return false;
+      }
+
+      new_iter.Next();
+      old_iter.Next();
+      cnt++;
+    }
+    if (is_instance ? old_iter.HasNextInstanceField() : old_iter.HasNextStaticField()) {
+      RecordFailure(ERR(UNSUPPORTED_REDEFINITION_SCHEMA_CHANGED),
+                    StringPrintf("%s field '%s' (sig: %s) is missing!",
+                                 is_instance ? "Instance" : "Static",
+                                 old_dex_file.GetFieldName(old_dex_file.GetFieldId(
+                                     old_iter.GetMemberIndex())),
+                                 old_dex_file.GetFieldTypeDescriptor(old_dex_file.GetFieldId(
+                                     old_iter.GetMemberIndex()))));
+      return false;
+    }
+    if (is_instance) {
+      return true;
+    } else {
+      is_instance = true;
+    }
   }
 }
 
