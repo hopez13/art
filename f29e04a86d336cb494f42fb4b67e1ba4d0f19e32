@@ -16,6 +16,23 @@
       "revId": "f29e04a86d336cb494f42fb4b67e1ba4d0f19e32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed642926_be378f65",
+        "filename": "runtime/openjdkjvmti/ti_timers.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T19:04:27Z",
+      "side": 1,
+      "message": "Was considering. But then we are not functional on the Mac at all, anyways, so why be precise?",
+      "revId": "f29e04a86d336cb494f42fb4b67e1ba4d0f19e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
