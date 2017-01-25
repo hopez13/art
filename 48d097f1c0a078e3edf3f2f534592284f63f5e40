@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5135f2bc_3ff3bc22",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "Please remove.",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 48
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15a69096_8a253f16",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "PrettyDescriptor does all that.",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 5
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae8e348c_3c1c992d",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "Why no unique_ptr here? It *looks* like you may be tracking things correctly, but pushing them forward through unique_ptrs makes this *a lot* clearer.\n\nSo would scoping to limit the range of the variables, possibly breaking up this pretty long function.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beba4a3a_b6f31e12",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "You can do this as pointer comparisons.",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 54
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bff8548_8d997be8",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "Helper",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 188,
+        "endChar": 7
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "481f2956_9a7f1377",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T00:03:25Z",
+      "side": 1,
+      "message": "Helper",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 7
+      },
+      "revId": "48d097f1c0a078e3edf3f2f534592284f63f5e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
