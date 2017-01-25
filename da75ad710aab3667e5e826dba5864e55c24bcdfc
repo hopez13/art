@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf7ec72_4af91201",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-01-25T10:46:24Z",
+      "side": 1,
+      "message": "If PRODUCT_ART_USE_READ_BARRIER\u003dfalse, but we do export ART_USE_READ_BARRIER\u003dtrue, then it still won\u0027t use read barriers. Is this correct approach? If environment variable has higher priority than product config, than this expression should be something like:\n!envFalse(ctx, \"ART_USE_READ_BARRIER\") \u0026\u0026 (envTrue(ctx, \"ART_USE_READ_BARRIER\") || ctx.AConfig().ArtUseReadBarrier())",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 79
+      },
+      "revId": "da75ad710aab3667e5e826dba5864e55c24bcdfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
