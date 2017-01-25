@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2665b45c_0cbe99a7",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "Return unique_ptr",
+      "range": {
+        "startLine": 64,
+        "startChar": 13,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "a62e5b60fa42953619b4b1fae7348b32044eec9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ea8128_95a71ec6",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "Rebase, this is a template parameter now.",
+      "range": {
+        "startLine": 149,
+        "startChar": 33,
+        "endLine": 149,
+        "endChar": 85
+      },
+      "revId": "a62e5b60fa42953619b4b1fae7348b32044eec9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1930f4ca_1927f379",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "This should no longer be necessary.",
+      "range": {
+        "startLine": 153,
+        "startChar": 33,
+        "endLine": 153,
+        "endChar": 53
+      },
+      "revId": "a62e5b60fa42953619b4b1fae7348b32044eec9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dc6933a_002fd834",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 154,
+        "startChar": 33,
+        "endLine": 154,
+        "endChar": 57
+      },
+      "revId": "a62e5b60fa42953619b4b1fae7348b32044eec9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3867ea0_2376ddc3",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-25T02:34:33Z",
+      "side": 1,
+      "message": "It\u0027s all fun and games not using unique_ptr until you leak things here and below...",
+      "range": {
+        "startLine": 208,
+        "startChar": 8,
+        "endLine": 208,
+        "endChar": 15
+      },
+      "revId": "a62e5b60fa42953619b4b1fae7348b32044eec9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
