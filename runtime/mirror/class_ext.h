@@ -48,21 +48,32 @@ class MANAGED ClassExt : public Object {
 
   void SetVerifyError(ObjPtr<Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   Object* GetVerifyError() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObject<ClassExt>(OFFSET_OF_OBJECT_MEMBER(ClassExt, verify_error_));
+    return GetFieldObject<ClassExt, kVerifyFlags, kReadBarrierOption>(
+        OFFSET_OF_OBJECT_MEMBER(ClassExt, verify_error_));
   }
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ObjectArray<DexCache>* GetObsoleteDexCaches() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObject<ObjectArray<DexCache>>(
+    return GetFieldObject<ObjectArray<DexCache>, kVerifyFlags, kReadBarrierOption>(
         OFFSET_OF_OBJECT_MEMBER(ClassExt, obsolete_dex_caches_));
   }
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   PointerArray* GetObsoleteMethods() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObject<PointerArray>(OFFSET_OF_OBJECT_MEMBER(ClassExt, obsolete_methods_));
+    return GetFieldObject<PointerArray, kVerifyFlags, kReadBarrierOption>(
+        OFFSET_OF_OBJECT_MEMBER(ClassExt, obsolete_methods_));
   }
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ByteArray* GetOriginalDexFileBytes() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldObject<ByteArray>(OFFSET_OF_OBJECT_MEMBER(ClassExt, original_dex_file_bytes_));
+    return GetFieldObject<ByteArray, kVerifyFlags, kReadBarrierOption>(
+        OFFSET_OF_OBJECT_MEMBER(ClassExt, original_dex_file_bytes_));
   }
 
   void SetOriginalDexFileBytes(ObjPtr<ByteArray> bytes) REQUIRES_SHARED(Locks::mutator_lock_);

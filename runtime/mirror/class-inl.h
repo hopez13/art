@@ -71,9 +71,10 @@ inline ClassLoader* Class::GetClassLoader() {
       OFFSET_OF_OBJECT_MEMBER(Class, class_loader_));
 }
 
-template<VerifyObjectFlags kVerifyFlags>
+template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline DexCache* Class::GetDexCache() {
-  return GetFieldObject<DexCache, kVerifyFlags>(OFFSET_OF_OBJECT_MEMBER(Class, dex_cache_));
+  return GetFieldObject<DexCache, kVerifyFlags, kReadBarrierOption>(
+      OFFSET_OF_OBJECT_MEMBER(Class, dex_cache_));
 }
 
 inline uint32_t Class::GetCopiedMethodsStartOffset() {
@@ -245,6 +246,10 @@ inline PointerArray* Class::GetVTable() {
 
 inline PointerArray* Class::GetVTableDuringLinking() {
   DCHECK(IsLoaded() || IsErroneous());
+  // TODO: Document why there's no read barrier on this GetFieldObject
+  // call (whereas there is one in GetVTable above); is this because
+  // the vtable cannot move at the times when GetVTableDuringLinking
+  // is invoked?
   return GetFieldObject<PointerArray>(OFFSET_OF_OBJECT_MEMBER(Class, vtable_));
 }
 
@@ -634,6 +639,12 @@ inline void Class::SetClinitThreadId(pid_t new_clinit_thread_id) {
   }
 }
 
+template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
+ClassExt* Class::GetExtData() {
+  return GetFieldObject<ClassExt, kVerifyFlags, kReadBarrierOption>(
+      OFFSET_OF_OBJECT_MEMBER(Class, ext_data_));
+}
+
 template<VerifyObjectFlags kVerifyFlags>
 inline uint32_t Class::GetAccessFlags() {
   // Check class is loaded/retired or this is java.lang.String that has a
@@ -652,6 +663,9 @@ inline uint32_t Class::GetAccessFlags() {
 }
 
 inline String* Class::GetName() {
+  // TODO: Document why there's no read barrier on this GetFieldObject
+  // call; is this because is it because the class' name String object
+  // is not expected to move?
   return GetFieldObject<String>(OFFSET_OF_OBJECT_MEMBER(Class, name_));
 }
 
@@ -852,6 +866,9 @@ inline ObjectArray<Class>* Class::GetInterfaces() {
   auto* field = GetStaticField(0);
   DCHECK_STREQ(field->GetName(), "interfaces");
   MemberOffset field_offset = field->GetOffset();
+  // TODO: Document why there's no read barrier on this GetFieldObject
+  // call; is this because is it because the "interfaces" array is not
+  // expected to move?
   return GetFieldObject<ObjectArray<Class>>(field_offset);
 }
 
@@ -861,6 +878,9 @@ inline ObjectArray<ObjectArray<Class>>* Class::GetThrows() {
   auto* field = GetStaticField(1);
   DCHECK_STREQ(field->GetName(), "throws");
   MemberOffset field_offset = field->GetOffset();
+  // TODO: Document why there's no read barrier on this GetFieldObject
+  // call; is this because is it because the "throws" array is not
+  // expected to move?
   return GetFieldObject<ObjectArray<ObjectArray<Class>>>(field_offset);
 }
 

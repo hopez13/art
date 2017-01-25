@@ -685,6 +685,9 @@ class MANAGED Class FINAL : public Object {
 
   void SetSuperClass(ObjPtr<Class> new_super_class) REQUIRES_SHARED(Locks::mutator_lock_) {
     // Super class is assigned once, except during class linker initialization.
+    // TODO: Document why there's no read barrier on this
+    // GetFieldObject call; is it because the super class cannot move
+    // at the times when SetSuperClass is invoked?
     ObjPtr<Class> old_super_class =
         GetFieldObject<Class>(OFFSET_OF_OBJECT_MEMBER(Class, super_class_));
     DCHECK(old_super_class == nullptr || old_super_class == new_super_class);
@@ -722,7 +725,8 @@ class MANAGED Class FINAL : public Object {
 
   void DumpClass(std::ostream& os, int flags) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   DexCache* GetDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Also updates the dex_cache_strings_ variable from new_dex_cache.
@@ -1162,6 +1166,8 @@ class MANAGED Class FINAL : public Object {
 
   void SetClinitThreadId(pid_t new_clinit_thread_id) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ClassExt* GetExtData() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns the ExtData for this class, allocating one if necessary. This should be the only way
