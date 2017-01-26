@@ -22,6 +22,29 @@
       "revId": "e761bccf9f0d884cc4d4ec104568cef968296492",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a33080_aa2aa9d2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T10:16:29Z",
+      "side": 1,
+      "message": "Ah sorry about that. Fix is here:\nhttps://android-review.googlesource.com/328858",
+      "range": {
+        "startLine": 4001,
+        "startChar": 70,
+        "endLine": 4001,
+        "endChar": 71
+      },
+      "revId": "e761bccf9f0d884cc4d4ec104568cef968296492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
