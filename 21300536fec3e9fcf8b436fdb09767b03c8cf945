@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "5176d2fb_4af19088",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-26T17:05:43Z",
+      "side": 0,
+      "message": "Yes, all code should now deal correctly with resolved classes not being in the dex cache.",
+      "range": {
+        "startLine": 963,
+        "startChar": 0,
+        "endLine": 964,
+        "endChar": 24
+      },
+      "revId": "21300536fec3e9fcf8b436fdb09767b03c8cf945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0697cd03_a1e6354a",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 7
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-26T13:21:50Z",
       "side": 0,
       "message": "Interesting, this should have broke obsolete methods. Is that method actually being used? Could you merge it with the other ResolveString?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 94
+      },
+      "revId": "21300536fec3e9fcf8b436fdb09767b03c8cf945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "496a7946_78719da0",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-26T17:05:43Z",
+      "side": 0,
+      "message": "Yes, I think obsolete methods could have crashed here. It is called only from artResolveStringFromCode().\n\nI think this function exists to avoid the costly Thread::Current() needed to create a Handle\u003cDexCache\u003e. We could change the other ResolveString() to take ObjPtr\u003c\u003e instead and create its own handle when needed but that would be an odd API - the caller must pass ObjPtr\u003c\u003e but cannot use that ObjPtr\u003c\u003e afterwards. (Allows shooting yourself in the foot.)",
       "range": {
         "startLine": 68,
         "startChar": 0,
