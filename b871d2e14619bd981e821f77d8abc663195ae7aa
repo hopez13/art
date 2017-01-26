@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bba0641_e9975af3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1034239
+      },
+      "writtenOn": "2017-01-26T22:06:45Z",
+      "side": 1,
+      "message": "Roland, do you happen to have an example of where this fails? I assume that somewhere in this call patch we acquire another temp and therefore exhaust the VIXL temps.\n\nAs for VIXL, except for __Printf(); (which we do not use in ART) all the other macroassembler functions use only one temp.",
+      "range": {
+        "startLine": 1941,
+        "startChar": 14,
+        "endLine": 1941,
+        "endChar": 51
+      },
+      "revId": "b871d2e14619bd981e821f77d8abc663195ae7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
