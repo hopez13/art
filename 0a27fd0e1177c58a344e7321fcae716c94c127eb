@@ -45,6 +45,29 @@
       "revId": "0a27fd0e1177c58a344e7321fcae716c94c127eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9968504_7b3e0429",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T14:16:27Z",
+      "side": 1,
+      "message": "We shoudn\u0027t allocate classes here, as the FindClass has already been executed earlier for verification. But worth revisiting. I\u0027ll land this change for now to address the P0.",
+      "range": {
+        "startLine": 956,
+        "startChar": 31,
+        "endLine": 956,
+        "endChar": 40
+      },
+      "revId": "0a27fd0e1177c58a344e7321fcae716c94c127eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
