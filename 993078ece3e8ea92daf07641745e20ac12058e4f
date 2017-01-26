@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "e092cae8_7c6ead62",
+        "filename": "runtime/thread_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-01-26T19:31:28Z",
+      "side": 1,
+      "message": "Document here as well that you cannot have do_work and create_peers at the same time.",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 38
+      },
+      "revId": "993078ece3e8ea92daf07641745e20ac12058e4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73503e5c_d400dd43",
         "filename": "runtime/thread_pool.h",
         "patchSetId": 1
