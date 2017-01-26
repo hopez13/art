@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56d39c80_cde61539",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "Add a ScopedAssertNoThreadSuspension (due to std::vector\u003cObjPtr\u003cmirror::Class\u003e\u003e classes_ line 1117).",
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cf81d8f_3aec3f5f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "How do we guarantee determinism?",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 948,
+        "endChar": 7
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ddb681_5e27eefe",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "Could we make the DexCache transparent from this method? And just call LookupResolvedType instead (which does a dex cahce lookup first).",
+      "range": {
+        "startLine": 1306,
+        "startChar": 0,
+        "endLine": 1312,
+        "endChar": 5
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0303433_a1f43a55",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 7
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a579b0_08b9a3b2",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2733,
+        "startChar": 0,
+        "endLine": 2741,
+        "endChar": 3
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ec4b0ac_60369680",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto. all this null checking and fallback seems duplicated.",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 3
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd95fad6_cd87779f",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "... so we can properly annotate it with no-suspension possible / suspension possible.",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 85
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d916241_b51303fc",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 81
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e72104a7_f877256e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "maximum_number_of_types_in_dex_cache?",
+      "range": {
+        "startLine": 1244,
+        "startChar": 15,
+        "endLine": 1244,
+        "endChar": 24
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7574ed82_ff0aace9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "Could we abstract this away? Or is it important for the reader to have a choice on the memory ordering?",
+      "range": {
+        "startLine": 1340,
+        "startChar": 50,
+        "endLine": 1340,
+        "endChar": 80
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac0ab28_81a448ba",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto about sharing this in a helper or with LookupResolvedType.",
+      "range": {
+        "startLine": 707,
+        "startChar": 0,
+        "endLine": 714,
+        "endChar": 5
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7987e80_9363e730",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 954,
+        "startChar": 0,
+        "endLine": 960,
+        "endChar": 5
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aefc2f22_9384b4e5",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "Can\u0027t all of this code be shared in some DexCachePair abstraction?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ff430d_00a72e69",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "maximum_number_of_types_in_dex_cache?",
+      "range": {
+        "startLine": 72,
+        "startChar": 9,
+        "endLine": 72,
+        "endChar": 18
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5b33d7_0ae4a151",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "what are those? Could you link to one here?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 88
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c16470be_8da5961d",
+        "filename": "runtime/oat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "Why does the .oat change? Isn\u0027t it the .art instead?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 97
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c860b0af_dbdefb0a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 1,
+      "message": "ditto about sharing",
+      "range": {
+        "startLine": 5272,
+        "startChar": 0,
+        "endLine": 5279,
+        "endChar": 1
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

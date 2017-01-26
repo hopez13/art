@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b52868d_2eaf4dbe",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 0,
+      "message": "I assume this is fully addressed now?",
+      "range": {
+        "startLine": 963,
+        "startChar": 0,
+        "endLine": 964,
+        "endChar": 24
+      },
+      "revId": "21300536fec3e9fcf8b436fdb09767b03c8cf945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0697cd03_a1e6354a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T13:21:50Z",
+      "side": 0,
+      "message": "Interesting, this should have broke obsolete methods. Is that method actually being used? Could you merge it with the other ResolveString?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 94
+      },
+      "revId": "21300536fec3e9fcf8b436fdb09767b03c8cf945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
