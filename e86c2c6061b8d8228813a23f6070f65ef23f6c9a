@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d54e5127_a5c6977e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T22:52:59Z",
+      "side": 1,
+      "message": "This is needed to actually exercise the unresolved stuff. Otherwise, the runtime has all the classpath available and won\u0027t generate the unresolved instructions.\n\nI think we created this mess with the move to boot image PIC and drop of relocation support. I\u0027ll work on our run-test scripts to see what makes more sense now.",
+      "range": {
+        "startLine": 11,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "e86c2c6061b8d8228813a23f6070f65ef23f6c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
