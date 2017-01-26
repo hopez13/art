@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "7317a9e4_5429c271",
+        "filename": "runtime/native/java_lang_invoke_MethodHandleImpl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-01-26T13:29:11Z",
+      "side": 1,
+      "message": "Eh, sorry - the first check is unnecessary.\n\nThe second check is because of the \"false\" template argument in CreateFromArtField / CreateFromArtMethod.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 53
+      },
+      "revId": "0da14b7f1ac11c8f834f1d12617353e7fb72bb3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fc4d110_f99d3069",
         "filename": "test/956-methodhandles/src/Main.java",
         "patchSetId": 1
