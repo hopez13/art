@@ -244,7 +244,7 @@ inline bool ArtMethod::IsImtUnimplementedMethod() {
 }
 
 inline const DexFile* ArtMethod::GetDexFile() {
-  return GetDexCache()->GetDexFile();
+  return GetDexCache<kWithoutReadBarrier>()->GetDexFile();
 }
 
 inline const char* ArtMethod::GetDeclaringClassDescriptor() {
@@ -361,9 +361,11 @@ inline mirror::ClassLoader* ArtMethod::GetClassLoader() {
   return GetDeclaringClass()->GetClassLoader();
 }
 
+template <ReadBarrierOption kReadBarrierOption>
 inline mirror::DexCache* ArtMethod::GetDexCache() {
   if (LIKELY(!IsObsolete())) {
-    return GetDeclaringClass()->GetDexCache();
+    mirror::Class* klass = GetDeclaringClass<kReadBarrierOption>();
+    return klass->GetDexCache<kDefaultVerifyFlags, kReadBarrierOption>();
   } else {
     DCHECK(!IsProxyMethod());
     return GetObsoleteDexCache();
@@ -379,14 +381,13 @@ inline ArtMethod* ArtMethod::GetInterfaceMethodIfProxy(PointerSize pointer_size)
   if (LIKELY(!IsProxyMethod())) {
     return this;
   }
-  mirror::Class* klass = GetDeclaringClass();
   ArtMethod* interface_method = mirror::DexCache::GetElementPtrSize(
       GetDexCacheResolvedMethods(pointer_size),
       GetDexMethodIndex(),
       pointer_size);
   DCHECK(interface_method != nullptr);
   DCHECK_EQ(interface_method,
-            Runtime::Current()->GetClassLinker()->FindMethodForProxy(klass, this));
+            Runtime::Current()->GetClassLinker()->FindMethodForProxy(GetDeclaringClass(), this));
   return interface_method;
 }
 
