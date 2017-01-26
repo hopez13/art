@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb68cf26_73831455",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-26T04:13:12Z",
+      "side": 0,
+      "message": "Nice catch, I see this was defeating the annotations.",
+      "range": {
+        "startLine": 362,
+        "startChar": 6,
+        "endLine": 362,
+        "endChar": 29
+      },
+      "revId": "7510dcb0435e6c3f1da1d329bde3cf0274bc7da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
