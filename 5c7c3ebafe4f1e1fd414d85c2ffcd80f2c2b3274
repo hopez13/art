@@ -91,6 +91,29 @@
       "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0fe7771_06bbffca",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-26T16:51:45Z",
+      "side": 1,
+      "message": "Yeah I agree it should be cleaned. And given you\u0027re doing that under the cha_lock, that\u0027s an invariant you can DCHECK now.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 76
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
