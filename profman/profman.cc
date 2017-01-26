@@ -104,6 +104,9 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("      accepts a file descriptor. Cannot be used together with");
   UsageError("      --reference-profile-file.");
   UsageError("  --generate-test-profile=<filename>: generates a random profile file for testing.");
+  UsageError("      Cannot be used together with --generate-test-profile-fd.");
+  UsageError("  --generate-test-profile-fd=<number>: generates a random profile file for testing.");
+  UsageError("      Cannot be used together with --generate-test-profile.");
   UsageError("  --generate-test-profile-num-dex=<number>: number of dex files that should be");
   UsageError("      included in the generated profile. Defaults to 20.");
   UsageError("  --generate-test-profile-method-ratio=<number>: the percentage from the maximum");
@@ -131,6 +134,7 @@ class ProfMan FINAL {
  public:
   ProfMan() :
       reference_profile_file_fd_(kInvalidFd),
+      test_profile_fd_(kInvalidFd),
       dump_only_(false),
       dump_output_to_fd_(kInvalidFd),
       test_profile_num_dex_(kDefaultTestProfileNumDex),
@@ -180,6 +184,8 @@ class ProfMan FINAL {
         ParseFdForCollection(option, "--apk-fd", &apks_fd_);
       } else if (option.starts_with("--generate-test-profile=")) {
         test_profile_ = option.substr(strlen("--generate-test-profile=")).ToString();
+      } else if (option.starts_with("--generate-test-profile-fd=")) {
+        ParseUintOption(option, "--generate-test-profile-fd", &test_profile_fd_, Usage);
       } else if (option.starts_with("--generate-test-profile-num-dex=")) {
         ParseUintOption(option,
                         "--generate-test-profile-num-dex",
@@ -204,7 +210,13 @@ class ProfMan FINAL {
     bool has_reference_profile = !reference_profile_file_.empty() ||
         FdIsValid(reference_profile_file_fd_);
 
-    if (!test_profile_.empty()) {
+    if (!test_profile_.empty() && FdIsValid(test_profile_fd_)) {
+      Usage("Test profiles should not be specified with both --generate-profile-file and "
+            "--generate-profile-file-fd");
+    }
+
+    bool has_generate_profile = !test_profile_.empty() || FdIsValid(test_profile_fd_);
+    if (!has_generate_profile) {
       if (test_profile_method_ratio_ > 100) {
         Usage("Invalid ratio for --generate-test-profile-method-ratio");
       }
@@ -356,22 +368,44 @@ class ProfMan FINAL {
   }
 
   int GenerateTestProfile() {
-    int profile_test_fd = open(test_profile_.c_str(), O_CREAT | O_TRUNC | O_WRONLY, 0644);
-    if (profile_test_fd < 0) {
-      std::cerr << "Cannot open " << test_profile_ << strerror(errno);
-      return -1;
+    int profile_test_fd = test_profile_fd_;
+    if (!test_profile_.empty()) {
+      profile_test_fd = open(test_profile_.c_str(), O_CREAT | O_TRUNC | O_WRONLY, 0644);
+      if (profile_test_fd < 0) {
+        std::cerr << "Cannot open " << test_profile_ << strerror(errno);
+        return -1;
+      }
     }
-
+    int num_dex_files = test_profile_num_dex_;
+    if (!apks_fd_.empty()) {
+      // Compute how many dex files are involved in this application.
+      num_dex_files = 0;
+      for (size_t i = 0; i < apks_fd_.size(); ++i) {
+        std::string error_msg;
+        std::vector<std::unique_ptr<const DexFile>> dex_files_for_location;
+        static constexpr bool kVerifyChecksum = true;
+        if (DexFile::OpenZip(apks_fd_[i],
+                             dex_locations_[i],
+                             kVerifyChecksum,
+                             &error_msg,
+                             &dex_files_for_location)) {
+        } else {
+          LOG(WARNING) << "OpenFromZip failed for '" << dex_locations_[i] << "' " << error_msg;
+          continue;
+        }
+        num_dex_files += dex_files_for_location.size();
+      }
+    }
     bool result = ProfileCompilationInfo::GenerateTestProfile(profile_test_fd,
-                                                             test_profile_num_dex_,
-                                                             test_profile_method_ratio_,
-                                                             test_profile_class_ratio_);
+                                                              num_dex_files,
+                                                              test_profile_method_ratio_,
+                                                              test_profile_class_ratio_);
     close(profile_test_fd);  // ignore close result.
     return result ? 0 : -1;
   }
 
   bool ShouldGenerateTestProfile() {
-    return !test_profile_.empty();
+    return !test_profile_.empty() || FdIsValid(test_profile_fd_);
   }
 
  private:
@@ -405,6 +439,7 @@ class ProfMan FINAL {
   std::vector<int> apks_fd_;
   std::string reference_profile_file_;
   int reference_profile_file_fd_;
+  int test_profile_fd_;
   bool dump_only_;
   int dump_output_to_fd_;
   std::string test_profile_;
