@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "bb330e43_ed889492",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-27T19:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d87e7c9a_212ee252",
         "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
         "patchSetId": 2
@@ -48,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "e11dbfc5_400e96a6",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-27T19:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0674356b_5bec5580",
         "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
         "patchSetId": 2
@@ -65,6 +99,23 @@
         "endLine": 188,
         "endChar": 39
       },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2166f34e_958437f9",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-27T19:07:52Z",
+      "side": 1,
+      "message": "Done",
       "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +162,23 @@
         "endLine": 194,
         "endChar": 63
       },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7687f2f4_41860be5",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-27T19:07:52Z",
+      "side": 1,
+      "message": "Done for no Ptr. ISTM we use () more.",
       "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
