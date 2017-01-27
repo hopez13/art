@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc29e41d_410a6160",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3860,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-01-27T11:20:04Z",
+      "side": 1,
+      "message": "I can reproduce the test failure fairly reliably by running the test in a loop and overloading my machine (with m -j128 checkbuild, for example). What I\u0027m seeing is that we get into a state where this call to TriggerGcForNativeAlloc fails to trigger a GC, the new_native_bytes_allocated_ is not reset, and the allocation goes through. The next allocation hits the blocking watermark again, doesn\u0027t spend any time waiting for GC because GC isn\u0027t running, and fails to trigger GC again. This happens in a loop, with more and more native allocations without any corresponding GC.\n\nPerhaps there\u0027s some period of time between when TriggerGcForNativeAlloc triggers a GC and when GC is considered to be running enough to cause WaitForGcToComplete to block? Or perhaps WaitForGcToComplete may not wait for Gc to complete, so that the subsequent Trigger doesn\u0027t actually trigger?",
+      "range": {
+        "startLine": 3859,
+        "startChar": 0,
+        "endLine": 3860,
+        "endChar": 34
+      },
+      "revId": "6bfc37d875b2556b3f1d95b00a785a09dc94ccb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
