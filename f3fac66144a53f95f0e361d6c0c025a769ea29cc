@@ -82,6 +82,29 @@
     },
     {
       "key": {
+        "uuid": "c14bd684_5b4f191e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "Cool, do we have a bug filed for this?",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 948,
+        "endChar": 7
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2ddb681_5e27eefe",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 7
@@ -588,6 +611,29 @@
     },
     {
       "key": {
+        "uuid": "4363d4a0_76242925",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "Indeed, less code, thanks!\n\nThe different dex caches we have (MethodType/String/Class/...) still have all look-alike methods. Would make sense to just come up with template classes (apparenlty the template only being the size of the specific dex cache?) that will avoid duplicating these methods. But Can be done in a later clenaup.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ff430d_00a72e69",
         "filename": "runtime/mirror/dex_cache.cc",
         "patchSetId": 7
@@ -680,6 +726,29 @@
     },
     {
       "key": {
+        "uuid": "c2d307e9_833a215a",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "So it\u0027s not the C entrypoint that has this assumption, but the potential assembly stub?\n\nI realize this comment is also in the lines below, but I\u0027m a bit confused on what code does rely on the power of 2.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 88
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c16470be_8da5961d",
         "filename": "runtime/oat.h",
         "patchSetId": 7
@@ -714,6 +783,29 @@
       "writtenOn": "2017-01-26T17:05:43Z",
       "side": 1,
       "message": "I though about it and this changes the .bss, so it does affect the oat file. Yes, we could change the image version instead with the same effect.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 97
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d647882_2b2fb768",
+        "filename": "runtime/oat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "Why does this change the bss? Is that only because of boot image?\n\nI think it feels more natural to bump both then, even if that has the same effect.",
       "range": {
         "startLine": 35,
         "startChar": 0,
