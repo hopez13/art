@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "e6185ab4_62d505b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T01:04:18Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "f6eecf53e8ba04896b87de86d08efa00161fa11f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9fbd33c_b4103489",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-27T00:07:01Z",
       "side": 1,
       "message": "Why is this safe without a read barrier?",
+      "range": {
+        "startLine": 247,
+        "startChar": 21,
+        "endLine": 247,
+        "endChar": 40
+      },
+      "revId": "f6eecf53e8ba04896b87de86d08efa00161fa11f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "189a94f4_f6e87bee",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T01:04:18Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 247,
         "startChar": 21,
