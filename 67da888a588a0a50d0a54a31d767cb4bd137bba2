@@ -22,6 +22,29 @@
       "revId": "67da888a588a0a50d0a54a31d767cb4bd137bba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b1286f2_7a82561e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2017-01-27T08:08:35Z",
+      "side": 1,
+      "message": "this is added in template, clearly people aren\u0027t looking, and the submit check doesn\u0027t block if you don\u0027t remove or update the template comment... no idea who added this.\n\nalso, we were having trouble with the revert, i had to do it for srhines for some reason, so didn\u0027t actually look at all the CLs, was just trying to get build green.",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "67da888a588a0a50d0a54a31d767cb4bd137bba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
