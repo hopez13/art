@@ -570,6 +570,9 @@ class ArtMethod FINAL {
   ALWAYS_INLINE ArtMethod* GetInterfaceMethodIfProxy(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  ArtMethod* GetNonObsoleteMethod(PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // May cause thread suspension due to class resolution.
   bool EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> params)
       REQUIRES_SHARED(Locks::mutator_lock_);
