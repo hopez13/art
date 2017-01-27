@@ -61,20 +61,26 @@ namespace openjdkjvmti {
 bool ClassLoaderHelper::AddToClassLoader(art::Thread* self,
                                          art::Handle<art::mirror::ClassLoader> loader,
                                          const art::DexFile* dex_file) {
+  art::ScopedObjectAccessUnchecked soa(self);
   art::StackHandleScope<2> hs(self);
-  art::Handle<art::mirror::Object> java_dex_file_obj(hs.NewHandle(FindSourceDexFileObject(self,
-                                                                                          loader)));
-  if (java_dex_file_obj.IsNull()) {
-    return false;
+  if (art::ClassLinker::IsBootClassLoader(soa, loader.Get())) {
+    art::Runtime::Current()->GetClassLinker()->AppendToBootClassPath(self, *dex_file);
+    return true;
+  } else {
+    art::Handle<art::mirror::Object> java_dex_file_obj(
+        hs.NewHandle(FindSourceDexFileObject(self, loader)));
+    if (java_dex_file_obj.IsNull()) {
+      return false;
+    }
+    art::Handle<art::mirror::LongArray> cookie(hs.NewHandle(
+        AllocateNewDexFileCookie(self, java_dex_file_obj, dex_file)));
+    if (cookie.IsNull()) {
+      return false;
+    }
+    art::ScopedAssertNoThreadSuspension nts("Replacing cookie fields in j.l.DexFile object");
+    UpdateJavaDexFile(java_dex_file_obj.Get(), cookie.Get());
+    return true;
   }
-  art::Handle<art::mirror::LongArray> cookie(hs.NewHandle(
-      AllocateNewDexFileCookie(self, java_dex_file_obj, dex_file)));
-  if (cookie.IsNull()) {
-    return false;
-  }
-  art::ScopedAssertNoThreadSuspension nts("Replacing cookie fields in j.l.DexFile object");
-  UpdateJavaDexFile(java_dex_file_obj.Get(), cookie.Get());
-  return true;
 }
 
 void ClassLoaderHelper::UpdateJavaDexFile(art::ObjPtr<art::mirror::Object> java_dex_file,
