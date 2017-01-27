@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a10db423_7d1db80d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T11:22:15Z",
+      "side": 1,
+      "message": "This is probably my fault. In entrypoint_utils-inl.h:GetResolvedMethod we do such calls and do not go to the dex cache. I was waiting on seeing the dex cache changes land before updating the code, but we could still make a dex cache query with the current API.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "137cdfa1e8a3810fb86d3298ec10036c0491d13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
