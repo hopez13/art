@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64db1d3f_51a101ee",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:32:58Z",
+      "side": 1,
+      "message": "Maybe return ObjPtr?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d87e7c9a_212ee252",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:32:58Z",
+      "side": 1,
+      "message": "These are the only ones we ever see, nothing else can define classes on Android.",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 41
+      },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0674356b_5bec5580",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:32:58Z",
+      "side": 1,
+      "message": "If it\u0027s not null, there wasn\u0027t an OOBE. Could be removed.",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 39
+      },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f07fea_c8eb61cf",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:32:58Z",
+      "side": 1,
+      "message": "I believe new preferred style is C++11: use \"\u003d\"",
+      "range": {
+        "startLine": 193,
+        "startChar": 51,
+        "endLine": 194,
+        "endChar": 65
+      },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6268107a_a7837441",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:32:58Z",
+      "side": 1,
+      "message": "GetObject takes an ObjPtr, no need for Ptr",
+      "range": {
+        "startLine": 194,
+        "startChar": 58,
+        "endLine": 194,
+        "endChar": 63
+      },
+      "revId": "d2de24572e0905fe06213e7c7933945ceaa3e205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
