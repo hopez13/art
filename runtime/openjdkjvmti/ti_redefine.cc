@@ -619,18 +619,6 @@ void Redefiner::ClassRedefinition::FillObsoleteMethodMap(
   }
 }
 
-// TODO It should be possible to only deoptimize the specific obsolete methods.
-// TODO ReJitEverything can (sort of) fail. In certain cases it will skip deoptimizing some frames.
-// If one of these frames is an obsolete method we have a problem. b/33616143
-// TODO This shouldn't be necessary once we can ensure that the current method is not kept in
-// registers across suspend points.
-// TODO Pending b/33630159
-void Redefiner::EnsureObsoleteMethodsAreDeoptimized() {
-  art::ScopedAssertNoThreadSuspension nts("Deoptimizing everything!");
-  art::instrumentation::Instrumentation* i = runtime_->GetInstrumentation();
-  i->ReJitEverything("libOpenJkdJvmti - Class Redefinition");
-}
-
 bool Redefiner::ClassRedefinition::CheckClass() {
   // TODO Might just want to put it in a ObjPtr and NoSuspend assert.
   art::StackHandleScope<1> hs(driver_->self_);
@@ -980,15 +968,6 @@ jvmtiError Redefiner::Run() {
     redef.UpdateClass(klass, holder.GetNewDexCache(cnt), holder.GetOriginalDexFileBytes(cnt));
     cnt++;
   }
-  // Ensure that obsolete methods are deoptimized. This is needed since optimized methods may have
-  // pointers to their ArtMethod's stashed in registers that they then use to attempt to hit the
-  // DexCache. (b/33630159)
-  // TODO This can fail (leave some methods optimized) near runtime methods (including
-  // quick-to-interpreter transition function).
-  // TODO We probably don't need this at all once we have a way to ensure that the
-  // current_art_method is never stashed in a (physical) register by the JIT and lost to the
-  // stack-walker.
-  EnsureObsoleteMethodsAreDeoptimized();
   // TODO Verify the new Class.
   // TODO Shrink the obsolete method maps if possible?
   // TODO find appropriate class loader.
