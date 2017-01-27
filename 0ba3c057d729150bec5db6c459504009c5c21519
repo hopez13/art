@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6357676_b9097237",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "Thanks, please also add a comment why you need it (vector of ObjPtr in ResolveCatchBlockExceptionClassVisitor...)",
+      "range": {
+        "startLine": 1172,
+        "startChar": 7,
+        "endLine": 1172,
+        "endChar": 56
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25af30dd_dcc95e49",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "The current LookupResolvedType already does the dex cache check. Is it only fetching the class linker you want to avoid in the callers?\n\n(Note: you could argue the current LookupResolvedType should *not* take a dex file, as an unrelated dex_cache/dex_file is likely to break).",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89f27a22_5b16f2a1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T09:48:07Z",
+      "side": 1,
+      "message": "Add a comment on public method, eg: \"Helper method that first looks into the dex cache and calls LookupResolvedType if absent\"",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 44
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
