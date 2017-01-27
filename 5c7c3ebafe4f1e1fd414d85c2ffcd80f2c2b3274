@@ -114,6 +114,29 @@
       "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fc682d5_01045398",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-01-27T00:20:38Z",
+      "side": 1,
+      "message": "Added one check in VerifyNonSingleImplementation which is also under the cha_lock.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 76
+      },
+      "revId": "5c7c3ebafe4f1e1fd414d85c2ffcd80f2c2b3274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
