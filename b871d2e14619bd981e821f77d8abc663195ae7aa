@@ -22,6 +22,29 @@
       "revId": "b871d2e14619bd981e821f77d8abc663195ae7aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d94118e4_5ce497ef",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-27T11:05:12Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll have a reduced test case shortly.\n\nYou\u0027re right, this is not a VIXL issue.  The problem was that before this CL, when generating code for a volatile field load with a large offset in the concurrent collector configuration, we requested three VIXL temps in these places:\n1. art::arm::InstructionCodeGeneratorARM64::HandleFieldGet (needed for the read barrier);\n2. art::arm::CodeGeneratorARM64::LoadAcquire (to create the load operand);\n3. vixl::aarch64::MacroAssembler::AddSubMacro (as the offset is too large to be encoded in the instruction).\n\nThis CL removes the first one to fix the issue.  However, there is a TODO in art::arm::CodeGeneratorARM64::LoadAcquire that suggests that the second one could be removed as well, by letting VIXL handle MemOperand built in CodeGeneratorARM64::LoadAcquire.  We can look at that option later.",
+      "range": {
+        "startLine": 1941,
+        "startChar": 14,
+        "endLine": 1941,
+        "endChar": 51
+      },
+      "revId": "b871d2e14619bd981e821f77d8abc663195ae7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
