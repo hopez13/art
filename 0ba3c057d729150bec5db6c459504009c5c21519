@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "58496b47_97a34ef6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 1172,
+        "startChar": 7,
+        "endLine": 1172,
+        "endChar": 56
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25af30dd_dcc95e49",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 8
@@ -48,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "6265a24c_a79cc69d",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "When properly inlined, the compiler can also avoid fetching the class_loader.\n\nI\u0027d like to remove the dex cache check from the other LookupResolvedType() and make it private (and maybe rename to LookupResolvedClassImpl()) but not as a part of this CL. As long as it remains public I want to keep the check. Removing the dex_file argument would be part of that refactoring (also related to the ArtMethod::GetClassFromTypeIndex() refactoring).",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89f27a22_5b16f2a1",
         "filename": "runtime/class_linker.h",
         "patchSetId": 8
@@ -59,6 +105,29 @@
       "writtenOn": "2017-01-27T09:48:07Z",
       "side": 1,
       "message": "Add a comment on public method, eg: \"Helper method that first looks into the dex cache and calls LookupResolvedType if absent\"",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 44
+      },
+      "revId": "0ba3c057d729150bec5db6c459504009c5c21519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3366667f_b12726b9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "As mentioned at the implementation, I want it the other way around. And any such comment shall be unnecessary.",
       "range": {
         "startLine": 272,
         "startChar": 0,
