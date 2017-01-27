@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bf9dbce_d9129fd6",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "Remove. We should not add more mirrors, to allow more transformations.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 89
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69444f61_dd613189",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "If you put the class out of FindClass into a handle, you do not need a handle here.",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 26
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44df8a44_028d35ba",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "? You already dereferenced above.",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 195,
+        "endChar": 46
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed17a8f9_594383d4",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "Why do this over and over?",
+      "range": {
+        "startLine": 196,
+        "startChar": 42,
+        "endLine": 198,
+        "endChar": 78
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60eee622_c9df2ab4",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "Why the handle here?",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d3a7e52_9bbfb328",
+        "filename": "runtime/openjdkjvmti/ti_class_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T01:20:53Z",
+      "side": 1,
+      "message": "What does this mean? There is no 1:1 relationship between java.lang.DexFile and ClassLoader. Clarify.",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 86
+      },
+      "revId": "57d5563917eb0d7c8af146ee4d453bb1fd85f904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
