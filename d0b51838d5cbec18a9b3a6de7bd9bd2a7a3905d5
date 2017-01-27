@@ -22,6 +22,29 @@
       "revId": "d0b51838d5cbec18a9b3a6de7bd9bd2a7a3905d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b4f1b07_897c1572",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-27T14:00:26Z",
+      "side": 1,
+      "message": "This is unlikely, and if they change, I\u0027d prefer to have the test break and understand why.\n\nI\u0027ve kept these registers explicitly on purpose, to track changes (X16 and X17 are IP0 and IP1, allocated through VIXL\u0027s scratch register pool).  In both test cases,\n* IP0 is allocated by VIXL for art::arm::CodeGeneratorARM64::LoadAcquire;\n* IP1 is allocated by VIXL for vixl::aarch64::MacroAssembler::AddSubMacro.\n\nI do not expect these methods to change substantially.\n\nAs I said in an earlier comment, I think we could refactor these methods to allocate only one scratch register (but that probably requires changes in VIXL itself); this test will need to be adjusted in that case anyway.",
+      "range": {
+        "startLine": 258,
+        "startChar": 33,
+        "endLine": 258,
+        "endChar": 36
+      },
+      "revId": "d0b51838d5cbec18a9b3a6de7bd9bd2a7a3905d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
