@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "aeb50e5d_7a571359",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T22:47:22Z",
+      "side": 1,
+      "message": "As the line is already long, I really prefer a named constant with longer text. But I made it local to the function.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 50
+      },
+      "revId": "e354e2362763c4418612a08f4a5c939f3ecb2e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f7cb01e_037a5130",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -59,6 +82,29 @@
       "writtenOn": "2017-01-26T14:05:14Z",
       "side": 1,
       "message": "I assumed you moved this here as you couldn\u0027t alllocate a peer before. Please add a comment on what allows you do allocate at this place.",
+      "range": {
+        "startLine": 698,
+        "startChar": 0,
+        "endLine": 714,
+        "endChar": 3
+      },
+      "revId": "e354e2362763c4418612a08f4a5c939f3ecb2e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce3eeb5_d0327670",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T22:47:22Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 698,
         "startChar": 0,
