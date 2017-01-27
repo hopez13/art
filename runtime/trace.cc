@@ -905,6 +905,7 @@ void Trace::FlushBuf() {
 void Trace::LogMethodTraceEvent(Thread* thread, ArtMethod* method,
                                 instrumentation::Instrumentation::InstrumentationEvent event,
                                 uint32_t thread_clock_diff, uint32_t wall_clock_diff) {
+  method = method->GetNonObsoleteMethod(kRuntimePointerSize);
   // Advance cur_offset_ atomically.
   int32_t new_offset;
   int32_t old_offset = 0;
