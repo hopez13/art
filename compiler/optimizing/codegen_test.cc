@@ -1067,6 +1067,77 @@ TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
 }
 #endif
 
+#ifdef ART_ENABLE_CODEGEN_arm64
+// Regression test for b/34760542.
+TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
+  std::unique_ptr<const Arm64InstructionSetFeatures> features(
+      Arm64InstructionSetFeatures::FromCppDefines());
+  ArenaPool pool;
+  ArenaAllocator allocator(&pool);
+  HGraph* graph = CreateGraph(&allocator);
+  arm64::CodeGeneratorARM64 codegen(graph, *features.get(), CompilerOptions());
+
+  codegen.Initialize();
+
+  // Dummy instruction (an actual instruction is not needed for the test).
+  HInstruction* ins = nullptr;
+
+  // This ParallelMove sequence:
+  //
+  //   [ source=R28 destination=S128 type=PrimInt instruction=Phi 2127 ]
+  //   [ source=R23 destination=S132 type=PrimNot instruction=Phi 2128 ]
+  //   [ source=R24 destination=S136 type=PrimInt instruction=Phi 2129 ]
+  //   [ source=R21 destination=S140 type=PrimInt instruction=Phi 2130 ]
+  //   [ source=R25 destination=S144 type=PrimNot instruction=Phi 2131 ]
+  //   [ source=DS364 destination=DS348 type=PrimDouble instruction=Phi 2132 ]
+  //   [ source=DS348 destination=DS356 type=PrimDouble instruction=Phi 2133 ]
+  //   [ source=DS356 destination=DS364 type=PrimDouble instruction=Phi 2134 ]
+  //   [ source=R27 destination=S148 type=PrimNot instruction=Phi 2136 ]
+  //   [ source=R28 destination=S152 type=PrimInt instruction=Phi 2137 ]
+  //   [ source=R29 destination=S156 type=PrimInt instruction=Phi 2138 ]
+  //   [ source=S128 destination=S160 type=PrimInt instruction=Phi 2139 ]
+  //   [ source=S132 destination=S164 type=PrimInt instruction=Phi 2140 ]
+  //   [ source=S136 destination=S168 type=PrimInt instruction=Phi 2141 ]
+  //   [ source=S140 destination=S172 type=PrimInt instruction=Phi 2142 ]
+  //   [ source=S144 destination=S176 type=PrimNot instruction=Phi 2143 ]
+  //   [ source=S148 destination=S180 type=PrimInt instruction=Phi 2144 ]
+  //
+  // used to fail this assertion:
+  //
+  //   Assertion failed (!available->IsEmpty())
+  //
+  // in vixl::aarch64::UseScratchRegisterScope::AcquireNextAvailable.
+  HParallelMove* move = new (graph->GetArena()) HParallelMove(graph->GetArena());
+  move->AddMove(Location::RegisterLocation(28), Location::StackSlot(128), Primitive::kPrimInt, ins);
+  move->AddMove(Location::RegisterLocation(23), Location::StackSlot(132), Primitive::kPrimNot, ins);
+  move->AddMove(Location::RegisterLocation(24), Location::StackSlot(136), Primitive::kPrimInt, ins);
+  move->AddMove(Location::RegisterLocation(21), Location::StackSlot(140), Primitive::kPrimInt, ins);
+  move->AddMove(Location::RegisterLocation(25), Location::StackSlot(144), Primitive::kPrimNot, ins);
+  move->AddMove(
+      Location::DoubleStackSlot(364), Location::DoubleStackSlot(348), Primitive::kPrimDouble, ins);
+  move->AddMove(
+      Location::DoubleStackSlot(348), Location::DoubleStackSlot(356), Primitive::kPrimDouble, ins);
+  move->AddMove(
+      Location::DoubleStackSlot(356), Location::DoubleStackSlot(364), Primitive::kPrimDouble, ins);
+  move->AddMove(
+      Location::RegisterLocation(27), Location::StackSlot(148), Primitive::kPrimNot, ins);
+  move->AddMove(
+      Location::RegisterLocation(28), Location::StackSlot(152), Primitive::kPrimInt, ins);
+  move->AddMove(
+      Location::RegisterLocation(29), Location::StackSlot(156), Primitive::kPrimInt, ins);
+  move->AddMove(Location::StackSlot(128), Location::StackSlot(160), Primitive::kPrimInt, ins);
+  move->AddMove(Location::StackSlot(132), Location::StackSlot(164), Primitive::kPrimInt, ins);
+  move->AddMove(Location::StackSlot(136), Location::StackSlot(168), Primitive::kPrimInt, ins);
+  move->AddMove(Location::StackSlot(140), Location::StackSlot(172), Primitive::kPrimInt, ins);
+  move->AddMove(Location::StackSlot(144), Location::StackSlot(176), Primitive::kPrimNot, ins);
+  move->AddMove(Location::StackSlot(148), Location::StackSlot(180), Primitive::kPrimInt, ins);
+  codegen.GetMoveResolver()->EmitNativeCode(move);
+
+  InternalCodeAllocator code_allocator;
+  codegen.Finalize(&code_allocator);
+}
+#endif
+
 #ifdef ART_ENABLE_CODEGEN_mips
 TEST_F(CodegenTest, MipsClobberRA) {
   std::unique_ptr<const MipsInstructionSetFeatures> features_mips(
