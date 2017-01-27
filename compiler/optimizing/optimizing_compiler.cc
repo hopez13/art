@@ -1129,6 +1129,29 @@ bool IsCompilingWithCoreImage() {
   return false;
 }
 
+bool EncodeArtMethodInInlineInfo(ArtMethod* method ATTRIBUTE_UNUSED) {
+  // Note: the runtime is null only for unit testing.
+  return Runtime::Current() == nullptr || !Runtime::Current()->IsAotCompiler();
+}
+
+bool CanEncodeInlinedMethodInStackMap(ArtMethod* caller, ArtMethod* callee) {
+  ScopedObjectAccess soa(Thread::Current());
+  if (!Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+  if (caller == nullptr) {
+    // Don't bother, we're doing AOT compile of an unresolved method.
+    return false;
+  }
+  if (caller->GetDexFile() == callee->GetDexFile()) {
+    return true;
+  }
+  // TODO(ngeoffray): Support more AOT cases for inlining:
+  // - methods in multidex
+  // - methods in boot image for on-device non-PIC compilation.
+  return false;
+}
+
 bool OptimizingCompiler::JitCompile(Thread* self,
                                     jit::JitCodeCache* code_cache,
                                     ArtMethod* method,
