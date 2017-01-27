@@ -22,6 +22,29 @@
       "revId": "137cdfa1e8a3810fb86d3298ec10036c0491d13f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c35aeaba_d587afd6",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T11:24:30Z",
+      "side": 1,
+      "message": "Why this change? Doesn\u0027t seem related.",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 1
+      },
+      "revId": "137cdfa1e8a3810fb86d3298ec10036c0491d13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
