@@ -105,6 +105,29 @@
     },
     {
       "key": {
+        "uuid": "7c4495f0_5948d34d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "For me this is all covered by b/30627598 . I\u0027ve also flagged that in comment #21.",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 948,
+        "endChar": 7
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2ddb681_5e27eefe",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 7
@@ -634,6 +657,29 @@
     },
     {
       "key": {
+        "uuid": "3599223d_eb484d4c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "Similar but different: \"GetResolved*()[*SlotIndex(.)].store(., std::memory_order_*)\" - every \u0027*\u0027 marks a difference.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ff430d_00a72e69",
         "filename": "runtime/mirror/dex_cache.cc",
         "patchSetId": 7
@@ -749,6 +795,29 @@
     },
     {
       "key": {
+        "uuid": "c834b10a_b469d5cb",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "Now that I think of it, maybe none. One could argue that it\u0027s faster than a proper DIV instruction. I don\u0027t want to clean this up in _this_ CL.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 88
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c16470be_8da5961d",
         "filename": "runtime/oat.h",
         "patchSetId": 7
@@ -806,6 +875,29 @@
       "writtenOn": "2017-01-27T09:48:07Z",
       "side": 1,
       "message": "Why does this change the bss? Is that only because of boot image?\n\nI think it feels more natural to bump both then, even if that has the same effect.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 97
+      },
+      "revId": "f3fac66144a53f95f0e361d6c0c025a769ea29cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a227ffe7_8092afed",
+        "filename": "runtime/oat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-27T10:48:35Z",
+      "side": 1,
+      "message": "App image .bss still holds the dex cache arrays, including the changed type array.\n\nBumped the image version as well.",
       "range": {
         "startLine": 35,
         "startChar": 0,
