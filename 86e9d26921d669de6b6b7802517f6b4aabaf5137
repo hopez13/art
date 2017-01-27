@@ -22,6 +22,29 @@
       "revId": "86e9d26921d669de6b6b7802517f6b4aabaf5137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f99ed973_59fd2759",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2017-01-27T11:19:14Z",
+      "side": 1,
+      "message": "I didn\u0027t try to reproduce it myself because the VIXL team already had; they reported the problem to me.\n\nI can\u0027t write a regression test now for Adr, as it has been removed from the MacroAssembler.\n\nAny pending literal pools or veneers will be emitted when the ExactAssemblyScope is opened, and there are VIXL tests to protect this behaviour.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "86e9d26921d669de6b6b7802517f6b4aabaf5137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
