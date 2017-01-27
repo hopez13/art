@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f0dd692_757dd1e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:56:01Z",
+      "side": 1,
+      "message": "Add a \"reverts commit\" for this?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "786f7a62_489791c8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -18,6 +41,75 @@
         "startChar": 0,
         "endLine": 24,
         "endChar": 19
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e08b25ec_cc03dc1d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:56:01Z",
+      "side": 1,
+      "message": "This looks *really* strange. I think it would look a lot better if the runtime had an option that implies we add it to the compiler options. But that\u0027s up to you.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 3
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a97ee7d7_ce87afb1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:56:01Z",
+      "side": 1,
+      "message": "Remove, only on the declaration.",
+      "range": {
+        "startLine": 2209,
+        "startChar": 4,
+        "endLine": 2209,
+        "endChar": 41
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f6f2c34_bd459794",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-27T18:56:01Z",
+      "side": 1,
+      "message": "Is there actually a reason for this to be here? Why not in Instrumentation? Or ArtMethod?",
+      "range": {
+        "startLine": 641,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 89
       },
       "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
