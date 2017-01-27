@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "b6c49e6a_5d96db3c",
+        "filename": "runtime/bit_memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T17:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "fe1db04d213fd456e8b0450f2b22d257311bd3db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac4a2939_36774a5f",
         "filename": "runtime/bit_memory_region.h",
         "patchSetId": 3
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-27T11:42:53Z",
       "side": 1,
       "message": "Why no bit_end_ for finer grain bounds checking?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "fe1db04d213fd456e8b0450f2b22d257311bd3db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907cad39_645d4727",
+        "filename": "runtime/bit_memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T17:56:17Z",
+      "side": 1,
+      "message": "That is on the TODO list.",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -71,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "655a2824_fdcf1e41",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T17:56:17Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 692,
+        "startChar": 38,
+        "endLine": 692,
+        "endChar": 43
+      },
+      "revId": "fe1db04d213fd456e8b0450f2b22d257311bd3db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0323c2ec_e7a7e699",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -82,6 +151,29 @@
       "writtenOn": "2017-01-27T11:42:53Z",
       "side": 1,
       "message": "Add a comment that the stack_mask in stored last. Is there some DCHECK or static_assert we could craft to ensure it?",
+      "range": {
+        "startLine": 1113,
+        "startChar": 0,
+        "endLine": 1113,
+        "endChar": 97
+      },
+      "revId": "fe1db04d213fd456e8b0450f2b22d257311bd3db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0d52513_36a56c1b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T17:56:17Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 1113,
         "startChar": 0,
