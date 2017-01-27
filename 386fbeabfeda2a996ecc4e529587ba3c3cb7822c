@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6104c17_5aed9e86",
+        "filename": "test/635-checker-arm64-volatile-load-cc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-27T13:13:47Z",
+      "side": 1,
+      "message": "This is brittle, please use regexp instead.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 43
+      },
+      "revId": "386fbeabfeda2a996ecc4e529587ba3c3cb7822c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
