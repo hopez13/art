@@ -19,6 +19,7 @@
 
 namespace art {
 
+class ArtMethod;
 class Compiler;
 class CompilerDriver;
 
@@ -28,6 +29,9 @@ Compiler* CreateOptimizingCompiler(CompilerDriver* driver);
 // is an indicative we are running tests. The compiler will use that
 // information for checking invariants.
 bool IsCompilingWithCoreImage();
+
+bool EncodeArtMethodInInlineInfo(ArtMethod* method);
+bool CanEncodeInlinedMethodInStackMap(ArtMethod* caller, ArtMethod* callee);
 
 }  // namespace art
 

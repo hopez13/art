@@ -1129,6 +1129,22 @@ bool IsCompilingWithCoreImage() {
   return false;
 }
 
+bool EncodeArtMethodInInlineInfo(ArtMethod* method ATTRIBUTE_UNUSED) {
+  // Note: the runtime is null only for unit testing.
+  return Runtime::Current() == nullptr || !Runtime::Current()->IsAotCompiler();
+}
+
+bool CanEncodeInlinedMethodInStackMap(ArtMethod* caller, ArtMethod* callee) {
+  ScopedObjectAccess soa(Thread::Current());
+  if (!Runtime::Current()->IsAotCompiler()) {
+    return true;
+  }
+  if (caller->GetDexFile() == callee->GetDexFile()) {
+    return true;
+  }
+  return false;
+}
+
 bool OptimizingCompiler::JitCompile(Thread* self,
                                     jit::JitCodeCache* code_cache,
                                     ArtMethod* method,
