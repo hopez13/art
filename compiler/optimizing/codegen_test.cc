@@ -1067,6 +1067,46 @@ TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
 }
 #endif
 
+#ifdef ART_ENABLE_CODEGEN_arm64
+// Regression test for b/34760542.
+TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
+  std::unique_ptr<const Arm64InstructionSetFeatures> features(
+      Arm64InstructionSetFeatures::FromCppDefines());
+  ArenaPool pool;
+  ArenaAllocator allocator(&pool);
+  HGraph* graph = CreateGraph(&allocator);
+  arm64::CodeGeneratorARM64 codegen(graph, *features.get(), CompilerOptions());
+
+  codegen.Initialize();
+
+  // Dummy instruction (an actual instruction is not needed for the test).
+  HInstruction* ins = nullptr;
+
+  // This ParallelMove sequence:
+  //
+  //   [ source=DS364 destination=DS348 type=PrimDouble instruction=Phi 2132 ]
+  //   [ source=DS348 destination=DS356 type=PrimDouble instruction=Phi 2133 ]
+  //   [ source=DS356 destination=DS364 type=PrimDouble instruction=Phi 2134 ]
+  //
+  // used to fail this assertion:
+  //
+  //   Assertion failed (!available->IsEmpty())
+  //
+  // in vixl::aarch64::UseScratchRegisterScope::AcquireNextAvailable.
+  HParallelMove* move = new (graph->GetArena()) HParallelMove(graph->GetArena());
+  move->AddMove(
+      Location::DoubleStackSlot(364), Location::DoubleStackSlot(348), Primitive::kPrimDouble, ins);
+  move->AddMove(
+      Location::DoubleStackSlot(348), Location::DoubleStackSlot(356), Primitive::kPrimDouble, ins);
+  move->AddMove(
+      Location::DoubleStackSlot(356), Location::DoubleStackSlot(364), Primitive::kPrimDouble, ins);
+  codegen.GetMoveResolver()->EmitNativeCode(move);
+
+  InternalCodeAllocator code_allocator;
+  codegen.Finalize(&code_allocator);
+}
+#endif
+
 #ifdef ART_ENABLE_CODEGEN_mips
 TEST_F(CodegenTest, MipsClobberRA) {
   std::unique_ptr<const MipsInstructionSetFeatures> features_mips(
