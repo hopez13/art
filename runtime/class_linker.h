@@ -246,42 +246,34 @@ class ClassLinker {
                                Handle<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Resolve a Type with the given index from the DexFile, storing the
-  // result in the DexCache. The referrer is used to identify the
-  // target DexCache and ClassLoader to use for resolution.
-  mirror::Class* ResolveType(const DexFile& dex_file,
-                             dex::TypeIndex type_idx,
-                             ObjPtr<mirror::Class> referrer)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
-
-  // Resolve a Type with the given index from the DexFile, storing the
-  // result in the DexCache. The referrer is used to identify the
-  // target DexCache and ClassLoader to use for resolution.
-  mirror::Class* ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
-
   // Look up a resolved type with the given ID from the DexFile. The ClassLoader is used to search
   // for the type, since it may be referenced from but not contained within the given DexFile.
-  ObjPtr<mirror::Class> LookupResolvedType(const DexFile& dex_file,
-                                           dex::TypeIndex type_idx,
-                                           ObjPtr<mirror::DexCache> dex_cache,
-                                           ObjPtr<mirror::ClassLoader> class_loader)
-      REQUIRES_SHARED(Locks::mutator_lock_);
   static ObjPtr<mirror::Class> LookupResolvedType(dex::TypeIndex type_idx,
                                                   ObjPtr<mirror::DexCache> dex_cache,
                                                   ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Resolve a type with the given ID from the DexFile, storing the
-  // result in DexCache. The ClassLoader is used to search for the
-  // type, since it may be referenced from but not contained within
-  // the given DexFile.
-  mirror::Class* ResolveType(const DexFile& dex_file,
-                             dex::TypeIndex type_idx,
-                             Handle<mirror::DexCache> dex_cache,
-                             Handle<mirror::ClassLoader> class_loader)
+  // Convenience overload of LookupResolvedType(), see above, that takes an ArtMethod.
+  static ObjPtr<mirror::Class> LookupResolvedType(dex::TypeIndex type_idx, ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Resolve a type with the given index from the DexFile associated with the given DexCache
+  // and ClassLoader.
+  ObjPtr<mirror::Class> ResolveType(dex::TypeIndex type_idx,
+                                    Handle<mirror::DexCache> dex_cache,
+                                    Handle<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+  // Resolve a Type with the given index from the DexFile associated with the given Class.
+  // The Class is used to identify the target DexCache and ClassLoader to use for resolution.
+  ObjPtr<mirror::Class> ResolveType(dex::TypeIndex type_idx, ObjPtr<mirror::Class> referrer)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+  // Resolve a Type with the given index from the DexFile associated with the given ArtMethod.
+  // The referrer is used to identify the target DexCache and ClassLoader to use for resolution.
+  ObjPtr<mirror::Class> ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
@@ -292,14 +284,12 @@ class ClassLinker {
     kForceICCECheck
   };
 
-  // Resolve a method with a given ID from the DexFile, storing the
-  // result in DexCache. The ClassLinker and ClassLoader are used as
-  // in ResolveType. What is unique is the method type argument which
-  // is used to determine if this method is a direct, static, or
-  // virtual method.
+  // Resolve a method with a given ID from the DexFile associated with the given DexCache
+  // and ClassLoader, storing the result in DexCache. The ClassLinker and ClassLoader are
+  // used as in ResolveType. What is unique is the method type argument which is used to
+  // determine if this method is a direct, static, or virtual method.
   template <ResolveMode kResolveMode>
-  ArtMethod* ResolveMethod(const DexFile& dex_file,
-                           uint32_t method_idx,
+  ArtMethod* ResolveMethod(uint32_t method_idx,
                            Handle<mirror::DexCache> dex_cache,
                            Handle<mirror::ClassLoader> class_loader,
                            ArtMethod* referrer,
@@ -313,17 +303,16 @@ class ClassLinker {
   // This returns the class referred to by GetMethodId(method_idx).class_idx_. This might be
   // different then the declaring class of the resolved method due to copied
   // miranda/default/conflict methods.
-  mirror::Class* ResolveReferencedClassOfMethod(uint32_t method_idx,
-                                                Handle<mirror::DexCache> dex_cache,
-                                                Handle<mirror::ClassLoader> class_loader)
+  ObjPtr<mirror::Class> ResolveReferencedClassOfMethod(uint32_t method_idx,
+                                                       Handle<mirror::DexCache> dex_cache,
+                                                       Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
   template <ResolveMode kResolveMode>
   ArtMethod* ResolveMethod(Thread* self, uint32_t method_idx, ArtMethod* referrer, InvokeType type)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
-  ArtMethod* ResolveMethodWithoutInvokeType(const DexFile& dex_file,
-                                            uint32_t method_idx,
+  ArtMethod* ResolveMethodWithoutInvokeType(uint32_t method_idx,
                                             Handle<mirror::DexCache> dex_cache,
                                             Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -335,32 +324,30 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  // Resolve a field with a given ID from the DexFile, storing the
-  // result in DexCache. The ClassLinker and ClassLoader are used as
-  // in ResolveType. What is unique is the is_static argument which is
-  // used to determine if we are resolving a static or non-static
-  // field.
-  ArtField* ResolveField(const DexFile& dex_file, uint32_t field_idx,
+  // Resolve a field with a given ID from the DexFile associated with the given DexCache
+  // and ClassLoader, storing the result in DexCache, storing the result in DexCache. The
+  // ClassLinker and ClassLoader are used as in ResolveType. What is unique is the is_static
+  // argument which is used to determine if we are resolving a static or non-static field.
+  ArtField* ResolveField(uint32_t field_idx,
                          Handle<mirror::DexCache> dex_cache,
-                         Handle<mirror::ClassLoader> class_loader, bool is_static)
+                         Handle<mirror::ClassLoader> class_loader,
+                         bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  // Resolve a field with a given ID from the DexFile, storing the
-  // result in DexCache. The ClassLinker and ClassLoader are used as
-  // in ResolveType. No is_static argument is provided so that Java
+  // Resolve a field with a given ID from the DexFile associated with the given DexCache
+  // and ClassLoader, storing the result in DexCache. The ClassLinker and ClassLoader
+  // are used as in ResolveType. No is_static argument is provided so that Java
   // field resolution semantics are followed.
-  ArtField* ResolveFieldJLS(const DexFile& dex_file,
-                            uint32_t field_idx,
+  ArtField* ResolveFieldJLS(uint32_t field_idx,
                             Handle<mirror::DexCache> dex_cache,
                             Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  // Resolve a method type with a given ID from the DexFile, storing
-  // the result in the DexCache.
-  mirror::MethodType* ResolveMethodType(const DexFile& dex_file,
-                                        uint32_t proto_idx,
+  // Resolve a method type with a given ID from the DexFile associated with a given DexCache
+  // and ClassLoader, storing the result in the DexCache.
+  mirror::MethodType* ResolveMethodType(uint32_t proto_idx,
                                         Handle<mirror::DexCache> dex_cache,
                                         Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -800,6 +787,24 @@ class ClassLinker {
                                      ObjPtr<mirror::Class>* result)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
+
+  // Implementation of LookupResolvedType() called when the type was not found in the dex cache.
+  ObjPtr<mirror::Class> DoLookupResolvedType(dex::TypeIndex type_idx,
+                                             ObjPtr<mirror::DexCache> dex_cache,
+                                             ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Implementation of ResolveType() called when the type was not found in the dex cache.
+  mirror::Class* DoResolveType(dex::TypeIndex type_idx,
+                               ObjPtr<mirror::DexCache> dex_cache,
+                               ObjPtr<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+  mirror::Class* DoResolveType(dex::TypeIndex type_idx,
+                               Handle<mirror::DexCache> dex_cache,
+                               Handle<mirror::ClassLoader> class_loader)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
   // Finds a class by its descriptor, returning NULL if it isn't wasn't loaded
   // by the given 'class_loader'. Uses the provided hash for the descriptor.

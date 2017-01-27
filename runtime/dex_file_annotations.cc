@@ -251,7 +251,7 @@ mirror::Object* ProcessEncodedAnnotation(Handle<mirror::Class> klass, const uint
   StackHandleScope<2> hs(self);
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   Handle<mirror::Class> annotation_class(hs.NewHandle(
-      class_linker->ResolveType(klass->GetDexFile(), dex::TypeIndex(type_index), klass.Get())));
+      class_linker->ResolveType(dex::TypeIndex(type_index), klass.Get())));
   if (annotation_class.Get() == nullptr) {
     LOG(INFO) << "Unable to resolve " << klass->PrettyClass() << " annotation class " << type_index;
     DCHECK(Thread::Current()->IsExceptionPending());
@@ -376,8 +376,8 @@ bool ProcessAnnotationValue(Handle<mirror::Class> klass,
         annotation_value->value_.SetI(index);
       } else {
         dex::TypeIndex type_index(index);
-        element_object = Runtime::Current()->GetClassLinker()->ResolveType(
-            klass->GetDexFile(), type_index, klass.Get());
+        element_object =
+            Runtime::Current()->GetClassLinker()->ResolveType(type_index, klass.Get());
         set_object = true;
         if (element_object == nullptr) {
           CHECK(self->IsExceptionPending());
@@ -403,7 +403,7 @@ bool ProcessAnnotationValue(Handle<mirror::Class> klass,
         Handle<mirror::ClassLoader> class_loader(hs.NewHandle(klass->GetClassLoader()));
         ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
         ArtMethod* method = class_linker->ResolveMethodWithoutInvokeType(
-            klass->GetDexFile(), index, dex_cache, class_loader);
+            index, dex_cache, class_loader);
         if (method == nullptr) {
           return false;
         }
@@ -441,8 +441,8 @@ bool ProcessAnnotationValue(Handle<mirror::Class> klass,
         StackHandleScope<2> hs(self);
         Handle<mirror::DexCache> dex_cache(hs.NewHandle(klass->GetDexCache()));
         Handle<mirror::ClassLoader> class_loader(hs.NewHandle(klass->GetClassLoader()));
-        ArtField* field = Runtime::Current()->GetClassLinker()->ResolveFieldJLS(
-            klass->GetDexFile(), index, dex_cache, class_loader);
+        ArtField* field =
+            Runtime::Current()->GetClassLinker()->ResolveFieldJLS(index, dex_cache, class_loader);
         if (field == nullptr) {
           return false;
         }
@@ -468,7 +468,7 @@ bool ProcessAnnotationValue(Handle<mirror::Class> klass,
         Handle<mirror::DexCache> dex_cache(hs.NewHandle(klass->GetDexCache()));
         Handle<mirror::ClassLoader> class_loader(hs.NewHandle(klass->GetClassLoader()));
         ArtField* enum_field = Runtime::Current()->GetClassLinker()->ResolveField(
-            klass->GetDexFile(), index, dex_cache, class_loader, true);
+            index, dex_cache, class_loader, true);
         if (enum_field == nullptr) {
           return false;
         } else {
@@ -670,8 +670,8 @@ const DexFile::AnnotationItem* GetAnnotationItemFromAnnotationSet(
     }
     const uint8_t* annotation = annotation_item->annotation_;
     uint32_t type_index = DecodeUnsignedLeb128(&annotation);
-    mirror::Class* resolved_class = Runtime::Current()->GetClassLinker()->ResolveType(
-        klass->GetDexFile(), dex::TypeIndex(type_index), klass.Get());
+    ObjPtr<mirror::Class> resolved_class =
+        Runtime::Current()->GetClassLinker()->ResolveType(dex::TypeIndex(type_index), klass.Get());
     if (resolved_class == nullptr) {
       std::string temp;
       LOG(WARNING) << StringPrintf("Unable to resolve %s annotation class %d",
@@ -1212,7 +1212,7 @@ mirror::Class* GetEnclosingClass(Handle<mirror::Class> klass) {
   Handle<mirror::DexCache> dex_cache(hs.NewHandle(klass->GetDexCache()));
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(klass->GetClassLoader()));
   ArtMethod* method = Runtime::Current()->GetClassLinker()->ResolveMethodWithoutInvokeType(
-      klass->GetDexFile(), annotation_value.value_.GetI(), dex_cache, class_loader);
+      annotation_value.value_.GetI(), dex_cache, class_loader);
   if (method == nullptr) {
     return nullptr;
   }
@@ -1351,10 +1351,8 @@ void RuntimeEncodedStaticFieldValueIterator::ReadValueToField(ArtField* field) c
       break;
     }
     case kType: {
-      mirror::Class* resolved = linker_->ResolveType(dex_file_,
-                                                     dex::TypeIndex(jval_.i),
-                                                     *dex_cache_,
-                                                     *class_loader_);
+      ObjPtr<mirror::Class> resolved =
+          linker_->ResolveType(dex::TypeIndex(jval_.i), *dex_cache_, *class_loader_);
       field->SetObject<kTransactionActive>(field->GetDeclaringClass(), resolved);
       break;
     }

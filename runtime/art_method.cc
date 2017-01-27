@@ -483,8 +483,8 @@ bool ArtMethod::EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> param
   }
   auto* cl = Runtime::Current()->GetClassLinker();
   for (size_t i = 0; i < count; ++i) {
-    auto type_idx = proto_params->GetTypeItem(i).type_idx_;
-    auto* type = cl->ResolveType(type_idx, this);
+    dex::TypeIndex type_idx = proto_params->GetTypeItem(i).type_idx_;
+    ObjPtr<mirror::Class> type = cl->ResolveType(type_idx, this);
     if (type == nullptr) {
       Thread::Current()->AssertPendingException();
       return false;

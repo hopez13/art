@@ -628,7 +628,6 @@ static void CompileMethod(Thread* self,
       // TODO: Lookup annotation from DexFile directly without resolving method.
       ArtMethod* method =
           Runtime::Current()->GetClassLinker()->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-              dex_file,
               method_idx,
               dex_cache,
               class_loader,
@@ -1104,6 +1103,7 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
     if (code_item->tries_size_ == 0) {
       return;  // nothing to process
     }
+    DCHECK(!method->IsProxyMethod());
     const uint8_t* encoded_catch_handler_list = DexFile::GetCatchHandlerData(*code_item, 0);
     size_t num_encoded_catch_handlers = DecodeUnsignedLeb128(&encoded_catch_handler_list);
     for (size_t i = 0; i < num_encoded_catch_handlers; i++) {
@@ -1117,7 +1117,8 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
         dex::TypeIndex encoded_catch_handler_handlers_type_idx =
             dex::TypeIndex(DecodeUnsignedLeb128(&encoded_catch_handler_list));
         // Add to set of types to resolve if not already in the dex cache resolved types
-        if (!method->IsResolvedTypeIdx(encoded_catch_handler_handlers_type_idx)) {
+        if (ClassLinker::LookupResolvedType(encoded_catch_handler_handlers_type_idx, method) ==
+            nullptr) {
           exceptions_to_resolve->emplace(encoded_catch_handler_handlers_type_idx,
                                          method->GetDexFile());
         }
@@ -1196,20 +1197,17 @@ void CompilerDriver::LoadImageClasses(TimingLogger* timings) {
     for (const auto& exception_type : unresolved_exception_types) {
       dex::TypeIndex exception_type_idx = exception_type.first;
       const DexFile* dex_file = exception_type.second;
-      StackHandleScope<2> hs2(self);
+      StackHandleScope<1> hs2(self);
       Handle<mirror::DexCache> dex_cache(hs2.NewHandle(class_linker->RegisterDexFile(*dex_file,
                                                                                      nullptr)));
-      Handle<mirror::Class> klass(hs2.NewHandle(
-          class_linker->ResolveType(*dex_file,
-                                    exception_type_idx,
-                                    dex_cache,
-                                    ScopedNullHandle<mirror::ClassLoader>())));
-      if (klass.Get() == nullptr) {
+      ObjPtr<mirror::Class> klass = class_linker->ResolveType(
+          exception_type_idx, dex_cache, ScopedNullHandle<mirror::ClassLoader>());
+      if (klass == nullptr) {
         const DexFile::TypeId& type_id = dex_file->GetTypeId(exception_type_idx);
         const char* descriptor = dex_file->GetTypeDescriptor(type_id);
         LOG(FATAL) << "Failed to resolve class " << descriptor;
       }
-      DCHECK(java_lang_Throwable->IsAssignableFrom(klass.Get()));
+      DCHECK(java_lang_Throwable->IsAssignableFrom(klass));
     }
     // Resolving exceptions may load classes that reference more exceptions, iterate until no
     // more are found
@@ -1517,7 +1515,7 @@ ArtField* CompilerDriver::ComputeInstanceFieldInfo(uint32_t field_idx,
                                                    const ScopedObjectAccess& soa) {
   // Try to resolve the field and compiling method's class.
   ArtField* resolved_field;
-  mirror::Class* referrer_class;
+  ObjPtr<mirror::Class> referrer_class;
   Handle<mirror::DexCache> dex_cache(mUnit->GetDexCache());
   {
     Handle<mirror::ClassLoader> class_loader_handle = mUnit->GetClassLoader();
@@ -1688,7 +1686,7 @@ class ParallelCompilationManager {
 
 // A fast version of SkipClass above if the class pointer is available
 // that avoids the expensive FindInClassPath search.
-static bool SkipClass(jobject class_loader, const DexFile& dex_file, mirror::Class* klass)
+static bool SkipClass(jobject class_loader, const DexFile& dex_file, ObjPtr<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK(klass != nullptr);
   const DexFile& original_dex_file = *klass->GetDexCache()->GetDexFile();
@@ -1784,8 +1782,8 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
         soa.Self(), dex_file, false)));
     // Resolve the class.
-    mirror::Class* klass = class_linker->ResolveType(dex_file, class_def.class_idx_, dex_cache,
-                                                     class_loader);
+    ObjPtr<mirror::Class> klass =
+        class_linker->ResolveType(class_def.class_idx_, dex_cache, class_loader);
     bool resolve_fields_and_methods;
     if (klass == nullptr) {
       // Class couldn't be resolved, for example, super-class is in a different dex file. Don't
@@ -1811,8 +1809,8 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
       ClassDataItemIterator it(dex_file, class_data);
       while (it.HasNextStaticField()) {
         if (resolve_fields_and_methods) {
-          ArtField* field = class_linker->ResolveField(dex_file, it.GetMemberIndex(),
-                                                               dex_cache, class_loader, true);
+          ArtField* field =
+              class_linker->ResolveField(it.GetMemberIndex(), dex_cache, class_loader, true);
           if (field == nullptr) {
             CheckAndClearResolveException(soa.Self());
           }
@@ -1826,8 +1824,8 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
           requires_constructor_barrier = true;
         }
         if (resolve_fields_and_methods) {
-          ArtField* field = class_linker->ResolveField(dex_file, it.GetMemberIndex(),
-                                                               dex_cache, class_loader, false);
+          ArtField* field =
+              class_linker->ResolveField(it.GetMemberIndex(), dex_cache, class_loader, false);
           if (field == nullptr) {
             CheckAndClearResolveException(soa.Self());
           }
@@ -1837,7 +1835,10 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
       if (resolve_fields_and_methods) {
         while (it.HasNextDirectMethod()) {
           ArtMethod* method = class_linker->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-              dex_file, it.GetMemberIndex(), dex_cache, class_loader, nullptr,
+              it.GetMemberIndex(),
+              dex_cache,
+              class_loader,
+              /* referrer */ nullptr,
               it.GetMethodInvokeType(class_def));
           if (method == nullptr) {
             CheckAndClearResolveException(soa.Self());
@@ -1846,7 +1847,10 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
         }
         while (it.HasNextVirtualMethod()) {
           ArtMethod* method = class_linker->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-              dex_file, it.GetMemberIndex(), dex_cache, class_loader, nullptr,
+              it.GetMemberIndex(),
+              dex_cache,
+              class_loader,
+              /* referrer */ nullptr,
               it.GetMethodInvokeType(class_def));
           if (method == nullptr) {
             CheckAndClearResolveException(soa.Self());
@@ -1881,11 +1885,8 @@ class ResolveTypeVisitor : public CompilationVisitor {
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->RegisterDexFile(
         dex_file,
         class_loader.Get())));
-    mirror::Class* klass = class_linker->ResolveType(dex_file,
-                                                     dex::TypeIndex(type_idx),
-                                                     dex_cache,
-                                                     class_loader);
-
+    ObjPtr<mirror::Class> klass =
+        class_linker->ResolveType(dex::TypeIndex(type_idx), dex_cache, class_loader);
     if (klass == nullptr) {
       soa.Self()->AssertPendingException();
       mirror::Throwable* exception = soa.Self()->GetException();

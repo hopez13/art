@@ -526,7 +526,7 @@ void ReferenceTypePropagation::RTPVisitor::SetClassAsTypeInfo(HInstruction* inst
       // the method is from the String class, the null loader is good enough.
       Handle<mirror::ClassLoader> loader;
       ArtMethod* method = cl->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-          dex_file, invoke->GetDexMethodIndex(), dex_cache, loader, nullptr, kDirect);
+          invoke->GetDexMethodIndex(), dex_cache, loader, nullptr, kDirect);
       DCHECK(method != nullptr);
       mirror::Class* declaring_class = method->GetDeclaringClass();
       DCHECK(declaring_class != nullptr);
@@ -594,7 +594,7 @@ void ReferenceTypePropagation::RTPVisitor::UpdateFieldAccessTypeInfo(HInstructio
 
   // The field is unknown only during tests.
   if (info.GetField() != nullptr) {
-    klass = info.GetField()->GetType<false>();
+    klass = info.GetField()->LookupType();
   }
 
   SetClassAsTypeInfo(instr, klass, /* is_exact */ false);
@@ -847,7 +847,7 @@ void ReferenceTypePropagation::RTPVisitor::VisitInvoke(HInvoke* instr) {
 
   ScopedObjectAccess soa(Thread::Current());
   ArtMethod* method = instr->GetResolvedMethod();
-  mirror::Class* klass = (method == nullptr) ? nullptr : method->GetReturnType(/* resolve */ false);
+  ObjPtr<mirror::Class> klass = (method == nullptr) ? nullptr : method->LookupReturnType();
   SetClassAsTypeInfo(instr, klass, /* is_exact */ false);
 }
 

@@ -255,7 +255,7 @@ class ClassLinkerTest : public CommonRuntimeTest {
     EXPECT_TRUE(field != nullptr);
     EXPECT_OBJ_PTR_EQ(klass, field->GetDeclaringClass());
     EXPECT_TRUE(field->GetName() != nullptr);
-    EXPECT_TRUE(field->GetType<true>() != nullptr);
+    EXPECT_TRUE(field->ResolveType() != nullptr);
   }
 
   void AssertClass(const std::string& descriptor, Handle<mirror::Class> klass)
@@ -364,7 +364,7 @@ class ClassLinkerTest : public CommonRuntimeTest {
     MemberOffset current_ref_offset = start_ref_offset;
     for (size_t i = 0; i < klass->NumInstanceFields(); i++) {
       ArtField* field = klass->GetInstanceField(i);
-      ObjPtr<mirror::Class> field_type = field->GetType<true>();
+      ObjPtr<mirror::Class> field_type = field->ResolveType();
       ASSERT_TRUE(field_type != nullptr);
       if (!field->IsPrimitiveType()) {
         ASSERT_TRUE(!field_type->IsPrimitive());
@@ -909,15 +909,14 @@ TEST_F(ClassLinkerTest, LookupResolvedType) {
   ObjPtr<mirror::Class> klass = class_linker_->FindClass(soa.Self(), "LMyClass;", class_loader);
   dex::TypeIndex type_idx = klass->GetClassDef()->class_idx_;
   ObjPtr<mirror::DexCache> dex_cache = klass->GetDexCache();
-  const DexFile& dex_file = klass->GetDexFile();
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache, class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache, class_loader.Get()),
       klass);
   // Zero out the resolved type and make sure LookupResolvedType still finds it.
   dex_cache->ClearResolvedType(type_idx);
   EXPECT_TRUE(dex_cache->GetResolvedType(type_idx) == nullptr);
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache, class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache, class_loader.Get()),
       klass);
 }
 
@@ -938,7 +937,7 @@ TEST_F(ClassLinkerTest, LookupResolvedTypeArray) {
   dex::TypeIndex array_idx = dex_file.GetIndexForTypeId(*array_id);
   // Check that the array class wasn't resolved yet.
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, array_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(array_idx, dex_cache.Get(), class_loader.Get()),
       ObjPtr<mirror::Class>(nullptr));
   // Resolve the array class we want to test.
   ObjPtr<mirror::Class> array_klass
@@ -946,13 +945,13 @@ TEST_F(ClassLinkerTest, LookupResolvedTypeArray) {
   ASSERT_OBJ_PTR_NE(array_klass, ObjPtr<mirror::Class>(nullptr));
   // Test that LookupResolvedType() finds the array class.
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, array_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(array_idx, dex_cache.Get(), class_loader.Get()),
       array_klass);
   // Zero out the resolved type and make sure LookupResolvedType() still finds it.
   dex_cache->ClearResolvedType(array_idx);
   EXPECT_TRUE(dex_cache->GetResolvedType(array_idx) == nullptr);
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, array_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(array_idx, dex_cache.Get(), class_loader.Get()),
       array_klass);
 }
 
@@ -967,15 +966,14 @@ TEST_F(ClassLinkerTest, LookupResolvedTypeErroneousInit) {
   ASSERT_OBJ_PTR_NE(klass.Get(), ObjPtr<mirror::Class>(nullptr));
   dex::TypeIndex type_idx = klass->GetClassDef()->class_idx_;
   Handle<mirror::DexCache> dex_cache = hs.NewHandle(klass->GetDexCache());
-  const DexFile& dex_file = klass->GetDexFile();
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache.Get(), class_loader.Get()),
       klass.Get());
   // Zero out the resolved type and make sure LookupResolvedType still finds it.
   dex_cache->ClearResolvedType(type_idx);
   EXPECT_TRUE(dex_cache->GetResolvedType(type_idx) == nullptr);
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache.Get(), class_loader.Get()),
       klass.Get());
   // Force initialization to turn the class erroneous.
   bool initialized = class_linker_->EnsureInitialized(soa.Self(),
@@ -987,13 +985,13 @@ TEST_F(ClassLinkerTest, LookupResolvedTypeErroneousInit) {
   soa.Self()->ClearException();
   // Check that the LookupResolvedType() can still find the resolved type.
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache.Get(), class_loader.Get()),
       klass.Get());
   // Zero out the resolved type and make sure LookupResolvedType() still finds it.
   dex_cache->ClearResolvedType(type_idx);
   EXPECT_TRUE(dex_cache->GetResolvedType(type_idx) == nullptr);
   EXPECT_OBJ_PTR_EQ(
-      class_linker_->LookupResolvedType(dex_file, type_idx, dex_cache.Get(), class_loader.Get()),
+      ClassLinker::LookupResolvedType(type_idx, dex_cache.Get(), class_loader.Get()),
       klass.Get());
 }
 
@@ -1484,7 +1482,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   // Its RType = Ljava/lang/String;
   // Its PTypes = { Ljava/lang/String; }
   Handle<mirror::MethodType> method1_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method1_id.proto_idx_, dex_cache, class_loader));
+      class_linker_->ResolveMethodType(method1_id.proto_idx_, dex_cache, class_loader));
 
   // Assert that the method type was resolved successfully.
   ASSERT_TRUE(method1_type.Get() != nullptr);
@@ -1497,7 +1495,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
 
   // Resolve the method type again and assert that we get back the same value.
   Handle<mirror::MethodType> method1_type2 = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method1_id.proto_idx_, dex_cache, class_loader));
+      class_linker_->ResolveMethodType(method1_id.proto_idx_, dex_cache, class_loader));
   ASSERT_EQ(method1_type.Get(), method1_type2.Get());
 
   // Resolve the MethodType associated with a different method signature
@@ -1508,7 +1506,7 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
       kRuntimePointerSize);
   const DexFile::MethodId& method2_id = dex_file.GetMethodId(method2->GetDexMethodIndex());
   Handle<mirror::MethodType> method2_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(dex_file, method2_id.proto_idx_, dex_cache, class_loader));
+      class_linker_->ResolveMethodType(method2_id.proto_idx_, dex_cache, class_loader));
 
   ASSERT_TRUE(method1_type.Get() != method2_type.Get());
 }

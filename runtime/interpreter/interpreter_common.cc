@@ -567,7 +567,7 @@ bool DoInvokePolymorphic(Thread* self,
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   Handle<mirror::Class> caller_class(hs.NewHandle(shadow_frame.GetMethod()->GetDeclaringClass()));
   Handle<mirror::MethodType> callsite_type(hs.NewHandle(class_linker->ResolveMethodType(
-      caller_class->GetDexFile(), callsite_proto_id,
+      callsite_proto_id,
       hs.NewHandle<mirror::DexCache>(caller_class->GetDexCache()),
       hs.NewHandle<mirror::ClassLoader>(caller_class->GetClassLoader()))));
 

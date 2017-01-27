@@ -84,27 +84,57 @@ inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(
     ObjPtr<mirror::ClassLoader> class_loader) {
   ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
   if (type == nullptr) {
-    type = Runtime::Current()->GetClassLinker()->LookupResolvedType(
-        *dex_cache->GetDexFile(), type_idx, dex_cache, class_loader);
+    type = Runtime::Current()->GetClassLinker()->DoLookupResolvedType(
+        type_idx, dex_cache, class_loader);
   }
   return type;
 }
 
-inline mirror::Class* ClassLinker::ResolveType(dex::TypeIndex type_idx, ArtMethod* referrer) {
+inline ObjPtr<mirror::Class> ClassLinker::LookupResolvedType(dex::TypeIndex type_idx,
+                                                             ArtMethod* method) {
+  return LookupResolvedType(type_idx, method->GetDexCache(), method->GetClassLoader());
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                                      Handle<mirror::DexCache> dex_cache,
+                                                      Handle<mirror::ClassLoader> class_loader) {
+  ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
+  if (type == nullptr) {
+    // TODO: Avoid this lookup as it duplicates work done in FindClass(). It is here
+    // as a workaround for FastNative JNI to avoid AssertNoPendingException() when
+    // trying to resolve annotations while an exception may be pending. Bug: 34659969
+    // When that's fixed, poison object pointers at function entry.
+    type = Runtime::Current()->GetClassLinker()->DoLookupResolvedType(
+        type_idx, dex_cache.Get(), class_loader.Get());
+  }
+  if (UNLIKELY(type == nullptr)) {
+    type = DoResolveType(type_idx, dex_cache, class_loader);
+  }
+  return type;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                                      ObjPtr<mirror::Class> referrer) {
+  ObjPtr<mirror::DexCache> dex_cache = referrer->GetDexCache();
+  ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
+  if (UNLIKELY(type == nullptr)) {
+    type = DoResolveType(type_idx, dex_cache, referrer->GetClassLoader());
+  }
+  return type;
+}
+
+inline ObjPtr<mirror::Class> ClassLinker::ResolveType(dex::TypeIndex type_idx,
+                                                      ArtMethod* referrer) {
   Thread::PoisonObjectPointersIfDebug();
   if (kIsDebugBuild) {
     Thread::Current()->AssertNoPendingException();
   }
-  ObjPtr<mirror::Class> resolved_type = referrer->GetDexCache()->GetResolvedType(type_idx);
-  if (UNLIKELY(resolved_type == nullptr)) {
-    StackHandleScope<2> hs(Thread::Current());
-    ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
-    Handle<mirror::DexCache> dex_cache(hs.NewHandle(declaring_class->GetDexCache()));
-    Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
-    const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_type = ResolveType(dex_file, type_idx, dex_cache, class_loader);
+  ObjPtr<mirror::DexCache> dex_cache = referrer->GetDexCache();
+  ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(type_idx);
+  if (UNLIKELY(type == nullptr)) {
+    type = DoResolveType(type_idx, dex_cache, referrer->GetClassLoader());
   }
-  return resolved_type.Ptr();
+  return type.Ptr();
 }
 
 inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod* referrer) {
@@ -115,7 +145,7 @@ inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod*
   return resolved_method;
 }
 
-inline mirror::Class* ClassLinker::ResolveReferencedClassOfMethod(
+inline ObjPtr<mirror::Class> ClassLinker::ResolveReferencedClassOfMethod(
     uint32_t method_idx,
     Handle<mirror::DexCache> dex_cache,
     Handle<mirror::ClassLoader> class_loader) {
@@ -127,13 +157,8 @@ inline mirror::Class* ClassLinker::ResolveReferencedClassOfMethod(
   // interface (either miranda, default or conflict) we would incorrectly assume that is what we
   // want to invoke on, instead of the 'concrete' implementation that the direct superclass
   // contains.
-  const DexFile* dex_file = dex_cache->GetDexFile();
-  const DexFile::MethodId& method = dex_file->GetMethodId(method_idx);
-  ObjPtr<mirror::Class> resolved_type = dex_cache->GetResolvedType(method.class_idx_);
-  if (UNLIKELY(resolved_type == nullptr)) {
-    resolved_type = ResolveType(*dex_file, method.class_idx_, dex_cache, class_loader);
-  }
-  return resolved_type.Ptr();
+  const DexFile::MethodId& method = dex_cache->GetDexFile()->GetMethodId(method_idx);
+  return ResolveType(method.class_idx_, dex_cache, class_loader);
 }
 
 template <ClassLinker::ResolveMode kResolveMode>
@@ -148,9 +173,7 @@ inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
     StackHandleScope<2> hs(self);
     Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(declaring_class->GetDexCache()));
     Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
-    const DexFile* dex_file = h_dex_cache->GetDexFile();
-    resolved_method = ResolveMethod<kResolveMode>(*dex_file,
-                                                  method_idx,
+    resolved_method = ResolveMethod<kResolveMode>(method_idx,
                                                   h_dex_cache,
                                                   h_class_loader,
                                                   referrer,
@@ -176,8 +199,7 @@ inline ArtField* ClassLinker::ResolveField(uint32_t field_idx,
     StackHandleScope<2> hs(Thread::Current());
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(declaring_class->GetClassLoader()));
-    const DexFile& dex_file = *dex_cache->GetDexFile();
-    resolved_field = ResolveField(dex_file, field_idx, dex_cache, class_loader, is_static);
+    resolved_field = ResolveField(field_idx, dex_cache, class_loader, is_static);
     // Note: We cannot check here to see whether we added the field to the cache. The type
     //       might be an erroneous class, which results in it being hidden from us.
   }

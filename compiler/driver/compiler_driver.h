@@ -199,12 +199,12 @@ class CompilerDriver {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Resolve compiling method's class. Returns null on failure.
-  mirror::Class* ResolveCompilingMethodsClass(
+  ObjPtr<mirror::Class> ResolveCompilingMethodsClass(
       const ScopedObjectAccess& soa, Handle<mirror::DexCache> dex_cache,
       Handle<mirror::ClassLoader> class_loader, const DexCompilationUnit* mUnit)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  mirror::Class* ResolveClass(
+  ObjPtr<mirror::Class> ResolveClass(
       const ScopedObjectAccess& soa, Handle<mirror::DexCache> dex_cache,
       Handle<mirror::ClassLoader> class_loader, dex::TypeIndex type_index,
       const DexCompilationUnit* mUnit)
@@ -218,23 +218,18 @@ class CompilerDriver {
       uint32_t field_idx, bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Resolve a field with a given dex file.
-  ArtField* ResolveFieldWithDexFile(
-      const ScopedObjectAccess& soa, Handle<mirror::DexCache> dex_cache,
-      Handle<mirror::ClassLoader> class_loader, const DexFile* dex_file,
-      uint32_t field_idx, bool is_static)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Can we fast-path an IGET/IPUT access to an instance field? If yes, compute the field offset.
   std::pair<bool, bool> IsFastInstanceField(
-      mirror::DexCache* dex_cache, mirror::Class* referrer_class,
-      ArtField* resolved_field, uint16_t field_idx)
+      ObjPtr<mirror::DexCache> dex_cache,
+      ObjPtr<mirror::Class> referrer_class,
+      ArtField* resolved_field,
+      uint16_t field_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can we fast-path an SGET/SPUT access to a static field? If yes, compute the type index
   // of the declaring class in the referrer's dex file.
-  std::pair<bool, bool> IsFastStaticField(mirror::DexCache* dex_cache,
-                                          mirror::Class* referrer_class,
+  std::pair<bool, bool> IsFastStaticField(ObjPtr<mirror::DexCache> dex_cache,
+                                          ObjPtr<mirror::Class> referrer_class,
                                           ArtField* resolved_field,
                                           uint16_t field_idx,
                                           dex::TypeIndex* storage_index)
@@ -245,8 +240,8 @@ class CompilerDriver {
   // index of the declaring class in the referrer's dex file and
   // return it through the out argument `storage_index`; otherwise
   // return DexFile::kDexNoIndex through `storage_index`.
-  bool IsClassOfStaticMethodAvailableToReferrer(mirror::DexCache* dex_cache,
-                                                mirror::Class* referrer_class,
+  bool IsClassOfStaticMethodAvailableToReferrer(ObjPtr<mirror::DexCache> dex_cache,
+                                                ObjPtr<mirror::Class> referrer_class,
                                                 ArtMethod* resolved_method,
                                                 uint16_t method_idx,
                                                 dex::TypeIndex* storage_index)
@@ -385,11 +380,12 @@ class CompilerDriver {
   // `storage_index`; otherwise return DexFile::kDexNoIndex through
   // `storage_index`.
   template <typename ArtMember>
-  std::pair<bool, bool> IsClassOfStaticMemberAvailableToReferrer(mirror::DexCache* dex_cache,
-                                                                 mirror::Class* referrer_class,
-                                                                 ArtMember* resolved_member,
-                                                                 uint16_t member_idx,
-                                                                 dex::TypeIndex* storage_index)
+  std::pair<bool, bool> IsClassOfStaticMemberAvailableToReferrer(
+      ObjPtr<mirror::DexCache> dex_cache,
+      ObjPtr<mirror::Class> referrer_class,
+      ArtMember* resolved_member,
+      uint16_t member_idx,
+      dex::TypeIndex* storage_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can `referrer_class` access the resolved `member`?
@@ -397,10 +393,10 @@ class CompilerDriver {
   // mirror::Class::CanAccessResolvedMember depending on the value of
   // ArtMember.
   template <typename ArtMember>
-  static bool CanAccessResolvedMember(mirror::Class* referrer_class,
-                                      mirror::Class* access_to,
+  static bool CanAccessResolvedMember(ObjPtr<mirror::Class> referrer_class,
+                                      ObjPtr<mirror::Class> access_to,
                                       ArtMember* member,
-                                      mirror::DexCache* dex_cache,
+                                      ObjPtr<mirror::DexCache> dex_cache,
                                       uint32_t field_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

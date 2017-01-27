@@ -538,8 +538,6 @@ class ArtMethod FINAL {
 
   const DexFile::CodeItem* GetCodeItem() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool IsResolvedTypeIdx(dex::TypeIndex type_idx) REQUIRES_SHARED(Locks::mutator_lock_);
-
   int32_t GetLineNumFromDexPC(uint32_t dex_pc) REQUIRES_SHARED(Locks::mutator_lock_);
 
   const DexFile::ProtoId& GetPrototype() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -556,6 +554,8 @@ class ArtMethod FINAL {
 
   const char* GetTypeDescriptorFromTypeIdx(dex::TypeIndex type_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ObjPtr<mirror::Class> LookupReturnType() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // May cause thread suspension due to GetClassFromTypeIdx calling ResolveType this caused a large
   // number of bugs at call sites.
@@ -695,6 +695,8 @@ class ArtMethod FINAL {
   } ptr_sized_fields_;
 
  private:
+  dex::TypeIndex GetReturnTypeIndex(const DexFile& dex_file) REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool IsAnnotatedWith(jclass klass, uint32_t visibility);
 
   static constexpr size_t PtrSizedFieldsOffset(PointerSize pointer_size) {

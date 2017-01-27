@@ -241,7 +241,7 @@ inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
     *slow_path = true;
     return nullptr;  // Failure
   }
-  mirror::Class* klass = method->GetDexCache()->GetResolvedType(type_idx);
+  ObjPtr<mirror::Class> klass = method->GetDexCache()->GetResolvedType(type_idx);
   if (UNLIKELY(klass == nullptr)) {  // Not in dex cache so try to resolve
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     klass = class_linker->ResolveType(type_idx, method);
@@ -260,7 +260,7 @@ inline mirror::Class* CheckArrayAlloc(dex::TypeIndex type_idx,
       return nullptr;  // Failure
     }
   }
-  return klass;
+  return klass.Ptr();
 }
 
 // Given the context of a calling Method, use its DexCache to resolve a type to an array Class. If
@@ -345,8 +345,7 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
     Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(method->GetDexCache()));
     Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(method->GetClassLoader()));
 
-    resolved_field = class_linker->ResolveFieldJLS(*method->GetDexFile(),
-                                                   field_idx,
+    resolved_field = class_linker->ResolveFieldJLS(field_idx,
                                                    h_dex_cache,
                                                    h_class_loader);
   } else {
@@ -512,7 +511,8 @@ inline ArtMethod* FindMethodFromCode(uint32_t method_idx,
       Handle<mirror::Class> h_referring_class(hs2.NewHandle(referrer->GetDeclaringClass()));
       const dex::TypeIndex method_type_idx =
           referrer->GetDexFile()->GetMethodId(method_idx).class_idx_;
-      mirror::Class* method_reference_class = class_linker->ResolveType(method_type_idx, referrer);
+      ObjPtr<mirror::Class> method_reference_class =
+          class_linker->ResolveType(method_type_idx, referrer);
       if (UNLIKELY(method_reference_class == nullptr)) {
         // Bad type idx.
         CHECK(self->IsExceptionPending());
@@ -742,7 +742,7 @@ inline mirror::Class* ResolveVerifyAndClinit(dex::TypeIndex type_idx,
                                              bool can_run_clinit,
                                              bool verify_access) {
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  mirror::Class* klass = class_linker->ResolveType(type_idx, referrer);
+  ObjPtr<mirror::Class> klass = class_linker->ResolveType(type_idx, referrer);
   if (UNLIKELY(klass == nullptr)) {
     CHECK(self->IsExceptionPending());
     return nullptr;  // Failure - Indicate to caller to deliver exception
@@ -755,14 +755,14 @@ inline mirror::Class* ResolveVerifyAndClinit(dex::TypeIndex type_idx,
   }
   // If we're just implementing const-class, we shouldn't call <clinit>.
   if (!can_run_clinit) {
-    return klass;
+    return klass.Ptr();
   }
   // If we are the <clinit> of this class, just return our storage.
   //
   // Do not set the DexCache InitializedStaticStorage, since that implies <clinit> has finished
   // running.
   if (klass == referring_class && referrer->IsConstructor() && referrer->IsStatic()) {
-    return klass;
+    return klass.Ptr();
   }
   StackHandleScope<1> hs(self);
   Handle<mirror::Class> h_class(hs.NewHandle(klass));

@@ -237,8 +237,8 @@ void Object::CheckFieldAssignmentImpl(MemberOffset field_offset, ObjPtr<Object> 
     for (ArtField& field : cur->GetIFields()) {
       if (field.GetOffset().Int32Value() == field_offset.Int32Value()) {
         CHECK_NE(field.GetTypeAsPrimitiveType(), Primitive::kPrimNot);
-        // TODO: resolve the field type for moving GC.
-        ObjPtr<mirror::Class> field_type = field.GetType<!kMovingCollector>();
+        // TODO: The class should already be resolved.
+        ObjPtr<mirror::Class> field_type = field.LookupType();
         if (field_type != nullptr) {
           CHECK(field_type->IsAssignableFrom(new_value->GetClass()));
         }
@@ -254,8 +254,7 @@ void Object::CheckFieldAssignmentImpl(MemberOffset field_offset, ObjPtr<Object> 
     for (ArtField& field : AsClass()->GetSFields()) {
       if (field.GetOffset().Int32Value() == field_offset.Int32Value()) {
         CHECK_NE(field.GetTypeAsPrimitiveType(), Primitive::kPrimNot);
-        // TODO: resolve the field type for moving GC.
-        ObjPtr<mirror::Class> field_type = field.GetType<!kMovingCollector>();
+        ObjPtr<mirror::Class> field_type = field.LookupType();
         if (field_type != nullptr) {
           CHECK(field_type->IsAssignableFrom(new_value->GetClass()));
         }

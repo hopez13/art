@@ -685,7 +685,6 @@ ArtMethod* HInstructionBuilder::ResolveMethod(uint16_t method_idx, InvokeType in
   }
 
   ArtMethod* resolved_method = class_linker->ResolveMethod<ClassLinker::kForceICCECheck>(
-      *dex_compilation_unit_->GetDexFile(),
       method_idx,
       dex_compilation_unit_->GetDexCache(),
       class_loader,
@@ -971,7 +970,7 @@ bool HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, uint32_t d
   return true;
 }
 
-static bool IsSubClass(mirror::Class* to_test, mirror::Class* super_class)
+static bool IsSubClass(ObjPtr<mirror::Class> to_test, ObjPtr<mirror::Class> super_class)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   return to_test != nullptr && !to_test->IsInterface() && to_test->IsSubClass(super_class);
 }
@@ -1280,8 +1279,8 @@ bool HInstructionBuilder::BuildInstanceFieldAccess(const Instruction& instructio
   return true;
 }
 
-static mirror::Class* GetClassFrom(CompilerDriver* driver,
-                                   const DexCompilationUnit& compilation_unit) {
+static ObjPtr<mirror::Class> GetClassFrom(CompilerDriver* driver,
+                                          const DexCompilationUnit& compilation_unit) {
   ScopedObjectAccess soa(Thread::Current());
   Handle<mirror::ClassLoader> class_loader = compilation_unit.GetClassLoader();
   Handle<mirror::DexCache> dex_cache = compilation_unit.GetDexCache();
@@ -1289,11 +1288,11 @@ static mirror::Class* GetClassFrom(CompilerDriver* driver,
   return driver->ResolveCompilingMethodsClass(soa, dex_cache, class_loader, &compilation_unit);
 }
 
-mirror::Class* HInstructionBuilder::GetOutermostCompilingClass() const {
+ObjPtr<mirror::Class> HInstructionBuilder::GetOutermostCompilingClass() const {
   return GetClassFrom(compiler_driver_, *outer_compilation_unit_);
 }
 
-mirror::Class* HInstructionBuilder::GetCompilingClass() const {
+ObjPtr<mirror::Class> HInstructionBuilder::GetCompilingClass() const {
   return GetClassFrom(compiler_driver_, *dex_compilation_unit_);
 }
 
@@ -1641,7 +1640,7 @@ HLoadClass* HInstructionBuilder::BuildLoadClass(dex::TypeIndex type_index,
     if (klass->IsPublic()) {
       is_accessible = true;
     } else {
-      mirror::Class* compiling_class = GetCompilingClass();
+      ObjPtr<mirror::Class> compiling_class = GetCompilingClass();
       if (compiling_class != nullptr && compiling_class->CanAccess(klass.Get())) {
         is_accessible = true;
       }

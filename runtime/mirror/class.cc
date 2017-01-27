@@ -840,8 +840,6 @@ ArtField* Class::FindStaticField(Thread* self,
     if (f != nullptr) {
       return f;
     }
-    // Though GetDirectInterface() should not cause thread suspension when called
-    // from here, it takes a Handle as an argument, so we need to wrap `k`.
     ScopedAssertNoThreadSuspension ants(__FUNCTION__);
     // Is this field in any of this class' interfaces?
     for (uint32_t i = 0, num_interfaces = k->NumDirectInterfaces(); i != num_interfaces; ++i) {
@@ -963,9 +961,7 @@ ObjPtr<Class> Class::ResolveDirectInterface(Thread* self, Handle<Class> klass, u
     DCHECK(!klass->IsArrayClass());
     DCHECK(!klass->IsProxyClass());
     dex::TypeIndex type_idx = klass->GetDirectInterfaceTypeIdx(idx);
-    interface = Runtime::Current()->GetClassLinker()->ResolveType(klass->GetDexFile(),
-                                                                  type_idx,
-                                                                  klass.Get());
+    interface = Runtime::Current()->GetClassLinker()->ResolveType(type_idx, klass.Get());
     CHECK(interface != nullptr || self->IsExceptionPending());
   }
   return interface;

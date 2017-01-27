@@ -233,7 +233,7 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethods(Thread* self,
     previous_method_idx = method_idx;
     InvokeType type = it->GetMethodInvokeType(class_def);
     ArtMethod* method = linker->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-        *dex_file, method_idx, dex_cache, class_loader, nullptr, type);
+        method_idx, dex_cache, class_loader, nullptr, type);
     if (method == nullptr) {
       DCHECK(self->IsExceptionPending());
       // We couldn't resolve the method, but continue regardless.
@@ -1091,9 +1091,8 @@ bool MethodVerifier::ScanTryCatchBlocks() {
       // Ensure exception types are resolved so that they don't need resolution to be delivered,
       // unresolved exception types will be ignored by exception delivery
       if (iterator.GetHandlerTypeIndex().IsValid()) {
-        mirror::Class* exception_type = linker->ResolveType(*dex_file_,
-                                                            iterator.GetHandlerTypeIndex(),
-                                                            dex_cache_, class_loader_);
+        ObjPtr<mirror::Class> exception_type =
+            linker->ResolveType(iterator.GetHandlerTypeIndex(), dex_cache_, class_loader_);
         if (exception_type == nullptr) {
           DCHECK(self_->IsExceptionPending());
           self_->ClearException();
@@ -2902,10 +2901,12 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
       ArtMethod* called_method = VerifyInvocationArgs(inst, type, is_range);
       const RegType* return_type = nullptr;
       if (called_method != nullptr) {
-        mirror::Class* return_type_class = called_method->GetReturnType(can_load_classes_);
+        ObjPtr<mirror::Class> return_type_class = can_load_classes_
+            ? called_method->GetReturnType(/* resolve */ true)
+            : called_method->LookupReturnType();
         if (return_type_class != nullptr) {
           return_type = &FromClass(called_method->GetReturnTypeDescriptor(),
-                                   return_type_class,
+                                   return_type_class.Ptr(),
                                    return_type_class->CannotBeAssignedFromOtherTypes());
         } else {
           DCHECK(!can_load_classes_ || self_->IsExceptionPending());
@@ -2945,10 +2946,12 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
       } else {
         is_constructor = called_method->IsConstructor();
         return_type_descriptor = called_method->GetReturnTypeDescriptor();
-        mirror::Class* return_type_class = called_method->GetReturnType(can_load_classes_);
+        ObjPtr<mirror::Class> return_type_class = can_load_classes_
+            ? called_method->GetReturnType(/* resolve */ true)
+            : called_method->LookupReturnType();
         if (return_type_class != nullptr) {
           return_type = &FromClass(return_type_descriptor,
-                                   return_type_class,
+                                   return_type_class.Ptr(),
                                    return_type_class->CannotBeAssignedFromOtherTypes());
         } else {
           DCHECK(!can_load_classes_ || self_->IsExceptionPending());
@@ -3561,8 +3564,8 @@ bool MethodVerifier::CodeFlowVerifyInstruction(uint32_t* start_guess) {
         has_catch_all_handler = true;
       } else {
         // It is also a catch-all if it is java.lang.Throwable.
-        mirror::Class* klass = linker->ResolveType(*dex_file_, handler_type_idx, dex_cache_,
-                                                   class_loader_);
+        ObjPtr<mirror::Class> klass =
+            linker->ResolveType(handler_type_idx, dex_cache_, class_loader_);
         if (klass != nullptr) {
           if (klass == mirror::Throwable::GetJavaLangThrowable()) {
             has_catch_all_handler = true;
@@ -4658,7 +4661,7 @@ ArtField* MethodVerifier::GetStaticField(int field_idx) {
     return nullptr;  // Can't resolve Class so no more to do here, will do checking at runtime.
   }
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  ArtField* field = class_linker->ResolveFieldJLS(*dex_file_, field_idx, dex_cache_, class_loader_);
+  ArtField* field = class_linker->ResolveFieldJLS(field_idx, dex_cache_, class_loader_);
 
   // Record result of the field resolution attempt.
   VerifierDeps::MaybeRecordFieldResolution(*dex_file_, field_idx, field);
@@ -4696,7 +4699,7 @@ ArtField* MethodVerifier::GetInstanceField(const RegType& obj_type, int field_id
     return nullptr;  // Can't resolve Class so no more to do here
   }
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  ArtField* field = class_linker->ResolveFieldJLS(*dex_file_, field_idx, dex_cache_, class_loader_);
+  ArtField* field = class_linker->ResolveFieldJLS(field_idx, dex_cache_, class_loader_);
 
   // Record result of the field resolution attempt.
   VerifierDeps::MaybeRecordFieldResolution(*dex_file_, field_idx, field);
@@ -4820,7 +4823,7 @@ void MethodVerifier::VerifyISFieldAccess(const Instruction* inst, const RegType&
     }
 
     ObjPtr<mirror::Class> field_type_class =
-        can_load_classes_ ? field->GetType<true>() : field->GetType<false>();
+        can_load_classes_ ? field->ResolveType() : field->LookupType();
     if (field_type_class != nullptr) {
       field_type = &FromClass(field->GetTypeDescriptor(),
                               field_type_class.Ptr(),
@@ -4943,8 +4946,8 @@ void MethodVerifier::VerifyQuickFieldAccess(const Instruction* inst, const RegTy
   // Get the field type.
   const RegType* field_type;
   {
-    ObjPtr<mirror::Class> field_type_class = can_load_classes_ ? field->GetType<true>() :
-        field->GetType<false>();
+    ObjPtr<mirror::Class> field_type_class =
+        can_load_classes_ ? field->ResolveType() : field->LookupType();
 
     if (field_type_class != nullptr) {
       field_type = &FromClass(field->GetTypeDescriptor(),
@@ -5131,10 +5134,12 @@ InstructionFlags* MethodVerifier::CurrentInsnFlags() {
 const RegType& MethodVerifier::GetMethodReturnType() {
   if (return_type_ == nullptr) {
     if (mirror_method_ != nullptr) {
-      mirror::Class* return_type_class = mirror_method_->GetReturnType(can_load_classes_);
+      ObjPtr<mirror::Class> return_type_class = can_load_classes_
+          ? mirror_method_->GetReturnType(/* resolve */ true)
+          : mirror_method_->LookupReturnType();
       if (return_type_class != nullptr) {
         return_type_ = &FromClass(mirror_method_->GetReturnTypeDescriptor(),
-                                  return_type_class,
+                                  return_type_class.Ptr(),
                                   return_type_class->CannotBeAssignedFromOtherTypes());
       } else {
         DCHECK(!can_load_classes_ || self_->IsExceptionPending());

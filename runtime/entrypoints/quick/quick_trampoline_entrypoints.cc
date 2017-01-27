@@ -1078,7 +1078,7 @@ extern "C" const void* artQuickResolutionTrampoline(
         Handle<mirror::ClassLoader> class_loader(
             hs.NewHandle(caller->GetDeclaringClass()->GetClassLoader()));
         // TODO Maybe put this into a mirror::Class function.
-        mirror::Class* ref_class = linker->ResolveReferencedClassOfMethod(
+        ObjPtr<mirror::Class> ref_class = linker->ResolveReferencedClassOfMethod(
             called_method.dex_method_index, dex_cache, class_loader);
         if (ref_class->IsInterface()) {
           called = ref_class->FindVirtualMethodForInterfaceSuper(called, kRuntimePointerSize);
@@ -2425,9 +2425,8 @@ extern "C" uintptr_t artInvokePolymorphic(
   const Instruction* inst = Instruction::At(&code->insns_[dex_pc]);
   DCHECK(inst->Opcode() == Instruction::INVOKE_POLYMORPHIC ||
          inst->Opcode() == Instruction::INVOKE_POLYMORPHIC_RANGE);
-  const DexFile* dex_file = caller_method->GetDexFile();
   const uint32_t proto_idx = inst->VRegH();
-  const char* shorty = dex_file->GetShorty(proto_idx);
+  const char* shorty = caller_method->GetDexFile()->GetShorty(proto_idx);
   const size_t shorty_length = strlen(shorty);
   static const bool kMethodIsStatic = false;  // invoke() and invokeExact() are not static.
   RememberForGcArgumentVisitor gc_visitor(sp, kMethodIsStatic, shorty, shorty_length, &soa);
@@ -2457,7 +2456,7 @@ extern "C" uintptr_t artInvokePolymorphic(
 
   Handle<mirror::Class> caller_class(hs.NewHandle(caller_method->GetDeclaringClass()));
   Handle<mirror::MethodType> method_type(hs.NewHandle(linker->ResolveMethodType(
-      *dex_file, proto_idx,
+      proto_idx,
       hs.NewHandle<mirror::DexCache>(caller_class->GetDexCache()),
       hs.NewHandle<mirror::ClassLoader>(caller_class->GetClassLoader()))));
   // This implies we couldn't resolve one or more types in this method handle.

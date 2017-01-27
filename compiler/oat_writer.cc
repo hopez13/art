@@ -1020,7 +1020,6 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
       const InvokeType invoke_type = it.GetMethodInvokeType(
           dex_file_->GetClassDef(class_def_index_));
       method = linker->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-          *dex_file_,
           it.GetMemberIndex(),
           dex_cache,
           ScopedNullHandle<mirror::ClassLoader>(),

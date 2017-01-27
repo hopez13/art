@@ -156,7 +156,6 @@ class VerifierDepsTest : public CommonCompilerTest {
     ArtMethod* method = nullptr;
     while (it.HasNextDirectMethod()) {
       ArtMethod* resolved_method = class_linker_->ResolveMethod<ClassLinker::kNoICCECheckForCache>(
-          *primary_dex_file_,
           it.GetMemberIndex(),
           dex_cache_handle,
           class_loader_handle,
