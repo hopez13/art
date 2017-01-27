@@ -45,6 +45,29 @@
       "revId": "137cdfa1e8a3810fb86d3298ec10036c0491d13f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d225e9d_398f5130",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-01-27T17:32:36Z",
+      "side": 1,
+      "message": "Need to pass the read barrier option down.",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 1
+      },
+      "revId": "137cdfa1e8a3810fb86d3298ec10036c0491d13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
