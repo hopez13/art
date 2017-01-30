@@ -44,6 +44,9 @@ public class PrintThread {
       if (name.contains("Daemon")) {
         // Do not print daemon stacks, as they're non-deterministic.
         stackSerialization = "<not printed>";
+      } else if (name.contains("Jit thread pool worker thread 0")) {
+        // Skip JIT thread pool.
+        continue;
       } else {
         StringBuilder sb = new StringBuilder();
         for (String[] stackElement : (String[][])stackInfo[1]) {
