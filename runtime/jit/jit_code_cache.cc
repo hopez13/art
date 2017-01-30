@@ -1141,9 +1141,12 @@ OatQuickMethodHeader* JitCodeCache::LookupMethodHeader(uintptr_t pc, ArtMethod* 
     return nullptr;
   }
   if (kIsDebugBuild && method != nullptr) {
-    DCHECK_EQ(it->second, method)
-        << ArtMethod::PrettyMethod(method) << " " << ArtMethod::PrettyMethod(it->second) << " "
-        << std::hex << pc;
+    // We might have changed the previous method by making it obsolete. If we then recured on
+    // ourself we would find that the method_code_map has already been updated to point to the newly
+    // allocated obsolete method instead of the old method pointer.
+    DCHECK_EQ(it->second->GetNonObsoleteMethod(), method->GetNonObsoleteMethod())
+        << ArtMethod::PrettyMethod(method->GetNonObsoleteMethod()) << " "
+        << ArtMethod::PrettyMethod(it->second->GetNonObsoleteMethod()) << " " << std::hex << pc;
   }
   return method_header;
 }

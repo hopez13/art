@@ -669,19 +669,26 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
   // frame.
   ScopedQuickEntrypointChecks sqec(self);
 
-  if (UNLIKELY(!method->IsInvokable())) {
+  // We cannot call obsolete methods but if a newly obsolete method calls itself in JITed code it
+  // will try to be clever and simply call its own ArtMethod. Since this isn't allowed we force
+  // all obsolete methods to have this as their entrypoint. Once we get here we just make sure not
+  // to try to call obsolete methods.
+  ArtMethod* non_obsolete_method = method->GetNonObsoleteMethod();
+
+  if (UNLIKELY(!non_obsolete_method->IsInvokable())) {
     method->ThrowInvocationTimeError();
     return 0;
   }
 
-  JValue tmp_value;
+  DCHECK_EQ(non_obsolete_method->GetDeclaringClass(), method->GetDeclaringClass());
+
   ShadowFrame* deopt_frame = self->PopStackedShadowFrame(
       StackedShadowFrameType::kDeoptimizationShadowFrame, false);
   ManagedStack fragment;
 
   DCHECK(!method->IsNative()) << method->PrettyMethod();
   uint32_t shorty_len = 0;
-  ArtMethod* non_proxy_method = method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
+  ArtMethod* non_proxy_method = non_obsolete_method->GetInterfaceMethodIfProxy(kRuntimePointerSize);
   const DexFile::CodeItem* code_item = non_proxy_method->GetCodeItem();
   DCHECK(code_item != nullptr) << method->PrettyMethod();
   const char* shorty = non_proxy_method->GetShorty(&shorty_len);
@@ -743,8 +750,9 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
         "Building interpreter shadow frame");
     uint16_t num_regs = code_item->registers_size_;
     // No last shadow coming from quick.
+    // We need to put the non-obsolete method version in the ShadowFrame.
     ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
-        CREATE_SHADOW_FRAME(num_regs, /* link */ nullptr, method, /* dex pc */ 0);
+        CREATE_SHADOW_FRAME(num_regs, /* link */ nullptr, non_obsolete_method, /* dex pc */ 0);
     ShadowFrame* shadow_frame = shadow_frame_unique_ptr.get();
     size_t first_arg_reg = code_item->registers_size_ - code_item->ins_size_;
     BuildQuickShadowFrameVisitor shadow_frame_builder(sp, method->IsStatic(), shorty, shorty_len,
