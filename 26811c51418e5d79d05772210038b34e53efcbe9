@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "38378fc8_4808a4b2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:14:09Z",
+      "side": 1,
+      "message": "We have problems with how the tracer records what method was called otherwise. It seems that the deopt made it change the way the entry/exit of methods was recorded hiding the problem. Also this has the nice effect of ensuring that there is only one pointer recorded per method and every entry has a paired exit with the same pointer value, since that is likely the behavior you would want.\n\nAdded a comment.",
+      "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309ecdbe_52014e39",
         "filename": "test/916-obsolete-jit/src/Main.java",
         "patchSetId": 3
@@ -42,6 +59,23 @@
         "endLine": 159,
         "endChar": 20
       },
+      "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25db2baf_fea9e528",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:14:09Z",
+      "side": 1,
+      "message": "We can still actually be interpretting so we still need to retry.",
       "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
