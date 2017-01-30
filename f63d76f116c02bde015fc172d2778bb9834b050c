@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5700d490_5461d745",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:16:01Z",
+      "side": 1,
+      "message": "Add a comment why the boot class loader does not need any of the below.",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 742,
+        "endChar": 64
+      },
+      "revId": "f63d76f116c02bde015fc172d2778bb9834b050c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38b5ee72_4aaf9f51",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:16:01Z",
+      "side": 1,
+      "message": "counter?",
+      "range": {
+        "startLine": 848,
+        "startChar": 10,
+        "endLine": 848,
+        "endChar": 13
+      },
+      "revId": "f63d76f116c02bde015fc172d2778bb9834b050c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4abed0_4505b928",
+        "filename": "test/938-load-transform-bcp/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:16:01Z",
+      "side": 1,
+      "message": "This is obscure: what real one? Please expand the comment or drop.",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 64
+      },
+      "revId": "f63d76f116c02bde015fc172d2778bb9834b050c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631f2395_4f323fbd",
+        "filename": "test/939-hello-transformation-bcp/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:16:01Z",
+      "side": 1,
+      "message": "Say why?",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "f63d76f116c02bde015fc172d2778bb9834b050c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
