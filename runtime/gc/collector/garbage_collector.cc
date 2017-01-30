@@ -158,8 +158,8 @@ void GarbageCollector::ResetMeasurements() {
   total_freed_bytes_ = 0;
 }
 
-GarbageCollector::ScopedPause::ScopedPause(GarbageCollector* collector)
-    : start_time_(NanoTime()), collector_(collector) {
+GarbageCollector::ScopedPauseWithoutReporting::ScopedPauseWithoutReporting(
+    GarbageCollector* collector) : start_time_(NanoTime()), collector_(collector) {
   Runtime* runtime = Runtime::Current();
   runtime->GetThreadList()->SuspendAll(__FUNCTION__);
   GcPauseListener* pause_listener = runtime->GetHeap()->GetGcPauseListener();
@@ -168,7 +168,7 @@ GarbageCollector::ScopedPause::ScopedPause(GarbageCollector* collector)
   }
 }
 
-GarbageCollector::ScopedPause::~ScopedPause() {
+GarbageCollector::ScopedPauseWithoutReporting::~ScopedPauseWithoutReporting() {
   collector_->RegisterPause(NanoTime() - start_time_);
   Runtime* runtime = Runtime::Current();
   GcPauseListener* pause_listener = runtime->GetHeap()->GetGcPauseListener();
@@ -176,6 +176,23 @@ GarbageCollector::ScopedPause::~ScopedPause() {
     pause_listener->EndPause();
   }
   runtime->GetThreadList()->ResumeAll();
+}
+
+GarbageCollector::ScopedPauseWithReporting::ScopedPauseWithReporting(GarbageCollector* collector)
+    : ScopedPauseWithoutReporting(collector) {
+  // SuspendAll by superclass constructor.
+  GcPauseListener* pause_listener = Runtime::Current()->GetHeap()->GetGcPauseListener();
+  if (pause_listener != nullptr) {
+    pause_listener->StartPause();
+  }
+}
+
+GarbageCollector::ScopedPauseWithReporting::~ScopedPauseWithReporting() {
+  GcPauseListener* pause_listener = Runtime::Current()->GetHeap()->GetGcPauseListener();
+  if (pause_listener != nullptr) {
+    pause_listener->EndPause();
+  }
+  // ResumeAll by superclass destructor.
 }
 
 // Returns the current GC iteration and assocated info.

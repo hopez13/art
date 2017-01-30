@@ -124,14 +124,21 @@ class Iteration {
 
 class GarbageCollector : public RootVisitor, public IsMarkedVisitor, public MarkObjectVisitor {
  public:
-  class SCOPED_LOCKABLE ScopedPause {
+  class SCOPED_LOCKABLE ScopedPauseWithoutReporting {
    public:
-    explicit ScopedPause(GarbageCollector* collector) EXCLUSIVE_LOCK_FUNCTION(Locks::mutator_lock_);
-    ~ScopedPause() UNLOCK_FUNCTION();
+    explicit ScopedPauseWithoutReporting(GarbageCollector* collector)
+        EXCLUSIVE_LOCK_FUNCTION(Locks::mutator_lock_);
+    ~ScopedPauseWithoutReporting() UNLOCK_FUNCTION();
 
    private:
     const uint64_t start_time_;
     GarbageCollector* const collector_;
+  };
+  class SCOPED_LOCKABLE ScopedPauseWithReporting : public ScopedPauseWithoutReporting {
+   public:
+    explicit ScopedPauseWithReporting(GarbageCollector* collector)
+        EXCLUSIVE_LOCK_FUNCTION(Locks::mutator_lock_);
+    ~ScopedPauseWithReporting() UNLOCK_FUNCTION();
   };
 
   GarbageCollector(Heap* heap, const std::string& name);

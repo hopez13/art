@@ -61,7 +61,7 @@ void MarkCompact::RunPhases() {
   InitializePhase();
   CHECK(!Locks::mutator_lock_->IsExclusiveHeld(self));
   {
-    ScopedPause pause(this);
+    ScopedPauseWithReporting pause(this);
     GetHeap()->PreGcVerificationPaused(this);
     GetHeap()->PrePauseRosAllocVerification(this);
     MarkingPhase();

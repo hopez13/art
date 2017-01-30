@@ -127,7 +127,7 @@ void SemiSpace::RunPhases() {
   } else {
     Locks::mutator_lock_->AssertNotHeld(self);
     {
-      ScopedPause pause(this);
+      ScopedPauseWithReporting pause(this);
       GetHeap()->PreGcVerificationPaused(this);
       GetHeap()->PrePauseRosAllocVerification(this);
       MarkingPhase();

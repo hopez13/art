@@ -151,12 +151,12 @@ void MarkSweep::RunPhases() {
       ReaderMutexLock mu(self, *Locks::mutator_lock_);
       MarkingPhase();
     }
-    ScopedPause pause(this);
+    ScopedPauseWithReporting pause(this);
     GetHeap()->PrePauseRosAllocVerification(this);
     PausePhase();
     RevokeAllThreadLocalBuffers();
   } else {
-    ScopedPause pause(this);
+    ScopedPauseWithReporting pause(this);
     GetHeap()->PreGcVerificationPaused(this);
     MarkingPhase();
     GetHeap()->PrePauseRosAllocVerification(this);
