@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "645679db_7b1dd3c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T10:28:27Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "786f7a62_489791c8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -71,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "9ae6fecb_723201bd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T10:28:27Z",
+      "side": 1,
+      "message": "I agree, sand same applies to the compiler filter, more or less.\n\nIf we can find something consistent with flags, and avoid problems like passing debuggable as a compiler option but not the runtime, or passing a new option non-debuggable to the compiler, etc, then it would be a nice cleanup.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 2,
+        "endLine": 1038,
+        "endChar": 3
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a97ee7d7_ce87afb1",
         "filename": "runtime/runtime.cc",
         "patchSetId": 8
@@ -94,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "081854c7_244f319e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2209,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T10:28:27Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 2209,
+        "startChar": 4,
+        "endLine": 2209,
+        "endChar": 41
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f6f2c34_bd459794",
         "filename": "runtime/runtime.h",
         "patchSetId": 8
@@ -105,6 +174,29 @@
       "writtenOn": "2017-01-27T18:56:01Z",
       "side": 1,
       "message": "Is there actually a reason for this to be here? Why not in Instrumentation? Or ArtMethod?",
+      "range": {
+        "startLine": 641,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 89
+      },
+      "revId": "c5e4ef04534d8c2f6e6f6306f2dfeb388635489e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efc229a0_024ff2cb",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T10:28:27Z",
+      "side": 1,
+      "message": "It does check IsJavaDebuggable (now). No strong opinion, we can move it in a follow-up CL.",
       "range": {
         "startLine": 641,
         "startChar": 2,
