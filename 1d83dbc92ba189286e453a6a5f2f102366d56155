@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c76d32cc_aae60498",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-30T19:01:50Z",
+      "side": 1,
+      "message": "Remove the argument, do a DCHECK inside. This only makes sense when the runtime is actually running, not in cross-compilation mode.",
+      "range": {
+        "startLine": 573,
+        "startChar": 33,
+        "endLine": 573,
+        "endChar": 59
+      },
+      "revId": "1d83dbc92ba189286e453a6a5f2f102366d56155",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
