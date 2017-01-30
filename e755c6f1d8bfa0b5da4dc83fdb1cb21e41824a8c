@@ -88,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "e3c18f46_23046078",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "Sometimes, the description is way too long and writing it in a single line causes issues. As this is a json file, the string cannot be split in multiple lines. For the sake of this issue, I have put some description in arrays to avoid the situation of writing very long single line description.",
+      "range": {
+        "startLine": 15,
+        "startChar": 9,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04b18bfa_2d060e91",
         "filename": "test/knownfailures.json",
         "patchSetId": 19
@@ -99,6 +122,29 @@
       "writtenOn": "2017-01-30T18:58:59Z",
       "side": 1,
       "message": "ISTM that it would be better to always use tests with a single element list.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68807b41_81540f40",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "Are you suggesting to always use tests instead of test, even for the single test?",
       "range": {
         "startLine": 38,
         "startChar": 9,
@@ -134,6 +180,29 @@
     },
     {
       "key": {
+        "uuid": "43e75db7_5e871da2",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "There have been few changes since I uploaded the change. I will update the file just before submitting so that I could avoid situation of making changes in the file till the review process is on.",
+      "range": {
+        "startLine": 49,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8ffa1ba_397864b6",
         "filename": "test/knownfailures.json",
         "patchSetId": 19
@@ -157,6 +226,29 @@
     },
     {
       "key": {
+        "uuid": "5207ce8b_6ab1db7d",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "Not now. As we are planning to output the test result in XML, we could use these strings as the reasoning.",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5403512a_aea4b090",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 19
@@ -168,6 +260,23 @@
       "writtenOn": "2017-01-30T18:58:59Z",
       "side": 1,
       "message": "Why is this a dict? It seems more like it should be a set().",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57eef3ad_2f9a4909",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "The variable maps test name to the variants which are there in the known failure file. For eg. 001-HelloWorld could be mapped to \u0027optimizing\u0027. In this case, when I will check if 001-HelloWorld is disabled for optimizing, I will first check if 001-HelloWorld is in the list or not, and if it is, then which of its variants are disabled.",
       "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -237,6 +346,29 @@
     },
     {
       "key": {
+        "uuid": "239211c2_ad92fd88",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "This is set of all the variants like - optimizing, jit, trace and others.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "34d93021_a37d837f",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 19
@@ -283,6 +415,29 @@
     },
     {
       "key": {
+        "uuid": "49dc9284_4a92759a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "Yes, I went through the guidelines before writing the project. However, as there isn\u0027t a class that can store all the variables, I used global variables to share information. Also, for eg. test_count is used by the threads to print the information. I can\u0027t think of any other approach except having a shared object(which should be a global variable).",
+      "range": {
+        "startLine": 422,
+        "startChar": 1,
+        "endLine": 424,
+        "endChar": 24
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "96b7f275_c513de14",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 19
@@ -317,6 +472,29 @@
       "writtenOn": "2017-01-30T18:58:59Z",
       "side": 1,
       "message": "Why not just use the \u0027print\u0027 function/statement?",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 553,
+        "endChar": 22
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc25152_ae798b74",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-01-30T21:40:15Z",
+      "side": 1,
+      "message": "print doesn\u0027t handle reverse feed correctly.",
       "range": {
         "startLine": 551,
         "startChar": 0,
