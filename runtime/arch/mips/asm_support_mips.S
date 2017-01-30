@@ -64,9 +64,11 @@
     END \name
 .endm
 
-#if defined(__mips_isa_rev) && __mips_isa_rev > 2
-  /* mips32r5 & mips32r6 have mthc1 op, and have 64-bit fp regs,
-     and in FPXX abi we avoid referring to odd-numbered fp regs */
+#if defined(__mips_fpr) && __mips_fpr == 64
+  /* Using 64-bit floating point register mode (FR=1)
+     i.e. mips32r5, mips32r6, or a 32r5 build via mips32r2 (FR=1)
+     These CPUs all have mthc1 opcode
+     and for FPXX/FP64A ABIs we avoid referring to odd-numbered fp regs */
 
 /* LDu: Load 64-bit floating-point value to float reg feven,
    from unaligned (mod-4-aligned) mem location disp(base) */
@@ -92,9 +94,10 @@
 .endm
 
 #else
-  /* mips32r1 has no mthc1 op;
-     mips32r1 and mips32r2 use 32-bit floating point register mode (FR=0),
-     and always hold doubles as (feven, fodd) fp reg pair */
+  /* Using 32-bit floating point register mode (FR=0),
+     holding 64-bit double values as (feven, fodd) fp reg pair
+     i.e. mips32r1, or mips32r2 (usual FR=0) build
+     mips32r1 has no mthc1 opcode                             */
 
 .macro LDu feven,fodd,disp,base,temp
   l.s   \feven, \disp(\base)
@@ -111,7 +114,7 @@
   mtc1  \rodd, \fodd
 .endm
 
-#endif  /* mips_isa_rev */
+#endif  /* __mips_fpr */
 
 // Macros to poison (negate) the reference for heap poisoning.
 .macro POISON_HEAP_REF rRef
