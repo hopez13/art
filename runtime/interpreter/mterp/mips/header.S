@@ -35,12 +35,12 @@
 
 #if (__mips==32) && (__mips_isa_rev>=2)
 #define MIPS32REVGE2    /* mips32r2 and greater */
-#if (__mips==32) && (__mips_isa_rev>=5)
-#define FPU64           /* 64 bit FPU */
 #if (__mips==32) && (__mips_isa_rev>=6)
 #define MIPS32REVGE6    /* mips32r6 and greater */
 #endif
 #endif
+#if (__mips_fpr==64)
+#define FPU64           /* using 64 bit FPU */
 #endif
 
 /* MIPS definitions and declarations
