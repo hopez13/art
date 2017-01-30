@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e438fa7d_9e45db4b",
+        "filename": "compiler/linker/mips/relative_patcher_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-30T14:40:26Z",
+      "side": 1,
+      "message": "This section now also initializes \"literal_low_offset\".",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "0f04d3e38d32abb427820f150438fcca2d989f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc9a79c3_7fe9e8c5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5215,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-30T14:40:26Z",
+      "side": 1,
+      "message": "I don\u0027t think the fall-back is needed for absolute addresses, i.e. kBootImageLinkTimeAddress and kBootImageAddress here and for the LoadClass.",
+      "revId": "0f04d3e38d32abb427820f150438fcca2d989f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
