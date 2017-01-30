@@ -115,6 +115,8 @@ static AgentLib agents[] = {
   { "935-non-retransformable", common_transform::OnLoad, nullptr },
   { "936-search-onload", Test936SearchOnload::OnLoad, nullptr },
   { "937-hello-retransform-package", common_retransform::OnLoad, nullptr },
+  { "940-recursive-obsolete", common_redefine::OnLoad, nullptr },
+  { "941-recursive-obsolete-jit", common_redefine::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
