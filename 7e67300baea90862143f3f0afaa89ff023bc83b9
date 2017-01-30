@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "c4dee493_16eb8a38",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-30T23:25:02Z",
+      "side": 1,
+      "message": "It seemed more intuitive to have this here, as it\u0027s a GC matter, not a ThreadList matter, really.\n\n(I think the current design is definitely not pretty - mixing concerns in ThreadList is...\n\nPlus: why does the Runtime::FlipThreadRoots forward exist, at  all?)",
+      "range": {
+        "startLine": 450,
+        "startChar": 22,
+        "endLine": 450,
+        "endChar": 32
+      },
+      "revId": "7e67300baea90862143f3f0afaa89ff023bc83b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b8bee63_893af15e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
