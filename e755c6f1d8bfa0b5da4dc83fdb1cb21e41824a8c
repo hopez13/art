@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbc0058b_09bfd493",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Don\u0027t update the copyright notice.",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21ad7a2a_13a3333b",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "what is this for? to figure out the concurrency level? If so I think thats surfaced in some builtin var IIRC\n\nAlso you really need a comment saying what all of this is doing. MAKE is hard enough to read without a bunch of bash in the middle of it.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1d3a013_2a889561",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "See comment above",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 59
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf6ece6a_50160e8f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "This seems to sometimes be a single string and sometimes a list of strings. Why?",
+      "range": {
+        "startLine": 15,
+        "startChar": 9,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b18bfa_2d060e91",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "ISTM that it would be better to always use tests with a single element list.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2fd5bf3_c481bb6c",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "You\u0027ll need to update this file since all of these are no longer blocked IIRC.",
+      "range": {
+        "startLine": 49,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 30
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8ffa1ba_397864b6",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Are either of these printed or used in any way? Are they just for documentation?",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5403512a_aea4b090",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Why is this a dict? It seems more like it should be a set().",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f19f47_64bea90e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Comment about what this dict is and what it will hold.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67cf407f_fad07393",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Please comment what these codes do.",
+      "range": {
+        "startLine": 71,
+        "startChar": 17,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66da8b9e_04122b85",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "What is this and what will it hold.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d93021_a37d837f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "There is no need for this to be indented 12 times.\n\nimport itertools\n\nconfigs \u003d (TARGET_TYPES, RUN_TYPES, PREBUILD_TYPES, ..., ADDRESS_SIZES_TARGET[target])\nfor (target, run, prebuild, compiler, relocate, trace, gc, jni, image, pictest, debuggable, address_size) in itertools.product(*configs):  \n    # stuff",
+      "range": {
+        "startLine": 281,
+        "startChar": 30,
+        "endLine": 293,
+        "endChar": 75
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aaccf6d_15d1e962",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Generally global variables are something to be avoided.\n\nhttps://google.github.io/styleguide/pyguide.html#Global_variables\n\nI don\u0027t think anything you\u0027re doing is dangerous and it\u0027s probably more work to remove them then it\u0027s worth but just FYI.",
+      "range": {
+        "startLine": 422,
+        "startChar": 1,
+        "endLine": 424,
+        "endChar": 24
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b7f275_c513de14",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "called get_disabled_test_list but returns a set.",
+      "range": {
+        "startLine": 465,
+        "startChar": 4,
+        "endLine": 465,
+        "endChar": 26
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c13b8db6_8fb8f044",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "Why not just use the \u0027print\u0027 function/statement?",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 553,
+        "endChar": 22
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45841180_6721a556",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "This function really needs a doc-comment and probably a different name.\n\nIt\u0027s name sounds like it is just figuring out what test we are asking to have run but it is also fiddling with global state.",
+      "range": {
+        "startLine": 572,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 28
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "793e0949_f80e083e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T18:58:59Z",
+      "side": 1,
+      "message": "I believe the standard style is to have this simply call main() and put the startup stuff in that function.",
+      "range": {
+        "startLine": 744,
+        "startChar": 1,
+        "endLine": 744,
+        "endChar": 26
+      },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
