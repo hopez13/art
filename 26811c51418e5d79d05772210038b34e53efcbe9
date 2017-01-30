@@ -42,6 +42,29 @@
     },
     {
       "key": {
+        "uuid": "a17eb18d_7c65e99a",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:07:59Z",
+      "side": 1,
+      "message": "How about:\n\n\"... if the stack doesn\u0027t have a JITted compiled sayHi entry. This can only happen if it got GCed.\"\n\nwill that be more accurate?",
+      "range": {
+        "startLine": 136,
+        "startChar": 37,
+        "endLine": 136,
+        "endChar": 86
+      },
+      "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309ecdbe_52014e39",
         "filename": "test/916-obsolete-jit/src/Main.java",
         "patchSetId": 3
@@ -76,6 +99,23 @@
       "writtenOn": "2017-01-30T18:14:09Z",
       "side": 1,
       "message": "We can still actually be interpretting so we still need to retry.",
+      "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b11fb00_ba240638",
+        "filename": "test/916-obsolete-jit/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-30T22:07:59Z",
+      "side": 1,
+      "message": "OK, so this test is about making sure ART can survive a jitted obsolete method in the stack right? If yes, see my comments above.",
       "revId": "26811c51418e5d79d05772210038b34e53efcbe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
