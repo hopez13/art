@@ -663,7 +663,7 @@ void BuildQuickShadowFrameVisitor::Visit() {
   ++cur_reg_;
 }
 
-extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+static uint64_t DoQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Ensure we don't get thread suspension until the object arguments are safely in the shadow
   // frame.
@@ -674,7 +674,6 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
     return 0;
   }
 
-  JValue tmp_value;
   ShadowFrame* deopt_frame = self->PopStackedShadowFrame(
       StackedShadowFrameType::kDeoptimizationShadowFrame, false);
   ManagedStack fragment;
@@ -698,8 +697,9 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
       while (linked->GetLink() != nullptr) {
         linked = linked->GetLink();
       }
-      CHECK_EQ(method, linked->GetMethod()) << method->PrettyMethod() << " "
-          << ArtMethod::PrettyMethod(linked->GetMethod());
+      // We should allow deopting the obsoleted version of this method.
+      CHECK_EQ(method, linked->GetMethod()->GetNonObsoleteMethod())
+          << method->PrettyMethod() << " " << ArtMethod::PrettyMethod(linked->GetMethod());
     }
 
     if (VLOG_IS_ON(deopt)) {
@@ -798,6 +798,15 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
 
   // No need to restore the args since the method has already been run by the interpreter.
   return result.GetJ();
+}
+
+extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // We cannot call obsolete methods but if a newly obsolete method calls itself in JITed code it
+  // will try to be clever and simply call its own ArtMethod. Since this isn't allowed we force
+  // all obsolete methods to have this as their entrypoint. Once we get here we just make sure not
+  // to try to call obsolete methods.
+  return DoQuickToInterpreterBridge(method->GetNonObsoleteMethod(), self, sp);
 }
 
 // Visits arguments on the stack placing them into the args vector, Object* arguments are converted
