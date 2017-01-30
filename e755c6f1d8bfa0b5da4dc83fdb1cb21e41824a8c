@@ -157,6 +157,23 @@
     },
     {
       "key": {
+        "uuid": "41b93bb7_92cbd4bb",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T21:56:23Z",
+      "side": 1,
+      "message": "yeah. It is just weird and seems like it could cause issues when somebody adds/removes a test if they need to change the key name and the value format also.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2fd5bf3_c481bb6c",
         "filename": "test/knownfailures.json",
         "patchSetId": 19
@@ -277,6 +294,23 @@
       "writtenOn": "2017-01-30T21:40:15Z",
       "side": 1,
       "message": "The variable maps test name to the variants which are there in the known failure file. For eg. 001-HelloWorld could be mapped to \u0027optimizing\u0027. In this case, when I will check if 001-HelloWorld is disabled for optimizing, I will first check if 001-HelloWorld is in the list or not, and if it is, then which of its variants are disabled.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "587c4d88_bd53257c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T21:56:23Z",
+      "side": 1,
+      "message": "Ok. This should 1) have a different name (it\u0027s not a list) and 2) have something like this description in a comment.",
       "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -501,6 +535,23 @@
         "endLine": 553,
         "endChar": 22
       },
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25c1f1a9_6a90f3a0",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-30T21:56:23Z",
+      "side": 1,
+      "message": "Hm. You should be sure to be careful using those. I\u0027m not sure how soong will like them.",
       "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
