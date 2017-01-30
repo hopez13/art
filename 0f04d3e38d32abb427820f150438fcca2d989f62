@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "7f50697e_56653195",
+        "filename": "compiler/linker/mips/relative_patcher_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-30T17:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "0f04d3e38d32abb427820f150438fcca2d989f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc9a79c3_7fe9e8c5",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
@@ -36,6 +59,23 @@
       "writtenOn": "2017-01-30T14:40:26Z",
       "side": 1,
       "message": "I don\u0027t think the fall-back is needed for absolute addresses, i.e. kBootImageLinkTimeAddress and kBootImageAddress here and for the LoadClass.",
+      "revId": "0f04d3e38d32abb427820f150438fcca2d989f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "516c96b8_d9218012",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5215,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-01-30T17:28:46Z",
+      "side": 1,
+      "message": "All those 2*2\u003d4 cases end up loading a literal, which on MIPS32R2 uses HMipsComputeBaseMethodAddress, which at the moment is only created when there are no irredicible loops. Just like on x86 until the recent change that introduced multiple instances HX86ComputeBaseMethodAddress. We\u0027ll create multiple HMipsComputeBaseMethodAddress and HMipsDexCacheArraysBase, but in a separate patch. This patch is mostly to align MIPS32R6 with MIPS64R6.",
       "revId": "0f04d3e38d32abb427820f150438fcca2d989f62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
