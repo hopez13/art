@@ -57,6 +57,10 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
     return info->AddMethodIndex(dex_location, checksum, method_index);
   }
 
+  bool AddMethod(const OfflineProfileMethodInfo& pmi, ProfileCompilationInfo* info) {
+    return info->AddMethod(pmi);
+  }
+
   bool AddClass(const std::string& dex_location,
                 uint32_t checksum,
                 uint16_t class_index,
@@ -73,12 +77,15 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
       const std::vector<ArtMethod*>& methods,
       const std::set<DexCacheResolvedClasses>& resolved_classes) {
     ProfileCompilationInfo info;
-    std::vector<MethodReference> method_refs;
+    std::vector<OnlineProfileMethodInfo> profile_methods;
     ScopedObjectAccess soa(Thread::Current());
     for (ArtMethod* method : methods) {
-      method_refs.emplace_back(method->GetDexFile(), method->GetDexMethodIndex());
+      profile_methods.emplace_back(method->GetDexFile(), method->GetDexMethodIndex());
     }
-    if (!info.AddMethodsAndClasses(method_refs, resolved_classes)) {
+    if (!info.AddMethodsAndClasses(profile_methods, resolved_classes)) {
+      return false;
+    }
+    if (info.GetNumberOfMethods() != profile_methods.size()) {
       return false;
     }
     return info.MergeAndSave(filename, nullptr, false);
@@ -235,12 +242,12 @@ TEST_F(ProfileCompilationInfoTest, SaveEmpty) {
 TEST_F(ProfileCompilationInfoTest, LoadEmpty) {
   ScratchFile profile;
 
-  ProfileCompilationInfo empyt_info;
+  ProfileCompilationInfo empty_info;
 
   ProfileCompilationInfo loaded_info;
   ASSERT_TRUE(profile.GetFile()->ResetOffset());
   ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
-  ASSERT_TRUE(loaded_info.Equals(empyt_info));
+  ASSERT_TRUE(loaded_info.Equals(empty_info));
 }
 
 TEST_F(ProfileCompilationInfoTest, BadMagic) {
@@ -323,5 +330,71 @@ TEST_F(ProfileCompilationInfoTest, UnexpectedContent) {
   ASSERT_TRUE(profile.GetFile()->ResetOffset());
   ASSERT_FALSE(loaded_info.Load(GetFd(profile)));
 }
+
+// TEST_F(ProfileCompilationInfoTest, SaveInlineCaches) {
+//   ScratchFile profile;
+
+//   ProfileCompilationInfo saved_info;
+//   // Save a few methods.
+//   OfflineDexReference dex_ref1("dex_location1", /* checksum */ 1);
+//   OfflineDexReference dex_ref2("dex_location2", /* checksum */ 2);
+//   OfflineDexReference dex_ref3("dex_location3", /* checksum */ 3);
+
+//   for (uint16_t method_idx = 0; method_idx < 10; method_idx++) {
+//     std::vector<OfflineProfileInlineCache> caches;
+
+//     // Monomorphic
+//     for (uint16_t dex_pc = 10; dex_pc < 20; dex_pc++) {
+//       std::vector<OfflineProfileClassReference> classes;
+//       classes.emplace(dex_ref1, dex::TypeIndex(0));
+//     }
+//     // Polimorphic
+//     for (uint16_t dex_pc = 10; dex_pc < 20; dex_pc++) {
+//       std::vector<OfflineProfileClassReference> classes;
+//       classes.emplace(dex_ref1, dex::TypeIndex(0));
+//       classes.emplace(dex_ref2, dex::TypeIndex(1));
+//       classes.emplace(dex_ref3, dex::TypeIndex(2));
+//       caches.emplace(dex_pc, classes);
+//     }
+//     // Megamorphic
+//     for (uint16_t dex_pc = 20; dex_pc < 30; dex_pc++) {
+//       std::vector<OfflineProfileClassReference> classes;
+//       for (uint8_t k = 0; k < ProfilingInfo::kIndividualCacheSize) {
+//         classes.emplace(dex_ref1, dex::TypeIndex(k));
+//       };
+//       caches.emplace(dex_pc, classes);
+//     }
+
+//     OfflineProfileMethodInfo pmi1(dex_ref1, method_idx, caches);
+//     OfflineProfileMethodInfo pmi2(dex_ref2, method_idx, caches);
+//     ASSERT_TRUE(AddMethod(pmi1, &saved_info));
+//     ASSERT_TRUE(AddMethod(pmi2, &saved_info));
+//   }
+//   ASSERT_TRUE(saved_info.Save(GetFd(profile)));
+//   ASSERT_EQ(0, profile.GetFile()->Flush());
+
+//   // Check that we get back what we saved.
+//   ProfileCompilationInfo loaded_info;
+//   ASSERT_TRUE(profile.GetFile()->ResetOffset());
+//   ASSERT_TRUE(loaded_info.Load(GetFd(profile)));
+//   ASSERT_TRUE(loaded_info.Equals(saved_info));
+
+//   // Save more methods.
+//   for (uint16_t i = 0; i < 100; i++) {
+//     ASSERT_TRUE(AddMethod("dex_location1", /* checksum */ 1, /* method_idx */ i, &saved_info));
+//     ASSERT_TRUE(AddMethod("dex_location2", /* checksum */ 2, /* method_idx */ i, &saved_info));
+//     ASSERT_TRUE(AddMethod("dex_location3", /* checksum */ 3, /* method_idx */ i, &saved_info));
+//   }
+//   ASSERT_TRUE(profile.GetFile()->ResetOffset());
+//   ASSERT_TRUE(saved_info.Save(GetFd(profile)));
+//   ASSERT_EQ(0, profile.GetFile()->Flush());
+
+//   // Check that we get back everything we saved.
+//   ProfileCompilationInfo loaded_info2;
+//   ASSERT_TRUE(profile.GetFile()->ResetOffset());
+//   ASSERT_TRUE(loaded_info2.Load(GetFd(profile)));
+//   ASSERT_TRUE(loaded_info2.Equals(saved_info));
+// }
+
 
 }  // namespace art

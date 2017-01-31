@@ -29,6 +29,56 @@
 
 namespace art {
 
+template <typename DexFileRef>
+struct ProfileMethodInfo {
+  struct ProfileClassReference {
+    ProfileClassReference(const DexFileRef& dex_ref, const dex::TypeIndex& index)
+        : class_dex_ref(dex_ref), type_index(index) {}
+
+    const DexFileRef class_dex_ref;
+    const dex::TypeIndex type_index;
+  };
+
+  struct ProfileInlineCache {
+    ProfileInlineCache(uint32_t pc,
+                      const std::vector<ProfileClassReference>& profileClasses)
+        : dex_pc(pc), classes(profileClasses) {}
+
+    const uint32_t dex_pc;
+    const std::vector<ProfileClassReference> classes;
+  };
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index)
+      : method_dex_ref(dex_ref), dex_method_index(method_index) {}
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index,
+                    const std::vector<ProfileInlineCache>& caches)
+      : method_dex_ref(dex_ref), dex_method_index(method_index), inline_caches(caches) {}
+
+  const DexFileRef method_dex_ref;
+  const uint32_t dex_method_index;
+  const std::vector<ProfileInlineCache> inline_caches;
+};
+
+struct OfflineDexReference {
+  OfflineDexReference() {}
+  OfflineDexReference(const std::string& location, uint32_t checksum)
+      : dex_location(location), dex_checksum(checksum) {}
+
+  std::string dex_location;
+  uint32_t dex_checksum;
+};
+
+using OnlineProfileMethodInfo = ProfileMethodInfo<const DexFile*>;
+using OnlineProfileInlineCache = OnlineProfileMethodInfo::ProfileInlineCache;
+using OnlineProfileClassReference = OnlineProfileMethodInfo::ProfileClassReference;
+
+using OfflineProfileMethodInfo = ProfileMethodInfo<OfflineDexReference>;
+using OfflineProfileInlineCache = OfflineProfileMethodInfo::ProfileInlineCache;
+using OfflineProfileClassReference = OfflineProfileMethodInfo::ProfileClassReference;
+
 /**
  * Profile information in a format suitable to be queried by the compiler and
  * performing profile guided compilation.
@@ -42,7 +92,7 @@ class ProfileCompilationInfo {
   static const uint8_t kProfileVersion[];
 
   // Add the given methods and classes to the current profile object.
-  bool AddMethodsAndClasses(const std::vector<MethodReference>& methods,
+  bool AddMethodsAndClasses(const std::vector<OnlineProfileMethodInfo>& methods,
                             const std::set<DexCacheResolvedClasses>& resolved_classes);
   // Loads profile information from the given file descriptor.
   bool Load(int fd);
@@ -92,6 +142,59 @@ class ProfileCompilationInfo {
                                   uint16_t method_ratio,
                                   uint16_t class_ratio);
 
+  struct ClassRef {
+    ClassRef(uint16_t dex_profile_idx, const dex::TypeIndex& type_idx) :
+      dex_profile_index(dex_profile_idx), type_index(type_idx) {}
+
+    uint8_t dex_profile_index;
+    dex::TypeIndex type_index;
+
+    bool operator==(const ClassRef& other) const {
+      return dex_profile_index == other.dex_profile_index && type_index == other.type_index;
+    }
+    bool operator<(const ClassRef& other) const {
+      return dex_profile_index == other.dex_profile_index
+          ? type_index < other.type_index
+          : dex_profile_index < other.dex_profile_index;
+    }
+    // ClassRef& operator=(const ClassRef& other) {
+    //   if (this != &other) {
+    //     this->dex_profile_index = other.dex_profile_index;
+    //     this->type_index = other.type_index;
+    //   }
+    //   return *this;
+    // }
+  };
+
+  using ClassSet = std::set<ClassRef>;
+
+  struct DexPcData {
+    bool is_megamorphic = false;
+    ClassSet classes;
+    bool operator==(const DexPcData& other) const {
+      return is_megamorphic == other.is_megamorphic && classes == other.classes;
+    }
+    // DexPcData& operator=(const DexPcData& other) {
+    //   if (this != &other) {
+    //     this->is_megamorphic = other.is_megamorphic;
+    //     this->classes.insert(other.classes.begin(), other.classes.end());
+    //   }
+    //   return *this;
+    // }
+  };
+
+  using InternalInlineCache = SafeMap<uint16_t, DexPcData>;  //  DexPc -> DexPcData
+
+  struct XXXProfileMethodInfo {
+    std::vector<OfflineDexReference> dex_references;
+    InternalInlineCache inline_caches;
+  };
+
+  bool GetMethod(const std::string& dex_location,
+                 uint32_t dex_checksum,
+                 uint16_t dex_method_index,
+                 /*out*/XXXProfileMethodInfo* pmi) const;
+
  private:
   enum ProfileLoadSatus {
     kProfileLoadIOError,
@@ -100,14 +203,18 @@ class ProfileCompilationInfo {
     kProfileLoadSuccess
   };
 
+  using MethodMap = SafeMap<uint16_t, InternalInlineCache>;  // Method dex index -> Inline cache
+
   struct DexFileData {
-    explicit DexFileData(uint32_t location_checksum) : checksum(location_checksum) {}
+    DexFileData(uint32_t location_checksum, uint16_t index)
+         : profile_index(index), checksum(location_checksum) {}
+    uint16_t profile_index;
     uint32_t checksum;
-    std::set<uint16_t> method_set;
+    MethodMap method_map;
     std::set<dex::TypeIndex> class_set;
 
     bool operator==(const DexFileData& other) const {
-      return checksum == other.checksum && method_set == other.method_set;
+      return checksum == other.checksum && method_map == other.method_map;
     }
   };
 
@@ -115,14 +222,19 @@ class ProfileCompilationInfo {
 
   DexFileData* GetOrAddDexFileData(const std::string& dex_location, uint32_t checksum);
   bool AddMethodIndex(const std::string& dex_location, uint32_t checksum, uint16_t method_idx);
+  bool AddMethod(const OfflineProfileMethodInfo& pmi);
   bool AddClassIndex(const std::string& dex_location, uint32_t checksum, dex::TypeIndex type_idx);
   bool AddResolvedClasses(const DexCacheResolvedClasses& classes);
-
+  void AddInlineCacheToBuffer(std::vector<uint8_t>* buffer,
+                              const InternalInlineCache& inline_cache);
+  const InternalInlineCache* FindMethod(const std::string& dex_location,
+                                        uint32_t dex_checksum,
+                                        uint16_t dex_method_index) const;
   // Parsing functionality.
 
   struct ProfileLineHeader {
     std::string dex_location;
-    uint16_t method_set_size;
+    uint32_t method_map_size;
     uint16_t class_set_size;
     uint32_t checksum;
   };
@@ -142,11 +254,13 @@ class ProfileCompilationInfo {
 
     // Reads an uint value (high bits to low bits) and advances the current pointer
     // with the number of bits read.
-    template <typename T> T ReadUintAndAdvance();
+    template <typename T> bool ReadUintAndAdvance(/*out*/ T* value);
 
     // Compares the given data with the content current pointer. If the contents are
     // equal it advances the current pointer by data_size.
     bool CompareAndAdvance(const uint8_t* data, size_t data_size);
+
+    bool HasMoreData();
 
     // Get the underlying raw buffer.
     uint8_t* Get() { return storage_.get(); }
@@ -160,21 +274,32 @@ class ProfileCompilationInfo {
   ProfileLoadSatus LoadInternal(int fd, std::string* error);
 
   ProfileLoadSatus ReadProfileHeader(int fd,
-                                     /*out*/uint16_t* number_of_lines,
+                                     /*out*/uint8_t* number_of_lines,
                                      /*out*/std::string* error);
 
   ProfileLoadSatus ReadProfileLineHeader(int fd,
                                          /*out*/ProfileLineHeader* line_header,
                                          /*out*/std::string* error);
   ProfileLoadSatus ReadProfileLine(int fd,
+                                   uint8_t dex_file_count,
                                    const ProfileLineHeader& line_header,
                                    /*out*/std::string* error);
 
-  bool ProcessLine(SafeBuffer& line_buffer,
-                   uint16_t method_set_size,
-                   uint16_t class_set_size,
-                   uint32_t checksum,
-                   const std::string& dex_location);
+  bool ReadClasses(SafeBuffer& buffer,
+                   uint16_t classes_to_read,
+                   const ProfileLineHeader& line_header);
+  bool ReadMethods(SafeBuffer& buffer,
+                   uint8_t dex_file_count,
+                   const ProfileLineHeader& line_header,
+                   /*out*/ std::string* error);
+  uint32_t GetMethodsRegionSize(const DexFileData& dex_data);
+  void GroupClassesByDex(
+    const ClassSet& classes,
+    /*out*/SafeMap<uint8_t, std::vector<dex::TypeIndex>>* dex_to_classes_map);
+  bool ReadInlineCache(SafeBuffer& line_buffer,
+                       uint8_t dex_file_count,
+                       /*out*/ InternalInlineCache* inline_cache,
+                       /*out*/ std::string* error);
 
   friend class ProfileCompilationInfoTest;
   friend class CompilerDriverProfileTest;
