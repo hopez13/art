@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "7f0e1d76_666024f1",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-31T00:56:12Z",
+      "side": 1,
+      "message": "Ups, yes.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 3
+      },
+      "revId": "7e67300baea90862143f3f0afaa89ff023bc83b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af97207c_da5188aa",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 1
@@ -151,6 +174,29 @@
       "writtenOn": "2017-01-31T00:37:08Z",
       "side": 1,
       "message": "We could also pass \"bool with_reporting\" to the constructor rather than having two classes? If you prefer two different classes, that\u0027s fine, too.",
+      "range": {
+        "startLine": 129,
+        "startChar": 13,
+        "endLine": 129,
+        "endChar": 40
+      },
+      "revId": "7e67300baea90862143f3f0afaa89ff023bc83b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b523f4_43cdc68e",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-31T00:56:12Z",
+      "side": 1,
+      "message": "What would you prefer?",
       "range": {
         "startLine": 129,
         "startChar": 13,
