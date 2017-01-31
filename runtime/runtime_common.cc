@@ -16,7 +16,12 @@
 
 #include "runtime_common.h"
 
+#if defined(__APPLE__)
+#define _XOPEN_SOURCE
+#endif
+
 #include <signal.h>
+#include <ucontext.h>
 
 #include <cinttypes>
 #include <iostream>
@@ -125,6 +130,20 @@ const char* GetSignalCodeName(int signal_number, int signal_code) {
   // Then give up...
   return "?";
 }
+
+struct UContext {
+  explicit UContext(void* raw_context)
+      : context(reinterpret_cast<ucontext_t*>(raw_context)->uc_mcontext) {}
+
+  void Dump(std::ostream& os) const;
+
+  void DumpRegister32(std::ostream& os, const char* name, uint32_t value) const;
+  void DumpRegister64(std::ostream& os, const char* name, uint64_t value) const;
+
+  void DumpX86Flags(std::ostream& os, uint32_t flags) const;
+
+  mcontext_t& context;
+};
 
 void UContext::Dump(std::ostream& os) const {
   // TODO: support non-x86 hosts.
@@ -274,6 +293,9 @@ static bool IsTimeoutSignal(int signal_number) {
   return signal_number == GetTimeoutSignal();
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wframe-larger-than="
+
 void HandleUnexpectedSignalCommon(int signal_number,
                                   siginfo_t* info,
                                   void* raw_context,
@@ -355,6 +377,8 @@ void HandleUnexpectedSignalCommon(int signal_number,
     }
   }
 }
+
+#pragma GCC diagnostic pop
 
 void InitPlatformSignalHandlersCommon(void (*newact)(int, siginfo_t*, void*),
                                       struct sigaction* oldact,

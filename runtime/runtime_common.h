@@ -20,7 +20,6 @@
 // Code shared by runtime/runtime_android.cc and runtime/runtime_linux.cc.
 
 #include <sys/utsname.h>
-#include <ucontext.h>
 
 #include <iomanip>
 
@@ -55,20 +54,6 @@ struct OsInfo {
 
 const char* GetSignalName(int signal_number);
 const char* GetSignalCodeName(int signal_number, int signal_code);
-
-struct UContext {
-  explicit UContext(void* raw_context)
-      : context(reinterpret_cast<ucontext_t*>(raw_context)->uc_mcontext) {}
-
-  void Dump(std::ostream& os) const;
-
-  void DumpRegister32(std::ostream& os, const char* name, uint32_t value) const;
-  void DumpRegister64(std::ostream& os, const char* name, uint64_t value) const;
-
-  void DumpX86Flags(std::ostream& os, uint32_t flags) const;
-
-  mcontext_t& context;
-};
 
 // Return the signal number we recognize as timeout. -1 means not active/supported.
 int GetTimeoutSignal();
