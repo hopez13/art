@@ -82,6 +82,23 @@
     },
     {
       "key": {
+        "uuid": "4d464f90_04486c7e",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-31T22:47:44Z",
+      "side": 1,
+      "message": "Ok. Please put a comment explaining what this is supposed to do at least.\n\nAlso this is extremely fragile. I don\u0027t think this will work for many possible make invocations.\n\nI don\u0027t think this will work with \u0027mma -j\u0027 which tries to use all processors, \u0027m --jobs\u003d\u003cwhatever\u003e\u0027 which means the same thing as -j or when using multiple single char arguments \u0027mma -kj40 ...\u0027 (-k causes make to keep going after the first error).\n\nFinally are you sure you cannot just pass in $(MAKEFLAGS) and have the python script parse them? That seems both much easier and less cryptic.\n\nhttps://www.gnu.org/software/make/manual/html_node/Options_002fRecursion.html#Options_002fRecursion",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1d3a013_2a889561",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 19
@@ -729,6 +746,23 @@
       "writtenOn": "2017-01-31T22:28:12Z",
       "side": 1,
       "message": "What problems do you think this can cause? I am not aware of any.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76c89a0e_cead49d3",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-01-31T22:47:44Z",
+      "side": 1,
+      "message": "soong (or ninja or whatever our build system is called now) already does stuff with carriage-return \u0027\\r\u0027 chars to print the in-progress jobs. It also buffers the output of a compile step, printing it all at once. Either one of these behaviors could interact with your use of it here in unexpected or unwanted ways.",
       "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
