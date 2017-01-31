@@ -32,6 +32,8 @@
 
 namespace art {
 
+class CodeGenerator;
+
 class HGraphBuilder : public ValueObject {
  public:
   HGraphBuilder(HGraph* graph,
@@ -40,6 +42,7 @@ class HGraphBuilder : public ValueObject {
                 const DexFile* dex_file,
                 const DexFile::CodeItem& code_item,
                 CompilerDriver* driver,
+                CodeGenerator* code_generator,
                 OptimizingCompilerStats* compiler_stats,
                 const uint8_t* interpreter_metadata,
                 Handle<mirror::DexCache> dex_cache,
@@ -64,6 +67,7 @@ class HGraphBuilder : public ValueObject {
                              dex_compilation_unit,
                              outer_compilation_unit,
                              driver,
+                             code_generator,
                              interpreter_metadata,
                              compiler_stats,
                              dex_cache,
@@ -94,6 +98,7 @@ class HGraphBuilder : public ValueObject {
                              /* dex_compilation_unit */ nullptr,
                              /* outer_compilation_unit */ nullptr,
                              /* compiler_driver */ nullptr,
+                             /* code_generator */ nullptr,
                              /* interpreter_metadata */ nullptr,
                              /* compiler_stats */ nullptr,
                              handles->NewHandle<mirror::DexCache>(nullptr),
