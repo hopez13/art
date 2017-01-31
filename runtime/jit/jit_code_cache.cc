@@ -1231,15 +1231,37 @@ void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) NO_THREAD_S
 }
 
 void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_locations,
-                                      std::vector<MethodReference>& methods) {
+                                      std::vector<OnlineProfileMethodInfo>& methods) {
   ScopedTrace trace(__FUNCTION__);
   MutexLock mu(Thread::Current(), lock_);
   for (const ProfilingInfo* info : profiling_infos_) {
     ArtMethod* method = info->GetMethod();
     const DexFile* dex_file = method->GetDexFile();
-    if (ContainsElement(dex_base_locations, dex_file->GetBaseLocation())) {
-      methods.emplace_back(dex_file,  method->GetDexMethodIndex());
+    if (!ContainsElement(dex_base_locations, dex_file->GetBaseLocation())) {
+      // Skip dex files which are not profiled.
+      continue;
     }
+    std::vector<OnlineProfileMethodInfo::OfflineInlineCache> inline_caches;
+    for (size_t i = 0; i < info->number_of_inline_caches_; ++i) {
+      std::vector<OnlineProfileMethodInfo::ProfileClassReference> profile_classes;
+      const InlineCache& cache = info->cache_[i];
+      for (size_t k = 0; k < InlineCache::kIndividualCacheSize; k++) {
+        mirror::Class* cls = cache.classes_[k].Read();
+        if (cls == nullptr) {
+          break;
+        }
+        const DexFile& class_dex_file = cls->GetDexFile();
+        dex::TypeIndex type_index = cls->GetDexTypeIndex();
+        if (ContainsElement(dex_base_locations, class_dex_file.GetBaseLocation())) {
+          // Only consider classes from the same apk (considering multidex).
+          profile_classes.emplace_back(&class_dex_file, type_index);
+        }
+      }
+      if (!profile_classes.empty()) {
+        inline_caches.emplace_back(cache.dex_pc_, profile_classes);
+      }
+    }
+    methods.emplace_back(dex_file, method->GetDexMethodIndex(), inline_caches);
   }
 }
 

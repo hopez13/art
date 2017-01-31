@@ -29,6 +29,51 @@
 
 namespace art {
 
+template <typename DexFileRef>
+struct ProfileMethodInfo {
+ public:
+  struct ProfileClassReference {
+    ProfileClassReference(const DexFileRef& dex_ref, dex::TypeIndex index)
+        : class_dex_ref(dex_ref), type_index(index) {}
+
+    const DexFileRef class_dex_ref;
+    const dex::TypeIndex type_index;
+  };
+
+  struct OfflineInlineCache {
+    OfflineInlineCache(uint32_t pc,
+                      const std::vector<ProfileClassReference>& profileClasses)
+        : dex_pc(pc), classes(profileClasses) {}
+
+    const uint32_t dex_pc;
+    const std::vector<ProfileClassReference> classes;
+  };
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index)
+      : method_dex_ref(dex_ref), dex_method_index(method_index) {}
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index,
+                    const std::vector<OfflineInlineCache>& caches)
+      : method_dex_ref(dex_ref), dex_method_index(method_index), inline_caches(caches) {}
+
+  const DexFileRef method_dex_ref;
+  const uint32_t dex_method_index;
+  const std::vector<OfflineInlineCache> inline_caches;
+};
+
+struct OfflineDexReference {
+  OfflineDexReference(const std::string& dex_location, uint32_t dex_checksum)
+      : location(dex_location), checksum(dex_checksum) {}
+
+  const std::string location;
+  const uint32_t checksum;
+};
+
+typedef ProfileMethodInfo<const DexFile*> OnlineProfileMethodInfo;
+typedef ProfileMethodInfo<OfflineDexReference> OfflineProfileMethodInfo;
+
 /**
  * Profile information in a format suitable to be queried by the compiler and
  * performing profile guided compilation.
@@ -42,7 +87,7 @@ class ProfileCompilationInfo {
   static const uint8_t kProfileVersion[];
 
   // Add the given methods and classes to the current profile object.
-  bool AddMethodsAndClasses(const std::vector<MethodReference>& methods,
+  bool AddMethodsAndClasses(const std::vector<OnlineProfileMethodInfo>& methods,
                             const std::set<DexCacheResolvedClasses>& resolved_classes);
   // Loads profile information from the given file descriptor.
   bool Load(int fd);

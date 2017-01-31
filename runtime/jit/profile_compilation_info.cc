@@ -62,11 +62,11 @@ std::string ProfileCompilationInfo::GetProfileDexFileKey(const std::string& dex_
 }
 
 bool ProfileCompilationInfo::AddMethodsAndClasses(
-    const std::vector<MethodReference>& methods,
+    const std::vector<OnlineProfileMethodInfo>& methods,
     const std::set<DexCacheResolvedClasses>& resolved_classes) {
-  for (const MethodReference& method : methods) {
-    if (!AddMethodIndex(GetProfileDexFileKey(method.dex_file->GetLocation()),
-                        method.dex_file->GetLocationChecksum(),
+  for (const OnlineProfileMethodInfo& method : methods) {
+    if (!AddMethodIndex(GetProfileDexFileKey(method.method_dex_ref->GetLocation()),
+                        method.method_dex_ref->GetLocationChecksum(),
                         method.dex_method_index)) {
       return false;
     }
