@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97fc950a_b82fd007",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Indentation looks odd.",
+      "range": {
+        "startLine": 2153,
+        "startChar": 32,
+        "endLine": 2154,
+        "endChar": 68
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0056ce53_39f44cd2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 8060,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Use the helper to avoid the null check?",
+      "range": {
+        "startLine": 8057,
+        "startChar": 0,
+        "endLine": 8060,
+        "endChar": 3
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e0e3c81_8d092bbe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 8063,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Check that an exception is pending? Or add a comment if not.",
+      "range": {
+        "startLine": 8061,
+        "startChar": 0,
+        "endLine": 8063,
+        "endChar": 3
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28dd63c4_815cb950",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 8066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "resolved_field?",
+      "range": {
+        "startLine": 8066,
+        "startChar": 12,
+        "endLine": 8066,
+        "endChar": 20
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb3bff9_666e1a19",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 8071,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Add comments: \"First try to find by id\".",
+      "range": {
+        "startLine": 8067,
+        "startChar": 0,
+        "endLine": 8071,
+        "endChar": 3
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "881aabeb_6ab32561",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 8075,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Add comment: \"if not found by id, try to find through name/type.\"",
+      "range": {
+        "startLine": 8074,
+        "startChar": 0,
+        "endLine": 8075,
+        "endChar": 65
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ade30816_106f72ea",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "How about kStaticOrInstance, or kBoth?",
+      "range": {
+        "startLine": 816,
+        "startChar": 4,
+        "endLine": 816,
+        "endChar": 12
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e732a02_f302815a",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Add DCHECK(Runtime::Current()-\u003eIsAotCompiler()) ?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 81
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe468a4a_b258427d",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "DCHECK that Runtime::Current()-\u003eIsAotCompiler. And you need those methods for cross-compilation. We should really never use these at runtime.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 6
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdc9721b_4a8a03e6",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "How about StaticArtFieldSize? (otherwise the name I feel is confusing on whether we\u0027re talking Java static, what field, ...)",
+      "range": {
+        "startLine": 169,
+        "startChar": 26,
+        "endLine": 169,
+        "endChar": 41
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed0af404_6b24d643",
+        "filename": "runtime/mirror/field.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:34:33Z",
+      "side": 1,
+      "message": "Call the class linker?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 3
+      },
+      "revId": "7c0162aa9243699fc2e3029a3ff338f36ed3a5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
