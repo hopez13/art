@@ -61,13 +61,28 @@ std::string ProfileCompilationInfo::GetProfileDexFileKey(const std::string& dex_
   }
 }
 
+
 bool ProfileCompilationInfo::AddMethodsAndClasses(
-    const std::vector<MethodReference>& methods,
+    const std::vector<OnlineProfileMethodInfo>& methods,
     const std::set<DexCacheResolvedClasses>& resolved_classes) {
-  for (const MethodReference& method : methods) {
-    if (!AddMethodIndex(GetProfileDexFileKey(method.dex_file->GetLocation()),
-                        method.dex_file->GetLocationChecksum(),
-                        method.dex_method_index)) {
+  for (const OnlineProfileMethodInfo& method : methods) {
+    // Build the offline version of the compilation info
+    std::vector<OfflineProfileInlineCache> inline_caches;
+    for (const OnlineProfileInlineCache& cache : method.inline_caches) {
+      std::vector<OfflineProfileClassReference> classes;
+      for (const OnlineProfileClassReference& classRef : cache.classes) {
+        classes.emplace_back(OfflineDexReference(classRef.class_dex_ref->GetLocation(),
+                                                 classRef.class_dex_ref->GetLocationChecksum()),
+                             classRef.type_index);
+      }
+      inline_caches.emplace_back(cache.dex_pc, classes);
+    }
+    OfflineProfileMethodInfo pmi(OfflineDexReference(method.method_dex_ref->GetLocation(),
+                                                     method.method_dex_ref->GetLocationChecksum()),
+                                 method.dex_method_index,
+                                 inline_caches);
+
+    if (!AddMethodIndex(pmi)) {
       return false;
     }
   }
@@ -269,9 +284,7 @@ bool ProfileCompilationInfo::AddResolvedClasses(const DexCacheResolvedClasses& c
   return true;
 }
 
-bool ProfileCompilationInfo::AddMethodIndex(const std::string& dex_location,
-                                            uint32_t checksum,
-                                            uint16_t method_idx) {
+bool ProfileCompilationInfo::AddMethodIndex(const OfflineProfileMethodInfo& pmi) {
   DexFileData* const data = GetOrAddDexFileData(dex_location, checksum);
   if (data == nullptr) {
     return false;

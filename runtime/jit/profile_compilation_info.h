@@ -29,6 +29,55 @@
 
 namespace art {
 
+template <typename DexFileRef>
+struct ProfileMethodInfo {
+  struct ProfileClassReference {
+    ProfileClassReference(const DexFileRef& dex_ref, dex::TypeIndex index)
+        : class_dex_ref(dex_ref), type_index(index) {}
+
+    const DexFileRef class_dex_ref;
+    const dex::TypeIndex type_index;
+  };
+
+  struct ProfileInlineCache {
+    ProfileInlineCache(uint32_t pc,
+                      const std::vector<ProfileClassReference>& profileClasses)
+        : dex_pc(pc), classes(profileClasses) {}
+
+    const uint32_t dex_pc;
+    const std::vector<ProfileClassReference> classes;
+  };
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index)
+      : method_dex_ref(dex_ref), dex_method_index(method_index) {}
+
+  ProfileMethodInfo(const DexFileRef& dex_ref,
+                    uint32_t method_index,
+                    const std::vector<ProfileInlineCache>& caches)
+      : method_dex_ref(dex_ref), dex_method_index(method_index), inline_caches(caches) {}
+
+  const DexFileRef method_dex_ref;
+  const uint32_t dex_method_index;
+  const std::vector<ProfileInlineCache> inline_caches;
+};
+
+struct OfflineDexReference {
+  OfflineDexReference(const std::string& location, uint32_t checksum)
+      : dex_location(location), dex_checksum(checksum) {}
+
+  const std::string dex_location;
+  const uint32_t dex_checksum;
+};
+
+using OnlineProfileMethodInfo = ProfileMethodInfo<const DexFile*>;
+using OnlineProfileInlineCache = OnlineProfileMethodInfo::ProfileInlineCache;
+using OnlineProfileClassReference = OnlineProfileMethodInfo::ProfileClassReference;
+
+using OfflineProfileMethodInfo = ProfileMethodInfo<OfflineDexReference>;
+using OfflineProfileInlineCache = OfflineProfileMethodInfo::ProfileInlineCache;
+using OfflineProfileClassReference = OfflineProfileMethodInfo::ProfileClassReference;
+
 /**
  * Profile information in a format suitable to be queried by the compiler and
  * performing profile guided compilation.
@@ -42,7 +91,7 @@ class ProfileCompilationInfo {
   static const uint8_t kProfileVersion[];
 
   // Add the given methods and classes to the current profile object.
-  bool AddMethodsAndClasses(const std::vector<MethodReference>& methods,
+  bool AddMethodsAndClasses(const std::vector<OnlineProfileMethodInfo>& methods,
                             const std::set<DexCacheResolvedClasses>& resolved_classes);
   // Loads profile information from the given file descriptor.
   bool Load(int fd);
@@ -100,18 +149,18 @@ class ProfileCompilationInfo {
     kProfileLoadSuccess
   };
 
-  struct DexFileData {
-    explicit DexFileData(uint32_t location_checksum) : checksum(location_checksum) {}
-    uint32_t checksum;
-    std::set<uint16_t> method_set;
-    std::set<dex::TypeIndex> class_set;
 
-    bool operator==(const DexFileData& other) const {
-      return checksum == other.checksum && method_set == other.method_set;
-    }
+  using ClassMap = std::map<uint8_t, std::set<dex::TypeIndex>> classes;  // DexReferenceIndex -> TypeIndex
+  using InlineCache = std::map<uint16_t, ClassMap>;  //  DexPc -> ClassMap
+
+  struct DexFileData {
+    std::string dex_profile_key;
+    uint32_t dex_checksum;
+    std::map<uint16_t, InlineCache> method_set;
+    std::set<dex::TypeIndex> class_set;
   };
 
-  using DexFileToProfileInfoMap = SafeMap<const std::string, DexFileData>;
+  using ProfileInfo = std::vector<DexFileData>;
 
   DexFileData* GetOrAddDexFileData(const std::string& dex_location, uint32_t checksum);
   bool AddMethodIndex(const std::string& dex_location, uint32_t checksum, uint16_t method_idx);
@@ -181,7 +230,7 @@ class ProfileCompilationInfo {
   friend class ProfileAssistantTest;
   friend class Dex2oatLayoutTest;
 
-  DexFileToProfileInfoMap info_;
+  ProfileInfo info_;
 };
 
 }  // namespace art
