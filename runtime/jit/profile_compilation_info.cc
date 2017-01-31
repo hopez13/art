@@ -61,13 +61,28 @@ std::string ProfileCompilationInfo::GetProfileDexFileKey(const std::string& dex_
   }
 }
 
+
 bool ProfileCompilationInfo::AddMethodsAndClasses(
-    const std::vector<MethodReference>& methods,
+    const std::vector<OnlineProfileMethodInfo>& methods,
     const std::set<DexCacheResolvedClasses>& resolved_classes) {
-  for (const MethodReference& method : methods) {
-    if (!AddMethodIndex(GetProfileDexFileKey(method.dex_file->GetLocation()),
-                        method.dex_file->GetLocationChecksum(),
-                        method.dex_method_index)) {
+  for (const OnlineProfileMethodInfo& method : methods) {
+    // Build the offline version of the compilation info
+    std::vector<OfflineProfileInlineCache> inline_caches;
+    for (const OnlineProfileInlineCache& cache : method.inline_caches) {
+      std::vector<OfflineProfileClassReference> classes;
+      for (const OnlineProfileClassReference& classRef : cache.classes) {
+        classes.emplace_back(OfflineDexReference(classRef.class_dex_ref->GetLocation(),
+                                                 classRef.class_dex_ref->GetLocationChecksum()),
+                             classRef.type_index);
+      }
+      inline_caches.emplace_back(cache.dex_pc, classes);
+    }
+    OfflineProfileMethodInfo pmi(OfflineDexReference(method.method_dex_ref->GetLocation(),
+                                                     method.method_dex_ref->GetLocationChecksum()),
+                                 method.dex_method_index,
+                                 inline_caches);
+
+    if (!AddMethodIndex(pmi)) {
       return false;
     }
   }
@@ -169,8 +184,41 @@ static void AddUintToBuffer(std::vector<uint8_t>* buffer, T value) {
   }
 }
 
+void ProfileCompilationInfo::AddInlineCacheToBuffer(std::vector<uint8_t>* buffer,
+                                                    const InlineCache& inline_cache) {
+  DCHECK_LT(inline_cache.size(), std::numeric_limits<uint16_t>::max());
+  AddUintToBuffer(buffer, static_cast<uint16_t>(inline_cache.size()));  // TODO(calin): CHECK the size
+  if (inline_cache.size() == 0) {
+    return;
+  }
+  for (auto inline_cache_it : inline_cache) {
+    uint16_t dex_pc = inline_cache_it.first;
+    const std::set<ClassRef>& classes = inline_cache_it.second;
+    AddUintToBuffer(buffer, dex_pc);
+    DCHECK_LT(classes.size(), static_cast<size_t>(std::numeric_limits<uint8_t>::max()));
+    AddUintToBuffer(buffer, static_cast<uint8_t>(classes.size()));  // TODO(calin): CHECK the size
+    DCHECK_NE(classes.size(), 0u) << "InlineCache contains a dex_pc with 0 classes";
+
+    SafeMap<uint8_t, std::vector<dex::TypeIndex>> dex_to_classes_map;
+    for (const auto& classes_it : classes) {
+      auto dex_it = dex_to_classes_map.FindOrAdd(classes_it.dex_profile_index,
+                                                 std::vector<dex::TypeIndex>());
+      dex_it->second.push_back(classes_it.type_index);
+    }
+    for (const auto& dex_it : dex_to_classes_map) {
+      uint8_t dex_profile_index = dex_it.first;
+      const std::vector<dex::TypeIndex>& dex_classes = dex_it.second;
+      AddUintToBuffer(buffer, dex_profile_index);
+      AddUintToBuffer(buffer, static_cast<uint8_t>(dex_classes.size()));  // TODO(calin CHECK the size)
+      for (size_t i = 0; i < dex_classes.size(); i++) {
+        AddUintToBuffer(buffer, dex_classes[i].index_);
+      }
+    }
+  }
+}
+
 static constexpr size_t kLineHeaderSize =
-    3 * sizeof(uint16_t) +  // method_set.size + class_set.size + dex_location.size
+    3 * sizeof(uint16_t) +  // method_map.size + class_set.size + dex_location.size
     sizeof(uint32_t);       // checksum
 
 /**
@@ -203,7 +251,7 @@ bool ProfileCompilationInfo::Save(int fd) {
     }
     const std::string& dex_location = it.first;
     const DexFileData& dex_data = it.second;
-    if (dex_data.method_set.empty() && dex_data.class_set.empty()) {
+    if (dex_data.method_map.empty() && dex_data.class_set.empty()) {
       continue;
     }
 
@@ -217,24 +265,25 @@ bool ProfileCompilationInfo::Save(int fd) {
     size_t required_capacity = buffer.size() +
         kLineHeaderSize +
         dex_location.size() +
-        sizeof(uint16_t) * (dex_data.class_set.size() + dex_data.method_set.size());
+        sizeof(uint16_t) * (dex_data.class_set.size() + dex_data.method_map.size());
 
     buffer.reserve(required_capacity);
 
     DCHECK_LE(dex_location.size(), std::numeric_limits<uint16_t>::max());
-    DCHECK_LE(dex_data.method_set.size(), std::numeric_limits<uint16_t>::max());
+    DCHECK_LE(dex_data.method_map.size(), std::numeric_limits<uint16_t>::max());
     DCHECK_LE(dex_data.class_set.size(), std::numeric_limits<uint16_t>::max());
     AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_location.size()));
-    AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_data.method_set.size()));
+    AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_data.method_map.size()));
     AddUintToBuffer(&buffer, static_cast<uint16_t>(dex_data.class_set.size()));
     AddUintToBuffer(&buffer, dex_data.checksum);  // uint32_t
 
     AddStringToBuffer(&buffer, dex_location);
 
-    for (auto method_it : dex_data.method_set) {
-      AddUintToBuffer(&buffer, method_it);
+    for (const auto& method_it : dex_data.method_map) {
+      AddUintToBuffer(&buffer, method_it.first);
+      AddInlineCacheToBuffer(&buffer, method_it.second);
     }
-    for (auto class_id : dex_data.class_set) {
+    for (const auto& class_id : dex_data.class_set) {
       AddUintToBuffer(&buffer, class_id.index_);
     }
     DCHECK_EQ(required_capacity, buffer.size())
@@ -247,10 +296,7 @@ bool ProfileCompilationInfo::Save(int fd) {
 ProfileCompilationInfo::DexFileData* ProfileCompilationInfo::GetOrAddDexFileData(
     const std::string& dex_location,
     uint32_t checksum) {
-  auto info_it = info_.find(dex_location);
-  if (info_it == info_.end()) {
-    info_it = info_.Put(dex_location, DexFileData(checksum));
-  }
+  auto info_it = info_.FindOrAdd(dex_location, DexFileData(checksum, info_.size()));
   if (info_it->second.checksum != checksum) {
     LOG(WARNING) << "Checksum mismatch for dex " << dex_location;
     return nullptr;
@@ -271,12 +317,34 @@ bool ProfileCompilationInfo::AddResolvedClasses(const DexCacheResolvedClasses& c
 
 bool ProfileCompilationInfo::AddMethodIndex(const std::string& dex_location,
                                             uint32_t checksum,
-                                            uint16_t method_idx) {
+                                            uint16_t method_index) {
   DexFileData* const data = GetOrAddDexFileData(dex_location, checksum);
   if (data == nullptr) {
     return false;
   }
-  data->method_set.insert(method_idx);
+  data->method_map.FindOrAdd(method_index, InlineCache());
+  return true;
+}
+
+bool ProfileCompilationInfo::AddMethodIndex(const OfflineProfileMethodInfo& pmi) {
+  DexFileData* const data = GetOrAddDexFileData(pmi.method_dex_ref.dex_location,
+                                                pmi.method_dex_ref.dex_checksum);
+  if (data == nullptr) {
+    return false;
+  }
+  for (const OfflineProfileInlineCache& inline_cache : pmi.inline_caches) {
+    auto ic_it = data->method_map.FindOrAdd(pmi.dex_method_index, InlineCache());
+    auto classes_it = ic_it->second.FindOrAdd(inline_cache.dex_pc, std::set<ClassRef>());
+
+    for (const OfflineProfileClassReference& class_ref : inline_cache.classes) {
+      const auto dex_ref = class_ref.class_dex_ref;
+      DexFileData* class_dex_data = GetOrAddDexFileData(dex_ref.dex_location, dex_ref.dex_checksum);
+      if (class_dex_data == nullptr) {
+        return false;
+      }
+      classes_it->second.emplace(class_dex_data->profile_index, class_ref.type_index);
+    }
+  }
   return true;
 }
 
@@ -292,11 +360,11 @@ bool ProfileCompilationInfo::AddClassIndex(const std::string& dex_location,
 }
 
 bool ProfileCompilationInfo::ProcessLine(SafeBuffer& line_buffer,
-                                         uint16_t method_set_size,
+                                         uint16_t method_map_size,
                                          uint16_t class_set_size,
                                          uint32_t checksum,
                                          const std::string& dex_location) {
-  for (uint16_t i = 0; i < method_set_size; i++) {
+  for (uint16_t i = 0; i < method_map_size; i++) {
     uint16_t method_idx = line_buffer.ReadUintAndAdvance<uint16_t>();
     if (!AddMethodIndex(dex_location, checksum, method_idx)) {
       return false;
@@ -407,7 +475,7 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine
   }
 
   uint16_t dex_location_size = header_buffer.ReadUintAndAdvance<uint16_t>();
-  line_header->method_set_size = header_buffer.ReadUintAndAdvance<uint16_t>();
+  line_header->method_map_size = header_buffer.ReadUintAndAdvance<uint16_t>();
   line_header->class_set_size = header_buffer.ReadUintAndAdvance<uint16_t>();
   line_header->checksum = header_buffer.ReadUintAndAdvance<uint32_t>();
 
@@ -434,7 +502,7 @@ ProfileCompilationInfo::ProfileLoadSatus ProfileCompilationInfo::ReadProfileLine
   // Make sure that we don't try to read everything in memory (in case the profile if full).
   // Split readings in chunks of at most 10kb.
   static constexpr uint16_t kMaxNumberOfEntriesToRead = 5120;
-  uint16_t methods_left_to_read = line_header.method_set_size;
+  uint16_t methods_left_to_read = line_header.method_map_size;
   uint16_t classes_left_to_read = line_header.class_set_size;
 
   while ((methods_left_to_read > 0) || (classes_left_to_read > 0)) {
@@ -543,12 +611,13 @@ bool ProfileCompilationInfo::MergeWith(const ProfileCompilationInfo& other) {
     const DexFileData& other_dex_data = other_it.second;
     auto info_it = info_.find(other_dex_location);
     if (info_it == info_.end()) {
-      info_it = info_.Put(other_dex_location, DexFileData(other_dex_data.checksum));
+      info_it = info_.Put(other_dex_location, DexFileData(other_dex_data.checksum, 0));  // TODO(calin) get the real dex index
     }
-    info_it->second.method_set.insert(other_dex_data.method_set.begin(),
-                                      other_dex_data.method_set.end());
-    info_it->second.class_set.insert(other_dex_data.class_set.begin(),
-                                     other_dex_data.class_set.end());
+    // TODO(calin): fix
+    // info_it->second.method_map.insert(other_dex_data.method_map.begin(),
+    //                                   other_dex_data.method_map.end());
+    // info_it->second.class_set.insert(other_dex_data.class_set.begin(),
+    //                                  other_dex_data.class_set.end());
   }
   return true;
 }
@@ -563,7 +632,7 @@ bool ProfileCompilationInfo::ContainsMethod(const MethodReference& method_ref) c
     if (!ChecksumMatch(*method_ref.dex_file, info_it->second.checksum)) {
       return false;
     }
-    const std::set<uint16_t>& methods = info_it->second.method_set;
+    const MethodMap& methods = info_it->second.method_map;
     return methods.find(method_ref.dex_method_index) != methods.end();
   }
   return false;
@@ -584,7 +653,7 @@ bool ProfileCompilationInfo::ContainsClass(const DexFile& dex_file, dex::TypeInd
 uint32_t ProfileCompilationInfo::GetNumberOfMethods() const {
   uint32_t total = 0;
   for (const auto& it : info_) {
-    total += it.second.method_set.size();
+    total += it.second.method_map.size();
   }
   return total;
 }
@@ -627,11 +696,11 @@ std::string ProfileCompilationInfo::DumpInfo(const std::vector<const DexFile*>* 
       }
     }
     os << "\n\tmethods: ";
-    for (const auto method_it : dex_data.method_set) {
+    for (const auto method_it : dex_data.method_map) {
       if (dex_file != nullptr) {
-        os << "\n\t\t" << dex_file->PrettyMethod(method_it, true);
+        os << "\n\t\t" << dex_file->PrettyMethod(method_it.first, true);
       } else {
-        os << method_it << ",";
+        os << method_it.first << ",";
       }
     }
     os << "\n\tclasses: ";

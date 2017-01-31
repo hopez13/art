@@ -73,12 +73,12 @@ class ProfileCompilationInfoTest : public CommonRuntimeTest {
       const std::vector<ArtMethod*>& methods,
       const std::set<DexCacheResolvedClasses>& resolved_classes) {
     ProfileCompilationInfo info;
-    std::vector<MethodReference> method_refs;
+    std::vector<OnlineProfileMethodInfo> proile_methods;
     ScopedObjectAccess soa(Thread::Current());
     for (ArtMethod* method : methods) {
-      method_refs.emplace_back(method->GetDexFile(), method->GetDexMethodIndex());
+      proile_methods.emplace_back(method->GetDexFile(), method->GetDexMethodIndex());
     }
-    if (!info.AddMethodsAndClasses(method_refs, resolved_classes)) {
+    if (!info.AddMethodsAndClasses(proile_methods, resolved_classes)) {
       return false;
     }
     return info.MergeAndSave(filename, nullptr, false);
