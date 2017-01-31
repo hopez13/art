@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "a8fee9a2_38a505c5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-31T17:45:06Z",
+      "side": 1,
+      "message": "I trust that the FP min/max behave properly around NaN and other corner cases?",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "259274b1_61601069",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -105,6 +122,23 @@
       "writtenOn": "2017-01-31T11:27:54Z",
       "side": 1,
       "message": "I think it would be better to replace integral min/max (both int and long) with HGreaterThanOrEqual+HSelect and make sure we generate the appropriate code for that pair of instructions. That way we would also include the use of the ternary operator for min/max.",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66a07f2b_002b0e91",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-01-31T17:45:06Z",
+      "side": 1,
+      "message": "nit: here and at the other places, you dcheck that out loc is same as op1 loc in this branch, but then below you do essentially the same for the lo/hi parts. Why not move the dcheck out of this branch, and not even use out_lo/out_hi (unless you prefer to have that alias of op1 for clarity)",
       "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
