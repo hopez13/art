@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d1cde9e0_af0d33f0",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 1287,
+        "startChar": 62,
+        "endLine": 1287,
+        "endChar": 63
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1410b90_22361ad4",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-31T16:30:19Z",
       "side": 1,
       "message": "Already in r3.",
+      "range": {
+        "startLine": 1292,
+        "startChar": 4,
+        "endLine": 1292,
+        "endChar": 45
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93e3b0fd_11f1db9c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 1292,
         "startChar": 4,
@@ -71,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "aad4f8e4_fe1d80e1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 1294,
+        "startChar": 61,
+        "endLine": 1294,
+        "endChar": 62
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdc3c3bf_a0663daa",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -82,6 +151,29 @@
       "writtenOn": "2017-01-31T16:30:19Z",
       "side": 1,
       "message": "This does not take element size into account. Maybe the check should be merged into \\size_setup.",
+      "range": {
+        "startLine": 1324,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 14
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676daded_608d457d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Yeah, but I did not want to deal with overflows, so having a shared guard looked simpler. WDYT?",
       "range": {
         "startLine": 1324,
         "startChar": 0,
@@ -117,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "acac2ca8_c872e552",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 1349,
+        "startChar": 62,
+        "endLine": 1350,
+        "endChar": 85
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70cca8fc_b8318f24",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -128,6 +243,29 @@
       "writtenOn": "2017-01-31T16:30:19Z",
       "side": 1,
       "message": "LONG",
+      "range": {
+        "startLine": 1386,
+        "startChar": 28,
+        "endLine": 1386,
+        "endChar": 31
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99272efa_13e27d91",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T17:25:32Z",
+      "side": 1,
+      "message": "Done (with existing WIDE) here and all other archs.",
       "range": {
         "startLine": 1386,
         "startChar": 28,
