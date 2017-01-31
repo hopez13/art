@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ba60359_f65d2678",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-31T23:59:17Z",
+      "side": 1,
+      "message": "Not very happy with this. It is spaghetti code between when you use the (obsolete) method and when you use the non_obsolete_method. I prefer a larger diff, if necessary.",
+      "revId": "da5c7adff220263c1f5b8c3035c38648c64f9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
