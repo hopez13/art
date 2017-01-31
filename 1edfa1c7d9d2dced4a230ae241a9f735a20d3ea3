@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7b6fc97_f72d679f",
+        "filename": "test/911-get-stack-trace/src/PrintThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-01-31T14:59:54Z",
+      "side": 1,
+      "message": "Yuck. Maybe we should just give a fixed name when peer is set to true for thread pool?",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 65
+      },
+      "revId": "1edfa1c7d9d2dced4a230ae241a9f735a20d3ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
