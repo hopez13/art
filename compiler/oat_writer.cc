@@ -981,18 +981,59 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
 
 class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
  public:
-  InitImageMethodVisitor(OatWriter* writer, size_t offset)
+  InitImageMethodVisitor(OatWriter* writer,
+                         size_t offset,
+                         const std::vector<const DexFile*>* dex_files)
     : OatDexMethodVisitor(writer, offset),
-      pointer_size_(GetInstructionSetPointerSize(writer_->compiler_driver_->GetInstructionSet())) {
+      pointer_size_(GetInstructionSetPointerSize(writer_->compiler_driver_->GetInstructionSet())),
+      dex_files_(dex_files),
+      class_linker_(Runtime::Current()->GetClassLinker()),
+      dex_cache_(nullptr) { }
+
+  // Handle copied methods here. Copy pointer to quick code from
+  // an origin method to a copied method only if they are
+  // in the same oat file. If the origin and the copied methods are
+  // in different oat files don't touch the copied method.
+  // References to other oat files are not supported yet.
+  bool StartClass(const DexFile* dex_file, size_t class_def_index)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    OatDexMethodVisitor::StartClass(dex_file, class_def_index);
+    // Skip classes that are not in the image.
+    if (!IsImageClass()) {
+      return true;
+    }
+    // Find actual DexCache
+    if (dex_cache_ == nullptr || dex_cache_->GetDexFile() != dex_file) {
+      dex_cache_ = class_linker_->FindDexCache(Thread::Current(), *dex_file);
+      DCHECK(dex_cache_ != nullptr);
+    }
+    const DexFile::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
+    mirror::Class* klass = dex_cache_->GetResolvedType(class_def.class_idx_);
+    if (klass != nullptr) {
+      for (ArtMethod& method : klass->GetCopiedMethods(pointer_size_)) {
+        // Find origin method. Declaring class and dex_method_idx
+        // in the copied method should be the same as in the origin
+        // method.
+        mirror::Class* declaring_class = method.GetDeclaringClass();
+        ArtMethod* origin = declaring_class->FindDeclaredVirtualMethod(
+            declaring_class->GetDexCache(),
+            method.GetDexMethodIndex(),
+            pointer_size_);
+        CHECK(origin != nullptr);
+        if (IsInOatFile(&declaring_class->GetDexFile())) {
+          const void* code_ptr =
+              origin->GetEntryPointFromQuickCompiledCodePtrSize(pointer_size_);
+          method.SetEntryPointFromQuickCompiledCodePtrSize(code_ptr, pointer_size_);
+        }
+      }
+    }
+    return true;
   }
 
   bool VisitMethod(size_t class_def_method_index, const ClassDataItemIterator& it)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    const DexFile::TypeId& type_id =
-        dex_file_->GetTypeId(dex_file_->GetClassDef(class_def_index_).class_idx_);
-    const char* class_descriptor = dex_file_->GetTypeDescriptor(type_id);
     // Skip methods that are not in the image.
-    if (!writer_->GetCompilerDriver()->IsImageClass(class_descriptor)) {
+    if (!IsImageClass()) {
       return true;
     }
 
@@ -1048,8 +1089,24 @@ class OatWriter::InitImageMethodVisitor : public OatDexMethodVisitor {
     return true;
   }
 
+  // Check whether current class is image class
+  bool IsImageClass() {
+    const DexFile::TypeId& type_id =
+        dex_file_->GetTypeId(dex_file_->GetClassDef(class_def_index_).class_idx_);
+    const char* class_descriptor = dex_file_->GetTypeDescriptor(type_id);
+    return writer_->GetCompilerDriver()->IsImageClass(class_descriptor);
+  }
+
+  // Check whether specified dex file is in the compiled oat file.
+  bool IsInOatFile(const DexFile* dex_file) {
+    return std::find(dex_files_->begin(), dex_files_->end(), dex_file) != dex_files_->end();
+  }
+
  protected:
   const PointerSize pointer_size_;
+  const std::vector<const DexFile*>* dex_files_;
+  ClassLinker* const class_linker_;
+  mirror::DexCache* dex_cache_;
 };
 
 class OatWriter::WriteCodeMethodVisitor : public OatDexMethodVisitor {
@@ -1623,7 +1680,7 @@ size_t OatWriter::InitOatCodeDexFiles(size_t offset) {
   offset = code_visitor.GetOffset();
 
   if (HasImage()) {
-    InitImageMethodVisitor image_visitor(this, offset);
+    InitImageMethodVisitor image_visitor(this, offset, dex_files_);
     success = VisitDexMethods(&image_visitor);
     DCHECK(success);
     offset = image_visitor.GetOffset();
