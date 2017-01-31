@@ -252,6 +252,19 @@ valgrind-test-art-host32: valgrind-test-art-host-gtest32
 valgrind-test-art-host64: valgrind-test-art-host-gtest64
 	$(hide) $(call ART_TEST_PREREQ_FINISHED,$@)
 
+.PHONY: test-art-host-libcore
+test-art-host-libcore: test-art-host-libcore32 test-art-host-libcore64
+
+test-art-host-libcore-dependencies: build-art-host vogar core-tests jsr166-tests mockito-target
+
+.PHONY: test-art-host-libcore32
+test-art-host-libcore32: test-art-host-libcore-dependencies
+	$(hide) art/tools/run-libcore-tests.sh --mode=host --variant x32
+
+.PHONY: test-art-host-libcore64
+test-art-host-libcore64: test-art-host-libcore-dependencies
+	$(hide) art/tools/run-libcore-tests.sh --mode=host --variant x64
+
 ########################################################################
 # target test rules
 
