@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c543d0a3_72535afa",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "unfinished comment?",
+      "range": {
+        "startLine": 474,
+        "startChar": 78,
+        "endLine": 474,
+        "endChar": 80
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c1fc08a_84be66b4",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "Why? I see VMAX/VMIN described in the ARMv7-A manual. Does it have wrong semantics?\n\nWhy not fall back to the same approach as GenMinMaxDouble() if we cannot use VMIN/VMAX?",
+      "range": {
+        "startLine": 488,
+        "startChar": 64,
+        "endLine": 488,
+        "endChar": 80
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "259274b1_61601069",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "Maybe use IT.EQ+VORR/VAND?",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 593,
+        "endChar": 3
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a757dd42_5b4c4e92",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "Wouldn\u0027t VORR(F64, out, op1, op2) produce a valid NaN if one of {op1, op2} is NaN?\n\nIf yes, the whole intrinsic can be rewritten with ITs instead of jumps.",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 81
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00b80738_d307e0e8",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "I think it would be better to replace integral min/max (both int and long) with HGreaterThanOrEqual+HSelect and make sure we generate the appropriate code for that pair of instructions. That way we would also include the use of the ternary operator for min/max.",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43cd8521_9f0a2541",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T11:27:54Z",
+      "side": 1,
+      "message": "If we want to be precise, the GE/LT is correct for the long comparison but the zero flag is imprecise, so the other conditions, i.e. GT/LE/EQ/NE, may not correctly reflect the ordering.",
+      "range": {
+        "startLine": 651,
+        "startChar": 5,
+        "endLine": 651,
+        "endChar": 39
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
