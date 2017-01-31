@@ -22,6 +22,29 @@
       "revId": "1edfa1c7d9d2dced4a230ae241a9f735a20d3ea3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05fc55d9_4bb603f4",
+        "filename": "test/911-get-stack-trace/src/PrintThread.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-01-31T16:16:44Z",
+      "side": 1,
+      "message": "I was considering just a prefix, but thought it\u0027s better to see the test break if this ever changes, and then have another discussion. Wdyt?",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 65
+      },
+      "revId": "1edfa1c7d9d2dced4a230ae241a9f735a20d3ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
