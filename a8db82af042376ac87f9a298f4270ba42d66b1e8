@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e607f4c_ed3ff2d9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-01-31T09:29:26Z",
+      "side": 1,
+      "message": "You need to surround this with `$((` and `))` to make it a Bash arithmetic expression.",
+      "range": {
+        "startLine": 368,
+        "startChar": 19,
+        "endLine": 368,
+        "endChar": 42
+      },
+      "revId": "a8db82af042376ac87f9a298f4270ba42d66b1e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
