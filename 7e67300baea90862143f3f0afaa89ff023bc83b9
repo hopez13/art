@@ -206,6 +206,29 @@
       "revId": "7e67300baea90862143f3f0afaa89ff023bc83b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8941ac7_1cb99a2a",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-01-31T01:11:12Z",
+      "side": 1,
+      "message": "I\u0027d prefer \"bool with_reporting \u003d true\", but we could go either way.",
+      "range": {
+        "startLine": 129,
+        "startChar": 13,
+        "endLine": 129,
+        "endChar": 40
+      },
+      "revId": "7e67300baea90862143f3f0afaa89ff023bc83b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
