@@ -2462,16 +2462,16 @@ bool HLoadClass::InstructionDataEquals(const HInstruction* other) const {
   }
 }
 
-void HLoadClass::SetLoadKindInternal(LoadKind load_kind) {
-  // Once sharpened, the load kind should not be changed again.
+void HLoadClass::SetLoadKind(LoadKind load_kind) {
   // Also, kReferrersClass should never be overwritten.
-  DCHECK_EQ(GetLoadKind(), LoadKind::kDexCacheViaMethod);
   SetPackedField<LoadKindField>(load_kind);
 
-  if (load_kind != LoadKind::kDexCacheViaMethod) {
+  if (load_kind != LoadKind::kDexCacheViaMethod &&
+      load_kind != LoadKind::kReferrersClass) {
     RemoveAsUserOfInput(0u);
     SetRawInputAt(0u, nullptr);
   }
+
   if (!NeedsEnvironment()) {
     RemoveEnvironment();
     SetSideEffects(SideEffects::None());
