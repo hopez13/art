@@ -186,6 +186,29 @@
     },
     {
       "key": {
+        "uuid": "811c4ec9_b2aa6624",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-01-31T17:47:22Z",
+      "side": 1,
+      "message": "You don\u0027t need to deal with overflows, just move it to COMPUTE_ARRAY_SIZE_*:\n\n    .macro COMPUTE_ARRAY_SIZE_16 name\n        mov    r2, #((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_INT_ARRAY_DATA_OFFSET) / 2)\n        cmp    r1, r2\n        bhi    .Lslow_path\\name\n        lsl    r2, r1, #1\n        // Add array data offset and alignment.\n        add    r2, r2, #(MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)\n    .endm\n\nand since the *_UNKNOWN is unused, just compare it with the lowest value, i.e. the same as *_64.",
+      "range": {
+        "startLine": 1324,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 14
+      },
+      "revId": "01b14283de4ac9a901784274f3ef1a9550e88617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db1f0f19_274aff84",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
