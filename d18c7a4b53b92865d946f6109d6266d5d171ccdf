@@ -82,6 +82,23 @@
     },
     {
       "key": {
+        "uuid": "380f418d_d2ce7add",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-01T21:43:56Z",
+      "side": 1,
+      "message": "This is actually needed since the StackVisitor::WalkStack method calls this with a copy of the method that is being obsoleted. If it already saw a frame of the method then the QuickMethodHeader expected from the PC (which was updated) will be different then the one expected from the method itself (which wasn\u0027t).",
+      "revId": "d18c7a4b53b92865d946f6109d6266d5d171ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3042f437_8a537a2b",
         "filename": "test/941-recurive-obsolete-jit/src/Main.java",
         "patchSetId": 7
