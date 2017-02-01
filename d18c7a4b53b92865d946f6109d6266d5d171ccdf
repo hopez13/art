@@ -116,6 +116,23 @@
     },
     {
       "key": {
+        "uuid": "edd35a61_940c6863",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-01T22:30:13Z",
+      "side": 1,
+      "message": "\u003e I\u0027m confused here: the PC belongs to an obsolete method right? So the method_code_map should have the mapping to the obsolete method.\n\u003e \n\u003e I\u0027m also confused about the comment saying \"recured\". Why would recursion affect anything?\n\nI changed the comment to hopefully be clearer about the problem. Here is another explanation.\n\nOK so we have stack\n\n| ABC\n| FOO\n| HIJ\n| FOO\n| FOO\n\nwe start iterating through it and FOO is made obsolete. After visiting the first frame FOO frame the stack is\n\n| ABC\n| Foo-Obsolete\n| HIJ\n| FOO\n| FOO\n\nand we have updated method code map to change the PC\u0027s from FOO to FOO-Obsolete\n\nOn the next FOO frame we see FOO but it has FOO-Obsoletes PC since we are going to change the method from FOO to FOO-Obsolete.\n\nThis caused a DCHECK failure here.",
+      "revId": "d18c7a4b53b92865d946f6109d6266d5d171ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3042f437_8a537a2b",
         "filename": "test/941-recurive-obsolete-jit/src/Main.java",
         "patchSetId": 7
