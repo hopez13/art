@@ -45,6 +45,29 @@
       "revId": "6629ccfc79767846d938076678593e198b4c3895",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18067c88_f611e1e5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-01T22:54:46Z",
+      "side": 1,
+      "message": "FetchFramesVisitor maybe, and in the _comment_ explain that it\u0027s optimistic...",
+      "range": {
+        "startLine": 2195,
+        "startChar": 6,
+        "endLine": 2195,
+        "endChar": 28
+      },
+      "revId": "6629ccfc79767846d938076678593e198b4c3895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
