@@ -1362,6 +1362,7 @@ static int ParseFd(const StringPiece& option, const char* cmdline_arg) {
 }
 
 static int patchoat(int argc, char **argv) {
+  Locks::Init();
   InitLogging(argv, Runtime::Aborter);
   MemMap::Init();
   const bool debug = kIsDebugBuild;
