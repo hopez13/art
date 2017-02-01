@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a357e680_990192cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-01T23:41:12Z",
+      "side": 1,
+      "message": "This was causing the test to be flaky since it only force blocks based on the native bytes allocated since the last GC instead of total retained bytes?",
+      "range": {
+        "startLine": 3855,
+        "startChar": 6,
+        "endLine": 3855,
+        "endChar": 15
+      },
+      "revId": "9db58fe66e76de6ec026b6b4bfa34967cda21b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07e1f50c_be98eb28",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-01T23:41:12Z",
+      "side": 1,
+      "message": "Delete the space while you are here?",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "9db58fe66e76de6ec026b6b4bfa34967cda21b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
