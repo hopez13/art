@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b20f01a5_f12cf2b2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-01T23:06:53Z",
+      "side": 1,
+      "message": "I think that in the context of this file, this is hard to understand. I think you should emphasize that a class is being redefined (see jvmti::...) and we should see this discreptancty only  during the stack walk of this redefinition.",
+      "range": {
+        "startLine": 1144,
+        "startChar": 37,
+        "endLine": 1144,
+        "endChar": 87
+      },
+      "revId": "7235610feeb29a88eef9753fd0b2d2cc371fe5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8016533e_58b29149",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-01T23:06:53Z",
+      "side": 1,
+      "message": "I cannot parse this.",
+      "range": {
+        "startLine": 1144,
+        "startChar": 6,
+        "endLine": 1144,
+        "endChar": 37
+      },
+      "revId": "7235610feeb29a88eef9753fd0b2d2cc371fe5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
