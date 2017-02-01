@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd4aaf64_d5d0dd46",
+        "filename": "dexdump/dexdump_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-01T21:33:29Z",
+      "side": 1,
+      "message": "commented out stuff?",
+      "revId": "44e2e11c4d34d668da20cb32f216e26d8ec786a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ec53c9_c19253cb",
+        "filename": "dexlist/dexlist.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-01T21:33:29Z",
+      "side": 1,
+      "message": "I would expect this to mimic dexdump, to break the same dependences?",
+      "revId": "44e2e11c4d34d668da20cb32f216e26d8ec786a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
