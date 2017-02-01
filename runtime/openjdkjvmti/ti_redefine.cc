@@ -701,6 +701,47 @@ class RedefinitionDataHolder {
   DISALLOW_COPY_AND_ASSIGN(RedefinitionDataHolder);
 };
 
+// Look through the previously allocated cookies to see if we need to update them with another new
+// dexfile.
+bool Redefiner::ClassRedefinition::AllocateAndRememberNewDexFileCookie(
+    int32_t klass_index,
+    art::Handle<art::mirror::ClassLoader> source_class_loader,
+    art::Handle<art::mirror::Object> dex_file_obj,
+    /*out*/RedefinitionDataHolder* holder) {
+  art::StackHandleScope<2> hs(driver_->self_);
+  art::MutableHandle<art::mirror::LongArray>
+      old_cookie(hs.NewHandle<art::mirror::LongArray>(nullptr));
+  bool has_older_cookie = false;
+  for (int32_t i = 0; i < klass_index; i++) {
+    if (holder->GetSourceClassLoader(i) == source_class_loader.Get()) {
+      has_older_cookie = true;
+      old_cookie.Assign(holder->GetNewDexFileCookie(i));
+      break;
+    }
+  }
+  if (old_cookie.IsNull()) {
+    old_cookie.Assign(ClassLoaderHelper::GetDexFileCookie(driver_->self_, dex_file_obj));
+  }
+  art::Handle<art::mirror::LongArray>
+      new_cookie(hs.NewHandle(ClassLoaderHelper::AllocateNewDexFileCookie(driver_->self_,
+                                                                          old_cookie,
+                                                                          dex_file_.get())));
+  if (new_cookie.IsNull()) {
+    return false;
+  }
+
+  holder->SetNewDexFileCookie(klass_index, new_cookie.Get());
+  if (has_older_cookie) {
+    for (int32_t i = 0; i < klass_index; i++) {
+      if (holder->GetSourceClassLoader(i) == source_class_loader.Get()) {
+        holder->SetNewDexFileCookie(i, new_cookie.Get());
+      }
+    }
+  }
+
+  return true;
+}
+
 bool Redefiner::ClassRedefinition::FinishRemainingAllocations(
     int32_t klass_index, /*out*/RedefinitionDataHolder* holder) {
   art::ScopedObjectAccessUnchecked soa(driver_->self_);
@@ -719,11 +760,7 @@ bool Redefiner::ClassRedefinition::FinishRemainingAllocations(
       RecordFailure(ERR(INTERNAL), "Unable to find dex file!");
       return false;
     }
-    holder->SetNewDexFileCookie(klass_index,
-                                ClassLoaderHelper::AllocateNewDexFileCookie(driver_->self_,
-                                                                            dex_file_obj,
-                                                                            dex_file_.get()).Ptr());
-    if (holder->GetNewDexFileCookie(klass_index) == nullptr) {
+    if (!AllocateAndRememberNewDexFileCookie(klass_index, loader, dex_file_obj, holder)) {
       driver_->self_->AssertPendingOOMException();
       driver_->self_->ClearException();
       RecordFailure(ERR(OUT_OF_MEMORY), "Unable to allocate dex file array for class loader");

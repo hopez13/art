@@ -117,6 +117,7 @@ static AgentLib agents[] = {
   { "937-hello-retransform-package", common_retransform::OnLoad, nullptr },
   { "938-load-transform-bcp", common_retransform::OnLoad, nullptr },
   { "939-hello-transformation-bcp", common_redefine::OnLoad, nullptr },
+  { "944-transform-classloaders", common_redefine::OnLoad, nullptr },
 };
 
 static AgentLib* FindAgent(char* name) {
