@@ -22,6 +22,29 @@
       "revId": "6bfc37d875b2556b3f1d95b00a785a09dc94ccb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c882198_d17d76f2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3860,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-01T22:02:05Z",
+      "side": 1,
+      "message": "That may be the case. WaitForGcToComplete/StartGC/FinishGC uses the gc_complete_lock_/collector_type_running_ and IsGCRequestPending/RequestConcurrentGC uses concurrent_gc_pending_ and there can be time lags.\n\nMaybe repeat the WaitForGcToComplete/TriggerGcForNativeAlloc calls until TriggerGcForNativeAlloc successfully adds the concurrent GC task?",
+      "range": {
+        "startLine": 3859,
+        "startChar": 0,
+        "endLine": 3860,
+        "endChar": 34
+      },
+      "revId": "6bfc37d875b2556b3f1d95b00a785a09dc94ccb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
