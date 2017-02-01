@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84970852_86219492",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-01T16:51:42Z",
+      "side": 1,
+      "message": "This seems way too high to me. I would have it look for some environment variable first before using all CPUs on the system.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 48
+      },
+      "revId": "5fa2041f36138347ce748568af011936e0a4f05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
