@@ -128,6 +128,23 @@
     },
     {
       "key": {
+        "uuid": "521962f6_fb6b37dd",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T09:43:58Z",
+      "side": 1,
+      "message": "Actually I was having a similar thought:\n\nI thought we could introduce HMin. All following patterns are recognized as HMin:\n long m \u003d a \u003c b  ? a : b;  // HLessThan+HSelect\n long m \u003d a \u003c\u003d b ? a : b;\n long m \u003d a \u003d\u003d b ? a : b;\n long m \u003d Math.min(a,b);\nthen we can have a unified codegen for these operations.",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66a07f2b_002b0e91",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
