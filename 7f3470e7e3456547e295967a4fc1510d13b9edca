@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "210b3425_93add9d7",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-01T17:52:01Z",
+      "side": 1,
+      "message": "For min() this can be shared with the +-0.0 handling, avoiding the __ B(\u0026done).",
+      "range": {
+        "startLine": 592,
+        "startChar": 2,
+        "endLine": 592,
+        "endChar": 30
+      },
+      "revId": "7f3470e7e3456547e295967a4fc1510d13b9edca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
