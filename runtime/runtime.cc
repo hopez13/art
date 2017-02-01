@@ -550,7 +550,7 @@ void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
 bool Runtime::ParseOptions(const RuntimeOptions& raw_options,
                            bool ignore_unrecognized,
                            RuntimeArgumentMap* runtime_options) {
-  InitLogging(/* argv */ nullptr, Aborter);  // Calls Locks::Init() as a side effect.
+  InitLogging(/* argv */ nullptr, Aborter);
   bool parsed = ParsedOptions::Parse(raw_options, ignore_unrecognized, runtime_options);
   if (!parsed) {
     LOG(ERROR) << "Failed to parse options";

@@ -29,7 +29,6 @@
 #include <unistd.h>
 
 #include "base/logging.h"
-#include "runtime.h"
 #include "mem_map.h"
 
 namespace art {
@@ -55,12 +54,21 @@ static void usage(void) {
   fprintf(stderr, " -o : output file name (defaults to stdout)\n");
 }
 
+NO_RETURN
+static void aborter(const char* abort_message) {
+#ifdef ART_TARGET_ANDROID
+  android_set_abort_message(abort_message);
+#endif
+  fprintf(stderr, "ABORT: %s\n", abort_message);
+  abort();
+}
+
 /*
  * Main driver of the dexdump utility.
  */
 int dexdumpDriver(int argc, char** argv) {
   // Art specific set up.
-  InitLogging(argv, Runtime::Aborter);
+  InitLogging(argv, aborter);
   MemMap::Init();
 
   // Reset options.
