@@ -122,6 +122,7 @@ class CmdlineParserTest : public ::testing::Test {
   using RuntimeParser = ParsedOptions::RuntimeParser;
 
   static void SetUpTestCase() {
+    Locks::Init();
     art::InitLogging(nullptr, art::Runtime::Aborter);  // argv = null
   }
 

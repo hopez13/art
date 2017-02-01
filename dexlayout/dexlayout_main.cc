@@ -65,6 +65,7 @@ static void Usage(void) {
  */
 int DexlayoutDriver(int argc, char** argv) {
   // Art specific set up.
+  Locks::Init();
   InitLogging(argv, Runtime::Aborter);
   MemMap::Init();
 

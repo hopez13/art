@@ -41,7 +41,7 @@
 #include "oat_file.h"
 #include "os.h"
 #include "space-inl.h"
-#include "utils.h"
+#include "exec_utils.h"
 
 namespace art {
 namespace gc {

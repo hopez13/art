@@ -24,7 +24,7 @@ art_cc_binary {
     ],
     cflags: ["-Wall"],
     shared_libs: [
-        "libart",
+        "libart_minimal",
         "libbase",
     ],
 }
