@@ -133,6 +133,23 @@
     },
     {
       "key": {
+        "uuid": "2f379059_1d13ea07",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-01T22:36:34Z",
+      "side": 1,
+      "message": "Ah, so this is happening when we *install* the new class and walking the stack trying to find obsolete methods? Not during regular (eg exception throwing, GC, ...) stack walking?\n\nIf that\u0027s correct, then please add this as a comment. Could you somehow DCHECK it?",
+      "revId": "d18c7a4b53b92865d946f6109d6266d5d171ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3042f437_8a537a2b",
         "filename": "test/941-recurive-obsolete-jit/src/Main.java",
         "patchSetId": 7
