@@ -22,6 +22,29 @@
       "revId": "6629ccfc79767846d938076678593e198b4c3895",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af935156_e869b4fc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2195,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-01T21:59:43Z",
+      "side": 1,
+      "message": "to what, CoundStackDepthAndGetFramesVisitor?",
+      "range": {
+        "startLine": 2195,
+        "startChar": 6,
+        "endLine": 2195,
+        "endChar": 28
+      },
+      "revId": "6629ccfc79767846d938076678593e198b4c3895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
