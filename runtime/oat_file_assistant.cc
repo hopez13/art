@@ -32,7 +32,7 @@
 #include "os.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
-#include "utils.h"
+#include "exec_utils.h"
 
 namespace art {
 
