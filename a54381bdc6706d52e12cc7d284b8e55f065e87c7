@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "8136e89d_62ccd5be",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "Yes. Done.\nI finished the comment in the new patch.",
+      "range": {
+        "startLine": 474,
+        "startChar": 78,
+        "endLine": 474,
+        "endChar": 80
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c1fc08a_84be66b4",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-31T11:27:54Z",
       "side": 1,
       "message": "Why? I see VMAX/VMIN described in the ARMv7-A manual. Does it have wrong semantics?\n\nWhy not fall back to the same approach as GenMinMaxDouble() if we cannot use VMIN/VMAX?",
+      "range": {
+        "startLine": 488,
+        "startChar": 64,
+        "endLine": 488,
+        "endChar": 80
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d823731_027a462c",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "Thanks for pointint this out. I was mistaken them with VMINNM and VMAXNM which are new in ARMv8. VMIN \u0026 VMAX are not new instructions.\n\nAnd thank you for help pointing this out, I just found ARMv8 check actually prevents this intrinsic from generating vmin/vmax and PS1 passes all target tests (esp. 082-inline-execute) on my nexus device.\n\nI just realize that we should not simply use VMIN and VMAX. Because flush-to-zero is a default behavior of VMIN \u0026 VMAX, which can lead to incorrect result when comparing very small floating point numbers, for example, the vmax implementation of Math.max(float.MIN_VALUE, float.MIN_VALUE) returns 0.0.\n\nIn the new PS, the GenMinMaxFloat() uses the same approach as GenMinMaxDouble().\n\nAnd I\u0027ve added extra tests in 082-inline-execute to check any unexpected flush-to-zero behavior in floatint-point min/max functions.",
       "range": {
         "startLine": 488,
         "startChar": 64,
@@ -65,6 +111,23 @@
     },
     {
       "key": {
+        "uuid": "5684b347_7e1e91b3",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "No, I just found they don\u0027t :(\nI\u0027ve explained in my comment above, I found flush-to-zero is a default behavior of VMIN \u0026 VMAX, which can lead to incorrect result when comparing very small floating point numbers.\nIn the new PS, the GenMinMaxFloat() uses the same approach as GenMinMaxDouble().\n\nI have to abandon the vmin/vmax approach.",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "259274b1_61601069",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -88,6 +151,29 @@
     },
     {
       "key": {
+        "uuid": "17f31fa7_ef38eff5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "Actually according to ARM manual and ARM optimisation guide, using NEON instructions inside IT block is strongly discouraged, VIXL32 currently has such check to disallow conditional neon instruction in IT blocks. I will have to keep these conditional branches.",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 593,
+        "endChar": 3
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a757dd42_5b4c4e92",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -99,6 +185,29 @@
       "writtenOn": "2017-01-31T11:27:54Z",
       "side": 1,
       "message": "Wouldn\u0027t VORR(F64, out, op1, op2) produce a valid NaN if one of {op1, op2} is NaN?\n\nIf yes, the whole intrinsic can be rewritten with ITs instead of jumps.",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 81
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6154b690_80751846",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "VORR is a good suggestion, thanks! I\u0027ve done that in the new PS.\n\nRegarding rewritting the code into IT blocks, same reason as above, I cannot use VORR and VAND inside IT blocks.",
       "range": {
         "startLine": 601,
         "startChar": 0,
@@ -162,6 +271,23 @@
     },
     {
       "key": {
+        "uuid": "79fa8ff1_cb747817",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "Yes, clarity was my consideration.\nI put those DCHECK(op1.Is(out)) close to the implementations, which, I hope, could keep reminding readers that the implementation assumes op1\u003d\u003dout.",
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43cd8521_9f0a2541",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 1
@@ -173,6 +299,29 @@
       "writtenOn": "2017-01-31T11:27:54Z",
       "side": 1,
       "message": "If we want to be precise, the GE/LT is correct for the long comparison but the zero flag is imprecise, so the other conditions, i.e. GT/LE/EQ/NE, may not correctly reflect the ordering.",
+      "range": {
+        "startLine": 651,
+        "startChar": 5,
+        "endLine": 651,
+        "endChar": 39
+      },
+      "revId": "a54381bdc6706d52e12cc7d284b8e55f065e87c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3894df_09f701ba",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-01T15:08:23Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve changed the comment here in the new PS.",
       "range": {
         "startLine": 651,
         "startChar": 5,
