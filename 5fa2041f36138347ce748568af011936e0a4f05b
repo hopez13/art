@@ -22,6 +22,29 @@
       "revId": "5fa2041f36138347ce748568af011936e0a4f05b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ef68f26_643cde7a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-01T17:03:05Z",
+      "side": 1,
+      "message": "So, this is just the default. There is still an option for the user to pass on the value which he feels right. IMO, the value will suit the requirement for most of the cases, including the general use by the developers and therefore, not every time one has to pass the concurrency value.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 48
+      },
+      "revId": "5fa2041f36138347ce748568af011936e0a4f05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
