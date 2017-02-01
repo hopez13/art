@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79a7b9af_9dff8f2c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-01T08:35:41Z",
+      "side": 1,
+      "message": "This method essentially tests that both methods are in the same dex file (apart from executing in the JIT). On the first look it looks like a redundant test with same_dex_file.\n\nCould you add more comments?",
+      "range": {
+        "startLine": 1421,
+        "startChar": 11,
+        "endLine": 1421,
+        "endChar": 43
+      },
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a2015a0_7ad51cc5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4325,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-01T08:35:41Z",
+      "side": 1,
+      "message": "extra empty line.",
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78fe7bb9_c4dc6c27",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-01T08:35:41Z",
+      "side": 1,
+      "message": "Maybe It\u0027s time to introduce IsJIT... to make things more explicit.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 44
+      },
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
