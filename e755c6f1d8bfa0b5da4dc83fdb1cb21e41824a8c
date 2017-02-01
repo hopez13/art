@@ -99,6 +99,23 @@
     },
     {
       "key": {
+        "uuid": "cf679cfe_abb87d86",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-01T00:37:04Z",
+      "side": 1,
+      "message": "As discussed, the MAKEFLAGS gets unset after kati or ninja starts.  The targets will be mainly used by bots which I hope wouldn\u0027t use -kj40 kinds of stuff. Concurrency is important for the testrunner, otherwise it will take long to run the tests.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1d3a013_2a889561",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 19
@@ -763,6 +780,23 @@
       "writtenOn": "2017-01-31T22:47:44Z",
       "side": 1,
       "message": "soong (or ninja or whatever our build system is called now) already does stuff with carriage-return \u0027\\r\u0027 chars to print the in-progress jobs. It also buffers the output of a compile step, printing it all at once. Either one of these behaviors could interact with your use of it here in unexpected or unwanted ways.",
+      "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "409341dd_530141c0",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-01T00:37:04Z",
+      "side": 1,
+      "message": "make targets invokes the script with --verbose. With verbose, testrunner doesn\u0027t use reverse feed and instead use new line. I checked the output by running the script on  my local system, and the output was as expected.",
       "revId": "e755c6f1d8bfa0b5da4dc83fdb1cb21e41824a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
