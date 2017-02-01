@@ -58,6 +58,7 @@ int main(int argc, char **argv) {
   // everything else. In case you want to see all messages, comment out the line.
   setenv("ANDROID_LOG_TAGS", "*:e", 1);
 
+  art::Locks::Init();
   art::InitLogging(argv, art::Runtime::Aborter);
   LOG(INFO) << "Running main() from common_runtime_test.cc...";
   testing::InitGoogleTest(&argc, argv);

@@ -87,18 +87,7 @@ class MemMap {
                          off_t start,
                          bool low_4gb,
                          const char* filename,
-                         std::string* error_msg) {
-    return MapFileAtAddress(nullptr,
-                            byte_count,
-                            prot,
-                            flags,
-                            fd,
-                            start,
-                            /*low_4gb*/low_4gb,
-                            /*reuse*/false,
-                            filename,
-                            error_msg);
-  }
+                         std::string* error_msg);
 
   // Map part of a file, taking care of non-page aligned offsets.  The "start" offset is absolute,
   // not relative. This version allows requesting a specific address for the base of the mapping.
