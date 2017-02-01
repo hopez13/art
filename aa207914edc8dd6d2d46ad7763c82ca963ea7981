@@ -137,6 +137,29 @@
       "revId": "aa207914edc8dd6d2d46ad7763c82ca963ea7981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8041003_1e85ca02",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-01T16:35:53Z",
+      "side": 1,
+      "message": "Yes; the code is essentially the same, the size being the only changing parameter. :)",
+      "range": {
+        "startLine": 1369,
+        "startChar": 7,
+        "endLine": 1369,
+        "endChar": 28
+      },
+      "revId": "aa207914edc8dd6d2d46ad7763c82ca963ea7981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
