@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3636d926_35b62e2e",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-02T14:09:52Z",
+      "side": 1,
+      "message": "ClassLinker::ResolveField() does not check access at all. But we should check for mismatch of is_static here because the fast path does not.",
+      "range": {
+        "startLine": 1343,
+        "startChar": 19,
+        "endLine": 1344,
+        "endChar": 49
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f2a144_616f5bf5",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-02T14:09:52Z",
+      "side": 1,
+      "message": "Can they be updated outside constructors?",
+      "range": {
+        "startLine": 1359,
+        "startChar": 4,
+        "endLine": 1359,
+        "endChar": 63
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4fe4ff2_c85a9d38",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5690,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-02T14:09:52Z",
+      "side": 1,
+      "message": "BssEntry has different requirements, see comment in sharpening.cc .",
+      "range": {
+        "startLine": 5690,
+        "startChar": 7,
+        "endLine": 5690,
+        "endChar": 16
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "034bf8ab_28ac8f32",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-02T14:09:52Z",
+      "side": 1,
+      "message": "We can represent BssEntry if\n\n    ContainsElement(compiler_driver-\u003eGetDexFilesForOatFile(), \u0026dex_file)\n\nThat\u0027s already DCHECK()ed for the boot image case and can be checked for the app compilation as well.",
+      "range": {
+        "startLine": 211,
+        "startChar": 44,
+        "endLine": 211,
+        "endChar": 53
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8952976_f514ff01",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-02T14:09:52Z",
+      "side": 1,
+      "message": "HLoadClass::LoadKind::kInvalid?",
+      "range": {
+        "startLine": 213,
+        "startChar": 47,
+        "endLine": 213,
+        "endChar": 49
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
