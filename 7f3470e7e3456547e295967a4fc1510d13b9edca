@@ -22,6 +22,29 @@
       "revId": "7f3470e7e3456547e295967a4fc1510d13b9edca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "162747ef_59b06093",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-02T13:40:42Z",
+      "side": 1,
+      "message": "Done.\nGood suggestion. Thanks.\n\nI\u0027ve also tried to rewrite GenMinMaxFloat() like this, but the extra VMOVs makes it not as clean as this one, so I kept the float implementation unchanged.",
+      "range": {
+        "startLine": 592,
+        "startChar": 2,
+        "endLine": 592,
+        "endChar": 30
+      },
+      "revId": "7f3470e7e3456547e295967a4fc1510d13b9edca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
