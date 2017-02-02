@@ -125,6 +125,29 @@
       "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14485794_901f4bf0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-02T19:09:34Z",
+      "side": 1,
+      "message": "Yep, we can postpone it. It was just a suggestion :) IsDex2Oat is also better then is AotCompiler imo",
+      "range": {
+        "startLine": 1139,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 44
+      },
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
