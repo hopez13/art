@@ -445,7 +445,8 @@ TEST_ART_BROKEN_NO_IMAGE_RUN_TESTS := \
   138-duplicate-classes-check \
   018-stack-overflow \
   961-default-iface-resolution-gen \
-  964-default-iface-init
+  964-default-iface-init \
+  968-default-partial-compile-gen \
 
 ifneq (,$(filter no-dex2oat,$(PREBUILD_TYPES)))
   ART_TEST_KNOWN_BROKEN += $(call all-run-test-names,$(TARGET_TYPES),$(RUN_TYPES),no-dex2oat, \
