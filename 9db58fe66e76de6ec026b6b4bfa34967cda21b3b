@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "4667e5a0_f1fd089f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-02T09:20:12Z",
+      "side": 1,
+      "message": "No, I think Hiroshi identified the real cause of test flakiness at https://android-review.googlesource.com/#/c/306969/. In the time between when GC is requested and when it actually starts, waiting for GC returns immediately and requesting a new GC does nothing. If GC takes long enough before it starts, we can easily exceed the number of native allocations I expect would otherwise be possible.",
+      "range": {
+        "startLine": 3855,
+        "startChar": 6,
+        "endLine": 3855,
+        "endChar": 15
+      },
+      "revId": "9db58fe66e76de6ec026b6b4bfa34967cda21b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07e1f50c_be98eb28",
         "filename": "test/004-NativeAllocations/src/Main.java",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2017-02-01T23:41:12Z",
       "side": 1,
       "message": "Delete the space while you are here?",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "9db58fe66e76de6ec026b6b4bfa34967cda21b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c9c8c2f_2411dc43",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-02T09:20:12Z",
+      "side": 1,
+      "message": "Should I also remove the use of reflection for calling registerNativeAllocation while I\u0027m here? I\u0027ve been debating.",
       "range": {
         "startLine": 89,
         "startChar": 40,
