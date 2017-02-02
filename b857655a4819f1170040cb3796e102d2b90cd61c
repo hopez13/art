@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc2cae8_4dc5006d",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-02-02T22:24:52Z",
+      "side": 1,
+      "message": "Is there a reason this can\u0027t be a typedef, or we can\u0027t just use std::mutex directly? I don\u0027t know enough about the clang threads-safety analysis, but I would expect that should just work, right?",
+      "range": {
+        "startLine": 241,
+        "startChar": 2,
+        "endLine": 241,
+        "endChar": 50
+      },
+      "revId": "b857655a4819f1170040cb3796e102d2b90cd61c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50de29c3_b2d4a749",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-02-02T22:24:52Z",
+      "side": 1,
+      "message": "Same question here.",
+      "range": {
+        "startLine": 249,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 79
+      },
+      "revId": "b857655a4819f1170040cb3796e102d2b90cd61c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
