@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fad656ce_dbd26cfa",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T17:25:19Z",
+      "side": 1,
+      "message": "Can we get rid of this method? It might lead to confusion, and one could easily mistakenly write the method below (GetMultiDexChecksums) by calling it.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff25afc_628429e0",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T17:25:19Z",
+      "side": 1,
+      "message": "I feel this should be a LOG(INFO), as it seems a weird we will like to diagnose, and we will be glad to have it in the logcat.",
+      "range": {
+        "startLine": 322,
+        "startChar": 4,
+        "endLine": 322,
+        "endChar": 13
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d502d72_fb4110ab",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T17:25:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 354,
+        "startChar": 8,
+        "endLine": 354,
+        "endChar": 9
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
