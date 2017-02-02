@@ -22,6 +22,24 @@
       "revId": "6714b58aa60f818a1a8127d95c46560b2bd8ef21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3b300d6_080d9077",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-02T22:58:28Z",
+      "side": 1,
+      "message": "The JIT does.\n\nAs we are leaving the obsolete method it gets hot enough that the system can try to compile it.\n\nI could also fix it by just making obsolete methods not compilable but this seems nicer.",
+      "parentUuid": "73666a01_6da807d7",
+      "revId": "6714b58aa60f818a1a8127d95c46560b2bd8ef21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
