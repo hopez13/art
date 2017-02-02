@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "20768ddf_5f1f8796",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1776,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T22:49:23Z",
+      "side": 1,
+      "message": "Ah indeed. Done.",
+      "parentUuid": "73fb4ea7_8ca9f2fa",
+      "range": {
+        "startLine": 1773,
+        "startChar": 0,
+        "endLine": 1776,
+        "endChar": 6
+      },
+      "revId": "050a895593a8d56831d78b25908eedc6ceade2c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72edcf47_e3d544a1",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-02T18:24:05Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 1837,
+        "startChar": 0,
+        "endLine": 1840,
+        "endChar": 6
+      },
+      "revId": "050a895593a8d56831d78b25908eedc6ceade2c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "733ec404_ebb7cab0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1840,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T22:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72edcf47_e3d544a1",
       "range": {
         "startLine": 1837,
         "startChar": 0,
