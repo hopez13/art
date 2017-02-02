@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2cf66764_0bf88ed5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T17:51:50Z",
+      "side": 1,
+      "message": "Why not making the size dynamic? Start with 256. If while walking 256 is not enough, allocate 512 and do a copy, etc.",
+      "range": {
+        "startLine": 2350,
+        "startChar": 0,
+        "endLine": 2351,
+        "endChar": 94
+      },
+      "revId": "65b8bb2f5948d2a80a347472293f6ef3c7f7f766",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b7dc5ae_1383785a",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
