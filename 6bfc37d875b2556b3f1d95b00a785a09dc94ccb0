@@ -45,6 +45,29 @@
       "revId": "6bfc37d875b2556b3f1d95b00a785a09dc94ccb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4627c194_33eab04b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3860,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-02T09:16:34Z",
+      "side": 1,
+      "message": "Yes. That is the same conclusion I have reached. This explains the behavior I\u0027m seeing.\n\nNow I just need to come up with a fix...",
+      "range": {
+        "startLine": 3859,
+        "startChar": 0,
+        "endLine": 3860,
+        "endChar": 34
+      },
+      "revId": "6bfc37d875b2556b3f1d95b00a785a09dc94ccb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
