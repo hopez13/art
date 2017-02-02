@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "f815fda8_35441135",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T18:09:24Z",
+      "side": 1,
+      "message": "A loop? You\u0027d just resize when you hit the limit, I\u0027m not sure what you are referring to.\n\nI can see how +XX% speedup that template of yours will bring :)",
+      "range": {
+        "startLine": 2350,
+        "startChar": 0,
+        "endLine": 2351,
+        "endChar": 94
+      },
+      "revId": "65b8bb2f5948d2a80a347472293f6ef3c7f7f766",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b7dc5ae_1383785a",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
