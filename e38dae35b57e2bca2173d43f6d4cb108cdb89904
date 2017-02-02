@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad778e3e_2374e1ae",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-02T13:54:05Z",
+      "side": 1,
+      "message": "NaN",
+      "range": {
+        "startLine": 490,
+        "startChar": 67,
+        "endLine": 490,
+        "endChar": 70
+      },
+      "revId": "e38dae35b57e2bca2173d43f6d4cb108cdb89904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cb3ba27_b1961c70",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-02T13:54:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be in a constant, like kPositiveInfinityFloat?",
+      "range": {
+        "startLine": 516,
+        "startChar": 17,
+        "endLine": 516,
+        "endChar": 58
+      },
+      "revId": "e38dae35b57e2bca2173d43f6d4cb108cdb89904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a972892_79f1a769",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-02T13:54:05Z",
+      "side": 1,
+      "message": "NaN",
+      "range": {
+        "startLine": 569,
+        "startChar": 77,
+        "endLine": 569,
+        "endChar": 80
+      },
+      "revId": "e38dae35b57e2bca2173d43f6d4cb108cdb89904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
