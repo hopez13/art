@@ -76,6 +76,24 @@
       "revId": "6714b58aa60f818a1a8127d95c46560b2bd8ef21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "783ba529_349870c7",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T23:11:11Z",
+      "side": 1,
+      "message": "I think I\u0027d rather not JIT it actually: you know it\u0027s never going to be called again. Maybe you\u0027re stuck in a loop, but do we really want to optimize that case?\n\nNot having obsolete methods \"leak\" too much in the runtime makes things much simpler IMO. Right now, it\u0027s mostly just ArtMethod::GetDexFile() that knows about obsolete right?",
+      "parentUuid": "f3b300d6_080d9077",
+      "revId": "6714b58aa60f818a1a8127d95c46560b2bd8ef21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
