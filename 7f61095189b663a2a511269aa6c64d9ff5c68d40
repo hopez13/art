@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "7847a1a7_28ac9b19",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T13:55:31Z",
+      "side": 1,
+      "message": "Good point, I\u0027ve removed the same_dex_file check. I still need the \"same_dex_file boolean for now due to the dex cache check below line 1429.",
+      "range": {
+        "startLine": 1421,
+        "startChar": 11,
+        "endLine": 1421,
+        "endChar": 43
+      },
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a2015a0_7ad51cc5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -42,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "6ade9a3e_2222683e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T13:55:31Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78fe7bb9_c4dc6c27",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -53,6 +93,29 @@
       "writtenOn": "2017-02-01T08:35:41Z",
       "side": 1,
       "message": "Maybe It\u0027s time to introduce IsJIT... to make things more explicit.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 44
+      },
+      "revId": "7f61095189b663a2a511269aa6c64d9ff5c68d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9c8dfbb_47d6ebc5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T13:55:31Z",
+      "side": 1,
+      "message": "I actually think IsAotCompiler is much better here, or maybe we should rename IsDex2oat to make it clearer we are not talking about things being run at runtime.\n\nRenaming discussion we can postpone? ;-)",
       "range": {
         "startLine": 1139,
         "startChar": 5,
