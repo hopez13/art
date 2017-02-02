@@ -520,6 +520,8 @@ class ArtMethod FINAL {
 
   const DexFile* GetDexFile() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  uint16_t GetDexDeclaringClassDefIndex() REQUIRES_SHARED(Locks::mutator_lock_);
+
   const char* GetDeclaringClassDescriptor() REQUIRES_SHARED(Locks::mutator_lock_);
 
   const char* GetShorty() REQUIRES_SHARED(Locks::mutator_lock_) {

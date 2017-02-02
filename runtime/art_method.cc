@@ -454,12 +454,14 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
     // Simple case where the oat method index was stashed at load time.
     oat_method_index = method->GetMethodIndex();
   } else {
+    ArtMethod* non_obsolete_method = method->GetNonObsoleteMethod();
     // Compute the oat_method_index by search for its position in the declared virtual methods.
     oat_method_index = declaring_class->NumDirectMethods();
     bool found_virtual = false;
     for (ArtMethod& art_method : declaring_class->GetVirtualMethods(pointer_size)) {
       // Check method index instead of identity in case of duplicate method definitions.
-      if (method->GetDexMethodIndex() == art_method.GetDexMethodIndex()) {
+      // We need to check using the non-obsolete method since only those are in the methods array.
+      if (non_obsolete_method->GetDexMethodIndex() == art_method.GetDexMethodIndex()) {
         found_virtual = true;
         break;
       }
@@ -468,17 +470,34 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
     CHECK(found_virtual) << "Didn't find oat method index for virtual method: "
                          << method->PrettyMethod();
   }
+  const DexFile& dex_file = *method->GetDexFile();
+  uint16_t class_def_index = method->GetDexDeclaringClassDefIndex();
   DCHECK_EQ(oat_method_index,
-            GetOatMethodIndexFromMethodIndex(*declaring_class->GetDexCache()->GetDexFile(),
-                                             method->GetDeclaringClass()->GetDexClassDefIndex(),
+            GetOatMethodIndexFromMethodIndex(dex_file,
+                                             class_def_index,
                                              method->GetDexMethodIndex()));
-  OatFile::OatClass oat_class = OatFile::FindOatClass(*declaring_class->GetDexCache()->GetDexFile(),
-                                                      declaring_class->GetDexClassDefIndex(),
-                                                      found);
+  OatFile::OatClass oat_class = OatFile::FindOatClass(dex_file, class_def_index, found);
   if (!(*found)) {
     return OatFile::OatMethod::Invalid();
   }
   return oat_class.GetOatMethod(oat_method_index);
+}
+
+uint16_t ArtMethod::GetDexDeclaringClassDefIndex() {
+  if (LIKELY(!IsObsolete())) {
+    return GetDeclaringClass()->GetDexClassDefIndex();
+  } else {
+    // This should almost never happen.
+    const DexFile* dex_file = GetDexFile();
+    std::string tmp;
+    // The declaring_class has a different dex_file so we need to search the dex_file to figure out
+    // what it's class_dex_idx would have been.
+    return dex_file->GetIndexForClassDef(
+        *dex_file->FindClassDef(
+            dex_file->GetIndexForTypeId(
+                *dex_file->FindTypeId(
+                    GetDeclaringClass()->GetDescriptor(&tmp)))));
+  }
 }
 
 bool ArtMethod::EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> params) {
