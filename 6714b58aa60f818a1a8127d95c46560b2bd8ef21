@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73666a01_6da807d7",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-02T22:55:35Z",
+      "side": 1,
+      "message": "Who calls this with an obsolete method? Can we fix the caller instead?",
+      "range": {
+        "startLine": 445,
+        "startChar": 32,
+        "endLine": 445,
+        "endChar": 48
+      },
+      "revId": "6714b58aa60f818a1a8127d95c46560b2bd8ef21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
