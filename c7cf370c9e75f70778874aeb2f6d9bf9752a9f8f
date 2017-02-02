@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0abfb34c_8e0ab3e3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-02T01:45:21Z",
+      "side": 1,
+      "message": "I\u0027d prefer a normal if statement to avoid possible compile errors in the future (i.e. if (kIs64Bit) .... Though we don\u0027t seem to have that boolean currently.",
+      "range": {
+        "startLine": 296,
+        "startChar": 12,
+        "endLine": 296,
+        "endChar": 20
+      },
+      "revId": "c7cf370c9e75f70778874aeb2f6d9bf9752a9f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
