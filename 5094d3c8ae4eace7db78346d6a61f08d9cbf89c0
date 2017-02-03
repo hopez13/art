@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab3a96e4_6da2d594",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d711c31d_1764b67e",
+      "range": {
+        "startLine": 228,
+        "startChar": 20,
+        "endLine": 229,
+        "endChar": 99
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "771b8fec_6e7863fe",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 22
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "e449a6c5_0f2fbd55",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "771b8fec_6e7863fe",
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81ee2fbb_125d596f",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 22
@@ -53,6 +95,24 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Say what you expect for (1) and (2)",
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2570a42_04703a5d",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81ee2fbb_125d596f",
       "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d978b5e1_0530a4fe",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "It will complicate the make logic. It will require additional if else statements which will make already complex method more complex.",
+      "parentUuid": "2127f5cb_6eb50c55",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 52
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929eb471_a98081a1",
         "filename": "test/knownfailures.json",
         "patchSetId": 22
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "a7f2c4e0_eba311ed",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "The JSON format doesn\u0027t allow comments.\nHowever, if that\u0027s required, I can write a custom JSON parser to allow comments in it.",
+      "parentUuid": "929eb471_a98081a1",
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "780bed89_64bb0596",
         "filename": "test/knownfailures.json",
         "patchSetId": 22
@@ -110,6 +212,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Keep it below 80 columns?",
+      "range": {
+        "startLine": 15,
+        "startChar": 100,
+        "endLine": 15,
+        "endChar": 102
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b55fe46c_b25d1b83",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780bed89_64bb0596",
       "range": {
         "startLine": 15,
         "startChar": 100,
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "1c95a982_253d9d81",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "I am planning to update the file before making the final submission.",
+      "parentUuid": "2e224630_971bace3",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e28f8f0d_d0d0d581",
         "filename": "test/knownfailures.json",
         "patchSetId": 22
@@ -156,6 +306,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "For 055-enum-performance you need a way to disable it when make is invoked with \"dist\".",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 6
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75b53270_1676ce0c",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 22
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "I will discuss about this with you offline.",
+      "parentUuid": "e28f8f0d_d0d0d581",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -185,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "d83da717_75547bbe",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53315e3f_5c172e9f",
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd59bdac_86634f1b",
         "filename": "test/testrunner/env.py",
         "patchSetId": 22
@@ -196,6 +388,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "host",
+      "range": {
+        "startLine": 132,
+        "startChar": 112,
+        "endLine": 132,
+        "endChar": 116
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "112d20b8_b8d388f8",
+        "filename": "test/testrunner/env.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd59bdac_86634f1b",
       "range": {
         "startLine": 132,
         "startChar": 112,
@@ -231,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "c105956b_0be8cb98",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61098f46_5b72bb10",
+      "range": {
+        "startLine": 22,
+        "startChar": 45,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "592ee6e1_3ca0e1c2",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -242,6 +482,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "itemize this?",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 70
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b73fd587_16958aa7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "592ee6e1_3ca0e1c2",
       "range": {
         "startLine": 26,
         "startChar": 9,
@@ -277,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "0f9b14ec_a94e644a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41c1ed51_b8497d44",
+      "range": {
+        "startLine": 72,
+        "startChar": 70,
+        "endLine": 72,
+        "endChar": 73
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e50d33c_8aa154a1",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -288,6 +576,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "missing space after \"name\"",
+      "range": {
+        "startLine": 73,
+        "startChar": 27,
+        "endLine": 73,
+        "endChar": 31
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d12479b5_e284d5f6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e50d33c_8aa154a1",
       "range": {
         "startLine": 73,
         "startChar": 27,
@@ -369,6 +681,30 @@
     },
     {
       "key": {
+        "uuid": "9b597290_c21d782f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f2b5029_65e82066",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 48
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe4e7338_59931cd2",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -438,6 +774,30 @@
     },
     {
       "key": {
+        "uuid": "18548142_7e7ddf7b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e53d6fb8_cb50f80f",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 34
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2556f9d7_0fa2f232",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -449,6 +809,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "This list is odd. Things like failed_tests or skipped_tests don\u0027t seem like flags but state.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f578fbd_ebaf169d",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Removed the non flags var from the list.",
+      "parentUuid": "2556f9d7_0fa2f232",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -553,6 +937,30 @@
     },
     {
       "key": {
+        "uuid": "d89ea996_fd4dbea3",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf21f9f7_765463ae",
+      "range": {
+        "startLine": 113,
+        "startChar": 51,
+        "endLine": 113,
+        "endChar": 55
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2141b92_8c6c4e39",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -564,6 +972,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "variants",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 30
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d95b806e_e65f0b1d",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2141b92_8c6c4e39",
       "range": {
         "startLine": 114,
         "startChar": 23,
@@ -599,6 +1031,30 @@
     },
     {
       "key": {
+        "uuid": "fb35d3b9_b460a929",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "As the testrunner doesn\u0027t follow any class mechanism, global variables are required to share information/state between different methods.",
+      "parentUuid": "9d7af36c_4429182e",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 8
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c49859a6_4b5a32da",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -610,6 +1066,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 122,
+        "startChar": 30,
+        "endLine": 123,
+        "endChar": 61
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b506e32_9f08e62e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c49859a6_4b5a32da",
       "range": {
         "startLine": 122,
         "startChar": 30,
@@ -668,6 +1148,30 @@
     },
     {
       "key": {
+        "uuid": "ed452b31_a64284ea",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Yes, I was thinking of that. Can we do this in next iterations/ future?",
+      "parentUuid": "bd8f0c06_89dbc11a",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5009fd24_8e64b198",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -679,6 +1183,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "I cannot parse this",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 62
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13c2abd_18379d46",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "I didn\u0027t read the statement before. I copied the statement from the makefile. Can you suggest something other than this.",
+      "parentUuid": "5009fd24_8e64b198",
       "range": {
         "startLine": 148,
         "startChar": 4,
@@ -714,6 +1242,30 @@
     },
     {
       "key": {
+        "uuid": "26ae694a_3d53b506",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34188d74_19f2ea8d",
+      "range": {
+        "startLine": 252,
+        "startChar": 77,
+        "endLine": 252,
+        "endChar": 81
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d261e050_f5f002d4",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -725,6 +1277,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Can you be more specific? I assume this will not prevent threads running concurrently, right? But the comment seems to indicate otherwise.",
+      "range": {
+        "startLine": 254,
+        "startChar": 50,
+        "endLine": 255,
+        "endChar": 79
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a00d62_6d7db5d7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d261e050_f5f002d4",
       "range": {
         "startLine": 254,
         "startChar": 50,
@@ -760,6 +1336,30 @@
     },
     {
       "key": {
+        "uuid": "21a88720_f281c009",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd9634b_7966ef04",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 16
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "861f9a92_54a2e4bd",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -771,6 +1371,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Comments please",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 20
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23781ec8_90c04343",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "The top level comment for the method mentions about the semaphore mechanism. I can write the comment here as well, but it would be redundant.",
+      "parentUuid": "861f9a92_54a2e4bd",
       "range": {
         "startLine": 405,
         "startChar": 0,
@@ -806,6 +1430,30 @@
     },
     {
       "key": {
+        "uuid": "5ef6797c_04669697",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c223697_0be30325",
+      "range": {
+        "startLine": 420,
+        "startChar": 6,
+        "endLine": 420,
+        "endChar": 11
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e9a2f3aa_53633cc5",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -817,6 +1465,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Comments please",
+      "range": {
+        "startLine": 442,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 15
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "227160b3_a6c30634",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9a2f3aa_53633cc5",
       "range": {
         "startLine": 442,
         "startChar": 0,
@@ -875,6 +1547,30 @@
     },
     {
       "key": {
+        "uuid": "b6b145b4_32a06580",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57bfbf1d_198e99ac",
+      "range": {
+        "startLine": 477,
+        "startChar": 57,
+        "endLine": 477,
+        "endChar": 63
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83ad7878_c8088812",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -886,6 +1582,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Is that python style?",
+      "range": {
+        "startLine": 479,
+        "startChar": 2,
+        "endLine": 479,
+        "endChar": 3
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d98ccf2_cde9d873",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "No, and it is not used anywhere. Actually for this particular method I was using intellij and it turned out to be using this style.",
+      "parentUuid": "83ad7878_c8088812",
       "range": {
         "startLine": 479,
         "startChar": 2,
@@ -921,6 +1641,30 @@
     },
     {
       "key": {
+        "uuid": "55f6715e_08ae51db",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "It should be test. I am talking about the single element from the map.",
+      "parentUuid": "083d24a9_5a877345",
+      "range": {
+        "startLine": 480,
+        "startChar": 16,
+        "endLine": 480,
+        "endChar": 20
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0933c143_dbfabd57",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -932,6 +1676,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": ".json",
+      "range": {
+        "startLine": 543,
+        "startChar": 42,
+        "endLine": 543,
+        "endChar": 55
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "288b9675_9b139df6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0933c143_dbfabd57",
       "range": {
         "startLine": 543,
         "startChar": 42,
@@ -967,6 +1735,30 @@
     },
     {
       "key": {
+        "uuid": "2956dffa_2d3f24cf",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16aba222_43a5de0a",
+      "range": {
+        "startLine": 585,
+        "startChar": 18,
+        "endLine": 585,
+        "endChar": 22
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b721bd0b_4a79079d",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -990,6 +1782,30 @@
     },
     {
       "key": {
+        "uuid": "6ad56aa3_f5946ec8",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b721bd0b_4a79079d",
+      "range": {
+        "startLine": 587,
+        "startChar": 28,
+        "endLine": 587,
+        "endChar": 34
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0a2367e1_d809f8ee",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -1001,6 +1817,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "initiate? Or \"set\"?",
+      "range": {
+        "startLine": 590,
+        "startChar": 29,
+        "endLine": 590,
+        "endChar": 37
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06be2d7f_5daee244",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a2367e1_d809f8ee",
       "range": {
         "startLine": 590,
         "startChar": 29,
@@ -1059,6 +1899,30 @@
     },
     {
       "key": {
+        "uuid": "366f69d3_39aecbeb",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90fbe4a5_126471cb",
+      "range": {
+        "startLine": 591,
+        "startChar": 2,
+        "endLine": 591,
+        "endChar": 9
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91d0acd0_7c389d85",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -1070,6 +1934,30 @@
       "writtenOn": "2017-02-03T10:13:35Z",
       "side": 1,
       "message": "Can you avoid these manual if and do this programatically? Something like \"gcverify\" is a GC_TYPES and its name is \"gcverify\".\n\nIn general, you should work out a way of not having to update multiple places when ART wants to support a new variant.",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 36
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73b7c961_e8ed0e4b",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-03T13:45:42Z",
+      "side": 1,
+      "message": "So, options is not a map. IMO, To access options.multipicimage  I need to use something like reflections which I don\u0027t think would be a great idea. As mentioned above, I will try to work on this so that we only need to put variants at one place. But it will require some time. I think we should let this go in for now, and I will make further changes in the code in future.",
+      "parentUuid": "91d0acd0_7c389d85",
       "range": {
         "startLine": 683,
         "startChar": 0,
