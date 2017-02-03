@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d254378_616edd44",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-03T19:07:43Z",
+      "side": 1,
+      "message": ".get() is unnecessary here",
+      "range": {
+        "startLine": 2269,
+        "startChar": 14,
+        "endLine": 2269,
+        "endChar": 20
+      },
+      "revId": "469d3eb0517d4f186699c4a9267f712e55024850",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
