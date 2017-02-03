@@ -878,7 +878,7 @@ static void ResolveConstStrings(CompilerDriver* driver,
   MutableHandle<mirror::DexCache> dex_cache(hs.NewHandle<mirror::DexCache>(nullptr));
 
   for (const DexFile* dex_file : dex_files) {
-    dex_cache.Assign(class_linker->FindDexCache(soa.Self(), *dex_file, false));
+    dex_cache.Assign(class_linker->FindDexCache(soa.Self(), *dex_file));
     TimingLogger::ScopedTiming t("Resolve const-string Strings", timings);
 
     size_t class_def_count = dex_file->NumClassDefs();
@@ -1776,7 +1776,7 @@ class ResolveClassFieldsAndMethodsVisitor : public CompilationVisitor {
     Handle<mirror::ClassLoader> class_loader(
         hs.NewHandle(soa.Decode<mirror::ClassLoader>(jclass_loader)));
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
-        soa.Self(), dex_file, false)));
+        soa.Self(), dex_file)));
     // Resolve the class.
     mirror::Class* klass = class_linker->ResolveType(dex_file, class_def.class_idx_, dex_cache,
                                                      class_loader);
@@ -1875,10 +1875,9 @@ class ResolveTypeVisitor : public CompilationVisitor {
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->RegisterDexFile(
         dex_file,
         class_loader.Get())));
-    mirror::Class* klass = class_linker->ResolveType(dex_file,
-                                                     dex::TypeIndex(type_idx),
-                                                     dex_cache,
-                                                     class_loader);
+    ObjPtr<mirror::Class> klass = (dex_cache.Get() != nullptr)
+        ? class_linker->ResolveType(dex_file, dex::TypeIndex(type_idx), dex_cache, class_loader)
+        : nullptr;
 
     if (klass == nullptr) {
       soa.Self()->AssertPendingException();
@@ -2135,7 +2134,7 @@ class VerifyClassVisitor : public CompilationVisitor {
        * will be rejected by the verifier and later skipped during compilation in the compiler.
        */
       Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
-          soa.Self(), dex_file, false)));
+          soa.Self(), dex_file)));
       std::string error_msg;
       failure_kind =
           verifier::MethodVerifier::VerifyClass(soa.Self(),
