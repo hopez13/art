@@ -378,7 +378,7 @@ art::mirror::ClassLoader* Redefiner::ClassRedefinition::GetClassLoader() {
 
 art::mirror::DexCache* Redefiner::ClassRedefinition::CreateNewDexCache(
     art::Handle<art::mirror::ClassLoader> loader) {
-  return driver_->runtime_->GetClassLinker()->RegisterDexFile(*dex_file_, loader.Get());
+  return driver_->runtime_->GetClassLinker()->RegisterDexFile(*dex_file_, loader.Get()).Ptr();
 }
 
 void Redefiner::RecordFailure(jvmtiError result,
