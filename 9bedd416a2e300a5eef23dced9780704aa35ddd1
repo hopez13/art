@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc9de51c_f96b6c8a",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-02-03T21:50:07Z",
+      "side": 1,
+      "message": "ctx.Arch().ArchType !\u003d android.Mips \u0026\u0026 ctx.Arch().ArchType !\u003d android.Mips64",
+      "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
