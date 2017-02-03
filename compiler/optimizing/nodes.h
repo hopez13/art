@@ -1722,11 +1722,11 @@ class SideEffects : public ValueObject {
 // A HEnvironment object contains the values of virtual registers at a given location.
 class HEnvironment : public ArenaObject<kArenaAllocEnvironment> {
  public:
-  HEnvironment(ArenaAllocator* arena,
-               size_t number_of_vregs,
-               ArtMethod* method,
-               uint32_t dex_pc,
-               HInstruction* holder)
+  ALWAYS_INLINE HEnvironment(ArenaAllocator* arena,
+                             size_t number_of_vregs,
+                             ArtMethod* method,
+                             uint32_t dex_pc,
+                             HInstruction* holder)
      : vregs_(number_of_vregs, arena->Adapter(kArenaAllocEnvironmentVRegs)),
        locations_(number_of_vregs, arena->Adapter(kArenaAllocEnvironmentLocations)),
        parent_(nullptr),
@@ -1735,7 +1735,7 @@ class HEnvironment : public ArenaObject<kArenaAllocEnvironment> {
        holder_(holder) {
   }
 
-  HEnvironment(ArenaAllocator* arena, const HEnvironment& to_copy, HInstruction* holder)
+  ALWAYS_INLINE HEnvironment(ArenaAllocator* arena, const HEnvironment& to_copy, HInstruction* holder)
       : HEnvironment(arena,
                      to_copy.Size(),
                      to_copy.GetMethod(),
