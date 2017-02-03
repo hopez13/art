@@ -323,6 +323,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         temporaries_vreg_slots_(0),
         has_bounds_checks_(false),
         has_try_catch_(false),
+        has_loops_(false),
         has_irreducible_loops_(false),
         debuggable_(debuggable),
         current_instruction_id_(start_instruction_id),
@@ -374,7 +375,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // Analyze all natural loops in this graph. Returns a code specifying that it
   // was successful or the reason for failure. The method will fail if a loop
   // is a throw-catch loop, i.e. the header is a catch block.
-  GraphAnalysisResult AnalyzeLoops() const;
+  GraphAnalysisResult AnalyzeLoops();
 
   // Iterate over blocks to compute try block membership. Needs reverse post
   // order and loop information.
@@ -559,6 +560,9 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   bool HasTryCatch() const { return has_try_catch_; }
   void SetHasTryCatch(bool value) { has_try_catch_ = value; }
 
+  bool HasLoops() const { return has_loops_; }
+  void SetHasLoops(bool value) { has_loops_ = value; }
+
   bool HasIrreducibleLoops() const { return has_irreducible_loops_; }
   void SetHasIrreducibleLoops(bool value) { has_irreducible_loops_ = value; }
 
@@ -643,6 +647,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // Flag whether there are any try/catch blocks in the graph. We will skip
   // try/catch-related passes if false.
   bool has_try_catch_;
+  bool has_loops_;
 
   // Flag whether there are any irreducible loops in the graph.
   bool has_irreducible_loops_;
@@ -1722,11 +1727,11 @@ class SideEffects : public ValueObject {
 // A HEnvironment object contains the values of virtual registers at a given location.
 class HEnvironment : public ArenaObject<kArenaAllocEnvironment> {
  public:
-  HEnvironment(ArenaAllocator* arena,
-               size_t number_of_vregs,
-               ArtMethod* method,
-               uint32_t dex_pc,
-               HInstruction* holder)
+  ALWAYS_INLINE HEnvironment(ArenaAllocator* arena,
+                             size_t number_of_vregs,
+                             ArtMethod* method,
+                             uint32_t dex_pc,
+                             HInstruction* holder)
      : vregs_(number_of_vregs, arena->Adapter(kArenaAllocEnvironmentVRegs)),
        locations_(number_of_vregs, arena->Adapter(kArenaAllocEnvironmentLocations)),
        parent_(nullptr),
@@ -1735,7 +1740,7 @@ class HEnvironment : public ArenaObject<kArenaAllocEnvironment> {
        holder_(holder) {
   }
 
-  HEnvironment(ArenaAllocator* arena, const HEnvironment& to_copy, HInstruction* holder)
+  ALWAYS_INLINE HEnvironment(ArenaAllocator* arena, const HEnvironment& to_copy, HInstruction* holder)
       : HEnvironment(arena,
                      to_copy.Size(),
                      to_copy.GetMethod(),

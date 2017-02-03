@@ -438,7 +438,7 @@ void HGraph::SimplifyCFG() {
   }
 }
 
-GraphAnalysisResult HGraph::AnalyzeLoops() const {
+GraphAnalysisResult HGraph::AnalyzeLoops() {
   // We iterate post order to ensure we visit inner loops before outer loops.
   // `PopulateRecursive` needs this guarantee to know whether a natural loop
   // contains an irreducible loop.
@@ -450,6 +450,7 @@ GraphAnalysisResult HGraph::AnalyzeLoops() const {
         return kAnalysisFailThrowCatchLoop;
       }
       block->GetLoopInformation()->Populate();
+      SetHasLoops(true);
     }
   }
   return kAnalysisSuccess;
@@ -2032,8 +2033,18 @@ HInstruction* HGraph::InlineInto(HGraph* outer_graph, HInvoke* invoke) {
     }
   }
   outer_graph->UpdateMaximumNumberOfOutVRegs(GetMaximumNumberOfOutVRegs());
+
   if (HasBoundsChecks()) {
     outer_graph->SetHasBoundsChecks(true);
+  }
+  if (HasLoops()) {
+    outer_graph->SetHasLoops(true);
+  }
+  if (HasIrreducibleLoops()) {
+    outer_graph->SetHasIrreducibleLoops(true);
+  }
+  if (HasTryCatch()) {
+    outer_graph->SetHasTryCatch(true);
   }
 
   HInstruction* return_value = nullptr;
