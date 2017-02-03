@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a35ee2_baba7bcc",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 529,
+        "startChar": 35,
+        "endLine": 529,
+        "endChar": 36
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd288cba_66983138",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 530,
+        "startChar": 11,
+        "endLine": 530,
+        "endChar": 14
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65ee6fcf_a3ed9d0b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "ArtMethod already has helpers for this.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 9
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91aaf53_0421ba94",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "Odd TODO, is it the spec that is unclear?",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 90
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87e35a80_b22dbd33",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "Should you also mention types/modifiers?",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 60
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc46194_98d1b2b7",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T09:39:58Z",
+      "side": 1,
+      "message": "add/remove (and ditto about types/modifiers?)",
+      "range": {
+        "startLine": 176,
+        "startChar": 41,
+        "endLine": 176,
+        "endChar": 47
+      },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
