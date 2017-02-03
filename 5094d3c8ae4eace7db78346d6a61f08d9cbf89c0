@@ -1172,6 +1172,30 @@
     },
     {
       "key": {
+        "uuid": "7c783bb4_3911501d",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T15:29:23Z",
+      "side": 1,
+      "message": "Sure, please add a TODO.",
+      "parentUuid": "ed452b31_a64284ea",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5009fd24_8e64b198",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 22
@@ -1207,6 +1231,30 @@
       "side": 1,
       "message": "I didn\u0027t read the statement before. I copied the statement from the makefile. Can you suggest something other than this.",
       "parentUuid": "5009fd24_8e64b198",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 62
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e38d3f7_998a5b02",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T15:29:23Z",
+      "side": 1,
+      "message": "... to do bisection search on it?",
+      "parentUuid": "e13c2abd_18379d46",
       "range": {
         "startLine": 148,
         "startChar": 4,
@@ -1958,6 +2006,30 @@
       "side": 1,
       "message": "So, options is not a map. IMO, To access options.multipicimage  I need to use something like reflections which I don\u0027t think would be a great idea. As mentioned above, I will try to work on this so that we only need to put variants at one place. But it will require some time. I think we should let this go in for now, and I will make further changes in the code in future.",
       "parentUuid": "91d0acd0_7c389d85",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 36
+      },
+      "revId": "5094d3c8ae4eace7db78346d6a61f08d9cbf89c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "593808ab_9f0aaae5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T15:29:23Z",
+      "side": 1,
+      "message": "OK, please add a TODO.",
+      "parentUuid": "73b7c961_e8ed0e4b",
       "range": {
         "startLine": 683,
         "startChar": 0,
