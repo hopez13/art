@@ -40,6 +40,24 @@
       "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63139282_ed3fc62a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-03T19:27:49Z",
+      "side": 1,
+      "message": "That ordering is enforced in the dex file verifier. Method indices are strictly non-decreasing. Together with the sorting by symbol names, things *are* guaranteed in dex.",
+      "parentUuid": "cf2c6ff3_5c9f261d",
+      "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
