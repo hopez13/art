@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "19dfd15a_f1b3fc12",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T21:57:50Z",
+      "side": 1,
+      "message": "I\u0027m confused. Isn\u0027t what you are doing exactly like:\n\n ArtMethod* Class::FindDeclaredVirtualMethod(const StringPiece\u0026 name, const StringPiece\u0026 signature, PointerSize pointer_size)\n\n(and its DirectMethod equivalent)?",
+      "parentUuid": "a8d70e55_449c5b52",
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91aaf53_0421ba94",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
