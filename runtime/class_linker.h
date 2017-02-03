@@ -386,7 +386,7 @@ class ClassLinker {
                                     ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void RegisterDexFile(const DexFile& dex_file, Handle<mirror::DexCache> dex_cache)
+  void RegisterBootClassPathDexFile(const DexFile& dex_file, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -663,6 +663,11 @@ class ClassLinker {
     // class unloading.)
     const DexFile* dex_file;
     ArtMethod** resolved_methods;
+    // Identify the associated class loader's class table. This is used to make sure that
+    // the Java call to native DexCache.setResolvedType() inserts the resolved type in that
+    // class table. It is also used to make sure we don't register the same dex cache with
+    // multiple class loaders.
+    ClassTable* class_table;
   };
 
  private:
@@ -749,7 +754,7 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
-  void AppendToBootClassPath(const DexFile& dex_file, Handle<mirror::DexCache> dex_cache)
+  void AppendToBootClassPath(const DexFile& dex_file, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_);
 
@@ -810,7 +815,9 @@ class ClassLinker {
       REQUIRES(!Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void RegisterDexFileLocked(const DexFile& dex_file, Handle<mirror::DexCache> dex_cache)
+  void RegisterDexFileLocked(const DexFile& dex_file,
+                             ObjPtr<mirror::DexCache> dex_cache,
+                             ObjPtr<mirror::ClassLoader> class_loader)
       REQUIRES(Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
   mirror::DexCache* FindDexCacheLocked(Thread* self, const DexFile& dex_file, bool allow_failure)
