@@ -16,6 +16,24 @@
       "revId": "42a09cb0c6aee5de92eb4cdf6d34646dcd247840",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6072750_3686667b",
+        "filename": "tools/cpp-define-generator/constant_jit.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-02-03T13:52:21Z",
+      "side": 1,
+      "message": "Yes, I ended up doing all the work from C++ code, so it wasn\u0027t used.  Removed in https://android-review.googlesource.com/#/c/332683",
+      "parentUuid": "7235b8eb_aa976202",
+      "revId": "42a09cb0c6aee5de92eb4cdf6d34646dcd247840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
