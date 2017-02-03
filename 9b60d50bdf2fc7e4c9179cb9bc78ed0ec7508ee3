@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77f7af47_6d045d03",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1878,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-03T23:18:05Z",
+      "side": 1,
+      "message": "Note that IsActiveTransaction can\u0027t change between here and below since this mode is all single threaded.",
+      "range": {
+        "startLine": 1878,
+        "startChar": 61,
+        "endLine": 1878,
+        "endChar": 80
+      },
+      "revId": "9b60d50bdf2fc7e4c9179cb9bc78ed0ec7508ee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
