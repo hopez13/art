@@ -262,7 +262,7 @@ void Transaction::VisitObjectLogs(RootVisitor* visitor) {
   std::list<ObjectPair> moving_roots;
 
   // Visit roots.
-  for (auto it : object_logs_) {
+  for (auto& it : object_logs_) {
     it.second.VisitRoots(visitor);
     mirror::Object* old_root = it.first;
     mirror::Object* new_root = old_root;
@@ -456,7 +456,7 @@ void Transaction::ObjectLog::UndoFieldWrite(mirror::Object* obj, MemberOffset fi
 }
 
 void Transaction::ObjectLog::VisitRoots(RootVisitor* visitor) {
-  for (auto it : field_values_) {
+  for (auto& it : field_values_) {
     FieldValue& field_value = it.second;
     if (field_value.kind == ObjectLog::kReference) {
       visitor->VisitRootIfNonNull(reinterpret_cast<mirror::Object**>(&field_value.value),
