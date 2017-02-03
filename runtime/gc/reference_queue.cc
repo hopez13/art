@@ -48,10 +48,10 @@ void ReferenceQueue::EnqueueReference(ObjPtr<mirror::Reference> ref) {
     // gray.
     ObjPtr<mirror::Reference> head = list_->GetPendingNext<kWithoutReadBarrier>();
     DCHECK(head != nullptr);
-    ref->SetPendingNext(head);
+    ref->SetPendingNext<kWithoutReadBarrier>(head);
   }
   // Add the reference in the middle to preserve the cycle.
-  list_->SetPendingNext(ref);
+  list_->SetPendingNext<kWithoutReadBarrier>(ref);
 }
 
 ObjPtr<mirror::Reference> ReferenceQueue::DequeuePendingReference() {
@@ -64,9 +64,9 @@ ObjPtr<mirror::Reference> ReferenceQueue::DequeuePendingReference() {
     list_ = nullptr;
   } else {
     ObjPtr<mirror::Reference> next = ref->GetPendingNext<kWithoutReadBarrier>();
-    list_->SetPendingNext(next);
+    list_->SetPendingNext<kWithoutReadBarrier>(next);
   }
-  ref->SetPendingNext(nullptr);
+  ref->SetPendingNext<kWithoutReadBarrier>(nullptr);
   Heap* heap = Runtime::Current()->GetHeap();
   if (kUseBakerOrBrooksReadBarrier && heap->CurrentCollectorType() == kCollectorTypeCC &&
       heap->ConcurrentCopyingCollector()->IsActive()) {

@@ -34,11 +34,20 @@ inline void Reference::SetReferent(ObjPtr<Object> referent) {
   SetFieldObjectVolatile<kTransactionActive>(ReferentOffset(), referent);
 }
 
+template<ReadBarrierOption kReadBarrierOption>
 inline void Reference::SetPendingNext(ObjPtr<Reference> pending_next) {
   if (Runtime::Current()->IsActiveTransaction()) {
-    SetFieldObject<true>(PendingNextOffset(), pending_next);
+    SetFieldObject</*kTransactionActive*/ true,
+                   /*kCheckTransaction*/ true,
+                   kDefaultVerifyFlags,
+                   /*kIsVolatile*/ false,
+                   kReadBarrierOption>(PendingNextOffset(), pending_next);
   } else {
-    SetFieldObject<false>(PendingNextOffset(), pending_next);
+    SetFieldObject</*kTransactionActive*/ false,
+                   /*kCheckTransaction*/ true,
+                   kDefaultVerifyFlags,
+                   /*kIsVolatile*/ false,
+                   kReadBarrierOption>(PendingNextOffset(), pending_next);
   }
 }
 

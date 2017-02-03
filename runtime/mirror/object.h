@@ -293,7 +293,8 @@ class MANAGED LOCKABLE Object {
   template<bool kTransactionActive,
            bool kCheckTransaction = true,
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           bool kIsVolatile = false>
+           bool kIsVolatile = false,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE void SetFieldObjectWithoutWriteBarrier(MemberOffset field_offset,
                                                        ObjPtr<Object> new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -301,7 +302,8 @@ class MANAGED LOCKABLE Object {
   template<bool kTransactionActive,
            bool kCheckTransaction = true,
            VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-           bool kIsVolatile = false>
+           bool kIsVolatile = false,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE void SetFieldObject(MemberOffset field_offset, ObjPtr<Object> new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

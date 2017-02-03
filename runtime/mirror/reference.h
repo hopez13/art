@@ -81,6 +81,7 @@ class MANAGED Reference : public Object {
     return GetFieldObject<Reference, kDefaultVerifyFlags, kReadBarrierOption>(PendingNextOffset());
   }
 
+  template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   void SetPendingNext(ObjPtr<Reference> pending_next) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if the reference's pendingNext is null, indicating it is

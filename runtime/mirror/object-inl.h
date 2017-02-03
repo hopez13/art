@@ -942,7 +942,7 @@ inline T* Object::GetFieldObjectVolatile(MemberOffset field_offset) {
 }
 
 template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags,
-    bool kIsVolatile>
+    bool kIsVolatile, ReadBarrierOption kReadBarrierOption>
 inline void Object::SetFieldObjectWithoutWriteBarrier(MemberOffset field_offset,
                                                       ObjPtr<Object> new_value) {
   if (kCheckTransaction) {
@@ -951,9 +951,9 @@ inline void Object::SetFieldObjectWithoutWriteBarrier(MemberOffset field_offset,
   if (kTransactionActive) {
     ObjPtr<Object> obj;
     if (kIsVolatile) {
-      obj = GetFieldObjectVolatile<Object>(field_offset);
+      obj = GetFieldObjectVolatile<Object, kVerifyFlags, kReadBarrierOption>(field_offset);
     } else {
-      obj = GetFieldObject<Object>(field_offset);
+      obj = GetFieldObject<Object, kVerifyFlags, kReadBarrierOption>(field_offset);
     }
     Runtime::Current()->RecordWriteFieldReference(this, field_offset, obj.Ptr(), true);
   }
@@ -977,10 +977,10 @@ inline void Object::SetFieldObjectWithoutWriteBarrier(MemberOffset field_offset,
 }
 
 template<bool kTransactionActive, bool kCheckTransaction, VerifyObjectFlags kVerifyFlags,
-    bool kIsVolatile>
+    bool kIsVolatile, ReadBarrierOption kReadBarrierOption>
 inline void Object::SetFieldObject(MemberOffset field_offset, ObjPtr<Object> new_value) {
   SetFieldObjectWithoutWriteBarrier<kTransactionActive, kCheckTransaction, kVerifyFlags,
-      kIsVolatile>(field_offset, new_value);
+      kIsVolatile, kReadBarrierOption>(field_offset, new_value);
   if (new_value != nullptr) {
     Runtime::Current()->GetHeap()->WriteBarrierField(this, field_offset, new_value);
     // TODO: Check field assignment could theoretically cause thread suspension, TODO: fix this.
