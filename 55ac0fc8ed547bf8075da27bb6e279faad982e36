@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a6a1140b_6c9c8544",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T10:34:01Z",
+      "side": 1,
+      "message": "I see. Let\u0027s follow-up on buganizer for the CheckStaticDexFileDependencies.",
+      "parentUuid": "938efa9d_18944b98",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff25afc_628429e0",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
