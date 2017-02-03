@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7684a7ea_f47739a9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-03T10:48:08Z",
+      "side": 1,
+      "message": "Following up on b/26880306",
+      "parentUuid": "a6a1140b_6c9c8544",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff25afc_628429e0",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
