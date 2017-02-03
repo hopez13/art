@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2c28ae1_febd009f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-03T15:09:19Z",
+      "side": 1,
+      "message": "tws, replace with \u0027.\u0027",
+      "range": {
+        "startLine": 1344,
+        "startChar": 53,
+        "endLine": 1344,
+        "endChar": 54
+      },
+      "revId": "b777c71a6a5fcfe898537e68937d3ae14bbf8ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74bac3c1_595dd997",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-03T15:09:19Z",
+      "side": 1,
+      "message": "Remove this, class linker does not check access at all.",
+      "range": {
+        "startLine": 1349,
+        "startChar": 18,
+        "endLine": 1350,
+        "endChar": 49
+      },
+      "revId": "b777c71a6a5fcfe898537e68937d3ae14bbf8ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
