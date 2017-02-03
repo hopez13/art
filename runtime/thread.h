@@ -201,7 +201,7 @@ class Thread {
       REQUIRES(!Locks::thread_suspend_count_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void DumpJavaStack(std::ostream& os) const
+  void DumpJavaStack(std::ostream& os, bool force_dump_stack = false) const
       REQUIRES(!Locks::thread_suspend_count_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

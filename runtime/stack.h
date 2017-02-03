@@ -590,7 +590,8 @@ class StackVisitor {
   };
 
  protected:
-  StackVisitor(Thread* thread, Context* context, StackWalkKind walk_kind);
+  StackVisitor(Thread* thread, Context* context, StackWalkKind walk_kind,
+               bool abort_on_error = true);
 
   bool GetRegisterIfAccessible(uint32_t reg, VRegKind kind, uint32_t* val) const
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -797,7 +798,8 @@ class StackVisitor {
 
  private:
   // Private constructor known in the case that num_frames_ has already been computed.
-  StackVisitor(Thread* thread, Context* context, StackWalkKind walk_kind, size_t num_frames)
+  StackVisitor(Thread* thread, Context* context, StackWalkKind walk_kind, size_t num_frames,
+               bool abort_on_error = true)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsAccessibleRegister(uint32_t reg, bool is_float) const {
@@ -851,6 +853,7 @@ class StackVisitor {
 
  protected:
   Context* const context_;
+  const bool abort_on_error_;
 };
 
 }  // namespace art
