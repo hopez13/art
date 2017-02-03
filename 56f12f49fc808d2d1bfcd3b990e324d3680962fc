@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4192501b_f6bab1a8",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-02-03T01:31:28Z",
+      "side": 1,
+      "message": "You can just wrap this line with the #if checks. Then it doesn\u0027t require a guard around the pop at the bottom.",
+      "revId": "56f12f49fc808d2d1bfcd3b990e324d3680962fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
