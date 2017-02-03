@@ -22,6 +22,30 @@
       "revId": "1935ffd5bc7c315032d3a11d98af0e9b76793123",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956bbe8b_cbbdd886",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-03T15:28:02Z",
+      "side": 1,
+      "message": "There were 5 failures:\n1) asStringExactMax\n2) asStringTruncated\n3) asStringBasic\n4) asStringNotTruncated\n5) asStringNegativeMax",
+      "parentUuid": "0139a940_cc240bfb",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "1935ffd5bc7c315032d3a11d98af0e9b76793123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
