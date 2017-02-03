@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "8e11f2e0_f78c8f1a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a35ee2_baba7bcc",
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd288cba_66983138",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 530,
         "endChar": 14
       },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce05696_ce05dc71",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "GetName and GetSignature aren\u0027t marked as const.",
+      "parentUuid": "dd288cba_66983138",
       "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "a8d70e55_449c5b52",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "Only when comparing with another ArtMethod which we don\u0027t have.",
+      "parentUuid": "65ee6fcf_a3ed9d0b",
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91aaf53_0421ba94",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 548,
         "endChar": 90
       },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e2bd07_2b6b55bd",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "All the spec has to say on it is: \"has different modifiers than its counterpart\".  I am pretty sure this means that the access flags are the only thing that needs to be checked but I am not entierly certain. Can you think of anything else?\n\nhttps://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#RedefineClasses",
+      "parentUuid": "d91aaf53_0421ba94",
       "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "d988e25f_cd508429",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87e35a80_b22dbd33",
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcc46194_98d1b2b7",
         "filename": "runtime/openjdkjvmti/ti_redefine.h",
         "patchSetId": 1
@@ -134,6 +224,24 @@
         "endLine": 176,
         "endChar": 47
       },
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204b4169_36e08f7a",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T17:19:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc46194_98d1b2b7",
       "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
