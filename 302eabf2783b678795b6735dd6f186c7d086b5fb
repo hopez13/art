@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b7cd951e_3581e64b",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T14:09:25Z",
+      "side": 1,
+      "message": "Good catch. Turns out we did not have a test for this, so I\u0027ve added one.",
+      "parentUuid": "3636d926_35b62e2e",
+      "range": {
+        "startLine": 1343,
+        "startChar": 19,
+        "endLine": 1344,
+        "endChar": 49
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8f2a144_616f5bf5",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-02T14:09:52Z",
       "side": 1,
       "message": "Can they be updated outside constructors?",
+      "range": {
+        "startLine": 1359,
+        "startChar": 4,
+        "endLine": 1359,
+        "endChar": 63
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3f9706b_61926d30",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T14:09:25Z",
+      "side": 1,
+      "message": "No, but it looks like we\u0027re allowing it in ART as verifier/interpreter/compiler don\u0027t complain. Filed b/34966607 and added a TODO here.",
+      "parentUuid": "b8f2a144_616f5bf5",
       "range": {
         "startLine": 1359,
         "startChar": 4,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "416f41ac_62b6f7fe",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T14:09:25Z",
+      "side": 1,
+      "message": "As discussed offline we cannot, as the referrer has no way to reference the class. I\u0027ve improved the comment.",
+      "parentUuid": "034bf8ab_28ac8f32",
+      "range": {
+        "startLine": 211,
+        "startChar": 44,
+        "endLine": 211,
+        "endChar": 53
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8952976_f514ff01",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 6
@@ -105,6 +177,30 @@
       "writtenOn": "2017-02-02T14:09:52Z",
       "side": 1,
       "message": "HLoadClass::LoadKind::kInvalid?",
+      "range": {
+        "startLine": 213,
+        "startChar": 47,
+        "endLine": 213,
+        "endChar": 49
+      },
+      "revId": "302eabf2783b678795b6735dd6f186c7d086b5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65eea19a_126df846",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-03T14:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8952976_f514ff01",
       "range": {
         "startLine": 213,
         "startChar": 47,
