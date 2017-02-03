@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d93a1874_6160d009",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-03T16:17:50Z",
+      "side": 1,
+      "message": "Ah, thanks Hiroshi, I did miss that!",
+      "parentUuid": "41aaf8d0_2d35a770",
+      "revId": "4f30b9d07227955849cfee2d26def9ad4a17c1f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c4720d4_952499ab",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -81,6 +99,30 @@
       "writtenOn": "2017-01-25T18:52:22Z",
       "side": 1,
       "message": "Same. It may make sense to surround this with \"if (kIsDebugBuild) {...}\".",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 77
+      },
+      "revId": "4f30b9d07227955849cfee2d26def9ad4a17c1f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c0f8813_4b49c5e2",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-03T16:17:50Z",
+      "side": 1,
+      "message": "Good idea; done in https://android-review.googlesource.com/#/c/332626/.",
+      "parentUuid": "21cac5ae_4d1121d4",
       "range": {
         "startLine": 688,
         "startChar": 0,
