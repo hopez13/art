@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "938efa9d_18944b98",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-03T10:08:11Z",
+      "side": 1,
+      "message": "There are two remaining uses of GetChecksum I\u0027m not sure about:\n1. OatFile::CheckStaticDexFileDependencies -\nThis is unused code, but I\u0027m not sure if Andreas and/or Jeff had plans to make use of it at some point. I\u0027m not sure what it checks, or how it should be handling the multidex case.\n\n2. Validating the checksums in boot.oat.\nIn this case, we are iterating over all the locations from boot.oat. It would be awkward to try and group multidex locations together to call GetMultiDexChecksums.",
+      "parentUuid": "fad656ce_dbd26cfa",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff25afc_628429e0",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "68c8c877_711abc9c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-03T10:08:11Z",
+      "side": 1,
+      "message": "You\u0027re right. This should be LOG(WARNING), because we never expect to get into this situation. Either we have the original dex files, or the original dex files are stripped and we have an odex file.",
+      "parentUuid": "0ff25afc_628429e0",
+      "range": {
+        "startLine": 322,
+        "startChar": 4,
+        "endLine": 322,
+        "endChar": 13
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d502d72_fb4110ab",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-02T17:25:19Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 354,
+        "startChar": 8,
+        "endLine": 354,
+        "endChar": 9
+      },
+      "revId": "55ac0fc8ed547bf8075da27bb6e279faad982e36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77254b01_c831c1ec",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-03T10:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d502d72_fb4110ab",
       "range": {
         "startLine": 354,
         "startChar": 8,
