@@ -22,6 +22,24 @@
       "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf2c6ff3_5c9f261d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-03T19:15:55Z",
+      "side": 1,
+      "message": "The RI doesn\u0027t require the methods to be in the same order so I don\u0027t think we should either which makes that approach more annoying. I could do it with fields pretty easily. \n\nAlso we sort of have a required ordering in Dex but I don\u0027t think we really enforce it anywhere.",
+      "parentUuid": "82f5b5eb_062ac83a",
+      "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
