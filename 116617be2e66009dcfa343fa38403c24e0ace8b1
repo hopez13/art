@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d8e575_4bc232a9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-03T21:55:55Z",
+      "side": 1,
+      "message": "HasIrreducibleLoops() and HasTryCatch() test seem to be missing so I added them also.",
+      "revId": "116617be2e66009dcfa343fa38403c24e0ace8b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
