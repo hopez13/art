@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f238de2e_5e4dc5d1",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-02-03T01:28:48Z",
+      "side": 1,
+      "message": "Do you mean annotations like the threading annotations? While I know specifically that attributes can be attached to a typedef, I haven\u0027t seen any of the thread annotations ever attached that way. Sorry.",
+      "parentUuid": "a0ed0c8a_7557da8c",
+      "range": {
+        "startLine": 241,
+        "startChar": 2,
+        "endLine": 241,
+        "endChar": 50
+      },
+      "revId": "b857655a4819f1170040cb3796e102d2b90cd61c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50de29c3_b2d4a749",
         "filename": "runtime/mem_map.h",
         "patchSetId": 7
