@@ -1583,15 +1583,18 @@ void Thread::DumpState(std::ostream& os) const {
 }
 
 struct StackDumpVisitor : public StackVisitor {
-  StackDumpVisitor(std::ostream& os_in, Thread* thread_in, Context* context, bool can_allocate_in)
+  StackDumpVisitor(std::ostream& os_in, Thread* thread_in, Context* context, bool can_allocate_in,
+                   bool force_stack_dump_in = false)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : StackVisitor(thread_in, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+      : StackVisitor(thread_in, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames,
+                     !force_stack_dump_in),
         os(os_in),
         can_allocate(can_allocate_in),
         last_method(nullptr),
         last_line_number(0),
         repetition_count(0),
-        frame_count(0) {}
+        frame_count(0),
+        force_stack_dump(force_stack_dump_in) {}
 
   virtual ~StackDumpVisitor() {
     if (frame_count == 0) {
@@ -1636,8 +1639,10 @@ struct StackDumpVisitor : public StackVisitor {
       if (frame_count == 0) {
         Monitor::DescribeWait(os, GetThread());
       }
-      if (can_allocate) {
+      if (can_allocate && !force_stack_dump) {
         // Visit locks, but do not abort on errors. This would trigger a nested abort.
+        // Skip visiting locks if force_stack_dump as it would cause a bad_mutexes_held in
+        // RegTypeCache::RegTypeCache due to thread_list_lock.
         Monitor::VisitLocks(this, DumpLockedObject, &os, false);
       }
     }
@@ -1681,6 +1686,7 @@ struct StackDumpVisitor : public StackVisitor {
   int last_line_number;
   int repetition_count;
   int frame_count;
+  const bool force_stack_dump;
 };
 
 static bool ShouldShowNativeStack(const Thread* thread)
@@ -1712,7 +1718,7 @@ static bool ShouldShowNativeStack(const Thread* thread)
   return current_method != nullptr && current_method->IsNative();
 }
 
-void Thread::DumpJavaStack(std::ostream& os) const {
+void Thread::DumpJavaStack(std::ostream& os, bool force_dump_stack) const {
   // If flip_function is not null, it means we have run a checkpoint
   // before the thread wakes up to execute the flip function and the
   // thread roots haven't been forwarded.  So the following access to
@@ -1741,7 +1747,7 @@ void Thread::DumpJavaStack(std::ostream& os) const {
 
   std::unique_ptr<Context> context(Context::Create());
   StackDumpVisitor dumper(os, const_cast<Thread*>(this), context.get(),
-                          !tls32_.throwing_OutOfMemoryError);
+                          !tls32_.throwing_OutOfMemoryError, force_dump_stack);
   dumper.WalkStack();
 
   if (have_exception) {
@@ -1770,7 +1776,7 @@ void Thread::DumpStack(std::ostream& os,
       ArtMethod* method = GetCurrentMethod(nullptr, !(dump_for_abort || force_dump_stack));
       DumpNativeStack(os, GetTid(), backtrace_map, "  native: ", method);
     }
-    DumpJavaStack(os);
+    DumpJavaStack(os, force_dump_stack);
   } else {
     os << "Not able to dump stack of thread that isn't suspended";
   }
@@ -2920,11 +2926,11 @@ Context* Thread::GetLongJumpContext() {
 struct CurrentMethodVisitor FINAL : public StackVisitor {
   CurrentMethodVisitor(Thread* thread, Context* context, bool abort_on_error)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : StackVisitor(thread, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
+      : StackVisitor(thread, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames,
+                     abort_on_error),
         this_object_(nullptr),
         method_(nullptr),
-        dex_pc_(0),
-        abort_on_error_(abort_on_error) {}
+        dex_pc_(0) {}
   bool VisitFrame() OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
     ArtMethod* m = GetMethod();
     if (m->IsRuntimeMethod()) {
@@ -2941,7 +2947,6 @@ struct CurrentMethodVisitor FINAL : public StackVisitor {
   ObjPtr<mirror::Object> this_object_;
   ArtMethod* method_;
   uint32_t dex_pc_;
-  const bool abort_on_error_;
 };
 
 ArtMethod* Thread::GetCurrentMethod(uint32_t* dex_pc, bool abort_on_error) const {
