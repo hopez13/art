@@ -22,6 +22,52 @@
       "revId": "b1c3e2649e965460e356456a1473be8eb81de60e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "181f516b_71681618",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-02-03T09:21:20Z",
+      "side": 1,
+      "message": "Am I understand correctly that creation instance of ScopedAssertNoThreadSuspension does not guards the current thread from suspension?",
+      "range": {
+        "startLine": 1162,
+        "startChar": 4,
+        "endLine": 1162,
+        "endChar": 34
+      },
+      "revId": "b1c3e2649e965460e356456a1473be8eb81de60e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "407d87c5_9988753c",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-02-03T09:21:20Z",
+      "side": 1,
+      "message": "Is this field should be wrapped into Handle too?",
+      "range": {
+        "startLine": 1307,
+        "startChar": 20,
+        "endLine": 1307,
+        "endChar": 30
+      },
+      "revId": "b1c3e2649e965460e356456a1473be8eb81de60e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
