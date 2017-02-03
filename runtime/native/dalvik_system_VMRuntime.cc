@@ -448,11 +448,7 @@ static void PreloadDexCachesStatsFilled(DexCacheStats* filled)
   Thread* const self = Thread::Current();
   for (const DexFile* dex_file : class_linker->GetBootClassPath()) {
     CHECK(dex_file != nullptr);
-    ObjPtr<mirror::DexCache> const dex_cache = class_linker->FindDexCache(self, *dex_file, true);
-    // If dex cache was deallocated, just continue.
-    if (dex_cache == nullptr) {
-      continue;
-    }
+    ObjPtr<mirror::DexCache> const dex_cache = class_linker->FindDexCache(self, *dex_file);
     for (size_t j = 0; j < dex_cache->NumStrings(); j++) {
       ObjPtr<mirror::String> string = dex_cache->GetResolvedString(dex::StringIndex(j));
       if (string != nullptr) {
