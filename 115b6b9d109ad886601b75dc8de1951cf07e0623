@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c71e1ee7_9c95c324",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-03T19:17:09Z",
+      "side": 1,
+      "message": "kUseBakerReadBarrier is known at compile time, shouldn\u0027t the condition be optimized out even with a LIKELY?",
+      "parentUuid": "6b515672_5dd9dea7",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 7
+      },
+      "revId": "115b6b9d109ad886601b75dc8de1951cf07e0623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "692ee28c_d6bbe323",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 1
