@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7235b8eb_aa976202",
+        "filename": "tools/cpp-define-generator/constant_jit.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-03T01:04:33Z",
+      "side": 1,
+      "message": "Editing this file to add the constant is not enough, one must also run the \u0027generate-asm-support\u0027 script in this directory to rebuild asm_support_gen.h\n\nSorry for the trouble, I have a CL to automatically flag this type of problem out for review:\n\nhttps://android-review.googlesource.com/#/c/332012/\n\n-----\n\nSidenote: nothing appears to use this JIT_CHECK_OSR_THRESHOLD so maybe it\u0027s not needed?",
+      "revId": "42a09cb0c6aee5de92eb4cdf6d34646dcd247840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
