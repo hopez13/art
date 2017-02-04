@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33441427_debc2d40",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-04T01:12:51Z",
+      "side": 1,
+      "message": "Should this be deallocated in ~Heap?",
+      "range": {
+        "startLine": 539,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 26
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8182969d_590f93be",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3883,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-04T01:12:51Z",
+      "side": 1,
+      "message": "It feels odd to me to wait on the same condition twice in a row.",
+      "range": {
+        "startLine": 3871,
+        "startChar": 0,
+        "endLine": 3883,
+        "endChar": 44
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705a6020_5ef4f419",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3890,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-04T01:12:51Z",
+      "side": 1,
+      "message": "A cond var wait should usually be in a loop as there can be a spurious wakeup.\n\nBut once we have it in a loop, as in,\n\nwhile (native_blocking_gc_in_progress_) {\n  native_blocking_gc_cond_-\u003eWait(self);\n}\n\nwe may need to worry about a thread getting stuck for a long time because another thread may come, acquire the mutex, and set native_blocking_gc_in_progress_ back to true before the waiting thread goes out of the loop, I think.\n\nI don\u0027t know if this works, how about the idea of using two sequence counters, gc_started, gc_ended, and do something like\n\n{\n  MutexLock mu(self, *native_blocking_gc_lock_);\n  // If a GC is currently running, remember the sequence number of the GC\n  // and wait until that particular one ends. Otherwise, start a new GC.\n  uint64_t gc_started \u003d gc_started_;\n  bool has_waited \u003d false;\n  while (gc_started \u003e gc_ended_) {\n    // GC is running, wait until it ends\n    native_blocking_gc_cond_-\u003eWait(self);\n    has_waited \u003d true;\n  }\n  if (!has_waited) {\n    run_gc \u003d true;\n    gc_started_++;\n  }\n}\n\nif (run_gc) {\n  CollectGarbageInternal(NonStickyGcType(), kGcCauseForNativeAlloc, false);\n  RunFinalization(env, kNativeAllocationFinalizeTimeout);\n  CHECK(!env-\u003eExceptionCheck());\n  {\n    MutexLock mu(self, *native_blocking_gc_lock_);\n    gc_ended_++;\n    native_blocking_gc_cond_-\u003eBroadcast(self);\n  }\n}",
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49d40a52_e4059831",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-04T01:12:51Z",
+      "side": 1,
+      "message": "We just checked this above. Do we need to check again?",
+      "range": {
+        "startLine": 3903,
+        "startChar": 8,
+        "endLine": 3903,
+        "endChar": 29
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
