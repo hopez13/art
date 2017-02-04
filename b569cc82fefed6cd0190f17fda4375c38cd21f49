@@ -58,6 +58,24 @@
       "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0ff4dbb_aa06fc25",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-04T00:06:54Z",
+      "side": 1,
+      "message": "Nice. I\u0027ll just replace it with a lockstep iteration in that case.",
+      "parentUuid": "63139282_ed3fc62a",
+      "revId": "b569cc82fefed6cd0190f17fda4375c38cd21f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
