@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "cc340512_219ff314",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-04T00:10:30Z",
+      "side": 1,
+      "message": "Sorry I thought you meant just the if.\n\nAnyway I replaced this with lockstep iteration on the dex file.",
+      "parentUuid": "19dfd15a_f1b3fc12",
+      "revId": "962369214cb50aec4d27d701b91e9ac37bac32f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91aaf53_0421ba94",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
