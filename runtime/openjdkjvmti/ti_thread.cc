@@ -459,6 +459,12 @@ jvmtiError ThreadUtil::GetAllThreads(jvmtiEnv* env,
     }
 
     art::ObjPtr<art::mirror::Object> peer = thread->GetPeer();
+    if (art::kUseReadBarrier && art::Thread::Current()->GetIsGcMarking()) {
+      // We may call Thread::Dump() in the middle of the CC thread flip and this thread's stack
+      // may have not been flipped yet and peer may be a from-space (stale) ref. So explicitly
+      // mark/forward it here.
+      peer = art::ReadBarrier::Mark(peer.Ptr());
+    }
     if (peer != nullptr) {
       peers.push_back(peer);
     }

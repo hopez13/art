@@ -43,6 +43,7 @@
 #include "mirror/string.h"
 #include "obj_ptr.h"
 #include "object_lock.h"
+#include "read_barrier-inl.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -175,6 +176,12 @@ static void GetThreads(art::Handle<art::mirror::Object> thread_group,
       continue;
     }
     art::ObjPtr<art::mirror::Object> peer = t->GetPeer();
+    if (art::kUseReadBarrier && art::Thread::Current()->GetIsGcMarking()) {
+      // We may call Thread::Dump() in the middle of the CC thread flip and this thread's stack
+      // may have not been flipped yet and peer may be a from-space (stale) ref. So explicitly
+      // mark/forward it here.
+      peer = art::ReadBarrier::Mark(peer.Ptr());
+    }
     if (peer == nullptr) {
       continue;
     }
