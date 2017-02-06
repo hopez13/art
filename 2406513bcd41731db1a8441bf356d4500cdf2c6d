@@ -22,6 +22,30 @@
       "revId": "2406513bcd41731db1a8441bf356d4500cdf2c6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c0158a7_e32e3919",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-06T15:38:32Z",
+      "side": 1,
+      "message": "This is used in other methods for something else than doThrow, so I did not want to rename it. We can add a new field if you feel that\u0027s needed.",
+      "parentUuid": "c39c81fb_77540f85",
+      "range": {
+        "startLine": 197,
+        "startChar": 17,
+        "endLine": 197,
+        "endChar": 22
+      },
+      "revId": "2406513bcd41731db1a8441bf356d4500cdf2c6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
