@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddbeaa55_6f43c482",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3897,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:21:48Z",
+      "side": 1,
+      "message": "We may want to log when a long wait occurs (eg 5ms).\n\nsee Heap::WaitForGcToCompleteLocked for an example.",
+      "range": {
+        "startLine": 3897,
+        "startChar": 4,
+        "endLine": 3897,
+        "endChar": 5
+      },
+      "revId": "caaa2b05cf581d5c5fc4253723ddd3299b3c3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
