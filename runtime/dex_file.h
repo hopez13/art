@@ -389,12 +389,6 @@ class DexFile {
 
   struct AnnotationValue;
 
-  // Returns the checksum of a file for comparison with GetLocationChecksum().
-  // For .dex files, this is the header checksum.
-  // For zip files, this is the classes.dex zip entry CRC32 checksum.
-  // Return true if the checksum could be found, false otherwise.
-  static bool GetChecksum(const char* filename, uint32_t* checksum, std::string* error_msg);
-
   // Returns the checksums of a file for comparison with GetLocationChecksum().
   // For .dex files, this is the single header checksum.
   // For zip files, this is the zip entry CRC32 checksum for classes.dex and
@@ -403,6 +397,10 @@ class DexFile {
   static bool GetMultiDexChecksums(const char* filename,
                                    std::vector<uint32_t>* checksums,
                                    std::string* error_msg);
+
+  // Check whether a location denotes a multidex dex file. This is a very simple check: returns
+  // whether the string contains the separator character.
+  static bool IsMultiDexLocation(const char* location);
 
   // Opens .dex file, backed by existing memory
   static std::unique_ptr<const DexFile> Open(const uint8_t* base,
@@ -1109,10 +1107,6 @@ class DexFile {
 
   // Returns true if the header magic and version numbers are of the expected values.
   bool CheckMagicAndVersion(std::string* error_msg) const;
-
-  // Check whether a location denotes a multidex dex file. This is a very simple check: returns
-  // whether the string contains the separator character.
-  static bool IsMultiDexLocation(const char* location);
 
   // The base address of the memory mapping.
   const uint8_t* const begin_;
