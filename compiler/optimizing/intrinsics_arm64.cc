@@ -147,8 +147,18 @@ class IntrinsicSlowPathARM64 : public SlowPathCodeARM64 {
 // Slow path implementing the SystemArrayCopy intrinsic copy loop with read barriers.
 class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
  public:
-  ReadBarrierSystemArrayCopySlowPathARM64(HInstruction* instruction, Location tmp)
-      : SlowPathCodeARM64(instruction), tmp_(tmp) {
+  ReadBarrierSystemArrayCopySlowPathARM64(HInstruction* instruction,
+                                          Register src_curr_addr,
+                                          Register dst_curr_addr,
+                                          Register src_stop_addr,
+                                          Location ref,
+                                          Register temp)
+      : SlowPathCodeARM64(instruction),
+        src_curr_addr_(src_curr_addr),
+        dst_curr_addr_(dst_curr_addr),
+        src_stop_addr_(src_stop_addr),
+        ref_(ref),
+        temp_(temp) {
     DCHECK(kEmitCompilerReadBarrier);
     DCHECK(kUseBakerReadBarrier);
   }
@@ -156,6 +166,7 @@ class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
   void EmitNativeCode(CodeGenerator* codegen_in) OVERRIDE {
     CodeGeneratorARM64* codegen = down_cast<CodeGeneratorARM64*>(codegen_in);
     LocationSummary* locations = instruction_->GetLocations();
+    Register ref_reg = WRegisterFrom(ref_);
     DCHECK(locations->CanCall());
     DCHECK(instruction_->IsInvokeStaticOrDirect())
         << "Unexpected instruction in read barrier arraycopy slow path: "
@@ -164,42 +175,48 @@ class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
     DCHECK_EQ(instruction_->AsInvoke()->GetIntrinsic(), Intrinsics::kSystemArrayCopy);
 
     const int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
+    const uint32_t monitor_offset = mirror::Object::MonitorOffset().Int32Value();
 
-    Register src_curr_addr = XRegisterFrom(locations->GetTemp(0));
-    Register dst_curr_addr = XRegisterFrom(locations->GetTemp(1));
-    Register src_stop_addr = XRegisterFrom(locations->GetTemp(2));
-    Register tmp_reg = WRegisterFrom(tmp_);
+    vixl::aarch64::Label slow_copy_loop, marked;
 
     __ Bind(GetEntryLabel());
-    vixl::aarch64::Label slow_copy_loop;
     __ Bind(&slow_copy_loop);
-    __ Ldr(tmp_reg, MemOperand(src_curr_addr, element_size, PostIndex));
-    codegen->GetAssembler()->MaybeUnpoisonHeapReference(tmp_reg);
-    // TODO: Inline the mark bit check before calling the runtime?
-    // tmp_reg = ReadBarrier::Mark(tmp_reg);
+    // ref = *src_ptr++
+    __ Ldr(ref_reg, MemOperand(src_curr_addr_, element_size, PostIndex));
+    codegen->GetAssembler()->MaybeUnpoisonHeapReference(ref_reg);
+
+    // If the reference is null, no work to do at all.
+    __ Cbz(ref_reg, &marked);
+    // /* int32_t */ lock_word = ref->monitor_
+    __ Ldr(temp_.W(), HeapOperand(ref_reg, monitor_offset));
+    // If the reference's mark bit is set, there is no need to mark it.
+    __ Tbnz(temp_.W(), LockWord::kMarkBitStateShift, &marked);
+
+    // TODO: Also implement the check of the two top-most bits of the
+    // lock word, to check if it contains a forwarding address?
+
     // No need to save live registers; it's taken care of by the
     // entrypoint. Also, there is no need to update the stack mask,
     // as this runtime call will not trigger a garbage collection.
     // (See ReadBarrierMarkSlowPathARM64::EmitNativeCode for more
     // explanations.)
-    DCHECK_NE(tmp_.reg(), LR);
-    DCHECK_NE(tmp_.reg(), WSP);
-    DCHECK_NE(tmp_.reg(), WZR);
-    // IP0 is used internally by the ReadBarrierMarkRegX entry point
-    // as a temporary (and not preserved).  It thus cannot be used by
-    // any live register in this slow path.
-    DCHECK_NE(LocationFrom(src_curr_addr).reg(), IP0);
-    DCHECK_NE(LocationFrom(dst_curr_addr).reg(), IP0);
-    DCHECK_NE(LocationFrom(src_stop_addr).reg(), IP0);
-    DCHECK_NE(tmp_.reg(), IP0);
-    DCHECK(0 <= tmp_.reg() && tmp_.reg() < kNumberOfWRegisters) << tmp_.reg();
+    DCHECK_NE(ref_.reg(), LR);
+    DCHECK_NE(ref_.reg(), WSP);
+    DCHECK_NE(ref_.reg(), WZR);
+    DCHECK_NE(ref_.reg(), LocationFrom(temp_).reg());
+    DCHECK(0 <= ref_.reg() && ref_.reg() < kNumberOfWRegisters) << ref_.reg();
+    // ref = ReadBarrier::Mark(ref);
     int32_t entry_point_offset =
-        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(tmp_.reg());
+        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(ref_.reg());
     // This runtime call does not require a stack map.
     codegen->InvokeRuntimeWithoutRecordingPcInfo(entry_point_offset, instruction_, this);
-    codegen->GetAssembler()->MaybePoisonHeapReference(tmp_reg);
-    __ Str(tmp_reg, MemOperand(dst_curr_addr, element_size, PostIndex));
-    __ Cmp(src_curr_addr, src_stop_addr);
+
+    __ Bind(&marked);
+    // *dst_ptr++ = ref
+    codegen->GetAssembler()->MaybePoisonHeapReference(ref_reg);
+    __ Str(ref_reg, MemOperand(dst_curr_addr_, element_size, PostIndex));
+
+    __ Cmp(src_curr_addr_, src_stop_addr_);
     __ B(&slow_copy_loop, ne);
     __ B(GetExitLabel());
   }
@@ -207,7 +224,22 @@ class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
   const char* GetDescription() const OVERRIDE { return "ReadBarrierSystemArrayCopySlowPathARM64"; }
 
  private:
-  Location tmp_;
+  // The register containing the address of the current source value
+  // (read cursor) in the source array.
+  Register src_curr_addr_;
+  // The register containing the address of the current destination
+  // element (write cursor) in the destination array.
+  Register dst_curr_addr_;
+  // The register containing the address of the past-the-end (read
+  // stop) element in the source array.
+  Register src_stop_addr_;
+
+  // The register location containing the reference loaded form the
+  // source array and stored into the destination array.
+  Location ref_;
+
+  // Temporary register used to load the reference's lock word.
+  const Register temp_;
 
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierSystemArrayCopySlowPathARM64);
 };
@@ -2290,11 +2322,7 @@ void IntrinsicLocationsBuilderARM64::VisitSystemArrayCopy(HInvoke* invoke) {
   locations->AddTemp(Location::RequiresRegister());
   locations->AddTemp(Location::RequiresRegister());
   if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-    // Temporary register IP0, obtained from the VIXL scratch register
-    // pool, cannot be used in ReadBarrierSystemArrayCopySlowPathARM64
-    // (because that register is clobbered by ReadBarrierMarkRegX
-    // entry points). Get an extra temporary register from the
-    // register allocator.
+    // We need an extra temporary register for ReadBarrierSystemArrayCopySlowPathARM64.
     locations->AddTemp(Location::RequiresRegister());
   }
 }
@@ -2406,10 +2434,6 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
     // We use a block to end the scratch scope before the write barrier, thus
     // freeing the temporary registers so they can be used in `MarkGCCard`.
     UseScratchRegisterScope temps(masm);
-    // Note: Because it is acquired from VIXL's scratch register pool,
-    // `temp3` might be IP0, and thus cannot be used as `ref` argument
-    // of CodeGeneratorARM64::GenerateFieldLoadWithBakerReadBarrier
-    // calls below (see ReadBarrierMarkSlowPathARM64 for more details).
     Register temp3 = temps.AcquireW();
 
     if (!optimizations.GetDoesNotNeedTypeCheck()) {
@@ -2616,19 +2640,7 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
 
     Register src_curr_addr = temp1.X();
     Register dst_curr_addr = temp2.X();
-    Register src_stop_addr;
-    if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-      // Temporary register IP0, obtained from the VIXL scratch
-      // register pool as `temp3`, cannot be used in
-      // ReadBarrierSystemArrayCopySlowPathARM64 (because that
-      // register is clobbered by ReadBarrierMarkRegX entry points).
-      // So another temporary register allocated by the register
-      // allocator instead.
-      DCHECK_EQ(LocationFrom(temp3).reg(), IP0);
-      src_stop_addr = XRegisterFrom(locations->GetTemp(2));
-    } else {
-      src_stop_addr = temp3.X();
-    }
+    Register src_stop_addr = temp3.X();
 
     GenSystemArrayCopyAddresses(masm,
                                 Primitive::kPrimNot,
@@ -2670,11 +2682,13 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       __ Cmp(src_curr_addr, src_stop_addr);
       __ B(&done, eq);
 
+      // Temporary used to load and check the monitor of the source
+      // array; and also to hold the current reference value in the
+      // copying loops, loaded from the source array and stored into
+      // the destination array.
       Register tmp = temps.AcquireW();
-      // Make sure `tmp` is not IP0, as it is clobbered by
-      // ReadBarrierMarkRegX entry points in
-      // ReadBarrierSystemArrayCopySlowPathARM64.
-      DCHECK_NE(LocationFrom(tmp).reg(), IP0);
+
+      // TODO: Also convert this intrinsic to the IsGcMarking strategy?
 
       // /* int32_t */ monitor = src->monitor_
       __ Ldr(tmp, HeapOperand(src.W(), monitor_offset));
@@ -2689,9 +2703,12 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       // on `tmp`.
       __ Add(src.X(), src.X(), Operand(tmp.X(), LSR, 32));
 
+      Register temp = XRegisterFrom(locations->GetTemp(2));
+
       // Slow path used to copy array when `src` is gray.
       SlowPathCodeARM64* read_barrier_slow_path =
-          new (GetAllocator()) ReadBarrierSystemArrayCopySlowPathARM64(invoke, LocationFrom(tmp));
+          new (GetAllocator()) ReadBarrierSystemArrayCopySlowPathARM64(
+              invoke, src_curr_addr, dst_curr_addr, src_stop_addr, LocationFrom(tmp), temp);
       codegen_->AddSlowPath(read_barrier_slow_path);
 
       // Given the numeric representation, it's enough to check the low bit of the rb_state.
