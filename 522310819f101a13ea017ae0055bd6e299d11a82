@@ -188,6 +188,30 @@
       "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666d9b29_9616f2c6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:53:06Z",
+      "side": 1,
+      "message": "Not always, there\u0027s some short window of time around the thread flip where it\u0027s not necessarily the case.",
+      "parentUuid": "2e03b60b_d31f06c1",
+      "range": {
+        "startLine": 3464,
+        "startChar": 25,
+        "endLine": 3464,
+        "endChar": 39
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
