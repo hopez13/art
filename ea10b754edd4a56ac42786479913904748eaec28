@@ -22,6 +22,24 @@
       "revId": "ea10b754edd4a56ac42786479913904748eaec28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81152bb7_929de83b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-06T18:38:43Z",
+      "side": 1,
+      "message": "I don\u0027t think so. The problem is you need to return different error codes for added and removed methods. So if the two dex files go out of sync we need to see which one of them is missing a method.",
+      "parentUuid": "dd412556_5b664378",
+      "revId": "ea10b754edd4a56ac42786479913904748eaec28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
