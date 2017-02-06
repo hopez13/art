@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecc3edb6_36ebc4e1",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:07:48Z",
+      "side": 1,
+      "message": "Remove this code?",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 5
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d286d2_650595db",
+        "filename": "runtime/openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:07:48Z",
+      "side": 1,
+      "message": "Remove this line?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18ebd2fe_d52b75f7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:07:48Z",
+      "side": 1,
+      "message": "self-\u003eGetIsGcMarking()",
+      "range": {
+        "startLine": 3464,
+        "startChar": 25,
+        "endLine": 3464,
+        "endChar": 39
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
