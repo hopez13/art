@@ -16,6 +16,24 @@
       "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a24a552_d9a5934c",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-06T12:41:33Z",
+      "side": 1,
+      "message": "ctx.Arch().ArchType returns nothing. I suppose that it is not defined in the android.BaseContext, but I don\u0027t know, I\u0027m not familiar with Go.",
+      "parentUuid": "fc9de51c_f96b6c8a",
+      "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
