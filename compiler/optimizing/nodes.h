@@ -323,6 +323,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         temporaries_vreg_slots_(0),
         has_bounds_checks_(false),
         has_try_catch_(false),
+        has_simd_(false),
         has_loops_(false),
         has_irreducible_loops_(false),
         debuggable_(debuggable),
@@ -397,6 +398,12 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // Need to add a couple of blocks to test if the loop body is entered and
   // put deoptimization instructions, etc.
   void TransformLoopHeaderForBCE(HBasicBlock* header);
+
+  // Adds a new loop directly after the loop with the given header and exit.
+  // Returns the new preheader.
+  HBasicBlock* TransformLoopForVectorization(HBasicBlock* header,
+                                             HBasicBlock* body,
+                                             HBasicBlock* exit);
 
   // Removes `block` from the graph. Assumes `block` has been disconnected from
   // other blocks and has no instructions or phis.
@@ -560,6 +567,9 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   bool HasTryCatch() const { return has_try_catch_; }
   void SetHasTryCatch(bool value) { has_try_catch_ = value; }
 
+  bool HasSIMD() const { return has_simd_; }
+  void SetHasSIMD(bool value) { has_simd_ = value; }
+
   bool HasLoops() const { return has_loops_; }
   void SetHasLoops(bool value) { has_loops_ = value; }
 
@@ -651,6 +661,11 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // it up to date in the presence of code elimination so there might be
   // false positives.
   bool has_try_catch_;
+
+  // Flag whether SIMD instructions appear in the graph. If true, the
+  // code generators may have to be more careful spilling the wider
+  // contents of SIMD registers.
+  bool has_simd_;
 
   // Flag whether there are any loops in the graph. We can skip loop
   // optimization if it's false. It's only best effort to keep it up
@@ -1353,6 +1368,25 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(TypeConversion, Instruction)                                        \
   M(UShr, BinaryOperation)                                              \
   M(Xor, BinaryOperation)                                               \
+  M(VecReplicateScalar, VecUnaryOperation)                              \
+  M(VecSetScalars, VecUnaryOperation)                                   \
+  M(VecSumReduce, VecUnaryOperation)                                    \
+  M(VecCnv, VecUnaryOperation)                                          \
+  M(VecNeg, VecUnaryOperation)                                          \
+  M(VecNot, VecUnaryOperation)                                          \
+  M(VecAdd, VecBinaryOperation)                                         \
+  M(VecSub, VecBinaryOperation)                                         \
+  M(VecMul, VecBinaryOperation)                                         \
+  M(VecDiv, VecBinaryOperation)                                         \
+  M(VecAnd, VecBinaryOperation)                                         \
+  M(VecAndNot, VecBinaryOperation)                                      \
+  M(VecOr, VecBinaryOperation)                                          \
+  M(VecXor, VecBinaryOperation)                                         \
+  M(VecShl, VecBinaryOperation)                                         \
+  M(VecShr, VecBinaryOperation)                                         \
+  M(VecUShr, VecBinaryOperation)                                        \
+  M(VecLoad, VecMemoryOperation)                                        \
+  M(VecStore, VecMemoryOperation)                                       \
 
 /*
  * Instructions, shared across several (not all) architectures.
@@ -1414,7 +1448,11 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(Constant, Instruction)                                              \
   M(UnaryOperation, Instruction)                                        \
   M(BinaryOperation, Instruction)                                       \
-  M(Invoke, Instruction)
+  M(Invoke, Instruction)                                                \
+  M(VecOperation, Instruction)                                          \
+  M(VecUnaryOperation, Instruction)                                     \
+  M(VecBinaryOperation, Instruction)                                    \
+  M(VecMemoryOperation, Instruction)
 
 #define FOR_EACH_INSTRUCTION(M)                                         \
   FOR_EACH_CONCRETE_INSTRUCTION(M)                                      \
@@ -6608,6 +6646,8 @@ class HParallelMove FINAL : public HTemplateInstruction<0> {
 };
 
 }  // namespace art
+
+#include "nodes_vector.h"
 
 #if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
 #include "nodes_shared.h"
