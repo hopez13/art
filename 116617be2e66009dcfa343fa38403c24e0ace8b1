@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19f3a2c7_3eae7ec8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-06T23:18:33Z",
+      "side": 1,
+      "message": "Yes. If all loops are eliminated, we should reset the flag (which is easy to test at the end of this run by checking the loop hierarchy pointer!)",
+      "parentUuid": "4e6f99f3_e80e99c1",
+      "range": {
+        "startLine": 74,
+        "startChar": 61,
+        "endLine": 74,
+        "endChar": 82
+      },
+      "revId": "116617be2e66009dcfa343fa38403c24e0ace8b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d8e575_4bc232a9",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
