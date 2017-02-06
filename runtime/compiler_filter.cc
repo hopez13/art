@@ -134,7 +134,9 @@ CompilerFilter::Filter CompilerFilter::GetNonProfileDependentFilterFrom(Filter f
       return filter;
 
     case CompilerFilter::kVerifyProfile:
-      return CompilerFilter::kInterpretOnly;
+      // verify-profile doesn't look at profiles anymore.
+      // TODO(ngeoffray): this will be cleaned up with b/34715556.
+      return filter;
 
     case CompilerFilter::kSpaceProfile:
       return CompilerFilter::kSpace;
