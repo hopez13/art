@@ -387,11 +387,16 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
   //
   //   root <- *(obj + offset)
   //
-  // while honoring read barriers based on read_barrier_option.
+  // while honoring read barriers based on `read_barrier_option`.
+  //
+  // Location `maybe_temp` is used when generating a Baker's (fast
+  // path) read barrier and shall be a register in that case; it may
+  // be an invalid location otherwise.
   void GenerateGcRootFieldLoad(HInstruction* instruction,
                                Location root,
                                vixl::aarch32::Register obj,
                                uint32_t offset,
+                               Location maybe_temp,
                                ReadBarrierOption read_barrier_option);
   void GenerateTestAndBranch(HInstruction* instruction,
                              size_t condition_input_index,
