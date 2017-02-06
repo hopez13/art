@@ -2376,42 +2376,32 @@ END art_quick_indexof
      */
 .macro READ_BARRIER_MARK_REG name, wreg, xreg
 ENTRY \name
-    // Reference is null, no work to do at all.
-    cbz \wreg, .Lret_rb_\name
-    // Use wIP0 as temp and check the mark bit of the reference. wIP0 is not used by the compiler.
-    ldr   wIP0, [\xreg, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-    tbz   wIP0, #LOCK_WORD_MARK_BIT_SHIFT, .Lnot_marked_rb_\name
-.Lret_rb_\name:
-    ret
-.Lnot_marked_rb_\name:
-    // Check if the top two bits are one, if this is the case it is a forwarding address.
-    mvn wIP0, wIP0
-    cmp wzr, wIP0, lsr #30
-    beq .Lret_forwarding_address\name
-.Lslow_rb_\name:
     /*
-     * Allocate 44 stack slots * 8 = 352 bytes:
-     * - 20 slots for core registers X0-15, X17-X19, LR
+     * Allocate 46 stack slots * 8 = 368 bytes:
+     * - 20 slots for core registers X0-X19
      * - 24 slots for floating-point registers D0-D7 and D16-D31
+     * -  1 slot for return address register XLR
+     * -  1 padding slot for 16-byte stack alignment
      */
-    // We must not clobber IP1 since code emitted for HLoadClass and HLoadString
-    // relies on IP1 being preserved.
+    // We must not clobber IP0 nor IP1 since the code emitted for HLoadClass
+    // and HLoadString may use one of these registers and relies on them
+    // being preserved.
     // Save all potentially live caller-save core registers.
-    SAVE_TWO_REGS_INCREASE_FRAME x0, x1, 352
-    SAVE_TWO_REGS  x2,  x3, 16
-    SAVE_TWO_REGS  x4,  x5, 32
-    SAVE_TWO_REGS  x6,  x7, 48
-    SAVE_TWO_REGS  x8,  x9, 64
+    SAVE_TWO_REGS_INCREASE_FRAME x0, x1, 368
+    SAVE_TWO_REGS x2,  x3,  16
+    SAVE_TWO_REGS x4,  x5,  32
+    SAVE_TWO_REGS x6,  x7,  48
+    SAVE_TWO_REGS x8,  x9,  64
     SAVE_TWO_REGS x10, x11, 80
     SAVE_TWO_REGS x12, x13, 96
     SAVE_TWO_REGS x14, x15, 112
-    SAVE_TWO_REGS x17, x18, 128  // Skip x16, i.e. IP0.
-    SAVE_TWO_REGS x19, xLR, 144  // Save also return address.
+    SAVE_TWO_REGS x16, x17, 128
+    SAVE_TWO_REGS x18, x19, 144
     // Save all potentially live caller-save floating-point registers.
-    stp   d0, d1,   [sp, #160]
-    stp   d2, d3,   [sp, #176]
-    stp   d4, d5,   [sp, #192]
-    stp   d6, d7,   [sp, #208]
+    stp   d0,  d1,  [sp, #160]
+    stp   d2,  d3,  [sp, #176]
+    stp   d4,  d5,  [sp, #192]
+    stp   d6,  d7,  [sp, #208]
     stp   d16, d17, [sp, #224]
     stp   d18, d19, [sp, #240]
     stp   d20, d21, [sp, #256]
@@ -2420,6 +2410,9 @@ ENTRY \name
     stp   d26, d27, [sp, #304]
     stp   d28, d29, [sp, #320]
     stp   d30, d31, [sp, #336]
+    // Save return address.
+    // (sp + #352 is a padding slot)
+    SAVE_REG xLR, 360
 
     .ifnc \wreg, w0
       mov   w0, \wreg                   // Pass arg1 - obj from `wreg`
@@ -2431,21 +2424,21 @@ ENTRY \name
 
     // Restore core regs, except `xreg`, as `wreg` is used to return the
     // result of this function (simply remove it from the stack instead).
-    POP_REGS_NE x0, x1,   0,   \xreg
-    POP_REGS_NE x2, x3,   16,  \xreg
-    POP_REGS_NE x4, x5,   32,  \xreg
-    POP_REGS_NE x6, x7,   48,  \xreg
-    POP_REGS_NE x8, x9,   64,  \xreg
+    POP_REGS_NE x0,  x1,  0,   \xreg
+    POP_REGS_NE x2,  x3,  16,  \xreg
+    POP_REGS_NE x4,  x5,  32,  \xreg
+    POP_REGS_NE x6,  x7,  48,  \xreg
+    POP_REGS_NE x8,  x9,  64,  \xreg
     POP_REGS_NE x10, x11, 80,  \xreg
     POP_REGS_NE x12, x13, 96,  \xreg
     POP_REGS_NE x14, x15, 112, \xreg
-    POP_REGS_NE x17, x18, 128, \xreg
-    POP_REGS_NE x19, xLR, 144, \xreg  // Restore also return address.
+    POP_REGS_NE x16, x17, 128, \xreg
+    POP_REGS_NE x18, x19, 144, \xreg
     // Restore floating-point registers.
-    ldp   d0, d1,   [sp, #160]
-    ldp   d2, d3,   [sp, #176]
-    ldp   d4, d5,   [sp, #192]
-    ldp   d6, d7,   [sp, #208]
+    ldp   d0,  d1,  [sp, #160]
+    ldp   d2,  d3,  [sp, #176]
+    ldp   d4,  d5,  [sp, #192]
+    ldp   d6,  d7,  [sp, #208]
     ldp   d16, d17, [sp, #224]
     ldp   d18, d19, [sp, #240]
     ldp   d20, d21, [sp, #256]
@@ -2454,14 +2447,9 @@ ENTRY \name
     ldp   d26, d27, [sp, #304]
     ldp   d28, d29, [sp, #320]
     ldp   d30, d31, [sp, #336]
-    // Remove frame and return.
-    DECREASE_FRAME 352
-    ret
-.Lret_forwarding_address\name:
-    mvn wIP0, wIP0
-    // Shift left by the forwarding address shift. This clears out the state bits since they are
-    // in the top 2 bits of the lock word.
-    lsl \wreg, wIP0, #LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT
+    // Restore return address and remove padding.
+    RESTORE_REG xLR, 360
+    DECREASE_FRAME 368
     ret
 END \name
 .endm

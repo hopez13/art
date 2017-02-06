@@ -2037,23 +2037,6 @@ END art_quick_l2f
      */
 .macro READ_BARRIER_MARK_REG name, reg
 ENTRY \name
-    // Null check so that we can load the lock word.
-    SMART_CBZ \reg, .Lret_rb_\name
-    // Check lock word for mark bit, if marked return. Use IP for scratch since it is blocked.
-    ldr ip, [\reg, MIRROR_OBJECT_LOCK_WORD_OFFSET]
-    tst ip, #LOCK_WORD_MARK_BIT_MASK_SHIFTED
-    beq .Lnot_marked_rb_\name
-    // Already marked, return right away.
-.Lret_rb_\name:
-    bx lr
-
-.Lnot_marked_rb_\name:
-    // Test that both the forwarding state bits are 1.
-    mvn ip, ip
-    tst ip, #(LOCK_WORD_STATE_FORWARDING_ADDRESS << LOCK_WORD_STATE_SHIFT)
-    beq .Lret_forwarding_address\name
-
-.Lslow_rb_\name:
     // Save IP: The kSaveEverything entrypoint art_quick_resolve_string used to
     // make a tail call here. Currently, it serves only for stack alignment but
     // we may reintroduce kSaveEverything calls here in the future.
@@ -2114,12 +2097,6 @@ ENTRY \name
     .cfi_restore r9
     .cfi_restore ip
     .cfi_restore lr
-    bx lr
-.Lret_forwarding_address\name:
-    // Shift left by the forwarding address shift. This clears out the state bits since they are
-    // in the top 2 bits of the lock word.
-    mvn ip, ip
-    lsl \reg, ip, #LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT
     bx lr
 END \name
 .endm
