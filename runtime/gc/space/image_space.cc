@@ -1374,23 +1374,55 @@ class ImageSpaceLoader {
                               std::string* error_msg) {
     for (const OatFile::OatDexFile* oat_dex_file : oat_file.GetOatDexFiles()) {
       const std::string& dex_file_location = oat_dex_file->GetDexFileLocation();
-      uint32_t dex_file_location_checksum;
-      if (!DexFile::GetChecksum(dex_file_location.c_str(), &dex_file_location_checksum, error_msg)) {
-        *error_msg = StringPrintf("Failed to get checksum of dex file '%s' referenced by image %s: "
+
+      // Skip multidex locations - These will be checked when we visit their
+      // corresponding primary non-multidex location.
+      if (DexFile::IsMultiDexLocation(dex_file_location.c_str())) {
+        continue;
+      }
+
+      std::vector<uint32_t> checksums;
+      if (!DexFile::GetMultiDexChecksums(dex_file_location.c_str(), &checksums, error_msg)) {
+        *error_msg = StringPrintf("Failed to get checksums of dex file '%s' referenced by image %s: "
                                   "%s",
                                   dex_file_location.c_str(),
                                   space.GetName(),
                                   error_msg->c_str());
         return false;
       }
-      if (dex_file_location_checksum != oat_dex_file->GetDexFileLocationChecksum()) {
+      CHECK(!checksums.empty());
+      if (checksums[0] != oat_dex_file->GetDexFileLocationChecksum()) {
         *error_msg = StringPrintf("ValidateOatFile found checksum mismatch between oat file '%s' and "
                                   "dex file '%s' (0x%x != 0x%x)",
                                   oat_file.GetLocation().c_str(),
                                   dex_file_location.c_str(),
                                   oat_dex_file->GetDexFileLocationChecksum(),
-                                  dex_file_location_checksum);
+                                  checksums[0]);
         return false;
+      }
+
+      // Verify checksums for any related multidex entries.
+      for (size_t i = 1; i < checksums.size(); i++) {
+        std::string multi_dex_location = DexFile::GetMultiDexLocation(i, dex_file_location.c_str());
+        const OatFile::OatDexFile* multi_dex = oat_file.GetOatDexFile(multi_dex_location.c_str(),
+                                                                      nullptr,
+                                                                      error_msg);
+        if (multi_dex == nullptr) {
+          *error_msg = StringPrintf("ValidateOatFile oat file '%s' is missing entry '%s'",
+                                    oat_file.GetLocation().c_str(),
+                                    multi_dex_location.c_str());
+          return false;
+        }
+
+        if (checksums[i] != multi_dex->GetDexFileLocationChecksum()) {
+          *error_msg = StringPrintf("ValidateOatFile found checksum mismatch between oat file '%s' and "
+                                    "dex file '%s' (0x%x != 0x%x)",
+                                    oat_file.GetLocation().c_str(),
+                                    multi_dex_location.c_str(),
+                                    multi_dex->GetDexFileLocationChecksum(),
+                                    checksums[i]);
+          return false;
+        }
       }
     }
     return true;
