@@ -164,6 +164,30 @@
       "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e03b60b_d31f06c1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-06T21:47:41Z",
+      "side": 1,
+      "message": "Good catch Hiroshi. Now I\u0027m curious: I understand it\u0027s more correct the check with Thread::Current(), but the implementation ensures that this means the other thread also has IsGcMarking, right?",
+      "parentUuid": "a84755c6_3339083b",
+      "range": {
+        "startLine": 3464,
+        "startChar": 25,
+        "endLine": 3464,
+        "endChar": 39
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
