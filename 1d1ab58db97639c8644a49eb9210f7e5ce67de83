@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e276f537_04e14167",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-06T21:01:50Z",
+      "side": 1,
+      "message": "Please add a comment here how this catches changes from direct to virtual and vice versa. It\u0027s important to argue that the implementation of FindMethod is correct.",
+      "range": {
+        "startLine": 546,
+        "startChar": 4,
+        "endLine": 553,
+        "endChar": 5
+      },
+      "revId": "1d1ab58db97639c8644a49eb9210f7e5ce67de83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca58ff0a_88e6c506",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-06T21:01:50Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 600,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 5
+      },
+      "revId": "1d1ab58db97639c8644a49eb9210f7e5ce67de83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
