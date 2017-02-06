@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3abf6255_92324d1e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-02-06T22:36:21Z",
+      "side": 1,
+      "message": "Is there a reason the 32-bit layout wouldn\u0027t work here, too?",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 290,
+        "endChar": 99
+      },
+      "revId": "caaa2b05cf581d5c5fc4253723ddd3299b3c3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddbeaa55_6f43c482",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
