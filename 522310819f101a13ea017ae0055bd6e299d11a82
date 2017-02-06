@@ -140,6 +140,30 @@
       "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a84755c6_3339083b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T21:25:27Z",
+      "side": 1,
+      "message": "self !\u003d this",
+      "parentUuid": "f0226df5_ebc18f5d",
+      "range": {
+        "startLine": 3464,
+        "startChar": 25,
+        "endLine": 3464,
+        "endChar": 39
+      },
+      "revId": "522310819f101a13ea017ae0055bd6e299d11a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
