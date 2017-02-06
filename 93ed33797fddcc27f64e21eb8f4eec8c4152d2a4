@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9d568ba_e9a68b76",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-06T13:28:44Z",
+      "side": 1,
+      "message": "Yes. Good catch.",
+      "parentUuid": "33441427_debc2d40",
+      "range": {
+        "startLine": 539,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 26
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8182969d_590f93be",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-04T01:12:51Z",
       "side": 1,
       "message": "It feels odd to me to wait on the same condition twice in a row.",
+      "range": {
+        "startLine": 3871,
+        "startChar": 0,
+        "endLine": 3883,
+        "endChar": 44
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c81a22dc_2a8628a1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3883,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-06T13:28:44Z",
+      "side": 1,
+      "message": "My goal is for an entire gc to run from start to finish while the thread is in RegisterNativeAllocation. If we only wait on the condition once, it\u0027s possible we entered in the middle of a gc, so we haven\u0027t waited for an entire gc.\n\nThe first wait is to wait for the gc we entered in the middle of to finish (if any was running when we entered). The second wait is to wait for the gc the started after we entered to finish.",
+      "parentUuid": "8182969d_590f93be",
       "range": {
         "startLine": 3871,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "7433852d_f69741a7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3890,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-06T13:28:44Z",
+      "side": 1,
+      "message": "I think I can do it with just one counter.",
+      "parentUuid": "705a6020_5ef4f419",
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49d40a52_e4059831",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-02-04T01:12:51Z",
       "side": 1,
       "message": "We just checked this above. Do we need to check again?",
+      "range": {
+        "startLine": 3903,
+        "startChar": 8,
+        "endLine": 3903,
+        "endChar": 29
+      },
+      "revId": "93ed33797fddcc27f64e21eb8f4eec8c4152d2a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efd89109_cd16717e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-06T13:28:44Z",
+      "side": 1,
+      "message": "Good catch. Thanks.",
+      "parentUuid": "49d40a52_e4059831",
       "range": {
         "startLine": 3903,
         "startChar": 8,
