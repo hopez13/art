@@ -7430,6 +7430,142 @@ void InstructionCodeGeneratorMIPS::VisitClassTableGet(HClassTableGet* instructio
   }
 }
 
+void LocationsBuilderMIPS::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecCnv(HVecCnv* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecCnv(HVecCnv* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecNeg(HVecNeg* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecNeg(HVecNeg* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecNot(HVecNot* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecNot(HVecNot* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecAdd(HVecAdd* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecAdd(HVecAdd* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecSub(HVecSub* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecSub(HVecSub* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecMul(HVecMul* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecMul(HVecMul* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecDiv(HVecDiv* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecDiv(HVecDiv* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecAnd(HVecAnd* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecAnd(HVecAnd* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecAndNot(HVecAndNot* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecAndNot(HVecAndNot* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecOr(HVecOr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecOr(HVecOr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecXor(HVecXor* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecXor(HVecXor* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecShl(HVecShl* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecShl(HVecShl* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecShr(HVecShr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecShr(HVecShr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecUShr(HVecUShr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecUShr(HVecUShr* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecLoad(HVecLoad* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecLoad(HVecLoad* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderMIPS::VisitVecStore(HVecStore* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorMIPS::VisitVecStore(HVecStore* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
 #undef __
 #undef QUICK_ENTRY_POINT
 
