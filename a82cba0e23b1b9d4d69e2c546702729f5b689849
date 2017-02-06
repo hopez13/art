@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f94fb8c8_25ac0c63",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-06T18:32:20Z",
+      "side": 1,
+      "message": "Maybe move the monitor lock unlock after this if statement and avoid this reacquire? It may not matter though.",
+      "range": {
+        "startLine": 366,
+        "startChar": 8,
+        "endLine": 366,
+        "endChar": 43
+      },
+      "revId": "a82cba0e23b1b9d4d69e2c546702729f5b689849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
