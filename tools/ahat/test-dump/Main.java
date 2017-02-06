@@ -45,6 +45,7 @@ public class Main {
   // class and reading the desired field.
   public static class DumpedStuff {
     public String basicString = "hello, world";
+    public String embeddedZero = "embedded\0";  // Non-ASCII for string compression purposes.
     public char[] charArray = "char thing".toCharArray();
     public String nullString = null;
     public Object anObject = new Object();

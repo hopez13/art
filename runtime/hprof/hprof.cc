@@ -224,12 +224,6 @@ class EndianOutput {
     HandleU1List(values, count);
     length_ += count;
   }
-  void AddU1AsU2List(const uint8_t* values, size_t count) {
-    HandleU1AsU2List(values, count);
-    // Array of char from compressed String (8-bit) is added as 16-bit blocks
-    int ceil_count_to_even = count + ((count & 1) ? 1 : 0);
-    length_ += ceil_count_to_even * sizeof(uint8_t);
-  }
   void AddU2List(const uint16_t* values, size_t count) {
     HandleU2List(values, count);
     length_ += count * sizeof(uint16_t);
@@ -1397,16 +1391,15 @@ void Hprof::DumpHeapInstanceObject(mirror::Object* obj, mirror::Class* klass) {
   CHECK_EQ(obj->IsString(), string_value != nullptr);
   if (string_value != nullptr) {
     mirror::String* s = obj->AsString();
-    // Compressed string's (8-bit) length is ceil(length/2) in 16-bit blocks
-    int length_in_16_bit = (s->IsCompressed()) ? ((s->GetLength() + 1) / 2) : s->GetLength();
     __ AddU1(HPROF_PRIMITIVE_ARRAY_DUMP);
     __ AddObjectId(string_value);
     __ AddStackTraceSerialNumber(LookupStackTraceSerialNumber(obj));
-    __ AddU4(length_in_16_bit);
-    __ AddU1(hprof_basic_char);
+    __ AddU4(s->GetLength());
     if (s->IsCompressed()) {
-      __ AddU1AsU2List(s->GetValueCompressed(), s->GetLength());
+      __ AddU1(hprof_basic_byte);
+      __ AddU1List(s->GetValueCompressed(), s->GetLength());
     } else {
+      __ AddU1(hprof_basic_char);
       __ AddU2List(s->GetValue(), s->GetLength());
     }
   }

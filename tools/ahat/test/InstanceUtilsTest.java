@@ -37,6 +37,13 @@ public class InstanceUtilsTest {
   }
 
   @Test
+  public void asStringEmbeddedZero() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    Instance str = (Instance)dump.getDumpedThing("embeddedZero");
+    assertEquals("embedded\0", InstanceUtils.asString(str));
+  }
+
+  @Test
   public void asStringCharArray() throws IOException {
     TestDump dump = TestDump.getTestDump();
     Instance str = (Instance)dump.getDumpedThing("charArray");
@@ -48,6 +55,13 @@ public class InstanceUtilsTest {
     TestDump dump = TestDump.getTestDump();
     Instance str = (Instance)dump.getDumpedThing("basicString");
     assertEquals("hello", InstanceUtils.asString(str, 5));
+  }
+
+  @Test
+  public void asStringTruncatedEmbeddedZero() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    Instance str = (Instance)dump.getDumpedThing("embeddedZero");
+    assertEquals("embed", InstanceUtils.asString(str, 5));
   }
 
   @Test
@@ -65,6 +79,13 @@ public class InstanceUtilsTest {
   }
 
   @Test
+  public void asStringExactMaxEmbeddedZero() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    Instance str = (Instance)dump.getDumpedThing("embeddedZero");
+    assertEquals("embedded\0", InstanceUtils.asString(str, 9));
+  }
+
+  @Test
   public void asStringCharArrayExactMax() throws IOException {
     TestDump dump = TestDump.getTestDump();
     Instance str = (Instance)dump.getDumpedThing("charArray");
@@ -79,6 +100,13 @@ public class InstanceUtilsTest {
   }
 
   @Test
+  public void asStringNotTruncatedEmbeddedZero() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    Instance str = (Instance)dump.getDumpedThing("embeddedZero");
+    assertEquals("embedded\0", InstanceUtils.asString(str, 50));
+  }
+
+  @Test
   public void asStringCharArrayNotTruncated() throws IOException {
     TestDump dump = TestDump.getTestDump();
     Instance str = (Instance)dump.getDumpedThing("charArray");
@@ -90,6 +118,13 @@ public class InstanceUtilsTest {
     TestDump dump = TestDump.getTestDump();
     Instance str = (Instance)dump.getDumpedThing("basicString");
     assertEquals("hello, world", InstanceUtils.asString(str, -3));
+  }
+
+  @Test
+  public void asStringNegativeMaxEmbeddedZero() throws IOException {
+    TestDump dump = TestDump.getTestDump();
+    Instance str = (Instance)dump.getDumpedThing("embeddedZero");
+    assertEquals("embedded\0", InstanceUtils.asString(str, -3));
   }
 
   @Test

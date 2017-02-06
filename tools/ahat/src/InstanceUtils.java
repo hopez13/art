@@ -26,6 +26,7 @@ import com.android.tools.perflib.heap.RootObj;
 import com.android.tools.perflib.heap.Type;
 
 import java.awt.image.BufferedImage;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -87,22 +88,38 @@ class InstanceUtils {
     // is a char[], use that directly as the value, otherwise use the value
     // field of the string object. The field accesses for count and offset
     // later on will work okay regardless of what type the inst object is.
-    Object value = inst;
-    if (isInstanceOfClass(inst, "java.lang.String")) {
-      value = getField(inst, "value");
-    }
+    boolean isString = isInstanceOfClass(inst, "java.lang.String");
+    Object value = isString ? getField(inst, "value") : inst;
 
     if (!(value instanceof ArrayInstance)) {
       return null;
     }
 
     ArrayInstance chars = (ArrayInstance) value;
+    int numChars = chars.getLength();
+    int offset = getIntField(inst, "offset", 0);
+    int count = getIntField(inst, "count", numChars);
+
+    // With string compression enabled, `count` encodes the length and the compression flag.
+    if (isString && (offset == 0) && ((count >>> 1) == numChars)) {
+      int length = (0 <= maxChars && maxChars < numChars) ? maxChars : numChars;
+      if (chars.getArrayType() == Type.BYTE && (count & 1) == /* kCompressed */ 0) {
+        try {
+          return new String(chars.asRawByteArray(/* offset */ 0, length), "US-ASCII");
+        } catch (UnsupportedEncodingException uee) {
+          // US-ASCII must be supported.
+          throw new Error(uee);
+        }
+      }
+      if (chars.getArrayType() == Type.CHAR && (count & 1) == /* kUncompressed */ 1) {
+        return new String(chars.asCharArray(/* offset */ 0, length));
+      }
+      // Broken string: array type does not match the compression flag.
+      return null;
+    }
     if (chars.getArrayType() != Type.CHAR) {
       return null;
     }
-
-    int numChars = chars.getLength();
-    int count = getIntField(inst, "count", numChars);
     if (count == 0) {
       return "";
     }
@@ -110,7 +127,6 @@ class InstanceUtils {
       count = maxChars;
     }
 
-    int offset = getIntField(inst, "offset", 0);
     int end = offset + count - 1;
     if (offset >= 0 && offset < numChars && end >= 0 && end < numChars) {
       return new String(chars.asCharArray(offset, count));
