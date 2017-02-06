@@ -40,6 +40,24 @@
       "revId": "ea10b754edd4a56ac42786479913904748eaec28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2baab546_7c4f1f6f",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-06T20:37:01Z",
+      "side": 1,
+      "message": "I think you\u0027re wrong with the reason you quote. Adding and removing methods can be detected with the string order pretty easily.\n\nWhat is harder is the correct marking of something direct became virtual, and vice versa.",
+      "parentUuid": "81152bb7_929de83b",
+      "revId": "ea10b754edd4a56ac42786479913904748eaec28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
