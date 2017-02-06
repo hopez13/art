@@ -34,6 +34,24 @@
       "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7a1a96_2b9038cb",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-02-06T21:27:01Z",
+      "side": 1,
+      "message": "Ah, this is running before the module is split for multiple architectures. This would need to move these cflags to arch.arm.cflags, arch.arm64.cflags, etc. to exclude mips.  Alternatively, you could modify the art source to ignore ART_USE_READ_BARRIER when it is not supported?",
+      "parentUuid": "9a24a552_d9a5934c",
+      "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
