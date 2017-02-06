@@ -46,6 +46,30 @@
       "revId": "2406513bcd41731db1a8441bf356d4500cdf2c6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e7ae678_b43e25d2",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-06T15:47:02Z",
+      "side": 1,
+      "message": "Yes, I think it\u0027d be nice to have a dedicated `doThrow` field (explicitly set to `false`).",
+      "parentUuid": "6c0158a7_e32e3919",
+      "range": {
+        "startLine": 197,
+        "startChar": 17,
+        "endLine": 197,
+        "endChar": 22
+      },
+      "revId": "2406513bcd41731db1a8441bf356d4500cdf2c6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
