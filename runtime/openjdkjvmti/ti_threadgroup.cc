@@ -43,6 +43,7 @@
 #include "mirror/string.h"
 #include "obj_ptr.h"
 #include "object_lock.h"
+#include "read_barrier-inl.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -174,7 +175,7 @@ static void GetThreads(art::Handle<art::mirror::Object> thread_group,
     if (t->IsStillStarting()) {
       continue;
     }
-    art::ObjPtr<art::mirror::Object> peer = t->GetPeer();
+    art::ObjPtr<art::mirror::Object> peer = t->GetPeerFromOtherThread();
     if (peer == nullptr) {
       continue;
     }

@@ -200,7 +200,7 @@ jvmtiError ThreadUtil::GetThreadInfo(jvmtiEnv* env, jthread thread, jvmtiThreadI
 
     info_ptr->is_daemon = self->IsDaemon();
 
-    art::ObjPtr<art::mirror::Object> peer = self->GetPeer();
+    art::ObjPtr<art::mirror::Object> peer = self->GetPeerFromOtherThread();
 
     // ThreadGroup.
     if (peer != nullptr) {
@@ -458,7 +458,13 @@ jvmtiError ThreadUtil::GetAllThreads(jvmtiEnv* env,
       continue;
     }
 
-    art::ObjPtr<art::mirror::Object> peer = thread->GetPeer();
+    art::ObjPtr<art::mirror::Object> peer = thread->GetPeerFromOtherThread();
+    if (art::kUseReadBarrier && art::Thread::Current()->GetIsGcMarking()) {
+      // We may call Thread::Dump() in the middle of the CC thread flip and this thread's stack
+      // may have not been flipped yet and peer may be a from-space (stale) ref. So explicitly
+      // mark/forward it here.
+      peer = art::ReadBarrier::Mark(peer.Ptr());
+    }
     if (peer != nullptr) {
       peers.push_back(peer);
     }
