@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0c9f385_9ca58b49",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-06T21:04:20Z",
+      "side": 0,
+      "message": "Unrelated change from the bigger CL that this started from.  Removed.",
+      "parentUuid": "0b5cd591_aae30161",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "7b220d60e3cb58c384a0d245106406080c6f3e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a7cbec1_867d8ff7",
         "filename": "runtime/utils.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-06T18:49:45Z",
       "side": 0,
       "message": "Ditto",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "7b220d60e3cb58c384a0d245106406080c6f3e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccb78658_15325c47",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-06T21:04:20Z",
+      "side": 0,
+      "message": "Removed as well.",
+      "parentUuid": "1a7cbec1_867d8ff7",
       "range": {
         "startLine": 37,
         "startChar": 0,
