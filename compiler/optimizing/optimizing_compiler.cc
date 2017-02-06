@@ -773,10 +773,8 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   HConstantFolding* fold2 = new (arena) HConstantFolding(
       graph, "constant_folding$after_inlining");
   HConstantFolding* fold3 = new (arena) HConstantFolding(graph, "constant_folding$after_bce");
-  SideEffectsAnalysis* side_effects1 = new (arena) SideEffectsAnalysis(
-      graph, "side_effects$before_gvn");
-  SideEffectsAnalysis* side_effects2 = new (arena) SideEffectsAnalysis(
-      graph, "side_effects$before_lse");
+  SideEffectsAnalysis* side_effects1 = new (arena) SideEffectsAnalysis(graph, "side_effects$before_gvn");
+  SideEffectsAnalysis* side_effects2 = new (arena) SideEffectsAnalysis(graph, "side_effects$before_lse");
   GVNOptimization* gvn = new (arena) GVNOptimization(graph, *side_effects1);
   LICM* licm = new (arena) LICM(graph, *side_effects1, stats);
   HInductionVarAnalysis* induction = new (arena) HInductionVarAnalysis(graph);
