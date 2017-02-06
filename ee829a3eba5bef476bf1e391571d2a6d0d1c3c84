@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f5497ab_2f9c9d51",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-06T18:49:45Z",
+      "side": 1,
+      "message": "DCHECK mem_maps_lock_ !\u003d nullptr?",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 761,
+        "endChar": 25
+      },
+      "revId": "ee829a3eba5bef476bf1e391571d2a6d0d1c3c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
