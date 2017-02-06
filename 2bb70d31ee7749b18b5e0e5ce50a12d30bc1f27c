@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "093f90bb_b4c89e58",
+        "filename": "tools/cpp-define-generator/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-06T18:53:14Z",
+      "side": 1,
+      "message": "This is the only change to fix the buildbot break.\n\nThis is in essence removing the 32-bit multilib handling, since genrule is hardcoded to depend on 64-bit binaries on 64-bit hosts.\n\nWe also lose CUSTOM_TARGET_LINKER but that shouldn\u0027t matter\nbecause this is tool is only really used on host.\n\n(It would still work on device but not really in an buildbot or golem build which needs CUSTOM_TARGET_LINKER to work properly.)",
+      "revId": "2bb70d31ee7749b18b5e0e5ce50a12d30bc1f27c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
