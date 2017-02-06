@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "364769a6_b760fce8",
+        "filename": "runtime/openjdkjvmti/ti_thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-06T20:48:31Z",
+      "side": 1,
+      "message": "This is scary as it sounds we need to update all places that do thread-\u003eGetPeer. Can you handle it in GetPeer?",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 5
+      },
+      "revId": "9798ccc382a2598128e16a79fd4a866294ab1d57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0d7fa1a_1c7dad6c",
+        "filename": "runtime/openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-06T20:48:31Z",
+      "side": 1,
+      "message": "Duplicate code :-( If you cannot put it in GetPeer, please at least have a GetPeerSafe variant.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "9798ccc382a2598128e16a79fd4a866294ab1d57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
