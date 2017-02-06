@@ -27,7 +27,8 @@ class CompilerDriver;
 
 /**
  * Loop optimizations. Builds a loop hierarchy and applies optimizations to
- * the detected nested loops, such as removal of dead induction and empty loops.
+ * the detected nested loops, such as removal of dead induction and empty loops
+ * and inner loop vectorization.
  */
 class HLoopOptimization : public HOptimization {
  public:
@@ -50,34 +51,79 @@ class HLoopOptimization : public HOptimization {
           inner(nullptr),
           previous(nullptr),
           next(nullptr) {}
-    HLoopInformation* const loop_info;
+    HLoopInformation* loop_info;
     LoopNode* outer;
     LoopNode* inner;
     LoopNode* previous;
     LoopNode* next;
   };
 
-  void LocalRun();
+  /*
+   * Vectorization restrictions (bit mask).
+   */
+  enum VectorRestrictions {
+    kNone     = 0,   // no restrictions
+    kNoMul    = 1,   // no multiplication
+    kNoDiv    = 2,   // no division
+    kNoShift  = 4,   // no shift
+    kNoShr    = 8,   // no arithmetic shift right
+    kNoHiBits = 16,  // "wider" operations cannot bring in higher order bits
+  };
 
+  typedef std::tuple<HInstruction*,    // base
+                     HInstruction*,    // offset + i
+                     Primitive::Type,  // component type
+                     bool> Reference;  // lhs/rhs
+
+
+  // Loop setup and traversal.
+  void LocalRun();
   void AddLoop(HLoopInformation* loop_info);
   void RemoveLoop(LoopNode* node);
-
   void TraverseLoopsInnerToOuter(LoopNode* node);
 
-  // Simplification.
+  // Optimization.
   void SimplifyInduction(LoopNode* node);
   void SimplifyBlocks(LoopNode* node);
-  bool SimplifyInnerLoop(LoopNode* node);
+  void OptimizeInnerLoop(LoopNode* node);
+
+  // Vectorization analysis and synthesis.
+  bool CanVectorize(LoopNode* node, HBasicBlock* block, int64_t tc);
+  void Vectorize(LoopNode* node, HBasicBlock* block, HBasicBlock* exit, int64_t tc);
+  void GenNewLoop(LoopNode* node,
+                  HBasicBlock* block,
+                  HBasicBlock* new_preheader,
+                  HInstruction* lo,
+                  HInstruction* hi,
+                  HInstruction* step);
+  bool VectorizeDef(LoopNode* node, HInstruction* instruction, bool gen);
+  bool VectorizeUse(LoopNode* node,
+                    HInstruction* instruction,
+                    bool gen,
+                    Primitive::Type type,
+                    uint64_t restrictions);
+  bool IsVectorTypeAccepted(Primitive::Type type, /*out*/ uint64_t* restrictions);
+  bool IsVectorLengthAccepted(uint32_t length);
+  void GenVecInv(HInstruction* org, Primitive::Type type);
+  void GenVecSub(HInstruction* org, HInstruction* off);
+  void GenVecMem(HInstruction* org, HInstruction* opa, HInstruction* opb, Primitive::Type type);
+  void GenVecOp(HInstruction* org, HInstruction* opa, HInstruction* opb, Primitive::Type type);
 
   // Helpers.
-  bool IsPhiInduction(HPhi* phi);
-  bool IsEmptyHeader(HBasicBlock* block);
+  bool IsPhiInduction(HPhi* phi, bool restrict_uses);
+  bool IsSimpleLoopHeader(HBasicBlock* block);
   bool IsEmptyBody(HBasicBlock* block);
   bool IsOnlyUsedAfterLoop(HLoopInformation* loop_info,
                            HInstruction* instruction,
                            bool collect_loop_uses,
                            /*out*/ int32_t* use_count);
+  bool IsUsedOutsideLoop(HLoopInformation* loop_info,
+                         HInstruction* instruction);
   bool TryReplaceWithLastValue(HInstruction* instruction, HBasicBlock* block);
+  bool TryAssignLastValue(HLoopInformation* loop_info,
+                          HInstruction* instruction,
+                          HBasicBlock* block,
+                          bool collect_loop_uses);
   void RemoveDeadInstructions(const HInstructionList& list);
 
   // Compiler driver (to query ISA features).
@@ -89,6 +135,9 @@ class HLoopOptimization : public HOptimization {
   // Phase-local heap memory allocator for the loop optimizer. Storage obtained
   // through this allocator is immediately released when the loop optimizer is done.
   ArenaAllocator* loop_allocator_;
+
+  // Global heap memory allocator. Used to build HIR.
+  ArenaAllocator* global_allocator_;
 
   // Entries into the loop hierarchy representation. The hierarchy resides
   // in phase-local heap memory.
@@ -102,10 +151,32 @@ class HLoopOptimization : public HOptimization {
   // Counter that tracks how many induction cycles have been simplified. Useful
   // to trigger incremental updates of induction variable analysis of outer loops
   // when the induction of inner loops has changed.
-  int32_t induction_simplication_count_;
+  uint32_t induction_simplication_count_;
 
   // Flag that tracks if any simplifications have occurred.
   bool simplified_;
+
+  // Number of "lanes" for selected packed type.
+  uint32_t vector_length_;
+
+  // Set of array references in the vector loop.
+  // Contents reside in phase-local heap memory.
+  ArenaSet<Reference>* vector_refs_;
+
+  // Mapping used during vectorization synthesis for both the scalar peeling/cleanup
+  // loop (simd_ is false) and the actual vector loop (simd_ is true). The data
+  // structure maps original instructions into the new instructions.
+  // Contents reside in phase-local heap memory.
+  ArenaSafeMap<HInstruction*, HInstruction*>* vector_map_;
+
+  // Temporary vectorization bookkeeping.
+  HBasicBlock* vector_preheader_;  // preheader of the new loop
+  HBasicBlock* vector_header_;  // header of the new loop
+  HBasicBlock* vector_body_;  // body of the new loop
+  HInstruction* vector_runtime_test_a_;
+  HInstruction* vector_runtime_test_b_;  // defines a != b runtime test
+  HPhi* vector_induc_;  // the Phi representing the normalized loop index
+  bool simd_;  // selects SIMD (vector loop) or sequential (peeling/cleanup loop)
 
   friend class LoopOptimizationTest;
 
