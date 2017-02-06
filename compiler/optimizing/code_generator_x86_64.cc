@@ -1159,12 +1159,12 @@ size_t CodeGeneratorX86_64::RestoreCoreRegister(size_t stack_index, uint32_t reg
 
 size_t CodeGeneratorX86_64::SaveFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
   __ movsd(Address(CpuRegister(RSP), stack_index), XmmRegister(reg_id));
-  return kX86_64WordSize;
+  return GetFloatingPointSpillSlotSize();
 }
 
 size_t CodeGeneratorX86_64::RestoreFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
   __ movsd(XmmRegister(reg_id), Address(CpuRegister(RSP), stack_index));
-  return kX86_64WordSize;
+  return GetFloatingPointSpillSlotSize();
 }
 
 void CodeGeneratorX86_64::InvokeRuntime(QuickEntrypointEnum entrypoint,

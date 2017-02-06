@@ -326,6 +326,7 @@ class CodeGeneratorX86_64 : public CodeGenerator {
   }
 
   size_t GetFloatingPointSpillSlotSize() const OVERRIDE {
+    // 8 bytes == 1 x86_64 words for each spill.
     return kX86_64WordSize;
   }
 

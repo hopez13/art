@@ -235,17 +235,17 @@ MACRO2(SETUP_SAVE_EVERYTHING_FRAME_EDI_ESI_SAVED, got_reg, temp_reg)
     PUSH ecx
     PUSH eax
     // Create space for FPR registers and stack alignment padding.
-    subl MACRO_LITERAL(12 + 8 * 8), %esp
-    CFI_ADJUST_CFA_OFFSET(12 + 8 * 8)
+    subl MACRO_LITERAL(12 + 8 * 16), %esp
+    CFI_ADJUST_CFA_OFFSET(12 + 8 * 16)
     // Save FPRs.
-    movsd %xmm0, 12(%esp)
-    movsd %xmm1, 20(%esp)
-    movsd %xmm2, 28(%esp)
-    movsd %xmm3, 36(%esp)
-    movsd %xmm4, 44(%esp)
-    movsd %xmm5, 52(%esp)
-    movsd %xmm6, 60(%esp)
-    movsd %xmm7, 68(%esp)
+    movups %xmm0, 12(%esp)
+    movups %xmm1, 28(%esp)
+    movups %xmm2, 44(%esp)
+    movups %xmm3, 60(%esp)
+    movups %xmm4, 76(%esp)
+    movups %xmm5, 92(%esp)
+    movups %xmm6, 108(%esp)
+    movups %xmm7, 124(%esp)
 
     SETUP_GOT_NOSAVE RAW_VAR(got_reg)
     // Load Runtime::instance_ from GOT.
@@ -259,7 +259,7 @@ MACRO2(SETUP_SAVE_EVERYTHING_FRAME_EDI_ESI_SAVED, got_reg, temp_reg)
 
     // Ugly compile-time check, but we only have the preprocessor.
     // Last +4: implicit return address pushed on stack when caller made call.
-#if (FRAME_SIZE_SAVE_EVERYTHING != 7*4 + 8*8 + 12 + 4 + 4)
+#if (FRAME_SIZE_SAVE_EVERYTHING != 7*4 + 8*16 + 12 + 4 + 4)
 #error "FRAME_SIZE_SAVE_EVERYTHING(X86) size not as expected."
 #endif
 END_MACRO
@@ -287,14 +287,14 @@ END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_FRPS)
     // Restore FPRs. Method and padding is still on the stack.
-    movsd 16(%esp), %xmm0
-    movsd 24(%esp), %xmm1
-    movsd 32(%esp), %xmm2
-    movsd 40(%esp), %xmm3
-    movsd 48(%esp), %xmm4
-    movsd 56(%esp), %xmm5
-    movsd 64(%esp), %xmm6
-    movsd 72(%esp), %xmm7
+    movups 16(%esp), %xmm0
+    movups 32(%esp), %xmm1
+    movups 48(%esp), %xmm2
+    movups 64(%esp), %xmm3
+    movups 80(%esp), %xmm4
+    movups 96(%esp), %xmm5
+    movups 112(%esp), %xmm6
+    movups 128(%esp), %xmm7
 END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_EAX)
@@ -311,8 +311,8 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME)
     RESTORE_SAVE_EVERYTHING_FRAME_FRPS
 
     // Remove save everything callee save method, stack alignment padding and FPRs.
-    addl MACRO_LITERAL(16 + 8 * 8), %esp
-    CFI_ADJUST_CFA_OFFSET(-(16 + 8 * 8))
+    addl MACRO_LITERAL(16 + 8 * 16), %esp
+    CFI_ADJUST_CFA_OFFSET(-(16 + 8 * 16))
 
     POP eax
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_EAX
@@ -322,8 +322,8 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_KEEP_EAX)
     RESTORE_SAVE_EVERYTHING_FRAME_FRPS
 
     // Remove save everything callee save method, stack alignment padding and FPRs, skip EAX.
-    addl MACRO_LITERAL(16 + 8 * 8 + 4), %esp
-    CFI_ADJUST_CFA_OFFSET(-(16 + 8 * 8 + 4))
+    addl MACRO_LITERAL(16 + 8 * 16 + 4), %esp
+    CFI_ADJUST_CFA_OFFSET(-(16 + 8 * 16 + 4))
 
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_EAX
 END_MACRO
