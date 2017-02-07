@@ -345,6 +345,19 @@ bool DexFileVerifier::CheckSizeLimit(uint32_t size, uint32_t limit, const char* 
 }
 
 bool DexFileVerifier::CheckHeader() {
+  // Check header alignment.
+  // Must be 4-byte aligned according to dex specification.
+  // (Also using the pointers would be undefined behavior if they aren't
+  // at least that much aligned).
+  if (!IsAligned<alignof(DexFile::Header)>(begin_)) {
+    size_t actual_alignment = begin_ == nullptr ? 0 :
+        (1 << (LeastSignificantBit(reinterpret_cast<uintptr_t>(begin_))));
+    ErrorStringPrintf("Header unaligned (%zu, expected %zu)",
+                      actual_alignment,
+                      alignof(DexFile::Header));
+    return false;
+  }
+
   // Check file size from the header.
   uint32_t expected_size = header_->file_size_;
   if (size_ != expected_size) {

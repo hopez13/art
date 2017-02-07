@@ -333,7 +333,31 @@ std::unique_ptr<const DexFile> DexFile::OpenOneDexFileFromZip(const ZipArchive& 
     *error_code = ZipOpenErrorCode::kDexFileError;
     return nullptr;
   }
-  std::unique_ptr<MemMap> map(zip_entry->ExtractToMemMap(location.c_str(), entry_name, error_msg));
+
+  std::unique_ptr<MemMap> map;
+  bool extract_dex_file = true;
+  if (zip_entry->IsUncompressed()) {
+    if (!zip_entry->IsAlignedTo(alignof(Header))) {
+      // Do not mmap unaligned ZIP entries because
+      // doing so would fail dex verification which requires 4 byte alignment.
+      LOG(WARNING) << "Can't mmap dex file " << location << "!" << entry_name << " directly; "
+                   << "please zipalign to " << alignof(Header) << " bytes. "
+                   << "Falling back to extracting file.";
+    } else {
+      // Map uncompressed files within zip as file-backed to avoid a dirty copy.
+      map.reset(zip_entry->MapDirectlyFromFile(location.c_str(),
+                                               // Out parameters:
+                                               error_msg));
+      extract_dex_file = false;
+    }
+  }
+
+  if (extract_dex_file) {
+    // Default path for compressed ZIP entries,
+    // and fallback for unaligned stored ZIP entries.
+    map.reset(zip_entry->ExtractToMemMap(location.c_str(), entry_name, error_msg));
+  }
+
   if (map == nullptr) {
     *error_msg = StringPrintf("Failed to extract '%s' from '%s': %s", entry_name, location.c_str(),
                               error_msg->c_str());
