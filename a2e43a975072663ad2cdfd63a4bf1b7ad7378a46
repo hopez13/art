@@ -22,6 +22,30 @@
       "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61d272e_23dc6087",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T22:01:01Z",
+      "side": 1,
+      "message": "This is dependent on which configuration we run. If the verifier runs on the test code, it will load the class before the JIT touches it.",
+      "parentUuid": "96181a74_526259b6",
+      "range": {
+        "startLine": 283,
+        "startChar": 20,
+        "endLine": 283,
+        "endChar": 49
+      },
+      "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
