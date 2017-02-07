@@ -5155,6 +5155,14 @@ void InstructionCodeGeneratorARM64::VisitSuspendCheck(HSuspendCheck* instruction
     // The goto will generate the suspend check.
     return;
   }
+  // Register allocation phase can insert ParallelMove in entry block,
+  // and put it in between HSuspendcheck and HGoto, for example:
+  //   CurrentMethod
+  //   ParameterValue
+  //   SuspendCheck
+  //   ParallelMove
+  //   Goto
+  // For such cases, suspend checks are generated here.
   GenerateSuspendCheck(instruction, nullptr);
 }
 

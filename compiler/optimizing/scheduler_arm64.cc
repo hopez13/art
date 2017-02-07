@@ -176,6 +176,7 @@ void SchedulingLatencyVisitorARM64::VisitStaticFieldGet(HStaticFieldGet* ATTRIBU
 }
 
 void SchedulingLatencyVisitorARM64::VisitSuspendCheck(HSuspendCheck* instruction) {
+  // Assuming that suspend checks are always generated in HGoto instead of HSuspendCheck.
   HBasicBlock* block = instruction->GetBlock();
   DCHECK((block->GetLoopInformation() != nullptr) ||
          (block->IsEntryBlock() && instruction->GetNext()->IsGoto()));
