@@ -22,6 +22,30 @@
       "revId": "462e49db8730093059f6ac72a0b8160723f77cc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33fb9957_e3ba2f68",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5164,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-07T15:08:44Z",
+      "side": 1,
+      "message": "During our code review for scheduler, there is a discussion on whether the following GenerateSuspendCheck call is dead code and can we change this whole function into a DCHECK. https://android-review.googlesource.com/#/c/201950/22/compiler/optimizing/scheduler_arm64.cc@189\n\nThis CL is to add comment to explain the cases where above if() checks can not cover; and we still need to generate suspend checks from this fucntion.",
+      "parentUuid": "71fbb06f_1900f3f9",
+      "range": {
+        "startLine": 5160,
+        "startChar": 0,
+        "endLine": 5164,
+        "endChar": 11
+      },
+      "revId": "462e49db8730093059f6ac72a0b8160723f77cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
