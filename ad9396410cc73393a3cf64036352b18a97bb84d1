@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce6abd5a_37395047",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca913a_198da749",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "ad9396410cc73393a3cf64036352b18a97bb84d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3bd576a_094b3794",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-06T17:48:41Z",
       "side": 1,
       "message": "What\u0027s the difference between this and core-image-dependencies?",
+      "range": {
+        "startLine": 868,
+        "startChar": 0,
+        "endLine": 868,
+        "endChar": 43
+      },
+      "revId": "ad9396410cc73393a3cf64036352b18a97bb84d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf693e0b_7ba2ebc0",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-07T13:43:07Z",
+      "side": 1,
+      "message": "I just realized that this one is an empty target. I don\u0027t know why I added this here. Maybe I added this when I was debugging the makefile.",
+      "parentUuid": "d3bd576a_094b3794",
       "range": {
         "startLine": 868,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d336086b_bf446960",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-07T13:43:07Z",
+      "side": 1,
+      "message": "I have added few comments for the dependencies, but I am not very well aware of them.",
+      "parentUuid": "eec04601_bd6a310e",
+      "range": {
+        "startLine": 866,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 43
+      },
+      "revId": "ad9396410cc73393a3cf64036352b18a97bb84d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "113b63c6_af9764bb",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-06T17:48:41Z",
       "side": 1,
       "message": "Not really, it\u0027s just adding core image kinds, right?",
+      "range": {
+        "startLine": 905,
+        "startChar": 0,
+        "endLine": 906,
+        "endChar": 33
+      },
+      "revId": "ad9396410cc73393a3cf64036352b18a97bb84d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "725cdf28_26505245",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-07T13:43:07Z",
+      "side": 1,
+      "message": "Corrected.",
+      "parentUuid": "113b63c6_af9764bb",
       "range": {
         "startLine": 905,
         "startChar": 0,
