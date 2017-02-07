@@ -71,7 +71,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
 void HLoopOptimization::Run() {
   // Well-behaved loops only.
   // TODO: make this less of a sledgehammer.
-  if (graph_->HasTryCatch() || graph_->HasIrreducibleLoops()) {
+  if (!graph_->HasLoops() || graph_->HasTryCatch() || graph_->HasIrreducibleLoops()) {
     return;
   }
 
