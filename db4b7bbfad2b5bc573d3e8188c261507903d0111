@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65bfd51b_647e518b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2043,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-07T21:43:39Z",
+      "side": 1,
+      "message": "We seem to be missing some transfer of flags from inlined methods. So I added those here also.",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cc01c84_051e436e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-07T21:43:39Z",
+      "side": 1,
+      "message": "The flag is used for skipping loop optimization only. So it\u0027s not necessary to keep it up to date, just like some other HasXXX() methods whose value may also be changed due to some eliminations but we don\u0027t try to keep those values up to date.",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
