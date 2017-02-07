@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac846b8b_35d8fe12",
+        "filename": "test/912-classes/classes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-07T02:12:29Z",
+      "side": 1,
+      "message": "\u0027b\u0027 stands for ...?",
+      "range": {
+        "startLine": 313,
+        "startChar": 34,
+        "endLine": 313,
+        "endChar": 36
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cddfda4d_23020bb8",
+        "filename": "test/912-classes/classes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-07T02:12:29Z",
+      "side": 1,
+      "message": "maybe add a short explanations what\u0027s the difference between ClassLoadCallback2 and  ClassLoadCallback.",
+      "range": {
+        "startLine": 392,
+        "startChar": 20,
+        "endLine": 392,
+        "endChar": 38
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42961cc2_f468ba59",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-07T02:12:29Z",
+      "side": 1,
+      "message": "Seems rather magic. Does that mean that we have to update this test if the inline strategy changes?",
+      "range": {
+        "startLine": 222,
+        "startChar": 42,
+        "endLine": 222,
+        "endChar": 54
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e731e7d9_b4bf6b68",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-07T02:12:29Z",
+      "side": 1,
+      "message": "I would just write another test where I\u0027d force --jit but up to you.\n\nAs a general side remark, maybe we should think of adding a marker for the tests which make sense only under jit.",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 14
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
