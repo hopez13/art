@@ -22,6 +22,30 @@
       "revId": "7e41e5d87c8ffee3c4bdd1af5be514a1c4f2fa71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183880cf_cba1499d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2017-02-07T16:15:42Z",
+      "side": 1,
+      "message": "define same? same path? several apps use the same path but with different dex checksums. I think these are examples:\n\nhttps://play.google.com/store/apps/details?id\u003dcom.eclipsim.gpsstatus2\nhttps://play.google.com/store/apps/details?id\u003dcom.nianticproject.ingress",
+      "parentUuid": "f07cc556_dc6fffca",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "7e41e5d87c8ffee3c4bdd1af5be514a1c4f2fa71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
