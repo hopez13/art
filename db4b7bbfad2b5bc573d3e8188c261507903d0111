@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2f8be012_62a74836",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-07T21:45:21Z",
+      "side": 1,
+      "message": "if you want, you can put a\n\n\ngraph-\u003eSetHasLoop(top_loop_ !\u003d nullptr); \n\nhere to keep the flag up-to-date after loop optimizations have run (and possibly eliminated the last valid loop)",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65bfd51b_647e518b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
