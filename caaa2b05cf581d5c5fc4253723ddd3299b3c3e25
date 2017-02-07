@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "54c884a8_b99f129b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-07T10:30:28Z",
+      "side": 1,
+      "message": "I don\u0027t understand. What does this have to do with this change?",
+      "parentUuid": "3abf6255_92324d1e",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 290,
+        "endChar": 99
+      },
+      "revId": "caaa2b05cf581d5c5fc4253723ddd3299b3c3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddbeaa55_6f43c482",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-06T21:21:48Z",
       "side": 1,
       "message": "We may want to log when a long wait occurs (eg 5ms).\n\nsee Heap::WaitForGcToCompleteLocked for an example.",
+      "range": {
+        "startLine": 3897,
+        "startChar": 4,
+        "endLine": 3897,
+        "endChar": 5
+      },
+      "revId": "caaa2b05cf581d5c5fc4253723ddd3299b3c3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6f14f2_c01cf44d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3897,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-07T10:30:28Z",
+      "side": 1,
+      "message": "I\u0027ll do this in a follow up CL if needed.",
+      "parentUuid": "ddbeaa55_6f43c482",
       "range": {
         "startLine": 3897,
         "startChar": 4,
