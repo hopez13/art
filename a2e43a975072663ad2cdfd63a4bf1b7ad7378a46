@@ -70,6 +70,30 @@
       "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cefb7f2e_3556da22",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T22:46:43Z",
+      "side": 1,
+      "message": "If/when run-test-jar gets rewritten this might be easier. Right now it\u0027s ugly regex replacement gymnastics in some of the custom run scripts, which I\u0027d like to avoid like the pest... :-)",
+      "parentUuid": "9ed67b63_7bd3ecdc",
+      "range": {
+        "startLine": 283,
+        "startChar": 20,
+        "endLine": 283,
+        "endChar": 49
+      },
+      "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
