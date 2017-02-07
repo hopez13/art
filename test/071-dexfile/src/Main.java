@@ -20,6 +20,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  * DexFile tests (Dalvik-specific).
  */
@@ -51,6 +54,7 @@ public class Main {
 
         testDexClassLoader();
         testDexFile();
+        testDexMemoryMaps();
 
         // shouldn't be necessary, but it's good to be tidy
         p.destroy();
@@ -89,6 +93,84 @@ public class Main {
                                                              getOdexDir(),
                                                              LIB_DIR,
                                                              classLoader);
+    }
+
+    private static boolean checkSmapsEntry(String[] smapsLines, int offset) {
+      String nameDescription = smapsLines[offset];
+      String[] split = nameDescription.split(" ");
+
+      String permissions = split[1];
+      // Mapped as read-only + anonymous.
+      if (!permissions.startsWith("r--p")) {
+        return false;
+      }
+
+      boolean validated = false;
+
+      // We have the right entry, now make sure it's valid.
+      for (int i = offset; i < smapsLines.length; ++i) {
+        String line = smapsLines[i];
+
+        if (line.startsWith("Shared_Dirty") || line.startsWith("Private_Dirty")) {
+          String lineTrimmed = line.trim();
+          String[] lineSplit = lineTrimmed.split(" +");
+
+          String sizeUsuallyInKb = lineSplit[lineSplit.length - 2];
+
+          sizeUsuallyInKb = sizeUsuallyInKb.trim();
+
+          if (!sizeUsuallyInKb.equals("0")) {
+            System.out.println("ERROR: Memory mapping for " + CLASS_PATH + " is unexpectedly dirty");
+            System.out.println(line);
+          } else {
+            validated = true;
+          }
+        }
+
+        // VmFlags marks the "end" of an smaps entry.
+        if (line.startsWith("VmFlags")) {
+          break;
+        }
+      }
+
+      if (validated) {
+        System.out.println("Secondary dexfile mmap is clean");
+      } else {
+        System.out.println("ERROR: Memory mapping is missing Shared_Dirty/Private_Dirty entries");
+      }
+
+      return true;
+    }
+
+    // This test relies on us skipping dex2oat
+    // (because the secondary dex file has a duplicate class).
+    //
+    // This then triggers a fallback when runs the dex file directly
+    // out of memory. We zip-align the JAR file, so make sure
+    // it's mmapped file-backed as clean memory.
+    //
+    // Order matters, and this must run after the other two tests.
+    // We are loading class "Another" twice through different class loaders.
+    // Once via DexClassLoader (#testDexClassLoader)
+    // Again via DexFile#loadDex (#testDexFile)
+    // This second instance is the one that falls back to dex2oat-less running.
+    private static void testDexMemoryMaps() throws Exception {
+        // Ensure that the secondary dex file is mapped clean (directly from JAR file).
+        String smaps = new String(Files.readAllBytes(Paths.get("/proc/self/smaps")));
+
+        String[] smapsLines = smaps.split("\n");
+        boolean found = true;
+        for (int i = 0; i < smapsLines.length; ++i) {
+          // May have 1 or more of these mmap entries. Find the right one to check.
+          if (smapsLines[i].contains(CLASS_PATH)) {
+            if (checkSmapsEntry(smapsLines, i)) {
+              return;
+            } // else we found the wrong one, keep going.
+          }
+        }
+
+        // Error case:
+        System.out.println("Could not find " + CLASS_PATH + " RO-anonymous smaps entry");
     }
 
     private static void testDexFile() throws Exception {
