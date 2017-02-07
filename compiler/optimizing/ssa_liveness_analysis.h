@@ -977,7 +977,7 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
 
   void AddBackEdgeUses(const HBasicBlock& block_at_use) {
     DCHECK(block_at_use.IsInLoop());
-    if (block_at_use.GetGraph()->HasIrreducibleLoops()) {
+    if (block_at_use.GetGraph()->MayHaveIrreducibleLoops()) {
       // Linear order may not be well formed when irreducible loops are present,
       // i.e. loop blocks may not be adjacent and a back edge may not be last,
       // which violates assumptions made in this method.

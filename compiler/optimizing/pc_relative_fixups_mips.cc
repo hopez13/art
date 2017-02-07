@@ -122,7 +122,7 @@ void PcRelativeFixups::Run() {
     // Do nothing for R6 because it has PC-relative addressing.
     return;
   }
-  if (graph_->HasIrreducibleLoops()) {
+  if (graph_->MayHaveIrreducibleLoops()) {
     // Do not run this optimization, as irreducible loops do not work with an instruction
     // that can be live-in at the irreducible loop header.
     return;

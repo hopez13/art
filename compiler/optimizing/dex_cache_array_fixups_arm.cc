@@ -77,7 +77,7 @@ class DexCacheArrayFixupsVisitor : public HGraphVisitor {
 
   HArmDexCacheArraysBase* GetOrCreateDexCacheArrayBase(HInstruction* cursor,
                                                        const DexFile& dex_file) {
-    if (GetGraph()->HasIrreducibleLoops()) {
+    if (GetGraph()->MayHaveIrreducibleLoops()) {
       HArmDexCacheArraysBase* base = new (GetGraph()->GetArena()) HArmDexCacheArraysBase(dex_file);
       cursor->GetBlock()->InsertInstructionBefore(base, cursor);
       return base;

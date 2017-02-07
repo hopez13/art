@@ -404,7 +404,7 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
 
 static bool IsMaterializableEntryBlockInstructionOfGraphWithIrreducibleLoop(
     HInstruction* instruction) {
-  return instruction->GetBlock()->GetGraph()->HasIrreducibleLoops() &&
+  return instruction->GetBlock()->GetGraph()->MayHaveIrreducibleLoops() &&
          (instruction->IsConstant() || instruction->IsCurrentMethod());
 }
 
@@ -429,7 +429,7 @@ void RegisterAllocationResolver::ConnectSplitSiblings(LiveInterval* interval,
 
   LiveInterval* parent = interval->GetParent();
   HInstruction* defined_by = parent->GetDefinedBy();
-  if (codegen_->GetGraph()->HasIrreducibleLoops() &&
+  if (codegen_->GetGraph()->MayHaveIrreducibleLoops() &&
       (destination == nullptr || !destination->CoversSlow(destination_position))) {
     // Our live_in fixed point calculation has found that the instruction is live
     // in the `to` block because it will eventually enter an irreducible loop. Our
@@ -453,7 +453,7 @@ void RegisterAllocationResolver::ConnectSplitSiblings(LiveInterval* interval,
   // but does not check whether the interval is inactive at that position.
   // The only situation where the interval is inactive at that position is in the
   // presence of irreducible loops for constants and ArtMethod.
-  if (codegen_->GetGraph()->HasIrreducibleLoops() &&
+  if (codegen_->GetGraph()->MayHaveIrreducibleLoops() &&
       (source == nullptr || !source->CoversSlow(source_position))) {
     DCHECK(IsMaterializableEntryBlockInstructionOfGraphWithIrreducibleLoop(defined_by));
     if (defined_by->IsConstant()) {

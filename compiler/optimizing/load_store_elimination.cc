@@ -1028,7 +1028,7 @@ class LSEVisitor : public HGraphVisitor {
 };
 
 void LoadStoreElimination::Run() {
-  if (graph_->IsDebuggable() || graph_->HasTryCatch()) {
+  if (graph_->IsDebuggable() || graph_->MayHaveTryCatch()) {
     // Debugger may set heap values or trigger deoptimization of callers.
     // Try/catch support not implemented yet.
     // Skip this optimization.

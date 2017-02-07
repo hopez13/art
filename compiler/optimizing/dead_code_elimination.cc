@@ -369,7 +369,7 @@ void HDeadCodeElimination::Run() {
   // Do not eliminate dead blocks if the graph has irreducible loops. We could
   // support it, but that would require changes in our loop representation to handle
   // multiple entry points. We decided it was not worth the complexity.
-  if (!graph_->HasIrreducibleLoops()) {
+  if (!graph_->MayHaveIrreducibleLoops()) {
     // Simplify graph to generate more dead block patterns.
     ConnectSuccessiveBlocks();
     bool did_any_simplification = false;

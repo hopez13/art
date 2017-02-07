@@ -314,7 +314,7 @@ class ValueSet : public ArenaObject<kArenaAllocGvn> {
     // case of irreducible loops, we don't put pure instructions in odd buckets, as we
     // need to delete them when entering the loop.
     if (instruction->GetSideEffects().HasDependencies() ||
-        instruction->GetBlock()->GetGraph()->HasIrreducibleLoops()) {
+        instruction->GetBlock()->GetGraph()->MayHaveIrreducibleLoops()) {
       return (hash_code << 1) | 0;
     } else {
       return (hash_code << 1) | 1;

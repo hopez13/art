@@ -263,7 +263,7 @@ void CodeGenerator::Compile(CodeAllocator* allocator) {
 
   // Emit catch stack maps at the end of the stack map stream as expected by the
   // runtime exception handler.
-  if (graph_->HasTryCatch()) {
+  if (graph_->MayHaveTryCatch()) {
     RecordCatchBlockInfo();
   }
 
@@ -676,7 +676,7 @@ static void CheckCovers(uint32_t dex_pc,
 static void CheckLoopEntriesCanBeUsedForOsr(const HGraph& graph,
                                             const CodeInfo& code_info,
                                             const DexFile::CodeItem& code_item) {
-  if (graph.HasTryCatch()) {
+  if (graph.MayHaveTryCatch()) {
     // One can write loops through try/catch, which we do not support for OSR anyway.
     return;
   }

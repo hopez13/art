@@ -164,8 +164,8 @@ class PCRelativeHandlerVisitor : public HGraphVisitor {
   }
 
   HX86ComputeBaseMethodAddress* GetPCRelativeBasePointer(HInstruction* cursor) {
-    bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
-    if (!has_irreducible_loops) {
+    bool may_have_irreducible_loops = GetGraph()->MayHaveIrreducibleLoops();
+    if (!may_have_irreducible_loops) {
       // Ensure we only initialize the pointer once.
       if (base_ != nullptr) {
         return base_;
@@ -175,7 +175,7 @@ class PCRelativeHandlerVisitor : public HGraphVisitor {
     // position later in MoveBaseIfNeeded().
     HX86ComputeBaseMethodAddress* method_address =
         new (GetGraph()->GetArena()) HX86ComputeBaseMethodAddress();
-    if (has_irreducible_loops) {
+    if (may_have_irreducible_loops) {
       cursor->GetBlock()->InsertInstructionBefore(method_address, cursor);
     } else {
       HBasicBlock* entry_block = GetGraph()->GetEntryBlock();

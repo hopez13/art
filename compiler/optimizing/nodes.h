@@ -321,9 +321,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         number_of_vregs_(0),
         number_of_in_vregs_(0),
         temporaries_vreg_slots_(0),
-        has_bounds_checks_(false),
-        has_try_catch_(false),
-        has_irreducible_loops_(false),
+        may_have_bounds_checks_(false),
+        may_have_try_catch_(false),
+        may_have_loops_(false),
+        may_have_irreducible_loops_(false),
         debuggable_(debuggable),
         current_instruction_id_(start_instruction_id),
         dex_file_(dex_file),
@@ -487,12 +488,12 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return ReverseRange(GetLinearOrder());
   }
 
-  bool HasBoundsChecks() const {
-    return has_bounds_checks_;
+  bool MayHaveBoundsChecks() const {
+    return may_have_bounds_checks_;
   }
 
-  void SetHasBoundsChecks(bool value) {
-    has_bounds_checks_ = value;
+  void SetMayHaveBoundsChecks(bool value) {
+    may_have_bounds_checks_ = value;
   }
 
   bool ShouldGenerateConstructorBarrier() const {
@@ -556,11 +557,14 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return number_of_cha_guards_ != 0;
   }
 
-  bool HasTryCatch() const { return has_try_catch_; }
-  void SetHasTryCatch(bool value) { has_try_catch_ = value; }
+  bool MayHaveTryCatch() const { return may_have_try_catch_; }
+  void SetMayHaveTryCatch(bool value) { may_have_try_catch_ = value; }
 
-  bool HasIrreducibleLoops() const { return has_irreducible_loops_; }
-  void SetHasIrreducibleLoops(bool value) { has_irreducible_loops_ = value; }
+  bool MayHaveLoops() const { return may_have_loops_; }
+  void SetMayHaveLoops(bool value) { may_have_loops_ = value; }
+
+  bool MayHaveIrreducibleLoops() const { return may_have_irreducible_loops_; }
+  void SetMayHaveIrreducibleLoops(bool value) { may_have_irreducible_loops_ = value; }
 
   ArtMethod* GetArtMethod() const { return art_method_; }
   void SetArtMethod(ArtMethod* method) { art_method_ = method; }
@@ -637,15 +641,19 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // Number of vreg size slots that the temporaries use (used in baseline compiler).
   size_t temporaries_vreg_slots_;
 
-  // Has bounds checks. We can totally skip BCE if it's false.
-  bool has_bounds_checks_;
+  // May have bounds checks. We can totally skip BCE if it's false.
+  bool may_have_bounds_checks_;
 
-  // Flag whether there are any try/catch blocks in the graph. We will skip
+  // Flag whether there may have any try/catch blocks in the graph. We will skip
   // try/catch-related passes if false.
-  bool has_try_catch_;
+  bool may_have_try_catch_;
 
-  // Flag whether there are any irreducible loops in the graph.
-  bool has_irreducible_loops_;
+  // Flag whether there may have any loops in the graph. We can skip loop
+  // optimization if it's false.
+  bool may_have_loops_;
+
+  // Flag whether there may be any irreducible loops in the graph.
+  bool may_have_irreducible_loops_;
 
   // Indicates whether the graph should be compiled in a way that
   // ensures full debuggability. If false, we can apply more

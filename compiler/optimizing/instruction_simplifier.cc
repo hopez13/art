@@ -1909,7 +1909,7 @@ void InstructionSimplifierVisitor::SimplifyStringCharAt(HInvoke* invoke) {
       str, bounds_check, Primitive::kPrimChar, dex_pc, /* is_string_char_at */ true);
   invoke->GetBlock()->ReplaceAndRemoveInstructionWith(invoke, array_get);
   bounds_check->CopyEnvironmentFrom(invoke->GetEnvironment());
-  GetGraph()->SetHasBoundsChecks(true);
+  GetGraph()->SetMayHaveBoundsChecks(true);
 }
 
 void InstructionSimplifierVisitor::SimplifyStringIsEmptyOrLength(HInvoke* invoke) {

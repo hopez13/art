@@ -35,7 +35,7 @@ class BoundsCheckEliminationTest : public testing::Test {
  public:
   BoundsCheckEliminationTest()  : pool_(), allocator_(&pool_) {
     graph_ = CreateGraph(&allocator_);
-    graph_->SetHasBoundsChecks(true);
+    graph_->SetMayHaveBoundsChecks(true);
   }
 
   ~BoundsCheckEliminationTest() { }

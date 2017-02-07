@@ -76,7 +76,7 @@ GraphAnalysisResult HGraphBuilder::BuildGraph() {
   graph_->SetNumberOfVRegs(code_item_.registers_size_);
   graph_->SetNumberOfInVRegs(code_item_.ins_size_);
   graph_->SetMaximumNumberOfOutVRegs(code_item_.outs_size_);
-  graph_->SetHasTryCatch(code_item_.tries_size_ != 0);
+  graph_->SetMayHaveTryCatch(code_item_.tries_size_ != 0);
 
   // 1) Create basic blocks and link them together. Basic blocks are left
   //    unpopulated with the exception of synthetic blocks, e.g. HTryBoundaries.

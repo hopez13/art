@@ -186,7 +186,7 @@ void HGraph::ClearDominanceInformation() {
 }
 
 void HGraph::ClearLoopInformation() {
-  SetHasIrreducibleLoops(false);
+  SetMayHaveIrreducibleLoops(false);
   for (HBasicBlock* block : GetReversePostOrder()) {
     block->SetLoopInformation(nullptr);
   }
@@ -686,8 +686,9 @@ void HLoopInformation::Populate() {
   if (is_irreducible_loop) {
     irreducible_ = true;
     contains_irreducible_loop_ = true;
-    graph->SetHasIrreducibleLoops(true);
+    graph->SetMayHaveIrreducibleLoops(true);
   }
+  graph->SetMayHaveLoops(true);
 }
 
 HBasicBlock* HLoopInformation::GetPreHeader() const {
@@ -2032,8 +2033,18 @@ HInstruction* HGraph::InlineInto(HGraph* outer_graph, HInvoke* invoke) {
     }
   }
   outer_graph->UpdateMaximumNumberOfOutVRegs(GetMaximumNumberOfOutVRegs());
-  if (HasBoundsChecks()) {
-    outer_graph->SetHasBoundsChecks(true);
+
+  if (MayHaveBoundsChecks()) {
+    outer_graph->SetMayHaveBoundsChecks(true);
+  }
+  if (MayHaveLoops()) {
+    outer_graph->SetMayHaveLoops(true);
+  }
+  if (MayHaveIrreducibleLoops()) {
+    outer_graph->SetMayHaveIrreducibleLoops(true);
+  }
+  if (MayHaveTryCatch()) {
+    outer_graph->SetMayHaveTryCatch(true);
   }
 
   HInstruction* return_value = nullptr;

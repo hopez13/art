@@ -122,7 +122,7 @@ void LinearizeGraph(const HGraph* graph,
     }
   } while (!worklist.empty());
 
-  DCHECK(graph->HasIrreducibleLoops() || IsLinearOrderWellFormed(graph, linear_order));
+  DCHECK(graph->MayHaveIrreducibleLoops() || IsLinearOrderWellFormed(graph, linear_order));
 }
 
 }  // namespace art

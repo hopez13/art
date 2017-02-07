@@ -5208,9 +5208,9 @@ HLoadString::LoadKind CodeGeneratorMIPS::GetSupportedLoadStringKind(
   // is incompatible with it.
   // TODO: Create as many MipsDexCacheArraysBase instructions as needed for methods
   // with irreducible loops.
-  bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
+  bool may_have_irreducible_loops = GetGraph()->MayHaveIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
-  bool fallback_load = has_irreducible_loops && !is_r6;
+  bool fallback_load = may_have_irreducible_loops && !is_r6;
   switch (desired_string_load_kind) {
     case HLoadString::LoadKind::kBootImageLinkTimeAddress:
       DCHECK(!GetCompilerOptions().GetCompilePic());
@@ -5245,9 +5245,9 @@ HLoadClass::LoadKind CodeGeneratorMIPS::GetSupportedLoadClassKind(
   }
   // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
-  bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
+  bool may_have_irreducible_loops = GetGraph()->MayHaveIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
-  bool fallback_load = has_irreducible_loops && !is_r6;
+  bool fallback_load = may_have_irreducible_loops && !is_r6;
   switch (desired_class_load_kind) {
     case HLoadClass::LoadKind::kReferrersClass:
       fallback_load = false;
@@ -5311,9 +5311,9 @@ HInvokeStaticOrDirect::DispatchInfo CodeGeneratorMIPS::GetSupportedInvokeStaticO
   HInvokeStaticOrDirect::DispatchInfo dispatch_info = desired_dispatch_info;
   // We disable PC-relative load on pre-R6 when there is an irreducible loop, as the optimization
   // is incompatible with it.
-  bool has_irreducible_loops = GetGraph()->HasIrreducibleLoops();
+  bool may_have_irreducible_loops = GetGraph()->MayHaveIrreducibleLoops();
   bool is_r6 = GetInstructionSetFeatures().IsR6();
-  bool fallback_load = has_irreducible_loops && !is_r6;
+  bool fallback_load = may_have_irreducible_loops && !is_r6;
   switch (dispatch_info.method_load_kind) {
     case HInvokeStaticOrDirect::MethodLoadKind::kDexCachePcRelative:
       break;

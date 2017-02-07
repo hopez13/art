@@ -249,9 +249,9 @@ void GraphChecker::VisitBasicBlock(HBasicBlock* block) {
 }
 
 void GraphChecker::VisitBoundsCheck(HBoundsCheck* check) {
-  if (!GetGraph()->HasBoundsChecks()) {
+  if (!GetGraph()->MayHaveBoundsChecks()) {
     AddError(StringPrintf("Instruction %s:%d is a HBoundsCheck, "
-                          "but HasBoundsChecks() returns false",
+                          "but MayHaveBoundsChecks() returns false",
                           check->DebugName(),
                           check->GetId()));
   }

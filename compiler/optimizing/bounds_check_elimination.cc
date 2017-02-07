@@ -1842,7 +1842,7 @@ class BCEVisitor : public HGraphVisitor {
 };
 
 void BoundsCheckElimination::Run() {
-  if (!graph_->HasBoundsChecks()) {
+  if (!graph_->MayHaveBoundsChecks()) {
     return;
   }
 

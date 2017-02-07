@@ -1487,7 +1487,7 @@ void HInstructionBuilder::BuildArrayAccess(const Instruction& instruction,
     AppendInstruction(aget);
     UpdateLocal(source_or_dest_reg, current_block_->GetLastInstruction());
   }
-  graph_->SetHasBoundsChecks(true);
+  graph_->SetMayHaveBoundsChecks(true);
 }
 
 void HInstructionBuilder::BuildFilledNewArray(uint32_t dex_pc,
@@ -1588,7 +1588,7 @@ void HInstructionBuilder::BuildFillArrayData(const Instruction& instruction, uin
     default:
       LOG(FATAL) << "Unknown element width for " << payload->element_width;
   }
-  graph_->SetHasBoundsChecks(true);
+  graph_->SetMayHaveBoundsChecks(true);
 }
 
 void HInstructionBuilder::BuildFillWideArrayData(HInstruction* object,
