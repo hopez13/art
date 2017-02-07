@@ -46,6 +46,30 @@
       "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ed67b63_7bd3ecdc",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-07T22:11:46Z",
+      "side": 1,
+      "message": "Hmm, it\u0027s quite annoying  that we have to do this sort of things in tests. It makes things pretty obscure. \n\nIMO it would be cleaner if we are explicit in the run scripts for what configuration the test makes sense.\n\nBut at least, add a comment :)",
+      "parentUuid": "c61d272e_23dc6087",
+      "range": {
+        "startLine": 283,
+        "startChar": 20,
+        "endLine": 283,
+        "endChar": 49
+      },
+      "revId": "a2e43a975072663ad2cdfd63a4bf1b7ad7378a46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
