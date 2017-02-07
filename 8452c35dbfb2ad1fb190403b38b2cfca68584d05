@@ -964,6 +964,30 @@
       "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "453379a9_f83f2b70",
+        "filename": "compiler/optimizing/scheduler_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-02-07T14:49:56Z",
+      "side": 1,
+      "message": "Hi,\nFor my follow-up of cleanup all VisitSuspendCheck() in codegen. I have created the following patch, please review:\nhttps://android-review.googlesource.com/#/c/334584/\n\nI found the call to GenerateSuspendCheck() is not dead code. I\u0027ll put my explainations there.",
+      "parentUuid": "97e68e58_619a7659",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "8452c35dbfb2ad1fb190403b38b2cfca68584d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
