@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "feb3755a_48122475",
+        "filename": "test/912-classes/classes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T02:47:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac846b8b_35d8fe12",
+      "range": {
+        "startLine": 313,
+        "startChar": 34,
+        "endLine": 313,
+        "endChar": 36
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cddfda4d_23020bb8",
         "filename": "test/912-classes/classes.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-07T02:12:29Z",
       "side": 1,
       "message": "maybe add a short explanations what\u0027s the difference between ClassLoadCallback2 and  ClassLoadCallback.",
+      "range": {
+        "startLine": 392,
+        "startChar": 20,
+        "endLine": 392,
+        "endChar": 38
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be353b16_4e280e65",
+        "filename": "test/912-classes/classes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T02:47:04Z",
+      "side": 1,
+      "message": "Restructured.",
+      "parentUuid": "cddfda4d_23020bb8",
       "range": {
         "startLine": 392,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e6ce178f_1ad4246e",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T02:47:04Z",
+      "side": 1,
+      "message": "Yes. That\u0027s what deep exposure of internals leads to...",
+      "parentUuid": "42961cc2_f468ba59",
+      "range": {
+        "startLine": 222,
+        "startChar": 42,
+        "endLine": 222,
+        "endChar": 54
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e731e7d9_b4bf6b68",
         "filename": "test/912-classes/src/Main.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-07T02:12:29Z",
       "side": 1,
       "message": "I would just write another test where I\u0027d force --jit but up to you.\n\nAs a general side remark, maybe we should think of adding a marker for the tests which make sense only under jit.",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 14
+      },
+      "revId": "fc031a99da226fdee546c9e5d83e7bf6b1393e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed23f17f_f2031eea",
+        "filename": "test/912-classes/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T02:47:04Z",
+      "side": 1,
+      "message": "I don\u0027t like other tests, I don\u0027t subscribe to Nicolas\u0027 view. I prefer to have tests that test similar things to be together.",
+      "parentUuid": "e731e7d9_b4bf6b68",
       "range": {
         "startLine": 283,
         "startChar": 8,
