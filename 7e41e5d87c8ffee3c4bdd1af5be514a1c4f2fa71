@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f07cc556_dc6fffca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-07T16:04:21Z",
+      "side": 1,
+      "message": "This may be an app compat issue - I vaguely remember we were aware of dex files being multiply registered (by using the same dalvik.system.DexFile).",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "7e41e5d87c8ffee3c4bdd1af5be514a1c4f2fa71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
