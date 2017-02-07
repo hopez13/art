@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5303350_5c683bfa",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-07T17:08:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be55ba87_402a9ed1",
+      "range": {
+        "startLine": 1274,
+        "startChar": 5,
+        "endLine": 1274,
+        "endChar": 50
+      },
+      "revId": "887f6dfcad7b66ee986a0e09155a3e51eee25e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ca2c94b_efac3720",
         "filename": "tools/ahat/src/InstanceUtils.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-07T11:29:05Z",
       "side": 1,
       "message": "I would rather not expose the encoding of the count + compression flag in the hprof dump. Can you take out the compression flag when emitting the count field in the hprof dump, so that in the hprof dump, count is always the number of characters in the string? We can test the type of \u0027value\u0027 as a char[] or byte[] to determine if the string is compressed.\n\nI\u0027m not entirely happy with either approach. The trouble is that the heap dump format doesn\u0027t have a good way to express strings with special runtime representations like we have. If we are going to fake something up anyway, I think it would be less confusing to users and easier on maintainers of heap dump viewers if \u0027count\u0027 meant the number of characters in the string.",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 91
+      },
+      "revId": "887f6dfcad7b66ee986a0e09155a3e51eee25e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d61580_763b578f",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-07T17:08:14Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0ca2c94b_efac3720",
       "range": {
         "startLine": 103,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4b4bc285_70204261",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-07T17:08:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8c3e52d_f5661c65",
+      "range": {
+        "startLine": 47,
+        "startChar": 33,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "887f6dfcad7b66ee986a0e09155a3e51eee25e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0680c7f_4c21f434",
         "filename": "tools/ahat/test-dump/Main.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-07T11:29:05Z",
       "side": 1,
       "message": "Thanks for adding the test. Would you mind moving the embedded null character to the middle of the string? I worry there could be an edge case where we drop characters after the embedded null.",
+      "range": {
+        "startLine": 48,
+        "startChar": 34,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "887f6dfcad7b66ee986a0e09155a3e51eee25e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1f0cd12_81361ddc",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-07T17:08:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0680c7f_4c21f434",
       "range": {
         "startLine": 48,
         "startChar": 34,
