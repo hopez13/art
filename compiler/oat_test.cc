@@ -149,11 +149,12 @@ class OatTest : public CommonCompilerTest {
                 File* oat_file,
                 const std::vector<const char*>& dex_filenames,
                 SafeMap<std::string, std::string>& key_value_store,
-                bool verify) {
+                bool verify,
+                bool use_profile) {
     TimingLogger timings("WriteElf", false, false);
-    OatWriter oat_writer(/*compiling_boot_image*/false,
-                         &timings,
-                         /*profile_compilation_info*/nullptr);
+    std::unique_ptr<ProfileCompilationInfo>
+        profile_compilation_info(use_profile ? new ProfileCompilationInfo() : nullptr);
+    OatWriter oat_writer(/*compiling_boot_image*/false, &timings, profile_compilation_info.get());
     for (const char* dex_filename : dex_filenames) {
       if (!oat_writer.AddDexFileSource(dex_filename, dex_filename)) {
         return false;
@@ -264,7 +265,7 @@ class OatTest : public CommonCompilerTest {
     return true;
   }
 
-  void TestDexFileInput(bool verify, bool low_4gb);
+  void TestDexFileInput(bool verify, bool low_4gb, bool use_profile);
   void TestZipFileInput(bool verify);
 
   std::unique_ptr<const InstructionSetFeatures> insn_features_;
@@ -568,7 +569,7 @@ static void MaybeModifyDexFileToFail(bool verify, std::unique_ptr<const DexFile>
   }
 }
 
-void OatTest::TestDexFileInput(bool verify, bool low_4gb) {
+void OatTest::TestDexFileInput(bool verify, bool low_4gb, bool use_profile) {
   TimingLogger timings("OatTest::DexFileInput", false, false);
 
   std::vector<const char*> input_filenames;
@@ -610,7 +611,8 @@ void OatTest::TestDexFileInput(bool verify, bool low_4gb) {
                      oat_file.GetFile(),
                      input_filenames,
                      key_value_store,
-                     verify);
+                     verify,
+                     use_profile);
 
   // In verify mode, we expect failure.
   if (verify) {
@@ -654,15 +656,19 @@ void OatTest::TestDexFileInput(bool verify, bool low_4gb) {
 }
 
 TEST_F(OatTest, DexFileInputCheckOutput) {
-  TestDexFileInput(false, /*low_4gb*/false);
+  TestDexFileInput(/*verify*/false, /*low_4gb*/false, /*use_profile*/false);
 }
 
 TEST_F(OatTest, DexFileInputCheckOutputLow4GB) {
-  TestDexFileInput(false, /*low_4gb*/true);
+  TestDexFileInput(/*verify*/false, /*low_4gb*/true, /*use_profile*/false);
 }
 
 TEST_F(OatTest, DexFileInputCheckVerifier) {
-  TestDexFileInput(true, /*low_4gb*/false);
+  TestDexFileInput(/*verify*/true, /*low_4gb*/false, /*use_profile*/false);
+}
+
+TEST_F(OatTest, DexFileFailsVerifierWithLayout) {
+  TestDexFileInput(/*verify*/true, /*low_4gb*/false, /*use_profile*/true);
 }
 
 void OatTest::TestZipFileInput(bool verify) {
@@ -718,7 +724,7 @@ void OatTest::TestZipFileInput(bool verify) {
 
     ScratchFile oat_file, vdex_file(oat_file, ".vdex");
     success = WriteElf(vdex_file.GetFile(), oat_file.GetFile(),
-                       input_filenames, key_value_store, verify);
+                       input_filenames, key_value_store, verify, /*use_profile*/false);
 
     if (verify) {
       ASSERT_FALSE(success);
