@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b85b44c4_e26f1a74",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-08T11:44:59Z",
+      "side": 1,
+      "message": "Sounds reasonable. If you don\u0027t predicate this on kUseStringCompression, then you get some test coverage in the case when kUseStringCompression is not enabled, which is why I ask. Either way is fine with me.",
+      "parentUuid": "08319114_a5398b47",
+      "range": {
+        "startLine": 1357,
+        "startChar": 12,
+        "endLine": 1357,
+        "endChar": 44
+      },
+      "revId": "0ea66ce17523fa1b3a6d53aba3e1d8de48af226b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01474f5e_a0097b7a",
         "filename": "tools/ahat/src/InstanceUtils.java",
         "patchSetId": 2
