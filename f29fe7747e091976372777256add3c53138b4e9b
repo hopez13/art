@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "ffc517c2_184b4aa1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T19:20:50Z",
+      "side": 1,
+      "message": "It\u0027s more that the refactoring would be much cleaner and straightforward if you don\u0027t cramp this change in as well. So not so much about the actual naming.\n\nNot blocked over it, but it will be nicer :)",
+      "parentUuid": "85737c2d_37350bda",
+      "range": {
+        "startLine": 959,
+        "startChar": 22,
+        "endLine": 959,
+        "endChar": 37
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d879b815_9bf91a8b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
