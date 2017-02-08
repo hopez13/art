@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c12b6f3_943fd5e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "\u003e might be good to add a gtest as well.\n\nThat was my first instinct as well, please advise:\n\nI wanted to [only] add a gtest at first. I ran into a problem with build dependencies.\n\nWithout creating the correctly-formatted JAR file (stored, aligned) I would not be able to check the right path.\n\nUnfortunately our gtests are still made from the Android.mk build system. To build gtest JARs, it goes down to HOST_DALVIK_JAVA_LIBRARY/JAVA_LIBRARY and there\u0027s no way there to add the necessary zip compression/zipalign flags that I know of (it just seems to call into jack which makes it).\n\n--------\nThen the two ways I could think of next how to do this:\n\n(a) Edit the core MK files for this (seems like it could break other parts of Android build)\n(b) Some kind of makefile genrule to post-process ZIP files (very complicated MK logic based on my past experience porting testng from gradle to MK).\n\nSo I cost that at at least a week to fix the build, I wasn\u0027t sure if it would be worth it (this is legacy MK build) given the huge amount of effort.\n\nIf I missed something and it\u0027s actually easy 2-3 line change to MK file to add support for this, or you can tell me an acceptable alternative approach (e.g. include prebuilt JAR file) I can do that.",
+      "parentUuid": "194f708f_294ec023",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "924ec066_a00e7a4d",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-02-08T00:26:40Z",
       "side": 1,
       "message": "Should you be trying the traditional path on failure?",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 31
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4315ae77_46bcf894",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "I don\u0027t know, should I? I\u0027m ok with it either way.\n\n--------------\nWhy I didn\u0027t do it originally:\n\nIt\u0027s either failing because the zip is corrupt which will likely happen in case #2 as well\n\nor it\u0027s failing because mmap fails which seems likely in case #2 as well (i.e. not enough memory)\n\n(the guard on L339 is the other \"failure\" cases which we avoid in #1)",
+      "parentUuid": "0b6d02c8_f3260fd5",
       "range": {
         "startLine": 348,
         "startChar": 6,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c2429c87_7995b81a",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "\u003e It sounds more like this should be a CHECK? Somebody is using the API wrong, it\u0027s not really that the dex file is invalid.\n\nI have a weak preference for this, the reason I thought it would make more sense in the dex file verifier is because:\n\n(a) It\u0027s in DEX spec that header_item is 4 byte aligned. DexFileVerifier is supposed to catch spec violations.\n(b) Clean exception being thrown instead of crashing whole runtime.\n\nIf you still want this as a CHECK, I can put it into the DexFile constructor.\n\n\u003e maybe in another CL? Looks a bit orthogonal to the rest of the change.\n\nWell I was debugging this issue for several hours (because it needs the IsAligned check in dex_file.cc and my test offsets were \u002769\u0027) so I don\u0027t think some kind of sanity guard somewhere would hurt :).",
+      "parentUuid": "a063c666_15e2b0ec",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 3
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2566ce8_cfef3230",
         "filename": "runtime/zip_archive.cc",
         "patchSetId": 1
@@ -129,6 +201,30 @@
       "writtenOn": "2017-02-08T00:26:40Z",
       "side": 1,
       "message": "Why the linebreak?",
+      "range": {
+        "startLine": 94,
+        "startChar": 6,
+        "endLine": 94,
+        "endChar": 33
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d7a7a6c_2ca7c3a9",
+        "filename": "runtime/zip_archive.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "It was vertically indenting along the } and was confusing. I\u0027ll put this back.",
+      "parentUuid": "d2566ce8_cfef3230",
       "range": {
         "startLine": 94,
         "startChar": 6,
@@ -256,6 +352,30 @@
     },
     {
       "key": {
+        "uuid": "dc189200_6de2ad82",
+        "filename": "test/071-dexfile/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "It\u0027s loading \"Another\" twice through different class loaders.\n\nOnce via DexClassLoader (#testDexClassLoader)\nAgain via DexFile#loadDex (#testDexFile)\n\nThis second instance is the one that falls back to interpeter mode.\n\n\u003e dalvikvm32 W 02-08 10:56:12 92091 92091 oat_file_manager.cc:620] Found duplicate classes, falling back to interpreter mode for /tmp/iam/test-91894/071-dexfile -ex.jar\n\u003e dalvikvm32 W 02-08 10:56:12 92091 92091 oat_file_manager.cc:626] Found duplicated class when checking oat files: \u0027LAnother;\u0027 in /tmp/iam/test-91894/071-dexfile-ex.jar and /tmp/iam/test-91894/071-dexfile-ex.jar\n\u003e Another",
+      "parentUuid": "dfb6d242_9fe88b7f",
+      "range": {
+        "startLine": 146,
+        "startChar": 4,
+        "endLine": 146,
+        "endChar": 62
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58bbd633_35e064d9",
         "filename": "test/etc/default-build",
         "patchSetId": 1
@@ -267,6 +387,30 @@
       "writtenOn": "2017-02-08T08:34:29Z",
       "side": 1,
       "message": "I expected to see this in the test. Did you forget adding the build script?",
+      "range": {
+        "startLine": 127,
+        "startChar": 19,
+        "endLine": 127,
+        "endChar": 43
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc8c5d48_b73ce19b",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-08T19:11:08Z",
+      "side": 1,
+      "message": "Yes, forgot to git add it, thanks.",
+      "parentUuid": "58bbd633_35e064d9",
       "range": {
         "startLine": 127,
         "startChar": 19,
