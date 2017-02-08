@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "bf329ca9_424451be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "Be more explicit what the clean is about. \nHow it was before and how it is now. It makes reviewing easier.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba001153_6f682423",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "orthogonal change..., split in another CL?",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 603,
+        "endChar": 32
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a3ffed_c1bbaeab",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "group with the other InlineInfo entries.",
+      "range": {
+        "startLine": 607,
+        "startChar": 6,
+        "endLine": 608,
+        "endChar": 58
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "280f68c2_8af0b382",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "Index",
+      "range": {
+        "startLine": 663,
+        "startChar": 34,
+        "endLine": 663,
+        "endChar": 38
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05caa17e_6a9119aa",
         "filename": "runtime/oat.h",
         "patchSetId": 8
@@ -42,6 +134,167 @@
         "startChar": 72,
         "endLine": 35,
         "endChar": 98
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f794129b_8fbe9b32",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "This could be  split in another CL. It\u0027s orthogonal to the clean up and you wouldn\u0027t need to bump the oat version for a \"clean up\" cl.",
+      "range": {
+        "startLine": 959,
+        "startChar": 22,
+        "endLine": 959,
+        "endChar": 37
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d879b815_9bf91a8b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "why is it necessary to mention this?",
+      "range": {
+        "startLine": 1052,
+        "startChar": 30,
+        "endLine": 1052,
+        "endChar": 55
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8654a3d0_973648d3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "These two lines seem independent. Separate or odd a comment on how one impact the other.",
+      "range": {
+        "startLine": 1097,
+        "startChar": 3,
+        "endLine": 1098,
+        "endChar": 44
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "949fa128_21136c91",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "I think this and EncodingTable should have a related name to highlight that one is a bit table and the other one a byte table.",
+      "range": {
+        "startLine": 1111,
+        "startChar": 7,
+        "endLine": 1111,
+        "endChar": 21
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67b1ad3f_a27c23d2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "same as L1097",
+      "range": {
+        "startLine": 1136,
+        "startChar": 0,
+        "endLine": 1138,
+        "endChar": 36
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0ff525d_aac424c9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "You mentioned alignment but set a *bit* offset. DCHECK that those offset are aligned.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 31,
+        "endLine": 1187,
+        "endChar": 38
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a48396d_701e5331",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T06:02:32Z",
+      "side": 1,
+      "message": "worth adding a \"cache_\" prefix since this can be recomputed any time for the data.",
+      "range": {
+        "startLine": 1210,
+        "startChar": 0,
+        "endLine": 1213,
+        "endChar": 41
       },
       "revId": "f29fe7747e091976372777256add3c53138b4e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
