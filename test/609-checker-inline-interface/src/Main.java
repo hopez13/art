@@ -20,8 +20,7 @@ public final class Main implements Interface {
     interf.doCall();
   }
 
-  public void doCall() {
-    if (doThrow) throw new Error("");
+  public void $noinline$doCall() {
   }
 
   public static void main(String[] args) {
@@ -66,5 +65,5 @@ public final class Main implements Interface {
 }
 
 interface Interface {
-  public void doCall();
+  public void $noinline$doCall();
 }

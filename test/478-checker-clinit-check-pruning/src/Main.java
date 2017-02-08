@@ -417,8 +417,8 @@ public class Main {
     static void inlinedForNull(Iterable<?> it) {
       if (it != null) {
         it.iterator();
-        // We're not inlining throw at the moment.
-        if (doThrow) { throw new Error(""); }
+        // We're not inlining methods that always throw.
+        throw new Error("");
       }
     }
   }
@@ -457,8 +457,8 @@ public class Main {
     static void inlinedForNull(Iterable<?> it) {
       it.iterator();
       if (it != null) {
-        // We're not inlining throw at the moment.
-        if (doThrow) { throw new Error(""); }
+        // We're not inlining methods that always throw.
+        throw new Error("");
       }
     }
   }
