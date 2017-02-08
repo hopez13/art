@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "f360091b_dcf92472",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:17:10Z",
+      "side": 1,
+      "message": "The dex spec talks about the file format, and that is technically what the verifier is testing. The header is still 4-byte aligned - wrt/ start of the dex file. The verifier will this way reject a perfectly valid dex file, just because the caller allocated it incorrectly.\n\nTo me this is simply incorrect API usage, and should not be an error return. This is *us* calling *our* API wrong.\n\nBut overall I\u0027m fine either way, because the code is dead (unless we introduce a bug somewhere else). :-)",
+      "parentUuid": "0075e999_5ec9b47a",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 3
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2566ce8_cfef3230",
         "filename": "runtime/zip_archive.cc",
         "patchSetId": 1
