@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "c3ba7294_10cab3e4",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:46:49Z",
+      "side": 1,
+      "message": "I don\u0027t know. extract would not fail for the zip-fd, at least. Don\u0027t know whether it would be unhappy if something that\u0027s supposedly stored has weird compressed vs uncompressed ratio.",
+      "parentUuid": "482804a6_06892bfc",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 31
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162c426b_22f58e50",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
