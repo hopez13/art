@@ -69,38 +69,29 @@ void HInliner::Run() {
     // doing some logic in the runtime to discover if a method could have been inlined.
     return;
   }
-  const ArenaVector<HBasicBlock*>& blocks = graph_->GetReversePostOrder();
+  // Keep a copy of all blocks when starting the visit.
+  // Because we are changing the graph when inlining,
+  // we just iterate over the blocks of the outer method.
+  // This avoids doing the inlining work again on the inlined blocks.
+  ArenaVector<HBasicBlock*> blocks = graph_->GetReversePostOrder();
   DCHECK(!blocks.empty());
-  HBasicBlock* next_block = blocks[0];
-  for (size_t i = 0; i < blocks.size(); ++i) {
-    // Because we are changing the graph when inlining, we need to remember the next block.
-    // This avoids doing the inlining work again on the inlined blocks.
-    if (blocks[i] != next_block) {
-      continue;
-    }
-    HBasicBlock* block = next_block;
-    next_block = (i == blocks.size() - 1) ? nullptr : blocks[i + 1];
+  for (HBasicBlock* block : blocks) {
     for (HInstruction* instruction = block->GetFirstInstruction(); instruction != nullptr;) {
       HInstruction* next = instruction->GetNext();
       HInvoke* call = instruction->AsInvoke();
       // As long as the call is not intrinsified, it is worth trying to inline.
       if (call != nullptr && call->GetIntrinsic() == Intrinsics::kNone) {
-        // We use the original invoke type to ensure the resolution of the called method
-        // works properly.
-        if (!TryInline(call)) {
-          if (kIsDebugBuild && IsCompilingWithCoreImage()) {
-            std::string callee_name =
-                outer_compilation_unit_.GetDexFile()->PrettyMethod(call->GetDexMethodIndex());
-            bool should_inline = callee_name.find("$inline$") != std::string::npos;
-            CHECK(!should_inline) << "Could not inline " << callee_name;
+        if (kIsDebugBuild && IsCompilingWithCoreImage()) {
+          std::string callee_name =
+              outer_compilation_unit_.GetDexFile()->PrettyMethod(call->GetDexMethodIndex());
+          // Tests prevent inlining by having $noinline$ in their method names.
+          if (callee_name.find("$noinline$") == std::string::npos) {
+            if (!TryInline(call)) {
+              CHECK(callee_name.find("$inline$") == std::string::npos);
+            }
           }
         } else {
-          if (kIsDebugBuild && IsCompilingWithCoreImage()) {
-            std::string callee_name =
-                outer_compilation_unit_.GetDexFile()->PrettyMethod(call->GetDexMethodIndex());
-            bool must_not_inline = callee_name.find("$noinline$") != std::string::npos;
-            CHECK(!must_not_inline) << "Should not have inlined " << callee_name;
-          }
+          TryInline(call);
         }
       }
       instruction = next;
@@ -566,7 +557,6 @@ HInstruction* HInliner::AddTypeGuard(HInstruction* receiver,
   bb_cursor->InsertInstructionAfter(load_class, receiver_class);
   load_class->SetLoadKind(kind);
 
-  // TODO: Extend reference type propagation to understand the guard.
   HNotEqual* compare = new (graph_->GetArena()) HNotEqual(load_class, receiver_class);
   bb_cursor->InsertInstructionAfter(compare, load_class);
   if (with_deoptimization) {
@@ -850,7 +840,6 @@ bool HInliner::TryInlinePolymorphicCallToSameTarget(
   if (outermost_graph_->IsCompilingOsr()) {
     CreateDiamondPatternForPolymorphicInline(compare, return_replacement, invoke_instruction);
   } else {
-    // TODO: Extend reference type propagation to understand the guard.
     HDeoptimize* deoptimize = new (graph_->GetArena()) HDeoptimize(
         compare, invoke_instruction->GetDexPc());
     bb_cursor->InsertInstructionAfter(deoptimize, compare);
@@ -1356,9 +1345,6 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
       RunOptimizations(callee_graph, code_item, dex_compilation_unit);
   number_of_instructions_budget += number_of_inlined_instructions;
 
-  // TODO: We should abort only if all predecessors throw. However,
-  // HGraph::InlineInto currently does not handle an exit block with
-  // a throw predecessor.
   HBasicBlock* exit_block = callee_graph->GetExitBlock();
   if (exit_block == nullptr) {
     VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
@@ -1366,16 +1352,30 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
     return false;
   }
 
-  bool has_throw_predecessor = false;
+  bool has_one_return = false;
   for (HBasicBlock* predecessor : exit_block->GetPredecessors()) {
     if (predecessor->GetLastInstruction()->IsThrow()) {
-      has_throw_predecessor = true;
-      break;
+      if (invoke_instruction->GetBlock()->IsTryBlock()) {
+        // TODO(ngeoffray): Support adding HTryBoundary in Hgraph::InlineInto.
+        VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
+                       << " could not be inlined because one branch always throws and"
+                       << " caller is in a try/catch block";
+        return false;
+      } else if (graph_->GetExitBlock() == nullptr) {
+        // TODO(ngeoffray): Support adding HExit in the caller graph.
+        VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
+                       << " could not be inlined because one branch always throws and"
+                       << " caller does not have an exit block";
+        return false;
+      }
+    } else {
+      has_one_return = true;
     }
   }
-  if (has_throw_predecessor) {
+
+  if (!has_one_return) {
     VLOG(compiler) << "Method " << callee_dex_file.PrettyMethod(method_index)
-                   << " could not be inlined because one branch always throws";
+                   << " could not be inlined because it always throws";
     return false;
   }
 
