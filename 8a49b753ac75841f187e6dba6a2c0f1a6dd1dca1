@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "482804a6_06892bfc",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T23:40:49Z",
+      "side": 1,
+      "message": "So the assumptions is that extract will not fail even if the mapping fails?",
+      "parentUuid": "dd76754b_10e7e02b",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 31
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162c426b_22f58e50",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
@@ -346,6 +370,30 @@
       "side": 1,
       "message": "The dex spec talks about the file format, and that is technically what the verifier is testing. The header is still 4-byte aligned - wrt/ start of the dex file. The verifier will this way reject a perfectly valid dex file, just because the caller allocated it incorrectly.\n\nTo me this is simply incorrect API usage, and should not be an error return. This is *us* calling *our* API wrong.\n\nBut overall I\u0027m fine either way, because the code is dead (unless we introduce a bug somewhere else). :-)",
       "parentUuid": "0075e999_5ec9b47a",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 3
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "930ccacc_848885bd",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-08T23:40:49Z",
+      "side": 1,
+      "message": "Oki, missed that\u0027s *us* calling it. In that case we should make it CHECK.",
+      "parentUuid": "f360091b_dcf92472",
       "range": {
         "startLine": 348,
         "startChar": 2,
