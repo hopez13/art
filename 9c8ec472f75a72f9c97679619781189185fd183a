@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6e92c0d_a42371e8",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:32:19Z",
+      "side": 1,
+      "message": "why not unique_ptr here?",
+      "range": {
+        "startLine": 278,
+        "startChar": 45,
+        "endLine": 278,
+        "endChar": 59
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "856fe9fe_ddf8a2d6",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:32:19Z",
+      "side": 1,
+      "message": "Why are we not using base\u0027s CHECK here? I don\u0027t know whether asserts are on or not.",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 5
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8acd715_209953ea",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:32:19Z",
+      "side": 1,
+      "message": "What will that mean for speed-profile? Should this be empty or full?",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 65
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
