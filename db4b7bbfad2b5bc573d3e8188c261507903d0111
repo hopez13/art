@@ -122,6 +122,24 @@
       "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9e99b35_dab3ce70",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-08T19:24:51Z",
+      "side": 1,
+      "message": "If we make it best effort (instead of keeping it up-to-date), we should reflect that in the name (e.g. MayHaveLoops()). We should probably do the same for all other flags that we can\u0027t keep up to date",
+      "parentUuid": "69c7db19_17b82bb8",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
