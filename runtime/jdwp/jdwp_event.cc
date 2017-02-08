@@ -106,38 +106,6 @@ namespace JDWP {
 
 using android::base::StringPrintf;
 
-/*
- * Stuff to compare against when deciding if a mod matches.  Only the
- * values for mods valid for the event being evaluated will be filled in.
- * The rest will be zeroed.
- * Must be allocated on the stack only. This is enforced by removing the
- * operator new.
- */
-struct ModBasket {
-  explicit ModBasket(Thread* self)
-    : hs(self), pLoc(nullptr), thread(self),
-      locationClass(hs.NewHandle<mirror::Class>(nullptr)),
-      exceptionClass(hs.NewHandle<mirror::Class>(nullptr)),
-      caught(false),
-      field(nullptr),
-      thisPtr(hs.NewHandle<mirror::Object>(nullptr)) { }
-
-  StackHandleScope<3> hs;
-  const EventLocation*            pLoc;             /* LocationOnly */
-  std::string                     className;        /* ClassMatch/ClassExclude */
-  Thread* const                   thread;           /* ThreadOnly */
-  MutableHandle<mirror::Class>    locationClass;    /* ClassOnly */
-  MutableHandle<mirror::Class>    exceptionClass;   /* ExceptionOnly */
-  bool                            caught;           /* ExceptionOnly */
-  ArtField*                       field;            /* FieldOnly */
-  MutableHandle<mirror::Object>   thisPtr;          /* InstanceOnly */
-  /* nothing for StepOnly -- handled differently */
-
- private:
-  DISALLOW_ALLOCATION();  // forbids allocation on the heap.
-  DISALLOW_IMPLICIT_CONSTRUCTORS(ModBasket);
-};
-
 static bool NeedsFullDeoptimization(JdwpEventKind eventKind) {
   if (!Dbg::RequiresDeoptimization()) {
     // We don't need deoptimization for debugging.
@@ -251,6 +219,10 @@ JdwpError JdwpState::RegisterEvent(JdwpEvent* pEvent) {
   return ERR_NONE;
 }
 
+void JdwpState::UnregisterEvent(JdwpEvent* pEvent) {
+  MutexLock mu(Thread::Current(), event_list_lock_);
+  UnregisterEventLocked(pEvent);
+}
 /*
  * Remove an event from the list.  This will also remove the event from
  * any optimization tables, e.g. breakpoints.
@@ -259,7 +231,7 @@ JdwpError JdwpState::RegisterEvent(JdwpEvent* pEvent) {
  *
  * Grab the eventLock before calling here.
  */
-void JdwpState::UnregisterEvent(JdwpEvent* pEvent) {
+void JdwpState::UnregisterEventLocked(JdwpEvent* pEvent) {
   if (pEvent->prev == nullptr) {
     /* head of the list */
     CHECK(event_list_ == pEvent);
@@ -324,7 +296,7 @@ void JdwpState::UnregisterEventById(uint32_t requestId) {
     for (JdwpEvent* pEvent = event_list_; pEvent != nullptr; pEvent = pEvent->next) {
       if (pEvent->requestId == requestId) {
         found = true;
-        UnregisterEvent(pEvent);
+        UnregisterEventLocked(pEvent);
         EventFree(pEvent);
         break;      /* there can be only one with a given ID */
       }
@@ -352,7 +324,7 @@ void JdwpState::UnregisterAll() {
   while (pEvent != nullptr) {
     JdwpEvent* pNextEvent = pEvent->next;
 
-    UnregisterEvent(pEvent);
+    UnregisterEventLocked(pEvent);
     EventFree(pEvent);
     pEvent = pNextEvent;
   }
@@ -414,7 +386,7 @@ void JdwpState::CleanupMatchList(const std::vector<JdwpEvent*>& match_list) {
       if (pEvent->mods[i].modKind == MK_COUNT && pEvent->mods[i].count.count == 0) {
         VLOG(jdwp) << StringPrintf("##### Removing expired event (requestId=%#" PRIx32 ")",
                                    pEvent->requestId);
-        UnregisterEvent(pEvent);
+        UnregisterEventLocked(pEvent);
         EventFree(pEvent);
         break;
       }

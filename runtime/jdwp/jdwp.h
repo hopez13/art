@@ -19,6 +19,7 @@
 
 #include "atomic.h"
 #include "base/mutex.h"
+#include "handle_scope.h"
 #include "jdwp/jdwp_bits.h"
 #include "jdwp/jdwp_constants.h"
 #include "jdwp/jdwp_expand_buf.h"
@@ -114,8 +115,39 @@ bool operator==(const JdwpOptions& lhs, const JdwpOptions& rhs);
 
 struct JdwpEvent;
 class JdwpNetStateBase;
-struct ModBasket;
 class Request;
+
+/*
+ * Stuff to compare against when deciding if a mod matches.  Only the
+ * values for mods valid for the event being evaluated will be filled in.
+ * The rest will be zeroed.
+ * Must be allocated on the stack only. This is enforced by removing the
+ * operator new.
+ */
+struct ModBasket {
+  explicit ModBasket(Thread* self)
+    : hs(self), pLoc(nullptr), thread(self),
+      locationClass(hs.NewHandle<mirror::Class>(nullptr)),
+      exceptionClass(hs.NewHandle<mirror::Class>(nullptr)),
+      caught(false),
+      field(nullptr),
+      thisPtr(hs.NewHandle<mirror::Object>(nullptr)) { }
+
+  StackHandleScope<3> hs;
+  const EventLocation*            pLoc;             /* LocationOnly */
+  std::string                     className;        /* ClassMatch/ClassExclude */
+  Thread* const                   thread;           /* ThreadOnly */
+  MutableHandle<mirror::Class>    locationClass;    /* ClassOnly */
+  MutableHandle<mirror::Class>    exceptionClass;   /* ExceptionOnly */
+  bool                            caught;           /* ExceptionOnly */
+  ArtField*                       field;            /* FieldOnly */
+  MutableHandle<mirror::Object>   thisPtr;          /* InstanceOnly */
+  /* nothing for StepOnly -- handled differently */
+
+ private:
+  DISALLOW_ALLOCATION();  // forbids allocation on the heap.
+  DISALLOW_IMPLICIT_CONSTRUCTORS(ModBasket);
+};
 
 /*
  * State for JDWP functions.
@@ -293,6 +325,16 @@ struct JdwpState {
       REQUIRES(!event_list_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void UnregisterEvent(JdwpEvent* pEvent)
+      REQUIRES(!event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+  /*
+   * Finds events that match the given ModBasket
+   */
+  bool FindMatchingEvents(JdwpEventKind eventKind,
+                          const ModBasket& basket,
+                          std::vector<JdwpEvent*>* match_list)
+      REQUIRES(!event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   explicit JdwpState(const JdwpOptions* options);
   size_t ProcessRequest(Request* request, ExpandBuf* pReply, bool* skip_reply)
@@ -307,13 +349,10 @@ struct JdwpState {
   void CleanupMatchList(const std::vector<JdwpEvent*>& match_list)
       REQUIRES(event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
   void EventFinish(ExpandBuf* pReq);
-  bool FindMatchingEvents(JdwpEventKind eventKind, const ModBasket& basket,
-                          std::vector<JdwpEvent*>* match_list)
-      REQUIRES(!event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
   void FindMatchingEventsLocked(JdwpEventKind eventKind, const ModBasket& basket,
                                 std::vector<JdwpEvent*>* match_list)
       REQUIRES(event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
-  void UnregisterEvent(JdwpEvent* pEvent)
+  void UnregisterEventLocked(JdwpEvent* pEvent)
       REQUIRES(event_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
   void SendBufferedRequest(uint32_t type, const std::vector<iovec>& iov);
 

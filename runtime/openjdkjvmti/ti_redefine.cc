@@ -38,12 +38,17 @@
 #include "art_jvmti.h"
 #include "base/array_slice.h"
 #include "base/logging.h"
+#include "debugger.h"
 #include "dex_file.h"
 #include "dex_file_types.h"
 #include "events-inl.h"
 #include "gc/allocation_listener.h"
 #include "gc/heap.h"
 #include "instrumentation.h"
+#include "jdwp/jdwp.h"
+#include "jdwp/jdwp_constants.h"
+#include "jdwp/jdwp_event.h"
+#include "jdwp/object_registry.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jni_env_ext-inl.h"
@@ -886,6 +891,50 @@ bool Redefiner::ClassRedefinition::FinishRemainingAllocations(
   return true;
 }
 
+void Redefiner::ClassRedefinition::UnregisterBreakpoints() {
+  DCHECK(art::Dbg::IsDebuggerActive());
+  std::vector<art::JDWP::JdwpEvent*> events;
+  // Unfortunately there is no way to check for Breakpoint events within a particular class.
+  art::JDWP::ModBasket basket(driver_->self_);
+  art::JDWP::JdwpState* state = art::Dbg::GetJdwpState();
+  if (!state->FindMatchingEvents(art::JDWP::EK_BREAKPOINT, basket, &events)) {
+    return;
+  }
+  bool found = false;
+  for (art::JDWP::JdwpEvent* event : events) {
+    for (int i = 0; i < event->modCount; i++) {
+      art::JDWP::JdwpEventMod& mod = event->mods[i];
+      if (mod.modKind == art::JDWP::MK_LOCATION_ONLY) {
+        art::JDWP::JdwpLocation& loc = mod.locationOnly.loc;
+        art::JDWP::JdwpError error;
+        art::ObjPtr<art::mirror::Class> breakpoint_class(
+            art::Dbg::GetObjectRegistry()->Get<art::mirror::Class*>(loc.class_id, &error));
+        if (breakpoint_class.Ptr() != GetMirrorClass()) {
+          continue;
+        } else {
+          state->UnregisterEvent(event);
+          art::JDWP::EventFree(event);
+          found = true;
+          break;
+        }
+      }
+    }
+  }
+  if (found) {
+    art::Dbg::ManageDeoptimization();
+  }
+  // TODO Remove all the interesting events.
+}
+
+void Redefiner::UnregisterAllBreakpoints() {
+  if (LIKELY(!art::Dbg::IsDebuggerActive())) {
+    return;
+  }
+  for (Redefiner::ClassRedefinition& redef : redefinitions_) {
+    redef.UnregisterBreakpoints();
+  }
+}
+
 bool Redefiner::CheckAllRedefinitionAreValid() {
   for (Redefiner::ClassRedefinition& redef : redefinitions_) {
     if (!redef.CheckRedefinitionIsValid()) {
@@ -952,6 +1001,7 @@ jvmtiError Redefiner::Run() {
     // cleaned up by the GC eventually.
     return result_;
   }
+  // At this point we can no longer fail without corrupting the runtime state.
   int32_t counter = 0;
   for (Redefiner::ClassRedefinition& redef : redefinitions_) {
     if (holder.GetSourceClassLoader(counter) == nullptr) {
@@ -959,6 +1009,7 @@ jvmtiError Redefiner::Run() {
     }
     counter++;
   }
+  UnregisterAllBreakpoints();
   // Disable GC and wait for it to be done if we are a moving GC.  This is fine since we are done
   // allocating so no deadlocks.
   art::gc::Heap* heap = runtime_->GetHeap();
@@ -991,9 +1042,7 @@ jvmtiError Redefiner::Run() {
                       holder.GetOriginalDexFileBytes(counter));
     counter++;
   }
-  // TODO Verify the new Class.
   // TODO Shrink the obsolete method maps if possible?
-  // TODO find appropriate class loader.
   // TODO Put this into a scoped thing.
   runtime_->GetThreadList()->ResumeAll();
   // Get back shared mutator lock as expected for return.
