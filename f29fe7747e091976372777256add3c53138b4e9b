@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "667882ad_4ec22dd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf329ca9_424451be",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba001153_6f682423",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-08T06:02:32Z",
       "side": 1,
       "message": "orthogonal change..., split in another CL?",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 603,
+        "endChar": 32
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffb17172_1492e7cc",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba001153_6f682423",
       "range": {
         "startLine": 599,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a0ed5257_0ecd2cf9",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8a3ffed_c1bbaeab",
+      "range": {
+        "startLine": 607,
+        "startChar": 6,
+        "endLine": 608,
+        "endChar": 58
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "280f68c2_8af0b382",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-08T06:02:32Z",
       "side": 1,
       "message": "Index",
+      "range": {
+        "startLine": 663,
+        "startChar": 34,
+        "endLine": 663,
+        "endChar": 38
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "254378da_224442c6",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "280f68c2_8af0b382",
       "range": {
         "startLine": 663,
         "startChar": 34,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "85737c2d_37350bda",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Can I rename the CL to not split it up? The code is already tested and splitting it up could introduce bugs.",
+      "parentUuid": "f794129b_8fbe9b32",
+      "range": {
+        "startLine": 959,
+        "startChar": 22,
+        "endLine": 959,
+        "endChar": 37
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d879b815_9bf91a8b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -175,6 +295,30 @@
       "writtenOn": "2017-02-08T06:02:32Z",
       "side": 1,
       "message": "why is it necessary to mention this?",
+      "range": {
+        "startLine": 1052,
+        "startChar": 30,
+        "endLine": 1052,
+        "endChar": 55
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04ae7478_4dfd6652",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Stack masks can be larger than 255 bits for test 083, there was a bug in earlier patch set due to using a uint8_t without leb encoding.",
+      "parentUuid": "d879b815_9bf91a8b",
       "range": {
         "startLine": 1052,
         "startChar": 30,
@@ -210,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "b54587de_7ab58ef6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8654a3d0_973648d3",
+      "range": {
+        "startLine": 1097,
+        "startChar": 3,
+        "endLine": 1098,
+        "endChar": 44
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "949fa128_21136c91",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -221,6 +389,30 @@
       "writtenOn": "2017-02-08T06:02:32Z",
       "side": 1,
       "message": "I think this and EncodingTable should have a related name to highlight that one is a bit table and the other one a byte table.",
+      "range": {
+        "startLine": 1111,
+        "startChar": 7,
+        "endLine": 1111,
+        "endChar": 21
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcd54606_c91af043",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "949fa128_21136c91",
       "range": {
         "startLine": 1111,
         "startChar": 7,
@@ -256,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "2cda6b7f_4d88afcf",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67b1ad3f_a27c23d2",
+      "range": {
+        "startLine": 1136,
+        "startChar": 0,
+        "endLine": 1138,
+        "endChar": 36
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0ff525d_aac424c9",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -279,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "72eb5115_3126a96f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "There is already a DCHECK in UpdateBitOffset",
+      "parentUuid": "a0ff525d_aac424c9",
+      "range": {
+        "startLine": 1187,
+        "startChar": 31,
+        "endLine": 1187,
+        "endChar": 38
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a48396d_701e5331",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -290,6 +530,30 @@
       "writtenOn": "2017-02-08T06:02:32Z",
       "side": 1,
       "message": "worth adding a \"cache_\" prefix since this can be recomputed any time for the data.",
+      "range": {
+        "startLine": 1210,
+        "startChar": 0,
+        "endLine": 1213,
+        "endChar": 41
+      },
+      "revId": "f29fe7747e091976372777256add3c53138b4e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0cc62c7_83059ba6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-08T17:52:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a48396d_701e5331",
       "range": {
         "startLine": 1210,
         "startChar": 0,
