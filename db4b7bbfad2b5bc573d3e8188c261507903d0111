@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "b5ed0418_96b4e6e5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2043,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-08T11:04:32Z",
+      "side": 1,
+      "message": "Sure (though both irreducible and try/catch don\u0027t get inline right now).",
+      "parentUuid": "65bfd51b_647e518b",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cc01c84_051e436e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "side": 1,
       "message": "OK, not sure I agree with this. Having flags that only mean what they say until some phase has run is very dangerous. If other flags don\u0027t do what they promise, we should fix those, not introduce more.....",
       "parentUuid": "2cc01c84_051e436e",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08781b9_701b0133",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-08T11:04:32Z",
+      "side": 1,
+      "message": "I agree with Aart that we should make sure those flags are kept up to date, for our own sanity.",
+      "parentUuid": "f595131c_5e747e61",
       "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
