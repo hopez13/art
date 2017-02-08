@@ -104,6 +104,24 @@
       "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69c7db19_17b82bb8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-08T19:18:46Z",
+      "side": 1,
+      "message": "Ok, I updated the flag if loop optimization removes all loops. It\u0027s kind of hard to keep all flags up to date in the presence of DCE.",
+      "parentUuid": "d08781b9_701b0133",
+      "revId": "db4b7bbfad2b5bc573d3e8188c261507903d0111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
