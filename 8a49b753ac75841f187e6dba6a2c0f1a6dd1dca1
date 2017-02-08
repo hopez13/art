@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "dd76754b_10e7e02b",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-08T23:19:32Z",
+      "side": 1,
+      "message": "The zip-fd stuff, as well as the (technically maybe broken zip) stuff with uncompressed vs compressed size, would both be recoverable by just mapping it the old way.",
+      "parentUuid": "e996e3b2_94318dc9",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 31
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162c426b_22f58e50",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
