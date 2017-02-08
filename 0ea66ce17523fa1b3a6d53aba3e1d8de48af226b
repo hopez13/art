@@ -22,6 +22,30 @@
       "revId": "0ea66ce17523fa1b3a6d53aba3e1d8de48af226b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08319114_a5398b47",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-08T10:51:38Z",
+      "side": 1,
+      "message": "It would work without this check but why would we want to emit unnecessary code when it\u0027s not needed? It also serves as an extra documentation that this is needed only for string compression.",
+      "parentUuid": "ea2ad1f8_9e64dc13",
+      "range": {
+        "startLine": 1357,
+        "startChar": 12,
+        "endLine": 1357,
+        "endChar": 44
+      },
+      "revId": "0ea66ce17523fa1b3a6d53aba3e1d8de48af226b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
