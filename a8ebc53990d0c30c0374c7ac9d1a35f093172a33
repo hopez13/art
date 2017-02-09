@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "21ab9661_f23c0d4d",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-09T18:27:30Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "841e7e5f_42e4eaab",
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18af4c11_a377f61e",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -89,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "2f644bb2_daacd590",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-09T18:27:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18af4c11_a377f61e",
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f724e5a1_e1b262cb",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -106,6 +142,24 @@
         "endLine": 926,
         "endChar": 44
       },
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c8a8c35_c45c6c3b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-09T18:27:30Z",
+      "side": 1,
+      "message": "Ok I did it for everything with locationOnly.",
+      "parentUuid": "f724e5a1_e1b262cb",
       "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
