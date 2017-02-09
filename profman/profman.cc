@@ -249,7 +249,8 @@ class ProfMan FINAL {
   }
 
   int DumpOneProfile(const std::string& banner, const std::string& filename, int fd,
-                     const std::vector<const DexFile*>* dex_files, std::string* dump) {
+                     const std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                     std::string* dump) {
     if (!filename.empty()) {
       fd = open(filename.c_str(), O_RDWR);
       if (fd < 0) {
@@ -277,7 +278,7 @@ class ProfMan FINAL {
 
     // Open apk/zip files and and read dex files.
     MemMap::Init();  // for ZipArchive::OpenFromFd
-    std::vector<const DexFile*> dex_files;
+    std::vector<std::unique_ptr<const DexFile>> dex_files;
     assert(dex_locations_.size() == apks_fd_.size());
     static constexpr bool kVerifyChecksum = true;
     for (size_t i = 0; i < dex_locations_.size(); ++i) {
@@ -293,7 +294,7 @@ class ProfMan FINAL {
         continue;
       }
       for (std::unique_ptr<const DexFile>& dex_file : dex_files_for_location) {
-        dex_files.push_back(dex_file.release());
+        dex_files.emplace_back(std::move(dex_file));
       }
     }
 

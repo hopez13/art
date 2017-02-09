@@ -597,6 +597,16 @@ uint32_t ProfileCompilationInfo::GetNumberOfResolvedClasses() const {
   return total;
 }
 
+std::string ProfileCompilationInfo::DumpInfo(
+    const std::vector<std::unique_ptr<const DexFile>>* dex_files,
+    bool print_full_dex_location) const {
+  std::vector<const DexFile*> non_owning_dex_files;
+  for (auto& dex_file : *dex_files) {
+    non_owning_dex_files.push_back(dex_file.get());
+  }
+  return DumpInfo(&non_owning_dex_files, print_full_dex_location);
+}
+
 std::string ProfileCompilationInfo::DumpInfo(const std::vector<const DexFile*>* dex_files,
                                              bool print_full_dex_location) const {
   std::ostringstream os;
