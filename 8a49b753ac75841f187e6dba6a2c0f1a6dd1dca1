@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "3947f318_874b40a9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-09T18:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3ba7294_10cab3e4",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 31
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162c426b_22f58e50",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
@@ -418,6 +442,30 @@
       "side": 1,
       "message": "Oki, missed that\u0027s *us* calling it. In that case we should make it CHECK.",
       "parentUuid": "f360091b_dcf92472",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 359,
+        "endChar": 3
+      },
+      "revId": "8a49b753ac75841f187e6dba6a2c0f1a6dd1dca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d71d17e4_fdfc9f33",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-09T18:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "930ccacc_848885bd",
       "range": {
         "startLine": 348,
         "startChar": 2,
