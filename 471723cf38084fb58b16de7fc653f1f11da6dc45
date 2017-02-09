@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c9100b6_61a988aa",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T23:36:41Z",
+      "side": 1,
+      "message": "nit: can go on the same line, same in the other places.",
+      "range": {
+        "startLine": 348,
+        "startChar": 47,
+        "endLine": 349,
+        "endChar": 56
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a3bee67_63391c49",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T23:36:41Z",
+      "side": 1,
+      "message": "You don\u0027t need this anymore, right? no-dex2oat seems to do what we want",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
