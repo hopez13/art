@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fb4d9a3c_862ad96d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T23:53:12Z",
+      "side": 1,
+      "message": "I remember we discussed the /*out*/ params at some point.\n\nIf you grep in the code base, they are all on the same line :) so it would be good to be consistent.",
+      "parentUuid": "de6c667e_13163930",
+      "range": {
+        "startLine": 348,
+        "startChar": 47,
+        "endLine": 349,
+        "endChar": 56
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a3bee67_63391c49",
         "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2017-02-09T23:36:41Z",
       "side": 1,
       "message": "You don\u0027t need this anymore, right? no-dex2oat seems to do what we want",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83588981_3bed1cc7",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T23:53:12Z",
+      "side": 1,
+      "message": "remove the file?",
+      "parentUuid": "3a3bee67_63391c49",
       "range": {
         "startLine": 17,
         "startChar": 13,
