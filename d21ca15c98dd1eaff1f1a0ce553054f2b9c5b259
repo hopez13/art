@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22d579fb_3eb58e5c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1651,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-09T03:27:39Z",
+      "side": 1,
+      "message": "Is it OK to leave null dex caches in the array for the error case?",
+      "range": {
+        "startLine": 1651,
+        "startChar": 8,
+        "endLine": 1651,
+        "endChar": 20
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
