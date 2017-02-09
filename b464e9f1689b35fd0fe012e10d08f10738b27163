@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b615283_5db76bdd",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "Doesn\u0027t this imply an erroneous dex file ? Shouldn\u0027t we be doing something about it instead of silently returning ?",
+      "range": {
+        "startLine": 554,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 36
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee72a522_81180278",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "why did you change this ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "616fdbff_2de766a6",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "ditto ?",
+      "range": {
+        "startLine": 266,
+        "startChar": 30,
+        "endLine": 266,
+        "endChar": 40
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8edc4fa1_f48fcde0",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "i\u0027m assuming this isn\u0027t written to compiled output anywhere ? we\u0027d need to change the oat version etc (or move your new item types to the end) if that\u0027s the case.",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 16
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4704efe8_5a7e23d0",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "what did you gain by explicitly listing these out ? there\u0027s no UNREACHABLE() in the default case so we\u0027re not really guarding against any programming error.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 51
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db827937_22db09ae",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "why did this change ? (same question for the other \u0027start \u003d\u003d current\u0027 changes in this file..)",
+      "range": {
+        "startLine": 1641,
+        "startChar": 6,
+        "endLine": 1649,
+        "endChar": 5
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30bd4e00_c8b1131d",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T11:54:52Z",
+      "side": 1,
+      "message": "Add a TODO to improve this once we have smali / dx support ?",
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
