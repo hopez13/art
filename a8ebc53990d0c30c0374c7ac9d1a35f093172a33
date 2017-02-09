@@ -40,6 +40,75 @@
       "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841e7e5f_42e4eaab",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-02-09T09:38:59Z",
+      "side": 1,
+      "message": "I find it weird to expose internals of Dbg to have the code here. Why not doing the opposite? It seems to me that you only want to unregister events that match any location (like breakpoints) of a class being redefined, am I right?",
+      "range": {
+        "startLine": 894,
+        "startChar": 35,
+        "endLine": 894,
+        "endChar": 56
+      },
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18af4c11_a377f61e",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-02-09T09:38:59Z",
+      "side": 1,
+      "message": "IMO you should DCHECK there is no error",
+      "range": {
+        "startLine": 909,
+        "startChar": 8,
+        "endLine": 909,
+        "endChar": 35
+      },
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f724e5a1_e1b262cb",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-02-09T09:38:59Z",
+      "side": 1,
+      "message": "The spec of JDWP command RedefineClasses states that \"All breakpoints in the redefined classes are cleared\". I guess it\u0027s because the location (method + pc) may no longer be valid (method\u0027s code is different or method no longer exists).\n\nBy extension, I believe that we should consider *all* events which have a LocationOnly modifier. From the spec of EventRequest.Set, it could be \"breakpoint, field access, field modification, step, and exception event\". But I\u0027m OK with doing this later, especially it would be nice to compare with the RI\u0027s behavior.",
+      "range": {
+        "startLine": 926,
+        "startChar": 2,
+        "endLine": 926,
+        "endChar": 44
+      },
+      "revId": "a8ebc53990d0c30c0374c7ac9d1a35f093172a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
