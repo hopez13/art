@@ -1988,9 +1988,9 @@ void InstructionCodeGeneratorARMVIXL::GenerateTestAndBranch(HInstruction* instru
       __ Cmp(left, CodeGenerator::GetInt32ValueOf(right.GetConstant()));
     }
     if (true_target == nullptr) {
-      __ B(ARMCondition(condition->GetOppositeCondition()), false_target);
+      __ B(ARMCondition(condition->GetOppositeCondition()), false_target, far_target);
     } else {
-      __ B(ARMCondition(condition->GetCondition()), true_target);
+      __ B(ARMCondition(condition->GetCondition()), true_target, far_target);
     }
   }
 
@@ -2015,7 +2015,7 @@ void InstructionCodeGeneratorARMVIXL::VisitIf(HIf* if_instr) {
       nullptr : codegen_->GetLabelOf(true_successor);
   vixl32::Label* false_target = codegen_->GoesToNextBlock(if_instr->GetBlock(), false_successor) ?
       nullptr : codegen_->GetLabelOf(false_successor);
-  GenerateTestAndBranch(if_instr, /* condition_input_index */ 0, true_target, false_target);
+  GenerateTestAndBranch(if_instr, /* condition_input_index */ 0, true_target, false_target, false);
 }
 
 void LocationsBuilderARMVIXL::VisitDeoptimize(HDeoptimize* deoptimize) {
@@ -5507,7 +5507,7 @@ void CodeGeneratorARMVIXL::MarkGCCard(vixl32::Register temp,
                                       bool can_be_null) {
   vixl32::Label is_null;
   if (can_be_null) {
-    __ CompareAndBranchIfZero(value, &is_null);
+    __ CompareAndBranchIfZero(value, &is_null, /* far_target */ false);
   }
   GetAssembler()->LoadFromOffset(
       kLoadWord, card, tr, Thread::CardTableOffset<kArmPointerSize>().Int32Value());
