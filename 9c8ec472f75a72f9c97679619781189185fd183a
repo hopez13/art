@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aed679cb_e876e14d",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-09T00:20:42Z",
+      "side": 1,
+      "message": "Because ProfileCompilationInfo::DumpInfo takes a std::vector\u003cconst DexFile*\u003e and it makes me very sad.\n\nWant me to refactor that while I\u0027m here or in another CL?",
+      "parentUuid": "a6e92c0d_a42371e8",
+      "range": {
+        "startLine": 278,
+        "startChar": 45,
+        "endLine": 278,
+        "endChar": 59
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "856fe9fe_ddf8a2d6",
         "filename": "profman/profman.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5b35463e_9cf896d9",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-09T00:20:42Z",
+      "side": 1,
+      "message": "Done.  Because I copied some existing code that had an assert. And btw, they\u0027re not enabled at all times, which I found when doing test-art-host.",
+      "parentUuid": "856fe9fe_ddf8a2d6",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 5
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8acd715_209953ea",
         "filename": "profman/profman.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-08T23:32:19Z",
       "side": 1,
       "message": "What will that mean for speed-profile? Should this be empty or full?",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 65
+      },
+      "revId": "9c8ec472f75a72f9c97679619781189185fd183a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a5c4e18_25b3f984",
+        "filename": "profman/profman.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-09T00:20:42Z",
+      "side": 1,
+      "message": "For speed-profile it will mean no methods get compiled, AFAIK.  Everything will interpret/JIT.",
+      "parentUuid": "f8acd715_209953ea",
       "range": {
         "startLine": 487,
         "startChar": 4,
