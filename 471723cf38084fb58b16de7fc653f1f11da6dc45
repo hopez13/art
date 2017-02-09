@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "de6c667e_13163930",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-09T23:49:19Z",
+      "side": 1,
+      "message": "(I don\u0027t think we\u0027re required it be on 1 line if it can, I didn\u0027t see that anywhere in our style guide.)\n\nI can fix it if you really want me to, but then we should make it clear in our style guide that if it *can* fit on one line, it *must*. Which it doesn\u0027t say today.",
+      "parentUuid": "1c9100b6_61a988aa",
+      "range": {
+        "startLine": 348,
+        "startChar": 47,
+        "endLine": 349,
+        "endChar": 56
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a3bee67_63391c49",
         "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
         "patchSetId": 5
