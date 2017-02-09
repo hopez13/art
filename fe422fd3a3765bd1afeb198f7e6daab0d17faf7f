@@ -22,6 +22,30 @@
       "revId": "fe422fd3a3765bd1afeb198f7e6daab0d17faf7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17b9e168_8f2c7605",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:41:48Z",
+      "side": 1,
+      "message": "Now the inliner just looks at the method name and does not inline if:\n\n1) it has the marker $noinline$\n2) we\u0027re in debug build\n3) we\u0027re compiling against core.art (and not boot.art).",
+      "parentUuid": "8e6f356a_8f183d0f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "fe422fd3a3765bd1afeb198f7e6daab0d17faf7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
