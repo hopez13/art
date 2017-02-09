@@ -93,6 +93,30 @@
       "revId": "0af2cfa252a950fae4913aa23a791a8eeb4fdabc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9bcc3c8_4603fb6d",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T17:56:00Z",
+      "side": 1,
+      "message": "I preferred this solution. It looks more straightforward to me :)  You don\u0027t need to change it back.",
+      "parentUuid": "3e0ac71b_236e3f1e",
+      "range": {
+        "startLine": 603,
+        "startChar": 2,
+        "endLine": 607,
+        "endChar": 66
+      },
+      "revId": "0af2cfa252a950fae4913aa23a791a8eeb4fdabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
