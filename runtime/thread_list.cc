@@ -415,6 +415,11 @@ size_t ThreadList::RunEmptyCheckpoint(std::vector<uint32_t>& runnable_thread_ids
   // checkpoint request. Otherwise we will hang as they are blocking in the kRunnable state.
   Runtime::Current()->GetHeap()->GetReferenceProcessor()->BroadcastForSlowPath(self);
   Runtime::Current()->BroadcastForNewSystemWeaks(/*broadcast_for_checkpoint*/true);
+  // Wake up the threads blocked on the mutexes that another thread, which is blocked on weak ref
+  // access, holds (indirectly blocking for weak ref access through another thread and a mutex.)
+  for (BaseMutex* mutex : Locks::expected_mutexes_on_weak_ref_access_) {
+    mutex->WakeupToRespondToEmptyCheckpoint();
+  }
 
   return count;
 }
