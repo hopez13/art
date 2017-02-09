@@ -49,6 +49,7 @@ import itertools
 import json
 from optparse import OptionParser
 import os
+import multiprocessing
 import re
 import subprocess
 import sys
@@ -108,7 +109,7 @@ failed_tests = []
 skipped_tests = []
 
 # Flags
-n_thread = 1
+n_thread = multiprocessing.cpu_count()
 test_count = 0
 total_test_count = 0
 verbose = False
