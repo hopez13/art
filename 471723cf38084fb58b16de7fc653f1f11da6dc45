@@ -141,6 +141,30 @@
       "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc36cdb_f62ce0fc",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-09T23:55:19Z",
+      "side": 1,
+      "message": "Why would/does 64 behave differently just because of this?",
+      "parentUuid": "957d06f7_6b2add52",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
