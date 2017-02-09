@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9cd3139a_42f251e2",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "Could that check be in ResolveType instead?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 10,
+        "endLine": 1185,
+        "endChar": 38
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22d579fb_3eb58e5c",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 8
@@ -18,6 +41,144 @@
         "startChar": 8,
         "endLine": 1651,
         "endChar": 20
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a401e0d_a88e12a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "Do you need that?",
+      "range": {
+        "startLine": 3334,
+        "startChar": 18,
+        "endLine": 3334,
+        "endChar": 24
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88270661_e36113f8",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "High level comment please.",
+      "range": {
+        "startLine": 844,
+        "startChar": 0,
+        "endLine": 849,
+        "endChar": 44
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4606d7c4_b54877cc",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "High-level comment.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 42
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba1cb97_6890b013",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "Much nicer API now.",
+      "range": {
+        "startLine": 191,
+        "startChar": 20,
+        "endLine": 191,
+        "endChar": 39
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "327a41cf_3987fd87",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "Add a comment how can that happen? Only OOME?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 23
+      },
+      "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e495faf_2e97913f",
+        "filename": "runtime/native/dalvik_system_InMemoryDexClassLoader_DexData.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-09T09:35:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 19
       },
       "revId": "d21ca15c98dd1eaff1f1a0ce553054f2b9c5b259",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
