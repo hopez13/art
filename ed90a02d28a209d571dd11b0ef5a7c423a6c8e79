@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c07ca2_5fcacc96",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "prefer \"if (outputFormat \u003d\u003d OUTPUT_PLAIN)\" for consistency with other functions in this file.\n\n(here and below)",
+      "range": {
+        "startLine": 1634,
+        "startChar": 2,
+        "endLine": 1634,
+        "endChar": 34
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "896d6cd9_acb636b0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 8300,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "i\u0027m guessing this won\u0027t work for var-args methods, which are also implemented as transforms. this + the constructor case is an unfortunate limitation and should be addressed in a follow up change.\n\nLonger term: we should consider whether we want method handle resolution to happen in managed code instead of the runtime. That seems like the easier approach, since we can reuse a lot of the existing java code.",
+      "range": {
+        "startLine": 8299,
+        "startChar": 4,
+        "endLine": 8300,
+        "endChar": 52
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82308a06_749a1402",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "dex cache",
+      "range": {
+        "startLine": 374,
+        "startChar": 33,
+        "endLine": 374,
+        "endChar": 40
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3697b8c9_1f2f46dd",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "\"as the\"",
+      "range": {
+        "startLine": 374,
+        "startChar": 41,
+        "endLine": 374,
+        "endChar": 44
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02019ad0_9869a632",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "This seems unsafe - we don\u0027t have any guarantee that the thread won\u0027t be suspend from this point on.\n\nIf you have that guarantee, you should [Start/End]AssertNoThreadSuspension. If you don\u0027t have that guarantee, we should use ScopedStackedShadowFramePusher to make sure it\u0027s visible to the GC.",
+      "range": {
+        "startLine": 639,
+        "startChar": 2,
+        "endLine": 642,
+        "endChar": 18
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5841c05_9d05c0b6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "isn\u0027t this just mirror::MethodHandle ? can\u0027t the callsite return a transformer ?",
+      "range": {
+        "startLine": 845,
+        "startChar": 29,
+        "endLine": 845,
+        "endChar": 33
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5b8bfaf_753d26b8",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 166,
+        "startChar": 14,
+        "endLine": 166,
+        "endChar": 24
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c19e00d_d4ff887a",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "fix indentation",
+      "range": {
+        "startLine": 169,
+        "startChar": 25,
+        "endLine": 172,
+        "endChar": 41
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "015ae332_464297d9",
+        "filename": "runtime/mirror/call_site.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "you should remove this TODO and add a CHECK() since you\u0027ve determined (and documented) elsewhere that we won\u0027t ever be doing this from within a transaction.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 55
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5de4b0b_0cc5087e",
+        "filename": "runtime/mirror/call_site.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-09T13:18:55Z",
+      "side": 1,
+      "message": "does this have to be a MethodHandleImpl vs MethodHandle ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "ed90a02d28a209d571dd11b0ef5a7c423a6c8e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
