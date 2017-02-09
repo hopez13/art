@@ -117,6 +117,30 @@
       "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957d06f7_6b2add52",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-09T23:53:56Z",
+      "side": 1,
+      "message": "I ended up needing it on PS6, 64-bit test was failing without loading a class from the dex file.\n\n(I think the tests gave me more trouble with this change then the actual change itself.)",
+      "parentUuid": "3a3bee67_63391c49",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
