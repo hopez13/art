@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf8cb183_f755aa2e",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T15:13:17Z",
+      "side": 1,
+      "message": "Brian wanted to use the \"path_to_file.zip!path_to_entry.dex\" for BaseDexClassLoaders at some point in the future.\n\nBasically with also file:// added to it we get a proper URI\n\n   file:///tmp/library.jar!classes.dex\n\nShall I also add file:// to the log?",
+      "parentUuid": "cdee0f02_f8ecb1b2",
+      "range": {
+        "startLine": 342,
+        "startChar": 61,
+        "endLine": 342,
+        "endChar": 62
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778d79a9_5722ecdf",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 7
@@ -105,6 +129,30 @@
       "writtenOn": "2017-02-10T12:02:28Z",
       "side": 1,
       "message": "Why? Please add a comment.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 83
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "126060c8_5a1149b5",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T15:13:17Z",
+      "side": 1,
+      "message": "I\u0027ll double check this, I think before I split it out to a separate test it was getting loaded via 2 different classloaders. Now it should be just 1.",
+      "parentUuid": "655b95da_8ba4ff96",
       "range": {
         "startLine": 112,
         "startChar": 0,
