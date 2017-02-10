@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41ea8eba_0291e6b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "The flag in String.length() (in libcore/.../String.java) should also be flipped. Maybe I should add the test that calling String.length() via reflection yields the correct value.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5067ecb_de3dbce2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "Maybe Bnez? I prefer treating \"numChrs\" as unsigned.",
+      "range": {
+        "startLine": 2616,
+        "startChar": 7,
+        "endLine": 2616,
+        "endChar": 11
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e605108a_607453df",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1944,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "Beqzc?",
+      "range": {
+        "startLine": 1944,
+        "startChar": 7,
+        "endLine": 1944,
+        "endChar": 12
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae4b642_8c512e3c",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "Why set both $a2 and $3 to zero? The same trick as on mips (move $a3, $a2) would work here.",
+      "range": {
+        "startLine": 1903,
+        "startChar": 0,
+        "endLine": 1905,
+        "endChar": 83
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a458836_188098f2",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "BEQZC has no delay slot?",
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64fcdace_09ecc3d5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T18:17:05Z",
+      "side": 1,
+      "message": "This is now unnecessary.",
+      "range": {
+        "startLine": 1975,
+        "startChar": 4,
+        "endLine": 1975,
+        "endChar": 24
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
