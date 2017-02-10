@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "113f11c5_2dce3480",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-10T23:35:40Z",
+      "side": 1,
+      "message": "const",
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29991116_a589d7ff",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-10T23:35:40Z",
+      "side": 1,
+      "message": "Can you move this below into the block where it\u0027s used?",
+      "range": {
+        "startLine": 387,
+        "startChar": 24,
+        "endLine": 387,
+        "endChar": 43
+      },
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
