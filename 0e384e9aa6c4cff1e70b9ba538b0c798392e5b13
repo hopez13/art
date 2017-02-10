@@ -46,6 +46,30 @@
       "revId": "0e384e9aa6c4cff1e70b9ba538b0c798392e5b13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd003299_45e4608e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-10T21:43:37Z",
+      "side": 1,
+      "message": "The script was having some issues with concurrency when invoked from make. I submitted the CL including changes in the makefile, however, the build bots were complaining of getting timed out.\n\nBecause of that, makefile was kept unchanged till this week and on Monday, all the build bots will use the python script directly so that we can remove the makefile thing entirely.",
+      "parentUuid": "c3523982_602d3613",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "0e384e9aa6c4cff1e70b9ba538b0c798392e5b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
