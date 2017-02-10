@@ -22,6 +22,30 @@
       "revId": "06cde2900aa1f56a71f017970a9091d8fba2a876",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0305e4_1673c055",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-10T23:31:12Z",
+      "side": 1,
+      "message": "If ANDROID_BUILD_TOP is undefined(the un-lunched case), the script will assume that ANDROID_BUILD_TOP is equal to current working directory, therefore, one needs to be in the root_dir if unlunched. If cwd is not root_dir, make will throw error.",
+      "parentUuid": "aaf24689_34afe256",
+      "range": {
+        "startLine": 772,
+        "startChar": 4,
+        "endLine": 772,
+        "endChar": 51
+      },
+      "revId": "06cde2900aa1f56a71f017970a9091d8fba2a876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
