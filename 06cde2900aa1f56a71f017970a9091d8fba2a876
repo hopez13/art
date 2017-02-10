@@ -46,6 +46,30 @@
       "revId": "06cde2900aa1f56a71f017970a9091d8fba2a876",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03efea84_2aedf6a5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-10T23:38:59Z",
+      "side": 1,
+      "message": "My question is whether you should skip the \"-C\" in that case? (Or is ANDROID_BUILD_TOP filled somewhere?)",
+      "parentUuid": "2d0305e4_1673c055",
+      "range": {
+        "startLine": 772,
+        "startChar": 4,
+        "endLine": 772,
+        "endChar": 51
+      },
+      "revId": "06cde2900aa1f56a71f017970a9091d8fba2a876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
