@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50635098_80d8197a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-10T21:50:03Z",
+      "side": 1,
+      "message": "Hmm having instrumentation use ObjPtr should have caught this, I\u0027ll try to get around to that soon.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 43,
+        "endLine": 1012,
+        "endChar": 62
+      },
+      "revId": "3481f7a104723480497e65d2c3beee67de3c4760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
