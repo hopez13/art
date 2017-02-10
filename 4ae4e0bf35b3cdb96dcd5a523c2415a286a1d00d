@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c69cc51c_c5711b3e",
+        "filename": "runtime/zip_archive.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T18:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48f123db_107d685e",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 63
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4d33314_404f3927",
         "filename": "test/071-dexfile-map-clean/src/Main.java",
         "patchSetId": 7
@@ -130,6 +154,30 @@
       "writtenOn": "2017-02-10T12:02:28Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 101
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83dceca6_253c78a4",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T18:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4d33314_404f3927",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -189,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "68c119a1_e45a663e",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T18:35:02Z",
+      "side": 1,
+      "message": "Done.\n\n(Removed this comment since there\u0027s no longer more than 1 mmap entry for this dex file)",
+      "parentUuid": "126060c8_5a1149b5",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 83
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f1bcabd_3c41c296",
         "filename": "test/071-dexfile-map-clean/src/Main.java",
         "patchSetId": 7
@@ -200,6 +272,30 @@
       "writtenOn": "2017-02-10T12:02:28Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 116
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cf545fb_f00383ab",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T18:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f1bcabd_3c41c296",
       "range": {
         "startLine": 143,
         "startChar": 0,
