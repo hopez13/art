@@ -213,6 +213,30 @@
       "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6290c455_d550bd05",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-10T00:30:24Z",
+      "side": 1,
+      "message": "Hmm, could be, but then having this class around shouldn\u0027t change things. So I think it was just luck and this test will eventually turn flaky.\n\nSo I think in Main.java, testDexFile should be inlined in the main method or stored in a field to make sure the DexFile is not GCed.\n\n(btw, after thinking more, it\u0027s ok to keep this class around as it adds more clarity when you do DexFile.load(...))",
+      "parentUuid": "b70e0b0b_3261f4d5",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
