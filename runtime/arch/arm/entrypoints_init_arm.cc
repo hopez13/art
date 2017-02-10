@@ -158,6 +158,8 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   qpoints->pReadBarrierMarkReg27 = nullptr;
   qpoints->pReadBarrierMarkReg28 = nullptr;
   qpoints->pReadBarrierMarkReg29 = nullptr;
+  qpoints->pReadBarrierMarkReg30 = nullptr;
+  qpoints->pReadBarrierMarkReg31 = nullptr;
   qpoints->pReadBarrierSlow = artReadBarrierSlow;
   qpoints->pReadBarrierForRootSlow = artReadBarrierForRootSlow;
 }
