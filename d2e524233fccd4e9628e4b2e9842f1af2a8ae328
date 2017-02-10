@@ -22,6 +22,29 @@
       "revId": "d2e524233fccd4e9628e4b2e9842f1af2a8ae328",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e123cc8_2a5c77f6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T23:56:19Z",
+      "side": 1,
+      "message": "As discussed, please don\u0027t forget the compile time flag to enable/disable this, initially being set to false.",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 3
+      },
+      "revId": "d2e524233fccd4e9628e4b2e9842f1af2a8ae328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
