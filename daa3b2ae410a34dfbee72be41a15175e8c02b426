@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "ec45c298_8bc256c1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-02-10T23:58:37Z",
+      "side": 1,
+      "message": "Somewhat orthogonal to this CL:\n\nWe can somehow guarantee that this is only invoked after the last one is entirely finished? Thus we don\u0027t have to worry about the last initiator still being inside Increment when we start another request?",
+      "range": {
+        "startLine": 382,
+        "startChar": 5,
+        "endLine": 382,
+        "endChar": 39
+      },
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29991116_a589d7ff",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
