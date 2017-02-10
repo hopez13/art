@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a57434e7_692a7093",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T00:07:25Z",
+      "side": 1,
+      "message": "I went ahead and fixed those as you suggested. Consistency is good.",
+      "parentUuid": "fb4d9a3c_862ad96d",
+      "range": {
+        "startLine": 348,
+        "startChar": 47,
+        "endLine": 349,
+        "endChar": 56
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a3bee67_63391c49",
         "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
         "patchSetId": 5
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "Why would/does 64 behave differently just because of this?",
       "parentUuid": "957d06f7_6b2add52",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "471723cf38084fb58b16de7fc653f1f11da6dc45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b70e0b0b_3261f4d5",
+        "filename": "test/071-dexfile-map-clean/src-ex/Another.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T00:07:25Z",
+      "side": 1,
+      "message": "My guess would be that the DexFile was being garbage collected since no classes/classloaders needed it.\n\nSo I changed it grab the class before scanning for the smaps and using it afterwards.\n--------\n\nOn 32-bit it runs one background GC during the test (after loading the DexFile but before the smaps finish being scanned).\n\n\nAnother\ndalvikvm32 I 02-09 16:02:39 31591 32109 heap.cc:2754] Background concurrent copying GC freed 428(2006KB) AllocSpace objects, 0(0B) LOS objects, 75% free, 1085KB/4MB, paused 17.176ms,28.275ms total 51.207ms\nSecondary dexfile mmap is clean\n\n\nOn 64-bit it runs two background GCs during the test.\n\nAnother\ndalvikvm64 I 02-09 15:41:15 60762 60769 heap.cc:2754] Background concurrent copying GC freed 440(1988KB) AllocSpace objects, 0(0B) LOS objects, 75% free, 1083KB/4MB, paused 14.640ms,14.672ms total 35.288ms\ndalvikvm64 I 02-09 15:41:15 60762 60769 heap.cc:2754] Background concurrent copying GC freed 143(1816KB) AllocSpace objects, 6(1316KB) LOS objects, 74% free, 2MB/8MB, paused 9.906ms,12.175ms total 30.590ms\nSecondary dexfile mmap is clean",
+      "parentUuid": "1dc36cdb_f62ce0fc",
       "range": {
         "startLine": 17,
         "startChar": 13,
