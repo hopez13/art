@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18f4a2d8_2c9a112a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "Was discussing this with nicolas (you might have overhead) :\n\nSo this is safe, but i think we should protect ourselves against future references by using ObjPtr\u003c\u003e within a scope, to assert that the thread wasn\u0027t suspended in the interim. Something like\n\n{ \n  ObjPtr\u003cmirror::Method....\u003e lookup(mirror:....);\n  if () {\n  }\n  bootstrap_frame-\u003eSetVRegReference(...);\n}",
+      "range": {
+        "startLine": 648,
+        "startChar": 2,
+        "endLine": 648,
+        "endChar": 37
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "072eae4c_de03fe5e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "likewise",
+      "range": {
+        "startLine": 657,
+        "startChar": 2,
+        "endLine": 657,
+        "endChar": 22
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c738983_72f2848f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "likewise",
+      "range": {
+        "startLine": 705,
+        "startChar": 8,
+        "endLine": 705,
+        "endChar": 33
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a040bd45_e9806809",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "likewise",
+      "range": {
+        "startLine": 717,
+        "startChar": 8,
+        "endLine": 717,
+        "endChar": 35
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57539e08_afdcfef1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "likewise",
+      "range": {
+        "startLine": 729,
+        "startChar": 8,
+        "endLine": 729,
+        "endChar": 30
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2454009e_cdbd5600",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T13:54:34Z",
+      "side": 1,
+      "message": "likewise",
+      "range": {
+        "startLine": 740,
+        "startChar": 7,
+        "endLine": 740,
+        "endChar": 29
+      },
+      "revId": "ba0bc454b5b0262a76b1a458e8da7e7b86cd20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
