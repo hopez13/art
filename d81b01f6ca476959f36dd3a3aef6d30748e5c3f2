@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59e9747e_49adbc7b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2017-02-10T11:03:18Z",
+      "side": 1,
+      "message": "This can be removed, as the bug is fixed in aosp/master now. Sync your tree and TH should be able to verify that this is unnecessary too.",
+      "revId": "d81b01f6ca476959f36dd3a3aef6d30748e5c3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
