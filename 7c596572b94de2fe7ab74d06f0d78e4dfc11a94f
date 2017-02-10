@@ -46,6 +46,24 @@
       "revId": "7c596572b94de2fe7ab74d06f0d78e4dfc11a94f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b24a016_1c9306d4",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-02-10T00:54:46Z",
+      "side": 1,
+      "message": "So, there are two things - build and run.\nIn case of build(invoking the make command), we can use the cpu count and for running the test, concurrency can be decided by the number of cpus.\n\nI am working on a change to use multiprocess instead of multithreads as the former seems to be faster. I can accommodate the above suggestion in it as well.",
+      "parentUuid": "e710c131_6e63c485",
+      "revId": "7c596572b94de2fe7ab74d06f0d78e4dfc11a94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
