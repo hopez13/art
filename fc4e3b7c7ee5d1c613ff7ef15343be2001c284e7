@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5fbd8cb_4f37abdb",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-10T17:13:11Z",
+      "side": 1,
+      "message": "this needs to be scoped \n\n{\n  ObjPtr..;\n  bootstrap_frame-\u003eSetVReg.\n}\n\nthis is because we only care about suspensions between the point of creation and the point of inserting it into the frame under construction.\n\nas written, you will get a CHECK failure if the thread is suspended when allocating any of the objects lower down in this fin.",
+      "range": {
+        "startLine": 658,
+        "startChar": 2,
+        "endLine": 658,
+        "endChar": 92
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
