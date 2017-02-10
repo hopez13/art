@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb07c6b5_0e698617",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-10T16:08:26Z",
+      "side": 1,
+      "message": "Do you still need the non-template versions?\n\n(In https://android-review.googlesource.com/260915 some unnecessary functions have been removed between PS1 and PS2 but other functions remained and I didn\u0027t push for their removal.)",
+      "range": {
+        "startLine": 921,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 98
+      },
+      "revId": "1a9fe787f96ad9d59ea6a1f0e65ea14a818c6bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
