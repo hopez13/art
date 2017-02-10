@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdee0f02_f8ecb1b2",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "is that common? Should it be \":\"?",
+      "range": {
+        "startLine": 342,
+        "startChar": 61,
+        "endLine": 342,
+        "endChar": 62
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778d79a9_5722ecdf",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 349,
+        "startChar": 62,
+        "endLine": 349,
+        "endChar": 65
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48f123db_107d685e",
+        "filename": "runtime/zip_archive.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 63
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4d33314_404f3927",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 101
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "655b95da_8ba4ff96",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "Why? Please add a comment.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 83
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f1bcabd_3c41c296",
+        "filename": "test/071-dexfile-map-clean/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-10T12:02:28Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 116
+      },
+      "revId": "4ae4e0bf35b3cdb96dcd5a523c2415a286a1d00d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
