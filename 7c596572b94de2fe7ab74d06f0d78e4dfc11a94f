@@ -22,6 +22,30 @@
       "revId": "7c596572b94de2fe7ab74d06f0d78e4dfc11a94f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e710c131_6e63c485",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-10T00:46:13Z",
+      "side": 1,
+      "message": "Good point about device. This can be expanded to check via adb shell command how many cores are on device.\n\nI think it should default to host CPU count on host however. I think we just want to run all tests ASAP and not type out extra -j args every time.",
+      "parentUuid": "9c9cdaaa_94a21605",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 38
+      },
+      "revId": "7c596572b94de2fe7ab74d06f0d78e4dfc11a94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
