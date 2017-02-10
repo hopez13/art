@@ -169,6 +169,8 @@ void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
   qpoints->pReadBarrierJni = ReadBarrierJni;
   qpoints->pReadBarrierMarkReg16 = nullptr;  // IP0 is used as a temp by the asm stub.
   UpdateReadBarrierEntrypoints(qpoints, /*is_marking*/ false);
+  qpoints->pReadBarrierMarkReg30 = nullptr;  // Cannot use register 30 (LR) to pass arguments.
+  qpoints->pReadBarrierMarkReg31 = nullptr;  // Cannot use register 31 (SP/XZR) to pass arguments.
   qpoints->pReadBarrierSlow = artReadBarrierSlow;
   qpoints->pReadBarrierForRootSlow = artReadBarrierForRootSlow;
 };
