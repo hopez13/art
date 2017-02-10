@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f0ed5b7_9433035d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "It does imply an erroneous dex file, but the verifier will run after this and reject the file. Added a comment.",
+      "parentUuid": "6b615283_5db76bdd",
+      "range": {
+        "startLine": 554,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 36
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee72a522_81180278",
         "filename": "runtime/dex_file.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-09T11:54:52Z",
       "side": 1,
       "message": "why did you change this ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0dae3a1_7cbbb5d3",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "Incremental improvement:\n\n1) Giving the enum a name enables detecting unhandled cases.\n2) The uint16_t makes the underlying type explicit.\n3) The // private stops the ostream generator tool from trying to emit a default representation here as the tool doesn\u0027t deal well this particular nesting.\n\nThis doesn\u0027t have to be done in this CL, it makes simpler for the next person who adds a MapItemType.",
+      "parentUuid": "ee72a522_81180278",
       "range": {
         "startLine": 106,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "132f3b9d_84a9daee",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "C++11ism to specify the underlying type.",
+      "parentUuid": "616fdbff_2de766a6",
+      "range": {
+        "startLine": 266,
+        "startChar": 30,
+        "endLine": 266,
+        "endChar": 40
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8edc4fa1_f48fcde0",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-09T11:54:52Z",
       "side": 1,
       "message": "i\u0027m assuming this isn\u0027t written to compiled output anywhere ? we\u0027d need to change the oat version etc (or move your new item types to the end) if that\u0027s the case.",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 16
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "753b0df7_c92cad51",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "Yes. It\u0027s internal to DexFileVerifier::CheckMap() and DexFileVerifier::CheckInterSectionIterate().",
+      "parentUuid": "8edc4fa1_f48fcde0",
       "range": {
         "startLine": 49,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4ed37633_882eac71",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "The code is now switching an enum to force the next person who touches the enum to add a case here.",
+      "parentUuid": "4704efe8_5a7e23d0",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 51
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db827937_22db09ae",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 9
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "8b418b36_89c5e9bb",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "The default clause prevents a compilation failure when new types are added, but we still need to complain about unexpected values.",
+      "parentUuid": "db827937_22db09ae",
+      "range": {
+        "startLine": 1641,
+        "startChar": 6,
+        "endLine": 1649,
+        "endChar": 5
+      },
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30bd4e00_c8b1131d",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 9
@@ -151,6 +295,24 @@
       "writtenOn": "2017-02-09T11:54:52Z",
       "side": 1,
       "message": "Add a TODO to improve this once we have smali / dx support ?",
+      "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6797113_97fd17cf",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-10T15:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30bd4e00_c8b1131d",
       "revId": "b464e9f1689b35fd0fe012e10d08f10738b27163",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
