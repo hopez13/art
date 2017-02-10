@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cff9fffb_0d9e780f",
+        "filename": "profman/profman.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-10T22:27:41Z",
+      "side": 1,
+      "message": "ugh.  removed.",
+      "parentUuid": "79e8ce39_79fa6acc",
+      "range": {
+        "startLine": 563,
+        "startChar": 6,
+        "endLine": 563,
+        "endChar": 46
+      },
+      "revId": "55fdb2a1e42c4a28212305845c0b0cfc4ff08ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4b2eaa4_4bf984a6",
         "filename": "profman/profman.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-10T22:21:11Z",
       "side": 1,
       "message": "just LOG. \n\nPLOG prints errno as well.",
+      "range": {
+        "startLine": 591,
+        "startChar": 8,
+        "endLine": 591,
+        "endChar": 12
+      },
+      "revId": "55fdb2a1e42c4a28212305845c0b0cfc4ff08ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acd16921_c977884f",
+        "filename": "profman/profman.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-02-10T22:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4b2eaa4_4bf984a6",
       "range": {
         "startLine": 591,
         "startChar": 8,
