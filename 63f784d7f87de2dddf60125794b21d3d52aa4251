@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1e9d352_124a75e9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Remove. We shouldn\u0027t do this for types other than kPrimLong and we can avoid it for kPrimLong as well. See below.",
+      "range": {
+        "startLine": 2473,
+        "startChar": 0,
+        "endLine": 2473,
+        "endChar": 55
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40897973_3b19ba28",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3286,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3286,
+        "startChar": 0,
+        "endLine": 3286,
+        "endChar": 67
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcff5e73_675396a8",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3364,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Avoid using temp_reg:\n\n        if (dst \u003d\u003d lhs_low) {\n          __ LoadConst32(TMP, imm_low);\n          __ Sltu(dst, lhs_low, TMP);\n        }\n        __ LoadConst32(TMP, imm_high);\n        __ Slt(AT, lhs_high, TMP);\n        __ Slt(TMP, TMP, lhs_high);\n        if (dst !\u003d lhs_low) {\n          __ LoadConst32(dst, imm_low);\n          __ Sltu(dst, lhs_low, dst);\n        }\n        __ Slt(dst, TMP, dst);\n        __ Or(dst, dst, AT);",
+      "range": {
+        "startLine": 3358,
+        "startChar": 0,
+        "endLine": 3364,
+        "endChar": 34
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ab499e_fdb24e83",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Combine with case kCondLT. At the end, invert dst if cond \u003d\u003d kCondGE.",
+      "range": {
+        "startLine": 3366,
+        "startChar": 0,
+        "endLine": 3375,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb3fb6f2_20c2cf4f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3394,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3376,
+        "startChar": 0,
+        "endLine": 3394,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2846f185_a4c80431",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3413,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3395,
+        "startChar": 0,
+        "endLine": 3413,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9fbca4e_aabf0485",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3432,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3414,
+        "startChar": 0,
+        "endLine": 3432,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af19778_7aeb6475",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3453,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Avoid using temp_reg:\n\n        __ Slt(TMP, rhs_high, lhs_high);\n        __ Sltu(AT, lhs_low, rhs_low);\n        __ Slt(TMP, TMP, AT);\n        __ Slt(AT, lhs_high, rhs_high);\n        __ Or(dst, AT, TMP);",
+      "range": {
+        "startLine": 3449,
+        "startChar": 0,
+        "endLine": 3453,
+        "endChar": 34
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be8268be_639439dd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3462,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Combine with case kCondLT. At the end, invert dst if cond \u003d\u003d kCondGE.",
+      "range": {
+        "startLine": 3455,
+        "startChar": 0,
+        "endLine": 3462,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b45c7cd_cc118257",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3477,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3463,
+        "startChar": 0,
+        "endLine": 3477,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93e28f1d_022be585",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3492,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3478,
+        "startChar": 0,
+        "endLine": 3492,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54410b25_81f09269",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-11T01:40:30Z",
+      "side": 1,
+      "message": "Adjust in the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3493,
+        "startChar": 0,
+        "endLine": 3507,
+        "endChar": 14
+      },
+      "revId": "63f784d7f87de2dddf60125794b21d3d52aa4251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
