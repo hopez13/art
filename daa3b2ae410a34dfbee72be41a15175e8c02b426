@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "efc368df_76cddd75",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-11T00:15:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113f11c5_2dce3480",
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec45c298_8bc256c1",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "10f37cac_474058aa",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-11T00:15:44Z",
+      "side": 1,
+      "message": "We currently support one empty checkpoint at a time (there\u0027s a comment in thread_list.h)",
+      "parentUuid": "ec45c298_8bc256c1",
+      "range": {
+        "startLine": 382,
+        "startChar": 5,
+        "endLine": 382,
+        "endChar": 39
+      },
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29991116_a589d7ff",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-02-10T23:35:40Z",
       "side": 1,
       "message": "Can you move this below into the block where it\u0027s used?",
+      "range": {
+        "startLine": 387,
+        "startChar": 24,
+        "endLine": 387,
+        "endChar": 43
+      },
+      "revId": "daa3b2ae410a34dfbee72be41a15175e8c02b426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ca35dc6_9f791640",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-11T00:15:44Z",
+      "side": 1,
+      "message": "This needs to be here as this is used in the block starting at line 391 and the block starting at line 420.",
+      "parentUuid": "29991116_a589d7ff",
       "range": {
         "startLine": 387,
         "startChar": 24,
