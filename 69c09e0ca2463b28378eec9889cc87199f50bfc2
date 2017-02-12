@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "018743ba_a7bf3d2c",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-02-12T20:36:11Z",
+      "side": 1,
+      "message": "Kryo implements ARMv8a Architecture and therefore has all the features below; if you look at \"has_atomic_ldrd_strd\" and \"has_div\" flags both of them check \"has_armv8a ||\". So we don\u0027t need to put kryo in those lists.",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 12
+      },
+      "revId": "69c09e0ca2463b28378eec9889cc87199f50bfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
