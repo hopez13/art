@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43d5ed11_15c012f4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6029,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-13T20:16:32Z",
+      "side": 1,
+      "message": "It\u0027s not possible to deduplicate this load and the load for the fast path (line 6035), correct?",
+      "range": {
+        "startLine": 6029,
+        "startChar": 37,
+        "endLine": 6029,
+        "endChar": 41
+      },
+      "revId": "8f795c377b2316ee4dcc4a6c0219aae10955577f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
