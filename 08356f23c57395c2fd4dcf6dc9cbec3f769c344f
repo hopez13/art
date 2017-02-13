@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57a047a3_909d110b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7063,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T19:00:14Z",
+      "side": 1,
+      "message": "Update this to say we look at the entrypoint instead? (here and other backends)",
+      "range": {
+        "startLine": 7059,
+        "startChar": 0,
+        "endLine": 7063,
+        "endChar": 52
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f30cf3_d261b852",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7071,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T19:00:14Z",
+      "side": 1,
+      "message": "Can you do that in this change? It\u0027s a shame if the rare case penalizes the general case.",
+      "range": {
+        "startLine": 7071,
+        "startChar": 0,
+        "endLine": 7071,
+        "endChar": 52
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caaf4803_edbade44",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7099,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T19:00:14Z",
+      "side": 1,
+      "message": "Should this be dine *after* querying?",
+      "range": {
+        "startLine": 7076,
+        "startChar": 0,
+        "endLine": 7099,
+        "endChar": 3
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
