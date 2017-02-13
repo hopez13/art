@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "a9d79fec_6bfa906d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 8216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "IS there a reason why one is kPutStatic and the other kStaticPut? Could we have a consistent naming?",
+      "range": {
+        "startLine": 8215,
+        "startChar": 0,
+        "endLine": 8216,
+        "endChar": 52
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b303c0a4_bc94708a",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 64
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5fbd8cb_4f37abdb",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 18
@@ -22,6 +68,322 @@
       "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9273e6bb_5319f931",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Add a comment?",
+      "range": {
+        "startLine": 770,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 52
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c75d917_14956562",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Do you actually need this? (Just spotted that DoInvokePolymorphic maybe doesn\u0027t need it too?)",
+      "range": {
+        "startLine": 819,
+        "startChar": 24,
+        "endLine": 819,
+        "endChar": 44
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14a99e59_d80be76a",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Indentation looks off, it should be:\n\n... \u003d ...\n  ? ...\n  : ...;",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 89
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d34c6657_4bbb8e98",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "New line (though I can see we\u0027re inconsistent in that file).",
+      "range": {
+        "startLine": 323,
+        "startChar": 21,
+        "endLine": 323,
+        "endChar": 59
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7e6d89f_1215c1d2",
+        "filename": "runtime/mirror/method_handle_impl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "IsTransactionActive is not good enough?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 69
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e1683f_d76676d1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Mention that CheckCallSite already checked that?",
+      "range": {
+        "startLine": 3132,
+        "startChar": 0,
+        "endLine": 3133,
+        "endChar": 61
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6783796d_1acb67a9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 3139,
+        "startChar": 0,
+        "endLine": 3140,
+        "endChar": 55
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dfb21de_c5145bdc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Add a TODO.",
+      "range": {
+        "startLine": 3151,
+        "startChar": 0,
+        "endLine": 3151,
+        "endChar": 43
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f542f25d_b2c6f54d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "missing \u0027.\u0027 (here and below comments).",
+      "range": {
+        "startLine": 4136,
+        "startChar": 35,
+        "endLine": 4136,
+        "endChar": 43
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d488b10b_fd97d0a3",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "CONST_STRING doesn\u0027t check that, shouldn\u0027t you do this in dex_file_verifier for consistency?\n\n(ditto for the method_id and proto_id).",
+      "range": {
+        "startLine": 4182,
+        "startChar": 0,
+        "endLine": 4187,
+        "endChar": 3
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13bf7303_2e6a0431",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "they are not",
+      "range": {
+        "startLine": 4219,
+        "startChar": 48,
+        "endLine": 4219,
+        "endChar": 56
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c164bf6e_51ee3c51",
+        "filename": "test/952-invoke-custom/generator/Test004.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Could we have names for this to sum up what they are doing?",
+      "range": {
+        "startLine": 28,
+        "startChar": 13,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "546ce71b_0ea36dae",
+        "filename": "test/952-invoke-custom/generator/build-test.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "189acda7_3db0901c",
+        "filename": "test/952-invoke-custom/generator/build-test.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T15:24:35Z",
+      "side": 1,
+      "message": "Add a comment what this is about?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "fc4e3b7c7ee5d1c613ff7ef15343be2001c284e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
