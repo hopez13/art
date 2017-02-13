@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fba53d92_8d5bcc22",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 447,
+        "startChar": 50,
+        "endLine": 447,
+        "endChar": 54
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82dcd3bd_3cb833e6",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "Can you expand? I don\u0027t understand why we\u0027d want to call obsolete methods.",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 68,
+        "endChar": 38
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34dcf3af_ada000af",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "Both methods are uninterruptible right?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fb236e5_c9453f52",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "Can you add a comment? Why would the array not be of size next_free_slot_?",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 66
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec2cd6f_6d90b88f",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "Please update. We know it would be simpler, but the downside would be that invoking an obsolete native method wouldn\u0027t lead to a nice error message anymore.",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 71
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d49032ea_86c8becd",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "I think this can be fixed. Surely you can update the instrumentation_frame while making things obsolete?",
+      "range": {
+        "startLine": 877,
+        "startChar": 14,
+        "endLine": 878,
+        "endChar": 38
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a22997b0_4ef39260",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T20:38:12Z",
+      "side": 1,
+      "message": "Why this change? CHA?",
+      "range": {
+        "startLine": 908,
+        "startChar": 24,
+        "endLine": 908,
+        "endChar": 87
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
