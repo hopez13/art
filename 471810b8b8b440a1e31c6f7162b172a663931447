@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee07983_ab78cb5f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-13T16:29:54Z",
+      "side": 1,
+      "message": ", /* with_signature */ false",
+      "range": {
+        "startLine": 86,
+        "startChar": 90,
+        "endLine": 86,
+        "endChar": 91
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394a292_a453adec",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-13T16:29:54Z",
+      "side": 1,
+      "message": "UNREACHABLE",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 17
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe32586c_b51bf1c3",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-13T16:29:54Z",
+      "side": 1,
+      "message": "Please rename this (say, \"$noinline$foo\") and the callInlinedForNull above (say, \"$inline$callFoo()\"). The name didn\u0027t make sense when I introduced the test in https://android-review.googlesource.com/181977 .",
+      "range": {
+        "startLine": 465,
+        "startChar": 16,
+        "endLine": 465,
+        "endChar": 30
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ceae4a4_96171216",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-13T16:29:54Z",
+      "side": 1,
+      "message": "Why are you adding an indirection? This should have been a simple rename doCall() -\u003e $noinline$doCall() in both the interface and the implementation.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9bb4516_b18e2d4c",
+        "filename": "test/637-checker-throw-inline/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-13T16:29:54Z",
+      "side": 1,
+      "message": "tws",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
