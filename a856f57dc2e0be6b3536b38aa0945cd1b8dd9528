@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99d8cc4e_2976aa25",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-13T23:53:39Z",
+      "side": 1,
+      "message": "Create a nested if. It reads better when configuration flags are not mixed with the feature logic.",
+      "range": {
+        "startLine": 811,
+        "startChar": 6,
+        "endLine": 811,
+        "endChar": 35
+      },
+      "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d647a1_c7a547f7",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-13T23:53:39Z",
+      "side": 1,
+      "message": "uint16_t?",
+      "range": {
+        "startLine": 248,
+        "startChar": 2,
+        "endLine": 248,
+        "endChar": 10
+      },
+      "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49228340_5e48de9c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-13T23:53:39Z",
+      "side": 1,
+      "message": "uint16_t",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 12
+      },
+      "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a83490e_27e4510a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-13T23:53:39Z",
+      "side": 1,
+      "message": "this is counter intuitive. Why do you do this if found is true?",
+      "range": {
+        "startLine": 1012,
+        "startChar": 26,
+        "endLine": 1012,
+        "endChar": 39
+      },
+      "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
