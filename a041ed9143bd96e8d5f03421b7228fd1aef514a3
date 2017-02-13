@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfb24da7_9c004025",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba53d92_8d5bcc22",
+      "range": {
+        "startLine": 447,
+        "startChar": 50,
+        "endLine": 447,
+        "endChar": 54
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e24bd90_a5cd7205",
         "filename": "runtime/art_method.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-13T20:41:42Z",
       "side": 1,
       "message": "I don\u0027t like this but understand you\u0027ve weighed the trade-offs. My opinion is that the fewer places in the runtime that deal with obsolete methods, the better.\n\nPlease add a comment that we could do it differenlty by keeping the native entrypoint (instead of putting the interpreter entrypoint) but chose not to, in order to give the nice property of always failing in the interpreter when invoking an obsolete method.",
+      "range": {
+        "startLine": 448,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 1
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cec3fef1_00468eab",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t like this but understand you\u0027ve weighed the trade-offs. My opinion is that the fewer places in the runtime that deal with obsolete methods, the better.\n\u003e \n\u003e Please add a comment that we could do it differenlty by keeping the native entrypoint (instead of putting the interpreter entrypoint) but chose not to, in order to give the nice property of always failing in the interpreter when invoking an obsolete method.\n\nDone. \n\nAlso I\u0027d like to say that I agree completely with trying to keep runtime knowledge of obsolete methods contained but I would say that if any class should have deep knowledge of them it should be the ArtMethod class.",
+      "parentUuid": "8d0e54aa_34e9e369",
       "range": {
         "startLine": 448,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d3a014c5_2df99803",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "Sure. The problem is that we have both instance methods of \u0027ArtMethod\u0027 objects and the ArtMethod objects themselves.",
+      "parentUuid": "82dcd3bd_3cb833e6",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 68,
+        "endChar": 38
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34dcf3af_ada000af",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-13T20:38:12Z",
       "side": 1,
       "message": "Both methods are uninterruptible right?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4fee1d8_cf6b8a77",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34dcf3af_ada000af",
       "range": {
         "startLine": 71,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "54f4e20d_5087ca3b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "\u003e Can you add a comment? Why would the array not be of size next_free_slot_?\n\nDone.\n\nI\u0027m not sure what you mean by size.",
+      "parentUuid": "0fb236e5_c9453f52",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 66
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec2cd6f_6d90b88f",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-02-13T20:38:12Z",
       "side": 1,
       "message": "Please update. We know it would be simpler, but the downside would be that invoking an obsolete native method wouldn\u0027t lead to a nice error message anymore.",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 71
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec87119a_573599f4",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6ec2cd6f_6d90b88f",
       "range": {
         "startLine": 513,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "59b8452e_99b43bfd",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "Not without a bunch of changes to the stack walker so it keeps track of it. Also we have the problem that we might need to update the internals of the instrumentation data to make it consistent.",
+      "parentUuid": "d49032ea_86c8becd",
+      "range": {
+        "startLine": 877,
+        "startChar": 14,
+        "endLine": 878,
+        "endChar": 38
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a22997b0_4ef39260",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-02-13T20:38:12Z",
       "side": 1,
       "message": "Why this change? CHA?",
+      "range": {
+        "startLine": 908,
+        "startChar": 24,
+        "endLine": 908,
+        "endChar": 87
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09cedc7c_34775ace",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-13T21:57:02Z",
+      "side": 1,
+      "message": "It was failing DCHECKS when it got hit.\n\nI think it was just caused by changes to GetEntrypointFromJni put in for debugging.",
+      "parentUuid": "a22997b0_4ef39260",
       "range": {
         "startLine": 908,
         "startChar": 24,
