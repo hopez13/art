@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3c351317_bcbbc82f",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T23:08:55Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "2c1e353e_40e3f6cd",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 815,
+        "endChar": 42
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7194dab7_3b96455c",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 4
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "593e849c_a5048842",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T23:08:55Z",
+      "side": 1,
+      "message": "No. Based on the method_id you can get name and signature, and look things up. Doesn\u0027t Java prevent overloading a private method with a static method?",
+      "parentUuid": "752ac02c_10d9c389",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
@@ -172,6 +220,24 @@
       "side": 1,
       "message": "The compile time check is done at the caller, don\u0027t we want this code to be tested even if the flag is false? AddInvoke does not check any flags.",
       "parentUuid": "87da7b2c_82624590",
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24707960_6b30fd64",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T23:08:55Z",
+      "side": 1,
+      "message": "Oh right, nevermind.",
+      "parentUuid": "2901ff49_4ee660d5",
       "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
