@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b943e0c_b045ed28",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-13T21:12:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eddc7e98_68578bcc",
+      "range": {
+        "startLine": 62,
+        "startChar": 22,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d1029e8_cc4700ef",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-13T20:11:39Z",
       "side": 1,
       "message": "IsInvokeStaticOrDirect?",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 815,
+        "endChar": 42
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c1e353e_40e3f6cd",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-13T21:12:11Z",
+      "side": 1,
+      "message": "Done, does that cover the super case?",
+      "parentUuid": "2d1029e8_cc4700ef",
       "range": {
         "startLine": 813,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "752ac02c_10d9c389",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-13T21:12:11Z",
+      "side": 1,
+      "message": "How would you do that, add extra resolution trampolines for different invoke types?",
+      "parentUuid": "7194dab7_3b96455c",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "2901ff49_4ee660d5",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-13T21:12:11Z",
+      "side": 1,
+      "message": "The compile time check is done at the caller, don\u0027t we want this code to be tested even if the flag is false? AddInvoke does not check any flags.",
+      "parentUuid": "87da7b2c_82624590",
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22ac68b5_11c4572d",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -99,6 +189,30 @@
       "writtenOn": "2017-02-13T20:11:39Z",
       "side": 1,
       "message": "Annoying this cannot be put under the flag. I guess the encoding being bit-size, the code size increase is very minimal when the flag is false?",
+      "range": {
+        "startLine": 1241,
+        "startChar": 0,
+        "endLine": 1241,
+        "endChar": 51
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d35abb24_50ba5211",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-13T21:12:11Z",
+      "side": 1,
+      "message": "Probably a couple hundred KB, I have plans to clean this up later by only writing the encoding if the table size is not 0.",
+      "parentUuid": "22ac68b5_11c4572d",
       "range": {
         "startLine": 1241,
         "startChar": 0,
