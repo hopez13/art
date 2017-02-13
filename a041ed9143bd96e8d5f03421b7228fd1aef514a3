@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "be61e812_4d1245e5",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-13T23:18:26Z",
+      "side": 1,
+      "message": "Ah ok, I did\u0027t realize you were looking for where the next free slot is. Thanks for adding the comment. Doesn\u0027t the caller know the free slot?",
+      "parentUuid": "54f4e20d_5087ca3b",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 66
+      },
+      "revId": "a041ed9143bd96e8d5f03421b7228fd1aef514a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec2cd6f_6d90b88f",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
