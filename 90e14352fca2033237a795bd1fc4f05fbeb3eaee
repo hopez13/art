@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19bb05b3_18706bef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "Actually, I tested it with these two pending patches applied: https://android-review.googlesource.com/#/c/330829/ and https://android-review.googlesource.com/#/c/330870/. I suppose that this is sufficient?",
+      "parentUuid": "41ea8eba_0291e6b7",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5067ecb_de3dbce2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-10T18:17:05Z",
       "side": 1,
       "message": "Maybe Bnez? I prefer treating \"numChrs\" as unsigned.",
+      "range": {
+        "startLine": 2616,
+        "startChar": 7,
+        "endLine": 2616,
+        "endChar": 11
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29b63dd2_bb8f3f6f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5067ecb_de3dbce2",
       "range": {
         "startLine": 2616,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fd02df93_d810fb2a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1944,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "Replaced with Bnezc.",
+      "parentUuid": "e605108a_607453df",
+      "range": {
+        "startLine": 1944,
+        "startChar": 7,
+        "endLine": 1944,
+        "endChar": 12
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ae4b642_8c512e3c",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-10T18:17:05Z",
       "side": 1,
       "message": "Why set both $a2 and $3 to zero? The same trick as on mips (move $a3, $a2) would work here.",
+      "range": {
+        "startLine": 1903,
+        "startChar": 0,
+        "endLine": 1905,
+        "endChar": 83
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d43e5467_3449233f",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "It can\u0027t be used here because result of subu is unpredictable if either GPR rt or GPR rs does not contain sign-extended 32-bit values (bits 63..31 equal). And we don\u0027t know what is in a2 or a3 at the moment.",
+      "parentUuid": "0ae4b642_8c512e3c",
       "range": {
         "startLine": 1903,
         "startChar": 0,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "d22eed09_f6e380b7",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "No, it is one of the compact branch instructions (introduced in R6).",
+      "parentUuid": "6a458836_188098f2",
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64fcdace_09ecc3d5",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2017-02-10T18:17:05Z",
       "side": 1,
       "message": "This is now unnecessary.",
+      "range": {
+        "startLine": 1975,
+        "startChar": 4,
+        "endLine": 1975,
+        "endChar": 24
+      },
+      "revId": "90e14352fca2033237a795bd1fc4f05fbeb3eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5e81f5_a6133ee5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-13T09:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64fcdace_09ecc3d5",
       "range": {
         "startLine": 1975,
         "startChar": 4,
