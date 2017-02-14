@@ -362,67 +362,226 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
     }
     return result;
   }
-
   DCHECK(!invoke_instruction->IsInvokeStaticOrDirect());
 
-  // Check if we can use an inline cache.
-  ArtMethod* caller = graph_->GetArtMethod();
-  if (Runtime::Current()->UseJitCompilation()) {
-    // Under JIT, we should always know the caller.
-    DCHECK(caller != nullptr);
-    ScopedProfilingInfoInlineUse spiis(caller, soa.Self());
-    ProfilingInfo* profiling_info = spiis.GetProfilingInfo();
-    if (profiling_info != nullptr) {
-      StackHandleScope<1> hs(soa.Self());
-      ClassLinker* class_linker = caller_compilation_unit_.GetClassLinker();
-      Handle<mirror::ObjectArray<mirror::Class>> inline_cache = hs.NewHandle(
-          mirror::ObjectArray<mirror::Class>::Alloc(
-              soa.Self(),
-              class_linker->GetClassRoot(ClassLinker::kClassArrayClass),
-              InlineCache::kIndividualCacheSize));
-      if (inline_cache.Get() == nullptr) {
-        // We got an OOME. Just clear the exception, and don't inline.
-        DCHECK(soa.Self()->IsExceptionPending());
-        soa.Self()->ClearException();
-        VLOG(compiler) << "Out of memory in the compiler when trying to inline";
-        return false;
-      } else {
-        Runtime::Current()->GetJit()->GetCodeCache()->CopyInlineCacheInto(
-            *profiling_info->GetInlineCache(invoke_instruction->GetDexPc()),
-            inline_cache);
-        if (IsUninitialized(inline_cache)) {
-          VLOG(compiler) << "Interface or virtual call to "
-                         << caller_dex_file.PrettyMethod(method_index)
-                         << " is not hit and not inlined";
-          return false;
-        } else if (IsMonomorphic(inline_cache)) {
-          MaybeRecordStat(kMonomorphicCall);
-          if (outermost_graph_->IsCompilingOsr()) {
-            // If we are compiling OSR, we pretend this call is polymorphic, as we may come from the
-            // interpreter and it may have seen different receiver types.
-            return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
-          } else {
-            return TryInlineMonomorphicCall(invoke_instruction, resolved_method, inline_cache);
-          }
-        } else if (IsPolymorphic(inline_cache)) {
-          MaybeRecordStat(kPolymorphicCall);
-          return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
-        } else {
-          DCHECK(IsMegamorphic(inline_cache));
-          VLOG(compiler) << "Interface or virtual call to "
-                         << caller_dex_file.PrettyMethod(method_index)
-                         << " is megamorphic and not inlined";
-          MaybeRecordStat(kMegamorphicCall);
-          return false;
-        }
-      }
-    }
+  // Try using inline caches.
+
+  bool used_inline_caches = false;
+  bool inline_result = false;
+
+  if (Runtime::Current()->IsAotCompiler()) {
+    used_inline_caches = InlineFromAOTInlineCache(caller_dex_file,
+                                                  method_index,
+                                                  invoke_instruction,
+                                                  resolved_method,
+                                                  &inline_result);
+  } else if (Runtime::Current()->UseJitCompilation()) {
+    used_inline_caches = InlineFromJITInlineCache(caller_dex_file,
+                                                  method_index,
+                                                  invoke_instruction,
+                                                  resolved_method,
+                                                  &inline_result);
+  }
+
+  if (used_inline_caches) {
+    return inline_result;
   }
 
   VLOG(compiler) << "Interface or virtual call to "
                  << caller_dex_file.PrettyMethod(method_index)
                  << " could not be statically determined";
   return false;
+}
+
+static Handle<mirror::ObjectArray<mirror::Class>> CreateInlineCacheHandle(
+      const DexCompilationUnit& compilation_unit,
+      StackHandleScope<1>* hs) {
+  ScopedObjectAccess soa(Thread::Current());
+  ClassLinker* class_linker = compilation_unit.GetClassLinker();
+  Handle<mirror::ObjectArray<mirror::Class>> inline_cache = hs->NewHandle(
+      mirror::ObjectArray<mirror::Class>::Alloc(
+          soa.Self(),
+          class_linker->GetClassRoot(ClassLinker::kClassArrayClass),
+          InlineCache::kIndividualCacheSize));
+  if (inline_cache.Get() == nullptr) {
+    // We got an OOME. Just clear the exception, and don't inline.
+    DCHECK(soa.Self()->IsExceptionPending());
+    soa.Self()->ClearException();
+    VLOG(compiler) << "Out of memory in the compiler when trying to inline";
+  }
+  return inline_cache;
+}
+
+bool HInliner::InlineFromJITInlineCache(const DexFile& caller_dex_file,
+                                        uint16_t method_index,
+                                        HInvoke* invoke_instruction,
+                                        ArtMethod* resolved_method,
+                                        bool* inline_result) {
+  DCHECK(Runtime::Current()->UseJitCompilation());
+
+  ScopedObjectAccess soa(Thread::Current());
+  ArtMethod* caller = graph_->GetArtMethod();
+  // Under JIT, we should always know the caller.
+  DCHECK(caller != nullptr);
+  ScopedProfilingInfoInlineUse spiis(caller, soa.Self());
+  ProfilingInfo* profiling_info = spiis.GetProfilingInfo();
+  if (profiling_info == nullptr) {
+    return false;  // not enough info to inline
+  }
+
+  StackHandleScope<1> hs(soa.Self());
+  Handle<mirror::ObjectArray<mirror::Class>> inline_cache =
+      CreateInlineCacheHandle(caller_compilation_unit_, &hs);
+  if (inline_cache.Get() == nullptr) {
+    *inline_result = false;
+  } else {
+    Runtime::Current()->GetJit()->GetCodeCache()->CopyInlineCacheInto(
+        *profiling_info->GetInlineCache(invoke_instruction->GetDexPc()),
+        inline_cache);
+    *inline_result =  InlineFromInlineCache(caller_dex_file,
+                                            method_index,
+                                            invoke_instruction,
+                                            resolved_method,
+                                            inline_cache);
+  }
+  return true;
+}
+
+bool HInliner::InlineFromAOTInlineCache(const DexFile& caller_dex_file,
+                                        uint16_t method_index,
+                                        HInvoke* invoke_instruction,
+                                        ArtMethod* resolved_method,
+                                        bool* inline_result) {
+  DCHECK(Runtime::Current()->IsAotCompiler());
+  ScopedObjectAccess soa(Thread::Current());
+
+  const ProfileCompilationInfo* pci = compiler_driver_->GetProfileCompilationInfo();
+  if (pci == nullptr) {
+    return false;
+  }
+  ProfileCompilationInfo::OfflineProfileMethodInfo offline_profile;
+  bool found = pci->GetMethod(caller_dex_file.GetLocation(),
+                              caller_dex_file.GetLocationChecksum(),
+                              caller_compilation_unit_.GetDexMethodIndex(),
+                              &offline_profile);
+
+  if (!found) {
+    return false;
+  }
+  StackHandleScope<1> hs(soa.Self());
+  Handle<mirror::ObjectArray<mirror::Class>> inline_cache =
+       CreateInlineCacheHandle(caller_compilation_unit_, &hs);
+  // todo extract the inline cache
+  if (inline_cache.Get() == nullptr) {
+    *inline_result = false;
+  } else {
+    if (!ExtractClassesFromOfflineProfile(invoke_instruction,
+                                          resolved_method,
+                                          offline_profile,
+                                          &inline_cache)) {
+      return false;
+    }
+    if (IsUninitialized(inline_cache)) {
+      // We don't store any type in the offline profile for megamorphic calls.
+      // So uninitialized could either because the call is megamorphic
+      // or because none of the inline cache types where resolved. Both cases
+      // are logged in the extract method.
+      return false;
+    }
+    *inline_result = InlineFromInlineCache(caller_dex_file,
+                                           method_index,
+                                           invoke_instruction,
+                                           resolved_method,
+                                           inline_cache);
+  }
+  return true;
+}
+
+bool HInliner::ExtractClassesFromOfflineProfile(
+    const HInvoke* invoke_instruction,
+    ArtMethod* resolved_method,
+    const ProfileCompilationInfo::OfflineProfileMethodInfo& offline_profile,
+    /*out*/Handle<mirror::ObjectArray<mirror::Class>>* inline_cache) {
+  const auto it = offline_profile.inline_caches.find(invoke_instruction->GetDexPc());
+  if (it == offline_profile.inline_caches.end()) {
+    return false;
+  }
+  const ProfileCompilationInfo::DexPcData& dex_pc_data = it->second;
+  if (dex_pc_data.is_megamorphic) {
+    MaybeRecordStat(kMegamorphicCall);
+    return true;
+  }
+
+  ScopedObjectAccess soa(Thread::Current());
+
+  mirror::DexCache* resolved_dex_cache = resolved_method->GetDexCache();  // TODO handle
+  std::vector<ObjPtr<mirror::DexCache>> dex_profile_index_to_dex_cache(
+        offline_profile.dex_references.size());
+  for (size_t i = 0; i < offline_profile.dex_references.size(); i++) {
+    for (const DexFile* dex_file : compiler_driver_->GetDexFilesForOatFile()) {
+      if (dex_file->GetLocation() == offline_profile.dex_references[i].dex_location &&
+          dex_file->GetLocationChecksum() == offline_profile.dex_references[i].dex_checksum) {
+        dex_profile_index_to_dex_cache[i] = dex_file == resolved_dex_cache->GetDexFile()
+          ? resolved_dex_cache
+          : caller_compilation_unit_.GetClassLinker()->FindDexCache(soa.Self(), *dex_file);
+      }
+    }
+  }
+
+  int ic_index = 0;
+  for (const ProfileCompilationInfo::ClassReference class_ref : dex_pc_data.classes) {
+    ObjPtr<mirror::DexCache> dex_cache =
+        dex_profile_index_to_dex_cache[class_ref.dex_profile_index];
+    if (dex_cache != nullptr) {
+      mirror::Class* clazz = dex_cache->GetResolvedType(class_ref.type_index);
+      if (clazz != nullptr) {
+        (*inline_cache)->Set(ic_index++, clazz);
+      } else {
+        VLOG(compiler) << "Could not resolve class from inline cache in AOT mode "
+            << caller_compilation_unit_.GetDexFile()->PrettyMethod(
+                invoke_instruction->GetDexMethodIndex()) << " : "
+            << dex_cache->GetDexFile()->StringByTypeIdx(class_ref.type_index);
+      }
+    }
+  }
+  return true;
+}
+
+bool HInliner::InlineFromInlineCache(
+      const DexFile& caller_dex_file,
+      uint16_t method_index,
+      HInvoke* invoke_instruction,
+      ArtMethod* resolved_method,
+      const Handle<mirror::ObjectArray<mirror::Class>>& inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (IsUninitialized(inline_cache)) {
+    DCHECK(!Runtime::Current()->IsAotCompiler());
+    VLOG(compiler) << "Interface or virtual call to "
+                   << caller_dex_file.PrettyMethod(method_index)
+                   << " is not hit and not inlined";
+
+    return false;
+  } else if (IsMonomorphic(inline_cache)) {
+    MaybeRecordStat(kMonomorphicCall);
+    if (outermost_graph_->IsCompilingOsr()) {
+      // If we are compiling OSR, we pretend this call is polymorphic, as we may come from the
+      // interpreter and it may have seen different receiver types.
+      return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
+    } else {
+      return TryInlineMonomorphicCall(invoke_instruction, resolved_method, inline_cache);
+    }
+  } else if (IsPolymorphic(inline_cache)) {
+    MaybeRecordStat(kPolymorphicCall);
+    return TryInlinePolymorphicCall(invoke_instruction, resolved_method, inline_cache);
+  } else {
+    DCHECK(!Runtime::Current()->IsAotCompiler());
+    DCHECK(IsMegamorphic(inline_cache));
+    VLOG(compiler) << "Interface or virtual call to "
+                   << caller_dex_file.PrettyMethod(method_index)
+                   << " is megamorphic and not inlined";
+    MaybeRecordStat(kMegamorphicCall);
+    return false;
+  }
 }
 
 HInstanceFieldGet* HInliner::BuildGetReceiverClass(ClassLinker* class_linker,
