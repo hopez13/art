@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9b394e4_91ca0ab2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-14T18:28:04Z",
+      "side": 1,
+      "message": "I would put two comments to clarify flow.\nHere\n\n// Debugging case: directives in method names control or assert on inlining.",
+      "revId": "5736c5ddf5f6a57643d6c1c3f2d9aa37596c274f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32f230de_ed920362",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-14T18:28:04Z",
+      "side": 1,
+      "message": "and here:\n\n// Normal case: try to inline.",
+      "revId": "5736c5ddf5f6a57643d6c1c3f2d9aa37596c274f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
