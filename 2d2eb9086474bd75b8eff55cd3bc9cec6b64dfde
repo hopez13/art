@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "eb43a699_5a496c66",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-14T22:57:41Z",
+      "side": 1,
+      "message": "I think 2) is a bold statement that\u0027s wrong. Most secondary dex files end up in a child classloader of the app\u0027s classloader, but we do not compile with that classpath. It\u0027s easy to get a change there through duplicate classes.\n\n(That we\u0027d likely crash right now somewhere is a different topic)",
+      "parentUuid": "221d75ec_9f4919d4",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
