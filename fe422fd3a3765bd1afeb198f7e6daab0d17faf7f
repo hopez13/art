@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8a49e858_6f3b2f86",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8f891d8_aba5605f",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "fe422fd3a3765bd1afeb198f7e6daab0d17faf7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "053a6b78_00a8b644",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -142,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "067c5a2c_6d23d48a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Right. I\u0027ve put a DCHECK.",
+      "parentUuid": "779045fe_c28b6745",
+      "range": {
+        "startLine": 2040,
+        "startChar": 33,
+        "endLine": 2040,
+        "endChar": 81
+      },
+      "revId": "fe422fd3a3765bd1afeb198f7e6daab0d17faf7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bf096a3_80cdb483",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -153,6 +201,30 @@
       "writtenOn": "2017-02-09T17:50:15Z",
       "side": 1,
       "message": "This assumes we\u0027re not in a try-catch block in the outer graph. Worth being explicit about it..",
+      "range": {
+        "startLine": 2123,
+        "startChar": 21,
+        "endLine": 2123,
+        "endChar": 44
+      },
+      "revId": "fe422fd3a3765bd1afeb198f7e6daab0d17faf7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dddfc74_fa209571",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bf096a3_80cdb483",
       "range": {
         "startLine": 2123,
         "startChar": 21,
