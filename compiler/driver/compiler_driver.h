@@ -357,6 +357,10 @@ class CompilerDriver {
     return current_dex_to_dex_methods_;
   }
 
+  const ProfileCompilationInfo* GetProfileCompilationInfo() const {
+    return profile_compilation_info_;
+  }
+
  private:
   // Can `referrer_class` access the resolved `member`?
   // Dispatch call to mirror::Class::CanAccessResolvedField or
