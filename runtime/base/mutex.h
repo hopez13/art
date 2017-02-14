@@ -726,9 +726,6 @@ class Locks {
   // One unexpected signal at a time lock.
   static Mutex* unexpected_signal_lock_ ACQUIRED_AFTER(thread_suspend_count_lock_);
 
-  // Have an exclusive logging thread.
-  static Mutex* logging_lock_ ACQUIRED_AFTER(unexpected_signal_lock_);
-
   // List of mutexes that we expect a thread may hold when accessing weak refs. This is used to
   // avoid a deadlock in the empty checkpoint while weak ref access is disabled (b/34964016). If we
   // encounter an unexpected mutex on accessing weak refs,

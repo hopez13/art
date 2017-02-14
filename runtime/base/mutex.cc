@@ -48,7 +48,6 @@ Mutex* Locks::instrument_entrypoints_lock_ = nullptr;
 Mutex* Locks::intern_table_lock_ = nullptr;
 Mutex* Locks::jni_function_table_lock_ = nullptr;
 Mutex* Locks::jni_libraries_lock_ = nullptr;
-Mutex* Locks::logging_lock_ = nullptr;
 Mutex* Locks::modify_ldt_lock_ = nullptr;
 MutatorMutex* Locks::mutator_lock_ = nullptr;
 Mutex* Locks::profiler_lock_ = nullptr;
@@ -492,17 +491,7 @@ void Mutex::ExclusiveUnlock(Thread* self) {
           }
         }
       } else {
-        // Logging acquires the logging lock, avoid infinite recursion in that case.
-        if (this != Locks::logging_lock_) {
-          LOG(FATAL) << "Unexpected state_ in unlock " << cur_state << " for " << name_;
-        } else {
-          LogHelper::LogLineLowStack(__FILE__,
-                                     __LINE__,
-                                     ::android::base::FATAL_WITHOUT_ABORT,
-                                     StringPrintf("Unexpected state_ %d in unlock for %s",
-                                                  cur_state, name_).c_str());
-          _exit(1);
-        }
+        LOG(FATAL) << "Unexpected state_ in unlock " << cur_state << " for " << name_;
       }
     } while (!done);
 #else
@@ -979,7 +968,7 @@ bool ConditionVariable::TimedWait(Thread* self, int64_t ms, int32_t ns) {
 }
 
 void Locks::Init() {
-  if (logging_lock_ != nullptr) {
+  if (abort_lock_ != nullptr) {
     // Already initialized.
     if (kRuntimeISA == kX86 || kRuntimeISA == kX86_64) {
       DCHECK(modify_ldt_lock_ != nullptr);
@@ -1000,7 +989,6 @@ void Locks::Init() {
     DCHECK(intern_table_lock_ != nullptr);
     DCHECK(jni_function_table_lock_ != nullptr);
     DCHECK(jni_libraries_lock_ != nullptr);
-    DCHECK(logging_lock_ != nullptr);
     DCHECK(mutator_lock_ != nullptr);
     DCHECK(profiler_lock_ != nullptr);
     DCHECK(cha_lock_ != nullptr);
@@ -1155,10 +1143,6 @@ void Locks::Init() {
     UPDATE_CURRENT_LOCK_LEVEL(kUnexpectedSignalLock);
     DCHECK(unexpected_signal_lock_ == nullptr);
     unexpected_signal_lock_ = new Mutex("unexpected signal lock", current_lock_level, true);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kLoggingLock);
-    DCHECK(logging_lock_ == nullptr);
-    logging_lock_ = new Mutex("logging lock", current_lock_level, true);
 
     #undef UPDATE_CURRENT_LOCK_LEVEL
 

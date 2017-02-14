@@ -23,6 +23,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <mutex>
 #include <sstream>
 
 #include "android-base/stringprintf.h"
@@ -196,7 +197,7 @@ class DumpCheckpoint FINAL : public Closure {
         backtrace_map_(dump_native_stack ? BacktraceMap::Create(getpid()) : nullptr),
         dump_native_stack_(dump_native_stack) {}
 
-  void Run(Thread* thread) OVERRIDE {
+  void Run(Thread* thread) OVERRIDE NO_THREAD_SAFETY_ANALYSIS {
     // Note thread and self may not be equal if thread was already suspended at the point of the
     // request.
     Thread* self = Thread::Current();
@@ -208,8 +209,8 @@ class DumpCheckpoint FINAL : public Closure {
     }
     local_os << "\n";
     {
-      // Use the logging lock to ensure serialization when writing to the common ostream.
-      MutexLock mu(self, *Locks::logging_lock_);
+      // Ensure serialization when writing to the common ostream.
+      std::lock_guard<std::mutex> guard(ostream_lock_);
       *os_ << local_os.str();
     }
     barrier_.Pass(self);
@@ -227,6 +228,8 @@ class DumpCheckpoint FINAL : public Closure {
   }
 
  private:
+  // Guard the ostream against concurrent update.
+  std::mutex ostream_lock_;
   // The common stream that will accumulate all the dumps.
   std::ostream* const os_;
   // The barrier to be passed through and for the requestor to wait upon.
