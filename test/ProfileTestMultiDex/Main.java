@@ -25,3 +25,25 @@ class Main {
     return "C";
   }
 }
+
+class TestInline {
+  public int inlinePolymorhic(Super s) {
+    return s.getValue();
+  }
+
+  public int noInlineCache(Super s) {
+    return s.getValue();
+  }
+}
+
+abstract class Super {
+  abstract int getValue();
+}
+
+class SubA extends Super {
+  int getValue() { return 42; }
+}
+
+class SubB extends Super {
+  int getValue() { return 38; };
+}
