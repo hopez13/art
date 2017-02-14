@@ -22,6 +22,30 @@
       "revId": "c9439da7b632d495cebd2ed9d72792fb6b241d5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4483edd_60468fff",
+        "filename": "test/946-obsolete-throw/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-14T00:33:00Z",
+      "side": 1,
+      "message": "It failed presubmit (although I couldn\u0027t repro the failure). After that it was based on my reverted native change so I\u0027m waiting for that to get in for good.",
+      "parentUuid": "fde90a50_ef9d3581",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "c9439da7b632d495cebd2ed9d72792fb6b241d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
