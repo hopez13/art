@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7baf242_66b8ef40",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T00:15:45Z",
+      "side": 1,
+      "message": "Could you invoke the constructor instead? In other places, I find it hard to find locations of where a constructor is called when used in such a way.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 39,
+        "endLine": 1266,
+        "endChar": 66
+      },
+      "revId": "1f48d2e6d6aafd3b953d06c38e443631168a22f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "890c4906_57ed43e2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T00:15:45Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1270,
+        "startChar": 35,
+        "endLine": 1270,
+        "endChar": 65
+      },
+      "revId": "1f48d2e6d6aafd3b953d06c38e443631168a22f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c2d06a0_010d0e60",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T00:15:45Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1273,
+        "startChar": 25,
+        "endLine": 1273,
+        "endChar": 77
+      },
+      "revId": "1f48d2e6d6aafd3b953d06c38e443631168a22f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
