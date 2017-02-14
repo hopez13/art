@@ -28,6 +28,7 @@ import java.lang.invoke.MethodType;
 import java.lang.Thread;
 import java.lang.ThreadLocal;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.CyclicBarrier;
 
 public class TestInvokeCustomWithConcurrentThreads extends Thread {
   private static final int NUMBER_OF_THREADS = 16;
@@ -50,6 +51,9 @@ public class TestInvokeCustomWithConcurrentThreads extends Thread {
 
   // Array of call site indicies of which call site a thread invoked
   private static AtomicInteger[] targetted = new AtomicInteger[NUMBER_OF_THREADS];
+
+  // Synchronization barrier all threads will wait on in the bootstrap method.
+  private static CyclicBarrier barrier = new CyclicBarrier(NUMBER_OF_THREADS);
 
   private TestInvokeCustomWithConcurrentThreads() {}
 
@@ -95,10 +99,10 @@ public class TestInvokeCustomWithConcurrentThreads extends Thread {
     assertEquals(mh.type().parameterCount(), 1);
     assertEquals(methodType, mh.type());
 
-    // Sleep to try to get concurrent executions of this
-    // method. Multiple call sites should be created, but only one
+    // Wait for all threads to be in this method.
+    // Multiple call sites should be created, but only one
     // invoked.
-    Thread.sleep(125);
+    barrier.await();
 
     instantiated[getThreadIndex()] = new ConstantCallSite(mh);
     return instantiated[getThreadIndex()];
