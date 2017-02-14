@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9757b90_b8c58975",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7063,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-14T15:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57a047a3_909d110b",
+      "range": {
+        "startLine": 7059,
+        "startChar": 0,
+        "endLine": 7063,
+        "endChar": 52
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f30cf3_d261b852",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "41ef429c_fd1901c3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7071,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-14T15:53:24Z",
+      "side": 1,
+      "message": "Actually, we may want to keep that temporary, as we will need it in the follow-up CL re-integrating the gray-bit check in the slow path (https://android-review.googlesource.com/#/c/324303/).\n\nI have another CL ready removing that temporary (here and in other back ends), in case we decide not to go with https://android-review.googlesource.com/#/c/324303/ subsequently.",
+      "parentUuid": "36f30cf3_d261b852",
+      "range": {
+        "startLine": 7071,
+        "startChar": 0,
+        "endLine": 7071,
+        "endChar": 52
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caaf4803_edbade44",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-13T19:00:14Z",
       "side": 1,
       "message": "Should this be dine *after* querying?",
+      "range": {
+        "startLine": 7076,
+        "startChar": 0,
+        "endLine": 7099,
+        "endChar": 3
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e00ebcfb_9e77b15b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7099,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-14T15:53:24Z",
+      "side": 1,
+      "message": "So we currently have:\n\n  //   HeapReference\u003cmirror::Object\u003e ref \u003d *src;  // Original reference load.\n  //   temp3 \u003d Thread::Current()-\u003epReadBarrierMarkReg ## root.reg()\n  //   if (temp3 !\u003d nullptr) {  // \u003c\u003d\u003e Thread::Current()-\u003eGetIsGcMarking()\n  //     // Slow path.\n  //     ref \u003d temp3(ref);  // ref \u003d ReadBarrier::Mark(ref);  // Runtime entry point call.\n  //   }\n\nand you are suggesting that we do:\n\n  //   temp3 \u003d Thread::Current()-\u003epReadBarrierMarkReg ## root.reg()\n  //   HeapReference\u003cmirror::Object\u003e ref \u003d *src;  // Original reference load.\n  //   if (temp3 !\u003d nullptr) {  // \u003c\u003d\u003e Thread::Current()-\u003eGetIsGcMarking()\n  //     // Slow path.\n  //     ref \u003d temp3(ref);  // ref \u003d ReadBarrier::Mark(ref);  // Runtime entry point call.\n  //   }\n\nI believe both versions are correct, as entry point switching cannot happen between the two loads.\n\nDo you think the second version brings more benefits than the first one?",
+      "parentUuid": "caaf4803_edbade44",
       "range": {
         "startLine": 7076,
         "startChar": 0,
