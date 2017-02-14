@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "97c05f4e_a2b4f3a1",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T22:14:24Z",
+      "side": 1,
+      "message": "Actually, I can\u0027t call it $noinline$ as otherwise we won\u0027t try to change an invokeinterface into an invokevirtual, which this test is testing. So I\u0027ve just changed the method to always throw.",
+      "parentUuid": "dbfe4ec8_1f444c4e",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9bb4516_b18e2d4c",
         "filename": "test/637-checker-throw-inline/src/Main.java",
         "patchSetId": 2
