@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e664d4f_202d5c7f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T13:37:10Z",
+      "side": 1,
+      "message": "Add a comment that we 8-byte align the string array, so loading more than the remaining bytes is ok.",
+      "range": {
+        "startLine": 1592,
+        "startChar": 0,
+        "endLine": 1597,
+        "endChar": 5
+      },
+      "revId": "e39f14ff4e0d7c70016874cff24863b912d40bf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
