@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "221d75ec_9f4919d4",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T22:42:24Z",
+      "side": 1,
+      "message": "1) This only applies to static/direct methods, so the compiler *must* resolve it. In fact instruction_builder.cc already forces the ICCE check, so the Unresolved call would be set if there was an ICCE.\n\n2) Secondary dexes are not compiled with a classpath that may change, so we have no problems there.\n\nThere shouldn\u0027t be any complexity really. In artQuickResolutionTrampoline , you just need to call FindDirectMethod on the class you\u0027ve resolved through the method_id, passing the name and signature also computed from the method_id.\n\nWhat you gain from fixing it now is avoiding 1 bit for the invoke type per invoke info you\u0027re adding. Making it a stronger point that the overhead of adding things for dexlayout is minimal.",
+      "parentUuid": "31cf5480_359be6ee",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
