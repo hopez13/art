@@ -187,6 +187,30 @@
       "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20b0b4dc_c7ed8356",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-14T01:44:55Z",
+      "side": 1,
+      "message": "Ok, then add comments explaining this and maybe extract the switch into a different method so that you have a more readable structure.\n\nalso, renaming found_in_stack_map or something similar will make the intention at L1066 more obvious.",
+      "parentUuid": "9c5807ff_130f062f",
+      "range": {
+        "startLine": 1012,
+        "startChar": 26,
+        "endLine": 1012,
+        "endChar": 39
+      },
+      "revId": "a856f57dc2e0be6b3536b38aa0945cd1b8dd9528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
