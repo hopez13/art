@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "31cf5480_359be6ee",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T20:43:44Z",
+      "side": 1,
+      "message": "That seems like a lot of complexity, invoke_type has quite a few uses in artQuickResolutionTrampoline. I don\u0027t see why we can\u0027t just merge the current approach and improve it after. Also it is harder to gauge if it would be correct for things like secondary dexes.",
+      "parentUuid": "5ec5129f_a564d707",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
