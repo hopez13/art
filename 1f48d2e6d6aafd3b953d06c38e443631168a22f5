@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a75af15e_97df431d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-14T01:07:24Z",
+      "side": 1,
+      "message": "I can. but this should be more efficient and leads to shorter. This code is executed with the mutator lock so I think it\u0027s better if we maximize speed and avoid the copying.\n\nThat said, yea, I agree that if you search for the constructor this gets in a way. Also, I don\u0027t really have numbers for how much we gain in this particular case. I do remember Vladimir used the same technique to reduce the compilation time.\n\nDo you have a strong preference here?",
+      "parentUuid": "f7baf242_66b8ef40",
+      "range": {
+        "startLine": 1266,
+        "startChar": 39,
+        "endLine": 1266,
+        "endChar": 66
+      },
+      "revId": "1f48d2e6d6aafd3b953d06c38e443631168a22f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "890c4906_57ed43e2",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 12
