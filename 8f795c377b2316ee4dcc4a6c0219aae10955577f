@@ -22,6 +22,30 @@
       "revId": "8f795c377b2316ee4dcc4a6c0219aae10955577f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbcfca10_bcd4a232",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6029,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-14T16:25:54Z",
+      "side": 1,
+      "message": "I don\u0027t think that this is possible without adding extra jumps that would penalize the fast path. :-/",
+      "parentUuid": "43d5ed11_15c012f4",
+      "range": {
+        "startLine": 6029,
+        "startChar": 37,
+        "endLine": 6029,
+        "endChar": 41
+      },
+      "revId": "8f795c377b2316ee4dcc4a6c0219aae10955577f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
