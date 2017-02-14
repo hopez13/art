@@ -20,6 +20,7 @@
 #include "dex_file_types.h"
 #include "invoke_type.h"
 #include "optimization.h"
+#include "jit/profile_compilation_info.h"
 
 namespace art {
 
@@ -104,6 +105,32 @@ class HInliner : public HOptimization {
                                             uint32_t field_index,
                                             HInstruction* obj,
                                             HInstruction* value);
+
+  bool InlineFromJITInlineCache(const DexFile& caller_dex_file,
+                                uint16_t method_index,
+                                HInvoke* invoke_instruction,
+                                ArtMethod* resolved_method,
+                                bool* inline_result);
+
+  bool InlineFromAOTInlineCache(const DexFile& caller_dex_file,
+                                uint16_t method_index,
+                                HInvoke* invoke_instruction,
+                                ArtMethod* resolved_method,
+                                bool* inline_result);
+
+  bool InlineFromInlineCache(
+      const DexFile& caller_dex_file,
+      uint16_t method_index,
+      HInvoke* invoke_instruction,
+      ArtMethod* resolved_method,
+      const Handle<mirror::ObjectArray<mirror::Class>>& inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool ExtractClassesFromOfflineProfile(
+    const HInvoke* invoke_instruction,
+    ArtMethod* resolved_method,
+    const ProfileCompilationInfo::OfflineProfileMethodInfo& offline_profile,
+    /*out*/Handle<mirror::ObjectArray<mirror::Class>>* inline_cache);
 
   // Try to inline the target of a monomorphic call. If successful, the code
   // in the graph will look like:
