@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c2c2405_c6b9e1a2",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T02:16:11Z",
+      "side": 1,
+      "message": "You could use the referent visitor callback if you pass it into VisitReferences:\n\n  void operator()(ObjPtr\u003cmirror::Class\u003e klass, ObjPtr\u003cmirror::Reference\u003e ref) const",
+      "range": {
+        "startLine": 485,
+        "startChar": 12,
+        "endLine": 485,
+        "endChar": 38
+      },
+      "revId": "686b6abc59b0190ac4215437baba9e3006b60000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
