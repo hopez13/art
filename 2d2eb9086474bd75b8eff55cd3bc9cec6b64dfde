@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "80868383_f922ee78",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T01:22:03Z",
+      "side": 1,
+      "message": "There is a specific incompatible class change check that uses the invoke type, see ClassLinker::ResolveMethod\u003cClassLinker::kForceICCECheck\u003e. Inferring the invoke type method seems like it would no longer enforce this check.",
+      "parentUuid": "593e849c_a5048842",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
