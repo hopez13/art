@@ -359,9 +359,9 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
   //
   // while honoring heap poisoning and/or read barriers (if any).
   //
-  // Location `maybe_temp` is used when generating a read barrier and
-  // shall be a register in that case; it may be an invalid location
-  // otherwise.
+  // Location `maybe_temp` is used when generating a non-Baker read
+  // barrier and shall be a register in that case; it may be an
+  // invalid location otherwise.
   void GenerateReferenceLoadOneRegister(HInstruction* instruction,
                                         Location out,
                                         uint32_t offset,
@@ -373,15 +373,10 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
   //   out <- *(obj + offset)
   //
   // while honoring heap poisoning and/or read barriers (if any).
-  //
-  // Location `maybe_temp` is used when generating a Baker's (fast
-  // path) read barrier and shall be a register in that case; it may
-  // be an invalid location otherwise.
   void GenerateReferenceLoadTwoRegisters(HInstruction* instruction,
                                          Location out,
                                          Location obj,
                                          uint32_t offset,
-                                         Location maybe_temp,
                                          ReadBarrierOption read_barrier_option);
   // Generate a GC root reference load:
   //
@@ -597,7 +592,6 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                              Location ref,
                                              vixl::aarch32::Register obj,
                                              uint32_t offset,
-                                             Location temp,
                                              bool needs_null_check);
   // Fast path implementation of ReadBarrier::Barrier for a heap
   // reference array load when Baker's read barriers are used.
@@ -606,7 +600,6 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                                              vixl::aarch32::Register obj,
                                              uint32_t data_offset,
                                              Location index,
-                                             Location temp,
                                              bool needs_null_check);
   // Factored implementation, used by GenerateFieldLoadWithBakerReadBarrier,
   // GenerateArrayLoadWithBakerReadBarrier and some intrinsics.
@@ -616,18 +609,18 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
   // `ref`, and mark it if needed.
   //
   // If `always_update_field` is true, the value of the reference is
-  // atomically updated in the holder (`obj`).  This operation
-  // requires an extra temporary register, which must be provided as a
-  // non-null pointer (`temp2`).
+  // atomically updated in the holder (`obj`). This operation requires
+  // two temporary registers, which must be provided as non-null
+  // pointers (`temp1` and `temp2`).
   void GenerateReferenceLoadWithBakerReadBarrier(HInstruction* instruction,
                                                  Location ref,
                                                  vixl::aarch32::Register obj,
                                                  uint32_t offset,
                                                  Location index,
                                                  ScaleFactor scale_factor,
-                                                 Location temp,
                                                  bool needs_null_check,
                                                  bool always_update_field = false,
+                                                 vixl::aarch32::Register* temp1 = nullptr,
                                                  vixl::aarch32::Register* temp2 = nullptr);
 
   // Generate a heap reference load (with no read barrier).

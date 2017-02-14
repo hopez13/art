@@ -601,9 +601,8 @@ static void GenUnsafeGet(HInvoke* invoke,
       Register trg = trg_loc.AsRegister<Register>();
       if (kEmitCompilerReadBarrier) {
         if (kUseBakerReadBarrier) {
-          Location temp = locations->GetTemp(0);
           codegen->GenerateReferenceLoadWithBakerReadBarrier(
-              invoke, trg_loc, base, 0U, offset_loc, TIMES_1, temp, /* needs_null_check */ false);
+              invoke, trg_loc, base, 0U, offset_loc, TIMES_1, /* needs_null_check */ false);
           if (is_volatile) {
             __ dmb(ISH);
           }
@@ -645,9 +644,7 @@ static void GenUnsafeGet(HInvoke* invoke,
   }
 }
 
-static void CreateIntIntIntToIntLocations(ArenaAllocator* arena,
-                                          HInvoke* invoke,
-                                          Primitive::Type type) {
+static void CreateIntIntIntToIntLocations(ArenaAllocator* arena, HInvoke* invoke) {
   bool can_call = kEmitCompilerReadBarrier &&
       (invoke->GetIntrinsic() == Intrinsics::kUnsafeGetObject ||
        invoke->GetIntrinsic() == Intrinsics::kUnsafeGetObjectVolatile);
@@ -664,30 +661,25 @@ static void CreateIntIntIntToIntLocations(ArenaAllocator* arena,
   locations->SetInAt(2, Location::RequiresRegister());
   locations->SetOut(Location::RequiresRegister(),
                     (can_call ? Location::kOutputOverlap : Location::kNoOutputOverlap));
-  if (type == Primitive::kPrimNot && kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-    // We need a temporary register for the read barrier marking slow
-    // path in InstructionCodeGeneratorARM::GenerateReferenceLoadWithBakerReadBarrier.
-    locations->AddTemp(Location::RequiresRegister());
-  }
 }
 
 void IntrinsicLocationsBuilderARM::VisitUnsafeGet(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimInt);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 void IntrinsicLocationsBuilderARM::VisitUnsafeGetVolatile(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimInt);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 void IntrinsicLocationsBuilderARM::VisitUnsafeGetLong(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimLong);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 void IntrinsicLocationsBuilderARM::VisitUnsafeGetLongVolatile(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimLong);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 void IntrinsicLocationsBuilderARM::VisitUnsafeGetObject(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimNot);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 void IntrinsicLocationsBuilderARM::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
-  CreateIntIntIntToIntLocations(arena_, invoke, Primitive::kPrimNot);
+  CreateIntIntIntToIntLocations(arena_, invoke);
 }
 
 void IntrinsicCodeGeneratorARM::VisitUnsafeGet(HInvoke* invoke) {
@@ -928,17 +920,16 @@ static void GenCas(HInvoke* invoke, Primitive::Type type, CodeGeneratorARM* code
   LocationSummary* locations = invoke->GetLocations();
 
   Location out_loc = locations->Out();
-  Register out = out_loc.AsRegister<Register>();                  // Boolean result.
+  Register out = out_loc.AsRegister<Register>();                    // Boolean result.
 
-  Register base = locations->InAt(1).AsRegister<Register>();      // Object pointer.
+  Register base = locations->InAt(1).AsRegister<Register>();        // Object pointer.
   Location offset_loc = locations->InAt(2);
-  Register offset = offset_loc.AsRegisterPairLow<Register>();     // Offset (discard high 4B).
-  Register expected = locations->InAt(3).AsRegister<Register>();  // Expected.
-  Register value = locations->InAt(4).AsRegister<Register>();     // Value.
+  Register offset = offset_loc.AsRegisterPairLow<Register>();       // Offset (discard high 4B).
+  Register expected = locations->InAt(3).AsRegister<Register>();    // Expected.
+  Register value = locations->InAt(4).AsRegister<Register>();       // Value.
 
-  Location tmp_ptr_loc = locations->GetTemp(0);
-  Register tmp_ptr = tmp_ptr_loc.AsRegister<Register>();          // Pointer to actual memory.
-  Register tmp = locations->GetTemp(1).AsRegister<Register>();    // Value in memory.
+  Register tmp_ptr = locations->GetTemp(0).AsRegister<Register>();  // Pointer to actual memory.
+  Register tmp = locations->GetTemp(1).AsRegister<Register>();      // Value in memory.
 
   if (type == Primitive::kPrimNot) {
     // The only read barrier implementation supporting the
@@ -960,10 +951,10 @@ static void GenCas(HInvoke* invoke, Primitive::Type type, CodeGeneratorARM* code
           /* offset */ 0u,
           /* index */ offset_loc,
           ScaleFactor::TIMES_1,
-          tmp_ptr_loc,
           /* needs_null_check */ false,
           /* always_update_field */ true,
-          &tmp);
+          /* temp1 */ &tmp_ptr,
+          /* temp2 */ &tmp);
     }
   }
 
@@ -1772,11 +1763,11 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
       if (!optimizations.GetSourceIsNonPrimitiveArray()) {
         // /* HeapReference<Class> */ temp1 = src->klass_
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            invoke, temp1_loc, src, class_offset, temp2_loc, /* needs_null_check */ false);
+            invoke, temp1_loc, src, class_offset, /* needs_null_check */ false);
         // Bail out if the source is not a non primitive array.
         // /* HeapReference<Class> */ temp1 = temp1->component_type_
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            invoke, temp1_loc, temp1, component_offset, temp2_loc, /* needs_null_check */ false);
+            invoke, temp1_loc, temp1, component_offset, /* needs_null_check */ false);
         __ CompareAndBranchIfZero(temp1, intrinsic_slow_path->GetEntryLabel());
         // If heap poisoning is enabled, `temp1` has been unpoisoned
         // by the the previous call to GenerateFieldLoadWithBakerReadBarrier.
@@ -1788,7 +1779,7 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
 
       // /* HeapReference<Class> */ temp1 = dest->klass_
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          invoke, temp1_loc, dest, class_offset, temp2_loc, /* needs_null_check */ false);
+          invoke, temp1_loc, dest, class_offset, /* needs_null_check */ false);
 
       if (!optimizations.GetDestinationIsNonPrimitiveArray()) {
         // Bail out if the destination is not a non primitive array.
@@ -1800,7 +1791,7 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
         // temporaries such a `temp1`.
         // /* HeapReference<Class> */ temp2 = temp1->component_type_
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            invoke, temp2_loc, temp1, component_offset, temp3_loc, /* needs_null_check */ false);
+            invoke, temp2_loc, temp1, component_offset, /* needs_null_check */ false);
         __ CompareAndBranchIfZero(temp2, intrinsic_slow_path->GetEntryLabel());
         // If heap poisoning is enabled, `temp2` has been unpoisoned
         // by the the previous call to GenerateFieldLoadWithBakerReadBarrier.
@@ -1814,7 +1805,7 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
       // read barrier emitted by GenerateFieldLoadWithBakerReadBarrier below.
       // /* HeapReference<Class> */ temp2 = src->klass_
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          invoke, temp2_loc, src, class_offset, temp3_loc, /* needs_null_check */ false);
+          invoke, temp2_loc, src, class_offset, /* needs_null_check */ false);
       // Note: if heap poisoning is on, we are comparing two unpoisoned references here.
       __ cmp(temp1, ShifterOperand(temp2));
 
@@ -1823,7 +1814,7 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
         __ b(&do_copy, EQ);
         // /* HeapReference<Class> */ temp1 = temp1->component_type_
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            invoke, temp1_loc, temp1, component_offset, temp2_loc, /* needs_null_check */ false);
+            invoke, temp1_loc, temp1, component_offset, /* needs_null_check */ false);
         // /* HeapReference<Class> */ temp1 = temp1->super_class_
         // We do not need to emit a read barrier for the following
         // heap reference load, as `temp1` is only used in a
@@ -1902,10 +1893,10 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
     if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
       // /* HeapReference<Class> */ temp1 = src->klass_
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          invoke, temp1_loc, src, class_offset, temp2_loc, /* needs_null_check */ false);
+          invoke, temp1_loc, src, class_offset, /* needs_null_check */ false);
       // /* HeapReference<Class> */ temp3 = temp1->component_type_
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          invoke, temp3_loc, temp1, component_offset, temp2_loc, /* needs_null_check */ false);
+          invoke, temp3_loc, temp1, component_offset, /* needs_null_check */ false);
       __ CompareAndBranchIfZero(temp3, intrinsic_slow_path->GetEntryLabel());
       // If heap poisoning is enabled, `temp3` has been unpoisoned
       // by the the previous call to GenerateFieldLoadWithBakerReadBarrier.

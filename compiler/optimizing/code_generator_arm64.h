@@ -268,9 +268,9 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
   //
   // while honoring heap poisoning and/or read barriers (if any).
   //
-  // Location `maybe_temp` is used when generating a read barrier and
-  // shall be a register in that case; it may be an invalid location
-  // otherwise.
+  // Location `maybe_temp` is used when generating a non-Baker read
+  // barrier and shall be a register in that case; it may be an
+  // invalid location otherwise.
   void GenerateReferenceLoadOneRegister(HInstruction* instruction,
                                         Location out,
                                         uint32_t offset,
@@ -282,15 +282,10 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
   //   out <- *(obj + offset)
   //
   // while honoring heap poisoning and/or read barriers (if any).
-  //
-  // Location `maybe_temp` is used when generating a Baker's (fast
-  // path) read barrier and shall be a register in that case; it may
-  // be an invalid location otherwise.
   void GenerateReferenceLoadTwoRegisters(HInstruction* instruction,
                                          Location out,
                                          Location obj,
                                          uint32_t offset,
-                                         Location maybe_temp,
                                          ReadBarrierOption read_barrier_option);
   // Generate a GC root reference load:
   //
@@ -604,7 +599,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                              Location ref,
                                              vixl::aarch64::Register obj,
                                              uint32_t offset,
-                                             vixl::aarch64::Register temp,
                                              bool needs_null_check,
                                              bool use_load_acquire);
   // Fast path implementation of ReadBarrier::Barrier for a heap
@@ -614,7 +608,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                              vixl::aarch64::Register obj,
                                              uint32_t data_offset,
                                              Location index,
-                                             vixl::aarch64::Register temp,
                                              bool needs_null_check);
   // Factored implementation, used by GenerateFieldLoadWithBakerReadBarrier,
   // GenerateArrayLoadWithBakerReadBarrier and some intrinsics.
@@ -624,17 +617,19 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // `ref`, and mark it if needed.
   //
   // If `always_update_field` is true, the value of the reference is
-  // atomically updated in the holder (`obj`).
+  // atomically updated in the holder (`obj`). This operation
+  // requires a temporary register, which must be provided as a
+  // non-null pointer (`temp`).
   void GenerateReferenceLoadWithBakerReadBarrier(HInstruction* instruction,
                                                  Location ref,
                                                  vixl::aarch64::Register obj,
                                                  uint32_t offset,
                                                  Location index,
                                                  size_t scale_factor,
-                                                 vixl::aarch64::Register temp,
                                                  bool needs_null_check,
                                                  bool use_load_acquire,
-                                                 bool always_update_field = false);
+                                                 bool always_update_field = false,
+                                                 vixl::aarch64::Register* temp = nullptr);
 
   // Generate a heap reference load (with no read barrier).
   void GenerateRawReferenceLoad(HInstruction* instruction,
