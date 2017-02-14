@@ -52,6 +52,7 @@
 #include "mirror/class_ext.h"
 #include "mirror/object_reference.h"
 #include "mirror/object-inl.h"
+#include "mirror/reference.h"
 #include "runtime.h"
 #include "runtime_callbacks.h"
 #include "ScopedLocalRef.h"
@@ -479,6 +480,14 @@ struct ClassCallback : public art::ClassLoadCallback {
 
         // Visit references, not native roots.
         obj->VisitReferences<false>(*hfv, art::VoidFunctor());
+
+        // Reference subclasses need to be handled specially.
+        if (obj->IsReferenceInstance()) {
+          art::mirror::Object* val = obj->AsReference()->GetReferent();
+          if (val == hfv->input_) {
+            obj->AsReference()->SetReferent<false>(hfv->output_);
+          }
+        }
       }
 
      private:
