@@ -4490,10 +4490,6 @@ void LocationsBuilderARMVIXL::HandleFieldGet(HInstruction* instruction,
     DCHECK_EQ(InstructionSet::kThumb2, codegen_->GetInstructionSet());
     locations->AddTemp(Location::RequiresRegister());
     locations->AddTemp(Location::RequiresRegister());
-  } else if (object_field_get_with_read_barrier && kUseBakerReadBarrier) {
-    // We need a temporary register for the read barrier marking slow
-    // path in CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier.
-    locations->AddTemp(Location::RequiresRegister());
   }
 }
 
@@ -4605,11 +4601,10 @@ void InstructionCodeGeneratorARMVIXL::HandleFieldGet(HInstruction* instruction,
     case Primitive::kPrimNot: {
       // /* HeapReference<Object> */ out = *(base + offset)
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        Location temp_loc = locations->GetTemp(0);
         // Note that a potential implicit null check is handled in this
         // CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier call.
         codegen_->GenerateFieldLoadWithBakerReadBarrier(
-            instruction, out, base, offset, temp_loc, /* needs_null_check */ true);
+            instruction, out, base, offset, /* needs_null_check */ true);
         if (is_volatile) {
           codegen_->GenerateMemoryBarrier(MemBarrierKind::kLoadAny);
         }
@@ -4953,11 +4948,8 @@ void LocationsBuilderARMVIXL::VisitArrayGet(HArrayGet* instruction) {
         Location::RequiresRegister(),
         object_array_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
   }
-  // We need a temporary register for the read barrier marking slow
-  // path in CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier.
-  // Also need for String compression feature.
-  if ((object_array_get_with_read_barrier && kUseBakerReadBarrier)
-      || (mirror::kUseStringCompression && instruction->IsStringCharAt())) {
+  // We need a temporary register for the String compression feature.
+  if (mirror::kUseStringCompression && instruction->IsStringCharAt()) {
     locations->AddTemp(Location::RequiresRegister());
   }
 }
@@ -5059,11 +5051,10 @@ void InstructionCodeGeneratorARMVIXL::VisitArrayGet(HArrayGet* instruction) {
       // /* HeapReference<Object> */ out =
       //     *(obj + data_offset + index * sizeof(HeapReference<Object>))
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        Location temp = locations->GetTemp(0);
         // Note that a potential implicit null check is handled in this
         // CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier call.
         codegen_->GenerateArrayLoadWithBakerReadBarrier(
-            instruction, out_loc, obj, data_offset, index, temp, /* needs_null_check */ true);
+            instruction, out_loc, obj, data_offset, index, /* needs_null_check */ true);
       } else {
         vixl32::Register out = OutputRegister(instruction);
         if (index.IsConstant()) {
@@ -6202,10 +6193,11 @@ void InstructionCodeGeneratorARMVIXL::VisitThrow(HThrow* instruction) {
 // Temp is used for read barrier.
 static size_t NumberOfInstanceOfTemps(TypeCheckKind type_check_kind) {
   if (kEmitCompilerReadBarrier &&
-       (kUseBakerReadBarrier ||
-          type_check_kind == TypeCheckKind::kAbstractClassCheck ||
-          type_check_kind == TypeCheckKind::kClassHierarchyCheck ||
-          type_check_kind == TypeCheckKind::kArrayObjectCheck)) {
+      !kUseBakerReadBarrier &&
+      (type_check_kind == TypeCheckKind::kAbstractClassCheck ||
+       type_check_kind == TypeCheckKind::kClassHierarchyCheck ||
+       type_check_kind == TypeCheckKind::kArrayObjectCheck)) {
+    // A temporary register is required for some non-Baker read barriers.
     return 1;
   }
   return 0;
@@ -6280,12 +6272,8 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
   switch (type_check_kind) {
     case TypeCheckKind::kExactCheck: {
       // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, out_loc, obj_loc, class_offset, kCompilerReadBarrierOption);
       __ Cmp(out, cls);
       // Classes must be equal for the instanceof to succeed.
       __ B(ne, &zero, /* far_target */ false);
@@ -6296,22 +6284,15 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
 
     case TypeCheckKind::kAbstractClassCheck: {
       // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, out_loc, obj_loc, class_offset, kCompilerReadBarrierOption);
       // If the class is abstract, we eagerly fetch the super class of the
       // object to avoid doing a comparison we know will fail.
       vixl32::Label loop;
       __ Bind(&loop);
       // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
+      GenerateReferenceLoadOneRegister(
+          instruction, out_loc, super_offset, maybe_temp_loc, kCompilerReadBarrierOption);
       // If `out` is null, we use it for the result, and jump to `done`.
       __ CompareAndBranchIfZero(out, &done, /* far_target */ false);
       __ Cmp(out, cls);
@@ -6325,23 +6306,16 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
 
     case TypeCheckKind::kClassHierarchyCheck: {
       // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, out_loc, obj_loc, class_offset, kCompilerReadBarrierOption);
       // Walk over the class hierarchy to find a match.
       vixl32::Label loop, success;
       __ Bind(&loop);
       __ Cmp(out, cls);
       __ B(eq, &success, /* far_target */ false);
       // /* HeapReference<Class> */ out = out->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       super_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
+      GenerateReferenceLoadOneRegister(
+          instruction, out_loc, super_offset, maybe_temp_loc, kCompilerReadBarrierOption);
       __ CompareAndBranchIfNonZero(out, &loop);
       // If `out` is null, we use it for the result, and jump to `done`.
       __ B(&done);
@@ -6355,23 +6329,16 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
 
     case TypeCheckKind::kArrayObjectCheck: {
       // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kCompilerReadBarrierOption);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, out_loc, obj_loc, class_offset, kCompilerReadBarrierOption);
       // Do an exact check.
       vixl32::Label exact_check;
       __ Cmp(out, cls);
       __ B(eq, &exact_check, /* far_target */ false);
       // Otherwise, we need to check that the object's class is a non-primitive array.
       // /* HeapReference<Class> */ out = out->component_type_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       out_loc,
-                                       component_offset,
-                                       maybe_temp_loc,
-                                       kCompilerReadBarrierOption);
+      GenerateReferenceLoadOneRegister(
+          instruction, out_loc, component_offset, maybe_temp_loc, kCompilerReadBarrierOption);
       // If `out` is null, we use it for the result, and jump to `done`.
       __ CompareAndBranchIfZero(out, &done, /* far_target */ false);
       GetAssembler()->LoadFromOffset(kLoadUnsignedHalfword, out, out, primitive_offset);
@@ -6386,12 +6353,8 @@ void InstructionCodeGeneratorARMVIXL::VisitInstanceOf(HInstanceOf* instruction) 
     case TypeCheckKind::kArrayCheck: {
       // No read barrier since the slow path will retry upon failure.
       // /* HeapReference<Class> */ out = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        out_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, out_loc, obj_loc, class_offset, kWithoutReadBarrier);
       __ Cmp(out, cls);
       DCHECK(locations->OnlyCallsOnSlowPath());
       slow_path = new (GetGraph()->GetArena()) TypeCheckSlowPathARMVIXL(instruction,
@@ -6526,12 +6489,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
     case TypeCheckKind::kExactCheck:
     case TypeCheckKind::kArrayCheck: {
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, obj_loc, class_offset, kWithoutReadBarrier);
 
       __ Cmp(temp, cls);
       // Jump to slow path for throwing the exception or doing a
@@ -6542,23 +6501,16 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
     case TypeCheckKind::kAbstractClassCheck: {
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, obj_loc, class_offset, kWithoutReadBarrier);
 
       // If the class is abstract, we eagerly fetch the super class of the
       // object to avoid doing a comparison we know will fail.
       vixl32::Label loop;
       __ Bind(&loop);
       // /* HeapReference<Class> */ temp = temp->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       super_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+      GenerateReferenceLoadOneRegister(
+          instruction, temp_loc, super_offset, maybe_temp2_loc, kWithoutReadBarrier);
 
       // If the class reference currently in `temp` is null, jump to the slow path to throw the
       // exception.
@@ -6572,12 +6524,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
     case TypeCheckKind::kClassHierarchyCheck: {
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, obj_loc, class_offset, kWithoutReadBarrier);
 
       // Walk over the class hierarchy to find a match.
       vixl32::Label loop;
@@ -6586,11 +6534,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
       __ B(eq, &done, /* far_target */ false);
 
       // /* HeapReference<Class> */ temp = temp->super_class_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       super_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+      GenerateReferenceLoadOneRegister(
+          instruction, temp_loc, super_offset, maybe_temp2_loc, kWithoutReadBarrier);
 
       // If the class reference currently in `temp` is null, jump to the slow path to throw the
       // exception.
@@ -6602,12 +6547,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
     case TypeCheckKind::kArrayObjectCheck:  {
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, obj_loc, class_offset, kWithoutReadBarrier);
 
       // Do an exact check.
       __ Cmp(temp, cls);
@@ -6615,11 +6556,8 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
 
       // Otherwise, we need to check that the object's class is a non-primitive array.
       // /* HeapReference<Class> */ temp = temp->component_type_
-      GenerateReferenceLoadOneRegister(instruction,
-                                       temp_loc,
-                                       component_offset,
-                                       maybe_temp2_loc,
-                                       kWithoutReadBarrier);
+      GenerateReferenceLoadOneRegister(
+          instruction, temp_loc, component_offset, maybe_temp2_loc, kWithoutReadBarrier);
       // If the component type is null, jump to the slow path to throw the exception.
       __ CompareAndBranchIfZero(temp, type_check_slow_path->GetEntryLabel());
       // Otherwise,the object is indeed an array, jump to label `check_non_primitive_component_type`
@@ -6647,20 +6585,12 @@ void InstructionCodeGeneratorARMVIXL::VisitCheckCast(HCheckCast* instruction) {
       // Avoid read barriers to improve performance of the fast path. We can not get false
       // positives by doing this.
       // /* HeapReference<Class> */ temp = obj->klass_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        obj_loc,
-                                        class_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, obj_loc, class_offset, kWithoutReadBarrier);
 
       // /* HeapReference<Class> */ temp = temp->iftable_
-      GenerateReferenceLoadTwoRegisters(instruction,
-                                        temp_loc,
-                                        temp_loc,
-                                        iftable_offset,
-                                        maybe_temp2_loc,
-                                        kWithoutReadBarrier);
+      GenerateReferenceLoadTwoRegisters(
+          instruction, temp_loc, temp_loc, iftable_offset, kWithoutReadBarrier);
       // Iftable is never null.
       __ Ldr(RegisterFrom(maybe_temp2_loc), MemOperand(temp, array_length_offset));
       // Loop through the iftable and check if any class matches.
@@ -6973,13 +6903,13 @@ void InstructionCodeGeneratorARMVIXL::GenerateReferenceLoadOneRegister(
   vixl32::Register out_reg = RegisterFrom(out);
   if (read_barrier_option == kWithReadBarrier) {
     CHECK(kEmitCompilerReadBarrier);
-    DCHECK(maybe_temp.IsRegister()) << maybe_temp;
     if (kUseBakerReadBarrier) {
       // Load with fast path based Baker's read barrier.
       // /* HeapReference<Object> */ out = *(out + offset)
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          instruction, out, out_reg, offset, maybe_temp, /* needs_null_check */ false);
+          instruction, out, out_reg, offset, /* needs_null_check */ false);
     } else {
+      DCHECK(maybe_temp.IsRegister()) << maybe_temp;
       // Load with slow path based read barrier.
       // Save the value of `out` into `maybe_temp` before overwriting it
       // in the following move operation, as we will need it for the
@@ -7002,18 +6932,16 @@ void InstructionCodeGeneratorARMVIXL::GenerateReferenceLoadTwoRegisters(
     Location out,
     Location obj,
     uint32_t offset,
-    Location maybe_temp,
     ReadBarrierOption read_barrier_option) {
   vixl32::Register out_reg = RegisterFrom(out);
   vixl32::Register obj_reg = RegisterFrom(obj);
   if (read_barrier_option == kWithReadBarrier) {
     CHECK(kEmitCompilerReadBarrier);
     if (kUseBakerReadBarrier) {
-      DCHECK(maybe_temp.IsRegister()) << maybe_temp;
       // Load with fast path based Baker's read barrier.
       // /* HeapReference<Object> */ out = *(obj + offset)
       codegen_->GenerateFieldLoadWithBakerReadBarrier(
-          instruction, out, obj_reg, offset, maybe_temp, /* needs_null_check */ false);
+          instruction, out, obj_reg, offset, /* needs_null_check */ false);
     } else {
       // Load with slow path based read barrier.
       // /* HeapReference<Object> */ out = *(obj + offset)
@@ -7103,7 +7031,6 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
                                                                  Location ref,
                                                                  vixl32::Register obj,
                                                                  uint32_t offset,
-                                                                 Location temp,
                                                                  bool needs_null_check) {
   DCHECK(kEmitCompilerReadBarrier);
   DCHECK(kUseBakerReadBarrier);
@@ -7112,7 +7039,7 @@ void CodeGeneratorARMVIXL::GenerateFieldLoadWithBakerReadBarrier(HInstruction* i
   Location no_index = Location::NoLocation();
   ScaleFactor no_scale_factor = TIMES_1;
   GenerateReferenceLoadWithBakerReadBarrier(
-      instruction, ref, obj, offset, no_index, no_scale_factor, temp, needs_null_check);
+      instruction, ref, obj, offset, no_index, no_scale_factor, needs_null_check);
 }
 
 void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* instruction,
@@ -7120,7 +7047,6 @@ void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* i
                                                                  vixl32::Register obj,
                                                                  uint32_t data_offset,
                                                                  Location index,
-                                                                 Location temp,
                                                                  bool needs_null_check) {
   DCHECK(kEmitCompilerReadBarrier);
   DCHECK(kUseBakerReadBarrier);
@@ -7132,7 +7058,7 @@ void CodeGeneratorARMVIXL::GenerateArrayLoadWithBakerReadBarrier(HInstruction* i
   //     *(obj + data_offset + index * sizeof(HeapReference<Object>))
   ScaleFactor scale_factor = TIMES_4;
   GenerateReferenceLoadWithBakerReadBarrier(
-      instruction, ref, obj, data_offset, index, scale_factor, temp, needs_null_check);
+      instruction, ref, obj, data_offset, index, scale_factor, needs_null_check);
 }
 
 void CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier(HInstruction* instruction,
@@ -7141,9 +7067,9 @@ void CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier(HInstructio
                                                                      uint32_t offset,
                                                                      Location index,
                                                                      ScaleFactor scale_factor,
-                                                                     Location temp,
                                                                      bool needs_null_check,
                                                                      bool always_update_field,
+                                                                     vixl32::Register* temp1,
                                                                      vixl32::Register* temp2) {
   DCHECK(kEmitCompilerReadBarrier);
   DCHECK(kUseBakerReadBarrier);
@@ -7168,15 +7094,12 @@ void CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier(HInstructio
   //     ref = temp3(ref);  // ref = ReadBarrier::Mark(ref);  // Runtime entry point call.
   //   }
 
-  // TODO: This temp register is only necessary when
-  // `always_update_field` is true; make it optional (like `temp2`).
-  vixl32::Register temp_reg = RegisterFrom(temp);
-
   // Slow path marking the object `ref` when the GC is marking. The
   // entrypoint will already be loaded in `temp3`.
   Location temp3 = LocationFrom(lr);
   SlowPathCodeARMVIXL* slow_path;
   if (always_update_field) {
+    DCHECK(temp1 != nullptr);
     DCHECK(temp2 != nullptr);
     // ReadBarrierMarkAndUpdateFieldSlowPathARMVIXL only supports address
     // of the form `obj + field_offset`, where `obj` is a register and
@@ -7186,7 +7109,7 @@ void CodeGeneratorARMVIXL::GenerateReferenceLoadWithBakerReadBarrier(HInstructio
     DCHECK_EQ(offset, 0u);
     DCHECK_EQ(scale_factor, ScaleFactor::TIMES_1);
     slow_path = new (GetGraph()->GetArena()) ReadBarrierMarkAndUpdateFieldSlowPathARMVIXL(
-        instruction, ref, obj, /* field_offset */ index, temp_reg, *temp2, temp3);
+        instruction, ref, obj, /* field_offset */ index, *temp1, *temp2, temp3);
   } else {
     slow_path = new (GetGraph()->GetArena()) ReadBarrierMarkSlowPathARMVIXL(
         instruction, ref, temp3);
