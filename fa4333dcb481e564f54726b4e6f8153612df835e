@@ -106,6 +106,24 @@
       "revId": "fa4333dcb481e564f54726b4e6f8153612df835e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9c7da9_7e6b2f49",
+        "filename": "runtime/handle.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-14T21:55:10Z",
+      "side": 1,
+      "message": "Is this what you mean?\n\n   StackReference tx(...);\n   void* a \u003d std::addressof(tx) // \"StackReference address\"\n   mirror::Object* raw \u003d tx.Get(); // Actual Refernce address\n\n(Why would anyone care about the address of the stack reference? I suppose GC would care about the address of the actual raw pointer inside of the stack reference which happens to have offset\u003d0 but its logically different).",
+      "parentUuid": "c2c5a230_79c04a10",
+      "revId": "fa4333dcb481e564f54726b4e6f8153612df835e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
