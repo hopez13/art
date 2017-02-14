@@ -52,6 +52,24 @@
       "revId": "fa4333dcb481e564f54726b4e6f8153612df835e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a632ae20_2218b2b5",
+        "filename": "runtime/handle.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T21:48:10Z",
+      "side": 1,
+      "message": "I rather not add operator\u003d\u003d for references since it is ambiguous if it is comparing the reference pointer or reference contents.",
+      "parentUuid": "9a3f4b5c_c48c83c4",
+      "revId": "fa4333dcb481e564f54726b4e6f8153612df835e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
