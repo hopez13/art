@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94e3955a_8dcca05e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T21:45:29Z",
+      "side": 1,
+      "message": "Looks like this would still be broken right? Does the SystemClassLoader look at LD_LIBRARY_PATH?",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 6
+      },
+      "revId": "49c2c922d71a850305b8e1c3d59ec7b80d644170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ba0f2f0_463bd1e8",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T21:45:29Z",
+      "side": 1,
+      "message": "Didn\u0027t you say this was going away? Or is it just a matter of naming and this should be really called SYSTEM_LIBS?",
+      "range": {
+        "startLine": 593,
+        "startChar": 4,
+        "endLine": 593,
+        "endChar": 15
+      },
+      "revId": "49c2c922d71a850305b8e1c3d59ec7b80d644170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
