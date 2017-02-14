@@ -140,6 +140,30 @@
       "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba1ce347_6c68924f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7099,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T17:50:00Z",
+      "side": 1,
+      "message": "Ah yes I forgot you\u0027re loading the field always. Nevermind, current code lgtm.",
+      "parentUuid": "e00ebcfb_9e77b15b",
+      "range": {
+        "startLine": 7076,
+        "startChar": 0,
+        "endLine": 7099,
+        "endChar": 3
+      },
+      "revId": "08356f23c57395c2fd4dcf6dc9cbec3f769c344f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
