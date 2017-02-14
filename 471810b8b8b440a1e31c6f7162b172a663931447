@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "350d5d69_8c4dc76d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done here: https://android-review.googlesource.com/#/c/338804/",
+      "parentUuid": "7ee07983_ab78cb5f",
+      "range": {
+        "startLine": 86,
+        "startChar": 90,
+        "endLine": 86,
+        "endChar": 91
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394a292_a453adec",
         "filename": "runtime/jit/profiling_info.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-13T16:29:54Z",
       "side": 1,
       "message": "UNREACHABLE",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 17
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82698967_1f51c917",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394a292_a453adec",
       "range": {
         "startLine": 87,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0b1099fe_3f1f80d9",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "I\u0027ve re-adjusted the test with methods that always throw.",
+      "parentUuid": "fe32586c_b51bf1c3",
+      "range": {
+        "startLine": 465,
+        "startChar": 16,
+        "endLine": 465,
+        "endChar": 30
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ceae4a4_96171216",
         "filename": "test/609-checker-inline-interface/src/Main.java",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dbfe4ec8_1f444c4e",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ceae4a4_96171216",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9bb4516_b18e2d4c",
         "filename": "test/637-checker-throw-inline/src/Main.java",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2017-02-13T16:29:54Z",
       "side": 1,
       "message": "tws",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "471810b8b8b440a1e31c6f7162b172a663931447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f01dbfc_e1c060e7",
+        "filename": "test/637-checker-throw-inline/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T18:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9bb4516_b18e2d4c",
       "range": {
         "startLine": 22,
         "startChar": 0,
