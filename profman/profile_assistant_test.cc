@@ -16,11 +16,14 @@
 
 #include <gtest/gtest.h>
 
+#include "art_method-inl.h"
 #include "base/unix_file/fd_file.h"
 #include "common_runtime_test.h"
 #include "exec_utils.h"
-#include "profile_assistant.h"
 #include "jit/profile_compilation_info.h"
+#include "mirror/class-inl.h"
+#include "profile_assistant.h"
+#include "scoped_thread_state_change-inl.h"
 #include "utils.h"
 
 namespace art {
@@ -95,10 +98,12 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     return ExecAndReturnCode(argv_str, &error);
   }
 
-  bool CreateProfile(std::string class_file_contents, const std::string& filename) {
+  bool CreateProfile(std::string profile_file_contents,
+                     const std::string& filename,
+                     const std::string& dex_location) {
     ScratchFile class_names_file;
     File* file = class_names_file.GetFile();
-    EXPECT_TRUE(file->WriteFully(class_file_contents.c_str(), class_file_contents.length()));
+    EXPECT_TRUE(file->WriteFully(profile_file_contents.c_str(), profile_file_contents.length()));
     EXPECT_EQ(0, file->Flush());
     EXPECT_TRUE(file->ResetOffset());
     std::string profman_cmd = GetProfmanCmd();
@@ -106,8 +111,8 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     argv_str.push_back(profman_cmd);
     argv_str.push_back("--create-profile-from=" + class_names_file.GetFilename());
     argv_str.push_back("--reference-profile-file=" + filename);
-    argv_str.push_back("--apk=" + GetLibCoreDexFileNames()[0]);
-    argv_str.push_back("--dex-location=classes.dex");
+    argv_str.push_back("--apk=" + dex_location);
+    argv_str.push_back("--dex-location=" + dex_location);
     std::string error;
     EXPECT_EQ(ExecAndReturnCode(argv_str, &error), 0);
     return true;
@@ -121,7 +126,7 @@ class ProfileAssistantTest : public CommonRuntimeTest {
     argv_str.push_back("--dump-classes");
     argv_str.push_back("--profile-file=" + filename);
     argv_str.push_back("--apk=" + GetLibCoreDexFileNames()[0]);
-    argv_str.push_back("--dex-location=classes.dex");
+    argv_str.push_back("--dex-location=" + GetLibCoreDexFileNames()[0]);
     argv_str.push_back("--dump-output-to-fd=" + std::to_string(GetFd(class_names_file)));
     std::string error;
     EXPECT_EQ(ExecAndReturnCode(argv_str, &error), 0);
@@ -137,10 +142,40 @@ class ProfileAssistantTest : public CommonRuntimeTest {
 
   bool CreateAndDump(const std::string& input_file_contents, std::string* output_file_contents) {
     ScratchFile profile_file;
-    EXPECT_TRUE(CreateProfile(input_file_contents, profile_file.GetFilename()));
+    EXPECT_TRUE(CreateProfile(input_file_contents, profile_file.GetFilename(), GetLibCoreDexFileNames()[0]));
     profile_file.GetFile()->ResetOffset();
     EXPECT_TRUE(DumpClasses(profile_file.GetFilename(), output_file_contents));
     return true;
+  }
+
+
+  mirror::Class* GetClass(jobject class_loader,
+                              const std::string& clazz) {
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    Thread* self = Thread::Current();
+    ScopedObjectAccess soa(self);
+    StackHandleScope<1> hs(self);
+    Handle<mirror::ClassLoader> h_loader(
+        hs.NewHandle(self->DecodeJObject(class_loader)->AsClassLoader()));
+    return class_linker->FindClass(self, clazz.c_str(), h_loader);
+  }
+
+  ArtMethod* GetVirtualMethod(jobject class_loader,
+                              const std::string& clazz,
+                              const std::string& name) {
+    mirror::Class* klass = GetClass(class_loader, clazz);
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    const auto pointer_size = class_linker->GetImagePointerSize();
+    ArtMethod* method = nullptr;
+    Thread* self = Thread::Current();
+    ScopedObjectAccess soa(self);
+    for (auto& m : klass->GetVirtualMethods(pointer_size)) {
+      if (name == m.GetName()) {
+        EXPECT_TRUE(method == nullptr);
+        method = &m;
+      }
+    }
+    return method;
   }
 };
 
@@ -404,6 +439,72 @@ TEST_F(ProfileAssistantTest, TestProfileCreationNoneMatched) {
   ASSERT_TRUE(CreateAndDump(input_file_contents, &output_file_contents));
   std::string expected_contents("");
   ASSERT_EQ(output_file_contents, expected_contents);
+}
+
+TEST_F(ProfileAssistantTest, TestProfileCreateInlineCache) {
+  std::vector<std::string> methods = {
+    "@Main#inlinePolymorhic:(LSuper;)I+SubA,SubB,SubC",
+    "@Main#noInlineCache:(LSuper;)I+;"
+  };
+  std::string input_file_contents;
+  for (std::string& m : methods) {
+    input_file_contents += m + std::string("\n");
+  }
+
+  ScratchFile profile_file;
+  ASSERT_TRUE(CreateProfile(input_file_contents,
+                            profile_file.GetFilename(),
+                            GetTestDexFileName("ProfileTestMultiDex")));
+  profile_file.GetFile()->ResetOffset();
+
+  ProfileCompilationInfo info;
+  ASSERT_TRUE(info.Load(GetFd(profile_file)));
+
+  ScopedObjectAccess soa(Thread::Current());
+  jobject class_loader = LoadDex("ProfileTestMultiDex");
+  ASSERT_NE(class_loader, nullptr);
+
+  ArtMethod* inline_polymorhic = GetVirtualMethod(class_loader, "LMain;", "inlinePolymorhic");
+  mirror::Class* sub_a = GetClass(class_loader, "LSubA;");
+  mirror::Class* sub_b = GetClass(class_loader, "LSubB;");
+  mirror::Class* sub_c = GetClass(class_loader, "LSubC;");
+  ASSERT_TRUE(inline_polymorhic != nullptr);
+  ASSERT_TRUE(sub_a != nullptr);
+  ASSERT_TRUE(sub_b != nullptr);
+  ASSERT_TRUE(sub_c != nullptr);
+  std::set<mirror::Class*> expected_clases;
+  expected_clases.insert(sub_a);
+  expected_clases.insert(sub_b);
+  expected_clases.insert(sub_c);
+
+  ProfileCompilationInfo::OfflineProfileMethodInfo pmi;
+  ASSERT_TRUE(info.GetMethod(inline_polymorhic->GetDexFile()->GetLocation(),
+                             inline_polymorhic->GetDexFile()->GetLocationChecksum(),
+                             inline_polymorhic->GetDexMethodIndex(),
+                             &pmi));
+  ASSERT_EQ(pmi.inline_caches.size(), 1u);
+  ProfileCompilationInfo::DexPcData dex_pc_data = pmi.inline_caches.begin()->second;
+
+  for (const auto& class_ref : dex_pc_data.classes) {
+    ProfileCompilationInfo::DexReference dex_ref = pmi.dex_references[class_ref.dex_profile_index];
+    for (auto it = expected_clases.begin(); it != expected_clases.end(); ) {
+      if (dex_ref.MatchesDex(&(*it)->GetDexFile()) &&
+          class_ref.type_index == (*it)->GetDexTypeIndex()) {
+        it = expected_clases.erase(it);
+      } else {
+        ++it;
+      }
+    }
+  }
+  ASSERT_TRUE(expected_clases.empty());
+
+  ArtMethod* no_inline_cache = GetVirtualMethod(class_loader, "LMain;", "noInlineCache");
+  ASSERT_TRUE(no_inline_cache != nullptr);
+  ASSERT_TRUE(info.GetMethod(no_inline_cache->GetDexFile()->GetLocation(),
+                             no_inline_cache->GetDexFile()->GetLocationChecksum(),
+                             no_inline_cache->GetDexMethodIndex(),
+                             &pmi));
+  ASSERT_TRUE(pmi.inline_caches.empty());
 }
 
 }  // namespace art
