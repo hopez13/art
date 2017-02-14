@@ -22,6 +22,30 @@
       "revId": "5f16edfeda7aa06b1dd0c0ff4628d3b62b7ecf23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c65c22a_e7ce49db",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-14T00:53:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b53f0d5d_039c7fe0",
+      "range": {
+        "startLine": 520,
+        "startChar": 50,
+        "endLine": 521,
+        "endChar": 43
+      },
+      "revId": "5f16edfeda7aa06b1dd0c0ff4628d3b62b7ecf23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
