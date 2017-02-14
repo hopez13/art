@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9860582b_5c648746",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "code_info_encoding_ is just a byte vector, I think just calling extract is cleaner.",
+      "parentUuid": "f032fcb6_1e3831fc",
+      "range": {
+        "startLine": 280,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 58
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb2623c6_9937dc2a",
         "filename": "runtime/stack_map.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-10T10:28:18Z",
       "side": 1,
       "message": "Comments please.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 760,
+        "endChar": 3
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ee2a963_896c0b8e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb2623c6_9937dc2a",
       "range": {
         "startLine": 750,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d803794a_89e3d4a2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "As in adding an EncodingReaderWriter type and using that as another template arg to BitEncodingTable?",
+      "parentUuid": "6a0afb23_59c0dc22",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 3
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02e521db_530f2117",
         "filename": "runtime/stack_map.h",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-10T10:28:18Z",
       "side": 1,
       "message": "Comment please on why Compress now is not const and updates cache_header_size.",
+      "range": {
+        "startLine": 1184,
+        "startChar": 0,
+        "endLine": 1184,
+        "endChar": 36
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec0135e2_497ddb77",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e521db_530f2117",
       "range": {
         "startLine": 1184,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "462f3964_dafeda0c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a118fe70_be389b5d",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1212,
+        "endChar": 38
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17c7918d_5cb8e9cb",
         "filename": "runtime/stack_map.h",
         "patchSetId": 9
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "b9df6ef3_c1a8fa1e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c7918d_5cb8e9cb",
+      "range": {
+        "startLine": 1224,
+        "startChar": 6,
+        "endLine": 1224,
+        "endChar": 21
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a382055_c2e1483e",
         "filename": "runtime/stack_map.h",
         "patchSetId": 9
@@ -151,6 +295,30 @@
       "writtenOn": "2017-02-10T10:28:18Z",
       "side": 1,
       "message": "Please add a comment why this is ok (eg we know the caller will only access the first entry of the memory region).",
+      "range": {
+        "startLine": 1334,
+        "startChar": 0,
+        "endLine": 1334,
+        "endChar": 78
+      },
+      "revId": "575d3e60c68b5cf481b615dde4a16283507b19ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01d73e19_94012220",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-14T23:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a382055_c2e1483e",
       "range": {
         "startLine": 1334,
         "startChar": 0,
