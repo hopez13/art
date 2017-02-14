@@ -238,7 +238,7 @@ Thread-12
 Thread-13
 
 ---------
-Thread-4
+Thread-14
 
 ---------
 Thread-5
@@ -306,7 +306,7 @@ Thread-13
  foo (IIILControlData;)I 0 19
 
 ---------
-Thread-4
+Thread-14
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -460,7 +460,7 @@ Thread-13
  run ()V 4 45
 
 ---------
-Thread-4
+Thread-14
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -597,25 +597,25 @@ main
 ### Other select threads (suspended) ###
 ########################################
 ---------
-Thread-14
+Thread-15
 
 ---------
-Thread-16
+Thread-17
 
 ---------
-Thread-18
+Thread-19
 
 ---------
-Thread-20
+Thread-21
 
 ---------
-Thread-22
+Thread-23
 
 ---------
 main
 
 ---------
-Thread-14
+Thread-15
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -623,7 +623,7 @@ Thread-14
  foo (IIILControlData;)I 0 19
 
 ---------
-Thread-16
+Thread-17
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -631,7 +631,7 @@ Thread-16
  foo (IIILControlData;)I 0 19
 
 ---------
-Thread-18
+Thread-19
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -639,7 +639,7 @@ Thread-18
  foo (IIILControlData;)I 0 19
 
 ---------
-Thread-20
+Thread-21
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -647,7 +647,7 @@ Thread-20
  foo (IIILControlData;)I 0 19
 
 ---------
-Thread-22
+Thread-23
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -662,7 +662,7 @@ main
  main ([Ljava/lang/String;)V 35 37
 
 ---------
-Thread-14
+Thread-15
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -683,7 +683,7 @@ Thread-14
  run ()V 4 35
 
 ---------
-Thread-16
+Thread-17
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -704,7 +704,7 @@ Thread-16
  run ()V 4 35
 
 ---------
-Thread-18
+Thread-19
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -725,7 +725,7 @@ Thread-18
  run ()V 4 35
 
 ---------
-Thread-20
+Thread-21
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
@@ -746,7 +746,7 @@ Thread-20
  run ()V 4 35
 
 ---------
-Thread-22
+Thread-23
  wait ()V -1 -2
  printOrWait (IILControlData;)V 24 45
  baz (IIILControlData;)Ljava/lang/Object; 2 30
