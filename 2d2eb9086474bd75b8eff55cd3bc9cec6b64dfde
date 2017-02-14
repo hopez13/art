@@ -311,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "eb80f9a9_fc87e994",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-14T23:32:57Z",
+      "side": 1,
+      "message": "\u003e I think 2) is a bold statement that\u0027s wrong. Most secondary dex\n \u003e files end up in a child classloader of the app\u0027s classloader, but\n \u003e we do not compile with that classpath. It\u0027s easy to get a change\n \u003e there through duplicate classes.\n\nDuplicate classes kill us in so many different ways that it\u0027s not worth making it as an example of not doing a worthwhile optimization.\n\n \u003e \n \u003e (That we\u0027d likely crash right now somewhere is a different topic)\n\nReally? You just used that as an argument.",
+      "parentUuid": "eb43a699_5a496c66",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
