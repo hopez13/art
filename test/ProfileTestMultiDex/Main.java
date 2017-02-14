@@ -14,6 +14,18 @@
  * limitations under the License.
  */
 
+abstract class Super {
+  abstract int getValue();
+}
+
+class SubA extends Super {
+  int getValue() { return 42; }
+}
+
+class SubB extends Super {
+  int getValue() { return 38; };
+}
+
 class Main {
   public String getA() {
     return "A";
@@ -23,5 +35,13 @@ class Main {
   }
   public String getC() {
     return "C";
+  }
+
+  public int inlinePolymorhic(Super s) {
+    return s.getValue();
+  }
+
+  public int noInlineCache(Super s) {
+    return s.getValue();
   }
 }

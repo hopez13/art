@@ -1018,7 +1018,8 @@ void ProfileCompilationInfo::GetClassNames(const std::vector<const DexFile*>* de
     const DexFile* dex_file = nullptr;
     if (dex_files != nullptr) {
       for (size_t i = 0; i < dex_files->size(); i++) {
-        if (location == (*dex_files)[i]->GetLocation()) {
+        if (location == GetProfileDexFileKey((*dex_files)[i]->GetLocation()) &&
+            dex_data.checksum == (*dex_files)[i]->GetLocationChecksum()) {
           dex_file = (*dex_files)[i];
         }
       }
