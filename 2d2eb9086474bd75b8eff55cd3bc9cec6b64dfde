@@ -335,6 +335,30 @@
     },
     {
       "key": {
+        "uuid": "d8e71972_fe48b1e6",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-15T19:15:50Z",
+      "side": 1,
+      "message": "This \"optimization\" I\u0027m suggesting shouldn\u0027t block this change Mathieu, I agree. But it\u0027d be worthwhile to do the optimization here or as a follow-up.",
+      "parentUuid": "eb80f9a9_fc87e994",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "2d2eb9086474bd75b8eff55cd3bc9cec6b64dfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87da7b2c_82624590",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 4
