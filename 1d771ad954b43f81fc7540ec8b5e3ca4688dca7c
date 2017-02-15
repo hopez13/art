@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a95d20be_4c185a33",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-15T19:30:45Z",
+      "side": 1,
+      "message": "How much of these is actually already in the other classes/methods using this RawReferenceLoad? I think I\u0027d prefer a method taking all of this as argument compared to a new class.",
+      "range": {
+        "startLine": 756,
+        "startChar": 22,
+        "endLine": 761,
+        "endChar": 46
+      },
+      "revId": "1d771ad954b43f81fc7540ec8b5e3ca4688dca7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
