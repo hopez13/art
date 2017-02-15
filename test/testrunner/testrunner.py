@@ -166,27 +166,28 @@ def setup_test_env():
     TARGET_TYPES.add('host')
     TARGET_TYPES.add('target')
 
-  if env.ART_TEST_RUN_TEST_PREBUILD:
+  if env.ART_TEST_RUN_TEST_PREBUILD or env.ART_TEST_RUN_TEST_PREBUILD == None \
+     and not PREBUILD_TYPES:
     PREBUILD_TYPES.add('prebuild')
   if env.ART_TEST_RUN_TEST_NO_PREBUILD:
     PREBUILD_TYPES.add('no-prebuild')
   if env.ART_TEST_RUN_TEST_NO_DEX2OAT:
     PREBUILD_TYPES.add('no-dex2oat')
 
+  print PREBUILD_TYPES
+  if env.ART_TEST_OPTIMIZING or env.ART_TEST_OPTIMIZING == None \
+     and not COMPILER_TYPES:
+    COMPILER_TYPES.add('optimizing')
+    OPTIMIZING_COMPILER_TYPES.add('optimizing')
   if env.ART_TEST_INTERPRETER_ACCESS_CHECKS:
     COMPILER_TYPES.add('interp-ac')
   if env.ART_TEST_INTERPRETER:
     COMPILER_TYPES.add('interpreter')
   if env.ART_TEST_JIT:
     COMPILER_TYPES.add('jit')
-
-  if env.ART_TEST_OPTIMIZING:
-    COMPILER_TYPES.add('optimizing')
-    OPTIMIZING_COMPILER_TYPES.add('optimizing')
   if env.ART_TEST_OPTIMIZING_GRAPH_COLOR:
     COMPILER_TYPES.add('regalloc_gc')
     OPTIMIZING_COMPILER_TYPES.add('regalloc_gc')
-
   if not RELOCATE_TYPES:
     RELOCATE_TYPES.add('no-relocate')
   if env.ART_TEST_RUN_TEST_RELOCATE:
@@ -213,7 +214,8 @@ def setup_test_env():
   if env.ART_TEST_JNI_FORCECOPY:
     JNI_TYPES.add('forcecopy')
 
-  if env.ART_TEST_RUN_TEST_IMAGE:
+  if env.ART_TEST_RUN_TEST_IMAGE or env.ART_TEST_RUN_TEST_IMAGE == None \
+     and not IMAGE_TYPES:
     IMAGE_TYPES.add('picimage')
   if env.ART_TEST_RUN_TEST_NO_IMAGE:
     IMAGE_TYPES.add('no-image')
@@ -229,7 +231,8 @@ def setup_test_env():
   if env.ART_TEST_PIC_TEST:
     PICTEST_TYPES.add('pictest')
 
-  if env.ART_TEST_RUN_TEST_DEBUG:
+  if env.ART_TEST_RUN_TEST_DEBUG or env.ART_TEST_RUN_TEST_DEBUG == None \
+     and not RUN_TYPES:
     RUN_TYPES.add('debug')
   if env.ART_TEST_RUN_TEST_NDEBUG:
     RUN_TYPES.add('ndebug')
