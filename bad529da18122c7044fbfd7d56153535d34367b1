@@ -22,6 +22,30 @@
       "revId": "bad529da18122c7044fbfd7d56153535d34367b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf70c263_5ae0a35b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-15T16:50:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t have to. If we have to initialize a class in (very early) runtime startup it may still need this.\n\n(I prefer to keep this consistent with CreatePeer. I just didn\u0027t find a good way to actually share the commonalities. If you have suggestions...)",
+      "parentUuid": "51f8fb8f_08a25058",
+      "range": {
+        "startLine": 937,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 39
+      },
+      "revId": "bad529da18122c7044fbfd7d56153535d34367b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
