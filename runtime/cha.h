@@ -121,12 +121,26 @@ class ClassHierarchyAnalysis {
   // This will invalidate some assumptions on single-implementation.
   // Append methods that should have their single-implementation flag invalidated
   // to `invalidated_single_impl_methods`.
-  void CheckSingleImplementationInfo(
+  void CheckVirtualMethodSingleImplementationInfo(
       Handle<mirror::Class> klass,
       ArtMethod* virtual_method,
       ArtMethod* method_in_super,
       std::unordered_set<ArtMethod*>& invalidated_single_impl_methods,
       PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // `implementation_method` in `klass` implements `interface_method`.
+  // Update the single-implementation info of `interface_method` if necessary.
+  void CheckInterfaceMethodSingleImplementationInfo(
+      Handle<mirror::Class> klass,
+      ArtMethod* interface_method,
+      ArtMethod* implementation_method,
+      std::unordered_set<ArtMethod*>& invalidated_single_impl_methods,
+      PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void InvalidateSingleImplementationMethods(
+      std::unordered_set<ArtMethod*>& invalidated_single_impl_methods)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // For all methods in vtable slot at `verify_index` of `verify_class` and its
