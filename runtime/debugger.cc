@@ -2273,7 +2273,7 @@ void Dbg::GetThreads(mirror::Object* thread_group, std::vector<JDWP::ObjectId>* 
       // not completely started yet so we must ignore it.
       continue;
     }
-    mirror::Object* peer = t->GetPeer();
+    mirror::Object* peer = t->GetPeerFromOtherThread();
     if (peer == nullptr) {
       // peer might be null if the thread is still starting up. We can't tell the debugger about
       // this thread yet.
