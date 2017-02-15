@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8abcfbaf_22d2f44a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-15T12:44:10Z",
+      "side": 1,
+      "message": "Just discussed with vmarko. My strong preference would be to use the constructor and not care until it shows up as a problem, but I can accept your mutator lock argument :-)\n\nMy second strong preference would then be to put /* Constructor */ where you\u0027re doing this construct. I think that\u0027s a good compromise. So in this case:\n\nprofile_classes.emplace_back(/*ProfileMethodInfo::ProfileClassReference*/\u0026class_dex_file, type_index);\n\nWDYT?",
+      "parentUuid": "a75af15e_97df431d",
+      "range": {
+        "startLine": 1266,
+        "startChar": 39,
+        "endLine": 1266,
+        "endChar": 66
+      },
+      "revId": "1f48d2e6d6aafd3b953d06c38e443631168a22f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "890c4906_57ed43e2",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 12
