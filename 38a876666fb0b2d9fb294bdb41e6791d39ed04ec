@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67b09551_6cceb0c9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-15T11:15:49Z",
+      "side": 1,
+      "message": "I understand why you\u0027re renaming it, but I still find it weird. Something like:\nif (node-\u003eIsBoundCheck()) graph-\u003eSetMayHveBoundsCheck(true)\n\nreads very weird. I think I\u0027d much prefer sticking with the current naming, and add a comment that we are relaxed on the value and accept false positive.",
+      "range": {
+        "startLine": 324,
+        "startChar": 8,
+        "endLine": 324,
+        "endChar": 16
+      },
+      "revId": "38a876666fb0b2d9fb294bdb41e6791d39ed04ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
