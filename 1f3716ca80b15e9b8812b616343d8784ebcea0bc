@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70597daf_41fd1449",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-15T13:18:09Z",
+      "side": 1,
+      "message": "The fact we\u0027re returning two bools is annoying. Could you drop that one?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 59
+      },
+      "revId": "1f3716ca80b15e9b8812b616343d8784ebcea0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
