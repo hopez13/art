@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f0ba904_0c84a38f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-15T22:45:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5d4c827_2960b0e2",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 55
+      },
+      "revId": "f4a7c3b652cbb636c0e87c1d504fc5a9f82eff22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39bc1f61_926886e4",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-15T19:15:50Z",
       "side": 1,
       "message": "!found_stack_map",
+      "range": {
+        "startLine": 1014,
+        "startChar": 8,
+        "endLine": 1014,
+        "endChar": 32
+      },
+      "revId": "f4a7c3b652cbb636c0e87c1d504fc5a9f82eff22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7d60733_816d6e01",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-15T22:45:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39bc1f61_926886e4",
       "range": {
         "startLine": 1014,
         "startChar": 8,
