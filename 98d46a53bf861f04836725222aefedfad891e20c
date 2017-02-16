@@ -613,6 +613,30 @@
     },
     {
       "key": {
+        "uuid": "efdf406b_68c65853",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-16T11:25:44Z",
+      "side": 1,
+      "message": "Oh I see. Now I wonder how you handle a split being updated? Do you get rid of the application profile? Or discard the entries related to that split APK (assuming you\u0027ve put a checksum)?",
+      "parentUuid": "4be72e35_68ca463c",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 30
+      },
+      "revId": "98d46a53bf861f04836725222aefedfad891e20c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f6e3073_1598b6a7",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 13
