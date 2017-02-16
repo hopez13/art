@@ -177,6 +177,8 @@ static mirror::String* GetClassName(Thread* self, ShadowFrame* shadow_frame, siz
 
 void UnstartedRuntime::UnstartedClassForName(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  // TODO: This is really only correct for the boot classpath, and for robustness we should
+  //       check the caller.
   mirror::String* class_name = GetClassName(self, shadow_frame, arg_offset);
   if (class_name == nullptr) {
     return;
@@ -202,11 +204,24 @@ void UnstartedRuntime::UnstartedClassForNameLong(
   bool initialize_class = shadow_frame->GetVReg(arg_offset + 1) != 0;
   mirror::ClassLoader* class_loader =
       down_cast<mirror::ClassLoader*>(shadow_frame->GetVRegReference(arg_offset + 2));
-  StackHandleScope<2> hs(self);
+  if (class_loader != nullptr &&
+          self->DecodeJObject(WellKnownClasses::java_lang_BootClassLoader) !=
+              class_loader->GetClass()) {
+    AbortTransactionOrFail(self,
+                           "Only the boot classloader is supported: %s",
+                           mirror::Object::PrettyTypeOf(class_loader).c_str());
+    return;
+  }
+
+  StackHandleScope<1> hs(self);
   Handle<mirror::String> h_class_name(hs.NewHandle(class_name));
-  Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(class_loader));
-  UnstartedRuntimeFindClass(self, h_class_name, h_class_loader, result, "Class.forName",
-                            initialize_class, false);
+  UnstartedRuntimeFindClass(self,
+                            h_class_name,
+                            ScopedNullHandle<mirror::ClassLoader>(),
+                            result,
+                            "Class.forName",
+                            initialize_class,
+                            false);
   CheckExceptionGenerateClassNotFound(self);
 }
 
@@ -219,11 +234,24 @@ void UnstartedRuntime::UnstartedClassClassForName(
   bool initialize_class = shadow_frame->GetVReg(arg_offset + 1) != 0;
   mirror::ClassLoader* class_loader =
       down_cast<mirror::ClassLoader*>(shadow_frame->GetVRegReference(arg_offset + 2));
-  StackHandleScope<2> hs(self);
+  // We only support the boot classloader for this.
+  if (class_loader != nullptr &&
+          self->DecodeJObject(WellKnownClasses::java_lang_BootClassLoader) !=
+              class_loader->GetClass()) {
+    AbortTransactionOrFail(self,
+                           "Only the boot classloader is supported: %s",
+                           mirror::Object::PrettyTypeOf(class_loader).c_str());
+    return;
+  }
+  StackHandleScope<1> hs(self);
   Handle<mirror::String> h_class_name(hs.NewHandle(class_name));
-  Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(class_loader));
-  UnstartedRuntimeFindClass(self, h_class_name, h_class_loader, result, "Class.classForName",
-                            initialize_class, false);
+  UnstartedRuntimeFindClass(self,
+                            h_class_name,
+                            ScopedNullHandle<mirror::ClassLoader>(),
+                            result,
+                            "Class.classForName",
+                            initialize_class,
+                            false);
   CheckExceptionGenerateClassNotFound(self);
 }
 
@@ -897,13 +925,11 @@ static bool CheckCallers(ShadowFrame* shadow_frame,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   for (const std::string& allowed_caller : allowed_call_stack) {
     if (shadow_frame->GetLink() == nullptr) {
-      LOG(ERROR) << "Link is unexpectedly null";
       return false;
     }
 
     std::string found_caller = ArtMethod::PrettyMethod(shadow_frame->GetLink()->GetMethod());
     if (allowed_caller != found_caller) {
-      LOG(ERROR) << "Non-match: " << allowed_caller << " vs " << found_caller;
       return false;
     }
 
