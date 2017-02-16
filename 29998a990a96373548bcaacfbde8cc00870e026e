@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34ed58d5_c269950f",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-16T10:59:00Z",
+      "side": 1,
+      "message": "How can that be? And which code relies on it not being null below?",
+      "range": {
+        "startLine": 690,
+        "startChar": 31,
+        "endLine": 690,
+        "endChar": 66
+      },
+      "revId": "29998a990a96373548bcaacfbde8cc00870e026e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
