@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89b8bfa8_24d15bb5",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-16T18:02:39Z",
+      "side": 1,
+      "message": "Consider exposing ClassLinker::IsBootClassLoader?",
+      "range": {
+        "startLine": 207,
+        "startChar": 6,
+        "endLine": 209,
+        "endChar": 38
+      },
+      "revId": "eee283f3d7aea6b814b64cad8915639e67fea317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f86a77c0_865b39e5",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-16T18:02:39Z",
+      "side": 1,
+      "message": "ClassLinker::IsBootClassLoader",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 240,
+        "endChar": 38
+      },
+      "revId": "eee283f3d7aea6b814b64cad8915639e67fea317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
