@@ -661,6 +661,30 @@
     },
     {
       "key": {
+        "uuid": "6d8de68e_7748c7a6",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-16T21:55:19Z",
+      "side": 1,
+      "message": "There is a checksum :) Just not printed during dump.\n\nWe discard everything if there\u0027s a mismatch in any of the checksums. I considered at some point dropping just independent entries instead of everything but that added quite a bit of complexity given that splits are actually not that common (yet).\n\nNow, that we store the inline caches, that would be even more complex so I think I\u0027m happy to keep the current way: checksum mismatch \u003d\u003e drop everything and reprofile.",
+      "parentUuid": "414c462e_ca9d84b9",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 30
+      },
+      "revId": "98d46a53bf861f04836725222aefedfad891e20c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f6e3073_1598b6a7",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 13
