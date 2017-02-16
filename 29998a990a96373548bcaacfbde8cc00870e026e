@@ -46,6 +46,30 @@
       "revId": "29998a990a96373548bcaacfbde8cc00870e026e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c349ce62_c8046f58",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-16T19:10:41Z",
+      "side": 1,
+      "message": "Yea, primitives and array classes have no dex cache, which is needed for GetSignatureAnnotationForClass.",
+      "parentUuid": "cba12596_1ea53672",
+      "range": {
+        "startLine": 690,
+        "startChar": 31,
+        "endLine": 690,
+        "endChar": 66
+      },
+      "revId": "29998a990a96373548bcaacfbde8cc00870e026e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
