@@ -861,8 +861,12 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
 bool CodeGenerator::HasStackMapAtCurrentPc() {
   uint32_t pc = GetAssembler()->CodeSize();
   size_t count = stack_map_stream_.GetNumberOfStackMaps();
-  CodeOffset native_pc_offset = stack_map_stream_.GetStackMap(count - 1).native_pc_code_offset;
-  return (count > 0) && (native_pc_offset.Uint32Value(GetInstructionSet()) == pc);
+  if (count > 0) {
+    CodeOffset native_pc_offset = stack_map_stream_.GetStackMap(count - 1).native_pc_code_offset;
+    return native_pc_offset.Uint32Value(GetInstructionSet()) == pc;
+  } else {
+    return false;
+  }
 }
 
 void CodeGenerator::MaybeRecordNativeDebugInfo(HInstruction* instruction,
@@ -904,13 +908,13 @@ void CodeGenerator::RecordCatchBlockInfo() {
 
     HInstruction* current_phi = block->GetFirstPhi();
     for (size_t vreg = 0; vreg < num_vregs; ++vreg) {
-    while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
-      HInstruction* next_phi = current_phi->GetNext();
-      DCHECK(next_phi == nullptr ||
-             current_phi->AsPhi()->GetRegNumber() <= next_phi->AsPhi()->GetRegNumber())
-          << "Phis need to be sorted by vreg number to keep this a linear-time loop.";
-      current_phi = next_phi;
-    }
+      while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
+        HInstruction* next_phi = current_phi->GetNext();
+        DCHECK(next_phi == nullptr ||
+               current_phi->AsPhi()->GetRegNumber() <= next_phi->AsPhi()->GetRegNumber())
+            << "Phis need to be sorted by vreg number to keep this a linear-time loop.";
+        current_phi = next_phi;
+      }
 
       if (current_phi == nullptr || current_phi->AsPhi()->GetRegNumber() != vreg) {
         stack_map_stream_.AddDexRegisterEntry(DexRegisterLocation::Kind::kNone, 0);
