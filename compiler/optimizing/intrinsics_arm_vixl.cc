@@ -737,6 +737,53 @@ void IntrinsicCodeGeneratorARMVIXL::VisitMathRint(HInvoke* invoke) {
   __ Vrintn(F64, F64, OutputDRegister(invoke), InputDRegisterAt(invoke, 0));
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitMathRoundFloat(HInvoke* invoke) {
+  if (features_.HasARMv8AInstructions()) {
+    LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                              LocationSummary::kNoCall,
+                                                              kIntrinsified);
+    locations->SetInAt(0, Location::RequiresFpuRegister());
+    locations->SetOut(Location::RequiresRegister());
+  }
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathRoundFloat(HInvoke* invoke) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasARMv8AInstructions());
+
+  ArmVIXLAssembler* assembler = GetAssembler();
+  vixl32::SRegister in_reg = InputSRegisterAt(invoke, 0);
+  vixl32::Register out_reg = OutputRegister(invoke);
+  UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+  vixl32::SRegister temp1 = temps.AcquireS();
+  vixl32::Label done;
+
+  // Round to nearest integer, ties away from zero.
+  __ Vcvta(S32, F32, temp1, in_reg);
+  __ Vmov(out_reg, temp1);
+
+  // For positive, zero or NaN inputs, rounding is done.
+  __ Cmp(out_reg, 0);
+  __ B(ge, &done, /* far_target */ false);
+
+  // Handle input < 0 cases.
+  // If input is negative but not a tie, previous result (round to nearest) is valid.
+  // If input is a negative tie, change rounding direction to positive infinity, out_reg += 1.
+  vixl32::SRegister temp2 = temps.AcquireS();
+  __ Vrinta(F32, F32, temp1, in_reg);
+  __ Vmov(temp2, 0.5);
+  __ Vsub(F32, temp1, in_reg, temp1);
+  __ Vcmp(F32, temp1, temp2);
+  __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
+  {
+    ExactAssemblyScope it_scope(assembler->GetVIXLAssembler(),
+                                2 * kMaxInstructionSizeInBytes,
+                                CodeBufferCheckScope::kMaximumSize);
+    __ it(eq);
+    __ add(eq, out_reg, out_reg, 1);
+  }
+  __ Bind(&done);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitMemoryPeekByte(HInvoke* invoke) {
   CreateIntToIntLocations(arena_, invoke);
 }
@@ -3063,7 +3110,6 @@ void IntrinsicCodeGeneratorARMVIXL::VisitIntegerValueOf(HInvoke* invoke) {
 }
 
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundDouble)   // Could be done by changing rounding mode, maybe?
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundFloat)    // Could be done by changing rounding mode, maybe?
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeCASLong)     // High register pressure.
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, SystemArrayCopyChar)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, IntegerHighestOneBit)
