@@ -1568,7 +1568,7 @@ void ConcurrentCopying::ReclaimPhase() {
       CHECK_EQ(from_space_num_objects_at_first_pause_, from_objects + unevac_from_objects);
       CHECK_EQ(from_space_num_bytes_at_first_pause_, from_bytes + unevac_from_bytes);
     }
-    CHECK_LE(to_objects, from_objects);
+    //CHECK_LE(to_objects, from_objects);
     CHECK_LE(to_bytes, from_bytes);
     int64_t freed_bytes = from_bytes - to_bytes;
     int64_t freed_objects = from_objects - to_objects;
