@@ -637,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "414c462e_ca9d84b9",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-02-16T11:56:07Z",
+      "side": 1,
+      "message": "Hmm yeah, good question. Nicolas asked me about this and I honestly didn\u0027t know.\n\nDiscarding the entries related to just that split seems best, but I\u0027m ok with either approach as a first approximation (as they\u0027re both strict improvements over the current situation..).",
+      "parentUuid": "efdf406b_68c65853",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 30
+      },
+      "revId": "98d46a53bf861f04836725222aefedfad891e20c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f6e3073_1598b6a7",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 13
