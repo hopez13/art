@@ -24,6 +24,11 @@
 #include "scoped_fast_native_object_access-inl.h"
 #include "verify_object.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jclass Proxy_generateProxy(JNIEnv* env, jclass, jstring name, jobjectArray interfaces,
@@ -35,7 +40,7 @@ static jclass Proxy_generateProxy(JNIEnv* env, jclass, jstring name, jobjectArra
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Proxy, generateProxy, "!(Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/reflect/Method;[[Ljava/lang/Class;)Ljava/lang/Class;"),
+  FAST_NATIVE_METHOD(Proxy, generateProxy, "(Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/reflect/Method;[[Ljava/lang/Class;)Ljava/lang/Class;"),
 };
 
 void register_java_lang_reflect_Proxy(JNIEnv* env) {

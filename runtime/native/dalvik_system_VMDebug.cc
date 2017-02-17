@@ -40,6 +40,11 @@
 #include "trace.h"
 #include "well_known_classes.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jobjectArray VMDebug_getVmFeatureList(JNIEnv* env, jclass) {
@@ -537,14 +542,14 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, getAllocCount, "(I)I"),
   NATIVE_METHOD(VMDebug, getHeapSpaceStats, "([J)V"),
   NATIVE_METHOD(VMDebug, getInstructionCount, "([I)V"),
-  NATIVE_METHOD(VMDebug, getLoadedClassCount, "!()I"),
+  FAST_NATIVE_METHOD(VMDebug, getLoadedClassCount, "()I"),
   NATIVE_METHOD(VMDebug, getVmFeatureList, "()[Ljava/lang/String;"),
   NATIVE_METHOD(VMDebug, infopoint, "(I)V"),
-  NATIVE_METHOD(VMDebug, isDebuggerConnected, "!()Z"),
-  NATIVE_METHOD(VMDebug, isDebuggingEnabled, "!()Z"),
+  FAST_NATIVE_METHOD(VMDebug, isDebuggerConnected, "()Z"),
+  FAST_NATIVE_METHOD(VMDebug, isDebuggingEnabled, "()Z"),
   NATIVE_METHOD(VMDebug, getMethodTracingMode, "()I"),
-  NATIVE_METHOD(VMDebug, lastDebuggerActivity, "!()J"),
-  NATIVE_METHOD(VMDebug, printLoadedClasses, "!(I)V"),
+  FAST_NATIVE_METHOD(VMDebug, lastDebuggerActivity, "()J"),
+  FAST_NATIVE_METHOD(VMDebug, printLoadedClasses, "(I)V"),
   NATIVE_METHOD(VMDebug, resetAllocCount, "(I)V"),
   NATIVE_METHOD(VMDebug, resetInstructionCount, "()V"),
   NATIVE_METHOD(VMDebug, startAllocCounting, "()V"),
@@ -557,7 +562,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, stopEmulatorTracing, "()V"),
   NATIVE_METHOD(VMDebug, stopInstructionCounting, "()V"),
   NATIVE_METHOD(VMDebug, stopMethodTracing, "()V"),
-  NATIVE_METHOD(VMDebug, threadCpuTimeNanos, "!()J"),
+  FAST_NATIVE_METHOD(VMDebug, threadCpuTimeNanos, "()J"),
   NATIVE_METHOD(VMDebug, getRuntimeStatInternal, "(I)Ljava/lang/String;"),
   NATIVE_METHOD(VMDebug, getRuntimeStatsInternal, "()[Ljava/lang/String;"),
   NATIVE_METHOD(VMDebug, attachAgent, "(Ljava/lang/String;)V"),

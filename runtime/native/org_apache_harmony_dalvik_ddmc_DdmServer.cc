@@ -22,6 +22,11 @@
 #include "scoped_fast_native_object_access-inl.h"
 #include "ScopedPrimitiveArray.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static void DdmServer_nativeSendChunk(JNIEnv* env, jclass, jint type,
@@ -33,7 +38,7 @@ static void DdmServer_nativeSendChunk(JNIEnv* env, jclass, jint type,
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(DdmServer, nativeSendChunk, "!(I[BII)V"),
+  FAST_NATIVE_METHOD(DdmServer, nativeSendChunk, "(I[BII)V"),
 };
 
 void register_org_apache_harmony_dalvik_ddmc_DdmServer(JNIEnv* env) {

@@ -20,6 +20,16 @@
 #include "mirror/object-inl.h"
 #include "scoped_fast_native_object_access-inl.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
+// Annotated @FastNative on the managed side.
+#ifndef OVERLOADED_FAST_NATIVE_METHOD
+#define OVERLOADED_FAST_NATIVE_METHOD OVERLOADED_NATIVE_METHOD
+#endif
+
 
 namespace art {
 
@@ -50,11 +60,11 @@ static void Object_waitJI(JNIEnv* env, jobject java_this, jlong ms, jint ns) {
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Object, internalClone, "!()Ljava/lang/Object;"),
-  NATIVE_METHOD(Object, notify, "!()V"),
-  NATIVE_METHOD(Object, notifyAll, "!()V"),
-  OVERLOADED_NATIVE_METHOD(Object, wait, "!()V", wait),
-  OVERLOADED_NATIVE_METHOD(Object, wait, "!(JI)V", waitJI),
+  FAST_NATIVE_METHOD(Object, internalClone, "()Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Object, notify, "()V"),
+  FAST_NATIVE_METHOD(Object, notifyAll, "()V"),
+  OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "()V", wait),
+  OVERLOADED_FAST_NATIVE_METHOD(Object, wait, "(JI)V", waitJI),
 };
 
 void register_java_lang_Object(JNIEnv* env) {

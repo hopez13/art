@@ -27,6 +27,11 @@
 #include "ScopedLocalRef.h"
 #include "verify_object.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jchar String_charAt(JNIEnv* env, jobject java_this, jint index) {
@@ -111,15 +116,15 @@ static jcharArray String_toCharArray(JNIEnv* env, jobject java_this) {
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(String, charAt, "!(I)C"),
-  NATIVE_METHOD(String, compareTo, "!(Ljava/lang/String;)I"),
-  NATIVE_METHOD(String, concat, "!(Ljava/lang/String;)Ljava/lang/String;"),
-  NATIVE_METHOD(String, fastIndexOf, "!(II)I"),
-  NATIVE_METHOD(String, fastSubstring, "!(II)Ljava/lang/String;"),
-  NATIVE_METHOD(String, getCharsNoCheck, "!(II[CI)V"),
-  NATIVE_METHOD(String, intern, "!()Ljava/lang/String;"),
-  NATIVE_METHOD(String, setCharAt, "!(IC)V"),
-  NATIVE_METHOD(String, toCharArray, "!()[C"),
+  FAST_NATIVE_METHOD(String, charAt, "(I)C"),
+  FAST_NATIVE_METHOD(String, compareTo, "(Ljava/lang/String;)I"),
+  FAST_NATIVE_METHOD(String, concat, "(Ljava/lang/String;)Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(String, fastIndexOf, "(II)I"),
+  FAST_NATIVE_METHOD(String, fastSubstring, "(II)Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(String, getCharsNoCheck, "(II[CI)V"),
+  FAST_NATIVE_METHOD(String, intern, "()Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(String, setCharAt, "(IC)V"),
+  FAST_NATIVE_METHOD(String, toCharArray, "()[C"),
 };
 
 void register_java_lang_String(JNIEnv* env) {

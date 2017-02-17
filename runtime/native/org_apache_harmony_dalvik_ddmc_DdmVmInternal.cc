@@ -25,6 +25,11 @@
 #include "ScopedPrimitiveArray.h"
 #include "thread_list.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static void DdmVmInternal_enableRecentAllocations(JNIEnv*, jclass, jboolean enable) {
@@ -165,11 +170,11 @@ static void DdmVmInternal_threadNotify(JNIEnv*, jclass, jboolean enable) {
 
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(DdmVmInternal, enableRecentAllocations, "(Z)V"),
-  NATIVE_METHOD(DdmVmInternal, getRecentAllocations, "!()[B"),
-  NATIVE_METHOD(DdmVmInternal, getRecentAllocationStatus, "!()Z"),
+  FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocations, "()[B"),
+  FAST_NATIVE_METHOD(DdmVmInternal, getRecentAllocationStatus, "()Z"),
   NATIVE_METHOD(DdmVmInternal, getStackTraceById, "(I)[Ljava/lang/StackTraceElement;"),
   NATIVE_METHOD(DdmVmInternal, getThreadStats, "()[B"),
-  NATIVE_METHOD(DdmVmInternal, heapInfoNotify, "!(I)Z"),
+  FAST_NATIVE_METHOD(DdmVmInternal, heapInfoNotify, "(I)Z"),
   NATIVE_METHOD(DdmVmInternal, heapSegmentNotify, "(IIZ)Z"),
   NATIVE_METHOD(DdmVmInternal, threadNotify, "(Z)V"),
 };

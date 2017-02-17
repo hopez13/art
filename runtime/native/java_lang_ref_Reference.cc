@@ -23,6 +23,11 @@
 #include "mirror/reference-inl.h"
 #include "scoped_fast_native_object_access-inl.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jobject Reference_getReferent(JNIEnv* env, jobject javaThis) {
@@ -40,8 +45,8 @@ static void Reference_clearReferent(JNIEnv* env, jobject javaThis) {
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Reference, getReferent, "!()Ljava/lang/Object;"),
-  NATIVE_METHOD(Reference, clearReferent, "!()V"),
+  FAST_NATIVE_METHOD(Reference, getReferent, "()Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Reference, clearReferent, "()V"),
 };
 
 void register_java_lang_ref_Reference(JNIEnv* env) {

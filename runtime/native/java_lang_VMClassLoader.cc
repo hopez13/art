@@ -25,6 +25,11 @@
 #include "ScopedUtfChars.h"
 #include "zip_archive.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 // A class so we can be friends with ClassLinker and access internal methods.
@@ -136,7 +141,7 @@ static jobjectArray VMClassLoader_getBootClassPathEntries(JNIEnv* env, jclass) {
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(VMClassLoader, findLoadedClass, "!(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;"),
+  FAST_NATIVE_METHOD(VMClassLoader, findLoadedClass, "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;"),
   NATIVE_METHOD(VMClassLoader, getBootClassPathEntries, "()[Ljava/lang/String;"),
 };
 

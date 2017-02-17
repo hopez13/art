@@ -29,6 +29,11 @@
 #include "scoped_fast_native_object_access-inl.h"
 #include "well_known_classes.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jobject Method_getDefaultValue(JNIEnv* env, jobject javaMethod) {
@@ -84,9 +89,9 @@ static jobject Method_invoke(JNIEnv* env, jobject javaMethod, jobject javaReceiv
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Method, getDefaultValue, "!()Ljava/lang/Object;"),
-  NATIVE_METHOD(Method, getExceptionTypes, "!()[Ljava/lang/Class;"),
-  NATIVE_METHOD(Method, invoke, "!(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Method, getDefaultValue, "()Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Method, getExceptionTypes, "()[Ljava/lang/Class;"),
+  FAST_NATIVE_METHOD(Method, invoke, "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;"),
 };
 
 void register_java_lang_reflect_Method(JNIEnv* env) {

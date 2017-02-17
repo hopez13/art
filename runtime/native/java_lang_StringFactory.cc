@@ -25,6 +25,11 @@
 #include "ScopedLocalRef.h"
 #include "ScopedPrimitiveArray.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jstring StringFactory_newStringFromBytes(JNIEnv* env, jclass, jbyteArray java_data,
@@ -87,9 +92,9 @@ static jstring StringFactory_newStringFromString(JNIEnv* env, jclass, jstring to
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(StringFactory, newStringFromBytes, "!([BIII)Ljava/lang/String;"),
-  NATIVE_METHOD(StringFactory, newStringFromChars, "!(II[C)Ljava/lang/String;"),
-  NATIVE_METHOD(StringFactory, newStringFromString, "!(Ljava/lang/String;)Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(StringFactory, newStringFromBytes, "([BIII)Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(StringFactory, newStringFromChars, "(II[C)Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(StringFactory, newStringFromString, "(Ljava/lang/String;)Ljava/lang/String;"),
 };
 
 void register_java_lang_StringFactory(JNIEnv* env) {

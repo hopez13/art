@@ -25,6 +25,11 @@
 #include "scoped_fast_native_object_access-inl.h"
 #include "handle_scope-inl.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jobject Array_createMultiArray(
@@ -72,8 +77,8 @@ static jobject Array_createObjectArray(JNIEnv* env, jclass, jclass javaElementCl
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Array, createMultiArray, "!(Ljava/lang/Class;[I)Ljava/lang/Object;"),
-  NATIVE_METHOD(Array, createObjectArray, "!(Ljava/lang/Class;I)Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Array, createMultiArray, "(Ljava/lang/Class;[I)Ljava/lang/Object;"),
+  FAST_NATIVE_METHOD(Array, createObjectArray, "(Ljava/lang/Class;I)Ljava/lang/Object;"),
 };
 
 void register_java_lang_reflect_Array(JNIEnv* env) {

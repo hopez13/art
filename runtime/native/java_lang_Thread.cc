@@ -27,6 +27,11 @@
 #include "thread_list.h"
 #include "verify_object.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 static jobject Thread_currentThread(JNIEnv* env, jclass) {
@@ -187,16 +192,16 @@ static void Thread_yield(JNIEnv*, jobject) {
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Thread, currentThread, "!()Ljava/lang/Thread;"),
-  NATIVE_METHOD(Thread, interrupted, "!()Z"),
-  NATIVE_METHOD(Thread, isInterrupted, "!()Z"),
+  FAST_NATIVE_METHOD(Thread, currentThread, "()Ljava/lang/Thread;"),
+  FAST_NATIVE_METHOD(Thread, interrupted, "()Z"),
+  FAST_NATIVE_METHOD(Thread, isInterrupted, "()Z"),
   NATIVE_METHOD(Thread, nativeCreate, "(Ljava/lang/Thread;JZ)V"),
   NATIVE_METHOD(Thread, nativeGetStatus, "(Z)I"),
   NATIVE_METHOD(Thread, nativeHoldsLock, "(Ljava/lang/Object;)Z"),
-  NATIVE_METHOD(Thread, nativeInterrupt, "!()V"),
+  FAST_NATIVE_METHOD(Thread, nativeInterrupt, "()V"),
   NATIVE_METHOD(Thread, nativeSetName, "(Ljava/lang/String;)V"),
   NATIVE_METHOD(Thread, nativeSetPriority, "(I)V"),
-  NATIVE_METHOD(Thread, sleep, "!(Ljava/lang/Object;JI)V"),
+  FAST_NATIVE_METHOD(Thread, sleep, "(Ljava/lang/Object;JI)V"),
   NATIVE_METHOD(Thread, yield, "()V"),
 };
 

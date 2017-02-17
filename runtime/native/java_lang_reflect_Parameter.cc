@@ -26,6 +26,11 @@
 #include "scoped_fast_native_object_access-inl.h"
 #include "utils.h"
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 using android::base::StringPrintf;
@@ -63,7 +68,7 @@ static jobject Parameter_getAnnotationNative(JNIEnv* env,
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(Parameter,
+  FAST_NATIVE_METHOD(Parameter,
                 getAnnotationNative,
                 "!(Ljava/lang/reflect/Executable;ILjava/lang/Class;)Ljava/lang/annotation/Annotation;"),
 };

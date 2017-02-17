@@ -24,6 +24,11 @@
 
 #include <string.h>
 
+// Annotated @FastNative on the managed side.
+#ifndef FAST_NATIVE_METHOD
+#define FAST_NATIVE_METHOD NATIVE_METHOD
+#endif
+
 namespace art {
 
 /**
@@ -249,11 +254,11 @@ static jbyteArray CharsetUtils_toUtf8Bytes(JNIEnv* env, jclass, jstring java_str
 }
 
 static JNINativeMethod gMethods[] = {
-  NATIVE_METHOD(CharsetUtils, asciiBytesToChars, "!([BII[C)V"),
-  NATIVE_METHOD(CharsetUtils, isoLatin1BytesToChars, "!([BII[C)V"),
-  NATIVE_METHOD(CharsetUtils, toAsciiBytes, "!(Ljava/lang/String;II)[B"),
-  NATIVE_METHOD(CharsetUtils, toIsoLatin1Bytes, "!(Ljava/lang/String;II)[B"),
-  NATIVE_METHOD(CharsetUtils, toUtf8Bytes, "!(Ljava/lang/String;II)[B"),
+  FAST_NATIVE_METHOD(CharsetUtils, asciiBytesToChars, "([BII[C)V"),
+  FAST_NATIVE_METHOD(CharsetUtils, isoLatin1BytesToChars, "([BII[C)V"),
+  FAST_NATIVE_METHOD(CharsetUtils, toAsciiBytes, "(Ljava/lang/String;II)[B"),
+  FAST_NATIVE_METHOD(CharsetUtils, toIsoLatin1Bytes, "(Ljava/lang/String;II)[B"),
+  FAST_NATIVE_METHOD(CharsetUtils, toUtf8Bytes, "(Ljava/lang/String;II)[B"),
 };
 
 void register_libcore_util_CharsetUtils(JNIEnv* env) {
