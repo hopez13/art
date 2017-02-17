@@ -22,6 +22,30 @@
       "revId": "f574ac83717e47dcd33116d252016cf21fd321c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1847b0d_e2c612d6",
+        "filename": "test/952-invoke-custom/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-02-17T14:20:12Z",
+      "side": 1,
+      "message": "Moving to separate CL. It was the test that triggered the issue locally, there is voodoo behind that dynamicInvoker().",
+      "parentUuid": "c4faeea6_ff28b45e",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 62,
+        "endChar": 3
+      },
+      "revId": "f574ac83717e47dcd33116d252016cf21fd321c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
