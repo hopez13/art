@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e55ef06_5a641ca3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e19b671f_e1602e35",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "646b2a7c_f3631c1c",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-17T19:39:28Z",
       "side": 1,
       "message": "Add a TODO here. This should be removed later.",
+      "range": {
+        "startLine": 174,
+        "startChar": 7,
+        "endLine": 175,
+        "endChar": 51
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8300fbd1_f2671fa8",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "646b2a7c_f3631c1c",
       "range": {
         "startLine": 174,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "93f97a4f_c4b0c4d7",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2734a8b9_b0fbaed8",
+      "range": {
+        "startLine": 1146,
+        "startChar": 76,
+        "endLine": 1147,
+        "endChar": 53
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5df6ac4d_eee151f2",
         "filename": "test/950-redefine-intrinsic/info.txt",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2017-02-17T19:39:05Z",
       "side": 1,
       "message": "copy and paste? be more specific on intrinsics redefine?",
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e51610d7_3f6e26f8",
+        "filename": "test/950-redefine-intrinsic/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5df6ac4d_eee151f2",
       "revId": "66113992113c7b8eb22572ca24ae83d276271596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "201f7850_cf32e96e",
+        "filename": "test/950-redefine-intrinsic/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6983e5c_abae0c45",
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81c64bdf_3be54ff2",
         "filename": "test/950-redefine-intrinsic/src/Main.java",
         "patchSetId": 1
@@ -122,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "14496a34_bac84a0a",
+        "filename": "test/950-redefine-intrinsic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81c64bdf_3be54ff2",
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fab036a_0c7bc298",
         "filename": "test/950-redefine-intrinsic/src/Main.java",
         "patchSetId": 1
@@ -133,6 +259,24 @@
       "writtenOn": "2017-02-17T19:39:05Z",
       "side": 1,
       "message": "Add: the bytes below define the following java program:",
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b22348ef_4dbb212b",
+        "filename": "test/950-redefine-intrinsic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-17T21:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fab036a_0c7bc298",
       "revId": "66113992113c7b8eb22572ca24ae83d276271596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
