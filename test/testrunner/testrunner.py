@@ -605,6 +605,8 @@ def is_test_disabled(test, variant_set):
   """
   if dry_run:
     return True
+  if test in env.EXTRA_DISABLED_TESTS:
+    return True
   variants_list = DISABLED_TEST_CONTAINER.get(test, {})
   for variants in variants_list:
     variants_present = True
