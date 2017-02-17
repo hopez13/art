@@ -22,6 +22,30 @@
       "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b0456e1_0ddf1e7e",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-17T00:29:45Z",
+      "side": 1,
+      "message": "It explains it on line 43 :).\n\nEverything in frameworks/base does almost the same thing,\nthey leave \"// @FastNative\" near all their native methods.\n\nsee e.g. frameworks/base/core/jni/android_os_Parcel.cpp\n\nAnyway I can change it to whatever we want (and preferrably it\u0027s not just removing the \"!\")\n\nI thought marking it somehow would make it easier to do future automatic refactorings later if we need to (preferrably on the same line since multi-line refactorings may need complicated scripts instead of just using sed).\n\nIf your object was to the #ifndef, it\u0027s already commonly done in libcore it seems like. I can move it out to some other header file if there\u0027s consensus.",
+      "parentUuid": "6cb27461_51d06daa",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
