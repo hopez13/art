@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8435699_50361415",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "With minor modifications to CanEncodeConstantAsImmediate() you can embed constants as well. Constants have the advantage that they can be adjusted by 1 to change kCondGT-\u003ekCondGE or kCondLE-\u003ekCondLT, see comment below.",
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6251ab86_a173b0d7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "You can extend this to kCondGE and kCondLT with\n\n    CMP left_low, right_low\n    SUBS ip, left_high, right_high\n\n(Same code size.)",
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c00d3ec_fd255592",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "Alternatively, we could revert to the old behavior where the first input is in register and output is SameAsFirstInput().",
+      "range": {
+        "startLine": 2109,
+        "startChar": 0,
+        "endLine": 2110,
+        "endChar": 39
+      },
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "832e722f_6462e7f1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "The comment about partial IT block deprecation applies here as well, right? We could pass the output register here and accept low register \"out\" with an 8-bit unsigned immediate.",
+      "range": {
+        "startLine": 2125,
+        "startChar": 9,
+        "endLine": 2125,
+        "endChar": 25
+      },
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b1b0e8_eff9203c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "Use two IT+MOV sequences for long?",
+      "range": {
+        "startLine": 2149,
+        "startChar": 0,
+        "endLine": 2151,
+        "endChar": 49
+      },
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17558e12_20b98496",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-17T11:13:02Z",
+      "side": 1,
+      "message": "This fits on one line now.",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 56
+      },
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
