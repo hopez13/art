@@ -46,6 +46,30 @@
       "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93aef88e_9d0a8ea3",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-17T00:33:16Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not super happy with the ifndef, because that spells bitrot. But w/e.",
+      "parentUuid": "4b0456e1_0ddf1e7e",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
