@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fc769c3_6c5e722d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0fd79aa_c7f2e3d7",
+      "range": {
+        "startLine": 2584,
+        "startChar": 4,
+        "endLine": 2584,
+        "endChar": 7
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a9bad9d_a6565632",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "out_location",
+      "range": {
+        "startLine": 2601,
+        "startChar": 11,
+        "endLine": 2601,
+        "endChar": 22
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe6828f_bb65a51e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a9bad9d_a6565632",
       "range": {
         "startLine": 2601,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "326f7d82_7583da70",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2623,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77611164_032f15db",
+      "range": {
+        "startLine": 2623,
+        "startChar": 0,
+        "endLine": 2623,
+        "endChar": 81
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bafbd3a_23b401d3",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "Let\u0027s take advantage of R6\u0027s bltc:\n\n    __ Blt(AT, TMP, slow_path-\u003eGetEntryLabel());",
+      "range": {
+        "startLine": 2626,
+        "startChar": 0,
+        "endLine": 2626,
+        "endChar": 34
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2827c02_6b882d34",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2626,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bafbd3a_23b401d3",
       "range": {
         "startLine": 2626,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "21886cc8_d61fb438",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2629,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecf4536a_a5609c14",
+      "range": {
+        "startLine": 2629,
+        "startChar": 0,
+        "endLine": 2629,
+        "endChar": 58
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc4255ba_de10652f",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 2631,
+        "startChar": 0,
+        "endLine": 2631,
+        "endChar": 49
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "414973a4_29fe5e1a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2631,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4255ba_de10652f",
       "range": {
         "startLine": 2631,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "32682d8f_fd417845",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2637,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c38e2df3_8217ebaf",
+      "range": {
+        "startLine": 2637,
+        "startChar": 0,
+        "endLine": 2637,
+        "endChar": 46
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ffb4dc0_26a2df50",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "Address in the same way as in the \u0027pos_const \u003d\u003d 0\u0027 case.",
+      "range": {
+        "startLine": 2640,
+        "startChar": 0,
+        "endLine": 2650,
+        "endChar": 49
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c354ae94_745f40d5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2650,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ffb4dc0_26a2df50",
       "range": {
         "startLine": 2640,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "68cbcff0_3f4df24d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2660,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1c40383_4bb9fb44",
+      "range": {
+        "startLine": 2660,
+        "startChar": 0,
+        "endLine": 2660,
+        "endChar": 0
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1f722d7_82a34663",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "The comment is unnecessary, especially when we\u0027re doing signed comparison using slt, slti, blt.",
+      "range": {
+        "startLine": 2668,
+        "startChar": 0,
+        "endLine": 2671,
+        "endChar": 39
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "546fad83_63a6f30a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f722d7_82a34663",
       "range": {
         "startLine": 2668,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "5908e86d_43672b18",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2672,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acf94e7_d51a512f",
+      "range": {
+        "startLine": 2672,
+        "startChar": 14,
+        "endLine": 2672,
+        "endChar": 28
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d065882b_94ef942a",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "src_pos",
+      "range": {
+        "startLine": 2692,
+        "startChar": 11,
+        "endLine": 2692,
+        "endChar": 17
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea248929_65cff7b2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d065882b_94ef942a",
       "range": {
         "startLine": 2692,
         "startChar": 11,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "0e558c12_df8da23e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2694,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54275949_42b86df5",
+      "range": {
+        "startLine": 2694,
+        "startChar": 11,
+        "endLine": 2694,
+        "endChar": 18
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8c46c4c_3fc84775",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "and destination addresses.",
+      "range": {
+        "startLine": 2753,
+        "startChar": 22,
+        "endLine": 2753,
+        "endChar": 29
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15f16d97_b0de6b47",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2753,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8c46c4c_3fc84775",
       "range": {
         "startLine": 2753,
         "startChar": 22,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "be68527c_f8aa92f3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2755,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "033dab11_e60d2ea1",
+      "range": {
+        "startLine": 2755,
+        "startChar": 12,
+        "endLine": 2755,
+        "endChar": 24
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e84679e5_286669de",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -358,6 +718,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "spaces around",
+      "range": {
+        "startLine": 2757,
+        "startChar": 53,
+        "endLine": 2757,
+        "endChar": 54
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "858f50f4_05ef6279",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e84679e5_286669de",
       "range": {
         "startLine": 2757,
         "startChar": 53,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "3bf10087_40ea5dd7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9c3f94_9a06b001",
+      "range": {
+        "startLine": 2768,
+        "startChar": 12,
+        "endLine": 2768,
+        "endChar": 25
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c3769d6_ff5871be",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -404,6 +812,30 @@
       "writtenOn": "2017-02-03T23:16:21Z",
       "side": 1,
       "message": "spaces around",
+      "range": {
+        "startLine": 2770,
+        "startChar": 55,
+        "endLine": 2770,
+        "endChar": 56
+      },
+      "revId": "50b33638e81a800bc8720110382327a5cd040699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d103ef48_3a5c124c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2770,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-17T15:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3769d6_ff5871be",
       "range": {
         "startLine": 2770,
         "startChar": 55,
