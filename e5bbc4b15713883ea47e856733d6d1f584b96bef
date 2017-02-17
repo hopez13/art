@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e203613f_d79fee98",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-17T00:27:08Z",
+      "side": 1,
+      "message": "grabbing the lock to avoid races is rather vague and not very informative; why not just say you are protecting the cha dependeny map or something like that",
+      "revId": "e5bbc4b15713883ea47e856733d6d1f584b96bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc97bd4c_089c4330",
+        "filename": "runtime/cha.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-17T00:27:08Z",
+      "side": 1,
+      "message": "Just as L120, this reads a bit hard. Why not say what the method does first?",
+      "revId": "e5bbc4b15713883ea47e856733d6d1f584b96bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
