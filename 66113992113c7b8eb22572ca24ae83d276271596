@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "e19b671f_e1602e35",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-17T19:39:28Z",
+      "side": 1,
+      "message": "Please add a couple of the easily failing configurations for the specific test, e.g.,\n\n m ART_TEST_JIT\u003dtrue test-art-host-run-test-...",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "646b2a7c_f3631c1c",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-17T19:39:28Z",
+      "side": 1,
+      "message": "Add a TODO here. This should be removed later.",
+      "range": {
+        "startLine": 174,
+        "startChar": 7,
+        "endLine": 175,
+        "endChar": 51
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2734a8b9_b0fbaed8",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-17T19:39:28Z",
+      "side": 1,
+      "message": "Please fix to proper English.",
+      "range": {
+        "startLine": 1146,
+        "startChar": 76,
+        "endLine": 1147,
+        "endChar": 53
+      },
+      "revId": "66113992113c7b8eb22572ca24ae83d276271596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5df6ac4d_eee151f2",
         "filename": "test/950-redefine-intrinsic/info.txt",
         "patchSetId": 1
