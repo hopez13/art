@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ea08395_fc46c282",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-17T21:37:58Z",
+      "side": 1,
+      "message": "Since this is a DCHECK, we could also put all these into the \"if (kIsDebugBuild) {..}\"? Up to you.",
+      "range": {
+        "startLine": 940,
+        "startChar": 0,
+        "endLine": 947,
+        "endChar": 63
+      },
+      "revId": "d6b17d4eacd8a1a46a0d4837285735a071c0beb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
