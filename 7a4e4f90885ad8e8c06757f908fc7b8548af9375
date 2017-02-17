@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87e7b54d_f9f486af",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T11:45:14Z",
+      "side": 1,
+      "message": "Instead of isReachable(), I\u0027d probably call it something along the lines of shouldIncludeInHeapSize() (but ideally more elegant than that), so that if you ever want to exclude other instances based on their properties you can just modify the method.  Either way is fine, though.",
+      "revId": "7a4e4f90885ad8e8c06757f908fc7b8548af9375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
