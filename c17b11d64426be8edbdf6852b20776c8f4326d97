@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "2a960e6e_ac1f0bad",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-17T00:39:21Z",
+      "side": 1,
+      "message": "If someone can triage b/35325126 then I can actually make this macro check that the managed side is actually annotated with @FastNative :).\n\nI can remove the #ifndef/#endif lines too if you want, very easy change (and it\u0027s a .cc file so it\u0027s not necessary). It\u0027s mainly the #define I am somewhat partial to.\n\nMaybe the libcore files have it because sometimes they get it from a header and sometimes they don\u0027t? Not sure.",
+      "parentUuid": "93aef88e_9d0a8ea3",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee1cc76_9e061c48",
         "filename": "runtime/native/scoped_fast_native_object_access-inl.h",
         "patchSetId": 1
