@@ -22,6 +22,29 @@
       "revId": "da010a117e505f2639d97bd12a331f9b97d84fdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb64ec16_b614e223",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-17T19:06:27Z",
+      "side": 1,
+      "message": "Remove a space to align?",
+      "range": {
+        "startLine": 1258,
+        "startChar": 38,
+        "endLine": 1258,
+        "endChar": 39
+      },
+      "revId": "da010a117e505f2639d97bd12a331f9b97d84fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
