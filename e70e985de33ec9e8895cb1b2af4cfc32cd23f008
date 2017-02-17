@@ -1,0 +1,308 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "675807cd_5f25bfd1",
+        "filename": "tools/ahat/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "This import is added but isn\u0027t used anywhere.",
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79651d47_a2c41e07",
+        "filename": "tools/ahat/src/Sort.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "It\u0027d be more typical here to just have a single Comparator instance, since every instance acts the same.\n\npublic static final Comparator\u003cSite\u003e SITE_BY_TOTAL_SIZE \u003d new Comparator\u003cSite\u003e { ... }\n\n..and the same for the other similar items in this class.",
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96164b1b_9cb32b95",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "It\u0027s actually better to leave off the documentation here, since the Javadoc tools will automatically include the superclass\u0027s documentation if nothing is present, but won\u0027t if something is there.",
+      "range": {
+        "startLine": 41,
+        "startChar": 5,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3cc0a05_a1f0dee3",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "Instead of this, it looks like perflib.heap.ArrayInstance has a specialized methods to extract char and byte arrays (asCharArray() and asRawByteArray(), respectively), which should be a lot more efficient.",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 54
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fe3bbe4_369d6ff5",
+        "filename": "tools/ahat/src/heapdump/AhatArrayInstance.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "You could just make objects final and leave this out, since nothing modifies it anyway.",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 40
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f28d3f_3c27bf7e",
+        "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "Here too",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c567e9b_7e99945b",
+        "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "It might be more clear if this were java.lang.Class{foo.bar.baz.MyClass} or something along those lines, just so it\u0027s harder to be confused about whether this is the class object or an instance of the class.",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 22
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b2b0e1_6b0083c2",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "It\u0027s probably worth putting this next to addRootType()",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 44
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7612276c_bd90e4d3",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "Nit: Extra space here",
+      "range": {
+        "startLine": 91,
+        "startChar": 13,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a4ffc8_77505cb8",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "FYI, this will fail if you ever have at least 2^30 instances in a heap dump.  Not sure if we care about that problem, but you can extend it to 2^31 by making this int mid \u003d start + ((end - start) / 2).  (You can never have more than 2^31 elements in an array in Java because the index must be an int.)",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 34
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da627c95_ff0a8770",
+        "filename": "tools/ahat/src/heapdump/NativeAllocation.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "Should these be final?",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db983bf1_b1533e78",
+        "filename": "tools/ahat/src/heapdump/Site.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "This should probably not have a name argument, given that the name is just thrown away.",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 28
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f18bd35_057c6afe",
+        "filename": "tools/ahat/src/heapdump/Value.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "As a minor point, Java also has Short and Boolean as primitive types.",
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a6f6b9_2662871b",
+        "filename": "tools/ahat/test-dump/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-17T15:02:12Z",
+      "side": 1,
+      "message": "Unless is the Android compiler doesn\u0027t accept UTF-8 input, you can put an actual sigma character here, which would probably be a little more obvious that it\u0027s actually storing a unicode character in the string.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 59
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
