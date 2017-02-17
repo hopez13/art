@@ -333,6 +333,12 @@ class ShadowFrame {
     method_ = method;
   }
 
+  void SetMethodWhilstNotShared(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(method != nullptr);
+    DCHECK(method_ != nullptr);
+    method_ = method;
+  }
+
   ArtMethod* GetMethod() const REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(method_ != nullptr);
     return method_;

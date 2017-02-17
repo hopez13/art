@@ -17,6 +17,8 @@
 import dalvik.system.InMemoryDexClassLoader;
 
 import java.lang.invoke.CallSite;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.invoke.MutableCallSite;
 
@@ -30,7 +32,7 @@ import java.util.Base64;
 
 public class Main {
 
-  private static void TestUninitializedCallSite() throws Throwable {
+  private static void testUninitializedCallSite() throws Throwable {
     CallSite callSite = new MutableCallSite(MethodType.methodType(int.class));
     try {
       callSite.getTarget().invoke();
@@ -48,7 +50,18 @@ public class Main {
     }
   }
 
-  private static void TestLinkerMethodMultipleArgumentTypes() throws Throwable {
+  private static int add(int x, int y) {
+    return x + y;
+  }
+
+  private static void testCallSiteDynamicInvoker() throws Throwable {
+    CallSite callSite = new MutableCallSite(MethodType.methodType(int.class, int.class, int.class));
+    callSite.setTarget(MethodHandles.lookup().findStatic(Main.class, "add", callSite.type()));
+    int x = (int) callSite.dynamicInvoker().invoke(2, 3);
+    assertEquals(x, 5);
+  }
+
+  private static void testLinkerMethodMultipleArgumentTypes() throws Throwable {
     // This is a more comprehensive test of invoke-custom, the linker
     // method takes additional arguments of types boolean, byte, char,
     // short, int, float, double, String, Class, and long (in this order)
@@ -71,7 +84,7 @@ public class Main {
     testMethod.invoke(null, -1000, +10000);
   }
 
-  private static void TestLinkerMethodMinimalArguments() throws Throwable {
+  private static void testLinkerMethodMinimalArguments() throws Throwable {
     // This test checks various failures when running the linker
     // method and during invocation of the method handle.
     byte[] base64Data = TestDataLinkerMethodMinimalArguments.BASE64_DEX_FILE.getBytes();
@@ -111,7 +124,7 @@ public class Main {
     testMethod.invoke(null, 0 /* no error */, 10, 13);
   }
 
-  private static void TestInvokeCustomWithConcurrentThreads() throws Throwable {
+  private static void testInvokeCustomWithConcurrentThreads() throws Throwable {
     // This is a concurrency test that attempts to run invoke-custom on the same
     // call site.
     byte[] base64Data = TestDataInvokeCustomWithConcurrentThreads.BASE64_DEX_FILE.getBytes();
@@ -151,9 +164,10 @@ public class Main {
   }
 
   public static void main(String[] args) throws Throwable {
-    TestUninitializedCallSite();
-    TestLinkerMethodMinimalArguments();
-    TestLinkerMethodMultipleArgumentTypes();
-    TestInvokeCustomWithConcurrentThreads();
+    testUninitializedCallSite();
+    testCallSiteDynamicInvoker();
+    testLinkerMethodMinimalArguments();
+    testLinkerMethodMultipleArgumentTypes();
+    testInvokeCustomWithConcurrentThreads();
   }
 }
