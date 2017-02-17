@@ -139,6 +139,14 @@ void ReferenceProcessor::ProcessReferences(bool concurrent,
       CHECK_EQ(!self->GetWeakRefAccessEnabled(), concurrent);
     }
   }
+  if (kIsDebugBuild && collector->IsTransactionActive()) {
+    // In transaction mode, we shouldn't enqueue any Reference to the queues.
+    // See DelayReferenceReferent().
+    DCHECK(soft_reference_queue_.IsEmpty());
+    DCHECK(weak_reference_queue_.IsEmpty());
+    DCHECK(finalizer_reference_queue_.IsEmpty());
+    DCHECK(phantom_reference_queue_.IsEmpty());
+  }
   // Unless required to clear soft references with white references, preserve some white referents.
   if (!clear_soft_references) {
     TimingLogger::ScopedTiming split(concurrent ? "ForwardSoftReferences" :
@@ -203,6 +211,15 @@ void ReferenceProcessor::DelayReferenceReferent(ObjPtr<mirror::Class> klass,
   DCHECK(klass != nullptr);
   DCHECK(klass->IsTypeOfReferenceClass());
   mirror::HeapReference<mirror::Object>* referent = ref->GetReferentReferenceAddr();
+  if (UNLIKELY(collector->IsTransactionActive())) {
+    // In transaction mode, keep the referent alive and avoid any reference processing to avoid the
+    // issue of rolling back reference processing.  do_atomic_update needs to be true because this
+    // happens outside of the reference processing phase.
+    if (!referent->IsNull()) {
+      collector->MarkHeapReference(referent, /*do_atomic_update*/ true);
+    }
+    return;
+  }
   // do_atomic_update needs to be true because this happens outside of the reference processing
   // phase.
   if (!collector->IsNullOrMarkedHeapReference(referent, /*do_atomic_update*/true)) {
