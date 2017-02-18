@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "240c00b2_e45f0d9a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-18T01:01:20Z",
+      "side": 1,
+      "message": "Add a comment why?",
+      "parentUuid": "9b972219_d16248d3",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 40
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91277f7e_69263a75",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-18T00:53:36Z",
       "side": 1,
       "message": "Do we need to visit native roots? If obj is a class loader, do we want to visit its class table entries and such?",
+      "range": {
+        "startLine": 487,
+        "startChar": 46,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2d424d5_f52a3cb3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-18T01:01:20Z",
+      "side": 1,
+      "message": "See https://android-review.googlesource.com/#/c/341344 if that\u0027s compatible with this verification.",
+      "parentUuid": "91277f7e_69263a75",
       "range": {
         "startLine": 487,
         "startChar": 46,
