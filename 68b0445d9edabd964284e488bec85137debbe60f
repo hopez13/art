@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "4aecc8f6_60c4aa1e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-18T22:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b972219_d16248d3",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 40
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce272a7a_30bba065",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-18T22:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "240c00b2_e45f0d9a",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 40
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91277f7e_69263a75",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -84,6 +132,54 @@
       "side": 1,
       "message": "See https://android-review.googlesource.com/#/c/341344 if that\u0027s compatible with this verification.",
       "parentUuid": "91277f7e_69263a75",
+      "range": {
+        "startLine": 487,
+        "startChar": 46,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3be4e62_cad82320",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-18T22:02:27Z",
+      "side": 1,
+      "message": "Since native roots are keyed off holders, we probably want to also visit them or else the holder won\u0027t get scanned by generational CC.",
+      "parentUuid": "91277f7e_69263a75",
+      "range": {
+        "startLine": 487,
+        "startChar": 46,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8efd2a7_0391f11c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-18T22:02:27Z",
+      "side": 1,
+      "message": "Good question, I don\u0027t see why we should avoid card marks in this case.",
+      "parentUuid": "f2d424d5_f52a3cb3",
       "range": {
         "startLine": 487,
         "startChar": 46,
