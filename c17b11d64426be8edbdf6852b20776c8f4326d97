@@ -114,6 +114,30 @@
     },
     {
       "key": {
+        "uuid": "6cd76167_6c0063d5",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-18T01:00:56Z",
+      "side": 1,
+      "message": "Fixed.\n\nMoved to libnativehelper (see topic).",
+      "parentUuid": "2a960e6e_ac1f0bad",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "c17b11d64426be8edbdf6852b20776c8f4326d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee1cc76_9e061c48",
         "filename": "runtime/native/scoped_fast_native_object_access-inl.h",
         "patchSetId": 1
