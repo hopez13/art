@@ -1547,6 +1547,56 @@ int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassDef*> new_class_def_
   return diff;
 }
 
+int32_t DexLayout::LayoutStrings() {
+  std::set<dex_ir::StringId*> code_strings;
+  std::map<uint32_t, std::unique_ptr<dex_ir::CodeItem>>& code_items =
+      header_->GetCollections().CodeItems();
+  for (const auto& code_item_pair : code_items) {
+    const std::unique_ptr<dex_ir::CodeItem>& code_item = code_item_pair.second;
+    dex_ir::CodeFixups* fixups = code_item->GetCodeFixups();
+    if (fixups != nullptr) {
+      std::vector<dex_ir::StringId*>* string_ids = fixups->StringIds();
+      if (string_ids != nullptr) {
+        for (auto string_id : *string_ids) {
+          code_strings.insert(string_id);
+        }
+      }
+    }
+  }
+  return 0;
+}
+
+int32_t DexLayout::ScanClasses() {
+  uint32_t classes = 0;
+  uint32_t classes_with_statics = 0;
+  uint32_t classes_with_clinit = 0;
+  for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
+    ++classes;
+    if (class_def->StaticValues() != nullptr) {
+      ++classes_with_statics;
+    }
+    dex_ir::ClassData* class_data = class_def->GetClassData();
+    if (class_data != nullptr) {
+      dex_ir::MethodItemVector* direct_methods = class_data->DirectMethods();
+      if (direct_methods != nullptr) {
+        for (const auto& method : *direct_methods) {
+          const dex_ir::MethodId* method_id = method->GetMethodId();
+          const dex_ir::StringId* string_id = method_id->Name();
+          const char* data = string_id->Data();
+          if (strcmp(data, "<clinit>") == 0) {
+            ++classes_with_clinit;
+            break;
+          }
+        }
+      }
+    }
+  }
+  std::cerr << "========= classes: " << classes << std::endl;
+  std::cerr << "========= classes with static: " << classes_with_statics << std::endl;
+  std::cerr << "========= classes with clinit: " << classes_with_clinit << std::endl;
+  return 0;
+}
+
 // Adjust offsets of every item in the specified section by diff bytes.
 template<class T> void DexLayout::FixupSection(std::map<uint32_t, std::unique_ptr<T>>& map,
                                                uint32_t diff) {
@@ -1690,6 +1740,7 @@ void DexLayout::ProcessDexFile(const char* file_name,
     return;
   }
 
+  ScanClasses();
   // Dump dex file.
   if (options_.dump_) {
     DumpDexFile();
