@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2724f19_ab10ab21",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-18T22:07:39Z",
+      "side": 1,
+      "message": "What is the case where mutators can actually change the referent? I thought it was never updated once set.",
+      "range": {
+        "startLine": 219,
+        "startChar": 45,
+        "endLine": 219,
+        "endChar": 70
+      },
+      "revId": "a7a73db158e220dba6e309e1c1bd580aaba17c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
