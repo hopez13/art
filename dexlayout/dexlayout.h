@@ -107,6 +107,8 @@ class DexLayout {
 
   std::vector<dex_ir::ClassDef*> LayoutClassDefsAndClassData(const DexFile* dex_file);
   int32_t LayoutCodeItems(std::vector<dex_ir::ClassDef*> new_class_def_order);
+  int32_t LayoutStrings();
+  int32_t ScanClasses();
   template<class T> void FixupSection(std::map<uint32_t, std::unique_ptr<T>>& map, uint32_t diff);
   void FixupSections(uint32_t offset, uint32_t diff);
 
