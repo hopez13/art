@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b82e7d6e_004a4306",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-20T13:34:57Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you want to keep this? What do you mean by \"should happen\"?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "6ca316cc5f5b9d6a4840f20526baf78aff65f6f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6233ce6_99ca2def",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-20T13:34:57Z",
+      "side": 1,
+      "message": "How about for now being correct and disable intrinsics in the compiler when debuggable is true?",
+      "range": {
+        "startLine": 1145,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 47
+      },
+      "revId": "6ca316cc5f5b9d6a4840f20526baf78aff65f6f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
