@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffdb1f0b_571b3cce",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "I like phrasing these as \n\n0 \u003c\u003d index \u0026\u0026 index \u003c mRetainedSizes.length\n\nbecause it makes it trivially obvious that it\u0027s a range test.",
+      "range": {
+        "startLine": 141,
+        "startChar": 11,
+        "endLine": 141,
+        "endChar": 54
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8cfbaec_16392c33",
+        "filename": "tools/ahat/src/heapdump/AhatPlaceHolderClassObj.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "Given the specificity of this doc, it seems like it should be on a superclass, since most of these conditions are irrelevant on instances of this class.",
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22ceadf_9d2be562",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "I don\u0027t see anything that requires that Snapshot.getHeaps() returns the heaps in index order (though it does in practice), which means that mHeaps could end up with heaps in non-index order.  It\u0027s probably worth sorting the list at the bottom of the loop or something like that for clarity\u0027s sake.",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 76
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8fcb702_3f8a562a",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "It looks like you modify this list in Diffs, which is really unusual.  It\u0027s very rare for a class to expose a mutable member of itself and expect its callers to modify it.  While this seems okay in this instance, it should be noted in the docs that this is intentional (and desired).",
+      "range": {
+        "startLine": 225,
+        "startChar": 5,
+        "endLine": 225,
+        "endChar": 64
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42ace25_4aa4beba",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem like there\u0027s any reason to reuse the arguments to the function here, and doing so is generally considered bad form, so I\u0027d make these their own variables.",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 14
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d89284_f0b3798f",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "This seems like it could be fragile, since often what you want to do with a diff is see if something you did significantly changed the size of some objects.  I suppose since you\u0027re looking at instance subsets at a time it might work alright, but possibly we should add a note that there\u0027s an option of doing something more complicated if it ends up not being accurate enough.",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 50
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f36216bf_3ea8be41",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "Presumably we could sort the list of fields by name in order to not rely on their ordering, right?  I don\u0027t know if that\u0027s worth it, since presumably we know from the runtime that it lays out objects the same way every time, but it\u0027s probably worth noting why we\u0027re okay with this assumption.",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 350,
+        "endChar": 12
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02173eaa_bc2613c7",
+        "filename": "tools/ahat/src/heapdump/Diffable.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-20T11:23:21Z",
+      "side": 1,
+      "message": "Or vice versa, right?",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
