@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e3244a5e_bd509edc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-20T20:28:41Z",
+      "side": 1,
+      "message": "\u003e Revisiting the bionic microbenchmark results on a 2016 phone:\n \u003e \n \u003e Looking at the 90% case of a non-recursive lock again, the fence\n \u003e cost is around 50 nsecs (BM_seq_cst_fence - BM_empty @768MHz). The\n \u003e difference between BM_fetch_add_seq_cst and BM_fetch_add_relaxed,\n \u003e which corresponds to adding both an acquire and release to\n \u003e exclusive load and store, is about 80 nsecs. If we assume 10%\n \u003e reentrant locking and 0% inflated locks (which seemed to hold for\n \u003e old research papers), this would give us an expected cost of\n \u003e \n \u003e 0.9 * (-20nsecs) + 0.1*(80nsecs)\n \u003e \n \u003e which gives is a 10 nsec on average win. So perhaps the statement\n \u003e in the commit message is actually pessimistic. (The 32 bit version\n \u003e looks a bit better, still)\n \u003e \n \u003e I think I was slightly misled by the non-exclusive acquire/release\n \u003e timings, which seem to vary, and are sometimes more expensive than\n \u003e dmb.\n \u003e \n \u003e It\u0027s unclear to me that there is a small number of real benchmarks\n \u003e that would give us more convincing numbers. DeltaBlue apparently\n \u003e does a lot of synchronization anymore, and old versions apparently\n \u003e only did so by using Vector, which is also pretty bogus. \n\nYeah, the version we use uses ArrayList for that reason.\n\nMonteCarlo\n \u003e still has bogus synchronization, but it now uses atomics instead of\n \u003e monitors.\n \u003e \n \u003e I\u0027ll update the commit message.",
+      "parentUuid": "b18ce2ce_b9d37373",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 62
+      },
+      "revId": "da010a117e505f2639d97bd12a331f9b97d84fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb64ec16_b614e223",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
