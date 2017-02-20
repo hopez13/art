@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b18ce2ce_b9d37373",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-02-20T19:02:38Z",
+      "side": 1,
+      "message": "Revisiting the bionic microbenchmark results on a 2016 phone:\n\nLooking at the 90% case of a non-recursive lock again, the fence cost is around 50 nsecs (BM_seq_cst_fence - BM_empty @768MHz). The difference between BM_fetch_add_seq_cst and BM_fetch_add_relaxed, which corresponds to adding both an acquire and release to exclusive load and store, is about 80 nsecs. If we assume 10% reentrant locking and 0% inflated locks (which seemed to hold for old research papers), this would give us an expected cost of\n\n0.9 * (-20nsecs) + 0.1*(80nsecs)\n\nwhich gives is a 10 nsec on average win. So perhaps the statement in the commit message is actually pessimistic. (The 32 bit version looks a bit better, still)\n\nI think I was slightly misled by the non-exclusive acquire/release timings, which seem to vary, and are sometimes more expensive than dmb.\n\nIt\u0027s unclear to me that there is a small number of real benchmarks that would give us more convincing numbers. DeltaBlue apparently does a lot of synchronization anymore, and old versions apparently only did so by using Vector, which is also pretty bogus. MonteCarlo still has bogus synchronization, but it now uses atomics instead of monitors.\n\nI\u0027ll update the commit message.",
+      "parentUuid": "df93f5f5_0984eeec",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 62
+      },
+      "revId": "da010a117e505f2639d97bd12a331f9b97d84fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb64ec16_b614e223",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
