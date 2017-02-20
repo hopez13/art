@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd34b54b_fa42e303",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-20T13:46:09Z",
+      "side": 1,
+      "message": "How do we know that the `origin` already has the correct pointer assigned?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 14,
+        "endLine": 1027,
+        "endChar": 79
+      },
+      "revId": "7893c3503063e7ef48646ac5bdbd9cdae61eaf1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20ea5e8f_23549c96",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-20T13:46:09Z",
+      "side": 1,
+      "message": "ContainsElement(dex_files_, dex_file)",
+      "range": {
+        "startLine": 1104,
+        "startChar": 11,
+        "endLine": 1104,
+        "endChar": 91
+      },
+      "revId": "7893c3503063e7ef48646ac5bdbd9cdae61eaf1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
