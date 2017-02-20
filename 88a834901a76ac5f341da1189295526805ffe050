@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "468609d4_6cbf5d05",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-20T14:17:46Z",
+      "side": 1,
+      "message": "This is actually incorrect: the reference is unpoisoned twice (before and after marking) when the gray bit is set; fix is coming.",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 43
+      },
+      "revId": "88a834901a76ac5f341da1189295526805ffe050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
