@@ -28,7 +28,7 @@ namespace Test909AttachAgent {
 jint OnAttach(JavaVM* vm,
             char* options ATTRIBUTE_UNUSED,
             void* reserved ATTRIBUTE_UNUSED) {
-  printf("Attached Agent for test 909-attach-agent\n");
+  fprintf(stderr, "Attached Agent for test 909-attach-agent\n");
   fsync(1);
   jvmtiEnv* env = nullptr;
   jvmtiEnv* env2 = nullptr;
