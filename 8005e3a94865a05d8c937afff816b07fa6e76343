@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8295075f_0c892f53",
+        "filename": "tools/ahat/src/heapdump/AhatInstance.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffdb1f0b_571b3cce",
+      "range": {
+        "startLine": 141,
+        "startChar": 11,
+        "endLine": 141,
+        "endChar": 54
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8cfbaec_16392c33",
         "filename": "tools/ahat/src/heapdump/AhatPlaceHolderClassObj.java",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cc97aa1b_0551e02c",
+        "filename": "tools/ahat/src/heapdump/AhatPlaceHolderClassObj.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "It is on the superclass already. I\u0027ll remove this redundant copy.",
+      "parentUuid": "d8cfbaec_16392c33",
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d22ceadf_9d2be562",
         "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2017-02-20T11:23:21Z",
       "side": 1,
       "message": "I don\u0027t see anything that requires that Snapshot.getHeaps() returns the heaps in index order (though it does in practice), which means that mHeaps could end up with heaps in non-index order.  It\u0027s probably worth sorting the list at the bottom of the loop or something like that for clarity\u0027s sake.",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 76
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2f17f3f_a41734b2",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "The code makes no assumption that mHeaps is in the same order as the index order of Snapshot.getHeaps(). I\u0027ll add a comment to make that more clear.",
+      "parentUuid": "d22ceadf_9d2be562",
       "range": {
         "startLine": 102,
         "startChar": 6,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "2777c0b0_b53a832a",
+        "filename": "tools/ahat/src/heapdump/AhatSnapshot.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "I updated the doc.",
+      "parentUuid": "f8fcb702_3f8a562a",
+      "range": {
+        "startLine": 225,
+        "startChar": 5,
+        "endLine": 225,
+        "endChar": 64
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42ace25_4aa4beba",
         "filename": "tools/ahat/src/heapdump/Diff.java",
         "patchSetId": 3
@@ -99,6 +189,30 @@
       "writtenOn": "2017-02-20T11:23:21Z",
       "side": 1,
       "message": "It doesn\u0027t seem like there\u0027s any reason to reuse the arguments to the function here, and doing so is generally considered bad form, so I\u0027d make these their own variables.",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 14
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1110b7a6_e4f5c788",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "I inlined the use of p.a and p.b rather than create new variables for them in the first place.",
+      "parentUuid": "a42ace25_4aa4beba",
       "range": {
         "startLine": 190,
         "startChar": 6,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "65056403_0a8d0532",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "Agreed. This approach to diff was always intended as a \"good enough\u0027 first attempt. I\u0027ll add a note indicating as such.",
+      "parentUuid": "63d89284_f0b3798f",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 50
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f36216bf_3ea8be41",
         "filename": "tools/ahat/src/heapdump/Diff.java",
         "patchSetId": 3
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "43b6b36b_d7398c24",
+        "filename": "tools/ahat/src/heapdump/Diff.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "The fields should be in the same order they are listed in the source files. If you don\u0027t reorder fields in a class, the assumption is reasonable.\n\nThis could be improved as you suggest, but I\u0027d like to keep the diff algorithm as simple as I reasonably can for this first submission of it. I added a note to the doc saying why it\u0027s okay if the assumption fails.",
+      "parentUuid": "f36216bf_3ea8be41",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 350,
+        "endChar": 12
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02173eaa_bc2613c7",
         "filename": "tools/ahat/src/heapdump/Diffable.java",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2017-02-20T11:23:21Z",
       "side": 1,
       "message": "Or vice versa, right?",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "8005e3a94865a05d8c937afff816b07fa6e76343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f7d9ee_94451d5b",
+        "filename": "tools/ahat/src/heapdump/Diffable.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-20T13:36:11Z",
+      "side": 1,
+      "message": "Yes, because the way diff is structured in ahat, each snapshot is diffed against the other as its baseline.",
+      "parentUuid": "02173eaa_bc2613c7",
       "range": {
         "startLine": 31,
         "startChar": 5,
