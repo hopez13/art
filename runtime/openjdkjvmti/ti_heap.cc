@@ -176,10 +176,14 @@ class FollowReferencesHelper FINAL {
   FollowReferencesHelper(HeapUtil* h,
                          art::ObjPtr<art::mirror::Object> initial_object,
                          const jvmtiHeapCallbacks* callbacks,
+                         jint heap_filter,
+                         art::ObjPtr<art::mirror::Class> class_filter,
                          const void* user_data)
       : tag_table_(h->GetTags()),
         initial_object_(initial_object),
         callbacks_(callbacks),
+        heap_filter_(heap_filter),
+        class_filter_(class_filter),
         user_data_(user_data),
         start_(0),
         stop_reports_(false) {
@@ -611,6 +615,10 @@ class FollowReferencesHelper FINAL {
       return 0;
     }
 
+    if (UNLIKELY(class_filter_ != nullptr) && class_filter_ != referree->GetClass()) {
+      return JVMTI_VISIT_OBJECTS;
+    }
+
     const jlong class_tag = tag_table_->GetTagOrZero(referree->GetClass());
     const jlong referrer_class_tag =
         referrer == nullptr ? 0 : tag_table_->GetTagOrZero(referrer->GetClass());
@@ -630,6 +638,11 @@ class FollowReferencesHelper FINAL {
         referrer_tag_ptr = &referrer_tag;
       }
     }
+
+    if (UNLIKELY(heap_filter_ != 0)) {
+      // TODO: Implement tag filtering.
+    }
+
     jint length = -1;
     if (referree->IsArrayInstance()) {
       length = referree->AsArray()->GetLength();
@@ -658,6 +671,8 @@ class FollowReferencesHelper FINAL {
   ObjectTagTable* tag_table_;
   art::ObjPtr<art::mirror::Object> initial_object_;
   const jvmtiHeapCallbacks* callbacks_;
+  const jint heap_filter_;
+  art::ObjPtr<art::mirror::Class> class_filter_;
   const void* user_data_;
 
   std::vector<art::mirror::Object*> worklist_;
@@ -672,8 +687,8 @@ class FollowReferencesHelper FINAL {
 };
 
 jvmtiError HeapUtil::FollowReferences(jvmtiEnv* env ATTRIBUTE_UNUSED,
-                                      jint heap_filter ATTRIBUTE_UNUSED,
-                                      jclass klass ATTRIBUTE_UNUSED,
+                                      jint heap_filter,
+                                      jclass klass,
                                       jobject initial_object,
                                       const jvmtiHeapCallbacks* callbacks,
                                       const void* user_data) {
@@ -699,9 +714,14 @@ jvmtiError HeapUtil::FollowReferences(jvmtiEnv* env ATTRIBUTE_UNUSED,
     art::ScopedThreadSuspension sts(self, art::kWaitingForVisitObjects);
     art::ScopedSuspendAll ssa("FollowReferences");
 
+    art::ObjPtr<art::mirror::Class> class_filter = klass == nullptr
+        ? nullptr
+        : art::ObjPtr<art::mirror::Class>::DownCast(self->DecodeJObject(klass));
     FollowReferencesHelper frh(this,
                                self->DecodeJObject(initial_object),
                                callbacks,
+                               heap_filter,
+                               class_filter,
                                user_data);
     frh.Init();
     frh.Work();

@@ -15,6 +15,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
     doTest();
     doFollowReferencesTest();
+    doFollowReferencesTestClassFilter();
   }
 
   public static void doTest() throws Exception {
@@ -60,7 +62,7 @@ public class Main {
 
     {
       ArrayList<Object> tmpStorage = new ArrayList<>();
-      doFollowReferencesTestNonRoot(tmpStorage);
+      doFollowReferencesTestNonRoot(null, tmpStorage);
       tmpStorage = null;
     }
 
@@ -68,41 +70,74 @@ public class Main {
     Runtime.getRuntime().gc();
     Runtime.getRuntime().gc();
 
-    doFollowReferencesTestRoot();
+    doFollowReferencesTestRoot(null);
 
     // Force GCs to clean up dirt.
     Runtime.getRuntime().gc();
     Runtime.getRuntime().gc();
   }
 
-  private static void doFollowReferencesTestNonRoot(ArrayList<Object> tmpStorage) {
+  public static void doFollowReferencesTestClassFilter() throws Exception {
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
+
+    setTag(Thread.currentThread(), 3000);
+
+    {
+      ArrayList<Object> tmpStorage = new ArrayList<>();
+      doFollowReferencesTestNonRoot(A.class, tmpStorage);
+      tmpStorage = null;
+    }
+
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
+
+    doFollowReferencesTestRoot(A.class);
+
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
+  }
+
+  private static void doFollowReferencesTestNonRoot(Class<?> klass, ArrayList<Object> tmpStorage) {
     Verifier v = new Verifier();
     tagClasses(v);
     A a = createTree(v);
     tmpStorage.add(a);
     v.add("0@0", "1@1000");  // tmpStorage[0] --(array-element)--> a.
 
-    doFollowReferencesTestImpl(null, Integer.MAX_VALUE, -1, null, v, null);
-    doFollowReferencesTestImpl(a.foo2, Integer.MAX_VALUE, -1, null, v, "3@1001");
+    doFollowReferencesTestImpl(null, klass, Integer.MAX_VALUE, -1, null, v, null);
+    doFollowReferencesTestImpl(a.foo2, klass, Integer.MAX_VALUE, -1, null, v, "3@1001");
 
     tmpStorage.clear();
   }
 
-  private static void doFollowReferencesTestRoot() {
+  private static void doFollowReferencesTestRoot(Class<?> klass) {
     Verifier v = new Verifier();
     tagClasses(v);
     A a = createTree(v);
 
-    doFollowReferencesTestImpl(null, Integer.MAX_VALUE, -1, a, v, null);
-    doFollowReferencesTestImpl(a.foo2, Integer.MAX_VALUE, -1, a, v, "3@1001");
+    doFollowReferencesTestImpl(null, klass, Integer.MAX_VALUE, -1, a, v, null);
+    doFollowReferencesTestImpl(a.foo2, klass, Integer.MAX_VALUE, -1, a, v, "3@1001");
   }
 
-  private static void doFollowReferencesTestImpl(A root, int stopAfter, int followSet,
-      Object asRoot, Verifier v, String additionalEnabled) {
+  private static void doFollowReferencesTestImpl(A root, Class<?> klass, int stopAfter,
+      int followSet, Object asRoot, Verifier v, String additionalEnabled) {
     String[] lines =
-        followReferences(0, null, root, stopAfter, followSet, asRoot);
+        followReferences(0, klass, root, stopAfter, followSet, asRoot);
 
-    v.process(lines, additionalEnabled);
+    if (klass == null) {
+      v.process(lines, additionalEnabled);
+    } else {
+      // TODO: Modify the verifier to support hidden references. For now, just sort and print
+      //       everything.
+      Arrays.sort(lines);
+      for (String l : lines) {
+        System.out.println(l);
+      }
+    }
 
     // TODO: Test filters.
   }
