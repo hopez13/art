@@ -44,6 +44,8 @@ For eg, for compiler type as optimizing, use --optimizing.
 In the end, the script will print the failed and skipped tests if any.
 
 """
+from collections import namedtuple
+import concurrent.futures as futures
 import fnmatch
 import itertools
 import json
@@ -94,7 +96,7 @@ COLOR_NORMAL = '\033[0m'
 
 # The mutex object is used by the threads for exclusive access of test_count
 # to make any changes in its value.
-test_count_mutex = threading.Lock()
+# test_count_mutex = threading.Lock()
 
 # The set contains the list of all the possible run tests that are in art/test
 # directory.
@@ -102,11 +104,11 @@ RUN_TEST_SET = set()
 
 # The semaphore object is used by the testrunner to limit the number of
 # threads to the user requested concurrency value.
-semaphore = threading.Semaphore(1)
+# semaphore = threading.Semaphore(1)
 
 # The mutex object is used to provide exclusive access to a thread to print
 # its output.
-print_mutex = threading.Lock()
+# print_mutex = threading.Lock()
 failed_tests = []
 skipped_tests = []
 
@@ -250,9 +252,21 @@ def setup_test_env():
     ADDRESS_SIZES_TARGET['host'] = ADDRESS_SIZES_TARGET['host'].union(ADDRESS_SIZES)
     ADDRESS_SIZES_TARGET['target'] = ADDRESS_SIZES_TARGET['target'].union(ADDRESS_SIZES)
 
-  global semaphore
-  semaphore = threading.Semaphore(n_thread)
+  # global semaphore
+  # semaphore = threading.Semaphore(n_thread)
 
+def handle_finished_test(test, name):
+  test.print_info()
+  if test.skipped:
+    skipped_tests.append(name)
+  elif not test.passed:
+    failed_tests.append(name)
+    if not env.ART_TEST_KEEP_GOING:
+      stop_testrunner = True
+
+def handle_cancelled_test(name):
+  print_test_info(name, 'SKIP')
+  skipped_tests.append(name)
 
 def run_tests(tests):
   """Creates thread workers to run the tests.
@@ -268,6 +282,31 @@ def run_tests(tests):
   Args:
     tests: The set of tests to be run.
   """
+  with futures.ProcessPoolExecutor(max_workers=n_thread) as executor:
+    unfinished_tests = launch_all_tests(tests, executor)
+    while len(unfinished_tests) != 0:
+      if stop_testrunner:
+        for (test, _) in unfinished_tests:
+          test.cancel()
+        # We still need to get all the data from cancelled ones.
+        for (test, name) in unfinished_tests:
+          if test.cancelled():
+            handle_cancelled_test(name)
+          else:
+            handle_finished_test(test.result(), name)
+        # All tests either finished or cancelled. Just return.
+        return
+      else:
+        new_unfinished_tests = []
+        for (test, name) in unfinished_tests:
+          if not test.done():
+            new_unfinished_tests.append((test, name))
+          else:
+            handle_finished_test(test.result(), name)
+        unfinished_tests = new_unfinished_tests
+
+def launch_all_tests(tests, executor):
+  test_results = []
   options_all = ''
   global total_test_count
   total_test_count = len(tests)
@@ -312,14 +351,6 @@ def run_tests(tests):
   for test, target, run, prebuild, compiler, relocate, trace, gc, \
       jni, image, pictest, debuggable in config:
     for address_size in ADDRESS_SIZES_TARGET[target]:
-      if stop_testrunner:
-        # When ART_TEST_KEEP_GOING is set to false, then as soon as a test
-        # fails, stop_testrunner is set to True. When this happens, the method
-        # stops creating any any thread and wait for all the exising threads
-        # to end.
-        while threading.active_count() > 2:
-          time.sleep(0.1)
-          return
       test_name = 'test-art-'
       test_name += target + '-run-test-'
       test_name += run + '-'
@@ -418,13 +449,28 @@ def run_tests(tests):
       run_test_sh = env.ANDROID_BUILD_TOP + '/art/test/run-test'
       command = run_test_sh + ' ' + options_test + ' ' + test
 
-      semaphore.acquire()
-      worker = threading.Thread(target=run_test, args=(command, test, variant_set, test_name))
-      worker.daemon = True
-      worker.start()
+      test_results.append((executor.submit(run_test, command, test, variant_set, test_name),
+                           test_name))
+  return test_results
 
-  while threading.active_count() > 2:
-    time.sleep(0.1)
+class TestResult(namedtuple("TestResult", ["command",
+                                           "test",
+                                           "variant",
+                                           "test_name",
+                                           "skipped",
+                                           "passed",
+                                           "output",
+                                           "exception"])):
+  def print_info(self):
+    if self.passed:
+      print_test_info(self.test_name, 'PASS')
+    elif self.skipped:
+      if not dry_run:
+        print_test_info(self.test_name, 'SKIP')
+      else:
+        print_test_info(self.test_name, '')
+    else:
+      print_test_info(self.test_name, 'FAIL', ('%s\n%s') % (self.command, self.output))
 
 
 def run_test(command, test, test_variant, test_name):
@@ -445,36 +491,46 @@ def run_test(command, test, test_variant, test_name):
     test_variant: The set of variant for the test.
     test_name: The name of the test along with the variants.
   """
-  global stop_testrunner
+  def SkippedTest():
+    return TestResult(command, test, test_variant, test_name, False, True, "", None)
+
+  def TestRun(passed, output):
+    return TestResult(command, test, test_variant, test_name, False, passed, output, None)
+
+  def TestException(e):
+    return TestResult(command, test, test_variant, test_name, False, False, "Exception Occured", e)
+
   try:
     if is_test_disabled(test, test_variant):
-      test_skipped = True
+      return SkippedTest()
     else:
-      test_skipped = False
       proc = subprocess.Popen(command.split(), universal_newlines=True,
                               stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
       script_output = proc.stdout.read().strip()
       test_passed = not proc.wait()
 
-    if not test_skipped:
-      if test_passed:
-        print_test_info(test_name, 'PASS')
-      else:
-        failed_tests.append(test_name)
-        if not env.ART_TEST_KEEP_GOING:
-          stop_testrunner = True
-        print_test_info(test_name, 'FAIL', ('%s\n%s') % (
-          command, script_output))
-    elif not dry_run:
-      print_test_info(test_name, 'SKIP')
-      skipped_tests.append(test_name)
-    else:
-      print_test_info(test_name, '')
+      return TestRun(test_passed, script_output)
+
+#     if not test_skipped:
+#       if test_passed:
+#         print_test_info(test_name, 'PASS')
+#       else:
+#         failed_tests.append(test_name)
+#         if not env.ART_TEST_KEEP_GOING:
+#           stop_testrunner = True
+#         print_test_info(test_name, 'FAIL', ('%s\n%s') % (
+#           command, script_output))
+#     elif not dry_run:
+#       print_test_info(test_name, 'SKIP')
+#       skipped_tests.append(test_name)
+#     else:
+#       print_test_info(test_name, '')
   except Exception as e:
-    failed_tests.append(test_name)
-    print_text(('%s\n%s\n') % (command, str(e)))
-  finally:
-    semaphore.release()
+    return TestException(e)
+    # failed_tests.append(test_name)
+    # print_text(('%s\n%s\n') % (command, str(e)))
+  # finally:
+    # semaphore.release()
 
 
 def print_test_info(test_name, result, failed_test_info=""):
@@ -491,7 +547,6 @@ def print_test_info(test_name, result, failed_test_info=""):
   command used to invoke the script. It doesn't override the failing
   test information in either of the cases.
   """
-
   global test_count
   info = ''
   if not verbose:
@@ -500,53 +555,46 @@ def print_test_info(test_name, result, failed_test_info=""):
     # the console width.
     console_width = int(os.popen('stty size', 'r').read().split()[1])
     info = '\r' + ' ' * console_width + '\r'
-  try:
-    print_mutex.acquire()
-    test_count += 1
-    percent = (test_count * 100) / total_test_count
-    progress_info = ('[ %d%% %d/%d ]') % (
-      percent,
-      test_count,
-      total_test_count)
+  test_count += 1
+  percent = (test_count * 100) / total_test_count
+  progress_info = ('[ %d%% %d/%d ]') % (
+    percent,
+    test_count,
+    total_test_count)
 
-    if result == "FAIL":
-      info += ('%s %s %s\n%s\n') % (
+  if result == "FAIL":
+    info += ('%s %s %s\n%s\n') % (
+      progress_info,
+      test_name,
+      COLOR_ERROR + 'FAIL' + COLOR_NORMAL,
+      failed_test_info)
+  else:
+    result_text = ''
+    if result == 'PASS':
+      result_text += COLOR_PASS + 'PASS' + COLOR_NORMAL
+    elif result == 'SKIP':
+      result_text += COLOR_SKIP + 'SKIP' + COLOR_NORMAL
+
+    if verbose:
+      info += ('%s %s %s\n') % (
         progress_info,
         test_name,
-        COLOR_ERROR + 'FAIL' + COLOR_NORMAL,
-        failed_test_info)
+        result_text)
     else:
-      result_text = ''
-      if result == 'PASS':
-        result_text += COLOR_PASS + 'PASS' + COLOR_NORMAL
-      elif result == 'SKIP':
-        result_text += COLOR_SKIP + 'SKIP' + COLOR_NORMAL
-
-      if verbose:
-        info += ('%s %s %s\n') % (
+      total_output_length = 2 # Two spaces
+      total_output_length += len(progress_info)
+      total_output_length += len(result)
+      allowed_test_length = console_width - total_output_length
+      test_name_len = len(test_name)
+      if allowed_test_length < test_name_len:
+        test_name = ('%s...%s') % (
+          test_name[:(allowed_test_length - 3)/2],
+          test_name[-(allowed_test_length - 3)/2:])
+        info += ('%s %s %s') % (
           progress_info,
           test_name,
           result_text)
-      else:
-        total_output_length = 2 # Two spaces
-        total_output_length += len(progress_info)
-        total_output_length += len(result)
-        allowed_test_length = console_width - total_output_length
-        test_name_len = len(test_name)
-        if allowed_test_length < test_name_len:
-          test_name = ('%s...%s') % (
-            test_name[:(allowed_test_length - 3)/2],
-            test_name[-(allowed_test_length - 3)/2:])
-          info += ('%s %s %s') % (
-            progress_info,
-            test_name,
-            result_text)
-    print_text(info)
-  except Exception as e:
-    print_text(('%s\n%s\n') % (test_name, str(e)))
-    failed_tests.append(test_name)
-  finally:
-    print_mutex.release()
+  print_text(info)
 
 def get_disabled_test_info():
   """Generate set of known failures.
@@ -841,20 +889,17 @@ def main():
     build_command += ' ' + build_targets
     if subprocess.call(build_command.split()):
       sys.exit(1)
-  if user_requested_test:
-    test_runner_thread = threading.Thread(target=run_tests, args=(user_requested_test,))
-  else:
-    test_runner_thread = threading.Thread(target=run_tests, args=(RUN_TEST_SET,))
-  test_runner_thread.daemon = True
   try:
-    test_runner_thread.start()
-    while threading.active_count() > 1:
-      time.sleep(0.1)
+    if user_requested_test:
+      run_tests(user_requested_test)
+    else:
+      run_tests(RUN_TEST_SET)
     print_analysis()
   except Exception as e:
     print_analysis()
-    print_text(str(e))
-    sys.exit(1)
+    raise e
+    # print_text(str(e))
+    # sys.exit(1)
   if failed_tests:
     sys.exit(1)
   sys.exit(0)
