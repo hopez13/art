@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1499cb25_df50178e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 6976,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-21T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac548eff_0ecf3583",
+      "range": {
+        "startLine": 6976,
+        "startChar": 6,
+        "endLine": 6976,
+        "endChar": 58
+      },
+      "revId": "c08148b5129ab7cda39488be8f42758710c1916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3dff14d8_62d2cc0f",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "b76e663c_3d427ee2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-21T15:04:16Z",
+      "side": 1,
+      "message": "Done (and in the ARM64 back end too).",
+      "parentUuid": "3dff14d8_62d2cc0f",
+      "revId": "c08148b5129ab7cda39488be8f42758710c1916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70fa0652_44ef4f26",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 10
@@ -53,6 +95,30 @@
       "writtenOn": "2017-02-21T13:19:42Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 5650,
+        "startChar": 0,
+        "endLine": 5654,
+        "endChar": 7
+      },
+      "revId": "c08148b5129ab7cda39488be8f42758710c1916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8e68070_6d1f9225",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 5654,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-21T15:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70fa0652_44ef4f26",
       "range": {
         "startLine": 5650,
         "startChar": 0,
