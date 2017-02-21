@@ -63,6 +63,7 @@ TEST_VDEX="n"
 TEST_IS_NDEBUG="n"
 APP_IMAGE="y"
 VDEX_FILTER=""
+PROFILE=""
 
 # if "y", run 'sync' before dalvikvm to make sure all files from
 # build step (e.g. dex2oat) were finished writing.
@@ -268,6 +269,9 @@ while true; do
         shift
     elif [ "x$1" = "x--sync" ]; then
         SYNC_BEFORE_RUN="y"
+        shift
+    elif [ "x$1" = "x--profile" ]; then
+        PROFILE="$DEX_LOCATION/$TEST_NAME.prof"
         shift
     elif expr "x$1" : "x--" >/dev/null 2>&1; then
         echo "unknown $0 option: $1" 1>&2
@@ -519,6 +523,10 @@ if [ "$PREBUILD" = "y" ]; then
     dex2oat_cmdline="${dex2oat_cmdline} --instruction-set-features=${INSTRUCTION_SET_FEATURES}"
   fi
 
+  if [ "x$PROFILE" != "x" ]; then
+    dex2oat_cmdline="${dex2oat_cmdline} --profile-file=${PROFILE}"
+  fi
+
   # Add in a timeout. This is important for testing the compilation/verification time of
   # pathological cases.
   # Note: as we don't know how decent targets are (e.g., emulator), only do this on the host for
@@ -586,11 +594,13 @@ if [ "$HOST" = "n" ]; then
       adb shell mkdir -p $DEX_LOCATION
       adb push $TEST_NAME.jar $DEX_LOCATION
       adb push $TEST_NAME-ex.jar $DEX_LOCATION
+      adb push $TEST_NAME.prof $DEX_LOCATION
     else
       adb shell rm -r $DEX_LOCATION >/dev/null 2>&1
       adb shell mkdir -p $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME.jar $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME-ex.jar $DEX_LOCATION >/dev/null 2>&1
+      adb push $TEST_NAME.prof $DEX_LOCATION >/dev/null 2>&1
     fi
 
     LD_LIBRARY_PATH=/data/$TEST_DIRECTORY/art/$ISA
