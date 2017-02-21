@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e134e80d_7704b9ea",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-21T17:07:48Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "b82e7d6e_004a4306",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "6ca316cc5f5b9d6a4840f20526baf78aff65f6f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6233ce6_99ca2def",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 3
