@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "24ceeac2_e29103e7",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-21T12:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fced3b1d_eaf12e95",
+      "range": {
+        "startLine": 1333,
+        "startChar": 31,
+        "endLine": 1333,
+        "endChar": 48
+      },
+      "revId": "c2730ab2d9fdbadaa3d49e78779e382ae3b5cb17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d1a1e0f_03e236b7",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2017-02-21T09:37:04Z",
       "side": 1,
       "message": "High-level comment.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 44
+      },
+      "revId": "c2730ab2d9fdbadaa3d49e78779e382ae3b5cb17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ad22246_508c833b",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-21T12:52:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d1a1e0f_03e236b7",
       "range": {
         "startLine": 97,
         "startChar": 0,
