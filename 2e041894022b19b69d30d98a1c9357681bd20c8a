@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d8ee33d1_4545a557",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-21T21:12:47Z",
+      "side": 1,
+      "message": "Not really required since there is a DCHECK.",
+      "parentUuid": "011dbd81_82c71d7f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 40
+      },
+      "revId": "2e041894022b19b69d30d98a1c9357681bd20c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8222e43b_b45af7b5",
         "filename": "dexlayout/dexlayout_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-21T21:09:28Z",
       "side": 1,
       "message": "Please add a comment what this is, and how it was constructed.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 45
+      },
+      "revId": "2e041894022b19b69d30d98a1c9357681bd20c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cadf088_c1740afa",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-21T21:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8222e43b_b45af7b5",
       "range": {
         "startLine": 58,
         "startChar": 0,
