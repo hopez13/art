@@ -328,6 +328,7 @@ public class Main {
    */
 
   /// CHECK-START-ARM: void Main.$opt$validateExtendByteInt1(int, byte) instruction_simplifier_arm (after)
+  /// CHECK:                            DataProcWithShifterOp
   /// CHECK-NOT:                        DataProcWithShifterOp
 
   /// CHECK-START-ARM64: void Main.$opt$validateExtendByteInt1(int, byte) instruction_simplifier_arm64 (after)
@@ -400,6 +401,8 @@ public class Main {
   }
 
   /// CHECK-START-ARM: void Main.$opt$validateExtendCharInt1(int, char) instruction_simplifier_arm (after)
+  /// CHECK:                            DataProcWithShifterOp
+  /// CHECK:                            DataProcWithShifterOp
   /// CHECK-NOT:                        DataProcWithShifterOp
 
   /// CHECK-START-ARM64: void Main.$opt$validateExtendCharInt1(int, char) instruction_simplifier_arm64 (after)
@@ -470,6 +473,8 @@ public class Main {
   }
 
   /// CHECK-START-ARM: void Main.$opt$validateExtendShortInt1(int, short) instruction_simplifier_arm (after)
+  /// CHECK:                            DataProcWithShifterOp
+  /// CHECK:                            DataProcWithShifterOp
   /// CHECK-NOT:                        DataProcWithShifterOp
 
   /// CHECK-START-ARM64: void Main.$opt$validateExtendShortInt1(int, short) instruction_simplifier_arm64 (after)
