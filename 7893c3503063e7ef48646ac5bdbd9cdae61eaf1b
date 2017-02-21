@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fe83d72b_5788212e",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-21T10:22:11Z",
+      "side": 1,
+      "message": "What about multi-dex? The superclass or interface could be defined in a dex file that is traversed later.",
+      "parentUuid": "cf3b63f8_323db059",
+      "range": {
+        "startLine": 1027,
+        "startChar": 14,
+        "endLine": 1027,
+        "endChar": 79
+      },
+      "revId": "7893c3503063e7ef48646ac5bdbd9cdae61eaf1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20ea5e8f_23549c96",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 4
