@@ -22,6 +22,30 @@
       "revId": "a7a73db158e220dba6e309e1c1bd580aaba17c7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8a3b7a8_3b82fb3b",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-21T20:05:27Z",
+      "side": 1,
+      "message": "Reference.clear(). If we don\u0027t use a CAS, GC could incorrectly unclear the referent.",
+      "parentUuid": "c2724f19_ab10ab21",
+      "range": {
+        "startLine": 219,
+        "startChar": 45,
+        "endLine": 219,
+        "endChar": 70
+      },
+      "revId": "a7a73db158e220dba6e309e1c1bd580aaba17c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
