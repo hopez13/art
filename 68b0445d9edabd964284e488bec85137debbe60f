@@ -213,6 +213,30 @@
       "revId": "68b0445d9edabd964284e488bec85137debbe60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61f2851b_b1600b8d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-21T20:47:18Z",
+      "side": 1,
+      "message": "I reverted part of that CL.",
+      "parentUuid": "8938da89_4a708535",
+      "range": {
+        "startLine": 487,
+        "startChar": 46,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
