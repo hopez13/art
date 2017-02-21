@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "a683f820_493c345f",
+        "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042885
+      },
+      "writtenOn": "2017-02-21T08:51:52Z",
+      "side": 1,
+      "message": "\u003e The Summarizer adds \"class\" to those things that are classes, and\n \u003e the toString for class instances adds an explicit id for the\n \u003e instance, so in theory it should already be clear?\n\nThe addition of \"class\" by Summarizer should make it clear, yeah, though I\u0027d argue that kind of thing should probably be in here so that you don\u0027t need to know what Summarizer does.  I don\u0027t think the ID is enough on its own, since a new user seeing something labeled \"java.util.ArrayList\" wouldn\u0027t be at all out of place to assume that means an instance of that class instead of its class object.",
+      "parentUuid": "16e18cc0_48e8c12e",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 22
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b2b0e1_6b0083c2",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 6
