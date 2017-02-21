@@ -1262,11 +1262,19 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
     for (size_t i = 0; i < info->number_of_inline_caches_; ++i) {
       std::vector<ProfileMethodInfo::ProfileClassReference> profile_classes;
       const InlineCache& cache = info->cache_[i];
+      ArtMethod* caller = info->GetMethod();
       bool is_missing_types = false;
       for (size_t k = 0; k < InlineCache::kIndividualCacheSize; k++) {
         mirror::Class* cls = cache.classes_[k].Read();
         if (cls == nullptr) {
           break;
+        }
+
+        // If the receiver is in a different class loader then the caller that's
+        // not much we can do during AOT; so skip the method.
+        if (caller->GetClassLoader() != cls->GetClassLoader()) {
+          is_missing_types = true;
+          continue;
         }
 
         const DexFile* class_dex_file = nullptr;
