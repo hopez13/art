@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cf3b63f8_323db059",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-02-21T09:26:38Z",
+      "side": 1,
+      "message": "OatDexMethodVisitor traverses classes in order they are declared in a dex file. In the dex file classes must be ordered such that a given class\u0027s superclass and implemented interfaces appear in the list earlier than the referring class. Due to copied methods are the methods copied from superclass or interface then StartClass is called for origin method first and then for copied. This is why origin method already has correct pointer to code.",
+      "parentUuid": "bd34b54b_fa42e303",
+      "range": {
+        "startLine": 1027,
+        "startChar": 14,
+        "endLine": 1027,
+        "endChar": 79
+      },
+      "revId": "7893c3503063e7ef48646ac5bdbd9cdae61eaf1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20ea5e8f_23549c96",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 4
