@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c2632ea_1a684057",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2547,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Remove the no longer needed comment.",
+      "range": {
+        "startLine": 2547,
+        "startChar": 0,
+        "endLine": 2547,
+        "endChar": 34
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a873ddf8_43d35e0e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3431,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "You forgot to combine the two cases. Here\u0027s what I\u0027m expecting:\n\n      case kCondLT:\n      case kCondGE:\n        if (dst \u003d\u003d lhs_low) {\n          __ LoadConst32(TMP, imm_low);\n          __ Sltu(dst, lhs_low, TMP);\n        }\n        __ LoadConst32(TMP, imm_high);\n        __ Slt(AT, lhs_high, TMP);\n        __ Slt(TMP, TMP, lhs_high);\n        if (dst !\u003d lhs_low) {\n          __ LoadConst32(dst, imm_low);\n          __ Sltu(dst, lhs_low, dst);\n        }\n        __ Slt(dst, TMP, dst);\n        __ Or(dst, dst, AT);\n        if (cond \u003d\u003d kCondGE) {\n          __ Xori(dst, dst, 1);\n        }\n        break;",
+      "range": {
+        "startLine": 3401,
+        "startChar": 0,
+        "endLine": 3431,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aef7a1c_7220cb93",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3447,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3433,
+        "startChar": 0,
+        "endLine": 3447,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cfc88cd_bc184ced",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3462,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Insert:\n\n        if (cond \u003d\u003d kCondLE) {\n          __ Xori(dst, dst, 1);\n        }",
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c50801bd_1fdda90e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3493,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Combine the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3463,
+        "startChar": 0,
+        "endLine": 3493,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50e853d8_e508dd3f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3524,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Combine the same way as kCondLE and kCondGT.",
+      "range": {
+        "startLine": 3494,
+        "startChar": 0,
+        "endLine": 3524,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5cffe91_913243e9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3554,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Combine:\n\n      case kCondLT:\n      case kCondGE:\n        __ Slt(TMP, rhs_high, lhs_high);\n        __ Sltu(AT, lhs_low, rhs_low);\n        __ Slt(TMP, TMP, AT);\n        __ Slt(AT, lhs_high, rhs_high);\n        __ Or(dst, AT, TMP);\n        if (cond \u003d\u003d kCondGE) {\n          __ Xori(dst, dst, 1);\n        }\n        break;",
+      "range": {
+        "startLine": 3540,
+        "startChar": 0,
+        "endLine": 3554,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d08033_879029c1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3562,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3556,
+        "startChar": 0,
+        "endLine": 3562,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7940be65_fd59fc06",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3569,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Insert:\n\n        if (cond \u003d\u003d kCondLE) {\n          __ Xori(dst, dst, 1);\n        }",
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f113acd2_2c43c233",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3584,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Combine the same way as kCondLT and kCondGE.",
+      "range": {
+        "startLine": 3570,
+        "startChar": 0,
+        "endLine": 3584,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d17a4b9_61cc437e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3599,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-21T22:32:07Z",
+      "side": 1,
+      "message": "Combine the same way as kCondLE and kCondGT.",
+      "range": {
+        "startLine": 3585,
+        "startChar": 0,
+        "endLine": 3599,
+        "endChar": 14
+      },
+      "revId": "355647d5bc79d9a2c18b6a232feb2310c01d8959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
