@@ -22,6 +22,29 @@
       "revId": "26248c7168b79e8ee83b509a904f9bf31030be92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a19759_14265762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-21T18:40:40Z",
+      "side": 1,
+      "message": "This is with dex2oatd. For dex2oat the inlining is different and similar numbers are instead reported from art::ReferenceTypePropagation::RTPVisitor::SetClassAsTypeInfo(art::HInstruction*, art::ObjPtr\u003c\u003e, bool), the line with \"handle_cache_-\u003eNewHandle(klass)\".",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 74
+      },
+      "revId": "26248c7168b79e8ee83b509a904f9bf31030be92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
