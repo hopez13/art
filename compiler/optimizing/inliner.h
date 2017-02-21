@@ -20,6 +20,7 @@
 #include "dex_file_types.h"
 #include "invoke_type.h"
 #include "optimization.h"
+#include "jit/profile_compilation_info.h"
 
 namespace art {
 
@@ -104,6 +105,46 @@ class HInliner : public HOptimization {
                                             uint32_t field_index,
                                             HInstruction* obj,
                                             HInstruction* value);
+
+  // Try inlining the invoke using JIT inline caches.
+  // Return true if there is enough information in the profile to attempt inlining, in which
+  // case the result of the inlining is stored in inline_result.
+  // Return false if the invoke has no profile information.
+  bool InlineFromJITInlineCache(const DexFile& caller_dex_file,
+                                uint16_t method_index,
+                                HInvoke* invoke_instruction,
+                                ArtMethod* resolved_method,
+                                /*out*/bool* inline_result);
+
+  // Try inlining the invoke using inline caches from the offline profile.
+  // Return true if there is enough information in the profile to attempt inlining, in which
+  // case the result of the inlining is stored in inline_result.
+  // Return false if the invoke has no profile information.
+  bool InlineFromAOTInlineCache(const DexFile& caller_dex_file,
+                                uint16_t method_index,
+                                HInvoke* invoke_instruction,
+                                ArtMethod* resolved_method,
+                                /*out*/bool* inline_result);
+
+  // Attempts to inline the invoke instruction using the given `inline_cache` and
+  // return whether or not the inline was successful.
+  bool InlineFromInlineCache(
+      const DexFile& caller_dex_file,
+      uint16_t method_index,
+      HInvoke* invoke_instruction,
+      ArtMethod* resolved_method,
+      const Handle<mirror::ObjectArray<mirror::Class>>& inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Extract the mirror classes from the offline profile and adds them to the `inline_cache`.
+  // Return true if the offline profile has information for the given invoke instruction.
+  // Note that even if we have profile data for the invoke the inline_cache might contain
+  // only null entries if the types cannot be resolved.
+  bool ExtractClassesFromOfflineProfile(
+    const HInvoke* invoke_instruction,
+    ArtMethod* resolved_method,
+    const ProfileCompilationInfo::OfflineProfileMethodInfo& offline_profile,
+    /*out*/Handle<mirror::ObjectArray<mirror::Class>>* inline_cache);
 
   // Try to inline the target of a monomorphic call. If successful, the code
   // in the graph will look like:

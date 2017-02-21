@@ -1,0 +1,5 @@
+@Main#inlineMonomorphicSubA:(LSuper;)I+SubA
+@Main#inlinePolymophicSubASubB:(LSuper;)I+SubA,SubB
+@Main#inlinePolymophicCrossDexSubASubC:(LSuper;)I+SubA,SubC
+@Main#inlineMegamorphic:(LSuper;)I+SubA,SubB,SubC,SubD,SubE
+@Main#noInlineCache:(LSuper;)I+;
