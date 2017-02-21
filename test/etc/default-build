@@ -60,6 +60,12 @@ else
   HAS_SRC_DEX2OAT_UNRESOLVED=false
 fi
 
+if [ -f profile ]; then
+  HAS_PROFILE=true
+else
+  HAS_PROFILE=false
+fi
+
 # Allow overriding ZIP_COMPRESSION_METHOD with e.g. 'store'
 ZIP_COMPRESSION_METHOD="deflate"
 # Align every ZIP file made by calling $ZIPALIGN command?
@@ -332,3 +338,8 @@ if [ ${NEED_DEX} = "true" ]; then
     zip $TEST_NAME.jar classes.dex
   fi
 fi
+
+if [ ${HAS_PROFILE} = "true" ];  then
+  profman --apk=$TEST_NAME.jar --create-profile-from=profile --reference-profile-file=$TEST_NAME.prof --dex-location=$TEST_NAME.jar
+fi
+
