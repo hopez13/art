@@ -15,6 +15,7 @@
  */
 
 #include "code_generator.h"
+#include "code_generator_arm_vixl.h"
 #include "common_arm.h"
 #include "instruction_simplifier_arm.h"
 #include "instruction_simplifier_shared.h"
@@ -28,8 +29,6 @@ using helpers::CanFitInShifterOperand;
 using helpers::HasShifterOperand;
 
 namespace arm {
-
-using helpers::ShifterOperandSupportsExtension;
 
 bool InstructionSimplifierArmVisitor::TryMergeIntoShifterOperand(HInstruction* use,
                                                                  HInstruction* bitfield_op,
@@ -76,7 +75,7 @@ bool InstructionSimplifierArmVisitor::TryMergeIntoShifterOperand(HInstruction* u
       : kMaxLongShiftDistance;
 
   if (HDataProcWithShifterOp::IsExtensionOp(op_kind)) {
-    if (!ShifterOperandSupportsExtension(use)) {
+    if (!use->IsAdd() && (!use->IsSub() || use->GetType() != Primitive::kPrimLong)) {
       return false;
     }
   // Shift by 1 is a special case that results in the same number and type of instructions
