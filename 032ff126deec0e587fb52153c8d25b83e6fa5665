@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b112930f_2f4cdba8",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-21T10:22:11Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/338646 has been submitted, making dex cache lookup insufficient. That CL is likely to be reverted though, making it painful to deal with changes like this.",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 102,
+        "endChar": 46
+      },
+      "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
