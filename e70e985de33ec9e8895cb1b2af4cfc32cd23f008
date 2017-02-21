@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "d0e70d73_c96a1208",
+        "filename": "tools/ahat/src/heapdump/AhatClassObj.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-21T10:51:43Z",
+      "side": 1,
+      "message": "Let me address this in a followup CL, because I agree it can be hard to distinguish between class objects and class instances, and it makes sense to be able to distinguish between them based solely on the output of toString. I need to think more about the best way to distinguish between the two cases.",
+      "parentUuid": "a683f820_493c345f",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 22
+      },
+      "revId": "e70e985de33ec9e8895cb1b2af4cfc32cd23f008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b2b0e1_6b0083c2",
         "filename": "tools/ahat/src/heapdump/AhatInstance.java",
         "patchSetId": 6
