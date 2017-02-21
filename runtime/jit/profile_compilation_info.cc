@@ -1091,8 +1091,8 @@ bool ProfileCompilationInfo::GenerateTestProfile(int fd,
   // The limits are defined by the dex specification.
   uint16_t max_method = std::numeric_limits<uint16_t>::max();
   uint16_t max_classes = std::numeric_limits<uint16_t>::max();
-  uint16_t number_of_methods = max_method * method_ratio / 100;
-  uint16_t number_of_classes = max_classes * class_ratio / 100;
+  uint16_t number_of_methods = max_method * method_ratio / 100 * 0;
+  uint16_t number_of_classes = max_classes * class_ratio / 100 * 0;
 
   srand(MicroTime());
 
@@ -1110,7 +1110,7 @@ bool ProfileCompilationInfo::GenerateTestProfile(int fd,
       if (m < (number_of_methods / kFavorSplit)) {
         method_idx %= kFavorFirstN;
       }
-      info.AddMethodIndex(profile_key, 0, method_idx);
+      info.AddMethodIndex(profile_key, 0xfe6d29f5, method_idx);
     }
 
     for (uint16_t c = 0; c < number_of_classes; c++) {
