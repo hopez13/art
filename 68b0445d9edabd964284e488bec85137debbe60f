@@ -189,6 +189,30 @@
       "revId": "68b0445d9edabd964284e488bec85137debbe60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8938da89_4a708535",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-21T17:46:26Z",
+      "side": 1,
+      "message": "Do you mean https://android-review.googlesource.com/#/c/341344 is fine with regard to this change?",
+      "parentUuid": "a8efd2a7_0391f11c",
+      "range": {
+        "startLine": 487,
+        "startChar": 46,
+        "endLine": 487,
+        "endChar": 50
+      },
+      "revId": "68b0445d9edabd964284e488bec85137debbe60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
