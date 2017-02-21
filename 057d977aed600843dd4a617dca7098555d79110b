@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b4b721_44c07508",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-21T21:57:02Z",
+      "side": 1,
+      "message": "Moved this code into the IsNullOrMarkedHeapReference if statement so that we do this explicit mark only when the referent isn\u0027t already marked. PTAL.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 5
+      },
+      "revId": "057d977aed600843dd4a617dca7098555d79110b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
