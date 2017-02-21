@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "092d4332_30c49d56",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-21T22:19:17Z",
+      "side": 1,
+      "message": "but now it\u0027s just more confusing.\nYou say it does verification but it also may not pass it... and just from the comment I don\u0027t really get the reference to the checksum.",
+      "range": {
+        "startLine": 1544,
+        "startChar": 33,
+        "endLine": 1544,
+        "endChar": 76
+      },
+      "revId": "11b3df37ea49445734d148a2ed104d215bc8ceb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
