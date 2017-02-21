@@ -22,6 +22,30 @@
       "revId": "d0af56cdb1eaebea403e382257bdc14d7b7fdaa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3158626d_be7bdc0d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2097,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-21T21:45:19Z",
+      "side": 1,
+      "message": "Cleaned this up here.\nhttps://android-review.googlesource.com/#/c/342748/",
+      "parentUuid": "da7f99e9_dd387637",
+      "range": {
+        "startLine": 2097,
+        "startChar": 7,
+        "endLine": 2097,
+        "endChar": 34
+      },
+      "revId": "d0af56cdb1eaebea403e382257bdc14d7b7fdaa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
