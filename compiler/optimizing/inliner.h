@@ -20,6 +20,7 @@
 #include "dex_file_types.h"
 #include "invoke_type.h"
 #include "optimization.h"
+#include "jit/profile_compilation_info.h"
 
 namespace art {
 
@@ -105,6 +106,41 @@ class HInliner : public HOptimization {
                                             uint32_t field_index,
                                             HInstruction* obj,
                                             HInstruction* value);
+
+  // Try inlining the invoke instruction using inline caches.
+  bool TryInlineFromInlineCache(
+      const DexFile& caller_dex_file,
+      HInvoke* invoke_instruction,
+      ArtMethod* resolved_method)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Try getting the inline cache from JIT code cache.
+  // Return true if the inline cache was successfully allocated and the
+  // invoke info was found in the profile info.
+  bool GetInlineCacheJIT(HInvoke* invoke_instruction,
+                         StackHandleScope<1>* hs,
+                         /*out*/Handle<mirror::ObjectArray<mirror::Class>>* inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Try getting the inline cache from AOT offline profile.
+  // Return true if the inline cache was successfully allocated and the
+  // invoke info was found in the profile info.
+  bool GetInlineCacheAOT(const DexFile& caller_dex_file,
+                         HInvoke* invoke_instruction,
+                         ArtMethod* resolved_method,
+                         StackHandleScope<1>* hs,
+                         /*out*/Handle<mirror::ObjectArray<mirror::Class>>* inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Extract the mirror classes from the offline profile and add them to the `inline_cache`.
+  // Note that even if we have profile data for the invoke the inline_cache might contain
+  // only null entries if the types cannot be resolved.
+  void ExtractClassesFromOfflineProfile(
+      const HInvoke* invoke_instruction,
+      ArtMethod* resolved_method,
+      const ProfileCompilationInfo::OfflineProfileMethodInfo& offline_profile,
+      /*out*/Handle<mirror::ObjectArray<mirror::Class>> inline_cache)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Try to inline the target of a monomorphic call. If successful, the code
   // in the graph will look like:
