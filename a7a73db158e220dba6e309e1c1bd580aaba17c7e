@@ -46,6 +46,30 @@
       "revId": "a7a73db158e220dba6e309e1c1bd580aaba17c7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ebd573d_19c049fe",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-21T21:55:08Z",
+      "side": 1,
+      "message": "Ah, makes sense.",
+      "parentUuid": "d8a3b7a8_3b82fb3b",
+      "range": {
+        "startLine": 219,
+        "startChar": 45,
+        "endLine": 219,
+        "endChar": 70
+      },
+      "revId": "a7a73db158e220dba6e309e1c1bd580aaba17c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
