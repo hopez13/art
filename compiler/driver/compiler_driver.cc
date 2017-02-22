@@ -1054,7 +1054,10 @@ bool CompilerDriver::IsMethodToCompile(const MethodReference& method_ref) const 
 }
 
 bool CompilerDriver::ShouldCompileBasedOnProfile(const MethodReference& method_ref) const {
-  if (!CompilerFilter::DependsOnProfile(compiler_options_->GetCompilerFilter())) {
+  // Profile compilation info may be null if no profile is passed. If we are speed profile in this
+  // case, we just compile everything and prevent SIGSEGV below.
+  if (profile_compilation_info_ == nullptr ||
+      !CompilerFilter::DependsOnProfile(compiler_options_->GetCompilerFilter())) {
     // Use the compiler filter instead of the presence of profile_compilation_info_ since
     // we may want to have full speed compilation along with profile based layout optimizations.
     return true;
