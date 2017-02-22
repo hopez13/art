@@ -78,6 +78,8 @@ static constexpr uint32_t kAccSingleImplementation =  0x08000000;  // method (ru
 static constexpr uint32_t kAccIntrinsic  =            0x80000000;  // method (runtime)
 
 // Special runtime-only flags.
+// Class had non-deoptimizable frames on the stack at last check.
+static constexpr uint32_t kAccClassHadNonDeoptimizableFrames = 0x10000000;
 // Interface and all its super-interfaces with default methods have been recursively initialized.
 static constexpr uint32_t kAccRecursivelyInitialized    = 0x20000000;
 // Interface declares some default method.

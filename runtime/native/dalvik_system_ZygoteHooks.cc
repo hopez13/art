@@ -29,6 +29,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedUtfChars.h"
 #include "thread-inl.h"
+#include "thread_list.h"
 #include "trace.h"
 
 #if defined(__linux__)
@@ -38,6 +39,9 @@
 #include <sys/resource.h>
 
 namespace art {
+
+// Set to true to always check that the stack is the way we expect it when starting a zygote fork.
+static constexpr bool kAlwaysCheckStacksForNonDebuggableFrames = kIsDebugBuild;
 
 using android::base::StringPrintf;
 
@@ -66,6 +70,47 @@ static void EnableDebugger() {
   if (setrlimit(RLIMIT_CORE, &rl) == -1) {
     PLOG(ERROR) << "setrlimit(RLIMIT_CORE) failed for pid " << getpid();
   }
+}
+
+static void DoCheckStacksCallback(Thread* thread, void* data ATTRIBUTE_UNUSED)
+    REQUIRES(Locks::mutator_lock_) {
+  class CheckStacksVisitor : public StackVisitor {
+   protected:
+    CheckStacksVisitor(Thread* t)
+        : StackVisitor(t, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames) {}
+    ~CheckStacksVisitor() OVERRIDE {}
+
+   public:
+    static void DoChecks(Thread* t) REQUIRES(Locks::mutator_lock_) {
+      CheckStacksVisitor checker(t);
+      checker.WalkStack();
+    }
+    bool VisitFrame() OVERRIDE REQUIRES(Locks::mutator_lock_) {
+      if (GetMethod()->IsRuntimeMethod()) {
+        return true;
+      }
+      std::string storage;
+      const char* name = GetMethod()->GetDeclaringClass()->GetDescriptor(&storage);
+      for (size_t i = 0; i < WellKnownClasses::kNumNonDebuggableClasses; i++) {
+        if (strcmp(WellKnownClasses::kNonDebuggableClasses[i], name) == 0) {
+          return true;
+        }
+      }
+      std::string thread_name;
+      GetThread()->GetThreadName(thread_name);
+      LOG(FATAL) << "Found unexpected frame of " << GetMethod()->PrettyMethod()
+                 << " during startup on thread " << thread_name;
+      UNREACHABLE();
+    }
+  };
+  CheckStacksVisitor::DoChecks(thread);
+}
+
+static void CheckStacks() {
+  Runtime* const runtime = Runtime::Current();
+  ScopedSuspendAll suspend("Checking stacks for non-obsoletable methods!", /*long_suspend*/false);
+  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+  runtime->GetThreadList()->ForEach(DoCheckStacksCallback, nullptr);
 }
 
 static void EnableDebugFeatures(uint32_t debug_flags) {
@@ -131,12 +176,17 @@ static void EnableDebugFeatures(uint32_t debug_flags) {
     debug_flags &= ~DEBUG_ALWAYS_JIT;
   }
 
+  bool force_check_stacks = false;
   if ((debug_flags & DEBUG_JAVA_DEBUGGABLE) != 0) {
     runtime->AddCompilerOption("--debuggable");
     runtime->SetJavaDebuggable(true);
     // Deoptimize the boot image as it may be non-debuggable.
     runtime->DeoptimizeBootImage();
     debug_flags &= ~DEBUG_JAVA_DEBUGGABLE;
+    force_check_stacks = true;
+  }
+  if (force_check_stacks || kAlwaysCheckStacksForNonDebuggableFrames || kIsDebugBuild) {
+    CheckStacks();
   }
 
   if ((debug_flags & DEBUG_NATIVE_DEBUGGABLE) != 0) {

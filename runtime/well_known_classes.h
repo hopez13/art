@@ -159,6 +159,8 @@ struct WellKnownClasses {
   static jfieldID org_apache_harmony_dalvik_ddmc_Chunk_offset;
   static jfieldID org_apache_harmony_dalvik_ddmc_Chunk_type;
 
+  static constexpr size_t kNumNonDebuggableClasses = 6;
+  static const char * const kNonDebuggableClasses[kNumNonDebuggableClasses];
  private:
   static void InitStringInit(JNIEnv* env);
 };
