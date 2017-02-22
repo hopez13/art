@@ -482,7 +482,7 @@ class WatchDog {
 
   void Wait() {
     timespec timeout_ts;
-    InitTimeSpec(true, CLOCK_REALTIME, timeout_in_milliseconds_, 0, &timeout_ts);
+    InitTimeSpec(true, CLOCK_MONOTONIC, timeout_in_milliseconds_, 0, &timeout_ts);
     const char* reason = "dex2oat watch dog thread waiting";
     CHECK_WATCH_DOG_PTHREAD_CALL(pthread_mutex_lock, (&mutex_), reason);
     while (!shutting_down_) {
