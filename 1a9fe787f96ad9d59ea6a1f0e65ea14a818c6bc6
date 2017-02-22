@@ -22,6 +22,30 @@
       "revId": "1a9fe787f96ad9d59ea6a1f0e65ea14a818c6bc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2caa09e3_4614804a",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1138764
+      },
+      "writtenOn": "2017-02-22T16:25:11Z",
+      "side": 1,
+      "message": "Yes. The non-template version is used as wrapper for template version in many cases. If you prefer we could change it all.",
+      "parentUuid": "fb07c6b5_0e698617",
+      "range": {
+        "startLine": 921,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 98
+      },
+      "revId": "1a9fe787f96ad9d59ea6a1f0e65ea14a818c6bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
