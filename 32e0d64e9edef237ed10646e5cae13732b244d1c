@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc9932dd_04cc8718",
+        "filename": "test/639-checker-code-sinking/src/.Main.java.swp",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T14:43:11Z",
+      "side": 1,
+      "message": "Remove this file.",
+      "revId": "32e0d64e9edef237ed10646e5cae13732b244d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47a54954_bf603541",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T14:43:11Z",
+      "side": 1,
+      "message": "Why is this here?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "32e0d64e9edef237ed10646e5cae13732b244d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96972658_25a9e853",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T14:43:11Z",
+      "side": 1,
+      "message": "Why is this here? Seems to me that we shall match the \"begin_block\" of the entry block and there are no instructions before that, making the \"CHECK-NOT\" utterly useless. Replacing \"begin_block\" with \"If\" may better match your intent?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 43
+      },
+      "revId": "32e0d64e9edef237ed10646e5cae13732b244d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
