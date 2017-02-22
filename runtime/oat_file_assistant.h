@@ -276,7 +276,9 @@ class OatFileAssistant {
                                        std::string* oat_filename,
                                        std::string* error_msg);
 
-  static uint32_t CalculateCombinedImageChecksum(InstructionSet isa = kRuntimeISA);
+  // Returns the combined image checksum for the given isa version of the
+  // currently loaded image location.
+  static uint32_t CalculateCombinedImageChecksum(InstructionSet isa);
 
  private:
   struct ImageInfo {
