@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff405442_48d5f309",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-22T22:49:01Z",
+      "side": 1,
+      "message": "e.g.",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d50dd35_fda66ae6",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-22T22:49:01Z",
+      "side": 1,
+      "message": "intructions don\u0027t speak :-)\n\nWe want to move moveable instructions that cannot throw....",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f78b9248_1429bb03",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-22T22:49:01Z",
+      "side": 1,
+      "message": "remove last else",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6d9ee9e_6cda6e74",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-22T22:49:01Z",
+      "side": 1,
+      "message": "have found?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27117c0e_8b53d599",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-22T22:49:01Z",
+      "side": 1,
+      "message": "print passed at end? (and update expected.txt)?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
