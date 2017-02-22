@@ -111,6 +111,40 @@ TEST_F(OatFileAssistantTest, OatUpToDate) {
   EXPECT_TRUE(oat_file_assistant.HasOriginalDexFiles());
 }
 
+// Verify we can get the status of an oat file without starting a runtime instance.
+// Case: We have a DEX file and up-to-date OAT file for it.
+// Expect: The status is kNoDexOptNeeded.
+TEST_F(OatFileAssistantTest, OatUpToDateNoRuntime) {
+  std::string dex_location = GetScratchDir() + "/OatUpToDateNoRuntime.jar";
+  Copy(GetDexSrc1(), dex_location);
+  GenerateOatForTest(dex_location.c_str(), CompilerFilter::kSpeed);
+
+  std::string image_location = runtime_->GetImageLocation();
+  UnreserveImageSpace();
+  runtime_.reset();
+
+  MemMap::Init();   // Needed to open oat files to check status.
+  ReserveImageSpace();
+  OatFileAssistant oat_file_assistant(dex_location.c_str(),
+                                      nullptr,
+                                      kRuntimeISA,
+                                      image_location,
+                                      false);
+
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kSpeed));
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kInterpretOnly));
+  EXPECT_EQ(OatFileAssistant::kNoDexOptNeeded,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kVerifyAtRuntime));
+  EXPECT_EQ(OatFileAssistant::kDex2OatForFilter,
+      oat_file_assistant.GetDexOptNeeded(CompilerFilter::kEverything));
+
+  EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OdexFileStatus());
+  EXPECT_EQ(OatFileAssistant::kOatUpToDate, oat_file_assistant.OatFileStatus());
+  EXPECT_TRUE(oat_file_assistant.HasOriginalDexFiles());
+}
+
 // Case: We have a DEX file and up-to-date (ODEX) VDEX file for it, but no
 // ODEX file.
 TEST_F(OatFileAssistantTest, VdexUpToDateNoOdex) {

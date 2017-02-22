@@ -124,6 +124,14 @@ class OatFileAssistant {
                    const InstructionSet isa,
                    bool load_executable);
 
+  // Constructs an OatFileAssistant, providing an explicit image location to
+  // use rather than the current runtime's image location.
+  OatFileAssistant(const char* dex_location,
+                   const char* oat_location,
+                   const InstructionSet isa,
+                   const std::string& image_location,
+                   bool load_executable);
+
   ~OatFileAssistant();
 
   // Returns true if the dex location refers to an element of the boot class
@@ -283,8 +291,9 @@ class OatFileAssistant {
     int32_t patch_delta = 0;
     std::string location;
 
-    static std::unique_ptr<ImageInfo> GetRuntimeImageInfo(InstructionSet isa,
-                                                          std::string* error_msg);
+    static std::unique_ptr<ImageInfo> ReadImageInfo(const std::string& image_location,
+                                                    InstructionSet isa,
+                                                    std::string* error_msg);
   };
 
   class OatFileInfo {
@@ -394,13 +403,6 @@ class OatFileAssistant {
   // location.
   OatStatus GivenOatFileStatus(const OatFile& file);
 
-  // Returns the current image location.
-  // Returns an empty string if the image location could not be retrieved.
-  //
-  // TODO: This method should belong with an image file manager, not
-  // the oat file assistant.
-  static std::string ImageLocation();
-
   // Gets the dex checksums required for an up-to-date oat file.
   // Returns cached_required_dex_checksums if the required checksums were
   // located. Returns null if the required checksums were not found.  The
@@ -425,6 +427,8 @@ class OatFileAssistant {
   // In a properly constructed OatFileAssistant object, isa_ should be either
   // the 32 or 64 bit variant for the current device.
   const InstructionSet isa_ = kNone;
+
+  const std::string& image_location_;
 
   // Whether we will attempt to load oat files executable.
   bool load_executable_ = false;

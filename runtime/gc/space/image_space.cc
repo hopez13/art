@@ -281,6 +281,16 @@ static ImageHeader* ReadSpecificImageHeader(const char* filename, std::string* e
 ImageHeader* ImageSpace::ReadImageHeader(const char* image_location,
                                          const InstructionSet image_isa,
                                          std::string* error_msg) {
+  return ReadImageHeader(image_location,
+                         image_isa,
+                         Runtime::Current()->ShouldRelocate(),
+                         error_msg);
+}
+
+ImageHeader* ImageSpace::ReadImageHeader(const char* image_location,
+                                         const InstructionSet image_isa,
+                                         bool should_relocate,
+                                         std::string* error_msg) {
   std::string system_filename;
   bool has_system = false;
   std::string cache_filename;
@@ -289,7 +299,7 @@ ImageHeader* ImageSpace::ReadImageHeader(const char* image_location,
   bool is_global_cache = false;
   if (FindImageFilename(image_location, image_isa, &system_filename, &has_system,
                         &cache_filename, &dalvik_cache_exists, &has_cache, &is_global_cache)) {
-    if (Runtime::Current()->ShouldRelocate()) {
+    if (should_relocate) {
       if (has_system && has_cache) {
         std::unique_ptr<ImageHeader> sys_hdr(new ImageHeader);
         std::unique_ptr<ImageHeader> cache_hdr(new ImageHeader);

@@ -60,6 +60,11 @@ class ImageSpace : public MemMapSpace {
                                       InstructionSet image_isa,
                                       std::string* error_msg);
 
+  static ImageHeader* ReadImageHeader(const char* image_location,
+                                      InstructionSet image_isa,
+                                      bool should_relocate,
+                                      std::string* error_msg);
+
   // Give access to the OatFile.
   const OatFile* GetOatFile() const;
 

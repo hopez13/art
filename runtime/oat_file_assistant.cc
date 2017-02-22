@@ -74,7 +74,20 @@ OatFileAssistant::OatFileAssistant(const char* dex_location,
                                    const char* oat_location,
                                    const InstructionSet isa,
                                    bool load_executable)
+    : OatFileAssistant(dex_location,
+                       oat_location,
+                       isa,
+                       Runtime::Current()->GetImageLocation(),
+                       load_executable)
+{ }
+
+OatFileAssistant::OatFileAssistant(const char* dex_location,
+                                   const char* oat_location,
+                                   const InstructionSet isa,
+                                   const std::string& image_location,
+                                   bool load_executable)
     : isa_(isa),
+      image_location_(image_location),
       load_executable_(load_executable),
       odex_(this, /*is_oat_location*/ false),
       oat_(this, /*is_oat_location*/ true) {
@@ -570,7 +583,7 @@ OatFileAssistant::GenerateOatFile(std::string* error_msg) {
 bool OatFileAssistant::Dex2Oat(const std::vector<std::string>& args,
                                std::string* error_msg) {
   Runtime* runtime = Runtime::Current();
-  std::string image_location = ImageLocation();
+  std::string image_location = runtime->GetImageLocation();
   if (image_location.empty()) {
     *error_msg = "No image location found for Dex2Oat.";
     return false;
@@ -679,16 +692,6 @@ bool OatFileAssistant::DexLocationToOatFilename(const std::string& location,
   return GetDalvikCacheFilename(location.c_str(), cache_dir.c_str(), oat_filename, error_msg);
 }
 
-std::string OatFileAssistant::ImageLocation() {
-  Runtime* runtime = Runtime::Current();
-  const std::vector<gc::space::ImageSpace*>& image_spaces =
-      runtime->GetHeap()->GetBootImageSpaces();
-  if (image_spaces.empty()) {
-    return "";
-  }
-  return image_spaces[0]->GetImageLocation();
-}
-
 const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {
   if (!required_dex_checksums_attempted_) {
     required_dex_checksums_attempted_ = true;
@@ -726,15 +729,19 @@ const std::vector<uint32_t>* OatFileAssistant::GetRequiredDexChecksums() {
 }
 
 std::unique_ptr<OatFileAssistant::ImageInfo>
-OatFileAssistant::ImageInfo::GetRuntimeImageInfo(InstructionSet isa, std::string* error_msg) {
+OatFileAssistant::ImageInfo::ReadImageInfo(const std::string& image_location,
+                                           InstructionSet isa,
+                                           std::string* error_msg) {
   CHECK(error_msg != nullptr);
 
-  Runtime* runtime = Runtime::Current();
   std::unique_ptr<ImageInfo> info(new ImageInfo());
-  info->location = runtime->GetImageLocation();
+  info->location = image_location;
 
   std::unique_ptr<ImageHeader> image_header(
-      gc::space::ImageSpace::ReadImageHeader(info->location.c_str(), isa, error_msg));
+      gc::space::ImageSpace::ReadImageHeader(info->location.c_str(),
+                                             isa,
+                                             /*should_relocate*/true,
+                                             error_msg));
   if (image_header == nullptr) {
     return nullptr;
   }
@@ -749,7 +756,7 @@ const OatFileAssistant::ImageInfo* OatFileAssistant::GetImageInfo() {
   if (!image_info_load_attempted_) {
     image_info_load_attempted_ = true;
     std::string error_msg;
-    cached_image_info_ = ImageInfo::GetRuntimeImageInfo(isa_, &error_msg);
+    cached_image_info_ = ImageInfo::ReadImageInfo(image_location_, isa_, &error_msg);
     if (cached_image_info_ == nullptr) {
       LOG(WARNING) << "Unable to get runtime image info: " << error_msg;
     }

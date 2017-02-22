@@ -69,25 +69,25 @@ class DexoptTest : public Dex2oatEnvironmentTest {
   // Generate a standard oat file in the oat location.
   void GenerateOatForTest(const char* dex_location, CompilerFilter::Filter filter);
 
- private:
-  // Pre-Relocate the image to a known non-zero offset so we don't have to
-  // deal with the runtime randomly relocating the image by 0 and messing up
-  // the expected results of the tests.
-  bool PreRelocateImage(const std::string& image_location, std::string* error_msg);
-
   // Reserve memory around where the image will be loaded so other memory
   // won't conflict when it comes time to load the image.
   // This can be called with an already loaded image to reserve the space
   // around it.
   void ReserveImageSpace();
 
-  // Reserve a chunk of memory for the image space in the given range.
-  // Only has effect for chunks with a positive number of bytes.
-  void ReserveImageSpaceChunk(uintptr_t start, uintptr_t end);
-
   // Unreserve any memory reserved by ReserveImageSpace. This should be called
   // before the image is loaded.
   void UnreserveImageSpace();
+
+ private:
+  // Pre-Relocate the image to a known non-zero offset so we don't have to
+  // deal with the runtime randomly relocating the image by 0 and messing up
+  // the expected results of the tests.
+  bool PreRelocateImage(const std::string& image_location, std::string* error_msg);
+
+  // Reserve a chunk of memory for the image space in the given range.
+  // Only has effect for chunks with a positive number of bytes.
+  void ReserveImageSpaceChunk(uintptr_t start, uintptr_t end);
 
   std::vector<std::unique_ptr<MemMap>> image_reservation_;
 };

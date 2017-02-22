@@ -41,7 +41,6 @@ enum ReturnCodes {
   kDex2OatForRelocationOdex = 7,
 
   kErrorInvalidArguments = 101,
-  kErrorCannotCreateRuntime = 102,
   kErrorUnknownDexOptNeeded = 103
 };
 
@@ -78,6 +77,7 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("Command: %s", CommandLine().c_str());
   UsageError("  Performs a dexopt analysis on the given dex file and returns whether or not");
   UsageError("  the dex file needs to be dexopted.");
+  UsageError("  Not intended for use with dex files on the boot class path.");
   UsageError("Usage: dexoptanalyzer [options]...");
   UsageError("");
   UsageError("  --dex-file=<filename>: the dex file which should be analyzed.");
@@ -112,7 +112,6 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("        kDex2OatForRelocationOdex = 7");
 
   UsageError("        kErrorInvalidArguments = 101");
-  UsageError("        kErrorCannotCreateRuntime = 102");
   UsageError("        kErrorUnknownDexOptNeeded = 103");
   UsageError("");
 
@@ -178,50 +177,13 @@ class DexoptAnalyzer FINAL {
     }
   }
 
-  bool CreateRuntime() {
-    RuntimeOptions options;
-    // The image could be custom, so make sure we explicitly pass it.
-    std::string img = "-Ximage:" + image_;
-    options.push_back(std::make_pair(img.c_str(), nullptr));
-    // The instruction set of the image should match the instruction set we will test.
-    const void* isa_opt = reinterpret_cast<const void*>(GetInstructionSetString(isa_));
-    options.push_back(std::make_pair("imageinstructionset", isa_opt));
-     // Disable libsigchain. We don't don't need it to evaluate DexOptNeeded status.
-    options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
-    // Pretend we are a compiler so that we can re-use the same infrastructure to load a different
-    // ISA image and minimize the amount of things that get started.
-    NoopCompilerCallbacks callbacks;
-    options.push_back(std::make_pair("compilercallbacks", &callbacks));
-    // Make sure we don't attempt to relocate. The tool should only retrieve the DexOptNeeded
-    // status and not attempt to relocate the boot image.
-    options.push_back(std::make_pair("-Xnorelocate", nullptr));
-
-    if (!Runtime::Create(options, false)) {
-      LOG(ERROR) << "Unable to initialize runtime";
-      return false;
-    }
-    // Runtime::Create acquired the mutator_lock_ that is normally given away when we
-    // Runtime::Start. Give it away now.
-    Thread::Current()->TransitionFromRunnableToSuspended(kNative);
-
-    return true;
-  }
-
   int GetDexOptNeeded() {
-    // If the file does not exist there's nothing to do.
-    // This is a fast path to avoid creating the runtime (b/34385298).
-    if (!OS::FileExists(dex_file_.c_str())) {
-      return kNoDexOptNeeded;
-    }
-    if (!CreateRuntime()) {
-      return kErrorCannotCreateRuntime;
-    }
-    OatFileAssistant oat_file_assistant(dex_file_.c_str(), isa_, /*load_executable*/ false);
-    // Always treat elements of the bootclasspath as up-to-date.
-    // TODO(calin): this check should be in OatFileAssistant.
-    if (oat_file_assistant.IsInBootClassPath()) {
-      return kNoDexOptNeeded;
-    }
+    MemMap::Init();   // Needed to open oat files to check status.
+    OatFileAssistant oat_file_assistant(dex_file_.c_str(),
+                                        /*oat_location*/nullptr,
+                                        isa_,
+                                        image_,
+                                        /*load_executable*/ false);
     int dexoptNeeded = oat_file_assistant.GetDexOptNeeded(
         compiler_filter_, assume_profile_changed_);
 
