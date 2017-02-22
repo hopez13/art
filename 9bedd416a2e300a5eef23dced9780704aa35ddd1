@@ -52,6 +52,24 @@
       "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89f233c9_cb403d6f",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-22T12:47:02Z",
+      "side": 1,
+      "message": "I think that there is no easy way to do this in a nice way. The thing is that USE_READ_BARRIER should be false on MIPS targets, but also on the host when doing code generation for MIPS. I\u0027ve tried to modify ART source, but without success.",
+      "parentUuid": "0b7a1a96_2b9038cb",
+      "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
