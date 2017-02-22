@@ -70,6 +70,30 @@
       "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e0976f8_e0fce2e6",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2017-02-22T16:18:12Z",
+      "side": 1,
+      "message": "In this method GetResolvedType I need only to get resolved type from the dex_cache. I needn\u0027t to resolve type if dex_cache contains null. In this case the method just returns null and doesn\u0027t try to resolve type. In my test I expect all used types should be resolved because I uses types from boot cp and from test dex_files and after each call of GetResolvedType I check that the method GetResolvedType returns non null.\nSo I suppose I needn\u0027t to use the method ClassLinker::LookupResolvedType.",
+      "parentUuid": "d4a2e944_60675ac5",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 102,
+        "endChar": 46
+      },
+      "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
