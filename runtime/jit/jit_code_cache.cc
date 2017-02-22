@@ -965,6 +965,9 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
     }
 
     {
+      // The code below accesses the profiling info, so we make sure we
+      // have access to it.
+      WaitUntilInlineCacheAccessible(self);
       MutexLock mu(self, lock_);
 
       // Increase the code cache only when we do partial collections.
