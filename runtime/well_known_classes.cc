@@ -34,6 +34,16 @@
 
 namespace art {
 
+const char* const WellKnownClasses::kNonDebuggableClasses[
+    WellKnownClasses::kNumNonDebuggableClasses] = {
+  "Lcom/android/internal/os/WrapperInit;",
+  "Lcom/android/internal/os/ZygoteConnection;",
+  "Lcom/android/internal/os/ZygoteServer;",
+  "Lcom/android/internal/os/ZygoteInit;",
+  "Lcom/android/internal/os/Zygote;",
+  "Ldalvik/system/ZygoteHooks;",
+};
+
 jclass WellKnownClasses::com_android_dex_Dex;
 jclass WellKnownClasses::dalvik_annotation_optimization_CriticalNative;
 jclass WellKnownClasses::dalvik_annotation_optimization_FastNative;

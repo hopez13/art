@@ -63,6 +63,7 @@
 #include "transform.h"
 #include "verifier/method_verifier.h"
 #include "verifier/verifier_log_mode.h"
+#include "well_known_classes.h"
 
 namespace openjdkjvmti {
 
@@ -245,8 +246,16 @@ jvmtiError Redefiner::GetClassRedefinitionError(art::Handle<art::mirror::Class> 
     return ERR(UNMODIFIABLE_CLASS);
   }
 
-  // TODO We should check if the class has non-obsoletable methods on the stack
-  LOG(WARNING) << "presence of non-obsoletable methods on stacks is not currently checked";
+  std::string descriptor;
+  const char* name = klass->GetDescriptor(&descriptor);
+
+  for (size_t i = 0; i < art::WellKnownClasses::kNumNonDebuggableClasses; i++) {
+    if (strcmp(name, art::WellKnownClasses::kNonDebuggableClasses[i]) == 0) {
+      *error_msg = "Class is likely to frames on a stack that cannot be obsoleted";
+      return ERR(UNMODIFIABLE_CLASS);
+    }
+  }
+
   return OK;
 }
 
