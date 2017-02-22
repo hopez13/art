@@ -46,6 +46,52 @@
       "revId": "11b3df37ea49445734d148a2ed104d215bc8ceb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "042799e7_4a670a38",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-22T14:31:36Z",
+      "side": 1,
+      "message": "How about renaming this DoProfileGuidedCompilation and check the filter is speed-profile?",
+      "range": {
+        "startLine": 2101,
+        "startChar": 7,
+        "endLine": 2101,
+        "endChar": 35
+      },
+      "revId": "11b3df37ea49445734d148a2ed104d215bc8ceb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25d820ff_6c84a546",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-22T14:31:36Z",
+      "side": 1,
+      "message": "How about changing the implementation to only check UseProfile()?",
+      "range": {
+        "startLine": 2105,
+        "startChar": 7,
+        "endLine": 2105,
+        "endChar": 31
+      },
+      "revId": "11b3df37ea49445734d148a2ed104d215bc8ceb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
