@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2cf30e16_d98d8071",
+        "filename": "compiler/utils/swap_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T17:35:14Z",
+      "side": 1,
+      "message": "Added additional comment to the SwapSpace::Alloc().",
+      "parentUuid": "70647199_5c3ae064",
+      "range": {
+        "startLine": 49,
+        "startChar": 85,
+        "endLine": 49,
+        "endChar": 93
+      },
+      "revId": "1548868b0c58cf1fe904a9c86788ba42c5899b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de63ead2_79d9265a",
         "filename": "compiler/utils/swap_space.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-22T17:13:39Z",
       "side": 1,
       "message": "Ditto, regarding members `size_` and `free_by_start_entry_`.",
+      "range": {
+        "startLine": 76,
+        "startChar": 85,
+        "endLine": 76,
+        "endChar": 93
+      },
+      "revId": "1548868b0c58cf1fe904a9c86788ba42c5899b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "164912ff_c5bb15b4",
+        "filename": "compiler/utils/swap_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T17:35:14Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "de63ead2_79d9265a",
       "range": {
         "startLine": 76,
         "startChar": 85,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "00d60cf3_c9ff8ecb",
+        "filename": "compiler/utils/swap_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T17:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f13141da_5ed396d4",
+      "range": {
+        "startLine": 77,
+        "startChar": 19,
+        "endLine": 77,
+        "endChar": 24
+      },
+      "revId": "1548868b0c58cf1fe904a9c86788ba42c5899b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f6dd39c_df419f98",
         "filename": "compiler/utils/swap_space.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-22T17:13:39Z",
       "side": 1,
       "message": "Is this dead code?",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 78
+      },
+      "revId": "1548868b0c58cf1fe904a9c86788ba42c5899b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d47f18b_dc5fe551",
+        "filename": "compiler/utils/swap_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T17:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f6dd39c_df419f98",
       "range": {
         "startLine": 80,
         "startChar": 2,
