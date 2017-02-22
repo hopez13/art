@@ -46,6 +46,30 @@
       "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4a2e944_60675ac5",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T15:48:19Z",
+      "side": 1,
+      "message": "ClassLinker::LookupResolvedType() would be correct. And if you use the non-static overload untouched by https://android-review.googlesource.com/338646 then I guess the likely revert shall not require any further updates in this CL.",
+      "parentUuid": "f273e97a_1e5bfca1",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 102,
+        "endChar": 46
+      },
+      "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
