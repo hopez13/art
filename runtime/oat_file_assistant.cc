@@ -744,38 +744,23 @@ OatFileAssistant::ImageInfo::GetRuntimeImageInfo(InstructionSet isa, std::string
   std::unique_ptr<ImageInfo> info(new ImageInfo());
   info->location = image_spaces[0]->GetImageLocation();
 
-  // TODO: Special casing on isa == kRuntimeISA is presumably motivated by
-  // performance: 'it's faster to use an already loaded image header than read
-  // the image header from disk'. But the loaded image is not necessarily the
-  // same as kRuntimeISA, so this behavior is suspect (b/35659889).
-  if (isa == kRuntimeISA) {
-    const ImageHeader& image_header = image_spaces[0]->GetImageHeader();
-    info->oat_data_begin = reinterpret_cast<uintptr_t>(image_header.GetOatDataBegin());
-    info->patch_delta = image_header.GetPatchDelta();
+  std::unique_ptr<ImageHeader> image_header(
+      gc::space::ImageSpace::ReadImageHeader(info->location.c_str(), isa, error_msg));
+  if (image_header == nullptr) {
+    return nullptr;
+  }
+  info->oat_data_begin = reinterpret_cast<uintptr_t>(image_header->GetOatDataBegin());
+  info->patch_delta = image_header->GetPatchDelta();
 
-    info->oat_checksum = 0;
-    for (gc::space::ImageSpace* image_space : image_spaces) {
-      info->oat_checksum ^= image_space->GetImageHeader().GetOatChecksum();
-    }
-  } else {
-    std::unique_ptr<ImageHeader> image_header(
-        gc::space::ImageSpace::ReadImageHeader(info->location.c_str(), isa, error_msg));
+  info->oat_checksum = 0;
+  for (gc::space::ImageSpace* image_space : image_spaces) {
+    std::string location = image_space->GetImageLocation();
+    image_header.reset(
+        gc::space::ImageSpace::ReadImageHeader(location.c_str(), isa, error_msg));
     if (image_header == nullptr) {
       return nullptr;
     }
-    info->oat_data_begin = reinterpret_cast<uintptr_t>(image_header->GetOatDataBegin());
-    info->patch_delta = image_header->GetPatchDelta();
-
-    info->oat_checksum = 0;
-    for (gc::space::ImageSpace* image_space : image_spaces) {
-      std::string location = image_space->GetImageLocation();
-      image_header.reset(
-          gc::space::ImageSpace::ReadImageHeader(location.c_str(), isa, error_msg));
-      if (image_header == nullptr) {
-        return nullptr;
-      }
-      info->oat_checksum ^= image_header->GetOatChecksum();
-    }
+    info->oat_checksum ^= image_header->GetOatChecksum();
   }
   return info;
 }
