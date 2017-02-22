@@ -22,6 +22,30 @@
       "revId": "c73cb64585f301c8bb3b03a0684f6baead99b7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d970b88_f1ddf0be",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-22T19:09:16Z",
+      "side": 1,
+      "message": "I think it\u0027s still a good enough pointer, and limits the CL. Would you like me to change?",
+      "parentUuid": "25b539af_1d630443",
+      "range": {
+        "startLine": 358,
+        "startChar": 40,
+        "endLine": 358,
+        "endChar": 47
+      },
+      "revId": "c73cb64585f301c8bb3b03a0684f6baead99b7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
