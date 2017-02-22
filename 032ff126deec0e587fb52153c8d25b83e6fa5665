@@ -94,6 +94,30 @@
       "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ecd11a42_89a05416",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-22T16:25:12Z",
+      "side": 1,
+      "message": "DexCache no longer serves as the authority for all resolved types, entries are evicted on hash conflict and then you need to ask the ClassLoader to LookupResolvedType(). That function looks into the ClassTable (except for primitive types), it does not cause type resolution.\n\nEverything should work (slowly) when you change DexCache::GetResolvedType() to simply \"return nullptr\".",
+      "parentUuid": "6e0976f8_e0fce2e6",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 102,
+        "endChar": 46
+      },
+      "revId": "032ff126deec0e587fb52153c8d25b83e6fa5665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
