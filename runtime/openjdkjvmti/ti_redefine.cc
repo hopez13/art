@@ -63,6 +63,7 @@
 #include "transform.h"
 #include "verifier/method_verifier.h"
 #include "verifier/verifier_log_mode.h"
+#include "well_known_classes.h"
 
 namespace openjdkjvmti {
 
@@ -245,8 +246,13 @@ jvmtiError Redefiner::GetClassRedefinitionError(art::Handle<art::mirror::Class> 
     return ERR(UNMODIFIABLE_CLASS);
   }
 
-  // TODO We should check if the class has non-obsoletable methods on the stack
-  LOG(WARNING) << "presence of non-obsoletable methods on stacks is not currently checked";
+  for (jclass c : art::WellKnownClasses::GetNonDebuggableClasses()) {
+    if (klass.Get() == art::Thread::Current()->DecodeJObject(c)->AsClass()) {
+      *error_msg = "Class might have stack frames that cannot be made obsolete";
+      return ERR(UNMODIFIABLE_CLASS);
+    }
+  }
+
   return OK;
 }
 

@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_WELL_KNOWN_CLASSES_H_
 #define ART_RUNTIME_WELL_KNOWN_CLASSES_H_
 
+#include <vector>
+
 #include "base/mutex.h"
 #include "jni.h"
 #include "obj_ptr.h"
@@ -43,6 +45,12 @@ struct WellKnownClasses {
   static uint32_t StringInitToEntryPoint(ArtMethod* method);
 
   static ObjPtr<mirror::Class> ToClass(jclass global_jclass) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static const std::vector<jclass>& GetNonDebuggableClasses() {
+    return non_debuggable_classes;
+  }
+
+  static void AddNonDebuggableClass(ObjPtr<mirror::Class> klass) REQUIRES(Locks::mutator_lock_);
 
   static jclass com_android_dex_Dex;
   static jclass dalvik_annotation_optimization_CriticalNative;
@@ -161,6 +169,7 @@ struct WellKnownClasses {
 
  private:
   static void InitStringInit(JNIEnv* env);
+  static std::vector<jclass> non_debuggable_classes;
 };
 
 }  // namespace art

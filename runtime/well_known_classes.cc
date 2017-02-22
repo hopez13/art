@@ -149,6 +149,8 @@ jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_length;
 jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_offset;
 jfieldID WellKnownClasses::org_apache_harmony_dalvik_ddmc_Chunk_type;
 
+std::vector<jclass> WellKnownClasses::non_debuggable_classes;
+
 static jclass CacheClass(JNIEnv* env, const char* jni_class_name) {
   ScopedLocalRef<jclass> c(env, env->FindClass(jni_class_name));
   if (c.get() == nullptr) {
@@ -195,6 +197,18 @@ static jmethodID CachePrimitiveBoxingMethod(JNIEnv* env, char prim_name, const c
   ScopedLocalRef<jclass> boxed_class(env, env->FindClass(boxed_name));
   return CacheMethod(env, boxed_class.get(), true, "valueOf",
                      android::base::StringPrintf("(%c)L%s;", prim_name, boxed_name).c_str());
+}
+
+void WellKnownClasses::AddNonDebuggableClass(ObjPtr<mirror::Class> klass) {
+  Thread* self = Thread::Current();
+  JNIEnvExt* env = self->GetJniEnv();
+  for (jclass c : non_debuggable_classes) {
+    if (self->DecodeJObject(c)->AsClass() == klass.Ptr()) {
+      return;
+    }
+  }
+  ScopedLocalRef<jclass> lr(env, env->AddLocalReference<jclass>(klass));
+  non_debuggable_classes.push_back(reinterpret_cast<jclass>(env->NewGlobalRef(lr.get())));
 }
 
 #define STRING_INIT_LIST(V) \

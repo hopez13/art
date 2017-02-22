@@ -29,6 +29,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "ScopedUtfChars.h"
 #include "thread-inl.h"
+#include "thread_list.h"
 #include "trace.h"
 
 #if defined(__linux__)
@@ -38,6 +39,10 @@
 #include <sys/resource.h>
 
 namespace art {
+
+// Set to true to always determine the non-debuggable classes even if we would not allow a debugger
+// to actually attach.
+static constexpr bool kAlwaysNoteNonDebuggableClasses = kIsDebugBuild;
 
 using android::base::StringPrintf;
 
@@ -66,6 +71,37 @@ static void EnableDebugger() {
   if (setrlimit(RLIMIT_CORE, &rl) == -1) {
     PLOG(ERROR) << "setrlimit(RLIMIT_CORE) failed for pid " << getpid();
   }
+}
+
+static void DoNoteNonDebuggableCallback(Thread* thread, void* data ATTRIBUTE_UNUSED)
+    REQUIRES(Locks::mutator_lock_) {
+  class NonDebuggableStacksVisitor : public StackVisitor {
+   public:
+    NonDebuggableStacksVisitor(Thread* t)
+        : StackVisitor(t, nullptr, StackVisitor::StackWalkKind::kIncludeInlinedFrames) {}
+
+    ~NonDebuggableStacksVisitor() OVERRIDE {}
+
+    bool VisitFrame() OVERRIDE REQUIRES(Locks::mutator_lock_) {
+      if (GetMethod()->IsRuntimeMethod()) {
+        return true;
+      }
+      WellKnownClasses::AddNonDebuggableClass(GetMethod()->GetDeclaringClass());
+      LOG(INFO) << GetMethod()->GetDeclaringClass()->PrettyClass()
+                << " might not be fully debuggable/deoptimizable due to "
+                << GetMethod()->PrettyMethod() << " appearing on the stack during zygote fork.";
+      return true;
+    }
+  };
+  NonDebuggableStacksVisitor visitor(thread);
+  visitor.WalkStack();
+}
+
+static void NoteNonDebuggableClasses() {
+  Runtime* const runtime = Runtime::Current();
+  ScopedSuspendAll suspend("Checking stacks for non-obsoletable methods!", /*long_suspend*/false);
+  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+  runtime->GetThreadList()->ForEach(DoNoteNonDebuggableCallback, nullptr);
 }
 
 static void EnableDebugFeatures(uint32_t debug_flags) {
@@ -131,12 +167,17 @@ static void EnableDebugFeatures(uint32_t debug_flags) {
     debug_flags &= ~DEBUG_ALWAYS_JIT;
   }
 
+  bool needs_non_debuggable_classes = false;
   if ((debug_flags & DEBUG_JAVA_DEBUGGABLE) != 0) {
     runtime->AddCompilerOption("--debuggable");
     runtime->SetJavaDebuggable(true);
     // Deoptimize the boot image as it may be non-debuggable.
     runtime->DeoptimizeBootImage();
     debug_flags &= ~DEBUG_JAVA_DEBUGGABLE;
+    needs_non_debuggable_classes = true;
+  }
+  if (needs_non_debuggable_classes || kAlwaysNoteNonDebuggableClasses) {
+    NoteNonDebuggableClasses();
   }
 
   if ((debug_flags & DEBUG_NATIVE_DEBUGGABLE) != 0) {
