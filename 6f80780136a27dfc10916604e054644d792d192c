@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8de6887c_042e6384",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-22T18:07:00Z",
+      "side": 1,
+      "message": "Add a test of someone trying to modify String?",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "6f80780136a27dfc10916604e054644d792d192c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
