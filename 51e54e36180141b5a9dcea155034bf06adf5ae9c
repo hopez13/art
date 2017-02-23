@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbd0d9d9_6864d4f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:45:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf9f155_3ac82c59",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff405442_48d5f309",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -153,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "4a2ad5af_67b0ebb2",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:45:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fc171d_8a029a21",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 63
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c613d0d6_a9b5406a",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -164,6 +212,30 @@
       "writtenOn": "2017-02-23T10:25:50Z",
       "side": 1,
       "message": "ConstainsElement() is O(n), use discard_blocks.count(.) !\u003d 0 for a std::set\u003c\u003e; ArenaSet is an alias for std::set\u003c\u003e.\n\nConsider using ArenaBitVector. We know the highest block id and instruction id we have assigned so far and this optimization does not create new blocks or instructions.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 71
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab6b8421_1691f02f",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:45:02Z",
+      "side": 1,
+      "message": "I actually started with a  bit vector but went with the set for the extra readability of ContainsElement ;-)\n\nAs discussed, moved all sets to bit vectors.",
+      "parentUuid": "c613d0d6_a9b5406a",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -316,6 +388,24 @@
       "writtenOn": "2017-02-23T10:25:50Z",
       "side": 1,
       "message": "Why do we need a private arena allocator?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c844c76_d572f521",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:45:02Z",
+      "side": 1,
+      "message": "To discard all data structures created below.",
+      "parentUuid": "51430b61_c59e2bce",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -485,6 +575,24 @@
       "writtenOn": "2017-02-23T10:25:50Z",
       "side": 1,
       "message": "Should we also insert\n\n    /// CHECK: \u003c\u003cError\u003e\u003e LoadClass class_name:java.lang.Error\n    /// CHECK:           NewInstance [\u003c\u003cError\u003e\u003e]\n\nto check that we did not reorder the different throwing instructions?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b059b49_df214e0c",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:45:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7f2604c_b11f8b5a",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
