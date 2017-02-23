@@ -149,7 +149,8 @@
   V(UnsafeLoadFence, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "loadFence", "()V") \
   V(UnsafeStoreFence, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "storeFence", "()V") \
   V(UnsafeFullFence, kVirtual, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Lsun/misc/Unsafe;", "fullFence", "()V") \
-  V(ReferenceGetReferent, kDirect, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Ljava/lang/ref/Reference;", "getReferent", "()Ljava/lang/Object;")
+  V(ReferenceGetReferent, kDirect, kNeedsEnvironmentOrCache, kAllSideEffects, kCanThrow, "Ljava/lang/ref/Reference;", "getReferent", "()Ljava/lang/Object;") \
+  V(IntegerValueOf, kStatic, kNeedsEnvironmentOrCache, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "valueOf", "(I)Ljava/lang/Integer;")
 
 #endif  // ART_COMPILER_INTRINSICS_LIST_H_
 #undef ART_COMPILER_INTRINSICS_LIST_H_   // #define is only for lint.
