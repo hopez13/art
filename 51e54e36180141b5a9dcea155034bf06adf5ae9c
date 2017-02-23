@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bcf9f155_3ac82c59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:25:50Z",
+      "side": 1,
+      "message": "This expression reorders the \"NewInstance class_name:java.lang.Error\" before the \"NewInstance class_name:java.lang.Object\". That\u0027s not what the optimization is doing. It should be\n\n  Object o \u003d new Object();\n  throw new Error(new Object().toString());\n\n(Also, missing semicolon here and in the code above.)",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff405442_48d5f309",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -101,6 +124,52 @@
       "side": 1,
       "message": "Good point. Fixed and added a checker test.",
       "parentUuid": "c0f11850_6726b39d",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09fc171d_8a029a21",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:25:50Z",
+      "side": 1,
+      "message": "/* out */ parameter should be last.",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 63
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c613d0d6_a9b5406a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:25:50Z",
+      "side": 1,
+      "message": "ConstainsElement() is O(n), use discard_blocks.count(.) !\u003d 0 for a std::set\u003c\u003e; ArenaSet is an alias for std::set\u003c\u003e.\n\nConsider using ArenaBitVector. We know the highest block id and instruction id we have assigned so far and this optimization does not create new blocks or instructions.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 71
+      },
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -230,6 +299,23 @@
         "endLine": 108,
         "endChar": 46
       },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51430b61_c59e2bce",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:25:50Z",
+      "side": 1,
+      "message": "Why do we need a private arena allocator?",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -382,6 +468,23 @@
       "side": 1,
       "message": "Usually not a big fan of expected.txt. We should have enough confidence in our testing infrastructure to not rely on an output to know if the test passed.\n\nBut let me know if you feel strongly.",
       "parentUuid": "27117c0e_8b53d599",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7f2604c_b11f8b5a",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:25:50Z",
+      "side": 1,
+      "message": "Should we also insert\n\n    /// CHECK: \u003c\u003cError\u003e\u003e LoadClass class_name:java.lang.Error\n    /// CHECK:           NewInstance [\u003c\u003cError\u003e\u003e]\n\nto check that we did not reorder the different throwing instructions?",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
