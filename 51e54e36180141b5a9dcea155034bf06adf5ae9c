@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "c0f11850_6726b39d",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-23T00:23:22Z",
+      "side": 1,
+      "message": "non-volatile stores only? Or probably only if there is no volatile stores at all?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f78b9248_1429bb03",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -53,6 +70,75 @@
     },
     {
       "key": {
+        "uuid": "967cd823_f22aeaed",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-23T00:23:22Z",
+      "side": 1,
+      "message": "Where is that part in the code?",
+      "range": {
+        "startLine": 105,
+        "startChar": 57,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4adb52c0_f0057588",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-23T00:23:22Z",
+      "side": 1,
+      "message": "What\u0027s this? Not seeing this in the code base.",
+      "range": {
+        "startLine": 108,
+        "startChar": 7,
+        "endLine": 108,
+        "endChar": 46
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91044a70_4e0c097a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-23T00:23:22Z",
+      "side": 1,
+      "message": "should be more accurate here. Is it always finding a subset of post dominated blocks?",
+      "range": {
+        "startLine": 193,
+        "startChar": 35,
+        "endLine": 193,
+        "endChar": 45
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6d9ee9e_6cda6e74",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -64,6 +150,23 @@
       "writtenOn": "2017-02-22T22:49:01Z",
       "side": 1,
       "message": "have found?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7accf4f_48d76afd",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-02-23T00:23:22Z",
+      "side": 1,
+      "message": "Is this due to aliasing issues?",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
