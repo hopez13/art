@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1024c573_41667a8b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-23T15:37:15Z",
+      "side": 1,
+      "message": "Yeah, as discussed offline (and in https://android-review.googlesource.com/#/c/341285/1/compiler/optimizing/code_generator_arm64.cc@5868), we can get jump directly to the exit label.\n\nDone for this slow path (`LoadReferenceWithBakerReadBarrierSlowPathARM`) and for `LoadReferenceWithBakerReadBarrierAndUpdateFieldSlowPathARM` as well.  Ditto for other back ends.",
+      "parentUuid": "46cfdf46_b467adcc",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 15
+      },
+      "revId": "d034e2d67c2dfd84fa84ba3efd41571de65286a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d4dc041_d5bfe155",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-23T13:15:53Z",
       "side": 1,
       "message": "ditto: all branches to done could go to the exit label.",
+      "range": {
+        "startLine": 1077,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 24
+      },
+      "revId": "d034e2d67c2dfd84fa84ba3efd41571de65286a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2ec74b7_9c8fed57",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-23T15:37:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d4dc041_d5bfe155",
       "range": {
         "startLine": 1077,
         "startChar": 0,
