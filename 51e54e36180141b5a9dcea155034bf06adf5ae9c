@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "adc74dad_3cdb155f",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff405442_48d5f309",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d50dd35_fda66ae6",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-22T22:49:01Z",
       "side": 1,
       "message": "intructions don\u0027t speak :-)\n\nWe want to move moveable instructions that cannot throw....",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bddee770_b3799570",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d50dd35_fda66ae6",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "722adfe4_75b27ddb",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Good point. Fixed and added a checker test.",
+      "parentUuid": "c0f11850_6726b39d",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f78b9248_1429bb03",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "09707649_ab0dbc56",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f78b9248_1429bb03",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "967cd823_f22aeaed",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -81,6 +153,30 @@
       "writtenOn": "2017-02-23T00:23:22Z",
       "side": 1,
       "message": "Where is that part in the code?",
+      "range": {
+        "startLine": 105,
+        "startChar": 57,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48608cb8_c39a2a44",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Step (3). Added in the comment.",
+      "parentUuid": "967cd823_f22aeaed",
       "range": {
         "startLine": 105,
         "startChar": 57,
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "aeb72acb_9c0bd573",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Right, this is MoveBeforeFirstUserAndOutOfLoops.",
+      "parentUuid": "4adb52c0_f0057588",
+      "range": {
+        "startLine": 108,
+        "startChar": 7,
+        "endLine": 108,
+        "endChar": 46
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91044a70_4e0c097a",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -127,6 +247,30 @@
       "writtenOn": "2017-02-23T00:23:22Z",
       "side": 1,
       "message": "should be more accurate here. Is it always finding a subset of post dominated blocks?",
+      "range": {
+        "startLine": 193,
+        "startChar": 35,
+        "endLine": 193,
+        "endChar": 45
+      },
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fa7ccb5_f40c28d6",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Yes. See TODO just below. I\u0027ve added in the comment that this is a subset.",
+      "parentUuid": "91044a70_4e0c097a",
       "range": {
         "startLine": 193,
         "startChar": 35,
@@ -156,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "750f5705_8c4a5f67",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d9ee9e_6cda6e74",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7accf4f_48d76afd",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "fdefdd6f_7c137cb9",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "No, it\u0027s just the NewInstance or whatever heap location we\u0027re storing into could not be moved, as found out by step (2).",
+      "parentUuid": "c7accf4f_48d76afd",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27117c0e_8b53d599",
         "filename": "test/639-checker-code-sinking/src/Main.java",
         "patchSetId": 5
@@ -184,6 +364,24 @@
       "writtenOn": "2017-02-22T22:49:01Z",
       "side": 1,
       "message": "print passed at end? (and update expected.txt)?",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "148c0bed_b0c50ec6",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:12:16Z",
+      "side": 1,
+      "message": "Usually not a big fan of expected.txt. We should have enough confidence in our testing infrastructure to not rely on an output to know if the test passed.\n\nBut let me know if you feel strongly.",
+      "parentUuid": "27117c0e_8b53d599",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
