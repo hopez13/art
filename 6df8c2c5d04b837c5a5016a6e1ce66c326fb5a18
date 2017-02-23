@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0199ad63_a86dc56f",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-23T18:34:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3447bd6f_2e2446bf",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 7
+      },
+      "revId": "6df8c2c5d04b837c5a5016a6e1ce66c326fb5a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffa75c2_e8739abd",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c4f2445_c365d806",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-23T18:34:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffa75c2_e8739abd",
+      "range": {
+        "startLine": 188,
+        "startChar": 69,
+        "endLine": 188,
+        "endChar": 85
+      },
+      "revId": "6df8c2c5d04b837c5a5016a6e1ce66c326fb5a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0de0034_8df360e9",
         "filename": "runtime/openjdkjvmti/ti_redefine.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-23T13:00:47Z",
       "side": 1,
       "message": "Grammar",
+      "range": {
+        "startLine": 254,
+        "startChar": 20,
+        "endLine": 254,
+        "endChar": 82
+      },
+      "revId": "6df8c2c5d04b837c5a5016a6e1ce66c326fb5a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b86fba1c_f7bce389",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-02-23T18:34:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0de0034_8df360e9",
       "range": {
         "startLine": 254,
         "startChar": 20,
