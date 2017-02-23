@@ -46,6 +46,30 @@
       "revId": "1a9fe787f96ad9d59ea6a1f0e65ea14a818c6bc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218b5ee5_7dd27b22",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T14:48:03Z",
+      "side": 1,
+      "message": "These have no purpose on the API level, they just prevent inlining of the those calls. (That may or may not be desirable.)",
+      "parentUuid": "2caa09e3_4614804a",
+      "range": {
+        "startLine": 921,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 98
+      },
+      "revId": "1a9fe787f96ad9d59ea6a1f0e65ea14a818c6bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
