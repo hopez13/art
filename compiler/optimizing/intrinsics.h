@@ -113,6 +113,32 @@ INTRINSICS_LIST(OPTIMIZING_INTRINSICS)
     codegen->GetMoveResolver()->EmitNativeCode(&parallel_move);
   }
 
+  static void ComputeIntegerValueOfLocations(HInvoke* invoke,
+                                             CodeGenerator* codegen,
+                                             Location return_location,
+                                             Location first_argument_location);
+
+  // Temporary data structure for holding Integer.valueOf useful data. We only
+  // use it if the mirror::Class* are in the boot image, so it is fine to keep raw
+  // mirror::Class pointers in this structure.
+  struct IntegerValueOfInfo {
+    IntegerValueOfInfo()
+        : integer_cache(nullptr),
+          integer(nullptr),
+          cache(nullptr),
+          value_offset(0),
+          low(0),
+          high(0) {}
+    mirror::Class* integer_cache;
+    mirror::Class* integer;
+    mirror::ObjectArray<mirror::Object>* cache;
+    int32_t value_offset;
+    int32_t low;
+    int32_t high;
+  };
+
+  static IntegerValueOfInfo ComputeIntegerValueOfInfo();
+
  protected:
   IntrinsicVisitor() {}
 
