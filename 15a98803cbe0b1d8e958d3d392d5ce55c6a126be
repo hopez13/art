@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5229513d_1179f248",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T10:21:02Z",
+      "side": 1,
+      "message": "I don\u0027t see any calls to ClassLinker::EnsureInitialized() from this function.",
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
