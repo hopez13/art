@@ -511,6 +511,24 @@
     },
     {
       "key": {
+        "uuid": "78708e72_0bbc69d1",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T21:27:20Z",
+      "side": 1,
+      "message": "That\u0027s an excellent observation. I was too optimistic in the things we can move. I now prevent moving memory loads. Stores are ok for local allocations that don\u0027t escape besides in the uncommon blocks.",
+      "parentUuid": "06a0fde4_12762bfe",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7accf4f_48d76afd",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 5
@@ -593,6 +611,24 @@
       "side": 1,
       "message": "Well, my major objection to not outputting anything is that not generating any code at all would still pass the test :-) But I don\u0027t feel super strongly, since it is your test (I keep printing passed in mine :-)",
       "parentUuid": "148c0bed_b0c50ec6",
+      "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be9ebc0c_5c3387a1",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T21:27:20Z",
+      "side": 1,
+      "message": "That\u0027s a lack of confidence of our runtime ;-)",
+      "parentUuid": "5fe6cecc_04ab6f9e",
       "revId": "51e54e36180141b5a9dcea155034bf06adf5ae9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
