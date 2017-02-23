@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9816ed4_45b80eb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:47:26Z",
+      "side": 1,
+      "message": "Could we stick with something consistent with another tool, say smali?\n\nSo dropping the @ and #, Using Ljava/lang/Object;-\u003efoo(...), etc.\n\nFor the inline cache info, the +Lfoo;Lbar; SGTM.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "77e4a8ddfc28444c94adb50e2f3d79b338f40f23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
