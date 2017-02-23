@@ -228,8 +228,7 @@ Heap::Heap(size_t initial_size,
       min_free_(min_free),
       max_free_(max_free),
       target_utilization_(target_utilization),
-      foreground_heap_growth_multiplier_(
-          foreground_heap_growth_multiplier + kExtraHeapGrowthMultiplier),
+      foreground_heap_growth_multiplier_(foreground_heap_growth_multiplier),
       total_wait_time_(0),
       verify_object_mode_(kVerifyObjectModeDisabled),
       disable_moving_gc_count_(0),
@@ -3537,9 +3536,9 @@ collector::GarbageCollector* Heap::FindCollectorByGcType(collector::GcType gc_ty
 double Heap::HeapGrowthMultiplier() const {
   // If we don't care about pause times we are background, so return 1.0.
   if (!CareAboutPauseTimes() || IsLowMemoryMode()) {
-    return 1.0;
+    return 1.0 + kExtraHeapGrowthMultiplier;
   }
-  return foreground_heap_growth_multiplier_;
+  return foreground_heap_growth_multiplier_ + kExtraHeapGrowthMultiplier;
 }
 
 void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
@@ -3551,11 +3550,10 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   collector::GcType gc_type = collector_ran->GetGcType();
   const double multiplier = HeapGrowthMultiplier();  // Use the multiplier to grow more for
   // foreground.
-  // Ensure at least 2.5 MB to temporarily fix excessive GC caused by TLAB ergonomics.
-  const uint64_t adjusted_min_free = std::max(static_cast<uint64_t>(min_free_ * multiplier),
-                                              static_cast<uint64_t>(5 * MB / 2));
-  const uint64_t adjusted_max_free = std::max(static_cast<uint64_t>(max_free_ * multiplier),
-                                              static_cast<uint64_t>(5 * MB / 2));
+  const uint64_t adjusted_min_free = static_cast<uint64_t>(min_free_ * multiplier);
+  const uint64_t adjusted_max_free = static_cast<uint64_t>(max_free_ * multiplier);
+  if (kUseReadBarrier) {
+  }
   if (gc_type != collector::kGcTypeSticky) {
     // Grow the heap for non sticky GC.
     ssize_t delta = bytes_allocated / GetTargetHeapUtilization() - bytes_allocated;
