@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c7d3e4e2_ef221f6b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-23T14:39:21Z",
+      "side": 1,
+      "message": "CanEncodeConstantAsImmediate() is intended for the location builder, so that we can ask the register allocator to materialize the constant in a register if it cannot be fully embedded in instructions. The way you implemented this is PS2, you\u0027re checking only when you start generating code and you may need to materialize constants, especially in the path that\u0027s using branches. When those constants are used by multiple instructions, you materialize them multiple times.\n\nAnother advantage of making the choice in the location builder is that you can essentially guarantee that CanGenerateSelectITBlock() is true (for non-FP) in the codegen, though this would require kCondEQ/NE/B/BE/A/AE for long to use the CMP+SBCS approach because we have no way to tell the register allocator to give us a low register.",
+      "parentUuid": "f4995882_5a5d29d2",
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6251ab86_a173b0d7",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
