@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a167c0a_9b2e4e6c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "So the only difference from the two AOT/JIT strategies is how you are getting the inline caches. How about turning things around, and have instead:\n\nGetInlineCacheFromJIT\nGetInlineCacheFromAOT\n\nAnd then have only one method to drive the inlining?",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 1
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e7bea86_9bcd7b0b",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "Try inlining (for consistency)",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4f55195_9f9ebb85",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "inlining",
+      "range": {
+        "startLine": 126,
+        "startChar": 31,
+        "endLine": 126,
+        "endChar": 37
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41584c74_5db3066e",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "add",
+      "range": {
+        "startLine": 135,
+        "startChar": 61,
+        "endLine": 135,
+        "endChar": 65
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71b29da7_e13c0390",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "2 extra spaces",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 4
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723e79d1_746c4314",
+        "filename": "test/638-checker-inline-caches/run",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d84a7ba_55e6bfd9",
+        "filename": "test/638-checker-inline-caches/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T10:32:25Z",
+      "side": 1,
+      "message": "Great test!",
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
