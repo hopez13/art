@@ -16,6 +16,70 @@
       "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cc1a769_fe7b2a93",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-23T17:44:49Z",
+      "side": 1,
+      "message": "There is already an access check in FindFieldFromCode.",
+      "parentUuid": "5229513d_1179f248",
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22724c1e_a4b234a3",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-23T17:44:49Z",
+      "side": 1,
+      "message": "I am in favor of the CL since it removes unnecessary access checks that probably pull in FieldId pages.",
+      "range": {
+        "startLine": 677,
+        "startChar": 45,
+        "endLine": 677,
+        "endChar": 50
+      },
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80d360fe_85639977",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-23T17:44:49Z",
+      "side": 1,
+      "message": "How often does this happen? It could be faster to use FindFieldFast before trying FindFieldFromCode.",
+      "range": {
+        "startLine": 677,
+        "startChar": 6,
+        "endLine": 677,
+        "endChar": 23
+      },
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
