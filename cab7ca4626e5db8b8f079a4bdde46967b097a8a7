@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f416c9b4_85ab3fee",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-23T16:36:20Z",
+      "side": 1,
+      "message": "This only really matters when isa \u003d\u003d kRuntimeISA. Use another way to get the location in the !\u003d kRuntimeISA codepath, or add a comment here.",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 738,
+        "endChar": 3
+      },
+      "revId": "cab7ca4626e5db8b8f079a4bdde46967b097a8a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
