@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f60d7f17_7d808e54",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:53:40Z",
+      "side": 1,
+      "message": "Location of that comment looks odd. Should you drop it? Comment line 1063 seems like covering the same thing too?",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 66
+      },
+      "revId": "97ab5e3b79d1cf6034d3a2a1c6e6b2176d4e2af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8365a81c_308bb239",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T11:53:40Z",
+      "side": 1,
+      "message": "Regression",
+      "range": {
+        "startLine": 557,
+        "startChar": 3,
+        "endLine": 557,
+        "endChar": 12
+      },
+      "revId": "97ab5e3b79d1cf6034d3a2a1c6e6b2176d4e2af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
