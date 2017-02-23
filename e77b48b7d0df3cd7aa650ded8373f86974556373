@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "681dbc7a_9d24c2b0",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T21:55:51Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 105,
+        "startChar": 71,
+        "endLine": 105,
+        "endChar": 72
+      },
+      "revId": "e77b48b7d0df3cd7aa650ded8373f86974556373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e41407f_857e8a69",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T21:55:51Z",
+      "side": 1,
+      "message": "collect?",
+      "range": {
+        "startLine": 173,
+        "startChar": 7,
+        "endLine": 173,
+        "endChar": 12
+      },
+      "revId": "e77b48b7d0df3cd7aa650ded8373f86974556373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
