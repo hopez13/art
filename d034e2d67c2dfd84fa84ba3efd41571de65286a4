@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46cfdf46_b467adcc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T13:15:53Z",
+      "side": 1,
+      "message": "Do you need this label? Looks to me you could branch to the exit line 871.",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 15
+      },
+      "revId": "d034e2d67c2dfd84fa84ba3efd41571de65286a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d4dc041_d5bfe155",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-23T13:15:53Z",
+      "side": 1,
+      "message": "ditto: all branches to done could go to the exit label.",
+      "range": {
+        "startLine": 1077,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 24
+      },
+      "revId": "d034e2d67c2dfd84fa84ba3efd41571de65286a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
