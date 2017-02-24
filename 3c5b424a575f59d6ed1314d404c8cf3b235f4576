@@ -34,6 +34,24 @@
       "revId": "3c5b424a575f59d6ed1314d404c8cf3b235f4576",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80ae22c9_0f972947",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:44:28Z",
+      "side": 1,
+      "message": "Great. Ok for ignoring types, it is indeed unlikely this will buy us much. Thanks for fixing the WAW, the sorting on dom seems good.",
+      "parentUuid": "2465d9d2_9bfec891",
+      "revId": "3c5b424a575f59d6ed1314d404c8cf3b235f4576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
