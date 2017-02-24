@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ff104b89_df1a4acd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7616,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b0d30ca_72a39eaf",
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b228628_f4e86ee4",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -170,6 +188,30 @@
       "writtenOn": "2017-02-24T20:02:56Z",
       "side": 1,
       "message": "I was probably prematurely optimizing space. But above 64K alignment seems unlikely to be ever needed :-)",
+      "parentUuid": "d4dcfcdc_92db52dd",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef2e2f0_6345bd68",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:20:22Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "d4dcfcdc_92db52dd",
       "range": {
         "startLine": 32,
