@@ -752,21 +752,26 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
                FindSystemClass(self, "[Ljava/lang/StackTraceElement;"));
   mirror::StackTraceElement::SetClass(GetClassRoot(kJavaLangStackTraceElement));
 
-  // Ensure void type is resolved in the core's dex cache so java.lang.Void is correctly
-  // initialized.
-  {
-    const DexFile& dex_file = java_lang_Object->GetDexFile();
-    const DexFile::TypeId* void_type_id = dex_file.FindTypeId("V");
-    CHECK(void_type_id != nullptr);
-    dex::TypeIndex void_type_idx = dex_file.GetIndexForTypeId(*void_type_id);
-    // Now we resolve void type so the dex cache contains it. We use java.lang.Object class
-    // as referrer so the used dex cache is core's one.
-    ObjPtr<mirror::Class> resolved_type = ResolveType(dex_file,
-                                                      void_type_idx,
-                                                      java_lang_Object.Get());
-    CHECK_EQ(resolved_type, GetClassRoot(kPrimitiveVoid));
-    self->AssertNoPendingException();
-  }
+  // Set up java.lang.Void, magically initializing java.lang.Void.TYPE.
+  // While for other primitive classes the TYPE field is initialized using the component
+  // type of an array (for example java.lang.Integer.TYPE = int[].class.getComponentType()),
+  // array of void is not a valid class, so we have previously initialized java.lang.Void.TYPE
+  // through reflection using the return type of Runnable.run(). However, that worked only
+  // while we could ensure that the DexCache already held the type entry for "V" when queried
+  // by Class.getDexCacheType(). With the hash-based type array, that's no longer possible.
+  Handle<mirror::Class> java_lang_Void = hs.NewHandle(FindSystemClass(self, "Ljava/lang/Void;"));
+  CHECK(java_lang_Void != nullptr);
+  DCHECK_EQ(java_lang_Void->GetStatus(), mirror::Class::kStatusResolved);
+  // Class initialization also includes verification, so we need to initialize the MethodVerifier.
+  verifier::MethodVerifier::Init();
+  bool initialized = InitializeClass(self, java_lang_Void, true, true);
+  CHECK(initialized);
+  DCHECK_EQ(java_lang_Void->GetStatus(), mirror::Class::kStatusInitialized);
+  CHECK_EQ(java_lang_Void->NumStaticFields(), 1u);
+  ArtField* java_lang_Void_TYPE = java_lang_Void->GetStaticField(0);
+  CHECK(java_lang_Void_TYPE->GetObject(java_lang_Void.Get()) == nullptr);
+  java_lang_Void_TYPE->SetObject<false>(java_lang_Void.Get(), GetClassRoot(kPrimitiveVoid));
+  SetClassRoot(kJavaLangVoid, java_lang_Void.Get());
 
   // Create conflict tables that depend on the class linker.
   runtime->FixupConflictTables();
@@ -8658,6 +8663,7 @@ const char* ClassLinker::GetClassRootDescriptor(ClassRoot class_root) {
     "Ljava/lang/invoke/MethodType;",
     "Ljava/lang/ClassLoader;",
     "Ljava/lang/Throwable;",
+    "Ljava/lang/Void;",
     "Ljava/lang/ClassNotFoundException;",
     "Ljava/lang/StackTraceElement;",
     "Ldalvik/system/EmulatedStackFrame;",
