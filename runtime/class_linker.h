@@ -114,6 +114,7 @@ class ClassLinker {
     kJavaLangInvokeMethodType,
     kJavaLangClassLoader,
     kJavaLangThrowable,
+    kJavaLangVoid,
     kJavaLangClassNotFoundException,
     kJavaLangStackTraceElement,
     kDalvikSystemEmulatedStackFrame,
