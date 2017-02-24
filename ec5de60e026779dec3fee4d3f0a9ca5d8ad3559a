@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8a639d8_fb193b14",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-02-24T07:04:35Z",
+      "side": 1,
+      "message": "That\u0027s more or less what I\u0027m doing.\n\nIf you noticed, both methods called InlineFormInlineCache() at the end while the rest of their code is actually GetInlineCacheFrom***.\n\nThe only real difference which kinda blocks a nice abstraction is the handling of megamorphic caches. For AOT,  a megamorphic cache will be equivalent to an unitialized cache in JIT land (cause we don\u0027t store anything in the profile). See L458 and L550 for DCHECKs\n\nI guess I can shuffle things a bit but I\u0027ll need to restructure the logging probably.",
+      "parentUuid": "4a167c0a_9b2e4e6c",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 1
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e7bea86_9bcd7b0b",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 9
