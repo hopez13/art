@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b0d30ca_72a39eaf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7616,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T19:40:08Z",
+      "side": 1,
+      "message": "Why not char?",
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2496a20_203265f1",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T19:40:08Z",
+      "side": 1,
+      "message": "very nitpicky here, reading this description it seems more like an AlignmentOffset rather than an Alignment?",
+      "range": {
+        "startLine": 28,
+        "startChar": 62,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab27d5c_84bce79b",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T19:40:08Z",
+      "side": 1,
+      "message": "art/runtime/base maybe? That seems to be where we put generally-useful classes.",
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4dcfcdc_92db52dd",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T19:40:08Z",
+      "side": 1,
+      "message": "any reason why not size_t or templated?",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
