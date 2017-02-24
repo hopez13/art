@@ -16,6 +16,24 @@
       "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b165cf7_a6c57f36",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-24T16:02:38Z",
+      "side": 1,
+      "message": "It is resetting it. As the exception can be caught on the Java side, better have the right classloader when loading classes there...",
+      "parentUuid": "b1bd85c8_ecbcb1b7",
+      "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
