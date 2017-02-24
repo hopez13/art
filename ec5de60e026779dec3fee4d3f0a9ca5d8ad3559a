@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6f29055d_5d74905a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-24T11:49:35Z",
+      "side": 1,
+      "message": "What I like about fetching the inline cache and then do the inlining is that the code trying to inline is pretty straightline:\n\nGetInlineCaches();\nTryToInline();\n\nDoing it like you\u0027re doing in this CL you need to walk over the calls to find out what is happening.",
+      "parentUuid": "b8a639d8_fb193b14",
+      "range": {
+        "startLine": 358,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 1
+      },
+      "revId": "ec5de60e026779dec3fee4d3f0a9ca5d8ad3559a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e7bea86_9bcd7b0b",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 9
