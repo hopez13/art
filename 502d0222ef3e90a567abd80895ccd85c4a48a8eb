@@ -52,6 +52,24 @@
       "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed969c2a_21fbe3f4",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-02-24T19:13:58Z",
+      "side": 1,
+      "message": "It is really ugly. It seems uglier to create a single-purpose RAII class just for this one instance though. Is there any way I could make the comment clearer?",
+      "parentUuid": "fe1582fe_650d90e2",
+      "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
