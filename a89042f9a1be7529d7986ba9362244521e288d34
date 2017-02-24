@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2b93d987_0cb0990d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T00:18:50Z",
+      "side": 1,
+      "message": "Was this tested?\n\nalso please use: \n\n    Test: make test-art-host",
+      "revId": "a89042f9a1be7529d7986ba9362244521e288d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dca38d1_6c0238ab",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 1
