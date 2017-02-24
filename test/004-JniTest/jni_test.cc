@@ -41,6 +41,15 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void*) {
   jvm = vm;
   std::cout << "JNI_OnLoad called" << std::endl;
 
+  if (getenv("ART_TEST_THROW_IN_JNI_ONLOAD") != nullptr) {
+    JNIEnv* env;
+    jint res = vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6);
+    CHECK_EQ(res , JNI_OK);
+    res = env->ThrowNew(env->FindClass("java/lang/IllegalStateException"),
+                        "message");
+    CHECK_EQ(res, JNI_OK);
+  }
+
   return JNI_VERSION_1_6;
 }
 
