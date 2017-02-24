@@ -34,6 +34,24 @@
       "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe1582fe_650d90e2",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T16:35:09Z",
+      "side": 1,
+      "message": "Ok, yes, I see it on 895 now..\n\n\nThis is really ugly, can we refactor it to use a scoped override RAII ?",
+      "parentUuid": "2b165cf7_a6c57f36",
+      "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
