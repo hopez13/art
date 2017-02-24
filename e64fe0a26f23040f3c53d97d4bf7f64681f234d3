@@ -37,6 +37,23 @@
     },
     {
       "key": {
+        "uuid": "5b228628_f4e86ee4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T20:13:00Z",
+      "side": 1,
+      "message": "Note that this function forms the brains behind the retargetable vectorizer. For each ISA, just check the features, and set the VL, supported types and other restrictions accordingly. When there is a choice, e.g. AVX and SSE, just pick the best one (probably widest SIMD, or perhaps one with least restrictions).",
+      "revId": "e64fe0a26f23040f3c53d97d4bf7f64681f234d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2496a20_203265f1",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 1
