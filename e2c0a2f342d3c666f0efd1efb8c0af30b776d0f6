@@ -34,6 +34,24 @@
       "revId": "e2c0a2f342d3c666f0efd1efb8c0af30b776d0f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bda6566_b25c45d7",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T17:10:44Z",
+      "side": 1,
+      "message": "It\u0027s not fool proof, for example if someone is running expect scripts then there\u0027s a tty.\n\nI think if this relied on an environment variable and you set it to TRUE in your bashrc that would be less brittle.",
+      "parentUuid": "30925070_bd8f6117",
+      "revId": "e2c0a2f342d3c666f0efd1efb8c0af30b776d0f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
