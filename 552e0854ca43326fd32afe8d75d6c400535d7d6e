@@ -137,6 +137,30 @@
     },
     {
       "key": {
+        "uuid": "f4bf2988_338f3ba3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2110,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-02-24T14:03:16Z",
+      "side": 1,
+      "message": "I thought a little bit more about this, and I think I changed my mind, but I\u0027d like to check with you if my reasoning is correct: If we set Location::kOutputOverlap, then we always force the register allocator to allocate a new register (or pair) for the output, even if the first input is not live after this point. However, with Location::SameAsFirstInput() in the latter case the register (or pair) allocated to the first input will be reused. Otherwise, if the first input \nremains live afterwards, then there will be another allocated register and a (implicit) parallel move, so the situation will be the same as Location::SameAsFirstInput(). In other words, the change potentially makes life a little bit easier for the register allocator, so it is beneficial. Does that sound right?",
+      "parentUuid": "12c9ac5b_6096206e",
+      "range": {
+        "startLine": 2109,
+        "startChar": 0,
+        "endLine": 2110,
+        "endChar": 39
+      },
+      "revId": "552e0854ca43326fd32afe8d75d6c400535d7d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "832e722f_6462e7f1",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 1
