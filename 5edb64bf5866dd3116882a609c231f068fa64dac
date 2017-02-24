@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ae304ca3_c8e69cad",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1527,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-02-24T16:42:27Z",
+      "side": 1,
+      "message": "I will keep it for the unsigned comparisons as well (no potential data dependency on IP), but I agree that the code can be improved a bit.",
+      "parentUuid": "b4c4e30c_0f099ad5",
+      "range": {
+        "startLine": 1524,
+        "startChar": 0,
+        "endLine": 1527,
+        "endChar": 28
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26f02ef8_6dacf9c3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "writtenOn": "2017-02-24T14:46:35Z",
       "side": 1,
       "message": "Do we ever want both to be constants?",
+      "range": {
+        "startLine": 2398,
+        "startChar": 0,
+        "endLine": 2399,
+        "endChar": 80
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac854fe8_f7c4e9de",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2399,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-02-24T16:42:27Z",
+      "side": 1,
+      "message": "Looks like a pretty standard use to me:\nx \u003d\u003d y ? c1 : c2\n\nIf the output is not in the same register as the first input, then there will be an extra move (or two). However, I assume that Location::ArmEncodableConstantOrRegister() is used for both inputs.",
+      "parentUuid": "26f02ef8_6dacf9c3",
       "range": {
         "startLine": 2398,
         "startChar": 0,
