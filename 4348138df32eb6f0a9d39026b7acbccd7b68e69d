@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "576c861a_d3337e2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-24T01:34:08Z",
+      "side": 1,
+      "message": "Are they really that related? It sounds like the latter is something that should be \"reverted\" in your rehaul, while the former is a real fix?",
+      "parentUuid": "fd6f1f02_54793cfa",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "4348138df32eb6f0a9d39026b7acbccd7b68e69d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "431bf5a7_5ab37fd6",
         "filename": "dexlayout/dex_ir.cc",
         "patchSetId": 1
