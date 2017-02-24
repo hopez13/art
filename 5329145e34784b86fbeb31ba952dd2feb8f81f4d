@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9976c69d_97100c56",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-24T17:51:37Z",
+      "side": 1,
+      "message": "Can throw OOME.",
+      "range": {
+        "startLine": 153,
+        "startChar": 71,
+        "endLine": 153,
+        "endChar": 79
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecccb0b8_e7105966",
         "filename": "compiler/optimizing/intrinsics.cc",
         "patchSetId": 1
