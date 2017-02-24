@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "b4c4e30c_0f099ad5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1527,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-24T14:46:35Z",
+      "side": 1,
+      "message": "You\u0027re right, EQ/NE needs to stay as CMP+IT+CMP.",
+      "parentUuid": "b8686441_3ed77d92",
+      "range": {
+        "startLine": 1524,
+        "startChar": 0,
+        "endLine": 1527,
+        "endChar": 28
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26f02ef8_6dacf9c3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-24T14:46:35Z",
+      "side": 1,
+      "message": "Do we ever want both to be constants?",
+      "range": {
+        "startLine": 2398,
+        "startChar": 0,
+        "endLine": 2399,
+        "endChar": 80
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3d6a8d4_76399b95",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
