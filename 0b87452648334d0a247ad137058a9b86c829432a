@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c824af00_bf007839",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-24T23:28:19Z",
+      "side": 1,
+      "message": "Not really true, as there are Java parsers (perflib) that, e.g., ahat and preload-tool, use.\n\nHowever, it would make the test significantly more complex (or we need to depend on a prebuilt).",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "0b87452648334d0a247ad137058a9b86c829432a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
