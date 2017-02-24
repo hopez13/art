@@ -905,7 +905,17 @@ bool JavaVMExt::LoadNativeLibrary(JNIEnv* env,
       EnsureFrontOfChain(SIGSEGV);
     }
 
+    // Temporarily reset any pending exception around the call to
+    // SetClassLoaderOverride: SetClassLoaderOverride creates a new
+    // global reference, which is illegal while we have an
+    // exception pending.
+
+    jthrowable on_load_exception = env->ExceptionOccurred();
+    env->ExceptionClear();
     self->SetClassLoaderOverride(old_class_loader.get());
+    if (on_load_exception != nullptr) {
+      env->Throw(on_load_exception);
+    }
 
     if (version == JNI_ERR) {
       StringAppendF(error_msg, "JNI_ERR returned from JNI_OnLoad in \"%s\"", path.c_str());
