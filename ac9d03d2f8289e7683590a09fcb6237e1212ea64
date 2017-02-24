@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef6bfaa3_cd2fdbe4",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T17:38:34Z",
+      "side": 1,
+      "message": "Thanks. I also just realized you could have a TEST_RUN_TEST_BUILD\u003dtty if you wanted that original behavior.\n\n  --build-dependencies\u003dyes/no/tty\n\nis also quite reasonable. It\u0027s only the pristine default that I was concerned about (to not be tty).",
+      "revId": "ac9d03d2f8289e7683590a09fcb6237e1212ea64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
