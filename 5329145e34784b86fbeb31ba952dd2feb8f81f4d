@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "dcc4c552_64859125",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:45:27Z",
+      "side": 1,
+      "message": "perhaps because you are adding at the end it is not required, but don\u0027t we need this?",
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9976c69d_97100c56",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 1
@@ -65,6 +82,40 @@
         "endLine": 123,
         "endChar": 46
       },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ea5312_57d22e81",
+        "filename": "test/640-integer-valueof/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:45:27Z",
+      "side": 1,
+      "message": "how about calling foo with some array elements (in and out) in a loop, just to avoid inlining/folding etc.",
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9d8e3e0_619aee13",
+        "filename": "test/640-integer-valueof/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-24T23:45:27Z",
+      "side": 1,
+      "message": "white space",
       "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
