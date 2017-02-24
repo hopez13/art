@@ -70,6 +70,24 @@
       "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a17c499_9db03655",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-24T19:17:57Z",
+      "side": 1,
+      "message": "Well, that\u0027s unfortunate. \n\nI guess adding a comment on line 913 would be good enough\n\n   // Restore the current class loader (which was overridden above) to the previous state.",
+      "parentUuid": "ed969c2a_21fbe3f4",
+      "revId": "502d0222ef3e90a567abd80895ccd85c4a48a8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
