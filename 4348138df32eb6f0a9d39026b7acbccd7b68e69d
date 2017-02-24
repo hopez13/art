@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd6f1f02_54793cfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-24T01:27:29Z",
+      "side": 1,
+      "message": "This also fixes a dexlayout issue when multiple class defs reference the same class data. I maintain a set to know which class data has already been laid out. I\u0027ll update the commit message to make that more clear.",
+      "parentUuid": "27c2c970_c6940ab4",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "4348138df32eb6f0a9d39026b7acbccd7b68e69d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "431bf5a7_5ab37fd6",
         "filename": "dexlayout/dex_ir.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c4661e0c_17de39e4",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-24T01:27:29Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "431bf5a7_5ab37fd6",
+      "range": {
+        "startLine": 656,
+        "startChar": 25,
+        "endLine": 656,
+        "endChar": 26
+      },
+      "revId": "4348138df32eb6f0a9d39026b7acbccd7b68e69d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bea1bdff_bce8307f",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-24T00:53:59Z",
       "side": 1,
       "message": "Add a constant like kDexCodeItemAlignment?",
+      "range": {
+        "startLine": 1566,
+        "startChar": 23,
+        "endLine": 1566,
+        "endChar": 24
+      },
+      "revId": "4348138df32eb6f0a9d39026b7acbccd7b68e69d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff07e805_a76ab5e2",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-24T01:27:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bea1bdff_bce8307f",
       "range": {
         "startLine": 1566,
         "startChar": 23,
