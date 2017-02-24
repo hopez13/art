@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecccb0b8_e7105966",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-24T17:02:41Z",
+      "side": 1,
+      "message": "Shouldn\u0027t all these be LOG(FATAL)? Otherwise we\u0027ll miss potential changes in libcore and bitrot.",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 11
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3eba1f2_30eed6c2",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-24T17:02:41Z",
+      "side": 1,
+      "message": "I thought we were averse now, and would at least wrap it in an ObjPtr?",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 46
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
