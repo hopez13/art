@@ -752,22 +752,6 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
                FindSystemClass(self, "[Ljava/lang/StackTraceElement;"));
   mirror::StackTraceElement::SetClass(GetClassRoot(kJavaLangStackTraceElement));
 
-  // Ensure void type is resolved in the core's dex cache so java.lang.Void is correctly
-  // initialized.
-  {
-    const DexFile& dex_file = java_lang_Object->GetDexFile();
-    const DexFile::TypeId* void_type_id = dex_file.FindTypeId("V");
-    CHECK(void_type_id != nullptr);
-    dex::TypeIndex void_type_idx = dex_file.GetIndexForTypeId(*void_type_id);
-    // Now we resolve void type so the dex cache contains it. We use java.lang.Object class
-    // as referrer so the used dex cache is core's one.
-    ObjPtr<mirror::Class> resolved_type = ResolveType(dex_file,
-                                                      void_type_idx,
-                                                      java_lang_Object.Get());
-    CHECK_EQ(resolved_type, GetClassRoot(kPrimitiveVoid));
-    self->AssertNoPendingException();
-  }
-
   // Create conflict tables that depend on the class linker.
   runtime->FixupConflictTables();
 
