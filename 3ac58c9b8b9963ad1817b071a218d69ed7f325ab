@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d97c39ca_5ed26bad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-25T02:04:16Z",
+      "side": 1,
+      "message": "These should all be separate CLs. What does a layout change have to do with not accessing code items?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "3ac58c9b8b9963ad1817b071a218d69ed7f325ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1f618d5_de92dee3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-25T02:04:16Z",
+      "side": 1,
+      "message": "Delete, this is super stale (methods are not movable since they became native). You can also remove the handle scope, and just ask method-\u003eGetDeclaringClass.",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 41
+      },
+      "revId": "3ac58c9b8b9963ad1817b071a218d69ed7f325ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7bf1b00_d3949e87",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-25T02:04:16Z",
+      "side": 1,
+      "message": "Can you make this more complex, something like:\n\n if (kIsDebugBuild) {\n   if (method-\u003eGetCodeItem() \u003d\u003d nullptr) {\n     CHECK_EQ(0u, arg_offset);\n   } else {\n     CHECK_EQ(...)\n   }\n }",
+      "range": {
+        "startLine": 486,
+        "startChar": 2,
+        "endLine": 486,
+        "endChar": 55
+      },
+      "revId": "3ac58c9b8b9963ad1817b071a218d69ed7f325ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66c47517_b9092fa7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-25T02:04:16Z",
+      "side": 1,
+      "message": "This needs a comment.",
+      "range": {
+        "startLine": 923,
+        "startChar": 2,
+        "endLine": 925,
+        "endChar": 78
+      },
+      "revId": "3ac58c9b8b9963ad1817b071a218d69ed7f325ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
