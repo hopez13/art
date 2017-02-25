@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "672b7b34_3e6d6f31",
+        "filename": "runtime/gc/accounting/read_barrier_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-25T02:39:00Z",
+      "side": 1,
+      "message": "Header file circular dependency.",
+      "parentUuid": "02354d7d_dbf534f3",
+      "range": {
+        "startLine": 83,
+        "startChar": 26,
+        "endLine": 83,
+        "endChar": 37
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e24ed37_4d7eb0bf",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9e3f452d_93bb28de",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3541,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-25T02:39:00Z",
+      "side": 1,
+      "message": "kExtraHeapGrowthMultiplier was previously added to foreground_heap_growth_multiplier_ so no change here.\n\nIf you mean the background case, I think if we could, it\u0027d be better to avoid the 154-gc-loop failure situation without setting anything special just for the test. I could alternatively bump the min free by some amount  like 256k for the CC case so that the impact is only on a smaller heap size. Would that work?",
+      "parentUuid": "9e24ed37_4d7eb0bf",
+      "range": {
+        "startLine": 3541,
+        "startChar": 46,
+        "endLine": 3541,
+        "endChar": 72
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "205a0709_52af674e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-25T01:05:57Z",
       "side": 1,
       "message": "Delete?",
+      "range": {
+        "startLine": 3555,
+        "startChar": 2,
+        "endLine": 3556,
+        "endChar": 3
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18e3d74e_3676c880",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3556,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-25T02:39:00Z",
+      "side": 1,
+      "message": "Deleted in PS2.",
+      "parentUuid": "205a0709_52af674e",
       "range": {
         "startLine": 3555,
         "startChar": 2,
