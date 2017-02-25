@@ -27,6 +27,7 @@ public class Main {
 
     doStringTest();
     doPrimitiveArrayTest();
+    doPrimitiveFieldTest();
 
     // Test klass filter.
     System.out.println("--- klass ---");
@@ -108,6 +109,33 @@ public class Main {
     System.out.print(getTag(fArray));
     System.out.print(getTag(lArray));
     System.out.println(getTag(dArray));
+  }
+
+  public static void doPrimitiveFieldTest() throws Exception {
+    final Object floatObject = new Object() {
+      float f = 1.23f;
+      double d = 1.23;
+    };
+    Object intObject = new Object() {
+      byte b = (byte)1;
+      char c= 'a';
+      short s = (short)2;
+      int i = 3;
+      long l = 4;
+
+      Object o = floatObject;
+    };
+
+    setTag(intObject, 1);
+    setTag(floatObject, 2);
+
+    System.out.println(followReferencesPrimitiveFields(intObject));
+    System.out.println(getTag(intObject));
+    System.out.println(getTag(floatObject));
+
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
   }
 
   private static void run() {
@@ -494,4 +522,5 @@ public class Main {
       Object initialObject, int stopAfter, int followSet, Object jniRef);
   public static native String[] followReferencesString(Object initialObject);
   public static native String followReferencesPrimitiveArray(Object initialObject);
+  public static native String followReferencesPrimitiveFields(Object initialObject);
 }

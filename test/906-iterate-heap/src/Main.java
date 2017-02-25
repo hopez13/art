@@ -119,8 +119,62 @@ public class Main {
     setTag(dArray, 1);
     System.out.println(iterateThroughHeapPrimitiveArray(getTag(dArray)));
     System.out.println(getTag(dArray));
+
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
+
+    doTestPrimitiveFieldsIntegral();
+
+    // Force GCs to clean up dirt.
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().gc();
+
+    doTestPrimitiveFieldsFloat();
   }
 
+  private static void doTestPrimitiveFieldsIntegral() {
+    final Object floatObject = new Object() {
+      float f = 1.23f;
+      double d = 1.23;
+    };
+    Object intObject = new Object() {
+      byte b = (byte)1;
+      char c= 'a';
+      short s = (short)2;
+      int i = 3;
+      long l = 4;
+
+      Object o = floatObject;
+    };
+
+    setTag(intObject, 10000);
+
+    System.out.println(iterateThroughHeapPrimitiveFields(10000));
+    System.out.println(getTag(intObject));
+  }
+
+  private static void doTestPrimitiveFieldsFloat() {
+    final Object floatObject = new Object() {
+      float f = 1.23f;
+      double d = 1.23;
+    };
+    Object intObject = new Object() {
+      byte b = (byte)1;
+      char c= 'a';
+      short s = (short)2;
+      int i = 3;
+      long l = 4;
+
+      Object o = floatObject;
+    };
+
+    setTag(floatObject, 10000);
+
+    System.out.println(iterateThroughHeapPrimitiveFields(10000));
+    System.out.println(getTag(floatObject));
+
+  }
   static class A {
   }
 
@@ -188,4 +242,5 @@ public class Main {
       Class<?> klassFilter);
   private static native String iterateThroughHeapString(long tag);
   private static native String iterateThroughHeapPrimitiveArray(long tag);
+  private static native String iterateThroughHeapPrimitiveFields(long tag);
 }
