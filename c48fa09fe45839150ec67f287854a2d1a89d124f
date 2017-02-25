@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02354d7d_dbf534f3",
+        "filename": "runtime/gc/accounting/read_barrier_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-25T01:05:57Z",
+      "side": 1,
+      "message": "What is the reason we need two constants instead of just using the same one both places?",
+      "range": {
+        "startLine": 83,
+        "startChar": 26,
+        "endLine": 83,
+        "endChar": 37
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e24ed37_4d7eb0bf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3541,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-25T01:05:57Z",
+      "side": 1,
+      "message": "This seems like it will increase ram usage, can you just pass it down from run-test as a flag so that only the test gets the behavior?",
+      "range": {
+        "startLine": 3541,
+        "startChar": 46,
+        "endLine": 3541,
+        "endChar": 72
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "205a0709_52af674e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3556,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-25T01:05:57Z",
+      "side": 1,
+      "message": "Delete?",
+      "range": {
+        "startLine": 3555,
+        "startChar": 2,
+        "endLine": 3556,
+        "endChar": 3
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab5b00f4_15bfd14b",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-25T01:05:57Z",
+      "side": 1,
+      "message": "The other spaces use ContinuousSpace::end_ for this, maybe it would be more consistent to do the same thing instead of adding a new variable. But I\u0027m fine with the current CL.",
+      "range": {
+        "startLine": 559,
+        "startChar": 9,
+        "endLine": 559,
+        "endChar": 37
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
