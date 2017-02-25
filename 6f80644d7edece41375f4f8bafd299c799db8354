@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bd16bdf_3cf01331",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-25T00:11:27Z",
+      "side": 1,
+      "message": "Isn\u0027t this redundant? size_t is unsigned so this should be vacuously true.",
+      "revId": "6f80644d7edece41375f4f8bafd299c799db8354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
