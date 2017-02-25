@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "a43176ed_aa419538",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3541,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-25T03:26:58Z",
+      "side": 1,
+      "message": "Yeah, I also thought of weakening 154-gc-loop a bit because either way we\u0027d be assuming that by changing it for the test, we won\u0027t expect the 154-gc-loop-like situation in production.",
+      "parentUuid": "2da6e08e_038158be",
+      "range": {
+        "startLine": 3541,
+        "startChar": 46,
+        "endLine": 3541,
+        "endChar": 72
+      },
+      "revId": "c48fa09fe45839150ec67f287854a2d1a89d124f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "205a0709_52af674e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
