@@ -22,6 +22,30 @@
       "revId": "758623999f63cf439161bf26fe9b35a386541caa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02ec17b_e17e17cc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4450,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-02-27T18:52:21Z",
+      "side": 1,
+      "message": "I was trying to stay true to the spirit of the original code, which is to minimize computation.\n\nStringifying the signature is unnecessary since it just needs to match the 1-arg init method.\n\nIf you would prefer, I can replace it to FindDeclaredDirectMethod ?",
+      "parentUuid": "75d9a467_4fdbc5c7",
+      "range": {
+        "startLine": 4438,
+        "startChar": 4,
+        "endLine": 4450,
+        "endChar": 5
+      },
+      "revId": "758623999f63cf439161bf26fe9b35a386541caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
