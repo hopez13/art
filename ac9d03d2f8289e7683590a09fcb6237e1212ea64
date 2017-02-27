@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9d512e2d_a5527612",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T14:17:33Z",
+      "side": 1,
+      "message": "Is that common in python (capital being the negative)? If not, I\u0027d call this -no-b or drop the small (-B) option.",
+      "range": {
+        "startLine": 728,
+        "startChar": 24,
+        "endLine": 728,
+        "endChar": 25
+      },
+      "revId": "ac9d03d2f8289e7683590a09fcb6237e1212ea64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef6bfaa3_cd2fdbe4",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 3
@@ -13,6 +36,29 @@
       "writtenOn": "2017-02-24T17:38:34Z",
       "side": 1,
       "message": "Thanks. I also just realized you could have a TEST_RUN_TEST_BUILD\u003dtty if you wanted that original behavior.\n\n  --build-dependencies\u003dyes/no/tty\n\nis also quite reasonable. It\u0027s only the pristine default that I was concerned about (to not be tty).",
+      "revId": "ac9d03d2f8289e7683590a09fcb6237e1212ea64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3999707d_2eed1506",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T14:17:33Z",
+      "side": 1,
+      "message": "You don\u0027t need this change, it\u0027s still a yes/no answer.",
+      "range": {
+        "startLine": 814,
+        "startChar": 0,
+        "endLine": 817,
+        "endChar": 17
+      },
       "revId": "ac9d03d2f8289e7683590a09fcb6237e1212ea64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
