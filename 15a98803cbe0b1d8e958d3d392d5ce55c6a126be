@@ -98,6 +98,30 @@
       "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5d8c931_721abdfe",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-02-27T13:24:22Z",
+      "side": 1,
+      "message": "Looks like I may be seeing some measurable performance improvement on at least one benchmark.  I\u0027ll double-check and then revisit this CL as performance/cleanup.",
+      "parentUuid": "22724c1e_a4b234a3",
+      "range": {
+        "startLine": 677,
+        "startChar": 45,
+        "endLine": 677,
+        "endChar": 50
+      },
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
