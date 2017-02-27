@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "39bba09a_caef8589",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T13:12:42Z",
+      "side": 1,
+      "message": "Needs a comment.",
+      "range": {
+        "startLine": 759,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 35
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "142b9ad0_0e6f1e8b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -18,6 +41,52 @@
         "startChar": 0,
         "endLine": 4174,
         "endChar": 3
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd16dbae_af737875",
+        "filename": "test/157-void-class/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T13:12:42Z",
+      "side": 1,
+      "message": "Add a comment for why no-image and why verify-profile.",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 17,
+        "endChar": 29
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0abfde4_7e4a4e86",
+        "filename": "test/157-void-class/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T13:12:42Z",
+      "side": 1,
+      "message": "Add a comment why you need to clear.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 42
       },
       "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
