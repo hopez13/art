@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "938272e5_27522b75",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T12:44:16Z",
+      "side": 0,
+      "message": "Actually this one you still have to prevent in AOT mode. It is going to embed a raw ArtMethod in the compiled code, which you cannot always do in AOT.",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 50
+      },
+      "revId": "ad31562a1953e2d112894a48a1b87b5955110baa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
