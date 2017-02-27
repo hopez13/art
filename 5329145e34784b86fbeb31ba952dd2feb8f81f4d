@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4f0fc4fa_b8851b08",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "Yes, we need this (at least to re-generate the boot image and get this new intrinsic \"visible\").",
+      "parentUuid": "dcc4c552_64859125",
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9976c69d_97100c56",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-02-24T17:51:37Z",
       "side": 1,
       "message": "Can throw OOME.",
+      "range": {
+        "startLine": 153,
+        "startChar": 71,
+        "endLine": 153,
+        "endChar": 79
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64e1b25b_96b4f35d",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "Right. We should really call this kCannotVisiblyThrow (and do the same for HInstruction::CanThrow), as what this conveys is that it\u0027s ok to merge (kNoSideEffects) or remove (kCannotVisiblyThrow). I\u0027ll add a comment here and TODO to rename CanThrow.",
+      "parentUuid": "9976c69d_97100c56",
       "range": {
         "startLine": 153,
         "startChar": 71,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "ddd39cc8_574e5596",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "There\u0027s a LOG(ERROR) line 204. I\u0027ll add a checker test to avoid bitrot. FATAL seems a bit extreme if someone wants to play with j.l.Integer but doens\u0027t know the compiler. But no strong opinion really.",
+      "parentUuid": "ecccb0b8_e7105966",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 11
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3eba1f2_30eed6c2",
         "filename": "compiler/optimizing/intrinsics.h",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2017-02-24T17:02:41Z",
       "side": 1,
       "message": "I thought we were averse now, and would at least wrap it in an ObjPtr?",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 46
+      },
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d0ad784_5b9cbf2e",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "Well, I cannot make these ObjPtr, as they will be used in between suspension points.\n\nTo be extra-protective, I\u0027ve moved the boot image checks after FindSystemClass.",
+      "parentUuid": "e3eba1f2_30eed6c2",
       "range": {
         "startLine": 121,
         "startChar": 2,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "86ecb229_61a76687",
+        "filename": "test/640-integer-valueof/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "The static fields are not final, so the compiler does not fold them. I we do optimize this, we might as well optimize arrays too ;-)",
+      "parentUuid": "b7ea5312_57d22e81",
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d8e3e0_619aee13",
         "filename": "test/640-integer-valueof/src/Main.java",
         "patchSetId": 1
@@ -116,6 +224,24 @@
       "writtenOn": "2017-02-24T23:45:27Z",
       "side": 1,
       "message": "white space",
+      "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3266ec10_7364a99c",
+        "filename": "test/640-integer-valueof/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-27T09:41:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d8e3e0_619aee13",
       "revId": "5329145e34784b86fbeb31ba952dd2feb8f81f4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
