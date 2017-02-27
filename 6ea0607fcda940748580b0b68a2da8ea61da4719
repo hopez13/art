@@ -22,6 +22,30 @@
       "revId": "6ea0607fcda940748580b0b68a2da8ea61da4719",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b1fd117_64255c14",
+        "filename": "test/913-heaps/expected.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-27T16:39:51Z",
+      "side": 1,
+      "message": "No, that\u0027s just a change in the background. There\u0027s no fix here. I can\u0027t repro this locally, so need to \"debug\" on the build bots.",
+      "parentUuid": "96552804_9ef971c0",
+      "range": {
+        "startLine": 82,
+        "startChar": 6,
+        "endLine": 82,
+        "endChar": 8
+      },
+      "revId": "6ea0607fcda940748580b0b68a2da8ea61da4719",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
