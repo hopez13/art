@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59834d83_f16abe70",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T15:47:21Z",
+      "side": 1,
+      "message": "Removed in PS5 but see PS4 for explanation.",
+      "parentUuid": "dae91bd9_0cc0fd81",
+      "range": {
+        "startLine": 755,
+        "startChar": 22,
+        "endLine": 755,
+        "endChar": 26
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39bba09a_caef8589",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-27T13:12:42Z",
       "side": 1,
       "message": "Needs a comment.",
+      "range": {
+        "startLine": 759,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 35
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c99db50_73e54f32",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T15:47:21Z",
+      "side": 1,
+      "message": "Done in PS4, removed in PS5.",
+      "parentUuid": "39bba09a_caef8589",
       "range": {
         "startLine": 759,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "244d2ca7_e43a0f39",
+        "filename": "test/157-void-class/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T15:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd16dbae_af737875",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 17,
+        "endChar": 29
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0abfde4_7e4a4e86",
         "filename": "test/157-void-class/src/Main.java",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2017-02-27T13:12:42Z",
       "side": 1,
       "message": "Add a comment why you need to clear.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc78e75b_e5f5e71e",
+        "filename": "test/157-void-class/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T15:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0abfde4_7e4a4e86",
       "range": {
         "startLine": 36,
         "startChar": 8,
