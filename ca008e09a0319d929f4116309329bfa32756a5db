@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c4d831d0_57752e97",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4174,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-27T16:20:59Z",
+      "side": 1,
+      "message": "Sounds reasonable with these changes.",
+      "parentUuid": "142b9ad0_0e6f1e8b",
+      "range": {
+        "startLine": 4163,
+        "startChar": 0,
+        "endLine": 4174,
+        "endChar": 3
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd16dbae_af737875",
         "filename": "test/157-void-class/run",
         "patchSetId": 2
