@@ -68,6 +68,30 @@
       "revId": "960d5ec97e4309fdbac8a6b680f7119a4907da4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "897de7dc_e8a6e366",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-27T22:40:34Z",
+      "side": 1,
+      "message": "Why not mov r0, r12 in line 1492 and pass the actual ArtMethod? Is it null that often (and would thus trigger a slow path - the use of GetDexCacheResolvedMethod would say \"no\")?",
+      "parentUuid": "43a04758_580e3296",
+      "range": {
+        "startLine": 1469,
+        "startChar": 0,
+        "endLine": 1469,
+        "endChar": 35
+      },
+      "revId": "960d5ec97e4309fdbac8a6b680f7119a4907da4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
