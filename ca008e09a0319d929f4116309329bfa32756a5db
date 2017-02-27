@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "dae91bd9_0cc0fd81",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2017-02-27T13:43:03Z",
+      "side": 1,
+      "message": "Why is Void special, but Integer.TYPE and similar ones like it are not? I think I know but it might be worth a word on that too.",
+      "range": {
+        "startLine": 755,
+        "startChar": 22,
+        "endLine": 755,
+        "endChar": 26
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39bba09a_caef8589",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
