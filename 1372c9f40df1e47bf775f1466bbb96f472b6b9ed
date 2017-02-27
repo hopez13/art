@@ -70,6 +70,30 @@
       "revId": "1372c9f40df1e47bf775f1466bbb96f472b6b9ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "deb7b24e_2be40474",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-02-27T18:23:52Z",
+      "side": 1,
+      "message": "I see; thanks for the explanation.  Maybe we can rename it as \"compiler mark bit\"?",
+      "parentUuid": "03afb146_eebaaca4",
+      "range": {
+        "startLine": 61,
+        "startChar": 26,
+        "endLine": 61,
+        "endChar": 30
+      },
+      "revId": "1372c9f40df1e47bf775f1466bbb96f472b6b9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
