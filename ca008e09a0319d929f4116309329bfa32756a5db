@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "142b9ad0_0e6f1e8b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T13:07:42Z",
+      "side": 1,
+      "message": "Andreas, should we also remove this, fully reverting https://android-review.googlesource.com/118941 ?",
+      "range": {
+        "startLine": 4163,
+        "startChar": 0,
+        "endLine": 4174,
+        "endChar": 3
+      },
+      "revId": "ca008e09a0319d929f4116309329bfa32756a5db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
