@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf006026_9be1082d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2017-02-27T14:46:40Z",
+      "side": 1,
+      "message": "Presumably the DexCache will become a footnote in history and engineers working on ART in the future may not know what it was so I think this last part should be dropped / be replaced.\n\ni.e. I think it\u0027s reasonable to talk about why \"void.class\" is special. It\u0027s may also be reasonable to talk about why the RI approach of using reflection of \"return type of Runnable.run()\" doesn\u0027t work well on ART, but I don\u0027t think we need to talk about the intermediate state. Is there a way of explaining this without mentioning DexCache and just explain why we (after this change) do what we do?",
+      "range": {
+        "startLine": 759,
+        "startChar": 64,
+        "endLine": 761,
+        "endChar": 91
+      },
+      "revId": "fc1cd6322c1b73d820a00448b2a7640d6aaa5d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
