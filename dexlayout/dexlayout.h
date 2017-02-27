@@ -25,6 +25,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <unordered_set>
 
 #include "dex_ir.h"
 #include "mem_map.h"
@@ -106,7 +107,11 @@ class DexLayout {
   void DumpDexFile();
 
   std::vector<dex_ir::ClassData*> LayoutClassDefsAndClassData(const DexFile* dex_file);
-  int32_t LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_data_order);
+  int32_t LayoutCodeItems(std::vector<dex_ir::ClassData*>& new_class_data_order);
+  int32_t VisitCodeItems(std::vector<dex_ir::ClassData*>& new_class_data_order,
+                         std::unordered_set<dex_ir::CodeItem*>& visited_code_items,
+                         /*out*/uint32_t& offset,
+                         bool include_clinit);
   bool IsNextSectionCodeItemAligned(uint32_t offset);
   template<class T> void FixupSection(std::map<uint32_t, std::unique_ptr<T>>& map, uint32_t diff);
   void FixupSections(uint32_t offset, uint32_t diff);
