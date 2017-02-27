@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "8864bf43_b083f1ef",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T15:42:42Z",
+      "side": 1,
+      "message": "The worrying thing would be the inconsistency between interpreter and JIT.",
+      "parentUuid": "a072dc62_e35f9ef9",
+      "range": {
+        "startLine": 2679,
+        "startChar": 0,
+        "endLine": 2680,
+        "endChar": 26
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd69e1a9_d28342e0",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 3
