@@ -459,8 +459,8 @@ ALWAYS_INLINE void CopyRegisters(ShadowFrame& caller_frame,
 
 void ArtInterpreterToCompiledCodeBridge(Thread* self,
                                         ArtMethod* caller,
-                                        const DexFile::CodeItem* code_item,
                                         ShadowFrame* shadow_frame,
+                                        uint16_t arg_offset,
                                         JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ArtMethod* method = shadow_frame->GetMethod();
@@ -471,21 +471,28 @@ void ArtInterpreterToCompiledCodeBridge(Thread* self,
       self->PushShadowFrame(shadow_frame);
       StackHandleScope<1> hs(self);
       Handle<mirror::Class> h_class(hs.NewHandle(declaringClass));
-      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitialized(self, h_class, true,
-                                                                            true))) {
+      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitialized(
+          self, h_class, true, true))) {
         self->PopShadowFrame();
         DCHECK(self->IsExceptionPending());
         return;
       }
       self->PopShadowFrame();
       CHECK(h_class->IsInitializing());
-      // Reload from shadow frame in case the method moved, this is faster than adding a handle.
-      method = shadow_frame->GetMethod();
     }
   }
-  uint16_t arg_offset = (code_item == nullptr)
-                            ? 0
-                            : code_item->registers_size_ - code_item->ins_size_;
+  if (kIsDebugBuild) {
+      const DexFile::CodeItem* code_item = method->GetCodeItem();
+      bool use_compiler_entrypoint = Runtime::Current()->IsStarted() &&
+          !ClassLinker::ShouldUseInterpreterEntrypoint(
+              method, method->GetEntryPointFromQuickCompiledCode());
+    if (code_item == nullptr || use_compiler_entrypoint) {
+      CHECK_EQ(0u, arg_offset);
+    } else {
+      CHECK_EQ(code_item->registers_size_ - code_item->ins_size_, arg_offset);
+    }
+  }
+  DCHECK_LE(arg_offset, shadow_frame->NumberOfVRegs());
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr && caller != nullptr) {
     jit->NotifyInterpreterToCompiledCodeTransition(self, caller);
@@ -922,12 +929,19 @@ static inline bool DoCallCommon(ArtMethod* called_method,
 
   // Number of registers for the callee's call frame.
   uint16_t num_regs;
-  if (LIKELY(code_item != nullptr)) {
+  // When transitioning to compiled code, the frame will only contain input registers.
+  // We can avoid accessing the code item in that case.
+  bool use_compiler_entrypoint = Runtime::Current()->IsStarted() &&
+      !ClassLinker::ShouldUseInterpreterEntrypoint(
+          called_method, called_method->GetEntryPointFromQuickCompiledCode());
+  if (LIKELY(code_item != nullptr && !use_compiler_entrypoint)) {
     num_regs = code_item->registers_size_;
-    DCHECK_EQ(string_init ? number_of_inputs - 1 : number_of_inputs, code_item->ins_size_);
   } else {
-    DCHECK(called_method->IsNative() || called_method->IsProxyMethod());
+    DCHECK(called_method->IsNative() || called_method->IsProxyMethod() || use_compiler_entrypoint);
     num_regs = number_of_inputs;
+  }
+  if (LIKELY(code_item != nullptr)) {
+    DCHECK_EQ(string_init ? number_of_inputs - 1 : number_of_inputs, code_item->ins_size_);
   }
 
   // Hack for String init:
