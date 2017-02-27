@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27ccf286_e80a8bed",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "We could make it a slow-path call.",
+      "range": {
+        "startLine": 210,
+        "startChar": 31,
+        "endLine": 210,
+        "endChar": 46
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7245e72f_4c9b0969",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "Why not return by value?",
+      "range": {
+        "startLine": 140,
+        "startChar": 40,
+        "endLine": 140,
+        "endChar": 74
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4d52ac4_8458e54e",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "This could change reference equality. (Though relying on reference equality of Integer.valueOf() is already very questionable anyway.)",
+      "range": {
+        "startLine": 2679,
+        "startChar": 0,
+        "endLine": 2680,
+        "endChar": 26
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd69e1a9_d28342e0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2688,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "`value`",
+      "range": {
+        "startLine": 2688,
+        "startChar": 9,
+        "endLine": 2688,
+        "endChar": 16
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee8c2116_c65bf025",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "CmpConstant()",
+      "range": {
+        "startLine": 2696,
+        "startChar": 0,
+        "endLine": 2697,
+        "endChar": 36
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aa4dcc3_d58d45f1",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2713,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "`value`",
+      "range": {
+        "startLine": 2713,
+        "startChar": 7,
+        "endLine": 2713,
+        "endChar": 14
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9616608_c67e5f27",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T14:50:39Z",
+      "side": 1,
+      "message": "Just Cmp(), vixl shall materialize the constant if needed. (And there is one more core register available in `temps`.)",
+      "range": {
+        "startLine": 2977,
+        "startChar": 0,
+        "endLine": 2978,
+        "endChar": 30
+      },
+      "revId": "e2b1b05ddc0879298e57c27a700fd95a29556467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
