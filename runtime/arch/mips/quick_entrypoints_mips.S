@@ -1732,20 +1732,20 @@ END art_quick_proxy_invoke_handler
      * a0 is the conflict ArtMethod.
      * t7 is a hidden argument that holds the target interface method's dex method index.
      *
-     * Note that this stub writes to a0, t7 and t8.
+     * Note that this stub writes to a0, t6, t7, and t8.
      */
 ENTRY art_quick_imt_conflict_trampoline
     lw      $t8, 0($sp)                                      # Load referrer.
     lw      $t8, ART_METHOD_DEX_CACHE_METHODS_OFFSET_32($t8) # Load dex cache methods array.
-    sll     $t7, $t7, POINTER_SIZE_SHIFT                     # Calculate offset.
-    addu    $t7, $t8, $t7                                    # Add offset to base.
-    lw      $t7, 0($t7)                                      # Load interface method.
+    sll     $t6, $t7, POINTER_SIZE_SHIFT                     # Calculate offset.
+    addu    $t6, $t8, $t6                                    # Add offset to base.
+    lw      $t6, 0($t6)                                      # Load interface method.
     lw      $a0, ART_METHOD_JNI_OFFSET_32($a0)               # Load ImtConflictTable.
 
 .Limt_table_iterate:
     lw      $t8, 0($a0)                                      # Load next entry in ImtConflictTable.
     # Branch if found.
-    beq     $t8, $t7, .Limt_table_found
+    beq     $t8, $t6, .Limt_table_found
     nop
     # If the entry is null, the interface method is not in the ImtConflictTable.
     beqz    $t8, .Lconflict_trampoline
@@ -1763,6 +1763,7 @@ ENTRY art_quick_imt_conflict_trampoline
 
 .Lconflict_trampoline:
     # Call the runtime stub to populate the ImtConflictTable and jump to the resolved method.
+    move    $a0, $t7                                         # Load method_idx
     INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
 END art_quick_imt_conflict_trampoline
 
