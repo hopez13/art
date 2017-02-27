@@ -94,6 +94,30 @@
       "revId": "06f658ab309a5f1930b8a6bc306ef79d0ef0616e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c920c7f4_ad2a859e",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-27T16:39:06Z",
+      "side": 0,
+      "message": "Because the new \"run\" script seems to go straight to run-test-jar rather than run-test, so I need to process the --no-image argument there. (I\u0027ve tried both \"exec ${RUN}\" and \"./default-run\".)",
+      "parentUuid": "9a2ed79d_33eefd60",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 68
+      },
+      "revId": "06f658ab309a5f1930b8a6bc306ef79d0ef0616e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
