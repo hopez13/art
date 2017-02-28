@@ -1732,7 +1732,7 @@ END art_quick_proxy_invoke_handler
      * a0 is the conflict ArtMethod.
      * t7 is a hidden argument that holds the target interface method's dex method index.
      *
-     * Note that this stub writes to a0, t7 and t8.
+     * Note that this stub writes to a0, t7, and t8.
      */
 ENTRY art_quick_imt_conflict_trampoline
     lw      $t8, 0($sp)                                      # Load referrer.
@@ -1763,6 +1763,7 @@ ENTRY art_quick_imt_conflict_trampoline
 
 .Lconflict_trampoline:
     # Call the runtime stub to populate the ImtConflictTable and jump to the resolved method.
+    move    $a0, $t7                                         # Load interface method.
     INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
 END art_quick_imt_conflict_trampoline
 
