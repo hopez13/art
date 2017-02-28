@@ -22,6 +22,30 @@
       "revId": "cab7ca4626e5db8b8f079a4bdde46967b097a8a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52c0dc73_2bf7b53b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-28T16:27:28Z",
+      "side": 1,
+      "message": "My goal with this CL was to refactor the code without changing its current behavior. The current behavior relies on the currently loaded image to determine the image location, regardless of the isa. I can add a comment to that effect.\n\nDo you know if we have any documentation for how multi-image works? From reading the code, it looks to me like the only way we can know if the boot image is multi-image and get the locations for the secondary image spaces is by reading the value for the kBootClassPathKey from the first image space\u0027s oat file.\n\nAlternatively, maybe it\u0027s better to store the combined image checksum in the image header for the first image location?",
+      "parentUuid": "f416c9b4_85ab3fee",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 738,
+        "endChar": 3
+      },
+      "revId": "cab7ca4626e5db8b8f079a4bdde46967b097a8a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
