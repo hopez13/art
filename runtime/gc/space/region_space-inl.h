@@ -233,10 +233,12 @@ void RegionSpace::WalkInternal(ObjectCallback* callback, void* arg) {
       continue;
     }
     if (r->IsLarge()) {
+      // Avoid visiting dead large objects since they may contain dangling pointers to the
+      // from-space.
+      DCHECK_GT(r->LiveBytes(), 0u) << "Visiting dead large object";
       mirror::Object* obj = reinterpret_cast<mirror::Object*>(r->Begin());
-      if (obj->GetClass() != nullptr) {
-        callback(obj, arg);
-      }
+      DCHECK(obj->GetClass() != nullptr);
+      callback(obj, arg);
     } else if (r->IsLargeTail()) {
       // Do nothing.
     } else {

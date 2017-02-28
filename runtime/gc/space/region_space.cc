@@ -248,6 +248,23 @@ void RegionSpace::ClearFromSpace() {
       r->Clear();
       --num_non_free_regions_;
     } else if (r->IsInUnevacFromSpace()) {
+      if (r->LiveBytes() == 0) {
+        // Special case for 0 live bytes, this means we can clear the whole region. This is
+        // important for large objects since we must not visit free ones in RegionSpace::Walk
+        // because they may contain dangling references to invalid objects.
+        size_t free_regions = 1;
+        // Also release RAM for large tails.
+        while (i + free_regions < num_regions_ && regions_[i + free_regions].IsLargeTail()) {
+          DCHECK(r->IsLarge());
+          regions_[i + free_regions].Clear();
+          ++free_regions;
+        }
+        r->Clear();
+        GetLiveBitmap()->ClearRange(
+            reinterpret_cast<mirror::Object*>(r->Begin()),
+            reinterpret_cast<mirror::Object*>(r->Begin() + free_regions * kRegionSize));
+        continue;
+      }
       size_t full_count = 0;
       while (r->IsInUnevacFromSpace()) {
         Region* const cur = &regions_[i + full_count];
