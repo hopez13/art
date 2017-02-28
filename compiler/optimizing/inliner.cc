@@ -872,11 +872,14 @@ bool HInliner::TryInlineAndReplace(HInvoke* invoke_instruction,
   HInstruction* cursor = invoke_instruction->GetPrevious();
   HBasicBlock* bb_cursor = invoke_instruction->GetBlock();
   if (!TryBuildAndInline(invoke_instruction, method, receiver_type, &return_replacement)) {
-    if (invoke_instruction->IsInvokeInterface()) {
+    if (invoke_instruction->IsInvokeInterface() &&
+        (method->IsCopied() || !method->IsDefault())) {
       // Turn an invoke-interface into an invoke-virtual. An invoke-virtual is always
       // better than an invoke-interface because:
       // 1) In the best case, the interface call has one more indirection (to fetch the IMT).
       // 2) We will not go to the conflict trampoline with an invoke-virtual.
+      // This cannot be done on the original default method since it's not in
+      // any vtable.
       // TODO: Consider sharpening once it is not dependent on the compiler driver.
       const DexFile& caller_dex_file = *caller_compilation_unit_.GetDexFile();
       uint32_t dex_method_index = FindMethodIndexIn(
