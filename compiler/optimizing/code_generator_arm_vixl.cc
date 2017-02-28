@@ -7074,6 +7074,29 @@ void InstructionCodeGeneratorARMVIXL::VisitMonitorOperation(HMonitorOperation* i
 
 void LocationsBuilderARMVIXL::VisitAnd(HAnd* instruction) {
   HandleBitwiseOperation(instruction, AND);
+
+  LocationSummary* const locations = instruction->GetLocations();
+  HInstruction* const right = instruction->InputAt(1);
+
+  if (right->IsConstant() && !locations->InAt(1).IsConstant()) {
+    const Primitive::Type type = instruction->GetType();
+
+    if (type == Primitive::kPrimLong) {
+      const uint64_t value = Uint64ConstantFrom(right);
+
+      if (IsPowerOfTwo(High32Bits(value) + 1) && IsPowerOfTwo(Low32Bits(value) + 1)) {
+        locations->SetInAt(1, Location::ConstantLocation(right->AsConstant()));
+      }
+    } else {
+      DCHECK(Primitive::IsIntegralType(type)) << type;
+
+      const uint32_t value = Int32ConstantFrom(right);
+
+      if (IsPowerOfTwo(value + 1)) {
+        locations->SetInAt(1, Location::ConstantLocation(right->AsConstant()));
+      }
+    }
+  }
 }
 
 void LocationsBuilderARMVIXL::VisitOr(HOr* instruction) {
@@ -7241,10 +7264,12 @@ void InstructionCodeGeneratorARMVIXL::GenerateAndConst(vixl32::Register out,
     return;
   }
   if (GetAssembler()->ShifterOperandCanHold(AND, value)) {
-  __ And(out, first, value);
+    __ And(out, first, value);
+  } else if (GetAssembler()->ShifterOperandCanHold(BIC, ~value)) {
+    __ Bic(out, first, ~value);
   } else {
-    DCHECK(GetAssembler()->ShifterOperandCanHold(BIC, ~value));
-  __ Bic(out, first, ~value);
+    DCHECK(IsPowerOfTwo(value + 1));
+    __ Ubfx(out, first, 0, WhichPowerOf2(value + 1));
   }
 }
 

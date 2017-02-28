@@ -6992,7 +6992,33 @@ void InstructionCodeGeneratorARM::VisitMonitorOperation(HMonitorOperation* instr
   }
 }
 
-void LocationsBuilderARM::VisitAnd(HAnd* instruction) { HandleBitwiseOperation(instruction, AND); }
+void LocationsBuilderARM::VisitAnd(HAnd* instruction) {
+  HandleBitwiseOperation(instruction, AND);
+
+  LocationSummary* const locations = instruction->GetLocations();
+
+  if (instruction->InputAt(1)->IsConstant() && !locations->InAt(1).IsConstant()) {
+    const Primitive::Type type = instruction->GetType();
+    HConstant* const right = instruction->InputAt(1)->AsConstant();
+
+    if (type == Primitive::kPrimLong) {
+      const uint64_t value = helpers::Uint64ConstantFrom(right);
+
+      if (IsPowerOfTwo(High32Bits(value) + 1) && IsPowerOfTwo(Low32Bits(value) + 1)) {
+        locations->SetInAt(1, Location::ConstantLocation(right));
+      }
+    } else {
+      DCHECK(Primitive::IsIntegralType(type)) << type;
+
+      const uint32_t value = CodeGenerator::GetInt32ValueOf(right);
+
+      if (IsPowerOfTwo(value + 1)) {
+        locations->SetInAt(1, Location::ConstantLocation(right));
+      }
+    }
+  }
+}
+
 void LocationsBuilderARM::VisitOr(HOr* instruction) { HandleBitwiseOperation(instruction, ORR); }
 void LocationsBuilderARM::VisitXor(HXor* instruction) { HandleBitwiseOperation(instruction, EOR); }
 
@@ -7156,9 +7182,11 @@ void InstructionCodeGeneratorARM::GenerateAndConst(Register out, Register first,
   ShifterOperand so;
   if (__ ShifterOperandCanHold(kNoRegister, kNoRegister, AND, value, &so)) {
     __ and_(out, first, so);
-  } else {
-    DCHECK(__ ShifterOperandCanHold(kNoRegister, kNoRegister, BIC, ~value, &so));
+  } else if (__ ShifterOperandCanHold(kNoRegister, kNoRegister, BIC, ~value, &so)) {
     __ bic(out, first, ShifterOperand(~value));
+  } else {
+    DCHECK(IsPowerOfTwo(value + 1));
+    __ ubfx(out, first, 0, WhichPowerOf2(value + 1));
   }
 }
 
