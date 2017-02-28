@@ -1466,6 +1466,7 @@ END art_quick_proxy_invoke_handler
      */
 ENTRY art_quick_imt_conflict_trampoline
     ldr r4, [sp, #0]  // Load referrer
+    push {r12}  // Store method_idx
     ldr r4, [r4, #ART_METHOD_DEX_CACHE_METHODS_OFFSET_32]   // Load dex cache methods array
     ldr r12, [r4, r12, lsl #POINTER_SIZE_SHIFT]  // Load interface method
     ldr r0, [r0, #ART_METHOD_JNI_OFFSET_32]  // Load ImtConflictTable
@@ -1482,11 +1483,13 @@ ENTRY art_quick_imt_conflict_trampoline
 .Limt_table_found:
     // We successfully hit an entry in the table. Load the target method
     // and jump to it.
+    add sp, sp, #4  // Restore stack
     ldr r0, [r0, #__SIZEOF_POINTER__]
     ldr pc, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]
 .Lconflict_trampoline:
     // Call the runtime stub to populate the ImtConflictTable and jump to the
     // resolved method.
+    pop {r0}  // Load method_idx
     INVOKE_TRAMPOLINE_BODY artInvokeInterfaceTrampoline
 END art_quick_imt_conflict_trampoline
 
