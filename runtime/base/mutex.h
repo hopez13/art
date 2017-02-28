@@ -583,6 +583,10 @@ class Locks {
   // Checks for whether it is safe to call Abort() without using locks.
   static bool IsSafeToCallAbortRacy() NO_THREAD_SAFETY_ANALYSIS;
 
+  // Add a mutex to expected_mutexes_on_weak_ref_access_.
+  static void AddToExpectedMutexesOnWeakRefAccess(BaseMutex* mutex, bool need_lock = true);
+  // Check if the given mutex is in expected_mutexes_on_weak_ref_access_.
+  static bool IsExpectedOnWeakRefAccess(BaseMutex* mutex);
 
   // Guards allocation entrypoint instrumenting.
   static Mutex* instrument_entrypoints_lock_;
