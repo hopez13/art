@@ -37,8 +37,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM: int Main.and511(int) disassembly (after)
-  /// CHECK:                mov {{r\d+}}, #511
-  /// CHECK:                and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
+  /// CHECK:                ubfx {{r\d+}}, {{r\d+}}, #0, #9
 
   public static int and511(int arg) {
     return arg & 511;
@@ -114,12 +113,8 @@ public class Main {
   }
 
   /// CHECK-START-ARM: long Main.and511(long) disassembly (after)
-  /// CHECK:                mov {{r\d+}}, #511
+  /// CHECK:                ubfx {{r\d+}}, {{r\d+}}, #0, #9
   /// CHECK-NEXT:           mov{{s?}} {{r\d+}}, #0
-  /// CHECK-NOT:            and{{(\.w)?}}
-  /// CHECK-NOT:            bic{{(\.w)?}}
-  /// CHECK:                and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
-  /// CHECK-NEXT:           and{{(\.w)?}} {{r\d+}}, {{r\d+}}, {{r\d+}}
   /// CHECK-NOT:            and{{(\.w)?}}
   /// CHECK-NOT:            bic{{(\.w)?}}
 
