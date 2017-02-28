@@ -46,7 +46,6 @@ Mutex* Locks::deoptimization_lock_ = nullptr;
 ReaderWriterMutex* Locks::heap_bitmap_lock_ = nullptr;
 Mutex* Locks::instrument_entrypoints_lock_ = nullptr;
 Mutex* Locks::intern_table_lock_ = nullptr;
-Mutex* Locks::jdwp_event_list_lock_ = nullptr;
 Mutex* Locks::jni_function_table_lock_ = nullptr;
 Mutex* Locks::jni_libraries_lock_ = nullptr;
 Mutex* Locks::logging_lock_ = nullptr;
@@ -999,7 +998,6 @@ void Locks::Init() {
     DCHECK(verifier_deps_lock_ != nullptr);
     DCHECK(host_dlopen_handles_lock_ != nullptr);
     DCHECK(intern_table_lock_ != nullptr);
-    DCHECK(jdwp_event_list_lock_ != nullptr);
     DCHECK(jni_function_table_lock_ != nullptr);
     DCHECK(jni_libraries_lock_ != nullptr);
     DCHECK(logging_lock_ != nullptr);
@@ -1041,10 +1039,6 @@ void Locks::Init() {
     UPDATE_CURRENT_LOCK_LEVEL(kRuntimeShutdownLock);
     DCHECK(runtime_shutdown_lock_ == nullptr);
     runtime_shutdown_lock_ = new Mutex("runtime shutdown lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kJdwpEventListLock);
-    DCHECK(jdwp_event_list_lock_ == nullptr);
-    jdwp_event_list_lock_ = new Mutex("JDWP event list lock", current_lock_level);
 
     UPDATE_CURRENT_LOCK_LEVEL(kProfilerLock);
     DCHECK(profiler_lock_ == nullptr);
@@ -1169,14 +1163,9 @@ void Locks::Init() {
     #undef UPDATE_CURRENT_LOCK_LEVEL
 
     // List of mutexes that we may hold when accessing a weak ref.
-    dex_lock_->SetShouldRespondToEmptyCheckpointRequest(true);
-    expected_mutexes_on_weak_ref_access_.push_back(dex_lock_);
-    classlinker_classes_lock_->SetShouldRespondToEmptyCheckpointRequest(true);
-    expected_mutexes_on_weak_ref_access_.push_back(classlinker_classes_lock_);
-    jdwp_event_list_lock_->SetShouldRespondToEmptyCheckpointRequest(true);
-    expected_mutexes_on_weak_ref_access_.push_back(jdwp_event_list_lock_);
-    jni_libraries_lock_->SetShouldRespondToEmptyCheckpointRequest(true);
-    expected_mutexes_on_weak_ref_access_.push_back(jni_libraries_lock_);
+    AddToExpectedMutexesOnWeakRefAccess(dex_lock_, /*need_lock*/ false);
+    AddToExpectedMutexesOnWeakRefAccess(classlinker_classes_lock_, /*need_lock*/ false);
+    AddToExpectedMutexesOnWeakRefAccess(jni_libraries_lock_, /*need_lock*/ false);
 
     InitConditions();
   }
@@ -1194,6 +1183,23 @@ void Locks::SetClientCallback(ClientCallback* safe_to_call_abort_cb) {
 bool Locks::IsSafeToCallAbortRacy() {
   Locks::ClientCallback* safe_to_call_abort_cb = safe_to_call_abort_callback.LoadAcquire();
   return safe_to_call_abort_cb != nullptr && safe_to_call_abort_cb();
+}
+
+void Locks::AddToExpectedMutexesOnWeakRefAccess(BaseMutex* mutex, bool need_lock) {
+  if (need_lock) {
+    ScopedAllMutexesLock mu(mutex);
+    mutex->SetShouldRespondToEmptyCheckpointRequest(true);
+    expected_mutexes_on_weak_ref_access_.push_back(mutex);
+  } else {
+    mutex->SetShouldRespondToEmptyCheckpointRequest(true);
+    expected_mutexes_on_weak_ref_access_.push_back(mutex);
+  }
+}
+
+bool Locks::IsExpectedOnWeakRefAccess(BaseMutex* mutex) {
+  ScopedAllMutexesLock mu(mutex);
+  std::vector<BaseMutex*>& list = expected_mutexes_on_weak_ref_access_;
+  return std::find(list.begin(), list.end(), mutex) != list.end();
 }
 
 }  // namespace art
