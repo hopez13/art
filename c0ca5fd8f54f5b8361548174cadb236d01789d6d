@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d0f038f_c48eabb9",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-02-28T16:10:01Z",
+      "side": 0,
+      "message": "Is this needed for running 32-bit executables on a MIPS64 system?",
+      "range": {
+        "startLine": 2051,
+        "startChar": 32,
+        "endLine": 2051,
+        "endChar": 64
+      },
+      "revId": "c0ca5fd8f54f5b8361548174cadb236d01789d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
