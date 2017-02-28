@@ -22,6 +22,30 @@
       "revId": "1ceeecfba255bb09f131a5b5b55cbe6da424e9c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94875594_9715e3f0",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-28T18:55:23Z",
+      "side": 1,
+      "message": "Actually yes, but can I delete in the followup.",
+      "parentUuid": "f57a1f81_4a761475",
+      "range": {
+        "startLine": 239,
+        "startChar": 8,
+        "endLine": 239,
+        "endChar": 70
+      },
+      "revId": "1ceeecfba255bb09f131a5b5b55cbe6da424e9c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
