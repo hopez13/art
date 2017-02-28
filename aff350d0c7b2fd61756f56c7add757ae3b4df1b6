@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b855baeb_a65411d0",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1549,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-28T01:10:12Z",
+      "side": 1,
+      "message": "I feel like it would be cleaner to have a way to use std::sort with a comparator to do this, is that possible?",
+      "range": {
+        "startLine": 1549,
+        "startChar": 17,
+        "endLine": 1549,
+        "endChar": 31
+      },
+      "revId": "aff350d0c7b2fd61756f56c7add757ae3b4df1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
