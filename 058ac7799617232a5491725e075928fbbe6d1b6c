@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "218259b3_56e73b59",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-28T17:47:28Z",
+      "side": 1,
+      "message": "indentation is off? it should be 4 spaces (same for methods below)",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 6
+      },
+      "revId": "058ac7799617232a5491725e075928fbbe6d1b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0106b3c6_af3808bc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-02-28T17:47:28Z",
+      "side": 1,
+      "message": "Replace with REQUIRES_SHARED",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 44
+      },
+      "revId": "058ac7799617232a5491725e075928fbbe6d1b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
