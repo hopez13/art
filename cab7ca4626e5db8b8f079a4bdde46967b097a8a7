@@ -46,6 +46,30 @@
       "revId": "cab7ca4626e5db8b8f079a4bdde46967b097a8a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9907547d_35dd3947",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-28T17:30:37Z",
+      "side": 1,
+      "message": "Comment is fine with me. I just think the limitation of the current approach should be documented.\n\njeffhao can talk to multi image. Yes, right now it is recovered from the boot classpath stored in the first oat file. I can\u0027t talk towards the checksum, I don\u0027t remember enough. But I\u0027ll +2 this, as a follow-up CL can clean this up.",
+      "parentUuid": "52c0dc73_2bf7b53b",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 738,
+        "endChar": 3
+      },
+      "revId": "cab7ca4626e5db8b8f079a4bdde46967b097a8a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
