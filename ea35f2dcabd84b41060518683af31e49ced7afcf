@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea31ffc_ccb23165",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-28T18:26:09Z",
+      "side": 1,
+      "message": "ALWAYS_INLINE to hopefully optimize out function pointer?",
+      "revId": "ea35f2dcabd84b41060518683af31e49ced7afcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "899bdc78_f430ac4e",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-02-28T18:26:09Z",
+      "side": 1,
+      "message": "Indentation?",
+      "range": {
+        "startLine": 733,
+        "startChar": 62,
+        "endLine": 735,
+        "endChar": 69
+      },
+      "revId": "ea35f2dcabd84b41060518683af31e49ced7afcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
