@@ -46,6 +46,30 @@
       "revId": "55812dc8c93d699e0b09a10608c613fdd0ae0c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc69cfdf_c5788173",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6866,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-02-28T10:22:05Z",
+      "side": 1,
+      "message": "You can also take inspiration from ARM\u0027s \"Vector Duplicate\" (VDUP).",
+      "parentUuid": "00f22a69_546fcbdc",
+      "range": {
+        "startLine": 6866,
+        "startChar": 42,
+        "endLine": 6866,
+        "endChar": 49
+      },
+      "revId": "55812dc8c93d699e0b09a10608c613fdd0ae0c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
