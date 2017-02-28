@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2680874_7d169bbe",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-28T17:44:10Z",
+      "side": 1,
+      "message": "I renamed this. Also I added two lines of comments for each new instruction (Even though most are straightforward, it still is good practice to document each class)",
+      "revId": "c1f365761b08af1418b91c48fd35f2f1d8a74b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
