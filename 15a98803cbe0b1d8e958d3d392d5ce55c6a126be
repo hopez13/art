@@ -146,6 +146,54 @@
       "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b74b9fd_46d97cdf",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-02-28T13:31:26Z",
+      "side": 1,
+      "message": "Wasn\u0027t able to see any measurable gains with what I tried.  But, on the todo list is to experiment with moving the fast path into assembly.",
+      "parentUuid": "80d360fe_85639977",
+      "range": {
+        "startLine": 677,
+        "startChar": 6,
+        "endLine": 677,
+        "endChar": 23
+      },
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89904777_66c2f908",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-02-28T13:31:26Z",
+      "side": 1,
+      "message": "Verified improvement above the noise (~3%) for DeltaBlue.  No change in the others I tried.  Additionally, I think I\u0027d like to stay more aligned with the reference interpreter unless there\u0027s a performance reason not to.",
+      "parentUuid": "424089e0_63e3bc66",
+      "range": {
+        "startLine": 677,
+        "startChar": 45,
+        "endLine": 677,
+        "endChar": 50
+      },
+      "revId": "15a98803cbe0b1d8e958d3d392d5ce55c6a126be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
