@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1085ed87_380f4514",
+        "filename": "runtime/gc/space/region_space-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-28T01:41:27Z",
+      "side": 1,
+      "message": "Aside from the advantage of being able to release the RAM sooner, could we have also simply not visited it if LiveBytes() \u003c 0 (it\u0027s dead) as a fix?",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 25
+      },
+      "revId": "9d1d1dbef87ec4499b2fc61a55041c063be196a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6344959c_9658ad53",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-28T01:41:27Z",
+      "side": 1,
+      "message": "Can you clarify with \"0 live bytes (all objects in the region are now dead)\"?",
+      "range": {
+        "startLine": 252,
+        "startChar": 28,
+        "endLine": 252,
+        "endChar": 40
+      },
+      "revId": "9d1d1dbef87ec4499b2fc61a55041c063be196a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef59b5e2_6d5eacf3",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-28T01:41:27Z",
+      "side": 1,
+      "message": "Can you clarify with \"we can clear the whole region now at the end of the current GC, as opposed to at the end of the next GC\"?",
+      "range": {
+        "startLine": 252,
+        "startChar": 53,
+        "endLine": 252,
+        "endChar": 82
+      },
+      "revId": "9d1d1dbef87ec4499b2fc61a55041c063be196a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "143dc209_f6cc0847",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-02-28T01:41:27Z",
+      "side": 1,
+      "message": "freed or dead?",
+      "range": {
+        "startLine": 253,
+        "startChar": 63,
+        "endLine": 253,
+        "endChar": 67
+      },
+      "revId": "9d1d1dbef87ec4499b2fc61a55041c063be196a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
