@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "605fcb16_785d398c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-28T16:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd80798b_5ee03f72",
+      "revId": "76bdecb2017133680727f819624f2bab1c717a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8913ba8_a9b0ee01",
         "filename": "runtime/oat.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-23T16:41:03Z",
       "side": 1,
       "message": "Why do we need to update the oat version?",
+      "revId": "76bdecb2017133680727f819624f2bab1c717a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b962086_e0e1cbb7",
+        "filename": "runtime/oat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-02-28T16:28:10Z",
+      "side": 1,
+      "message": "I was thinking it was a change in the definition of the image checksum field in the oat file, but because dex2oat puts the image checksum for the right isa in the oat file, we should be fine without an update.",
+      "parentUuid": "f8913ba8_a9b0ee01",
       "revId": "76bdecb2017133680727f819624f2bab1c717a73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
