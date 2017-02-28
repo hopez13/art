@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e94b3d7_6089e224",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-28T02:30:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b26de1b1_31f1a05f",
+      "range": {
+        "startLine": 273,
+        "startChar": 55,
+        "endLine": 274,
+        "endChar": 64
+      },
+      "revId": "49f182c5e2ac01bef1aff79c99e06d48844654ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a168ff6_121f6c7a",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-27T23:13:45Z",
       "side": 1,
       "message": "Needs indent, as it\u0027s a subexpression.",
+      "range": {
+        "startLine": 475,
+        "startChar": 10,
+        "endLine": 475,
+        "endChar": 35
+      },
+      "revId": "49f182c5e2ac01bef1aff79c99e06d48844654ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924cd13f_46645339",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-28T02:30:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a168ff6_121f6c7a",
       "range": {
         "startLine": 475,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0e5bb187_2fc80805",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-28T02:30:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7210c83_f2318f6e",
+      "range": {
+        "startLine": 485,
+        "startChar": 3,
+        "endLine": 485,
+        "endChar": 65
+      },
+      "revId": "49f182c5e2ac01bef1aff79c99e06d48844654ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "917f5b77_247f3937",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-27T23:13:45Z",
       "side": 1,
       "message": "Please look at an objdump of libart. Previously, LIKELY interfered with optimizations. Make sure the branch is eliminated (as DCHECK is dead).",
+      "range": {
+        "startLine": 943,
+        "startChar": 6,
+        "endLine": 943,
+        "endChar": 12
+      },
+      "revId": "49f182c5e2ac01bef1aff79c99e06d48844654ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bee9de0_8902938a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-02-28T02:30:13Z",
+      "side": 1,
+      "message": "I\u0027ll remove the LIKELY.",
+      "parentUuid": "917f5b77_247f3937",
       "range": {
         "startLine": 943,
         "startChar": 6,
