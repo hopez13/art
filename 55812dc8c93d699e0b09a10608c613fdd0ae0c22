@@ -22,6 +22,30 @@
       "revId": "55812dc8c93d699e0b09a10608c613fdd0ae0c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00f22a69_546fcbdc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6866,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-02-28T04:28:33Z",
+      "side": 1,
+      "message": "Fair enough. The SSE intrinsics used set1 for this kind of scalar expansion and setN for setting each element to a particular value. But I will come up with something better.",
+      "parentUuid": "d10aacaa_e2c0592c",
+      "range": {
+        "startLine": 6866,
+        "startChar": 42,
+        "endLine": 6866,
+        "endChar": 49
+      },
+      "revId": "55812dc8c93d699e0b09a10608c613fdd0ae0c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
