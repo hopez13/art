@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d10aacaa_e2c0592c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6866,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-02-28T03:40:40Z",
+      "side": 1,
+      "message": "I think this needs a better name. I had to decipher from the following instructions what this method is supposed to do (replicate element 0 into all other elements of the vector).\n\nHow about VecReplicateElement0ToAll or shorter VecReplicateElement0?",
+      "range": {
+        "startLine": 6866,
+        "startChar": 42,
+        "endLine": 6866,
+        "endChar": 49
+      },
+      "revId": "55812dc8c93d699e0b09a10608c613fdd0ae0c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
