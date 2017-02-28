@@ -22,6 +22,30 @@
       "revId": "4da37791d8bb94529b3a1161a3cb8cf5ab9d79ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7366e37f_15254e41",
+        "filename": "runtime/openjdkjvmti/ti_heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-02-28T21:04:37Z",
+      "side": 1,
+      "message": "I didn\u0027t want to delete the code, as it\u0027s very good for verifying some assumptions. If you prefer, I\u0027ll remove it.",
+      "parentUuid": "96b95dc5_7d756b3f",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 16
+      },
+      "revId": "4da37791d8bb94529b3a1161a3cb8cf5ab9d79ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
