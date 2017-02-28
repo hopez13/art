@@ -22,6 +22,30 @@
       "revId": "64fa84fba1d46afd5a2dc7dc3cc1de77461888bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570834a1_717b6d6f",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-02-28T15:45:07Z",
+      "side": 1,
+      "message": "The idea is to check that there is no beqz, but this is just pseudo-instruction for beq comparing with zero register. Disassembler will print:\nbeq r0, reg, offset\nIf remove \"r0,\" this will find other beq which is expected.\n\nIf this looks ugly, I can put rest of the instruction here?",
+      "parentUuid": "8de5d47d_598d12a6",
+      "range": {
+        "startLine": 336,
+        "startChar": 25,
+        "endLine": 336,
+        "endChar": 29
+      },
+      "revId": "64fa84fba1d46afd5a2dc7dc3cc1de77461888bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
