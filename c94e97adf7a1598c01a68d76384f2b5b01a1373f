@@ -22,6 +22,30 @@
       "revId": "c94e97adf7a1598c01a68d76384f2b5b01a1373f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93b305b6_5b977f16",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-01T16:41:12Z",
+      "side": 1,
+      "message": "I don\u0027t think this test is intended to exercise UsePosition, this is just a setup for testing something unrelated. Trying to exercise EnvUsePosition would be misplaced here.",
+      "parentUuid": "6472a663_380e44bb",
+      "range": {
+        "startLine": 915,
+        "startChar": 38,
+        "endLine": 915,
+        "endChar": 49
+      },
+      "revId": "c94e97adf7a1598c01a68d76384f2b5b01a1373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
