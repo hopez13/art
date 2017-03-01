@@ -377,7 +377,8 @@ inline ArtField* FindFieldFromCode(uint32_t field_idx,
       DCHECK(self->IsExceptionPending());  // Throw exception and unwind.
       return nullptr;  // Failure.
     }
-    if (UNLIKELY(is_set && resolved_field->IsFinal() && (fields_class != referring_class))) {
+    if (UNLIKELY(is_set && resolved_field->IsFinal() &&
+                 (fields_class != referring_class || !referrer->IsConstructor()))) {
       ThrowIllegalAccessErrorFinalField(referrer, resolved_field);
       return nullptr;  // Failure.
     } else {
