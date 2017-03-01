@@ -35,7 +35,7 @@ struct NonDebuggableClasses {
     return non_debuggable_classes;
   }
 
-  static void AddNonDebuggableClass(ObjPtr<mirror::Class> klass)
+  static void AddNonDebuggableClass(jclass klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
