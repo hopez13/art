@@ -1,0 +1,258 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+if [[ ! -d art ]]; then
+  echo "Script needs to be run at the root of the android tree"
+  exit 1
+fi
+
+ALL_CONFIGS=(linux-ia32 linux-x64 linux-armv8 linux-armv7 android-armv8 android-armv7)
+
+usage() {
+  echo "Usage: $(basename $0) [--golem] --config=CONFIG" >&2
+  echo "--------------------------------------------------------" >&2
+  echo "Required Flags:"
+  echo "  --config=CONFIG     Specify the machine type that will be built."
+  echo
+  echo "Optional Flags":
+  echo "  -j<num>             Specify how many jobs to use for parallelsm."
+  echo "  --help              Print this help listing."
+  echo "  --golem             Builds the exact build flavor that golem wants."
+  echo "  --showcommands      Show commands as they are being executed."
+  echo "  --simulate          Print commands only, don't execute commands."
+  echo
+  echo "Available machine types:"
+
+  for config in "${ALL_CONFIGS[@]}"; do
+    echo "  $config"
+  done
+}
+
+# Check if $1 element is in array $2
+contains_element() {
+  local e
+  for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+  return 1
+}
+
+# Display a command (don't execute it) if --showcommands was set.
+show_command() {
+  if [[ $showcommands == "showcommands" ]]; then
+    echo "$@"
+  fi
+}
+
+# Execute a command, displaying it if --showcommands was set.
+# If --simulate is used, command is not executed.
+execute() {
+  show_command "$@"
+  execute_noshow "$@"
+}
+
+# Execute a command unless --simulate was used.
+execute_noshow() {
+  if [[ $simulate == "simulate" ]]; then
+    return 0
+  fi
+
+  local prog="$1"
+  shift
+  "$prog" "$@"
+}
+
+# Export environment variable, echoing it to screen.
+setenv() {
+  local name="$1"
+  local value="$2"
+
+  export $name="$value"
+  echo export $name="$value"
+}
+
+# Export environment variable, echoing $3 to screen ($3 is meant to be unevaluated).
+setenv_escape() {
+  local name="$1"
+  local value="$2"
+  local escaped_value="$3"
+
+  export $name="$value"
+  echo export $name="$escaped_value"
+}
+
+mode=""
+config=""
+j_arg="-j8"
+showcommands=""
+simulate=""
+
+# Parse command line arguments
+
+while true; do
+  if [[ "$1" == "--help" ]]; then
+    usage
+    exit 1
+  elif [[ "$1" == "--golem" ]]; then
+    mode="golem"
+    shift
+  elif [[ "$1" == --config=* ]]; then
+    config="${1##--config=}"
+    if ! contains_element "$config" "${ALL_CONFIGS[@]}"; then
+      echo "ERROR: Invalid --config value '$config'" >&2
+      exit 1
+    fi
+    shift
+  elif [[ "$1" == -j* ]]; then
+    j_arg=$1
+    shift
+  elif [[ "$1" == "--showcommands" ]]; then
+    showcommands="showcommands"
+    shift
+  elif [[ "$1" == "--simulate" ]]; then
+    simulate="simulate"
+    shift
+  elif [[ "$1" == "" ]]; then
+    break
+  else
+    echo "Unknown options $@"
+    exit 1
+  fi
+done
+
+###################################
+###################################
+###################################
+
+if [[ -z $config ]]; then
+  echo "ERROR: --config option is required." >&2
+  exit 1
+fi
+
+# If not using --golem, uses whatever you had lunch'd prior to this script.
+if [[ $mode == "golem" ]]; then
+  # This section is intended solely to be executed by a golem build server.
+
+  case "$config" in
+    *-armv7)
+      lunch_target="arm_krait-eng"
+      ;;
+    *-armv8)
+      lunch_target="armv8-eng"
+      ;;
+    *)
+      lunch_target="sdk-eng"
+      ;;
+  esac
+
+  execute 'source' build/envsetup.sh
+  # Build generic arm targets (not device-specific).
+  execute lunch "$lunch_target"
+  setenv JACK_SERVER false
+  setenv_escape JACK_REPOSITORY $PWD/prebuilts/sdk/tools/jacks '$PWD/prebuilts/sdk/tools/jacks'
+  # Golem uses master-art repository which is missing a lot of other libraries.
+  setenv SOONG_ALLOW_MISSING_DEPENDENCIES true
+  # Golem may be missing tools such as javac from its path.
+  setenv_escape PATH /usr/lib/jvm/java-8-openjdk-amd64/bin/:$PATH '/usr/lib/jvm/java-8-openjdk-amd64/bin/:$PATH'
+fi
+
+# Defaults for all machine types.
+make_target="build-art-target-golem"
+out_dir="out/x86_64"
+strip_symbols=false
+bit64_suffix=""
+tar_directories=(system data/art-test)
+
+# Per-machine type overrides
+if [[ $config == linux-arm* ]]; then
+    setenv ART_TARGET_LINUX true
+fi
+
+case "$config" in
+  linux-ia32|linux-x64)
+    root_dir_suffix="host/linux-x86"
+    strip_symbols=true
+    make_target="build-art-host-golem"
+
+    if [[ $config == linux-ia32 ]]; then
+      out_dir="out/x86"
+      setenv HOST_PREFER_32_BIT true
+    else
+      bit64_suffix="64"
+    fi
+
+    tar_directories=(bin framework usr lib${bit64_suffix})
+    ;;
+  *-armv8)
+    root_dir_suffix="target/product/armv8"
+    bit64_suffix="64"
+    ;;
+  *-armv7)
+    root_dir_suffix="target/product/armv_krait"
+    ;;
+  *)
+    echo "FATAL: Unsupported config '$config'" >&2
+    exit 2
+esac
+
+# Golem benchmark run commands expect a certain $OUT_DIR to be set,
+# so specify it here.
+#
+# Note: It is questionable if we want to customize this since users
+# could alternatively probably use their own build directly (and forgo this script).
+setenv OUT_DIR "$out_dir"
+root_dir="$OUT_DIR/$root_dir_suffix"
+
+if [[ $mode == "golem" ]]; then
+  # For golem-style running only.
+  # Sets the DT_INTERP to this path in every .so we can run the
+  # non-system version of dalvikvm with our own copies of the dependencies (e.g. our own libc++).
+  if [[ $config == android-* ]]; then
+    golem_run_path="/data/local/tmp/runner/"
+  else
+    golem_run_path=""
+  fi
+
+  # Only do this for ARM. Intel doesn't need this.
+  if [[ $config == *-arm* ]]; then
+    setenv CUSTOM_TARGET_LINKER "${golem_run_path}${root_dir}/system/bin/linker${bit64_suffix}"
+  fi
+fi
+
+execute make ${j_arg} ${make_target}
+
+if $strip_symbols; then
+  # Further reduce size by stripping symbols.
+  execute_noshow strip $root_dir/bin/* || true
+  show_command strip $root_dir/bin/'*'  '|| true'
+  execute_noshow strip $root_dir/lib${bit64_suffix}/'*'
+  show_command strip $root_dir/lib${bit64_suffix}/'*'
+fi
+
+{
+  # Make a tarball which is required for the golem build resource.
+  dirs_rooted=()
+  for tar_dir in "${tar_directories[@]}"; do
+    dirs_rooted+=("$root_dir/$tar_dir")
+  done
+
+  execute tar -czf "$config.tar.gz" "${dirs_rooted[@]}" --exclude .git --exclude .gitignore
+  tar_result=$?
+  if [[ $tar_result -ne 0 ]]; then
+    [[ -f $config.tar.gz ]] && rm $config.tar.gz
+  fi
+
+  show_command '[[ $? -ne 0 ]] && rm' "$config.tar.gz"
+};
+
