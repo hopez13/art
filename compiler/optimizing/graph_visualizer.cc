@@ -34,6 +34,7 @@
 #include "register_allocator_linear_scan.h"
 #include "ssa_liveness_analysis.h"
 #include "utils/assembler.h"
+#include "utils/intrusive_forward_list.h"
 
 namespace art {
 
@@ -64,6 +65,15 @@ class StringList {
   explicit StringList(T* first_entry, Format format = kArrayBrackets) : StringList(format) {
     for (T* current = first_entry; current != nullptr; current = current->GetNext()) {
       current->Dump(NewEntryStream());
+    }
+  }
+  // Construct StringList from an IntrusiveForwardList<>. List element class T
+  // must provide method `Dump`.
+  template <typename T, typename HookTraits>
+  explicit StringList(const IntrusiveForwardList<T, HookTraits>& list,
+                      Format format = kArrayBrackets) : StringList(format) {
+    for (const T& current : list) {
+      current.Dump(NewEntryStream());
     }
   }
 
@@ -561,8 +571,8 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         LiveInterval* interval = instruction->GetLiveInterval();
         StartAttributeStream("ranges")
             << StringList(interval->GetFirstRange(), StringList::kSetBrackets);
-        StartAttributeStream("uses") << StringList(interval->GetFirstUse());
-        StartAttributeStream("env_uses") << StringList(interval->GetFirstEnvironmentUse());
+        StartAttributeStream("uses") << StringList(interval->GetUses());
+        StartAttributeStream("env_uses") << StringList(interval->GetEnvironmentUses());
         StartAttributeStream("is_fixed") << interval->IsFixed();
         StartAttributeStream("is_split") << interval->IsSplit();
         StartAttributeStream("is_low") << interval->IsLowInterval();
