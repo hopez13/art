@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "57161089_390dcee7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2344,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T16:00:42Z",
+      "side": 1,
+      "message": "This comment *is* correct, just that the dex cache lookup was in the caller... (Not that I\u0027m saying it shouldn\u0027t be changed)",
+      "parentUuid": "f0518227_8d280ea0",
+      "range": {
+        "startLine": 2343,
+        "startChar": 0,
+        "endLine": 2344,
+        "endChar": 39
+      },
+      "revId": "43ae693b7e459e83f61b87fa40730200ed026ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21290d04_84ef0f0c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
