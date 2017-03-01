@@ -785,6 +785,52 @@ public class Main {
     return new Circle(Math.PI).getArea();
   }
 
+  /// CHECK-START: int Main.testAllocationEliminationOfArray1() load_store_elimination (before)
+  /// CHECK: NewArray
+  /// CHECK: ArraySet
+  /// CHECK: ArraySet
+  /// CHECK: ArrayGet
+  /// CHECK: ArrayGet
+  /// CHECK: ArrayGet
+  /// CHECK: ArrayGet
+
+  /// CHECK-START: int Main.testAllocationEliminationOfArray1() load_store_elimination (after)
+  /// CHECK-NOT: NewArray
+  /// CHECK-NOT: ArraySet
+  /// CHECK-NOT: ArrayGet
+  private static int testAllocationEliminationOfArray1() {
+    // Cannot elimination array allocation since array is accessed with non-constant
+    // index.
+    int[] array = new int[4];
+    array[2] = 4;
+    array[3] = 7;
+    return array[0] + array[1] + array[2] + array[3];
+  }
+
+  /// CHECK-START: int Main.testAllocationEliminationOfArray2() load_store_elimination (before)
+  /// CHECK: NewArray
+  /// CHECK: ArraySet
+  /// CHECK: ArraySet
+  /// CHECK: ArrayGet
+
+  /// CHECK-START: int Main.testAllocationEliminationOfArray2() load_store_elimination (after)
+  /// CHECK: NewArray
+  /// CHECK: ArraySet
+  /// CHECK: ArraySet
+  /// CHECK: ArrayGet
+  private static int testAllocationEliminationOfArray2() {
+    // Cannot elimination array allocation since array is accessed with non-constant
+    // index.
+    int[] array = new int[4];
+    array[2] = 4;
+    array[3] = 7;
+    int sum = 0;
+    for (int e : array) {
+      sum += e;
+    }
+    return sum;
+  }
+
   static void assertIntEquals(int result, int expected) {
     if (expected != result) {
       throw new Error("Expected: " + expected + ", found: " + result);
@@ -865,6 +911,9 @@ public class Main {
     assertDoubleEquals(darray[0], Math.PI);
     assertDoubleEquals(darray[1], Math.PI);
     assertDoubleEquals(darray[2], Math.PI);
+
+    assertIntEquals(testAllocationEliminationOfArray1(), 11);
+    assertIntEquals(testAllocationEliminationOfArray2(), 11);
   }
 
   static boolean sFlag;
