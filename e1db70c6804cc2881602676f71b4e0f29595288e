@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4602a83c_43465e4c",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T14:19:59Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 102
+      },
+      "revId": "e1db70c6804cc2881602676f71b4e0f29595288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "087245d8_677fc114",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T14:19:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 111
+      },
+      "revId": "e1db70c6804cc2881602676f71b4e0f29595288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff44ea5f_60766957",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T14:19:59Z",
+      "side": 1,
+      "message": "I find it more readable if written:\nif (success) {\n  success \u003d ...\n  if (success \u0026\u0026 needs_taken_test) {\n   ...\n  }\n  return trip_expr\n}\nreturn nullptr;",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 99
+      },
+      "revId": "e1db70c6804cc2881602676f71b4e0f29595288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbcc27d0_f75c3025",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T14:19:59Z",
+      "side": 1,
+      "message": "grammar",
+      "range": {
+        "startLine": 1206,
+        "startChar": 56,
+        "endLine": 1207,
+        "endChar": 40
+      },
+      "revId": "e1db70c6804cc2881602676f71b4e0f29595288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
