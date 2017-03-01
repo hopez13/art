@@ -70,6 +70,30 @@
       "revId": "c0ca5fd8f54f5b8361548174cadb236d01789d6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "faab33b2_d7503ddb",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-01T16:27:45Z",
+      "side": 0,
+      "message": "Yes, I had checked it before I uploaded the patch. _MIPS_ARCH_MIPS64R6 is never defined in this file. _MIPS_ARCH_MIPS32R6 is defined on MIPS64 system.",
+      "parentUuid": "e23e7c14_214a870d",
+      "range": {
+        "startLine": 2051,
+        "startChar": 32,
+        "endLine": 2051,
+        "endChar": 64
+      },
+      "revId": "c0ca5fd8f54f5b8361548174cadb236d01789d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
