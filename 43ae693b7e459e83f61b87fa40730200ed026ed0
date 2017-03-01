@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47b97b11_057b217f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T12:56:24Z",
+      "side": 1,
+      "message": "Add a comment about why this is passed, to avoid someone new decide it\u0027s not worth passing it.",
+      "range": {
+        "startLine": 2327,
+        "startChar": 54,
+        "endLine": 2327,
+        "endChar": 81
+      },
+      "revId": "43ae693b7e459e83f61b87fa40730200ed026ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0518227_8d280ea0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T12:56:24Z",
+      "side": 1,
+      "message": "Comment is wrong, there\u0027s no dex cache resolution going on.",
+      "range": {
+        "startLine": 2343,
+        "startChar": 0,
+        "endLine": 2344,
+        "endChar": 39
+      },
+      "revId": "43ae693b7e459e83f61b87fa40730200ed026ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21290d04_84ef0f0c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T12:56:24Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2369,
+        "startChar": 0,
+        "endLine": 2370,
+        "endChar": 20
+      },
+      "revId": "43ae693b7e459e83f61b87fa40730200ed026ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
