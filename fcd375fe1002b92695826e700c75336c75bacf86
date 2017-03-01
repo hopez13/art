@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afc1f34a_3acb1f25",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T01:40:05Z",
+      "side": 1,
+      "message": "ART style is explicit comparison \" !\u003d nullptr.\"",
+      "range": {
+        "startLine": 257,
+        "startChar": 6,
+        "endLine": 257,
+        "endChar": 12
+      },
+      "revId": "fcd375fe1002b92695826e700c75336c75bacf86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c3ba1a9_668123be",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T01:40:05Z",
+      "side": 1,
+      "message": "Use TEST_NESTED_SIGNAL or something similar.",
+      "range": {
+        "startLine": 274,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 5
+      },
+      "revId": "fcd375fe1002b92695826e700c75336c75bacf86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77604fef_d7c10d1b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T01:40:05Z",
+      "side": 1,
+      "message": "We no likey gotos. Use some scoped thingy for the sigprocmask (also means you can drop \"finished\")?",
+      "range": {
+        "startLine": 293,
+        "startChar": 10,
+        "endLine": 293,
+        "endChar": 28
+      },
+      "revId": "fcd375fe1002b92695826e700c75336c75bacf86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "264bd20b_5c76717f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1652,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T01:40:05Z",
+      "side": 1,
+      "message": "Bad name, as it doesn\u0027t signal what its name implies. How about \"handling_signal_\"?\n\nAnd no, do not make this public. Add accessors.",
+      "range": {
+        "startLine": 1652,
+        "startChar": 7,
+        "endLine": 1652,
+        "endChar": 23
+      },
+      "revId": "fcd375fe1002b92695826e700c75336c75bacf86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
