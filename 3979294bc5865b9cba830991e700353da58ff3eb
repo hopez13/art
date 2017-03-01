@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41784e8f_1a72c0db",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T13:23:18Z",
+      "side": 1,
+      "message": "Please make a separate fix + regression test for that. Looks like we had the bug forever but got lucky?",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 882,
+        "endChar": 20
+      },
+      "revId": "3979294bc5865b9cba830991e700353da58ff3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
