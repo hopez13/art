@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e3447001_fa7472bf",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T21:30:26Z",
+      "side": 1,
+      "message": "This takes relatively little time. It just needs to mark the jobs as cancelled. This is a fast operation.",
+      "parentUuid": "d10c0422_55b3a5d9",
+      "range": {
+        "startLine": 260,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 17
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "993a60ca_9b4529fd",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0707b29f_1c3ba6dc",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T21:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "993a60ca_9b4529fd",
+      "range": {
+        "startLine": 279,
+        "startChar": 32,
+        "endLine": 279,
+        "endChar": 36
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "47f92a42_387ca831",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T21:30:26Z",
+      "side": 1,
+      "message": "\u003e I would go with the old approach of having this lazily generated. When ART_TEST_FULL is set to true, test_results would grow to 100 million size and would probably crash. \n\nNo it won\u0027t. Each executor future is fairly small structure all things considered and we have plenty of RAM. I don\u0027t think we should really be concerning ourselves with this unless it becomes clear that it will be an actual problem.\n\n\u003e Also, in the above case, even if we overcome the memory issues, it will increase the time for the first test run.\n\nNo it won\u0027t. The futures will start executing as soon as the first is submitted. It will make it take longer for the first result to be printed (assuming it finishes before all jobs are submitted) but in practice this doesn\u0027t seem to be a problem even with multiple types of tests.",
+      "parentUuid": "5eabff24_dbb2c24c",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 444,
+        "endChar": 38
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f12b4d5_a1319f21",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 2
@@ -130,6 +202,30 @@
       "writtenOn": "2017-03-01T20:51:38Z",
       "side": 1,
       "message": "why?",
+      "range": {
+        "startLine": 527,
+        "startChar": 70,
+        "endLine": 527,
+        "endChar": 73
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84081c31_b4e12f6e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T21:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f12b4d5_a1319f21",
       "range": {
         "startLine": 527,
         "startChar": 70,
