@@ -1484,17 +1484,20 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
 
 template <typename T>
 class HUseListNode : public ArenaObject<kArenaAllocUseListNode> {
+ private:
+    // Hook for the IntrusiveForwardList<>.
+    IntrusiveForwardListHook hook;
+
  public:
+  using ListType = IntrusiveForwardList<
+      HUseListNode<T>, IntrusiveForwardListMemberHook<HUseListNode<T>, &HUseListNode<T>::hook>>;
+
   // Get the instruction which has this use as one of the inputs.
   T GetUser() const { return user_; }
   // Get the position of the input record that this use corresponds to.
   size_t GetIndex() const { return index_; }
   // Set the position of the input record that this use corresponds to.
   void SetIndex(size_t index) { index_ = index; }
-
-  // Hook for the IntrusiveForwardList<>.
-  // TODO: Hide this better.
-  IntrusiveForwardListHook hook;
 
  private:
   HUseListNode(T user, size_t index)
@@ -1509,7 +1512,7 @@ class HUseListNode : public ArenaObject<kArenaAllocUseListNode> {
 };
 
 template <typename T>
-using HUseList = IntrusiveForwardList<HUseListNode<T>>;
+using HUseList = typename HUseListNode<T>::ListType;
 
 // This class is used by HEnvironment and HInstruction classes to record the
 // instructions they use and pointers to the corresponding HUseListNodes kept
