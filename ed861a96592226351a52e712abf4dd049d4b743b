@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "0b3b319b_ed851b70",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T21:31:42Z",
+      "side": 1,
+      "message": "\u003e100 million is probably not so bad now, but agreed it might not be future proof.\n\u003e\n\u003e I would use concurrent.futures.wait here to block until at least 1 job is done (you know how many workers are there total, workers\u003dn_threads) and submit more futures later.\n\nThis is not a good idea IMO and is simply premature optimization.  By doing this we would be making the code more complicated for what would be very little to even negative benefit.",
+      "parentUuid": "47f92a42_387ca831",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 444,
+        "endChar": 38
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f12b4d5_a1319f21",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 2
