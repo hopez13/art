@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18a91a29_b08fa4c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-01T04:07:03Z",
+      "side": 1,
+      "message": "test-art-target-run-test is missing.",
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e118997_ba85b599",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-01T04:07:03Z",
+      "side": 1,
+      "message": "Use Addiu32() as on MIPS32. We\u0027re subtracting non-negative 32-bit integers from one another (we checked the position and the array length is non-negative) and so there can\u0027t be any overflow/underflow if we do 32-bit subtraction. At the same time Addiu32() may be a bit shorter/faster than Daddiu64() in the current implementation.",
+      "range": {
+        "startLine": 2041,
+        "startChar": 9,
+        "endLine": 2041,
+        "endChar": 17
+      },
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe3973bd_cbd2d87f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-01T04:07:03Z",
+      "side": 1,
+      "message": "Subu() for consistency with the above.",
+      "range": {
+        "startLine": 2068,
+        "startChar": 7,
+        "endLine": 2068,
+        "endChar": 12
+      },
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
