@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d10c0422_55b3a5d9",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-01T20:51:38Z",
+      "side": 1,
+      "message": "Again, with ART_TEST_FULL - it will take a long time to cancel all the remaining tests.",
+      "range": {
+        "startLine": 260,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 17
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "993a60ca_9b4529fd",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-01T20:51:38Z",
+      "side": 1,
+      "message": "Use implicit false - https://engdoc.corp.google.com/eng/doc/devguide/py/styleguide.shtml?cl\u003dhead#truefalse-evaluations",
+      "range": {
+        "startLine": 279,
+        "startChar": 32,
+        "endLine": 279,
+        "endChar": 36
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eabff24_dbb2c24c",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-01T20:51:38Z",
+      "side": 1,
+      "message": "I would go with the old approach of having this lazily generated. When ART_TEST_FULL is set to true, test_results would grow to 100 million size and would probably crash. \nAlso, in the above case, even if we overcome the memory issues, it will increase the time for the first test run.",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 444,
+        "endChar": 38
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f12b4d5_a1319f21",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-01T20:51:38Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 527,
+        "startChar": 70,
+        "endLine": 527,
+        "endChar": 73
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
