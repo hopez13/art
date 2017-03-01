@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "beeaf265_765f790a",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T14:21:35Z",
+      "side": 1,
+      "message": "Can you do adb root and adb wait-for-device? The next step (device cleanup) requires root, which we do not have if the device just rebooted.",
+      "revId": "75f519ea4bd2613cd24838c9e8e168c2a2061902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
