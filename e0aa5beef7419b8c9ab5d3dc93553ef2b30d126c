@@ -22,6 +22,30 @@
       "revId": "e0aa5beef7419b8c9ab5d3dc93553ef2b30d126c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08a037bf_7df0d6f2",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-01T19:01:36Z",
+      "side": 0,
+      "message": "It is up (see kSub). There is no need to keep is_min consistent within invariant expressions, so I could merge some of the code and make it shorter!",
+      "parentUuid": "1b2c95e9_20954a1a",
+      "range": {
+        "startLine": 1197,
+        "startChar": 8,
+        "endLine": 1205,
+        "endChar": 18
+      },
+      "revId": "e0aa5beef7419b8c9ab5d3dc93553ef2b30d126c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
