@@ -28,6 +28,10 @@
 #include "scheduler_arm64.h"
 #endif
 
+#ifdef ART_ENABLE_CODEGEN_arm
+#include "scheduler_arm.h"
+#endif
+
 namespace art {
 
 // Return all combinations of ISA and code generator that are executable on
@@ -67,7 +71,7 @@ static ::std::vector<CodegenTargetConfig> GetTargetConfigs() {
 
 class SchedulerTest : public CommonCompilerTest {};
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#if defined(ART_ENABLE_CODEGEN_arm64) || defined(ART_ENABLE_CODEGEN_arm)
 TEST_F(SchedulerTest, DependencyGraph) {
   ArenaPool pool;
   ArenaAllocator allocator(&pool);
@@ -137,9 +141,15 @@ TEST_F(SchedulerTest, DependencyGraph) {
   environment->SetRawEnvAt(1, mul);
   mul->AddEnvUseAt(div_check->GetEnvironment(), 1);
 
+#if defined(ART_ENABLE_CODEGEN_arm64)
+  typedef arm64::HSchedulerARM64 SchedulerType;
+#elif defined(ART_ENABLE_CODEGEN_arm)
+  typedef arm::HSchedulerARM SchedulerType;
+#endif
+
   ArenaAllocator* arena = graph->GetArena();
   CriticalPathSchedulingNodeSelector critical_path_selector;
-  arm64::HSchedulerARM64 scheduler(arena, &critical_path_selector);
+  SchedulerType scheduler(arena, &critical_path_selector);
   SchedulingGraph scheduling_graph(&scheduler, arena);
   // Instructions must be inserted in reverse order into the scheduling graph.
   for (auto instr : ReverseRange(block_instructions)) {
