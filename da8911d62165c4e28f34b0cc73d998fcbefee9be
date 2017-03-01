@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40c84387_d7d70888",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-03-01T00:18:25Z",
+      "side": 1,
+      "message": "How about calling these \"freed_bytes\" and \"freed_objects\" to begin with? I think \"freed\" may be straightforward than \"adjusted\".",
+      "range": {
+        "startLine": 1663,
+        "startChar": 0,
+        "endLine": 1664,
+        "endChar": 35
+      },
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7eab3700_74e4232c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-03-01T00:18:25Z",
+      "side": 1,
+      "message": "Add\n\nCHECK_GT(adjusted_from_bytes, from_bytes);\nCHECK_GT(adjusted_from_objects, from_objects);\n\nhere?",
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93888234_1fc66e09",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-03-01T00:18:25Z",
+      "side": 1,
+      "message": "How about calling these \"freed_bytes\" and \"freed_objects\"?",
+      "range": {
+        "startLine": 249,
+        "startChar": 33,
+        "endLine": 250,
+        "endChar": 64
+      },
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
