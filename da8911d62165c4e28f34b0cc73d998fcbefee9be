@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "941e5f5d_f7d13f17",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-03-01T02:04:30Z",
+      "side": 1,
+      "message": "How about \"cleared_bytes\" and \"cleared_objects\"?",
+      "parentUuid": "9b9d4698_9050b411",
+      "range": {
+        "startLine": 1663,
+        "startChar": 0,
+        "endLine": 1664,
+        "endChar": 35
+      },
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7eab3700_74e4232c",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
