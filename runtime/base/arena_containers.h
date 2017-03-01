@@ -18,6 +18,7 @@
 #define ART_RUNTIME_BASE_ARENA_CONTAINERS_H_
 
 #include <deque>
+#include <forward_list>
 #include <queue>
 #include <set>
 #include <stack>
@@ -54,6 +55,9 @@ using ArenaQueue = std::queue<T, ArenaDeque<T>>;
 
 template <typename T>
 using ArenaVector = dchecked_vector<T, ArenaAllocatorAdapter<T>>;
+
+template <typename T>
+using ArenaForwardList = std::forward_list<T, ArenaAllocatorAdapter<T>>;
 
 template <typename T, typename Comparator = std::less<T>>
 using ArenaPriorityQueue = std::priority_queue<T, ArenaVector<T>, Comparator>;
