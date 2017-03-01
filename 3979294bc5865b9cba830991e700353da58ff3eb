@@ -46,6 +46,30 @@
       "revId": "3979294bc5865b9cba830991e700353da58ff3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "703b754a_7a0ef13a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-01T16:50:17Z",
+      "side": 1,
+      "message": "Why? Because only thourgh CHA\u0027s single implementation can we get a default non-copied method at this point? I\u0027d like to see an explanation here as a comment.",
+      "parentUuid": "7189382b_d789743c",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 882,
+        "endChar": 20
+      },
+      "revId": "3979294bc5865b9cba830991e700353da58ff3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
