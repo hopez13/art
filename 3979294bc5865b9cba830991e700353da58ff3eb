@@ -22,6 +22,30 @@
       "revId": "3979294bc5865b9cba830991e700353da58ff3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7189382b_d789743c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-01T16:37:04Z",
+      "side": 1,
+      "message": "While I agree that a test would be useful Mingyao and I believe this is a new bug as prior to the patch here we would never get a non-copied default method into this function.",
+      "parentUuid": "41784e8f_1a72c0db",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 882,
+        "endChar": 20
+      },
+      "revId": "3979294bc5865b9cba830991e700353da58ff3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
