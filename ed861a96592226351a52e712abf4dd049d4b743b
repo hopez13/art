@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "049cb96b_a215f198",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-01T21:24:19Z",
+      "side": 1,
+      "message": "External mirror: https://google.github.io/styleguide/pyguide.html",
+      "parentUuid": "993a60ca_9b4529fd",
+      "range": {
+        "startLine": 279,
+        "startChar": 32,
+        "endLine": 279,
+        "endChar": 36
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5eabff24_dbb2c24c",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-01T20:51:38Z",
       "side": 1,
       "message": "I would go with the old approach of having this lazily generated. When ART_TEST_FULL is set to true, test_results would grow to 100 million size and would probably crash. \nAlso, in the above case, even if we overcome the memory issues, it will increase the time for the first test run.",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 444,
+        "endChar": 38
+      },
+      "revId": "ed861a96592226351a52e712abf4dd049d4b743b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dffbe97_617e5cc5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-01T21:24:19Z",
+      "side": 1,
+      "message": "100 million is probably not so bad now, but agreed it might not be future proof.\n\nI would use concurrent.futures.wait here to block until at least 1 job is done (you know how many workers are there total, workers\u003dn_threads) and submit more futures later.",
+      "parentUuid": "5eabff24_dbb2c24c",
       "range": {
         "startLine": 443,
         "startChar": 6,
