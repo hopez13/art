@@ -23,6 +23,7 @@
 #include <memory>
 #include <type_traits>
 
+#include "base/casts.h"
 #include "base/logging.h"
 #include "base/macros.h"
 
@@ -42,10 +43,18 @@ struct IntrusiveForwardListHook {
   mutable const IntrusiveForwardListHook* next_hook;
 };
 
-template <typename T, IntrusiveForwardListHook T::* NextPtr = &T::hook>
-class IntrusiveForwardListMemberHook;
+template <typename Derived, typename Tag = void>
+struct IntrusiveForwardListNode {
+  IntrusiveForwardListHook hook;
+};
 
-template <typename T, typename HookTraits = IntrusiveForwardListMemberHook<T>>
+template <typename T, IntrusiveForwardListHook T::* NextPtr = &T::hook>
+class IntrusiveForwardListMemberHookTraits;
+
+template <typename T, typename Tag = void>
+class IntrusiveForwardListBaseHookTraits;
+
+template <typename T, typename HookTraits = IntrusiveForwardListBaseHookTraits<T>>
 class IntrusiveForwardList;
 
 template <typename T, typename HookTraits>
@@ -435,7 +444,7 @@ bool operator>=(const IntrusiveForwardList<T, HookTraits>& lhs,
 }
 
 template <typename T, IntrusiveForwardListHook T::* NextPtr>
-class IntrusiveForwardListMemberHook {
+class IntrusiveForwardListMemberHookTraits {
  public:
   static const IntrusiveForwardListHook* GetHook(const T* value) {
     return &(value->*NextPtr);
@@ -444,6 +453,21 @@ class IntrusiveForwardListMemberHook {
   static T* GetValue(const IntrusiveForwardListHook* hook) {
     return reinterpret_cast<T*>(
         reinterpret_cast<uintptr_t>(hook) - OFFSETOF_MEMBERPTR(T, NextPtr));
+  }
+};
+
+template <typename T, typename Tag>
+class IntrusiveForwardListBaseHookTraits {
+ public:
+  static const IntrusiveForwardListHook* GetHook(const T* value) {
+    auto* node = static_cast<const IntrusiveForwardListNode<T, Tag>*>(value);
+    return &node->hook;
+  }
+
+  static T* GetValue(const IntrusiveForwardListHook* hook) {
+    using BaseType = IntrusiveForwardListNode<T, Tag>;
+    return down_cast<T*>(reinterpret_cast<BaseType*>(
+        reinterpret_cast<uintptr_t>(hook) - OFFSETOF_MEMBER(BaseType, hook)));
   }
 };
 
