@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "09e838af_1d2ae400",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T13:07:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3d6a8d4_76399b95",
+      "range": {
+        "startLine": 2407,
+        "startChar": 0,
+        "endLine": 2415,
+        "endChar": 3
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a92531e3_1508f9ae",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -178,6 +202,30 @@
       "writtenOn": "2017-02-23T14:39:21Z",
       "side": 1,
       "message": "There is a 16-bit CMP (register) that can handle high registers. We need to check this only if the other operand is constant. (But this is moot if you take my recommendation to use the CMP+SBCS approach for EQ/NE/B/BE/A/AE and use CanEncodeConstantAsImmediate() in the location builder.)",
+      "range": {
+        "startLine": 2458,
+        "startChar": 10,
+        "endLine": 2458,
+        "endChar": 88
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a03d6bfd_dea41b97",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2458,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T13:07:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a92531e3_1508f9ae",
       "range": {
         "startLine": 2458,
         "startChar": 10,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "79ffd5af_e2adc16f",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T13:07:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67dee0ae_417b2802",
+      "range": {
+        "startLine": 375,
+        "startChar": 6,
+        "endLine": 375,
+        "endChar": 12
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64176f64_294cfa57",
         "filename": "test/570-checker-select/src/Main.java",
         "patchSetId": 2
@@ -224,6 +296,30 @@
       "writtenOn": "2017-02-23T14:39:21Z",
       "side": 1,
       "message": "This is now obsolete. If you want to avoid inlining for tests (\"debug\" only), add the $noinline$ marker.",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 5
+      },
+      "revId": "5edb64bf5866dd3116882a609c231f068fa64dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd4372c7_0908dfea",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T13:07:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64176f64_294cfa57",
       "range": {
         "startLine": 381,
         "startChar": 0,
