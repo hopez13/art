@@ -406,10 +406,10 @@ class ProfileCompilationInfo {
       const ClassSet& classes,
       /*out*/SafeMap<uint8_t, std::vector<dex::TypeIndex>>* dex_to_classes_map);
 
+  friend class Dex2oatLayoutTest;
   friend class ProfileCompilationInfoTest;
   friend class CompilerDriverProfileTest;
   friend class ProfileAssistantTest;
-  friend class Dex2oatLayoutTest;
 
   DexFileToProfileInfoMap info_;
 };
