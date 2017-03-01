@@ -22,6 +22,30 @@
       "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02da3372_dc8ce7cf",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-01T19:42:10Z",
+      "side": 1,
+      "message": "Not entirely true.\n\nIt can also be that the types are from a dex file that we don\u0027t track.  For example framework, libcore or a shared library. \n\nTo figure that out accurately we\u0027d need to add another bit to the profile.  Can be done, but not as part of this CL.\n\nLet me know if you still prefer to be explicit about the inline cache type (we can also change more, once we get there).",
+      "parentUuid": "60e4244c_9a82768f",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
