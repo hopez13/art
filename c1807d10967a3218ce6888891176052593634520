@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "89df58a2_9f490672",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T15:26:34Z",
+      "side": 1,
+      "message": "Yes, the VIXL macroassembler makes sure that the instructions materializing a constant do not change the flags (this is the intended behaviour, and any deviation is a bug), while AFAIK this backend can\u0027t make the same guarantee (and I wanted to keep my changes to a minimum), but I will synchronize both code generators, and I will leave a TODO comment in the VIXL-based one.",
+      "parentUuid": "819c1a95_70aafb02",
+      "range": {
+        "startLine": 1598,
+        "startChar": 0,
+        "endLine": 1615,
+        "endChar": 9
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f67e74f_3ca05638",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-01T15:04:54Z",
       "side": 1,
       "message": "This comment no longer applies here, it should be moved to the IsConstant() branch. We could add a comment about blocking FP registers here instead.",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1625,
+        "endChar": 66
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "557316fc_a6f2d6b6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T15:26:34Z",
+      "side": 1,
+      "message": "Do you mean that the wording can be improved? The code does exactly what the comment says.",
+      "parentUuid": "0f67e74f_3ca05638",
       "range": {
         "startLine": 1624,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "15adf5a3_c9adbeaa",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T15:26:34Z",
+      "side": 1,
+      "message": "If we can\u0027t generate an IT block, the constants can still be embedded in the MOV instructions, which is still beneficial.",
+      "parentUuid": "d0c9d9d4_f86f93f8",
+      "range": {
+        "startLine": 2477,
+        "startChar": 26,
+        "endLine": 2477,
+        "endChar": 85
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0852e73_04f15540",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -105,6 +177,30 @@
       "writtenOn": "2017-03-01T15:04:54Z",
       "side": 1,
       "message": "I\u0027m not convinced that this is a good thing but if you prefer it this way, I\u0027m willing to submit it.",
+      "range": {
+        "startLine": 2487,
+        "startChar": 0,
+        "endLine": 2488,
+        "endChar": 80
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17492f0b_6e9bc214",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-01T15:26:34Z",
+      "side": 1,
+      "message": "Do you refer just to the input potentially being a constant, or also to the output? What possible problems do you see?\n\nFYI, the intention is to embed constants as much as possible (and not just in the branchless code path).",
+      "parentUuid": "e0852e73_04f15540",
       "range": {
         "startLine": 2487,
         "startChar": 0,
