@@ -18,6 +18,7 @@
 #define ART_RUNTIME_INTERPRETER_INTERPRETER_COMMON_H_
 
 #include "interpreter.h"
+#include "interpreter_intrinsics.h"
 
 #include <math.h>
 
@@ -113,7 +114,7 @@ bool DoCall(ArtMethod* called_method, Thread* self, ShadowFrame& shadow_frame,
 
 // Handles all invoke-XXX/range instructions except for invoke-polymorphic[/range].
 // Returns true on success, otherwise throws an exception and returns false.
-template<InvokeType type, bool is_range, bool do_access_check>
+template<InvokeType type, bool is_range, bool do_access_check, bool do_intrinsics>
 static inline bool DoInvoke(Thread* self,
                             ShadowFrame& shadow_frame,
                             const Instruction* inst,
@@ -135,6 +136,12 @@ static inline bool DoInvoke(Thread* self,
     result->SetJ(0);
     return false;
   } else {
+    if (do_intrinsics && !is_range && !do_access_check && called_method->IsIntrinsic()) {
+      if (MterpHandleIntrinsic(&shadow_frame, called_method, inst, inst_data,
+                               shadow_frame.GetResultRegister())) {
+        return !self->IsExceptionPending();
+      }
+    }
     jit::Jit* jit = Runtime::Current()->GetJit();
     if (jit != nullptr) {
       if (type == kVirtual || type == kInterface) {
@@ -494,17 +501,22 @@ void SetStringInitValueToAllAliases(ShadowFrame* shadow_frame,
                                     JValue result);
 
 // Explicitly instantiate all DoInvoke functions.
-#define EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, _is_range, _do_check)                      \
-  template REQUIRES_SHARED(Locks::mutator_lock_)                                     \
-  bool DoInvoke<_type, _is_range, _do_check>(Thread* self, ShadowFrame& shadow_frame,      \
+#define EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, _is_range, _do_check, _do_intrinsics)      \
+  template REQUIRES_SHARED(Locks::mutator_lock_)                                           \
+  bool DoInvoke<_type, _is_range, _do_check, _do_intrinsics>(Thread* self,                 \
+                                             ShadowFrame& shadow_frame,                    \
                                              const Instruction* inst, uint16_t inst_data,  \
                                              JValue* result)
 
 #define EXPLICIT_DO_INVOKE_ALL_TEMPLATE_DECL(_type)       \
-  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, false);  \
-  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, true);   \
-  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, false);   \
-  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, true);
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, false, true);   \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, true, true);    \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, false, true);    \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, true, true);     \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, false, false);  \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, false, true, false);   \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, false, false);   \
+  EXPLICIT_DO_INVOKE_TEMPLATE_DECL(_type, true, true, false);
 
 EXPLICIT_DO_INVOKE_ALL_TEMPLATE_DECL(kStatic)      // invoke-static/range.
 EXPLICIT_DO_INVOKE_ALL_TEMPLATE_DECL(kDirect)      // invoke-direct/range.

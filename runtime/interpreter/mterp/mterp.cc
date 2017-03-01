@@ -18,6 +18,7 @@
  * Mterp entry point and support functions.
  */
 #include "interpreter/interpreter_common.h"
+#include "interpreter/interpreter_intrinsics.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 #include "mterp.h"
 #include "debugger.h"
@@ -157,7 +158,7 @@ extern "C" size_t MterpInvokeVirtual(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kVirtual, false, false>(
+  return DoInvoke<kVirtual, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -168,7 +169,7 @@ extern "C" size_t MterpInvokeSuper(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kSuper, false, false>(
+  return DoInvoke<kSuper, false, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -179,7 +180,7 @@ extern "C" size_t MterpInvokeInterface(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kInterface, false, false>(
+  return DoInvoke<kInterface, false, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -190,7 +191,7 @@ extern "C" size_t MterpInvokeDirect(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kDirect, false, false>(
+  return DoInvoke<kDirect, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -201,7 +202,7 @@ extern "C" size_t MterpInvokeStatic(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kStatic, false, false>(
+  return DoInvoke<kStatic, false, false, true>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -212,7 +213,7 @@ extern "C" size_t MterpInvokeVirtualRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kVirtual, true, false>(
+  return DoInvoke<kVirtual, true, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -223,7 +224,7 @@ extern "C" size_t MterpInvokeSuperRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kSuper, true, false>(
+  return DoInvoke<kSuper, true, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -234,7 +235,7 @@ extern "C" size_t MterpInvokeInterfaceRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kInterface, true, false>(
+  return DoInvoke<kInterface, true, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -245,7 +246,7 @@ extern "C" size_t MterpInvokeDirectRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kDirect, true, false>(
+  return DoInvoke<kDirect, true, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
 
@@ -256,9 +257,10 @@ extern "C" size_t MterpInvokeStaticRange(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
-  return DoInvoke<kStatic, true, false>(
+  return DoInvoke<kStatic, true, false, false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
+
 
 extern "C" size_t MterpInvokeVirtualQuick(Thread* self,
                                           ShadowFrame* shadow_frame,
@@ -267,6 +269,18 @@ extern "C" size_t MterpInvokeVirtualQuick(Thread* self,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   JValue* result_register = shadow_frame->GetResultRegister();
   const Instruction* inst = Instruction::At(dex_pc_ptr);
+  const uint32_t vregC = inst->VRegC_35c();
+  const uint32_t vtable_idx = inst->VRegB_35c();
+  ObjPtr<mirror::Object> const receiver = shadow_frame->GetVRegReference(vregC);
+  if (receiver != nullptr) {
+    ArtMethod* const called_method = receiver->GetClass()->GetEmbeddedVTableEntry(
+        vtable_idx, kRuntimePointerSize);
+    if ((called_method != nullptr) && called_method->IsIntrinsic()) {
+      if (MterpHandleIntrinsic(shadow_frame, called_method, inst, inst_data, result_register)) {
+        return !self->IsExceptionPending();
+      }
+    }
+  }
   return DoInvokeVirtualQuick<false>(
       self, *shadow_frame, inst, inst_data, result_register);
 }
