@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31213748_f11f0d37",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-01T16:06:02Z",
+      "side": 1,
+      "message": "This should have been automated. Something like\n\n TEST_ART_TARGET_SYNC_DEPS +\u003d $(foreach jar,$(TARGET_CORR_JARS),$(TARGET_OUT_JAVA_LIBRARIES)/$(jar)-testdex.jar)",
+      "range": {
+        "startLine": 815,
+        "startChar": 0,
+        "endLine": 819,
+        "endChar": 79
+      },
+      "revId": "320ccca3d1587c37731b551668f9d86c3b0a0316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
