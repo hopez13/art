@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26f6a79a_296e2206",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-01T20:30:15Z",
+      "side": 1,
+      "message": "// ULEB encoding is variable length, causing problems determining the offset of the code items.\n// TODO: we should swap the order of these sections in the future to avoid this issue.",
+      "range": {
+        "startLine": 1532,
+        "startChar": 0,
+        "endLine": 1532,
+        "endChar": 77
+      },
+      "revId": "73200d369091019d771b0ae701381e0d00bbf40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
