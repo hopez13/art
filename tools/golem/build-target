@@ -1,0 +1,177 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+if [[ ! -d art ]]; then
+  echo "Script needs to be run at the root of the android tree"
+  exit 1
+fi
+
+ALL_CONFIGS=(linux-ia32 linux-x64 linux-armv8 linux-armv7 android-armv8 android-armv7)
+
+usage() {
+  echo "Usage: $(basename $0) [--golem] --config=CONFIG" >&2
+  echo "--------------------------------------------------------" >&2
+  echo "Required Flags:"
+  echo "  --config=CONFIG     Specify the config that will be built."
+  echo
+  echo "Optional Flags":
+  echo "  -j<num>             Specify how many jobs to use for parallelsm."
+  echo "  --help              Print this help listing."
+  echo "  --golem             Builds the exact build flavor that golem wants."
+  echo "  --showcommands      Show commands as they are being executed."
+  echo "  --simulate          Print commands only, don't execute commands."
+  echo
+  echo "Available configs:"
+
+  for config in "${ALL_CONFIGS[@]}"; do
+    echo "  $config"
+  done
+}
+
+# Check if $1 element is in array $2
+contains_element() {
+  local e
+  for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+  return 1
+}
+
+show_command() {
+  if [[ $showcommands == "showcommands" ]]; then
+    echo "$@"
+  fi
+}
+
+execute() {
+  show_command "$@"
+
+  if [[ $simulate == "simulate" ]]; then
+    return 0
+  fi
+
+  local prog="$1"
+  shift
+  "$prog" "$@"
+}
+
+mode=""
+config=""
+j_arg="-j8"
+showcommands=""
+simulate=""
+
+while true; do
+  if [[ "$1" == "--help" ]]; then
+    usage
+    exit 1
+  elif [[ "$1" == "--golem" ]]; then
+    mode="golem"
+    shift
+  elif [[ "$1" == --config=* ]]; then
+    config="${1##--config=}"
+    if ! contains_element "$config" "${ALL_CONFIGS[@]}"; then
+      echo "ERROR: Invalid --config value '$config'" >&2
+      exit 1
+    fi
+    shift
+  elif [[ "$1" == -j* ]]; then
+    j_arg=$1
+    shift
+  elif [[ "$1" == "--showcommands" ]]; then
+    showcommands="showcommands"
+    shift
+  elif [[ "$1" == "--simulate" ]]; then
+    simulate="simulate"
+    shift
+  elif [[ "$1" == "" ]]; then
+    break
+  else
+    echo "Unknown options $@"
+    exit 1
+  fi
+done
+
+if [[ -z $config ]]; then
+  echo "ERROR: --config option is required." >&2
+  exit 1
+fi
+
+if [[ $mode == "golem" ]]; then
+  source build/envsetup.sh
+  lunch sdk-eng
+  export JACK_SERVER=false
+  export JACK_REPOSITORY=$PWD/prebuilts/sdk/tools/jacks
+  export SOONG_ALLOW_MISSING_DEPENDENCIES=true
+  export ART_BUILD_TARGET_DEBUG=false
+  export ART_BUILD_HOST_DEBUG=false
+  export USE_DEX2OAT_DEBUG=false
+  export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin/:$PATH
+fi
+
+make_target="build-art-host-golem"
+
+libdir="lib"
+
+case "$config" in
+  linux-ia32)
+    export OUT_DIR=out/x86
+    export HOST_PREFER_32_BIT=true
+    ;;
+  linux-x64)
+    export OUT_DIR=out/x86_64
+    libdir="lib64"
+    ;;
+# TODO: properly support ARM configs.
+  linux-armv8)
+    export CUSTOM_TARGET_LINKER
+    export ART_TARGET_LINUX=true
+    echo "Unsupported" && exit 1
+    ;;
+  linux-armv7)
+    export ART_TARGET_LINUX=true
+    echo "Unsupported" && exit 1
+    ;;
+  android-armv8)
+    export CUSTOM_TARGET_LINKER
+    export ART_TARGET_LINUX=true
+    make_target="build-art-target-golem"
+    echo "Unsupported" && exit 1
+    ;;
+  android-armv7)
+    export CUSTOM_TARGET_LINKER
+    export ART_TARGET_LINUX=true
+    make_target="build-art-target-golem"
+    echo "Unsupported" && exit 1
+    ;;
+  *)
+    echo "FATAL: Unsupported config '$config'" >&2
+    exit 2
+esac
+
+root_dir="$OUT_DIR/host/linux-x86"
+
+
+execute make ${j_arg} ${make_target}
+execute strip $root_dir/bin/'*' || true
+execute strip $root_dir/lib/'*'
+
+execute tar -czf "$config.tar.gz" "$root_dir/bin" "$root_dir/framework" "$root_dir/usr" "$root_dir/$libdir" --exclude .git --exclude .gitignore
+tar_result=$?
+if [[ $tar_result -ne 0 ]]; then
+  [[ -f $config.tar.gz ]] && rm $config.tar.gz
+fi
+
+show_command '[[ $? -ne 0 ]] && rm' "$config.tar.gz"
+
