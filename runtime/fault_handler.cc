@@ -248,30 +248,70 @@ void FaultManager::HandleFault(int sig, siginfo_t* info, void* context) {
   //
   // If malloc calls abort, it will be holding its lock.
   // If the handler tries to call malloc, it will deadlock.
-  VLOG(signals) << "Handling fault";
-  if (IsInGeneratedCode(info, context, true)) {
-    VLOG(signals) << "in generated code, looking for handler";
-    for (const auto& handler : generated_code_handlers_) {
-      VLOG(signals) << "invoking Action on handler " << handler;
-      if (handler->Action(sig, info, context)) {
-#ifdef TEST_NESTED_SIGNAL
-        // In test mode we want to fall through to stack trace handler
-        // on every signal (in reality this will cause a crash on the first
-        // signal).
-        break;
-#else
-        // We have handled a signal so it's time to return from the
-        // signal handler to the appropriate place.
-        return;
+
+  // Use a thread local field to track whether we're recursing, and fall back.
+  // (e.g.. if one of our handlers crashed)
+  Thread* thread = Thread::Current();
+
+  sigset_t previous_mask;
+  if (thread && !thread->recursive_fault_) {
+    // Unblock some signals and set thread->recursive_fault_ to true,
+    // so that we can catch crashes in our signal handler.
+    thread->recursive_fault_ = true;
+    sigset_t mask;
+    sigemptyset(&mask);
+    sigaddset(&mask, SIGABRT);
+    sigaddset(&mask, SIGBUS);
+    sigaddset(&mask, SIGSEGV);
+    if (sigprocmask(SIG_UNBLOCK, &mask, &previous_mask) != 0) {
+      PLOG(FATAL) << "failed to unblock signals";
+    }
+
+    bool finished = false;
+
+    VLOG(signals) << "Handling fault";
+
+#if 0
+    // Simulate a crash in a handler.
+    raise(SIGSEGV);
 #endif
+
+    if (IsInGeneratedCode(info, context, true)) {
+      VLOG(signals) << "in generated code, looking for handler";
+      for (const auto& handler : generated_code_handlers_) {
+        VLOG(signals) << "invoking Action on handler " << handler;
+        if (handler->Action(sig, info, context)) {
+#ifdef TEST_NESTED_SIGNAL
+          // In test mode we want to fall through to stack trace handler
+          // on every signal (in reality this will cause a crash on the first
+          // signal).
+          break;
+#else
+          // We have handled a signal so it's time to return from the
+          // signal handler to the appropriate place.
+          finished = true;
+          goto handler_exit;
+#endif
+        }
+      }
+
+      // We hit a signal we didn't handle.  This might be something for which
+      // we can give more information about so call all registered handlers to see
+      // if it is.
+      if (HandleFaultByOtherHandlers(sig, info, context)) {
+        finished = true;
+        goto handler_exit;
       }
     }
 
-    // We hit a signal we didn't handle.  This might be something for which
-    // we can give more information about so call all registered handlers to see
-    // if it is.
-    if (HandleFaultByOtherHandlers(sig, info, context)) {
-        return;
+   handler_exit:
+    thread->recursive_fault_ = false;
+    if (sigprocmask(SIG_SETMASK, &previous_mask, nullptr) != 0) {
+      PLOG(ERROR) << "failed to restore signal mask";
+    }
+
+    if (finished) {
+      return;
     }
   }
 

@@ -1647,6 +1647,11 @@ class Thread {
   // By default this is true.
   bool can_call_into_java_;
 
+  // Used to mark recursive calls into FaultManager::HandleFault, for when a fault handler crashes.
+ public:
+  bool recursive_fault_;
+
+ private:
   friend class Dbg;  // For SetStateUnsafe.
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.
