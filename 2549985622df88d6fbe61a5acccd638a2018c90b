@@ -94,6 +94,30 @@
       "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "186017ed_46ce17c5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-02T23:08:25Z",
+      "side": 1,
+      "message": "I meant, we make monomorphic or polymorphic or maybe empty if we cannot encode anything.",
+      "parentUuid": "328abdc2_8726c61e",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
