@@ -46,6 +46,30 @@
       "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50f2791e_c95a7128",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-02T14:31:13Z",
+      "side": 1,
+      "message": "Ah right. So what you want is actually a way to differentiate \"code was hit, but you won\u0027t be able to inline\" (class in an other dex file, or inline cache megamorphic), and \"code was never hit\". Can we infer that from the current profile format?\n\nAlso, remind me: if you cannot encode a type id from another dex file, what do you do for the AOT inline cache? I think you should make it megamorphic, or empty.",
+      "parentUuid": "02da3372_dc8ce7cf",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
