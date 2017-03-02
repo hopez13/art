@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec9e9a0b_345a9eb2",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-02T22:24:44Z",
+      "side": 1,
+      "message": "If there is no remove in the destructor, could there be dangling pointer issues if JdwpState gets destroyed before runtime shutdown?",
+      "range": {
+        "startLine": 242,
+        "startChar": 46,
+        "endLine": 242,
+        "endChar": 62
+      },
+      "revId": "5e41030d1964ce873b9d5d74cc6eec7f712af0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51a524bc_b9524c79",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-02T22:24:44Z",
+      "side": 1,
+      "message": "Same as other comment.",
+      "range": {
+        "startLine": 38,
+        "startChar": 46,
+        "endLine": 38,
+        "endChar": 51
+      },
+      "revId": "5e41030d1964ce873b9d5d74cc6eec7f712af0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
