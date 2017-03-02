@@ -22,6 +22,30 @@
       "revId": "887996567804295e9190b1ff776b904ed4a73600",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45a0541_66b524ea",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-02T09:33:49Z",
+      "side": 1,
+      "message": "I\u0027m going to remove this comment, because I don\u0027t think it adds anything, and the description of what the function currently does is almost as complicated as the implementation, so people may as well just read the implementation instead.",
+      "parentUuid": "6b67df80_d5f87aab",
+      "range": {
+        "startLine": 288,
+        "startChar": 38,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "887996567804295e9190b1ff776b904ed4a73600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
