@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6451e9e5_fad29509",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-02T19:10:43Z",
+      "side": 1,
+      "message": "Added: \n    // Only allow setting to false.\n    DCHECK(!const_index);",
+      "parentUuid": "788b8dee_9af0dc74",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 54
+      },
+      "revId": "28ced1a71c54f43cf9560d3d833c04fbe6a92bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0c0a5c0_2a2589ea",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-02T13:06:55Z",
       "side": 1,
       "message": "Can\u0027t you use some previous analysis (induction_var?, bce?) to know if two accesses may alias?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "28ced1a71c54f43cf9560d3d833c04fbe6a92bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d74caf2_7aebc0a5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-02T19:10:43Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to involve loop so induction_var doesn\u0027t help. bce doesn\u0027t do the analysis either. Also it\u0027s cheap to do during our first pass to collect heap locations.",
+      "parentUuid": "c0c0a5c0_2a2589ea",
       "range": {
         "startLine": 90,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "44fc1346_bd37cbac",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-02T19:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4102c1d4_0cb5d82c",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 13
+      },
+      "revId": "28ced1a71c54f43cf9560d3d833c04fbe6a92bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c38717e9_2998c9df",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d9a17c98_25e162b1",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-02T19:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c38717e9_2998c9df",
+      "range": {
+        "startLine": 822,
+        "startChar": 14,
+        "endLine": 822,
+        "endChar": 25
+      },
+      "revId": "28ced1a71c54f43cf9560d3d833c04fbe6a92bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79df8_4eff1973",
         "filename": "test/532-checker-nonnull-arrayset/src/Main.java",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-02T13:06:55Z",
       "side": 1,
       "message": "Add a comment: storing to static to avoid lse optimization.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 19
+      },
+      "revId": "28ced1a71c54f43cf9560d3d833c04fbe6a92bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc4e767_38d1f7b7",
+        "filename": "test/532-checker-nonnull-arrayset/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-02T19:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f79df8_4eff1973",
       "range": {
         "startLine": 33,
         "startChar": 0,
