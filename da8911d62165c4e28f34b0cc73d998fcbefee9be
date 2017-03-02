@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "21955981_1932386a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-02T23:25:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "941e5f5d_f7d13f17",
+      "range": {
+        "startLine": 1663,
+        "startChar": 0,
+        "endLine": 1664,
+        "endChar": 35
+      },
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7eab3700_74e4232c",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -90,6 +114,24 @@
     },
     {
       "key": {
+        "uuid": "1027f12d_0d93ed8b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-02T23:25:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eab3700_74e4232c",
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93888234_1fc66e09",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 2
@@ -101,6 +143,30 @@
       "writtenOn": "2017-03-01T00:18:25Z",
       "side": 1,
       "message": "How about calling these \"freed_bytes\" and \"freed_objects\"?",
+      "range": {
+        "startLine": 249,
+        "startChar": 33,
+        "endLine": 250,
+        "endChar": 64
+      },
+      "revId": "da8911d62165c4e28f34b0cc73d998fcbefee9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447b9616_2e5b4f5b",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-02T23:25:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93888234_1fc66e09",
       "range": {
         "startLine": 249,
         "startChar": 33,
