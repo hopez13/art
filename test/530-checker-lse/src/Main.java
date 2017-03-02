@@ -747,6 +747,28 @@ public class Main {
     return 1.0f;
   }
 
+  /// CHECK-START: TestClass2 Main.testStoreStore() load_store_elimination (before)
+  /// CHECK: NewInstance
+  /// CHECK: InstanceFieldSet
+  /// CHECK: InstanceFieldSet
+  /// CHECK: InstanceFieldSet
+  /// CHECK: InstanceFieldSet
+
+  /// CHECK-START: TestClass2 Main.testStoreStore() load_store_elimination (after)
+  /// CHECK: NewInstance
+  /// CHECK: InstanceFieldSet
+  /// CHECK: InstanceFieldSet
+  /// CHECK-NOT: InstanceFieldSet
+
+  private static TestClass2 testStoreStore() {
+    TestClass2 obj = new TestClass2();
+    obj.i = 41;
+    obj.j = 42;
+    obj.i = 41;
+    obj.j = 43;
+    return obj;
+  }
+
   /// CHECK-START: double Main.getCircleArea(double, boolean) load_store_elimination (before)
   /// CHECK: NewInstance
 
@@ -865,6 +887,9 @@ public class Main {
     assertDoubleEquals(darray[0], Math.PI);
     assertDoubleEquals(darray[1], Math.PI);
     assertDoubleEquals(darray[2], Math.PI);
+
+    assertIntEquals(testStoreStore().i, 41);
+    assertIntEquals(testStoreStore().j, 43);
   }
 
   static boolean sFlag;
