@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "506b6a73_cae63bd9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-03T14:59:05Z",
+      "side": 1,
+      "message": "General question: how could the design look like for the target dependent features utilization during target independent part (for instance usage of ARM Long, Wide and Narrow variants of instructions)?\n\nI guess some of them could be done via separate simplifier pass by fuzzing some instructions (type_conv + add), but not all of them.",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07f6df9d_538c66b7",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-03T14:59:05Z",
+      "side": 1,
+      "message": "Am I right that in the future probably some alignment optimizations could be implemented in a target-independent way (with some queries to targets and possible generation of a few versions of the loop)? For example if we know that the addresses during array strides are VECT_SIZE-aligned (not VECT_ELEM_SIZE-aligned) we could benefit in performance by generating LDR instead of LD1.",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
