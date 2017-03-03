@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80255a1c_aed56389",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T00:34:52Z",
+      "side": 1,
+      "message": "place after comment, reads a bit easier",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea8fe121_e1788cd2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T00:34:52Z",
+      "side": 1,
+      "message": "comment on what the following if/use are testing\n\n(write to field or array with reaching use or something like that)\n\nright now you have a comment deeply burried inside where it is true",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c41965_aa0fd72a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T00:34:52Z",
+      "side": 1,
+      "message": "different value?",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
