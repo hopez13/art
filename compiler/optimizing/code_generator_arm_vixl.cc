@@ -1696,7 +1696,33 @@ void CodeGeneratorARMVIXL::GenerateFrameExit() {
 }
 
 void CodeGeneratorARMVIXL::Bind(HBasicBlock* block) {
-  __ Bind(GetLabelOf(block));
+  vixl32::Label* block_label = GetLabelOf(block);
+
+  if (block->IsLoopHeader()) {
+    __ PadToMinimumBranchRange(block_label);
+
+    // From "Cortex-A57 Software Optimization Guide": "Consider aligning subroutine entry points
+    // and branch targets to quadword boundaries, within the bounds of the code-density
+    // requirements of the program. This will ensure that the subsequent fetch can retrieve four
+    // (or a full quadword’s worth of) instructions, maximizing fetch bandwidth following the taken
+    // branch."
+    // So to keep code size difference as small as possible we optimize cases when only one NOP is
+    // emitted.
+    if (GetVIXLAssembler()->GetBuffer()->GetSizeInBytes() % 16 == 14) {
+      ExactAssemblyScope aas(GetVIXLAssembler(),
+                             vixl32::k16BitT32InstructionSizeInBytes,
+                             CodeBufferCheckScope::kExactSize);
+      __ nop(Narrow);
+      __ bind(block_label);
+    } else {
+      ExactAssemblyScope aas(GetVIXLAssembler(),
+                             0,
+                             CodeBufferCheckScope::kExactSize);
+      __ bind(block_label);
+    }
+  } else {
+    __ Bind(block_label);
+  }
 }
 
 Location InvokeDexCallingConventionVisitorARMVIXL::GetNextLocation(Primitive::Type type) {
