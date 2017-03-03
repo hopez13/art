@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "565c6d0d_c57eadaf",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-03-03T19:11:39Z",
+      "side": 1,
+      "message": "I\u0027d remove this from the runtime message - I don\u0027t think we need to *explain* what\u0027s going on in the message, if anyone is interested they can find the answer in the code/comments.",
+      "range": {
+        "startLine": 153,
+        "startChar": 47,
+        "endLine": 154,
+        "endChar": 62
+      },
+      "revId": "39cf12e38d13ca83ba8d82f4851adebaa4bcbcdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94ce979a_abe9a407",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-03-03T19:11:39Z",
+      "side": 1,
+      "message": "add an assert that the last char is \u0027;\u0027 ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 48
+      },
+      "revId": "39cf12e38d13ca83ba8d82f4851adebaa4bcbcdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
