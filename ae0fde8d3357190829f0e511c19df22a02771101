@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aba0014b_f13a1717",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-03T03:07:57Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this rather be in OpenCommon? All callers give a size that could be bad.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "ae0fde8d3357190829f0e511c19df22a02771101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
