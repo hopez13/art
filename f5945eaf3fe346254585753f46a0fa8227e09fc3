@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77a05148_cb533eea",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-03T02:14:06Z",
+      "side": 0,
+      "message": "Do not delete this completely. We still want \"other handlers\" to have a shot, if enabled. Just removed all the \"nested\" stuff and only keep the loop in line 216.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "f5945eaf3fe346254585753f46a0fa8227e09fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
