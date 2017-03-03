@@ -33,6 +33,24 @@
       "revId": "114f412127146f3f74e760554f5c78a192755a7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d41851_59314918",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T15:52:42Z",
+      "side": 1,
+      "message": "Yes Sir! You can already see this in the x86 code, where 16 byte alignment is checked to pick the \"better\" instructions for load/store. Currently that path is not taken, but if we add static/dynamic alignment optimizations (which are architectural neutral except for the required boundary), setting this alignment field enables all the other good stuff.",
+      "parentUuid": "07f6df9d_538c66b7",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
