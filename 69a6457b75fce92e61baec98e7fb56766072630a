@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "10fb12af_a275ac47",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T11:03:58Z",
+      "side": 1,
+      "message": "Consider adding IsSingletonAndNonRemovable",
+      "range": {
+        "startLine": 603,
+        "startChar": 23,
+        "endLine": 603,
+        "endChar": 74
+      },
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80255a1c_aed56389",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -13,6 +36,52 @@
       "writtenOn": "2017-03-03T00:34:52Z",
       "side": 1,
       "message": "place after comment, reads a bit easier",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31a3b52f_1fa885ab",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T11:03:58Z",
+      "side": 1,
+      "message": "IsSingletonAndNonRemovable",
+      "range": {
+        "startLine": 658,
+        "startChar": 21,
+        "endLine": 658,
+        "endChar": 74
+      },
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba36f07f_92ee981e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T11:03:58Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 925,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 45
+      },
       "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
