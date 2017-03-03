@@ -118,6 +118,30 @@
       "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a60527f_85098c2b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T11:00:32Z",
+      "side": 1,
+      "message": "Can we revisit the format before landing this change? I\u0027d really want to get the two cases (cannot encode a type index, and is not hit) covered.",
+      "parentUuid": "186017ed_46ce17c5",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
