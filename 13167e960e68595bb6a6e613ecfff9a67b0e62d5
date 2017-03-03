@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "534ce9e4_e87c2123",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-03T16:51:41Z",
+      "side": 1,
+      "message": "Line numbers",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c19f81a_ba7f65cc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-03T16:51:41Z",
+      "side": 1,
+      "message": "\"and two if it is less than 100\"?\n\nAlso, this padding works because you have no logging on a line before 10, right?",
+      "range": {
+        "startLine": 76,
+        "startChar": 14,
+        "endLine": 76,
+        "endChar": 15
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bedc8e3_0abab2de",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -42,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "6b52fbc7_8c8451fa",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-03T16:51:41Z",
+      "side": 1,
+      "message": "Could this be made a static assertion?  Also, I\u0027d check that `line \u003e\u003d 10` (see my previous remark).",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 13
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de5d0d75_a236c888",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 4
@@ -53,6 +122,52 @@
       "writtenOn": "2017-03-03T16:35:59Z",
       "side": 1,
       "message": "typo: recursively",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "733d7411_a12e164f",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-03T16:51:41Z",
+      "side": 1,
+      "message": "\"NotInlinedWont\"?",
+      "range": {
+        "startLine": 202,
+        "startChar": 35,
+        "endLine": 202,
+        "endChar": 55
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e386301_b0062ab0",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-03T16:51:41Z",
+      "side": 1,
+      "message": "whether",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 19
+      },
       "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
