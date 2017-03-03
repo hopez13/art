@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "34ad251a_a6d15d7e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 8193,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T15:56:44Z",
+      "side": 1,
+      "message": "here you see a sample use of alignment opt in codegen",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506b6a73_cae63bd9",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 9
@@ -13,6 +30,24 @@
       "writtenOn": "2017-03-03T14:59:05Z",
       "side": 1,
       "message": "General question: how could the design look like for the target dependent features utilization during target independent part (for instance usage of ARM Long, Wide and Narrow variants of instructions)?\n\nI guess some of them could be done via separate simplifier pass by fuzzing some instructions (type_conv + add), but not all of them.",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbf5ef0_92c93ebb",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T15:56:44Z",
+      "side": 1,
+      "message": "I was thinking along the lines of a combination of attributes in the vector nodes and adding new vector nodes kinds where needed. Do you foresee any issues, since you are more familiar with all features we want to add eventually? If so, we can discuss this perhaps offline and try to design something now already....",
+      "parentUuid": "506b6a73_cae63bd9",
       "revId": "114f412127146f3f74e760554f5c78a192755a7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
