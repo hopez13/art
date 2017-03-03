@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a91919_2c471915",
+        "filename": "runtime/interpreter/interpreter_intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T13:04:01Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 12
+      },
+      "revId": "d1e8777ebf3758525e606e93cba7eb500294a0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf81cdef_77985ed4",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T13:04:01Z",
+      "side": 1,
+      "message": "How about having your own helper here? That would avoid the new template parameter, which brings in a bunch of templatized code.",
+      "range": {
+        "startLine": 161,
+        "startChar": 8,
+        "endLine": 161,
+        "endChar": 48
+      },
+      "revId": "d1e8777ebf3758525e606e93cba7eb500294a0fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
