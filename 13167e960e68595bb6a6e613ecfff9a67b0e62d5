@@ -22,6 +22,40 @@
       "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bedc8e3_0abab2de",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T16:35:59Z",
+      "side": 1,
+      "message": "I am not sure I understand the DCHECK safeguard, should this never happen, or do you really want to fail here on debug?",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de5d0d75_a236c888",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T16:35:59Z",
+      "side": 1,
+      "message": "typo: recursively",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
