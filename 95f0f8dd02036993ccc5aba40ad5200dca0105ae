@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab29791_efe6dbd5",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-03T01:04:39Z",
+      "side": 1,
+      "message": "I believe ProcessPoolExecutor may the wrong API.\n\nConsider looking at multiprocessing.Pool instead?\n\n1) Pool has an imap function to lazily execute *all* of the tests (and it blocks nicely per-result).\n2) Pool has a terminate function that kills all the worker processes before each task is complete.\n\nSo this can be significantly simplified and have less code.",
+      "revId": "95f0f8dd02036993ccc5aba40ad5200dca0105ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
