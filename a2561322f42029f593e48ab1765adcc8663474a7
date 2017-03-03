@@ -22,6 +22,30 @@
       "revId": "a2561322f42029f593e48ab1765adcc8663474a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166bc03b_bcb6e042",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-03T02:27:26Z",
+      "side": 1,
+      "message": "I believe we don\u0027t have Q registers support in the codegen yet, right? This is just a proof-of-concept start. We should add full width and integer operations asap after this initial CL. I just want everyone to see the approach I am taking towards vectorization.",
+      "parentUuid": "a88327e3_e64a484f",
+      "range": {
+        "startLine": 750,
+        "startChar": 44,
+        "endLine": 751,
+        "endChar": 60
+      },
+      "revId": "a2561322f42029f593e48ab1765adcc8663474a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
