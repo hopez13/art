@@ -45,6 +45,76 @@
       "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "552b3887_9928ed6e",
+        "filename": "runtime/non_debuggable_classes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-03T16:15:10Z",
+      "side": 1,
+      "message": "Except that the GC root is a maintenance burden. Well-known classes are global references, for simplicity, and I think this is the right choice.",
+      "parentUuid": "2774fb49_3b447f45",
+      "range": {
+        "startLine": 39,
+        "startChar": 65,
+        "endLine": 39,
+        "endChar": 77
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeaf7126_d27373ef",
+        "filename": "runtime/non_debuggable_classes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-03T16:15:10Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10b73d59_7ff13ef8",
+        "filename": "runtime/non_debuggable_classes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-03T16:15:10Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
