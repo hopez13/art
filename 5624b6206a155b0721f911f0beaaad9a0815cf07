@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d947eb4d_152b808c",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T12:53:29Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 47
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2774fb49_3b447f45",
+        "filename": "runtime/non_debuggable_classes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-03T12:53:29Z",
+      "side": 1,
+      "message": "So this is the reason you\u0027re doing this dance of moving from one set to another. How about just putting raw mirror::Class in non_debuggable_class and treat that as a root when doing GC? Global refs have a memory cost that raw mirror::Class do not have.",
+      "range": {
+        "startLine": 39,
+        "startChar": 65,
+        "endLine": 39,
+        "endChar": 77
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
