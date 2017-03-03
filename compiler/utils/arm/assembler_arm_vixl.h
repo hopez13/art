@@ -145,6 +145,10 @@ class ArmVIXLMacroAssembler FINAL : public vixl32::MacroAssembler {
     }
   }
   using MacroAssembler::Vmov;
+
+  void PadToMinimumBranchRange(vixl32::Label* label) {
+    MacroAssembler::PadToMinimumBranchRange(label);
+  }
 };
 
 class ArmVIXLAssembler FINAL : public Assembler {
