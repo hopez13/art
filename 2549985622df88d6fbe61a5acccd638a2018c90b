@@ -142,6 +142,30 @@
       "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5de148_67ba47da",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-03T19:45:55Z",
+      "side": 1,
+      "message": "Kinda orthogonal to this change :) but I\u0027ll do it first then. Shouldn\u0027t be too hard. I have a few extra bits to spare in a byte.",
+      "parentUuid": "7a60527f_85098c2b",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "2549985622df88d6fbe61a5acccd638a2018c90b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
