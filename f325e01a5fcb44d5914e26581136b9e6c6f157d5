@@ -16,6 +16,24 @@
       "revId": "f325e01a5fcb44d5914e26581136b9e6c6f157d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52fa415c_abfea3d2",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2017-03-03T21:51:55Z",
+      "side": 1,
+      "message": "That expansion will never be blank, that\u0027s what the $ANDROID_BUILD_TOP/out default is for. And ANDROID_BUILD_TOP is guaranteed to be set on line 77/78.",
+      "parentUuid": "21506c33_990b7d13",
+      "revId": "f325e01a5fcb44d5914e26581136b9e6c6f157d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
