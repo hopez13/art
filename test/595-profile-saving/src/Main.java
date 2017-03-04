@@ -30,8 +30,7 @@ public class Main {
       String codePath = System.getenv("DEX_LOCATION") + "/595-profile-saving.jar";
       VMRuntime.registerAppInfo(file.getPath(),
                                 System.getenv("DEX_LOCATION"),
-                                new String[] {codePath},
-                                /* foreignProfileDir */ null);
+                                new String[] {codePath});
 
       int methodIdx = $opt$noinline$testProfile();
       ensureProfileProcessing();
@@ -91,9 +90,9 @@ public class Main {
       }
     }
 
-    public static void registerAppInfo(String profile, String appDir,
-                                       String[] codePaths, String foreignDir) throws Exception {
-      registerAppInfoMethod.invoke(null, profile, appDir, codePaths, foreignDir);
+    public static void registerAppInfo(String profile, String appDir, String[] codePaths)
+        throws Exception {
+      registerAppInfoMethod.invoke(null, profile, appDir, codePaths);
     }
   }
 }
