@@ -128,6 +128,52 @@
     },
     {
       "key": {
+        "uuid": "5c35c76f_5fd4bac5",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-04T01:48:08Z",
+      "side": 1,
+      "message": "document this one.",
+      "range": {
+        "startLine": 232,
+        "startChar": 24,
+        "endLine": 232,
+        "endChar": 31
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "684a5b1c_3f571f0b",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-04T01:48:08Z",
+      "side": 1,
+      "message": "document what the budget means.",
+      "range": {
+        "startLine": 234,
+        "startChar": 9,
+        "endLine": 234,
+        "endChar": 25
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "733d7411_a12e164f",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 4
