@@ -33,7 +33,6 @@ class ProfileSaver {
                     const std::string& output_filename,
                     jit::JitCodeCache* jit_code_cache,
                     const std::vector<std::string>& code_paths,
-                    const std::string& foreign_dex_profile_path,
                     const std::string& app_data_dir)
       REQUIRES(!Locks::profiler_lock_, !wait_lock_);
 
@@ -45,8 +44,6 @@ class ProfileSaver {
 
   // Returns true if the profile saver is started.
   static bool IsStarted() REQUIRES(!Locks::profiler_lock_);
-
-  static void NotifyDexUse(const std::string& dex_location);
 
   // If the profile saver is running, dumps statistics to the `os`. Otherwise it does nothing.
   static void DumpInstanceInfo(std::ostream& os);
@@ -67,7 +64,6 @@ class ProfileSaver {
                const std::string& output_filename,
                jit::JitCodeCache* jit_code_cache,
                const std::vector<std::string>& code_paths,
-               const std::string& foreign_dex_profile_path,
                const std::string& app_data_dir);
 
   // NO_THREAD_SAFETY_ANALYSIS for static function calling into member function with excludes lock.
@@ -102,12 +98,6 @@ class ProfileSaver {
   // profile_cache_ for later save.
   void FetchAndCacheResolvedClassesAndMethods();
 
-  static bool MaybeRecordDexUseInternal(
-      const std::string& dex_location,
-      const std::set<std::string>& tracked_locations,
-      const std::string& foreign_dex_profile_path,
-      const std::set<std::string>& app_data_dirs);
-
   void DumpInfo(std::ostream& os);
 
   // The only instance of the saver.
@@ -121,8 +111,6 @@ class ProfileSaver {
   // It maps profile locations to code paths (dex base locations).
   SafeMap<std::string, std::set<std::string>> tracked_dex_base_locations_
       GUARDED_BY(Locks::profiler_lock_);
-  // The directory were the we should store the code paths.
-  std::string foreign_dex_profile_path_;
 
   // A list of application directories, used to infer if a loaded dex belongs
   // to the application or not. Multiple application data directories are possible when
@@ -152,7 +140,6 @@ class ProfileSaver {
   uint64_t total_number_of_failed_writes_;
   uint64_t total_ms_of_sleep_;
   uint64_t total_ns_of_work_;
-  uint64_t total_number_of_foreign_dex_marks_;
   // TODO(calin): replace with an actual size.
   uint64_t max_number_of_profile_entries_cached_;
   uint64_t total_number_of_hot_spikes_;
