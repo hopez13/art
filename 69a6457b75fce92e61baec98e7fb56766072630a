@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46fb3d84_7622c33e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10fb12af_a275ac47",
+      "range": {
+        "startLine": 603,
+        "startChar": 23,
+        "endLine": 603,
+        "endChar": 74
+      },
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80255a1c_aed56389",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "dec3c9c3_39634402",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80255a1c_aed56389",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31a3b52f_1fa885ab",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2017-03-03T11:03:58Z",
       "side": 1,
       "message": "IsSingletonAndNonRemovable",
+      "range": {
+        "startLine": 658,
+        "startChar": 21,
+        "endLine": 658,
+        "endChar": 74
+      },
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ac9b8d_9d6dee42",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31a3b52f_1fa885ab",
       "range": {
         "startLine": 658,
         "startChar": 21,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "731bd24e_cbaa1381",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba36f07f_92ee981e",
+      "range": {
+        "startLine": 925,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 45
+      },
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea8fe121_e1788cd2",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "4760e26c_3a786829",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea8fe121_e1788cd2",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54c41965_aa0fd72a",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -116,6 +224,24 @@
       "writtenOn": "2017-03-03T00:34:52Z",
       "side": 1,
       "message": "different value?",
+      "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f855b8a5_39caa1ac",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-04T04:41:30Z",
+      "side": 1,
+      "message": "You mean the one on line 767? I intentionally set the same value there for obj.i.",
+      "parentUuid": "54c41965_aa0fd72a",
       "revId": "69a6457b75fce92e61baec98e7fb56766072630a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
