@@ -1964,7 +1964,6 @@ void Runtime::SetCalleeSaveMethod(ArtMethod* method, CalleeSaveType type) {
 
 void Runtime::RegisterAppInfo(const std::vector<std::string>& code_paths,
                               const std::string& profile_output_filename,
-                              const std::string& foreign_dex_profile_path,
                               const std::string& app_dir) {
   if (jit_.get() == nullptr) {
     // We are not JITing. Nothing to do.
@@ -1987,18 +1986,7 @@ void Runtime::RegisterAppInfo(const std::vector<std::string>& code_paths,
     return;
   }
 
-  jit_->StartProfileSaver(profile_output_filename,
-                          code_paths,
-                          foreign_dex_profile_path,
-                          app_dir);
-}
-
-void Runtime::NotifyDexLoaded(const std::string& dex_location) {
-  VLOG(profiler) << "Notify dex loaded: " << dex_location;
-  // We know that if the ProfileSaver is started then we can record profile information.
-  if (ProfileSaver::IsStarted()) {
-    ProfileSaver::NotifyDexUse(dex_location);
-  }
+  jit_->StartProfileSaver(profile_output_filename, code_paths, app_dir);
 }
 
 // Transaction support.
