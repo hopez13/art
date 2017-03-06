@@ -203,6 +203,7 @@ class PACKED(4) ImageHeader {
     kSectionDexCacheArrays,
     kSectionInternedStrings,
     kSectionClassTable,
+    kSectionObjectFixups,
     kSectionImageBitmap,
     kSectionCount,  // Number of elements in enum.
   };
@@ -297,6 +298,10 @@ class PACKED(4) ImageHeader {
   void VisitPackedImtConflictTables(const Visitor& visitor,
                                     uint8_t* base,
                                     PointerSize pointer_size) const;
+
+  // NO_THREAD_SAFETY_ANALYSIS in case the visitor requires mutator lock.
+  template <typename Visitor>
+  void VisitPackedFixups(const Visitor& visitor, uint8_t* base) const NO_THREAD_SAFETY_ANALYSIS;
 
  private:
   static const uint8_t kImageMagic[4];
