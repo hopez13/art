@@ -262,7 +262,7 @@
         "variant": "optimizing &  ndebuggable | regalloc_gc & ndebuggable"
     },
     {
-        "tests": "596-app-images",
+        "tests": ["596-app-images", "159-app-image-boot-class"],
         "variant": "npictest"
     },
     {

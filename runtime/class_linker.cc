@@ -58,6 +58,7 @@
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "gc/space/image_space.h"
+#include "gc/space/image_space_fixup-inl.h"
 #include "gc/space/space-inl.h"
 #include "handle_scope-inl.h"
 #include "image-inl.h"
@@ -1116,10 +1117,14 @@ class FixupArtMethodArrayVisitor : public ArtMethodVisitor {
               reinterpret_cast<const uint8_t*>(resolved_methods) - header_.GetImageBegin());
       }
       // Must be in image space for non-miranda method.
-      DCHECK(is_copied || in_image_space)
+      DCHECK(is_copied ||
+             in_image_space ||
+             method->GetDeclaringClass()->GetClassLoader() == nullptr)
           << resolved_methods << " is not in image starting at "
-          << reinterpret_cast<void*>(header_.GetImageBegin());
+          << reinterpret_cast<void*>(header_.GetImageBegin()) << " "
+          << method->GetDexCache()->GetResolvedMethods();
       if (!is_copied || in_image_space) {
+        DCHECK(method->GetDexCache() != nullptr) << method << " " << method->GetDeclaringClass();
         method->SetDexCacheResolvedMethods(method->GetDexCache()->GetResolvedMethods(),
                                            kRuntimePointerSize);
       }
@@ -1137,7 +1142,9 @@ class VerifyClassInTableArtMethodVisitor : public ArtMethodVisitor {
   virtual void Visit(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::classlinker_classes_lock_) {
     ObjPtr<mirror::Class> klass = method->GetDeclaringClass();
-    if (klass != nullptr && !Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(klass)) {
+    if (klass != nullptr &&
+        !Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(klass) &&
+        klass->GetClassLoader() != nullptr) {
       CHECK_EQ(table_->LookupByDescriptor(klass), klass) << mirror::Class::PrettyClass(klass);
     }
   }
@@ -1182,7 +1189,11 @@ class VerifyDeclaringClassVisitor : public ArtMethodVisitor {
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_) {
     ObjPtr<mirror::Class> klass = method->GetDeclaringClassUnchecked();
     if (klass != nullptr) {
-      CHECK(live_bitmap_->Test(klass.Ptr())) << "Image method has unmarked declaring class";
+      // The class may be in the region space and not marked in the heap bitmap.
+      CHECK(live_bitmap_->Test(klass.Ptr()) || klass->GetClassLoader() == nullptr)
+          << "Image method has unmarked declaring class (" << klass->PrettyClass() << ")@"
+          << klass << "\n"
+          << Runtime::Current()->GetHeap()->DumpSpaces();
     }
   }
 
@@ -1226,13 +1237,76 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
     Handle<mirror::ClassLoader> class_loader,
     Handle<mirror::ObjectArray<mirror::DexCache>> dex_caches,
     ClassTable::ClassSet* new_class_set,
+    ClassTable* class_table,
     bool* out_forward_dex_cache_array,
     std::string* out_error_msg) {
   DCHECK(out_forward_dex_cache_array != nullptr);
   DCHECK(out_error_msg != nullptr);
   Thread* const self = Thread::Current();
   gc::Heap* const heap = Runtime::Current()->GetHeap();
+
   const ImageHeader& header = space->GetImageHeader();
+
+  {
+    ScopedTrace timing("Fixup objects and pointers");
+    bool inserted_in_boot_class_path = false;
+    // TODO: Investigate using a better data structure than unordered_map.
+    std::unordered_map<const void*, void*> pointers_to_fixup;
+    header.VisitPackedObjectFixups([&inserted_in_boot_class_path,
+                                    &pointers_to_fixup,
+                                    this,
+                                    space,
+                                    &class_table](
+        const gc::space::ObjectFixup& fixup)
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      ObjPtr<mirror::Object> obj(fixup.Object().Read());
+      CHECK(obj->IsClass());
+      ObjPtr<mirror::Class> klass = obj->AsClass();
+      DCHECK(klass->GetClassLoader() == nullptr);
+      // TODO: Is this lock necessary? ClassTable already has an internal lock.
+      WriterMutexLock rmu(Thread::Current(), *Locks::classlinker_classes_lock_);
+      mirror::Class* existing = boot_class_table_.LookupByDescriptor(klass);
+      std::string storage;
+      if (existing != nullptr) {
+        // Alrady inserted, fixup image pointers to the existing class.
+        fixup.FixupAllReferences(space->Begin(), existing, klass);
+        const size_t num_methods = klass->NumMethods();
+        DCHECK_EQ(num_methods, existing->NumMethods());
+        auto new_methods = existing->GetMethods(image_pointer_size_);
+        auto new_it = new_methods.begin();
+        for (ArtMethod& old_method : klass->GetMethods(image_pointer_size_)) {
+          pointers_to_fixup.emplace(&old_method, &*new_it);
+          new_it++;
+        }
+        DCHECK(new_it == new_methods.end());
+        // Make sure our class loader also has the boot class.
+        class_table->Insert(existing);
+      } else {
+        // Not already in boot class path, insert our version.
+        boot_class_table_.Insert(klass);
+        // Make sure our class loader also has the boot class.
+        class_table->Insert(klass);
+        inserted_in_boot_class_path = true;
+      }
+    }, space->Begin());
+    // Now that we have collected all the required native fixups, fix them up if required.
+    if (!pointers_to_fixup.empty()) {
+      header.VisitPackedPointerFixups([&pointers_to_fixup, this, space](
+          const gc::space::PointerSizedFixup& fixup) {
+        const void* pointer = fixup.Pointer();
+        auto it = pointers_to_fixup.find(pointer);
+        if (it != pointers_to_fixup.end()) {
+          fixup.FixupAllPointers(space->Begin(), it->second, pointer);
+        }
+      }, space->Begin());
+    }
+    if (inserted_in_boot_class_path) {
+      WriterMutexLock rmu(Thread::Current(), *Locks::classlinker_classes_lock_);
+      // If we inserted into the boot class path, we must make sure to keep the dex cache live.
+      boot_class_table_.InsertStrongRoot(dex_caches.Get());
+    }
+  }
+
   {
     // Add image classes into the class table for the class loader, and fixup the dex caches and
     // class loader fields.
@@ -1388,13 +1462,15 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
         for (size_t j = 0; j != num_types; ++j) {
           // The image space is not yet added to the heap, avoid read barriers.
           ObjPtr<mirror::Class> klass = types[j].load(std::memory_order_relaxed).object.Read();
-          if (space->HasAddress(klass.Ptr())) {
+          if (space->HasAddress(klass.Ptr()) && klass->GetClassLoader() != nullptr) {
             DCHECK(!klass->IsErroneous()) << klass->GetStatus();
             auto it = new_class_set->Find(ClassTable::TableSlot(klass));
             DCHECK(it != new_class_set->end());
             DCHECK_EQ(it->Read(), klass);
             ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
-            if (super_class != nullptr && !heap->ObjectIsInBootImageSpace(super_class)) {
+            if (super_class != nullptr &&
+                !heap->ObjectIsInBootImageSpace(super_class) &&
+                super_class->GetClassLoader() != nullptr) {
               auto it2 = new_class_set->Find(ClassTable::TableSlot(super_class));
               DCHECK(it2 != new_class_set->end());
               DCHECK_EQ(it2->Read(), super_class);
@@ -1878,6 +1954,7 @@ bool ClassLinker::AddImageSpace(
                                                 class_loader,
                                                 dex_caches,
                                                 &temp_set,
+                                                class_table,
                                                 /*out*/&forward_dex_cache_arrays,
                                                 /*out*/error_msg)) {
       return false;
@@ -3859,7 +3936,7 @@ class MoveClassTableToPreZygoteVisitor : public ClassLoaderVisitor {
 
 void ClassLinker::MoveClassTableToPreZygote() {
   WriterMutexLock mu(Thread::Current(), *Locks::classlinker_classes_lock_);
-  boot_class_table_.FreezeSnapshot();
+  // boot_class_table_.FreezeSnapshot();
   MoveClassTableToPreZygoteVisitor visitor;
   VisitClassLoaders(&visitor);
 }
