@@ -262,7 +262,7 @@
         "variant": "optimizing & ndebuggable | regalloc_gc & ndebuggable | speed-profile & ndebuggable"
     },
     {
-        "tests": "596-app-images",
+        "tests": ["596-app-images"],
         "variant": "npictest"
     },
     {
