@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "8a267366_4252ffe1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-06T18:05:04Z",
+      "side": 1,
+      "message": "Yes Sir! Not to bore everyone .... but such cases are also listed in the vectorization handbook. Obviously, the mixed-type (or more precisely vector length difference) causes either the store to go \"faster\" or \"slower\" compared to the computations, but none of these poses a really big problem in vectorization.",
+      "parentUuid": "21b526e9_fa18d7e4",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f6df9d_538c66b7",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 9
