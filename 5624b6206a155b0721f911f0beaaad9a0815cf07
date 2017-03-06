@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "699e9b32_e5cba423",
+        "filename": "runtime/non_debuggable_classes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T09:54:17Z",
+      "side": 1,
+      "message": "Can you point me to an example that shows it\u0027s a maintenance burden?",
+      "parentUuid": "b703df13_d45f2df5",
+      "range": {
+        "startLine": 39,
+        "startChar": 65,
+        "endLine": 39,
+        "endChar": 77
+      },
+      "revId": "5624b6206a155b0721f911f0beaaad9a0815cf07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeaf7126_d27373ef",
         "filename": "runtime/non_debuggable_classes.h",
         "patchSetId": 1
