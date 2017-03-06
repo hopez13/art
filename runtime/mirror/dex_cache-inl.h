@@ -342,6 +342,10 @@ inline void DexCache::FixupStrings(StringDexCacheType* dest, const Visitor& visi
     String* ptr = source.object.Read<kReadBarrierOption>();
     String* new_source = visitor(ptr);
     source.object = GcRoot<String>(new_source);
+    if (UNLIKELY(new_source == nullptr)) {
+      // Support the visitor clearing the slot by returning null.
+      source.index = StringDexCachePair::InvalidIndexForSlot(i);
+    }
     dest[i].store(source, std::memory_order_relaxed);
   }
 }
@@ -354,6 +358,10 @@ inline void DexCache::FixupResolvedTypes(TypeDexCacheType* dest, const Visitor& 
     Class* ptr = source.object.Read<kReadBarrierOption>();
     Class* new_source = visitor(ptr);
     source.object = GcRoot<Class>(new_source);
+    if (UNLIKELY(new_source == nullptr)) {
+      // Support the visitor clearing the slot by returning null.
+      source.index = TypeDexCachePair::InvalidIndexForSlot(i);
+    }
     dest[i].store(source, std::memory_order_relaxed);
   }
 }
@@ -367,6 +375,10 @@ inline void DexCache::FixupResolvedMethodTypes(MethodTypeDexCacheType* dest,
     MethodType* ptr = source.object.Read<kReadBarrierOption>();
     MethodType* new_source = visitor(ptr);
     source.object = GcRoot<MethodType>(new_source);
+    if (UNLIKELY(new_source == nullptr)) {
+      // Support the visitor clearing the slot by returning null.
+      source.index = MethodTypeDexCachePair::InvalidIndexForSlot(i);
+    }
     dest[i].store(source, std::memory_order_relaxed);
   }
 }
