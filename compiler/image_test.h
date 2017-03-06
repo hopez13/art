@@ -133,6 +133,12 @@ inline std::vector<size_t> CompilationHelper::GetImageObjectSectionSizes() {
     CHECK_EQ(file->ReadFully(&image_header, sizeof(image_header)), true);
     CHECK(image_header.IsValid());
     ret.push_back(image_header.GetImageSize());
+    for (size_t i = 0; i < ImageHeader::kSectionCount; ++i) {
+       const auto section_idx = static_cast<ImageHeader::ImageSections>(i);
+       auto& section = image_header.GetImageSection(section_idx);
+       LOG(ERROR) << section_idx << " size=" << section.Size();
+     }
+    LOG(ERROR) << "______";
   }
   return ret;
 }
@@ -285,7 +291,7 @@ inline void CompilationHelper::Compile(CompilerDriver* driver,
           ASSERT_TRUE(cur_opened_dex_files.empty());
         }
       }
-      bool image_space_ok = writer->PrepareImageAddressSpace();
+      bool image_space_ok = writer->PrepareImageAddressSpace(/*fast_fixup_all_objects*/ true);
       ASSERT_TRUE(image_space_ok);
 
       if (kIsVdexEnabled) {
