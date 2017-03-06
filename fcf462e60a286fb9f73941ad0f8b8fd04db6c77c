@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "98ca3a41_5d616657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-06T17:39:10Z",
+      "side": 1,
+      "message": "Test run, and line added.",
+      "parentUuid": "18a91a29_b08fa4c4",
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e118997_ba85b599",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "72994f33_41a90e5b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-06T17:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e118997_ba85b599",
+      "range": {
+        "startLine": 2041,
+        "startChar": 9,
+        "endLine": 2041,
+        "endChar": 17
+      },
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe3973bd_cbd2d87f",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2017-03-01T04:07:03Z",
       "side": 1,
       "message": "Subu() for consistency with the above.",
+      "range": {
+        "startLine": 2068,
+        "startChar": 7,
+        "endLine": 2068,
+        "endChar": 12
+      },
+      "revId": "fcf462e60a286fb9f73941ad0f8b8fd04db6c77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24985159_0fac3649",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-06T17:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe3973bd_cbd2d87f",
       "range": {
         "startLine": 2068,
         "startChar": 7,
