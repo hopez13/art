@@ -91,6 +91,23 @@
       "revId": "6320a97c8bc70d099aef9299d24ae1a01a250b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5fb9f2_ecbcba64",
+        "filename": "test/641-checker-arraycopy/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-06T19:18:48Z",
+      "side": 1,
+      "message": "nothing to actually exercise the copies and verify result?",
+      "revId": "6320a97c8bc70d099aef9299d24ae1a01a250b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
