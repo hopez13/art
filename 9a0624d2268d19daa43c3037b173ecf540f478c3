@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3bb0ea3_698bb50e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T13:26:41Z",
+      "side": 1,
+      "message": "Why is that not replaced (with the IsSingleton check line 609) with ref_info-\u003eIsSingletonAndRemovable() ?",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 53
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88eca9d6_2fa94d90",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T13:26:41Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 666,
+        "startChar": 14,
+        "endLine": 666,
+        "endChar": 16
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29b20ac_1bbe45e0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T13:26:41Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 936,
+        "endChar": 7
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd8f223e_3a8dc057",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T13:26:41Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. If it\u0027s a stored value, don\u0027t you have the value to replace with?",
+      "range": {
+        "startLine": 937,
+        "startChar": 4,
+        "endLine": 951,
+        "endChar": 5
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfc7e0f_5325bf3a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T13:26:41Z",
+      "side": 1,
+      "message": "Add a test with deoptimize?",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 15
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
