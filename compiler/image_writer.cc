@@ -43,6 +43,7 @@
 #include "gc/collector/concurrent_copying.h"
 #include "gc/heap.h"
 #include "gc/space/large_object_space.h"
+#include "gc/space/image_space_fixup-inl.h"
 #include "gc/space/space-inl.h"
 #include "globals.h"
 #include "image.h"
@@ -113,6 +114,13 @@ bool ImageWriter::IsInBootOatFile(const void* ptr) const {
   return false;
 }
 
+bool ImageWriter::IsClassThatRequiresFastFixups(ObjPtr<mirror::Object> obj) {
+  if (obj == nullptr || !compile_app_image_ || !obj->IsClass()) {
+    return false;
+  }
+  return IsBootClassLoaderNonImageClass(obj->AsClass());
+}
+
 static void CheckNoDexObjectsCallback(Object* obj, void* arg ATTRIBUTE_UNUSED)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Class* klass = obj->GetClass();
@@ -122,6 +130,46 @@ static void CheckNoDexObjectsCallback(Object* obj, void* arg ATTRIBUTE_UNUSED)
 static void CheckNoDexObjects() {
   ScopedObjectAccess soa(Thread::Current());
   Runtime::Current()->GetHeap()->VisitObjects(CheckNoDexObjectsCallback, nullptr);
+}
+
+
+class ImageWriter::RegisterBootClassPathClassesVisitor : public ClassVisitor {
+ public:
+  explicit RegisterBootClassPathClassesVisitor(ImageWriter* image_writer)
+      : image_writer_(image_writer) {}
+
+  bool operator()(ObjPtr<Class> c) OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (image_writer_->IsClassThatRequiresFastFixups(c)) {
+      CHECK(image_writer_->is_fast_fixup_reference_.insert(c.Ptr()).second)
+          << "Already inserted " << c;
+      // Also mark the owned fields and method. We must do this since we can't just use the
+      // declaring class because of copied methods.
+      for (const ArtMethod& method : c->GetMethods(image_writer_->target_ptr_size_)) {
+        CHECK(image_writer_->is_fast_fixup_pointer_.insert(&method).second)
+            << "Already inserted " << &method;
+      }
+      for (const ArtField& field : c->GetIFields()) {
+        CHECK(image_writer_->is_fast_fixup_pointer_.insert(&field).second)
+            << "Already inserted " << &field;
+      }
+      for (const ArtField& field : c->GetSFields()) {
+        CHECK(image_writer_->is_fast_fixup_pointer_.insert(&field).second)
+            << "Already inserted " << &field;
+      }
+    }
+    StackHandleScope<1> hs(Thread::Current());
+    mirror::Class::ComputeName(hs.NewHandle(c));
+    return true;
+  }
+
+ private:
+  ImageWriter* const image_writer_;
+};
+
+void ImageWriter::RegisterBootClassPathClasses() {
+  ScopedObjectAccess soa(Thread::Current());
+  RegisterBootClassPathClassesVisitor visitor(this);
+  Runtime::Current()->GetClassLinker()->VisitClasses(&visitor);
 }
 
 bool ImageWriter::PrepareImageAddressSpace() {
@@ -152,6 +200,13 @@ bool ImageWriter::PrepareImageAddressSpace() {
     CheckNonImageClassesRemoved();
   }
 
+  if (compile_app_image_) {
+    ScopedObjectAccess soa(Thread::Current());
+    // Interesting classes must be registered before CalculateNewObjectOffsets is called since we
+    // query the data there.
+    RegisterBootClassPathClasses();
+  }
+
   {
     ScopedObjectAccess soa(Thread::Current());
     CalculateNewObjectOffsets();
@@ -164,6 +219,60 @@ bool ImageWriter::PrepareImageAddressSpace() {
   }
 
   return true;
+}
+
+void ImageWriter::WriteFixups(size_t oat_index) {
+  const ImageInfo& image_info = GetImageInfo(oat_index);
+  auto* image_header = reinterpret_cast<ImageHeader*>(image_info.image_->Begin());
+  if (image_info.object_fixup_bytes_ > 0u) {
+    const ImageSection& section = image_header->GetImageSection(ImageHeader::kSectionObjectFixups);
+    // Copy and write fixups last since they get offsets when the other sections get copied.
+    uint8_t* out_ptr = image_info.image_->Begin() + section.Offset();
+    for (auto& pair : image_info.reference_fixups_) {
+      const ReferenceFixups& fixups = pair.second;
+      CHECK_EQ(fixups.fixup_count_,
+               fixups.compressed_reference_offsets_.size() +
+                   fixups.heap_reference_offsets_.size())
+          << fixups.compressed_reference_offsets_.size() << " "
+          << fixups.heap_reference_offsets_.size();
+      gc::space::ObjectFixup* fixup = reinterpret_cast<gc::space::ObjectFixup*>(out_ptr);
+      *fixup = gc::space::ObjectFixup(GcRoot<mirror::Object>(GetImageAddress(pair.first)),
+                                      fixups.heap_reference_offsets_.size(),
+                                      fixups.compressed_reference_offsets_.size());
+      LOG(ERROR) << fixup->NumCompressedReferenceFixups() << " " << fixup->NumHeapReferenceFixups();
+      for (size_t i = 0; i < fixups.heap_reference_offsets_.size(); ++i) {
+        *fixup->HeapReferenceFixupOffset(i) = fixups.heap_reference_offsets_[i];
+      }
+      for (size_t i = 0; i < fixups.compressed_reference_offsets_.size(); ++i) {
+        *fixup->CompressedReferenceFixupOffset(i) = fixups.compressed_reference_offsets_[i];
+      }
+      const size_t fixup_size = gc::space::ObjectFixup::ComputeSize(fixups.fixup_count_);
+      CHECK_GT(fixup_size, 0u);
+      out_ptr += fixup_size;
+    }
+    DCHECK_EQ(out_ptr, image_info.image_->Begin() + section.End());
+  }
+  if (image_info.pointer_fixup_bytes_ > 0u) {
+    const ImageSection& section = image_header->GetImageSection(ImageHeader::kSectionPointerFixups);
+    // Copy and write fixups last since they get offsets when the other sections get copied.
+    uint8_t* out_ptr = image_info.image_->Begin() + section.Offset();
+    for (auto& pair : image_info.pointer_fixups_) {
+      const PointerFixups& fixups = pair.second;
+      CHECK_EQ(fixups.fixup_count_, fixups.offsets_.size());
+      gc::space::PointerSizedFixup* fixup =
+          reinterpret_cast<gc::space::PointerSizedFixup*>(out_ptr);
+      *fixup = gc::space::PointerSizedFixup(
+          PointerToLowMemUInt32(NativeLocationInImage(const_cast<void*>(pair.first))),
+          fixups.offsets_.size());
+      for (size_t i = 0; i < fixups.offsets_.size(); ++i) {
+        fixup->SetOffset(i, fixups.offsets_[i]);
+      }
+      const size_t fixup_size = gc::space::PointerSizedFixup::ComputeSize(fixups.fixup_count_);
+      CHECK_GT(fixup_size, 0u);
+      out_ptr += fixup_size;
+    }
+    DCHECK_EQ(out_ptr, image_info.image_->Begin() + section.End());
+  }
 }
 
 bool ImageWriter::Write(int image_fd,
@@ -191,6 +300,14 @@ bool ImageWriter::Write(int image_fd,
     ScopedObjectAccess soa(Thread::Current());
     Runtime::Current()->GetHeap()->DisableObjectValidation();
     CopyAndFixupObjects();
+  }
+
+  // This must be after the other copying since the fixup offsets are added during the copying.
+  {
+    ScopedObjectAccess soa(Thread::Current());
+    for (size_t i = 0; i < oat_filenames.size(); ++i) {
+      WriteFixups(i);
+    }
   }
 
   for (size_t i = 0; i < image_filenames.size(); ++i) {
@@ -484,7 +601,7 @@ void ImageWriter::AddDexCacheArrayRelocation(void* array,
   }
 }
 
-void ImageWriter::AddMethodPointerArray(mirror::PointerArray* arr) {
+void ImageWriter::AddMethodPointerArray(mirror::PointerArray* arr, size_t oat_index) {
   DCHECK(arr != nullptr);
   if (kIsDebugBuild) {
     for (size_t i = 0, len = arr->GetLength(); i < len; i++) {
@@ -493,6 +610,7 @@ void ImageWriter::AddMethodPointerArray(mirror::PointerArray* arr) {
         mirror::Class* klass = method->GetDeclaringClass();
         CHECK(klass == nullptr || KeepClass(klass))
             << Class::PrettyClass(klass) << " should be a kept class";
+        MaybeCountPointerFixup(method, oat_index);
       }
     }
   }
@@ -555,13 +673,13 @@ void ImageWriter::AssignImageBinSlot(mirror::Object* object, size_t oat_index) {
       // Add non-embedded vtable to the pointer array table if there is one.
       auto* vtable = klass->GetVTable();
       if (vtable != nullptr) {
-        AddMethodPointerArray(vtable);
+        AddMethodPointerArray(vtable, oat_index);
       }
       auto* iftable = klass->GetIfTable();
       if (iftable != nullptr) {
         for (int32_t i = 0; i < klass->GetIfTableCount(); ++i) {
           if (iftable->GetMethodArrayCount(i) > 0) {
-            AddMethodPointerArray(iftable->GetMethodArray(i));
+            AddMethodPointerArray(iftable->GetMethodArray(i), oat_index);
           }
         }
       }
@@ -749,7 +867,8 @@ bool ImageWriter::PruneAppImageClassInternal(
     return false;
   }
   visited->emplace(klass);
-  bool result = IsBootClassLoaderClass(klass);
+  const bool is_boot_class_loader_class = IsBootClassLoaderClass(klass);
+  bool result = false;
   std::string temp;
   // Prune if not an image class, this handles any broken sets of image classes such as having a
   // class in the set but not it's superclass.
@@ -807,7 +926,7 @@ bool ImageWriter::PruneAppImageClassInternal(
   // Remove the class if the dex file is not in the set of dex files. This happens for classes that
   // are from uses library if there is no profile. b/30688277
   mirror::DexCache* dex_cache = klass->GetDexCache();
-  if (dex_cache != nullptr) {
+  if (!is_boot_class_loader_class && dex_cache != nullptr) {
     result = result ||
         dex_file_oat_index_map_.find(dex_cache->GetDexFile()) == dex_file_oat_index_map_.end();
   }
@@ -1159,10 +1278,6 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
       mirror::Class* as_klass = obj->AsClass();
       mirror::DexCache* dex_cache = as_klass->GetDexCache();
       DCHECK(!as_klass->IsErroneous()) << as_klass->GetStatus();
-      if (compile_app_image_) {
-        // Extra sanity, no boot loader classes should be left!
-        CHECK(!IsBootClassLoaderClass(as_klass)) << as_klass->PrettyClass();
-      }
       LengthPrefixedArray<ArtField>* fields[] = {
           as_klass->GetSFieldsPtr(), as_klass->GetIFieldsPtr(),
       };
@@ -1199,6 +1314,8 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
             CHECK(it2 == native_object_relocations_.end()) << "Field at index=" << i
                 << " already assigned " << field->PrettyField() << " static=" << field->IsStatic();
             DCHECK(!IsInBootImage(field));
+            ObjPtr<mirror::Class> declaring_class = field->GetDeclaringClass();
+            MaybeCountReferenceFixup(declaring_class, oat_index);
             native_object_relocations_.emplace(
                 field,
                 NativeObjectRelocation { oat_index, offset, kNativeObjectRelocationTypeArtField });
@@ -1248,20 +1365,27 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
       // live.
       if (as_klass->ShouldHaveImt()) {
         ImTable* imt = as_klass->GetImt(target_ptr_size_);
-        for (size_t i = 0; i < ImTable::kSize; ++i) {
-          ArtMethod* imt_method = imt->Get(i, target_ptr_size_);
-          DCHECK(imt_method != nullptr);
-          if (imt_method->IsRuntimeMethod() &&
-              !IsInBootImage(imt_method) &&
-              !NativeRelocationAssigned(imt_method)) {
-            AssignMethodOffset(imt_method, kNativeObjectRelocationTypeRuntimeMethod, oat_index);
+        if (TryAssignImTableOffset(imt, oat_index)) {
+          // Since imt's can be shared only do this the first time to not double count imt method
+          // fixups.
+          for (size_t i = 0; i < ImTable::kSize; ++i) {
+            ArtMethod* imt_method = imt->Get(i, target_ptr_size_);
+            DCHECK(imt_method != nullptr);
+            if (imt_method->IsRuntimeMethod() && !IsInBootImage(imt_method)) {
+              if (!NativeRelocationAssigned(imt_method)) {
+                AssignMethodOffset(imt_method, kNativeObjectRelocationTypeRuntimeMethod, oat_index);
+              }
+            }
+            MaybeCountPointerFixup(imt_method, oat_index);
           }
         }
       }
-
-      if (as_klass->ShouldHaveImt()) {
-        ImTable* imt = as_klass->GetImt(target_ptr_size_);
-        TryAssignImTableOffset(imt, oat_index);
+      // Fix up embedded tables.
+      if (!as_klass->IsTemp() && as_klass->ShouldHaveEmbeddedVTable()) {
+        for (int32_t i = 0, count = as_klass->GetEmbeddedVTableLength(); i < count; ++i) {
+          ArtMethod* method = as_klass->GetEmbeddedVTableEntry(i, target_ptr_size_);
+          MaybeCountPointerFixup(method, oat_index);
+        }
       }
     } else if (obj->IsClassLoader()) {
       // Register the class loader if it has a class table.
@@ -1277,6 +1401,24 @@ mirror::Object* ImageWriter::TryAssignBinSlot(WorkStack& work_stack,
         // image_info.class_table_ table is only accessed from the image writer
         // and class_loader->GetClassTable() is iterated but not modified.
         image_info.class_table_->CopyWithoutLocks(*class_loader->GetClassTable());
+        // We need to remove all the boot class loader classes since we can't use fast fixups for
+        // class tables due to the TableSlot optimization. We will just resinsert them when we
+        // resolve from parent classloader if needed.
+        std::vector<ObjPtr<mirror::Class>> classes_to_prune;
+        image_info.class_table_->Visit([&classes_to_prune, this](ObjPtr<mirror::Class> klass)
+            REQUIRES_SHARED(Locks::mutator_lock_) {
+          if (is_fast_fixup_reference_.find(klass.Ptr()) != is_fast_fixup_reference_.end()) {
+            // Don't remove in here since its not safe to remove from the hash set during
+            // iteration.
+            classes_to_prune.push_back(klass);
+          }
+          return true;
+        });
+        for (ObjPtr<mirror::Class> klass : classes_to_prune) {
+          std::string temp;
+          CHECK(image_info.class_table_->Remove(klass->GetDescriptor(&temp)))
+              << klass->PrettyClass();
+        }
       }
     }
     AssignImageBinSlot(obj, oat_index);
@@ -1296,10 +1438,10 @@ bool ImageWriter::NativeRelocationAssigned(void* ptr) const {
   return native_object_relocations_.find(ptr) != native_object_relocations_.end();
 }
 
-void ImageWriter::TryAssignImTableOffset(ImTable* imt, size_t oat_index) {
+bool ImageWriter::TryAssignImTableOffset(ImTable* imt, size_t oat_index) {
   // No offset, or already assigned.
   if (imt == nullptr || IsInBootImage(imt) || NativeRelocationAssigned(imt)) {
-    return;
+    return false;
   }
   // If the method is a conflict method we also want to assign the conflict table offset.
   ImageInfo& image_info = GetImageInfo(oat_index);
@@ -1311,6 +1453,7 @@ void ImageWriter::TryAssignImTableOffset(ImTable* imt, size_t oat_index) {
           image_info.bin_slot_sizes_[kBinImTable],
           kNativeObjectRelocationTypeIMTable});
   image_info.bin_slot_sizes_[kBinImTable] += size;
+  return true;
 }
 
 void ImageWriter::TryAssignConflictTableOffset(ImtConflictTable* table, size_t oat_index) {
@@ -1341,6 +1484,8 @@ void ImageWriter::AssignMethodOffset(ArtMethod* method,
     TryAssignConflictTableOffset(method->GetImtConflictTable(target_ptr_size_), oat_index);
   }
   ImageInfo& image_info = GetImageInfo(oat_index);
+  mirror::Class* klass = method->GetDeclaringClass();
+  MaybeCountReferenceFixup(klass, oat_index);
   size_t& offset = image_info.bin_slot_sizes_[BinTypeForNativeRelocationType(type)];
   native_object_relocations_.emplace(method, NativeObjectRelocation { oat_index, offset, type });
   offset += ArtMethod::Size(target_ptr_size_);
@@ -1403,14 +1548,14 @@ class ImageWriter::VisitReferencesVisitor {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     mirror::Object* ref =
         obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
+    image_writer_->MaybeCountReferenceFixup(ref, oat_index_);
     obj->SetFieldObject</*kTransactionActive*/false>(offset, VisitReference(ref));
   }
 
   ALWAYS_INLINE void operator() (ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,
                                  ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    ref->SetReferent</*kTransactionActive*/false>(
-        VisitReference(ref->GetReferent<kWithoutReadBarrier>()));
+    operator()(ref, mirror::Reference::ReferentOffset(), /* is_static */ false);
   }
 
  private:
@@ -1568,7 +1713,7 @@ void ImageWriter::CalculateNewObjectOffsets() {
   // Calculate size of the dex cache arrays slot and prepare offsets.
   PrepareDexCacheArraySlots();
 
-  // Calculate the sizes of the intern tables and class tables.
+  // Calculate the sizes of the intern tables, class tables, and fixup tables.
   for (ImageInfo& image_info : image_infos_) {
     // Calculate how big the intern table will be after being serialized.
     InternTable* const intern_table = image_info.intern_table_.get();
@@ -1576,11 +1721,22 @@ void ImageWriter::CalculateNewObjectOffsets() {
     if (intern_table->StrongSize() != 0u) {
       image_info.intern_table_bytes_ = intern_table->WriteToMemory(nullptr);
     }
+
     // Calculate the size of the class table.
     ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
     DCHECK_EQ(image_info.class_table_->NumReferencedZygoteClasses(), 0u);
     if (image_info.class_table_->NumReferencedNonZygoteClasses() != 0u) {
       image_info.class_table_bytes_ += image_info.class_table_->WriteToMemory(nullptr);
+    }
+
+    // Calculate the size of the fixup table.
+    for (auto& pair : image_info.reference_fixups_) {
+      image_info.object_fixup_bytes_ +=
+          gc::space::ObjectFixup::ComputeSize(pair.second.fixup_count_);
+    }
+    for (auto& pair : image_info.pointer_fixups_) {
+      image_info.pointer_fixup_bytes_ +=
+          gc::space::PointerSizedFixup::ComputeSize(pair.second.fixup_count_);
     }
   }
 
@@ -1628,8 +1784,6 @@ void ImageWriter::CalculateNewObjectOffsets() {
   // Transform each object's bin slot into an offset which will be used to do the final copy.
   heap->VisitObjects(UnbinObjectsIntoOffsetCallback, this);
 
-  // DCHECK_EQ(image_end_, GetBinSizeSum(kBinMirrorCount) + image_objects_offset_begin_);
-
   size_t i = 0;
   for (ImageInfo& image_info : image_infos_) {
     image_info.image_roots_address_ = PointerToLowMemUInt32(GetImageAddress(image_roots[i].Get()));
@@ -1643,8 +1797,6 @@ void ImageWriter::CalculateNewObjectOffsets() {
     ImageInfo& image_info = GetImageInfo(relocation.oat_index);
     relocation.offset += image_info.bin_slot_offsets_[bin_type];
   }
-
-  // Note that image_info.image_end_ is left at end of used mirror object section.
 }
 
 size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) const {
@@ -1686,7 +1838,6 @@ size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) c
   ImageSection* dex_cache_arrays_section = &out_sections[ImageHeader::kSectionDexCacheArrays];
   *dex_cache_arrays_section = ImageSection(bin_slot_offsets_[kBinDexCacheArray],
                                            bin_slot_sizes_[kBinDexCacheArray]);
-
   // Round up to the alignment the string table expects. See HashSet::WriteToMemory.
   size_t cur_pos = RoundUp(dex_cache_arrays_section->End(), sizeof(uint64_t));
   // Calculate the size of the interned strings.
@@ -1699,6 +1850,14 @@ size_t ImageWriter::ImageInfo::CreateImageSections(ImageSection* out_sections) c
   ImageSection* class_table_section = &out_sections[ImageHeader::kSectionClassTable];
   *class_table_section = ImageSection(cur_pos, class_table_bytes_);
   cur_pos = class_table_section->End();
+  // Calculate the size of the object fixup section.
+  ImageSection* class_fixup_section = &out_sections[ImageHeader::kSectionObjectFixups];
+  *class_fixup_section = ImageSection(cur_pos, object_fixup_bytes_);
+  cur_pos = class_fixup_section->End();
+  // Calculate the size of the pointer fixup section.
+  ImageSection* pointer_fixup_section = &out_sections[ImageHeader::kSectionPointerFixups];
+  *pointer_fixup_section = ImageSection(cur_pos, pointer_fixup_bytes_);
+  cur_pos = pointer_fixup_section->End();
   // Image end goes right before the start of the image bitmap.
   return cur_pos;
 }
@@ -1778,18 +1937,18 @@ class ImageWriter::FixupRootVisitor : public RootVisitor {
   explicit FixupRootVisitor(ImageWriter* image_writer) : image_writer_(image_writer) {
   }
 
-  void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info ATTRIBUTE_UNUSED)
+  void VisitRoots(mirror::Object*** roots ATTRIBUTE_UNUSED,
+                  size_t count ATTRIBUTE_UNUSED,
+                  const RootInfo& info ATTRIBUTE_UNUSED)
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
-    for (size_t i = 0; i < count; ++i) {
-      *roots[i] = image_writer_->GetImageAddress(*roots[i]);
-    }
+    LOG(FATAL) << "Unsupported";
   }
 
   void VisitRoots(mirror::CompressedReference<mirror::Object>** roots, size_t count,
                   const RootInfo& info ATTRIBUTE_UNUSED)
       OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_) {
     for (size_t i = 0; i < count; ++i) {
-      roots[i]->Assign(image_writer_->GetImageAddress(roots[i]->AsMirrorPtr()));
+      image_writer_->CopyReference(roots[i], roots[i]->AsMirrorPtr());
     }
   }
 
@@ -1800,7 +1959,9 @@ class ImageWriter::FixupRootVisitor : public RootVisitor {
 void ImageWriter::CopyAndFixupImTable(ImTable* orig, ImTable* copy) {
   for (size_t i = 0; i < ImTable::kSize; ++i) {
     ArtMethod* method = orig->Get(i, target_ptr_size_);
-    copy->Set(i, NativeLocationInImage(method), target_ptr_size_);
+    void** address = reinterpret_cast<void**>(copy->AddressOfElement(i, target_ptr_size_));
+    CopyAndFixupPointer(address, method);
+    DCHECK_EQ(copy->Get(i, target_ptr_size_), NativeLocationInImage(method));
   }
 }
 
@@ -1809,10 +1970,13 @@ void ImageWriter::CopyAndFixupImtConflictTable(ImtConflictTable* orig, ImtConfli
   for (size_t i = 0; i < count; ++i) {
     ArtMethod* interface_method = orig->GetInterfaceMethod(i, target_ptr_size_);
     ArtMethod* implementation_method = orig->GetImplementationMethod(i, target_ptr_size_);
-    copy->SetInterfaceMethod(i, target_ptr_size_, NativeLocationInImage(interface_method));
-    copy->SetImplementationMethod(i,
-                                  target_ptr_size_,
-                                  NativeLocationInImage(implementation_method));
+    CopyAndFixupPointer(copy->AddressOfInterfaceMethod(i, target_ptr_size_), interface_method);
+    CopyAndFixupPointer(copy->AddressOfImplementationMethod(i, target_ptr_size_),
+                        implementation_method);
+    DCHECK_EQ(copy->GetInterfaceMethod(i, target_ptr_size_),
+              NativeLocationInImage(interface_method));
+    DCHECK_EQ(copy->GetImplementationMethod(i, target_ptr_size_),
+              NativeLocationInImage(implementation_method));
   }
 }
 
@@ -1831,8 +1995,9 @@ void ImageWriter::CopyAndFixupNativeData(size_t oat_index) {
     switch (relocation.type) {
       case kNativeObjectRelocationTypeArtField: {
         memcpy(dest, pair.first, sizeof(ArtField));
-        reinterpret_cast<ArtField*>(dest)->SetDeclaringClass(
-            GetImageAddress(reinterpret_cast<ArtField*>(pair.first)->GetDeclaringClass().Ptr()));
+        CopyReference(
+            reinterpret_cast<ArtField*>(dest)->GetDeclaringClassAddressWithoutBarrier(),
+            reinterpret_cast<ArtField*>(pair.first)->GetDeclaringClass().Ptr());
         break;
       }
       case kNativeObjectRelocationTypeRuntimeMethod:
@@ -2028,22 +2193,19 @@ class ImageWriter::FixupVisitor {
 
 
   void operator()(ObjPtr<Object> obj, MemberOffset offset, bool is_static ATTRIBUTE_UNUSED) const
-      REQUIRES(Locks::mutator_lock_, Locks::heap_bitmap_lock_) {
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     ObjPtr<Object> ref = obj->GetFieldObject<Object, kVerifyNone>(offset);
-    // Use SetFieldObjectWithoutWriteBarrier to avoid card marking since we are writing to the
-    // image.
-    copy_->SetFieldObjectWithoutWriteBarrier<false, true, kVerifyNone>(
-        offset,
-        image_writer_->GetImageAddress(ref.Ptr()));
+    // Copy the reference and record the fixup if necessary.
+    image_writer_->CopyReference(
+        copy_->GetFieldObjectReferenceAddr<kVerifyNone>(offset),
+        ref.Ptr());
   }
 
   // java.lang.ref.Reference visitor.
   void operator()(ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,
                   ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
-    copy_->SetFieldObjectWithoutWriteBarrier<false, true, kVerifyNone>(
-        mirror::Reference::ReferentOffset(),
-        image_writer_->GetImageAddress(ref->GetReferent()));
+    operator()(ref, mirror::Reference::ReferentOffset(), /* is_static */ false);
   }
 
  protected:
@@ -2184,13 +2346,19 @@ void ImageWriter::FixupObject(Object* orig, Object* copy) {
   }
 }
 
-
-class ImageAddressVisitor {
+class ImageWriter::ImageAddressVisitorForDexCacheArray {
  public:
-  explicit ImageAddressVisitor(ImageWriter* image_writer) : image_writer_(image_writer) {}
+  explicit ImageAddressVisitorForDexCacheArray(ImageWriter* image_writer)
+      : image_writer_(image_writer) {}
 
   template <typename T>
   T* operator()(T* ptr) const REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (image_writer_->is_fast_fixup_reference_.find(ptr) !=
+        image_writer_->is_fast_fixup_reference_.end()) {
+      // Return null to clear the slot if it is one that we need to fast fixup. We can not easly
+      // fix up the dex cache arrays, but we can just redo the lookup at runtime.
+      return nullptr;
+    }
     return image_writer_->GetImageAddress(ptr);
   }
 
@@ -2198,9 +2366,9 @@ class ImageAddressVisitor {
   ImageWriter* const image_writer_;
 };
 
-
 void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
                                 mirror::DexCache* copy_dex_cache) {
+  ImageAddressVisitorForDexCacheArray fixup_visitor(this);
   // Though the DexCache array fields are usually treated as native pointers, we set the full
   // 64-bit values here, clearing the top 32 bits for 32-bit targets. The zero-extension is
   // done by casting to the unsigned type uintptr_t before casting to int64_t, i.e.
@@ -2210,8 +2378,7 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
     copy_dex_cache->SetFieldPtrWithSize<false>(mirror::DexCache::StringsOffset(),
                                                NativeLocationInImage(orig_strings),
                                                PointerSize::k64);
-    orig_dex_cache->FixupStrings(NativeCopyLocation(orig_strings, orig_dex_cache),
-                                 ImageAddressVisitor(this));
+    orig_dex_cache->FixupStrings(NativeCopyLocation(orig_strings, orig_dex_cache), fixup_visitor);
   }
   mirror::TypeDexCacheType* orig_types = orig_dex_cache->GetResolvedTypes();
   if (orig_types != nullptr) {
@@ -2219,7 +2386,7 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
                                                NativeLocationInImage(orig_types),
                                                PointerSize::k64);
     orig_dex_cache->FixupResolvedTypes(NativeCopyLocation(orig_types, orig_dex_cache),
-                                       ImageAddressVisitor(this));
+                                       fixup_visitor);
   }
   ArtMethod** orig_methods = orig_dex_cache->GetResolvedMethods();
   if (orig_methods != nullptr) {
@@ -2230,7 +2397,12 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
     for (size_t i = 0, num = orig_dex_cache->NumResolvedMethods(); i != num; ++i) {
       ArtMethod* orig = mirror::DexCache::GetElementPtrSize(orig_methods, i, target_ptr_size_);
       // NativeLocationInImage also handles runtime methods since these have relocation info.
-      ArtMethod* copy = NativeLocationInImage(orig);
+      ArtMethod* copy;
+      if (is_fast_fixup_pointer_.find(orig) == is_fast_fixup_pointer_.end()) {
+        copy = NativeLocationInImage(orig);
+      } else {
+        copy = NativeLocationInImage(Runtime::Current()->GetResolutionMethod());
+      }
       mirror::DexCache::SetElementPtrSize(copy_methods, i, copy, target_ptr_size_);
     }
   }
@@ -2243,7 +2415,13 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
     for (size_t i = 0, num = orig_dex_cache->NumResolvedFields(); i != num; ++i) {
       mirror::FieldDexCachePair orig =
           mirror::DexCache::GetNativePairPtrSize(orig_fields, i, target_ptr_size_);
-      mirror::FieldDexCachePair copy(NativeLocationInImage(orig.object), orig.index);
+      mirror::FieldDexCachePair copy = orig;
+      if (is_fast_fixup_pointer_.find(orig.object) == is_fast_fixup_pointer_.end()) {
+        // Can't get pointers in the middle of the std::atomic.
+        copy.object = NativeLocationInImage(orig.object);
+      } else {
+        copy.index = mirror::FieldDexCachePair::InvalidIndexForSlot(i);
+      }
       mirror::DexCache::SetNativePairPtrSize(copy_fields, i, copy, target_ptr_size_);
     }
   }
@@ -2253,7 +2431,7 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
                                                NativeLocationInImage(orig_method_types),
                                                PointerSize::k64);
     orig_dex_cache->FixupResolvedMethodTypes(NativeCopyLocation(orig_method_types, orig_dex_cache),
-                                             ImageAddressVisitor(this));
+                                             fixup_visitor);
   }
   GcRoot<mirror::CallSite>* orig_call_sites = orig_dex_cache->GetResolvedCallSites();
   if (orig_call_sites != nullptr) {
@@ -2261,7 +2439,7 @@ void ImageWriter::FixupDexCache(mirror::DexCache* orig_dex_cache,
                                                NativeLocationInImage(orig_call_sites),
                                                PointerSize::k64);
     orig_dex_cache->FixupResolvedCallSites(NativeCopyLocation(orig_call_sites, orig_dex_cache),
-                                           ImageAddressVisitor(this));
+                                           fixup_visitor);
   }
 
   // Remove the DexFile pointers. They will be fixed up when the runtime loads the oat file. Leaving
@@ -2369,7 +2547,8 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
 
   memcpy(copy, orig, ArtMethod::Size(target_ptr_size_));
 
-  copy->SetDeclaringClass(GetImageAddress(orig->GetDeclaringClassUnchecked()));
+  CopyReference(copy->GetDeclaringClassAddressWithoutBarrier(), orig->GetDeclaringClassUnchecked());
+
   ArtMethod** orig_resolved_methods = orig->GetDexCacheResolvedMethods(target_ptr_size_);
   copy->SetDexCacheResolvedMethods(NativeLocationInImage(orig_resolved_methods), target_ptr_size_);
 
@@ -2481,7 +2660,7 @@ size_t ImageWriter::GetOatIndex(mirror::Object* obj) const {
     return GetDefaultOatIndex();
   }
   auto it = oat_index_map_.find(obj);
-  DCHECK(it != oat_index_map_.end());
+  DCHECK(it != oat_index_map_.end()) << obj;
   return it->second;
 }
 
@@ -2581,5 +2760,71 @@ ImageWriter::ImageWriter(
 ImageWriter::ImageInfo::ImageInfo()
     : intern_table_(new InternTable),
       class_table_(new ClassTable) {}
+
+void ImageWriter::MaybeCountReferenceFixup(ObjPtr<mirror::Object> ref, size_t oat_index) {
+  if (is_fast_fixup_reference_.find(ref.Ptr()) != is_fast_fixup_reference_.end()) {
+    // Increment count and insert if not already added.
+    ++GetImageInfo(oat_index).reference_fixups_[ref.Ptr()].fixup_count_;
+  }
+}
+
+void ImageWriter::MaybeCountPointerFixup(const void* ptr, size_t oat_index) {
+  if (is_fast_fixup_pointer_.find(ptr) != is_fast_fixup_pointer_.end()) {
+    // Increment count and insert if not already added.
+    ++GetImageInfo(oat_index).pointer_fixups_[ptr].fixup_count_;
+  }
+}
+
+void ImageWriter::CopyReference(mirror::HeapReference<mirror::Object>* dest,
+                                ObjPtr<mirror::Object> src) {
+  if (src != nullptr) {
+    ImageInfo& image_info = GetImageInfo(GetOatIndex(src.Ptr()));
+    auto it = image_info.reference_fixups_.find(src.Ptr());
+    if (it != image_info.reference_fixups_.end()) {
+      const uint32_t image_offset =
+          reinterpret_cast<uint8_t*>(dest) - image_info.image_->Begin();
+      it->second.heap_reference_offsets_.push_back(image_offset);
+    }
+  }
+  dest->Assign(GetImageAddress(src.Ptr()));
+}
+
+void ImageWriter::CopyReference(mirror::CompressedReference<mirror::Object>* dest,
+                                ObjPtr<mirror::Object> src) {
+  if (src != nullptr) {
+    ImageInfo& image_info = GetImageInfo(GetOatIndex(src.Ptr()));
+    auto it = image_info.reference_fixups_.find(src.Ptr());
+    if (it != image_info.reference_fixups_.end()) {
+      const uint32_t image_offset =
+          reinterpret_cast<uint8_t*>(dest) - image_info.image_->Begin();
+      it->second.compressed_reference_offsets_.push_back(image_offset);
+    }
+  }
+  dest->Assign(GetImageAddress(src.Ptr()));
+}
+
+void ImageWriter::CopyAndFixupPointer(void** target, void* value) {
+  void* new_value = value;
+  if (value != nullptr && !IsInBootImage(value)) {
+    auto it = native_object_relocations_.find(value);
+    CHECK(it != native_object_relocations_.end()) << value;
+    const NativeObjectRelocation& relocation = it->second;
+    ImageInfo& image_info = GetImageInfo(relocation.oat_index);
+    new_value = reinterpret_cast<void*>(image_info.image_begin_ + relocation.offset);
+    // Record the fixup address if required.
+    auto it2 = image_info.pointer_fixups_.find(value);
+    if (it2 != image_info.pointer_fixups_.end()) {
+      it2->second.offsets_.push_back(relocation.offset);
+    }
+  }
+  if (target_ptr_size_ == PointerSize::k32) {
+    *reinterpret_cast<uint32_t*>(target) =
+        static_cast<uint32_t>(reinterpret_cast<uintptr_t>(new_value));
+  } else {
+    *reinterpret_cast<uint64_t*>(target) =
+        reinterpret_cast<uint64_t>(new_value);
+  }
+}
+
 
 }  // namespace art
