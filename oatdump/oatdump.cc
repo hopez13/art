@@ -2152,6 +2152,8 @@ class ImageDumper {
     const auto& intern_section = image_header_.GetInternedStringsSection();
     const auto& class_table_section = image_header_.GetClassTableSection();
     const auto& bitmap_section = image_header_.GetImageBitmapSection();
+    const auto& object_fixups_section = image_header_.GetImageSection(
+        ImageHeader::kSectionObjectFixups);
 
     stats_.header_bytes = header_bytes;
 
@@ -2197,6 +2199,7 @@ class ImageDumper {
     stats_.dex_cache_arrays_bytes += dex_cache_arrays_section.Size();
     stats_.interned_strings_bytes += intern_section.Size();
     stats_.class_table_bytes += class_table_section.Size();
+    stats_.object_fixups_bytes += object_fixups_section.Size();
     stats_.Dump(os, indent_os);
     os << "\n";
 
@@ -2623,6 +2626,7 @@ class ImageDumper {
     size_t dex_cache_arrays_bytes;
     size_t interned_strings_bytes;
     size_t class_table_bytes;
+    size_t object_fixups_bytes;
     size_t bitmap_bytes;
     size_t alignment_bytes;
 
@@ -2652,6 +2656,7 @@ class ImageDumper {
           dex_cache_arrays_bytes(0),
           interned_strings_bytes(0),
           class_table_bytes(0),
+          object_fixups_bytes(0),
           bitmap_bytes(0),
           alignment_bytes(0),
           managed_code_bytes(0),
@@ -2815,6 +2820,7 @@ class ImageDumper {
                                   "dex_cache_arrays_bytes =  %8zd (%2.0f%% of art file bytes)\n"
                                   "interned_string_bytes  =  %8zd (%2.0f%% of art file bytes)\n"
                                   "class_table_bytes      =  %8zd (%2.0f%% of art file bytes)\n"
+                                  "class_fixups_bytes     =  %8zd (%2.0f%% of art file bytes)\n"
                                   "bitmap_bytes           =  %8zd (%2.0f%% of art file bytes)\n"
                                   "alignment_bytes        =  %8zd (%2.0f%% of art file bytes)\n\n",
                                   header_bytes, PercentOfFileBytes(header_bytes),
@@ -2826,6 +2832,7 @@ class ImageDumper {
                                   interned_strings_bytes,
                                   PercentOfFileBytes(interned_strings_bytes),
                                   class_table_bytes, PercentOfFileBytes(class_table_bytes),
+                                  object_fixups_bytes, PercentOfFileBytes(object_fixups_bytes),
                                   bitmap_bytes, PercentOfFileBytes(bitmap_bytes),
                                   alignment_bytes, PercentOfFileBytes(alignment_bytes))
             << std::flush;
