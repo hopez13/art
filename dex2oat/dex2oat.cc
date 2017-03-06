@@ -2006,14 +2006,19 @@ class Dex2Oat FINAL {
         VLOG(compiler) << "App image base=" << reinterpret_cast<void*>(image_base_);
       }
 
-      image_writer_.reset(new linker::ImageWriter(*driver_,
-                                                  image_base_,
-                                                  compiler_options_->GetCompilePic(),
-                                                  IsAppImage(),
-                                                  image_storage_mode_,
-                                                  oat_filenames_,
-                                                  dex_file_oat_index_map_,
-                                                  dirty_image_objects_.get()));
+      image_writer_.reset(new linker::ImageWriter(
+          *driver_,
+          image_base_,
+          compiler_options_->GetCompilePic(),
+          IsAppImage(),
+          /*record_references_to_strings*/ IsAppImage(),
+          // DO NOT SUBMIT the line below, this will bloat preopt app images since they use
+          // dex2oatd.
+          /*record_references_to_all_objects*/ IsAppImage() && kIsDebugBuild,
+          image_storage_mode_,
+          oat_filenames_,
+          dex_file_oat_index_map_,
+          dirty_image_objects_.get()));
 
       // We need to prepare method offsets in the image address space for direct method patching.
       TimingLogger::ScopedTiming t2("dex2oat Prepare image address space", timings_);

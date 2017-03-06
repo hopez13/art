@@ -23,6 +23,7 @@
 #include "imt_conflict_table.h"
 #include "imtable.h"
 #include "read_barrier-inl.h"
+#include "gc/space/image_space_fixup-inl.h"
 
 namespace art {
 
@@ -76,6 +77,17 @@ inline void ImageHeader::VisitPackedImtConflictTables(const Visitor& visitor,
       return std::make_pair(visitor(methods.first), visitor(methods.second));
     }, pointer_size);
     pos += table->ComputeSize(pointer_size);
+  }
+}
+
+template <typename Visitor>
+inline void ImageHeader::VisitPackedObjectFixups(const Visitor& visitor, uint8_t* base) const {
+  const ImageSection& section = GetImageSection(ImageHeader::kSectionObjectFixups);
+  for (size_t pos = 0; pos < section.Size(); ) {
+    const gc::space::ObjectFixup* fixup = reinterpret_cast<const gc::space::ObjectFixup*>(
+        base + section.Offset() + pos);
+    visitor(*fixup);
+    pos += fixup->SizeOf();
   }
 }
 

@@ -76,6 +76,8 @@ class ImageWriter FINAL {
               uintptr_t image_begin,
               bool compile_pic,
               bool compile_app_image,
+              bool record_references_to_strings,
+              bool record_references_to_all_objects,
               ImageHeader::StorageMode image_storage_mode,
               const std::vector<const char*>& oat_filenames,
               const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map,
@@ -261,6 +263,22 @@ class ImageWriter FINAL {
     const uint32_t lockword_;
   };
 
+  class ReferenceFixups {
+   public:
+    // fixup_count_ is before offsets are added.
+    size_t fixup_count_ = 0u;
+    std::vector<uint32_t> heap_reference_offsets_;
+    std::vector<uint32_t> compressed_reference_offsets_;
+    // Debug only variable.
+    std::unique_ptr<std::vector<std::string>> sources_;
+  };
+
+  class PointerFixups {
+   public:
+    size_t fixup_count_ = 0;
+    std::vector<uint32_t> offsets_;
+  };
+
   struct ImageInfo {
     ImageInfo();
     ImageInfo(ImageInfo&&) = default;
@@ -356,14 +374,14 @@ class ImageWriter FINAL {
     // Number of object fixup bytes.
     size_t object_fixup_bytes_ = 0;
 
-    // Number of pointer fixup bytes.
-    size_t pointer_fixup_bytes_ = 0;
-
     // Intern table associated with this image for serialization.
     std::unique_ptr<InternTable> intern_table_;
 
     // Class table associated with this image for serialization.
     std::unique_ptr<ClassTable> class_table_;
+
+    // Fast fixup offsets for references.
+    std::unordered_map<mirror::Object*, ReferenceFixups> reference_fixups_;
   };
 
   // We use the lock word to store the offset of the object in the image.
@@ -390,7 +408,8 @@ class ImageWriter FINAL {
 
   void AddDexCacheArrayRelocation(void* array, size_t offset, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void AddMethodPointerArray(mirror::PointerArray* arr) REQUIRES_SHARED(Locks::mutator_lock_);
+  void AddMethodPointerArray(mirror::PointerArray* arr)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   static void* GetImageAddressCallback(void* writer, mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -508,13 +527,18 @@ class ImageWriter FINAL {
   // we also cannot have any classes which refer to these boot class loader non image classes.
   // PruneAppImageClass also prunes if klass depends on a non-image class according to the compiler
   // driver.
-  bool PruneAppImageClass(ObjPtr<mirror::Class> klass)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  bool PruneAppImageClass(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // early_exit is true if we had a cyclic dependency anywhere down the chain.
   bool PruneAppImageClassInternal(ObjPtr<mirror::Class> klass,
                                   bool* early_exit,
                                   std::unordered_set<mirror::Object*>* visited)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void WriteFixups(size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Specify that we want to record incoming references to an object.
+  void SetRecordIncomingReferences(ObjPtr<mirror::Object> obj)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsMultiImage() const {
@@ -563,6 +587,9 @@ class ImageWriter FINAL {
   // Return true if there already exists a native allocation for an object.
   bool NativeRelocationAssigned(void* ptr) const;
 
+  void MaybeCountReferenceFixup(ObjPtr<mirror::Object> ref, size_t oat_index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void CopyReference(mirror::HeapReference<mirror::Object>* dest, ObjPtr<mirror::Object> src)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -571,7 +598,14 @@ class ImageWriter FINAL {
 
   void CopyAndFixupPointer(void** target, void* value);
 
+  bool GetRecordIncomingReferences(mirror::Object* obj) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return record_references_to_.find(obj) != record_references_to_.end();
+  }
+
   const CompilerDriver& compiler_driver_;
+
+  ImageInfo* ImageInfoForCopiedAddress(const void* addr);
 
   // Beginning target image address for the first image.
   uint8_t* global_image_begin_;
@@ -642,6 +676,13 @@ class ImageWriter FINAL {
 
   // Set of objects known to be dirty in the image. Can be nullptr if there are none.
   const std::unordered_set<std::string>* dirty_image_objects_;
+
+  // We record references to all objects in this set.
+  std::unordered_set<mirror::Object*> record_references_to_;
+
+  // Whether we record incoming references for specified objects.
+  const bool record_references_to_strings_;
+  const bool record_references_to_all_objects_;
 
   class ComputeLazyFieldsForClassesVisitor;
   class FixupClassVisitor;
