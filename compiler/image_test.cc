@@ -281,7 +281,7 @@ void CompilationHelper::Compile(CompilerDriver* driver,
           ASSERT_TRUE(cur_opened_dex_files.empty());
         }
       }
-      bool image_space_ok = writer->PrepareImageAddressSpace();
+      bool image_space_ok = writer->PrepareImageAddressSpace(/* fast_fixup_all_objects */ true);
       ASSERT_TRUE(image_space_ok);
 
       if (kIsVdexEnabled) {
@@ -402,6 +402,14 @@ void ImageTest::TestWriteRead(ImageHeader::StorageMode storage_mode) {
     ASSERT_TRUE(space != nullptr);
     ASSERT_TRUE(space->IsMallocSpace());
     image_file_sizes.push_back(file->GetLength());
+
+    // Check the fixup sections are not empty since we specified all objects earlier.
+    const ImageSection& pointer_fixups =
+        image_header.GetImageSection(ImageHeader::kSectionPointerFixups);
+    const ImageSection& object_fixups  =
+        image_header.GetImageSection(ImageHeader::kSectionObjectFixups);
+    LOG(ERROR) << pointer_fixups;
+    LOG(ERROR) << object_fixups;
   }
 
   ASSERT_TRUE(compiler_driver_->GetImageClasses() != nullptr);

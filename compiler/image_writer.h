@@ -73,7 +73,8 @@ class ImageWriter FINAL {
               const std::vector<const char*>& oat_filenames,
               const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map);
 
-  bool PrepareImageAddressSpace();
+  // Fast fixup all objects is only used for tests.
+  bool PrepareImageAddressSpace(bool fast_fixup_all_objects = false);
 
   bool IsImageAddressSpaceReady() const {
     DCHECK(!image_infos_.empty());
@@ -259,6 +260,20 @@ class ImageWriter FINAL {
     const uint32_t lockword_;
   };
 
+  class ReferenceFixups {
+   public:
+    // fixup_count_ is before offsets are added.
+    size_t fixup_count_ = 0u;
+    std::vector<uint32_t> heap_reference_offsets_;
+    std::vector<uint32_t> compressed_reference_offsets_;
+  };
+
+  class PointerFixups {
+   public:
+    size_t fixup_count_ = 0;
+    std::vector<uint32_t> offsets_;
+  };
+
   struct ImageInfo {
     ImageInfo();
     ImageInfo(ImageInfo&&) = default;
@@ -329,6 +344,12 @@ class ImageWriter FINAL {
 
     // Class table associated with this image for serialization.
     std::unique_ptr<ClassTable> class_table_;
+
+    // Fast fixup offsets for references.
+    std::unordered_map<mirror::Object*, ReferenceFixups> reference_fixups_;
+
+    // Fast fixup offsets for pointers like ArtMethod and ArtField.
+    std::unordered_map<const void*, PointerFixups> pointer_fixups_;
   };
 
   // We use the lock word to store the offset of the object in the image.
@@ -355,7 +376,8 @@ class ImageWriter FINAL {
 
   void AddDexCacheArrayRelocation(void* array, size_t offset, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void AddMethodPointerArray(mirror::PointerArray* arr) REQUIRES_SHARED(Locks::mutator_lock_);
+  void AddMethodPointerArray(mirror::PointerArray* arr, size_t oat_index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   static void* GetImageAddressCallback(void* writer, mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -487,14 +509,18 @@ class ImageWriter FINAL {
   // we also cannot have any classes which refer to these boot class loader non image classes.
   // PruneAppImageClass also prunes if klass depends on a non-image class according to the compiler
   // driver.
-  bool PruneAppImageClass(ObjPtr<mirror::Class> klass)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  bool PruneAppImageClass(ObjPtr<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // early_exit is true if we had a cyclic dependency anywhere down the chain.
   bool PruneAppImageClassInternal(ObjPtr<mirror::Class> klass,
                                   bool* early_exit,
                                   std::unordered_set<mirror::Class*>* visited)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void WriteFixups(size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Mark an object and its owned data as maybe requiring fast fixups.
+  void MarkObjectFixups(ObjPtr<mirror::Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsMultiImage() const {
     return image_infos_.size() > 1;
@@ -542,6 +568,15 @@ class ImageWriter FINAL {
   // Return true if there already exists a native allocation for an object.
   bool NativeRelocationAssigned(void* ptr) const;
 
+  // Count a class fixup if the obj is a boot class path non image class.
+  bool IsClassThatRequiresFastFixups(ObjPtr<mirror::Object> obj)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void MaybeCountReferenceFixup(ObjPtr<mirror::Object> ref, size_t oat_index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void MaybeCountPointerFixup(const void* ptr, size_t oat_index);
+
   void CopyReference(mirror::HeapReference<mirror::Object>* dest, ObjPtr<mirror::Object> src)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -550,7 +585,12 @@ class ImageWriter FINAL {
 
   void CopyAndFixupPointer(void** target, void* value);
 
+  static void FastFixupAllObjectsCallback(mirror::Object* obj, void* arg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   const CompilerDriver& compiler_driver_;
+
+  ImageInfo* ImageInfoForCopiedAddress(const void* addr);
 
   // Beginning target image address for the first image.
   uint8_t* global_image_begin_;
@@ -618,6 +658,10 @@ class ImageWriter FINAL {
 
   // Map of dex files to the indexes of oat files that they were compiled into.
   const std::unordered_map<const DexFile*, size_t>& dex_file_oat_index_map_;
+
+  // Fast fixup pointers and references.
+  std::unordered_set<const void*> is_fast_fixup_pointer_;
+  std::unordered_set<mirror::Object*> is_fast_fixup_reference_;
 
   class ComputeLazyFieldsForClassesVisitor;
   class FixupClassVisitor;
