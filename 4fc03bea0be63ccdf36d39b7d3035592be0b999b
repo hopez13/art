@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6fa9671a_b56f388c",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-06T23:14:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9facff0_3a74ef9a",
+      "revId": "4fc03bea0be63ccdf36d39b7d3035592be0b999b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67fbd381_6b449c96",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-06T23:07:15Z",
       "side": 1,
       "message": "lines too long",
+      "range": {
+        "startLine": 776,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 105
+      },
+      "revId": "4fc03bea0be63ccdf36d39b7d3035592be0b999b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28060877_b2b5222b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-06T23:14:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67fbd381_6b449c96",
       "range": {
         "startLine": 776,
         "startChar": 0,
