@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3e671f6_457066f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f402961e_d58a6779",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "534ce9e4_e87c2123",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-03T16:51:41Z",
       "side": 1,
       "message": "Line numbers",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc255082_91f7ed7b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "534ce9e4_e87c2123",
       "range": {
         "startLine": 75,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0c49d60c_674ea4f3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c19f81a_ba7f65cc",
+      "range": {
+        "startLine": 76,
+        "startChar": 14,
+        "endLine": 76,
+        "endChar": 15
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bedc8e3_0abab2de",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -82,6 +154,24 @@
       "writtenOn": "2017-03-03T16:35:59Z",
       "side": 1,
       "message": "I am not sure I understand the DCHECK safeguard, should this never happen, or do you really want to fail here on debug?",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc9ff7f8_08479e06",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "It can happen, I just want it to be caught :)",
+      "parentUuid": "8bedc8e3_0abab2de",
       "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "4ae0712a_ce3d79b1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b52fbc7_8c8451fa",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 13
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de5d0d75_a236c888",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 4
@@ -128,6 +242,24 @@
     },
     {
       "key": {
+        "uuid": "261af5ee_4028e08e",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de5d0d75_a236c888",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c35c76f_5fd4bac5",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 4
@@ -139,6 +271,30 @@
       "writtenOn": "2017-03-04T01:48:08Z",
       "side": 1,
       "message": "document this one.",
+      "range": {
+        "startLine": 232,
+        "startChar": 24,
+        "endLine": 232,
+        "endChar": 31
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98a69ddb_3a714bc4",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c35c76f_5fd4bac5",
       "range": {
         "startLine": 232,
         "startChar": 24,
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "e2e2f6e1_167828da",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "684a5b1c_3f571f0b",
+      "range": {
+        "startLine": 234,
+        "startChar": 9,
+        "endLine": 234,
+        "endChar": 25
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "733d7411_a12e164f",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 4
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "7eefe048_58cb37cf",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "733d7411_a12e164f",
+      "range": {
+        "startLine": 202,
+        "startChar": 35,
+        "endLine": 202,
+        "endChar": 55
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e386301_b0062ab0",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 4
@@ -208,6 +412,30 @@
       "writtenOn": "2017-03-03T16:51:41Z",
       "side": 1,
       "message": "whether",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 19
+      },
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53138fda_4ba2bfde",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-06T10:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e386301_b0062ab0",
       "range": {
         "startLine": 112,
         "startChar": 13,
