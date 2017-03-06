@@ -54,6 +54,23 @@
     },
     {
       "key": {
+        "uuid": "21b526e9_fa18d7e4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-06T17:59:26Z",
+      "side": 1,
+      "message": "I am right that in the future this can be improved to support the following cases:\n\nvoid foo2(int len, int[] a, short[] b, short[] c) {\n  for(int i \u003d 0; i \u003c 100; i++) {\n    a[i] \u003d (int) (b[i]  + c[i]);\n  }\n}\n\nvoid foo(int len, short[] a, int[] b, int[] c) {\n  for(int i \u003d 0; i \u003c 100; i++) {\n    a[i] \u003d (short) (b[i]  + c[i]);\n  }\n}",
+      "revId": "114f412127146f3f74e760554f5c78a192755a7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f6df9d_538c66b7",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 9
