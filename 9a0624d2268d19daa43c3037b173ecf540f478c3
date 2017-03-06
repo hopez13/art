@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ef4d747_206429e6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-06T22:37:48Z",
+      "side": 1,
+      "message": "I flipped the if-else and simplified the test.",
+      "parentUuid": "d3bb0ea3_698bb50e",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 53
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88eca9d6_2fa94d90",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-06T13:26:41Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 666,
+        "startChar": 14,
+        "endLine": 666,
+        "endChar": 16
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6055de67_18a65bc4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-06T22:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88eca9d6_2fa94d90",
       "range": {
         "startLine": 666,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "96e33d02_d90de1d8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-06T22:37:48Z",
+      "side": 1,
+      "message": "Added:\n// Filter out fake instructions before checking instruction kind below.",
+      "parentUuid": "a29b20ac_1bbe45e0",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 936,
+        "endChar": 7
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd8f223e_3a8dc057",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "707dd5ba_07653cbc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-06T22:37:48Z",
+      "side": 1,
+      "message": "I\u0027m not clear about this comment. If a singleton is visible at a deoptimization point, last stored values to the singleton\u0027s locations need to be kept. heap location keeps the store instruction as its value instead of the real value just for this purpose, so a store instruction can be kept live (removed from possibly_removed_stores_ once it\u0027s detected the store may be needed).",
+      "parentUuid": "cd8f223e_3a8dc057",
+      "range": {
+        "startLine": 937,
+        "startChar": 4,
+        "endLine": 951,
+        "endChar": 5
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcfc7e0f_5325bf3a",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-06T13:26:41Z",
       "side": 1,
       "message": "Add a test with deoptimize?",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 15
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "700fdb05_3751eaae",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-06T22:37:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcfc7e0f_5325bf3a",
       "range": {
         "startLine": 769,
         "startChar": 0,
