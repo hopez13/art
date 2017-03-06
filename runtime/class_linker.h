@@ -1139,6 +1139,7 @@ class ClassLinker {
       Handle<mirror::ClassLoader> class_loader,
       Handle<mirror::ObjectArray<mirror::DexCache>> dex_caches,
       ClassTable::ClassSet* new_class_set,
+      ClassTable* class_table,
       bool* out_forward_dex_cache_array,
       std::string* out_error_msg)
       REQUIRES(!Locks::dex_lock_)
