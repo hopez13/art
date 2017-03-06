@@ -38,9 +38,10 @@
 #include "image.h"
 #include "lock_word.h"
 #include "mem_map.h"
+#include "obj_ptr.h"
 #include "oat_file.h"
-#include "mirror/dex_cache.h"
 #include "os.h"
+#include "mirror/dex_cache.h"
 #include "safe_map.h"
 #include "utils.h"
 
@@ -258,6 +259,14 @@ class ImageWriter FINAL {
     const uint32_t lockword_;
   };
 
+  class ObjectFixups {
+   public:
+    // fixup_count_ is before offsets are added.
+    size_t fixup_count_ = 0u;
+    std::vector<uint32_t> heap_reference_offsets_;
+    std::vector<uint32_t> compressed_reference_offsets_;
+  };
+
   struct ImageInfo {
     ImageInfo();
     ImageInfo(ImageInfo&&) = default;
@@ -317,11 +326,17 @@ class ImageWriter FINAL {
     // Number of image class table bytes.
     size_t class_table_bytes_ = 0;
 
+    // Number of object fixup bytes.
+    size_t object_fixup_bytes_ = 0;
+
     // Intern table associated with this image for serialization.
     std::unique_ptr<InternTable> intern_table_;
 
     // Class table associated with this image for serialization.
     std::unique_ptr<ClassTable> class_table_;
+
+    // References to interesting objects.
+    std::unordered_map<mirror::Object*, ObjectFixups> objects_fixups_;
   };
 
   // We use the lock word to store the offset of the object in the image.
@@ -527,6 +542,18 @@ class ImageWriter FINAL {
 
   // Return true if there already exists a native allocation for an object.
   bool NativeRelocationAssigned(void* ptr) const;
+
+  // Count a class fixup if the obj is a boot class path non image class.
+  bool IsClassThatRequiresFastFixups(ObjPtr<mirror::Object> obj)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void CountObjectFixup(ObjPtr<mirror::Object> ref, size_t oat_index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void CopyReference(mirror::HeapReference<mirror::Object>* dest, ObjPtr<mirror::Object> src)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  void CopyReference(mirror::CompressedReference<mirror::Object>* dest, ObjPtr<mirror::Object> src)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   const CompilerDriver& compiler_driver_;
 

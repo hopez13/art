@@ -57,7 +57,8 @@
 #include "gc/accounting/heap_bitmap-inl.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
-#include "gc/space/image_space.h"
+#include "gc/space/image_space_fixup-inl.h"
+#include "gc/space/image_space-inl.h"
 #include "gc/space/space-inl.h"
 #include "handle_scope-inl.h"
 #include "image-inl.h"
@@ -1119,7 +1120,8 @@ class FixupArtMethodArrayVisitor : public ArtMethodVisitor {
       // Must be in image space for non-miranda method.
       DCHECK(is_copied || in_image_space)
           << resolved_methods << " is not in image starting at "
-          << reinterpret_cast<void*>(header_.GetImageBegin());
+          << reinterpret_cast<void*>(header_.GetImageBegin()) << " "
+          << method->GetDexCache()->GetResolvedMethods();
       if (!is_copied || in_image_space) {
         method->SetDexCacheResolvedMethods(method->GetDexCache()->GetResolvedMethods(),
                                            kRuntimePointerSize);
@@ -1235,6 +1237,32 @@ bool ClassLinker::UpdateAppImageClassLoadersAndDexCaches(
   DCHECK(out_error_msg != nullptr);
   Thread* const self = Thread::Current();
   gc::Heap* const heap = Runtime::Current()->GetHeap();
+
+  bool inserted_in_boot_class_path = false;
+  space->VisitFixups([&inserted_in_boot_class_path, this, space](
+      const gc::space::ObjectFixup& fixup)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    ObjPtr<mirror::Object> obj(fixup.Object().Read());
+    if (obj->IsClass()) {
+      ObjPtr<mirror::Class> klass = obj->AsClass();
+      // TODO: Is this lock necessary? ClassTable already has an internal lock.
+      WriterMutexLock rmu(Thread::Current(), *Locks::classlinker_classes_lock_);
+      mirror::Class* existing = boot_class_table_.LookupByDescriptor(klass);
+      if (existing != nullptr) {
+        // Alrady inserted, fixup image pointers to the existing class.
+        fixup.FixupAllReferences(space->Begin(), existing, klass);
+      } else {
+        // Not already in boot class path, insert our version.
+        boot_class_table_.Insert(klass);
+        inserted_in_boot_class_path = true;
+      }
+    }
+  });
+  if (inserted_in_boot_class_path) {
+    WriterMutexLock rmu(Thread::Current(), *Locks::classlinker_classes_lock_);
+    boot_class_table_.InsertStrongRoot(dex_caches.Get());
+  }
+
   const ImageHeader& header = space->GetImageHeader();
   {
     // Add image classes into the class table for the class loader, and fixup the dex caches and
@@ -3844,7 +3872,7 @@ class MoveClassTableToPreZygoteVisitor : public ClassLoaderVisitor {
 
 void ClassLinker::MoveClassTableToPreZygote() {
   WriterMutexLock mu(Thread::Current(), *Locks::classlinker_classes_lock_);
-  boot_class_table_.FreezeSnapshot();
+  // boot_class_table_.FreezeSnapshot();
   MoveClassTableToPreZygoteVisitor visitor;
   VisitClassLoaders(&visitor);
 }

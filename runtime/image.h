@@ -203,6 +203,7 @@ class PACKED(4) ImageHeader {
     kSectionDexCacheArrays,
     kSectionInternedStrings,
     kSectionClassTable,
+    kSectionObjectFixups,
     kSectionImageBitmap,
     kSectionCount,  // Number of elements in enum.
   };

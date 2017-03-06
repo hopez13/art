@@ -159,6 +159,9 @@ class ImageSpace : public MemMapSpace {
 
   void DumpSections(std::ostream& os) const;
 
+  template <typename FixupVisitor>
+  void VisitFixups(const FixupVisitor& visitor) REQUIRES_SHARED(Locks::mutator_lock_);
+
  protected:
   // Tries to initialize an ImageSpace from the given image path, returning null on error.
   //
