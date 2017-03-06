@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d8a8ed21_9c251835",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-06T21:57:17Z",
+      "side": 1,
+      "message": "how about a switch? :)",
+      "parentUuid": "b76e2854_05092410",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 33
+      },
+      "revId": "60b423e1c0d47596a326269c7396ad21e7433d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e43e9e73_d0d1d0f2",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 19
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-06T16:28:36Z",
       "side": 1,
       "message": "This makes me realize there will be class loader problems. You shouldn\u0027t go through dex caches for all of this.\n\nWe need:\n1) Only record types that are in the same class loader of the caller, or in the bootclasspath.\n2) At runtime, lookup the type in the current class loader, and make sure the returned type is of the same class loader, or in the boot classpath.",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 3
+      },
+      "revId": "60b423e1c0d47596a326269c7396ad21e7433d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b21c8a5a_bc045b49",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-06T21:57:17Z",
+      "side": 1,
+      "message": "Good spot!\n\nThough this is just an optimization to not generate a useless compare. It\u0027s not a correctness issue.\n\nRegarding the dex cache, we\u0027ll end up going through them anyway, or there\u0027s some other way I miss? I guess I could just use ClassLinker::LookupResolvedType, to hide all this logic.",
+      "parentUuid": "db5d2bb4_c54a5287",
       "range": {
         "startLine": 498,
         "startChar": 2,
