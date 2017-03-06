@@ -901,7 +901,8 @@ class ImageSpaceLoader {
       }
       // Since we are fixing up the app image, there should only be pointers to the app image and
       // boot image.
-      DCHECK(src == nullptr) << reinterpret_cast<const void*>(src);
+      DCHECK(src == nullptr)
+          << reinterpret_cast<const void*>(src) << " " << boot_image_ << " " << app_image_;
       return src;
     }
 
@@ -1394,14 +1395,22 @@ class ImageSpaceLoader {
       const auto& class_table_section = image_header.GetClassTableSection();
       if (class_table_section.Size() > 0u) {
         // Note that we require that ReadFromMemory does not make an internal copy of the elements.
-        // This also relies on visit roots not doing any verification which could fail after we update
-        // the roots to be the image addresses.
+        // This also relies on visit roots not doing any verification which could fail after we
+        // update the roots to be the image addresses.
         ScopedObjectAccess soa(Thread::Current());
         WriterMutexLock mu(Thread::Current(), *Locks::classlinker_classes_lock_);
         ClassTable temp_table;
         temp_table.ReadFromMemory(target_base + class_table_section.Offset());
         FixupRootVisitor root_visitor(boot_image, boot_oat, app_image, app_oat);
         temp_table.VisitRoots(root_visitor);
+      }
+      {
+        TimingLogger::ScopedTiming timing("Fixup object fixups", &logger);
+        image_header.VisitPackedObjectFixups([&fixup_adapter](const gc::space::ObjectFixup& fixup)
+            REQUIRES_SHARED(Locks::mutator_lock_) {
+          fixup.Object() = GcRoot<mirror::Object>(
+              fixup_adapter.ForwardObject(fixup.Object().Read<kWithoutReadBarrier>()));
+        }, target_base);
       }
     }
     if (VLOG_IS_ON(image)) {
