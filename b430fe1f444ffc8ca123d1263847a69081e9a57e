@@ -46,6 +46,76 @@
       "revId": "b430fe1f444ffc8ca123d1263847a69081e9a57e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cebcde3_7eb6664d",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-07T11:51:48Z",
+      "side": 1,
+      "message": "I suggest breaking it. If we need to revert changes, it will be cleaner to have the current change just fix the overflow.",
+      "parentUuid": "8dd290c7_a0e0dde7",
+      "range": {
+        "startLine": 394,
+        "startChar": 8,
+        "endLine": 394,
+        "endChar": 55
+      },
+      "revId": "b430fe1f444ffc8ca123d1263847a69081e9a57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46d68a3e_16358cd8",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-07T11:51:48Z",
+      "side": 1,
+      "message": "Add a comment that this is to test overflows?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 37
+      },
+      "revId": "b430fe1f444ffc8ca123d1263847a69081e9a57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d419f495_2052a6ee",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-07T11:51:48Z",
+      "side": 1,
+      "message": "Unrelated.",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 3
+      },
+      "revId": "b430fe1f444ffc8ca123d1263847a69081e9a57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
