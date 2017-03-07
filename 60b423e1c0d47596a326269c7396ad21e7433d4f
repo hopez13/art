@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0945d39_3a568853",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-07T17:49:48Z",
+      "side": 1,
+      "message": "Yeah I would really hide this logic with LookupResolvedType.\n\nI agree with you it\u0027s a correctness thing. But as we\u0027ve been bitten by class loaders **** over and over again, I need we need to be extra, super extra, careful.\n\nShouldn\u0027t be too hard to filter out some classes when you\u0027re recording, right (which you\u0027re already doing when you cannot find the type id).",
+      "parentUuid": "b21c8a5a_bc045b49",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 3
+      },
+      "revId": "60b423e1c0d47596a326269c7396ad21e7433d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a2b43a4_51cca87c",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 19
