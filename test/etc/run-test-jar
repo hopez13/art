@@ -505,7 +505,7 @@ fi
 DEX_LOCATION_STRIPPED="${DEX_LOCATION#/}"
 VDEX_NAME="${DEX_LOCATION_STRIPPED//\//@}@$TEST_NAME.jar@classes.vdex"
 if [ ${#VDEX_NAME} -gt $max_filename_size ]; then
-    echo  "Dex location path too long."
+    echo  "Dex location path too long: $VDEX_NAME"
     exit 1
 fi
 
