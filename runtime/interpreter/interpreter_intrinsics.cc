@@ -79,6 +79,109 @@ UNARY_SIMPLE_INTRINSIC(MterpMathAcosDouble, std::acos, GetVRegDouble, SetD);
 // java.lang.Math.atan(D)D
 UNARY_SIMPLE_INTRINSIC(MterpMathAtanDouble, std::atan, GetVRegDouble, SetD);
 
+// java.lang.String.charAt(I)C
+bool MterpStringCharAt(ShadowFrame* shadow_frame,
+                       const Instruction* inst,
+                       uint16_t inst_data,
+                       JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  int length = str->GetLength();
+  int index = shadow_frame->GetVReg(arg[1]);
+  uint16_t res;
+  if (UNLIKELY(index < 0) || (index >= length)) {
+    return false;  // Punt and let non-intrinsic version deal with the throw.
+  }
+  if (str->IsCompressed()) {
+    res = str->GetValueCompressed()[index];
+  } else {
+    res = str->GetValue()[index];
+  }
+  result_register->SetC(res);
+  return true;
+}
+
+// java.lang.String.compareTo(Ljava/lang/string)I
+bool MterpStringCompareTo(ShadowFrame* shadow_frame,
+                          const Instruction* inst,
+                          uint16_t inst_data,
+                          JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  mirror::Object* arg1 = shadow_frame->GetVRegReference(arg[1]);
+  if (arg1 == nullptr) {
+    return false;
+  }
+  result_register->SetI(str->CompareTo(arg1->AsString()));
+  return true;
+}
+
+// java.lang.String.indexOf(I)I
+bool MterpStringIndexOf(ShadowFrame* shadow_frame,
+                        const Instruction* inst,
+                        uint16_t inst_data,
+                        JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  int ch = shadow_frame->GetVReg(arg[1]);
+  if (ch >= 0x10000) {
+    // Punt if supplementary char.
+    return false;
+  }
+  result_register->SetI(str->FastIndexOf(ch, 0));
+  return true;
+}
+
+// java.lang.String.indexOf(II)I
+bool MterpStringIndexOfAfter(ShadowFrame* shadow_frame,
+                             const Instruction* inst,
+                             uint16_t inst_data,
+                             JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  int ch = shadow_frame->GetVReg(arg[1]);
+  if (ch >= 0x10000) {
+    // Punt if supplementary char.
+    return false;
+  }
+  result_register->SetI(str->FastIndexOf(ch, shadow_frame->GetVReg(arg[2])));
+  return true;
+}
+
+// java.lang.String.isEmpty()Z
+bool MterpStringIsEmpty(ShadowFrame* shadow_frame,
+                        const Instruction* inst,
+                        uint16_t inst_data,
+                        JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  result_register->SetZ(str->GetLength() == 0);
+  return true;
+}
+
+// java.lang.String.length()I
+bool MterpStringLength(ShadowFrame* shadow_frame,
+                       const Instruction* inst,
+                       uint16_t inst_data,
+                       JValue* result_register)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};
+  inst->GetVarArgs(arg, inst_data);
+  mirror::String* str = shadow_frame->GetVRegReference(arg[0])->AsString();
+  result_register->SetI(str->GetLength());
+  return true;
+}
+
 bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
                           ArtMethod* const called_method,
                           const Instruction* inst,
@@ -138,6 +241,24 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
       break;
     case Intrinsics::kMathAtan:
       res = MterpMathAtanDouble(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringCharAt:
+      res = MterpStringCharAt(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringCompareTo:
+      res = MterpStringCompareTo(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringIndexOf:
+      res = MterpStringIndexOf(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringIndexOfAfter:
+      res = MterpStringIndexOfAfter(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringIsEmpty:
+      res = MterpStringIsEmpty(shadow_frame, inst, inst_data, result_register);
+      break;
+    case Intrinsics::kStringLength:
+      res = MterpStringLength(shadow_frame, inst, inst_data, result_register);
       break;
     default:
       res = false;  // Punt
