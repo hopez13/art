@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "db3bbc5a_c8df34fb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-07T18:21:39Z",
+      "side": 1,
+      "message": "I would say a bit more in the comments then. Not a big deal, but it was not very clear why that was here.",
+      "parentUuid": "dc9ff7f8_08479e06",
+      "revId": "13167e960e68595bb6a6e613ecfff9a67b0e62d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b52fbc7_8c8451fa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
