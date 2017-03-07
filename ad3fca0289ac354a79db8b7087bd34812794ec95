@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ff420e5_fdcff266",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-07T19:40:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "429dce93_519f3a02",
+      "range": {
+        "startLine": 9,
+        "startChar": 65,
+        "endLine": 9,
+        "endChar": 67
+      },
+      "revId": "ad3fca0289ac354a79db8b7087bd34812794ec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d3a4d22_2be9e0b7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-06T16:15:28Z",
       "side": 1,
       "message": "file",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "ad3fca0289ac354a79db8b7087bd34812794ec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d8534ba_ac8f534a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-07T19:40:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d3a4d22_2be9e0b7",
       "range": {
         "startLine": 10,
         "startChar": 26,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "db13f4e9_0afbd820",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-07T19:40:52Z",
+      "side": 1,
+      "message": "It can be done without bumping the profile version. I prepared for this need and design it with the possible extension in mind :)\n\nHowever, I prefer to do it in a follow up to keep this CL simpler. We don\u0027t have support in the inliner for such case and yet so we can build this incrementally here.",
+      "parentUuid": "13168342_ab9ef2f5",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 78
+      },
+      "revId": "ad3fca0289ac354a79db8b7087bd34812794ec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaa1d0fe_9fee6159",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b0598f1c_dd957614",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-07T19:40:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaa1d0fe_9fee6159",
+      "range": {
+        "startLine": 160,
+        "startChar": 72,
+        "endLine": 160,
+        "endChar": 74
+      },
+      "revId": "ad3fca0289ac354a79db8b7087bd34812794ec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c1d2a2_791ecb58",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-06T16:15:28Z",
       "side": 1,
       "message": "file",
+      "range": {
+        "startLine": 161,
+        "startChar": 24,
+        "endLine": 161,
+        "endChar": 29
+      },
+      "revId": "ad3fca0289ac354a79db8b7087bd34812794ec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2df4247_362aefca",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-07T19:40:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c1d2a2_791ecb58",
       "range": {
         "startLine": 161,
         "startChar": 24,
