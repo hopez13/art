@@ -869,6 +869,11 @@ else
         "./${run}" $run_args "$@" >"$output" 2>&1
         run_exit="$?"
         if [ "$run_exit" != "0" ]; then
+            if [ "$run_exit" = "153" ]; then
+              # 153 means file size limit exceeded. Print the current file
+              # size limit to help diagnose.
+              err_echo "File size limit exceeded. Current limit: $(ulimit -S)"
+            fi
             err_echo "run exit status: $run_exit"
             good_run="no"
         elif [ "$run_checker" = "yes" ]; then
