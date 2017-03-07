@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "529e410c_9316c1b7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2044,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-07T18:22:52Z",
+      "side": 1,
+      "message": "Should we make this an assert then?",
+      "revId": "13574c51cc0e755af3de4ea7e5807d7676797167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2be17fb_8e572323",
         "filename": "test/641-irreducible-inline/smali/IrreducibleLoop.smali",
         "patchSetId": 1
