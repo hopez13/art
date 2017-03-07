@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d363d6e6_45fa6af3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-07T16:08:47Z",
+      "side": 1,
+      "message": "DCHECK_GE(kSoftFailure, failure_kind);",
+      "range": {
+        "startLine": 2166,
+        "startChar": 8,
+        "endLine": 2166,
+        "endChar": 62
+      },
+      "revId": "594bfe38bfdc2e65750c4ee7002b91a187597494",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
