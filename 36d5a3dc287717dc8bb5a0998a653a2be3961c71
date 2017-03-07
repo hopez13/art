@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05b2a654_cd35177b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-07T00:07:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb79a11_beaeb81b",
+      "range": {
+        "startLine": 328,
+        "startChar": 29,
+        "endLine": 328,
+        "endChar": 34
+      },
+      "revId": "36d5a3dc287717dc8bb5a0998a653a2be3961c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "080b04b1_da8490f1",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-07T00:03:35Z",
       "side": 1,
       "message": "JNI_FALSE",
+      "range": {
+        "startLine": 112,
+        "startChar": 29,
+        "endLine": 112,
+        "endChar": 34
+      },
+      "revId": "36d5a3dc287717dc8bb5a0998a653a2be3961c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "093d6c16_17be5e87",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-07T00:07:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "080b04b1_da8490f1",
       "range": {
         "startLine": 112,
         "startChar": 29,
