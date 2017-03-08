@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "91471d25_82dbab44",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-08T17:12:08Z",
+      "side": 1,
+      "message": "Oh, I see, we were looking at this from different angles. Compared to the current backend (without my changes), it can\u0027t be detrimental because branchless code is never generated, but it might not be optimal.",
+      "parentUuid": "a0583970_7d195cc9",
+      "range": {
+        "startLine": 2477,
+        "startChar": 26,
+        "endLine": 2477,
+        "endChar": 85
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0852e73_04f15540",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "There are some subtle trade-offs here. Unlike commutative operations, such as HAdd, we do not normalize HSelect to have the constant input in the second input (\"true value\"), so there is value in embedding the first input\u0027s value if constant. However, it\u0027s a bit odd if both inputs are constant and it may be better to let the register allocator put one of them in a register (maybe it\u0027s already in a register for some other instruction). And then there\u0027s the same question as above about turning branch-less code to branching code.",
       "parentUuid": "17492f0b_6e9bc214",
+      "range": {
+        "startLine": 2487,
+        "startChar": 0,
+        "endLine": 2488,
+        "endChar": 80
+      },
+      "revId": "c1807d10967a3218ce6888891176052593634520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a68c411a_45a4038c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-08T17:12:08Z",
+      "side": 1,
+      "message": "Yes, there are some subtle trade-offs. Ignoring the branching code issue for a moment, my understanding is that if we have two constant inputs, both of them encodable as immediates (and assuming integers to simplify the discussion), and if we tell the register allocator to put one of them in a register, then there are two options:\n1. The allocator does not reuse the input register for the output - in that case the HSelect visitor will generate a move from a register to a register, a test, and a conditional move (or a branch and an unconditional move). When there is a second constant input instead, the operations will be the same, except that we avoid some data dependencies.\n2. The allocator reuses the input register (since we have kNoOutputOverlap), in which case there are two more options:\n2.1. There are further users of the constant - which implies that the register allocator has made a copy, but, again, making the copy is equivalent to having a second constant input, except that it introduces extra data dependencies.\n2.2. There are no further users of the constant - as far as I can see, the code will be equivalent (modulo data dependencies), except that if there is one user right before the HSelect that is unable to reuse the input register as output (if there is one user unable to do that followed by another one that is, then there is no issue) because it has kOutputOverlap, for example, then there will be an avoidable move (materializing the constant a second time). It is worth mentioning that AFAIK arithmetic and bitwise operations (which seem to be a major consumer of constants) do not have kOutputOverlap.\nSo, unless I am making a mistake somewhere, in most cases the code will be equivalent, but having a second constant reduces data dependencies. In one case, however, there will be an increase in code size. Unfortunately, I don\u0027t know the probability of that pathological case, but so far I have been assuming that it is rare enough.",
+      "parentUuid": "94bec003_6dbb29be",
       "range": {
         "startLine": 2487,
         "startChar": 0,
