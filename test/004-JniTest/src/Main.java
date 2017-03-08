@@ -288,7 +288,32 @@ public class Main {
           throw new AssertionError();
         }
       }
+
+      testFastNativeGetCallerClassLoader();
     }
+
+    private static void testFastNativeGetCallerClassLoader() {
+      ClassLoader expected = Main.class.getClassLoader();
+      ClassLoader actual = getVMCallerClassLoader();
+
+      if (!expected.equals(actual)) {
+        System.out.println("FastNative VmStack#getCallingClassLoader test failed (expected "
+            + expected + ", actual: " + actual + ")");
+        throw new AssertionError();
+      } else {
+        System.out.println("FastNative VmStack#getCallingClassLoader test succeeded");
+      }
+    }
+
+    // This method will be the "caller's caller" when determining
+    // the classloader.
+    private static ClassLoader getVMCallerClassLoader() {
+      return fastNativeGetVmCallerClassLoader();
+    }
+
+    // This method will be the "caller" when determing the classloader.
+    @FastNative
+    private static native ClassLoader fastNativeGetVmCallerClassLoader();
 
     // Smoke test for @CriticalNative
     // TODO: Way more thorough tests since it involved quite a bit of changes.

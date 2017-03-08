@@ -27,12 +27,44 @@ namespace art {
 
 static JavaVM* jvm = nullptr;
 
+static jobject Java_Main_fastNativeGetVmCallerClassLoader(JNIEnv*, jclass);
 static jint Java_Main_intFastNativeMethod(JNIEnv*, jclass, jint a, jint b, jint c);
 static jint Java_Main_intCriticalNativeMethod(jint a, jint b, jint c);
 
 static JNINativeMethod sMainMethods[] = {
   {"intFastNativeMethod", "(III)I", reinterpret_cast<void*>(Java_Main_intFastNativeMethod) },
+  {"fastNativeGetVmCallerClassLoader", "()Ljava/lang/ClassLoader;",
+       reinterpret_cast<void*>(Java_Main_fastNativeGetVmCallerClassLoader) },
   {"intCriticalNativeMethod", "(III)I", reinterpret_cast<void*>(Java_Main_intCriticalNativeMethod) },
+};
+
+// Class + method info, local refs scoped to the current JNI entry.
+struct LocalMethodInfo {
+  jclass klass;
+  jmethodID method_id;
+
+  LocalMethodInfo(JNIEnv* env,
+                   const char* klass_name,
+                   const char* method_name,
+                   const char* method_signature,
+                   bool is_static) {
+    klass = env->FindClass(klass_name);
+    CHECK(!env->ExceptionCheck());
+    CHECK(klass != nullptr);
+    if (is_static) {
+      method_id = env->GetStaticMethodID(klass,
+                                         method_name,
+                                         method_signature);
+    } else {
+      method_id = env->GetMethodID(klass,
+                                   method_name,
+                                   method_signature);
+    }
+    if (env->ExceptionCheck()) {
+      env->ExceptionDescribe();
+      CHECK(!env->ExceptionCheck());
+    }
+  }
 };
 
 extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void*) {
@@ -766,6 +798,26 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_registerNativesJniTest(JNIEnv* e
 // NOTE: Has to be registered explicitly to avoid mutator lock check failures.
 static jint Java_Main_intFastNativeMethod(JNIEnv*, jclass, jint a, jint b, jint c) {
   return a + b + c;
+}
+
+// Annotated with @FastNative in Java code. Doesn't need to be explicitly registered with "!".
+// NOTE: Has to be registered explicitly to avoid mutator lock check failures.
+static jobject Java_Main_fastNativeGetVmCallerClassLoader(JNIEnv* env, jclass) {
+  // return dalvik.system.VMStack.getCallingClassLoader();
+
+  LocalMethodInfo vmStack_getCallingClassLoader =
+      LocalMethodInfo(env,
+                       "dalvik/system/VMStack",
+                       "getCallingClassLoader",
+                       "()Ljava/lang/ClassLoader;",
+                       /*is_static*/ true);
+
+  jobject result = env->CallStaticObjectMethod(vmStack_getCallingClassLoader.klass,
+                                               vmStack_getCallingClassLoader.method_id);
+  CHECK(!env->ExceptionCheck());
+  CHECK(result != nullptr);
+
+  return result;
 }
 
 // Annotated with @CriticalNative in Java code. Doesn't need to be explicitly registered with "!".
