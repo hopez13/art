@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "134fb150_918b6e15",
+        "filename": "compiler/optimizing/instruction_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:54:21Z",
+      "side": 1,
+      "message": "Add comment, eg: \"out of line version of GetLocalsFor\". GetLocalsFor has a fast path that is beneficial to get inlined by callers.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 82
+      },
+      "revId": "ffa443abb50d945c3cae7b59560110dfcb23cb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
