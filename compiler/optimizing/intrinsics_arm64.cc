@@ -3022,6 +3022,27 @@ void IntrinsicCodeGeneratorARM64::VisitIntegerValueOf(HInvoke* invoke) {
   }
 }
 
+void IntrinsicLocationsBuilderARM64::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void IntrinsicCodeGeneratorARM64::VisitThreadInterrupted(HInvoke* invoke) {
+  MacroAssembler* masm = GetVIXLAssembler();
+  Register out = RegisterFrom(invoke->GetLocations()->Out(), Primitive::kPrimInt);
+  MemOperand mem(tr, Thread::InterruptedOffset<kArm64PointerSize>().Int32Value());
+  __ Ldr(out.W(), mem);
+
+  vixl::aarch64::Label done;
+  __ Cbz(out.W(), &done);
+  __ Str(wzr, mem);
+  __ Bind(&done);
+  // Unconditionnally do a barrier. We might move it to the case the interrupt is 1.
+  __ Dmb(InnerShareable, BarrierAll);
+}
+
 UNIMPLEMENTED_INTRINSIC(ARM64, IntegerHighestOneBit)
 UNIMPLEMENTED_INTRINSIC(ARM64, LongHighestOneBit)
 UNIMPLEMENTED_INTRINSIC(ARM64, IntegerLowestOneBit)
