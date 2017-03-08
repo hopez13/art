@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "061123d9_a741359f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T11:16:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdf4bfda_80d8bb77",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T11:16:18Z",
+      "side": 1,
+      "message": "static? ALWAYS_INLINE?",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06f767f2_a13d9243",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T11:16:18Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a229f5f_0bc4f4de",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T11:16:18Z",
+      "side": 1,
+      "message": "Is std::abs\u003cfloat\u003e() and std::abs\u003cdouble\u003e() guaranteed to just clear the sign bit? Or should we instead use\n\n  UNARY_SIMPLE_INTRINSIC(MterpMathAbsFloat, 0x7fffffff\u0026, GetVReg, SetI);\n  UNARY_SIMPLE_INTRINSIC(MterpMathAbsDouble, INT64_C(0x7fffffffffffffff)\u0026, GetVRegLong, SetJ);\n\n?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 74
+      },
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b89ffb_1682d839",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T11:16:18Z",
+      "side": 1,
+      "message": "Use another macro? INTRINSIC_CASE(MathMinIntInt);",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 12
+      },
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
