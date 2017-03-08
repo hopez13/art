@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94997b78_a3d25c36",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:33:58Z",
+      "side": 1,
+      "message": "I\u0027d drop this check. Even if you\u0027re only doing the optimization for singletons, there\u0027s no harm in telling the ref info it has aliasing indexes.",
+      "range": {
+        "startLine": 349,
+        "startChar": 20,
+        "endLine": 349,
+        "endChar": 31
+      },
+      "revId": "6b8a6b987b4dce11a67e4d3233c355be860f13ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "129df01e_aa730297",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:33:58Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 58
+      },
+      "revId": "6b8a6b987b4dce11a67e4d3233c355be860f13ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a83a4463_dc99c606",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:33:58Z",
+      "side": 1,
+      "message": "Oh I see, I was misreading the code and thinking \u0027instruction\u0027 was the heap value for the store.\n\nCould you put your reply as a comment here?",
+      "parentUuid": "707dd5ba_07653cbc",
+      "range": {
+        "startLine": 937,
+        "startChar": 4,
+        "endLine": 951,
+        "endChar": 5
+      },
+      "revId": "9a0624d2268d19daa43c3037b173ecf540f478c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcfc7e0f_5325bf3a",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
