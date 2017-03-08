@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58cbbf85_dd3fe4d6",
+        "filename": "runtime/interpreter/unstarted_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-08T16:32:35Z",
+      "side": 1,
+      "message": "Please add a test with an actual object. Allocating a String is probably easiest.",
+      "range": {
+        "startLine": 1378,
+        "startChar": 0,
+        "endLine": 1378,
+        "endChar": 30
+      },
+      "revId": "d3cbbda8ec8aed0d6eb3889dde10bad8d6280bd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
