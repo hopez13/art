@@ -198,6 +198,30 @@
       "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ba4cd6e_4880e968",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-08T15:03:16Z",
+      "side": 1,
+      "message": "All these cases look the same, the only difference is in the intrinsic enumerator (Intrinsics::k##name) and name of the function called (Mterp##name). So I\u0027m suggesting to write a macro to reduce code duplication.",
+      "parentUuid": "eec6e6b0_793fb590",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 12
+      },
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
