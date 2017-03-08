@@ -718,7 +718,7 @@ def setup_env_for_build_target(build_target, parser, options):
   target_options = vars(parser.parse_args(build_target['flags']))
   target_options['host'] = True
   target_options['verbose'] = True
-  target_options['build'] = True
+  #target_options['build'] = True
   target_options['n_thread'] = options['n_thread']
   target_options['dry_run'] = options['dry_run']
 
