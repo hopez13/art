@@ -46,6 +46,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1105d2c_05739bf7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T22:48:53Z",
+      "side": 1,
+      "message": "\u003e Unfortunately “look up the copied method ...\" doesn\u0027t work since\n \u003e that same default interface method can be copied into multiple\n \u003e classes and have different vtable index. There is also no\n \u003e \"receiver\u0027s inferred type\" since there can be multiple receiver\n \u003e types and it\u0027s just that none of them re-implement the default\n \u003e interface method.\n\nWe actually have information on the receiver, thanks to rtp. So if it\u0027s a non-interface type, we could look up the copied method and get its vtable offset.\n\n \u003e \n \u003e Actually it seems to me the right thing to do here is to change\n \u003e invoke-interface into invoke-direct instead of invoke-virtual. We\n \u003e already have the ArtMethod* as a compile time constant, why jump\n \u003e through hoops to change it into an invoke-virtual to look up the\n \u003e same method from vtable? However the work is beyond this revert. We\n \u003e can also do the same thing to invoke-virtual by changing it into an\n \u003e invoke-direct.\n\nRight, see TODO line 880.",
+      "parentUuid": "446145ec_33f868ed",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
