@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae2b0782_b6bc59f2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-08T20:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94997b78_a3d25c36",
+      "range": {
+        "startLine": 349,
+        "startChar": 20,
+        "endLine": 349,
+        "endChar": 31
+      },
+      "revId": "6b8a6b987b4dce11a67e4d3233c355be860f13ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "129df01e_aa730297",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-08T10:33:58Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 58
+      },
+      "revId": "6b8a6b987b4dce11a67e4d3233c355be860f13ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "141ede86_0c82121e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-08T20:57:21Z",
+      "side": 1,
+      "message": "Getting close the the limit. I\u0027ll just keep it as two lines.",
+      "parentUuid": "129df01e_aa730297",
       "range": {
         "startLine": 638,
         "startChar": 0,
