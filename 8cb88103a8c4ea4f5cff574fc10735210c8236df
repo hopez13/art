@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "962e111c_f22d94c0",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-08T09:52:23Z",
+      "side": 1,
+      "message": "This would be clearer with -f too. Strictly unnecessary, but the easy to pinpoint the intent in the bash man page.",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 463,
+        "endChar": 20
+      },
+      "revId": "8cb88103a8c4ea4f5cff574fc10735210c8236df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
