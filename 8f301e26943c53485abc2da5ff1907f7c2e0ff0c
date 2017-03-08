@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be42e54e_2f9379a9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T11:10:35Z",
+      "side": 1,
+      "message": "How about:\n\n\"On the other hand, CHA can request inlining of a default non-copied method. If we want to turn the invokeinterface to an invokevirtual, we would need to look up the copied method representing the default method in the receiver\u0027s inferred type\".\n\nShould the second sentence be a TODO? With an extended comment that says the receiver may be of an interface type, and for such case we cannot turn the invokeinterface into an invokevirtual?",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
