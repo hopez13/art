@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c68a9c39_fb9a05f0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2044,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:17:53Z",
+      "side": 1,
+      "message": "We can keep it as-is. It\u0027s harmless and will be useful once/if we support it.\n\nNote that the HasTryCatch below is also not executed, as we don\u0027t inline methods with try/catch.",
+      "parentUuid": "529e410c_9316c1b7",
+      "revId": "13574c51cc0e755af3de4ea7e5807d7676797167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2be17fb_8e572323",
         "filename": "test/641-irreducible-inline/smali/IrreducibleLoop.smali",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6e700da7_97e1fb3b",
+        "filename": "test/641-irreducible-inline/smali/IrreducibleLoop.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2be17fb_8e572323",
+      "revId": "13574c51cc0e755af3de4ea7e5807d7676797167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa8530f2_5419fd9e",
         "filename": "test/641-irreducible-inline/src/Main.java",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2017-03-07T18:18:33Z",
       "side": 1,
       "message": "2017",
+      "revId": "13574c51cc0e755af3de4ea7e5807d7676797167",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa894db_8ca3810a",
+        "filename": "test/641-irreducible-inline/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T10:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa8530f2_5419fd9e",
       "revId": "13574c51cc0e755af3de4ea7e5807d7676797167",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
