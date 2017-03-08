@@ -3403,6 +3403,23 @@ void IntrinsicCodeGeneratorX86::VisitIntegerValueOf(HInvoke* invoke) {
   }
 }
 
+void IntrinsicLocationsBuilderX86::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void IntrinsicCodeGeneratorX86::VisitThreadInterrupted(HInvoke* invoke) {
+  X86Assembler* assembler = GetAssembler();
+  Register out = invoke->GetLocations()->Out().AsRegister<Register>();
+  Address address = Address::Absolute(Thread::InterruptedOffset<kX86PointerSize>().Int32Value());
+  // No fence required on x86 thanks to its memory model.
+  __ fs()->movl(out, address);
+  __ fs()->movl(address, Immediate(0));
+}
+
+
 UNIMPLEMENTED_INTRINSIC(X86, MathRoundDouble)
 UNIMPLEMENTED_INTRINSIC(X86, FloatIsInfinite)
 UNIMPLEMENTED_INTRINSIC(X86, DoubleIsInfinite)
