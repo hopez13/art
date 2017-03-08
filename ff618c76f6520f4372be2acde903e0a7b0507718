@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d6e471b1_df6e1cbc",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-08T14:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "061123d9_a741359f",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdf4bfda_80d8bb77",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f9b22c2f_e1b759f6",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-08T14:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf4bfda_80d8bb77",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06f767f2_a13d9243",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 5
@@ -47,6 +83,24 @@
       "writtenOn": "2017-03-08T11:16:18Z",
       "side": 1,
       "message": "ditto",
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452e60eb_27353129",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-08T14:55:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06f767f2_a13d9243",
       "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "61df14f6_c93c1ec0",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-08T14:55:04Z",
+      "side": 1,
+      "message": "Yea - might as well be explicit.  At this point, the values will always be loaded from memory anyway.  Done.",
+      "parentUuid": "9a229f5f_0bc4f4de",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 74
+      },
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b89ffb_1682d839",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 5
@@ -87,6 +165,30 @@
       "writtenOn": "2017-03-08T11:16:18Z",
       "side": 1,
       "message": "Use another macro? INTRINSIC_CASE(MathMinIntInt);",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 12
+      },
+      "revId": "ff618c76f6520f4372be2acde903e0a7b0507718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec6e6b0_793fb590",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-08T14:55:04Z",
+      "side": 1,
+      "message": "Not sure I follow (perhaps my coffee hasn\u0027t kicked in yet).  Are you suggesting I combine min/max and use a runtime test to select?",
+      "parentUuid": "39b89ffb_1682d839",
       "range": {
         "startLine": 91,
         "startChar": 0,
