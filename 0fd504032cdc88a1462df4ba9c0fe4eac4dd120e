@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e13a33c6_08c87243",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T22:56:14Z",
+      "side": 1,
+      "message": "Will do. Sorry for lack of context, this change was a FYI follow-up on private conversations.",
+      "parentUuid": "95f14f3a_03297eaa",
+      "range": {
+        "startLine": 12,
+        "startChar": 18,
+        "endLine": 12,
+        "endChar": 51
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d37b45cb_a2bb6a09",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-08T16:40:41Z",
       "side": 1,
       "message": "Does this include jsr166-tests?\n\nThese look like the ones most likely to expose an issue.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 14
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "482b9ead_f829443c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-08T22:56:14Z",
+      "side": 1,
+      "message": "Yes it does.",
+      "parentUuid": "d37b45cb_a2bb6a09",
       "range": {
         "startLine": 14,
         "startChar": 6,
