@@ -22,6 +22,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446145ec_33f868ed",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-08T22:39:09Z",
+      "side": 1,
+      "message": "Unfortunately “look up the copied method ...\" doesn\u0027t work since that same default interface method can be copied into multiple classes and have different vtable index. There is also no \"receiver\u0027s inferred type\" since there can be multiple receiver types and it\u0027s just that none of them re-implement the default interface method.\n\nActually it seems to me the right thing to do here is to change invoke-interface into invoke-direct instead of invoke-virtual. We already have the ArtMethod* as a compile time constant, why jump through hoops to change it into an invoke-virtual to look up the same method from vtable? However the work is beyond this revert. We can also do the same thing to invoke-virtual by changing it into an invoke-direct.",
+      "parentUuid": "be42e54e_2f9379a9",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
