@@ -2997,6 +2997,21 @@ void IntrinsicCodeGeneratorARM64::VisitIntegerValueOf(HInvoke* invoke) {
   }
 }
 
+void IntrinsicLocationsBuilderARM64::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void IntrinsicCodeGeneratorARM64::VisitThreadInterrupted(HInvoke* invoke) {
+  MacroAssembler* masm = GetVIXLAssembler();
+  Register out = RegisterFrom(invoke->GetLocations()->Out(), Primitive::kPrimInt);
+  MemOperand mem(tr, Thread::InterruptedOffset<kArm64PointerSize>().Int32Value());
+  __ Ldr(out.W(), mem);
+  __ Str(wzr, mem);
+}
+
 UNIMPLEMENTED_INTRINSIC(ARM64, IntegerHighestOneBit)
 UNIMPLEMENTED_INTRINSIC(ARM64, LongHighestOneBit)
 UNIMPLEMENTED_INTRINSIC(ARM64, IntegerLowestOneBit)
