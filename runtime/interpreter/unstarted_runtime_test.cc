@@ -1367,5 +1367,18 @@ TEST_F(UnstartedRuntimeTest, ConstructorNewInstance0) {
   ShadowFrame::DeleteDeoptimizedFrame(shadow_frame);
 }
 
+TEST_F(UnstartedRuntimeTest, IdentityHashCode) {
+  Thread* self = Thread::Current();
+  ScopedObjectAccess soa(self);
+  ShadowFrame* tmp = ShadowFrame::CreateDeoptimizedFrame(10, nullptr, nullptr, 0);
+
+  JValue result;
+  UnstartedSystemIdentityHashCode(self, tmp, &result, 0);
+
+  EXPECT_EQ(0, result.GetI());
+
+  ShadowFrame::DeleteDeoptimizedFrame(tmp);
+}
+
 }  // namespace interpreter
 }  // namespace art
