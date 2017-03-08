@@ -70,6 +70,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ff34d24_85e7e381",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-08T23:12:14Z",
+      "side": 1,
+      "message": "We know types with rtp/inline-cache. For CHA, there is no type. We devirtualize it only based on observation that the default interface method isn\u0027t re-implemented. So it can be on multiple of classes which can have the copied default method at different vtable index.",
+      "parentUuid": "b1105d2c_05739bf7",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
