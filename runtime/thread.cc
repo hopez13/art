@@ -1927,7 +1927,6 @@ void Thread::Shutdown() {
 Thread::Thread(bool daemon)
     : tls32_(daemon),
       wait_monitor_(nullptr),
-      interrupted_(false),
       custom_tls_(nullptr),
       can_call_into_java_(true) {
   wait_mutex_ = new Mutex("a thread wait mutex");
@@ -1940,6 +1939,7 @@ Thread::Thread(bool daemon)
                 "art::Thread has a size which is not a multiple of 4.");
   tls32_.state_and_flags.as_struct.flags = 0;
   tls32_.state_and_flags.as_struct.state = kNative;
+  tls32_.interrupted = false;
   memset(&tlsPtr_.held_mutexes[0], 0, sizeof(tlsPtr_.held_mutexes));
   std::fill(tlsPtr_.rosalloc_runs,
             tlsPtr_.rosalloc_runs + kNumRosAllocThreadLocalSizeBracketsInThread,
@@ -2234,9 +2234,12 @@ bool Thread::IsJWeakCleared(jweak obj) const {
 
 // Implements java.lang.Thread.interrupted.
 bool Thread::Interrupted() {
-  MutexLock mu(Thread::Current(), *wait_mutex_);
-  bool interrupted = IsInterruptedLocked();
-  SetInterruptedLocked(false);
+  DCHECK_EQ(Thread::Current(), this);
+  // Only 'self' can read and update the interrupted flag without locking.
+  bool interrupted = tls32_.interrupted;
+  if (interrupted) {
+    tls32_.interrupted = false;
+  }
   return interrupted;
 }
 
@@ -2248,10 +2251,10 @@ bool Thread::IsInterrupted() {
 
 void Thread::Interrupt(Thread* self) {
   MutexLock mu(self, *wait_mutex_);
-  if (interrupted_) {
+  if (tls32_.interrupted) {
     return;
   }
-  interrupted_ = true;
+  tls32_.interrupted = true;
   NotifyLocked(self);
 }
 

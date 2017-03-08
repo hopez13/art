@@ -2714,6 +2714,22 @@ void IntrinsicCodeGeneratorARM::VisitIntegerValueOf(HInvoke* invoke) {
   }
 }
 
+void IntrinsicLocationsBuilderARM::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations = new (arena_) LocationSummary(invoke,
+                                                            LocationSummary::kNoCall,
+                                                            kIntrinsified);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void IntrinsicCodeGeneratorARM::VisitThreadInterrupted(HInvoke* invoke) {
+  ArmAssembler* assembler = GetAssembler();
+  Register out = invoke->GetLocations()->Out().AsRegister<Register>();
+  int32_t offset = Thread::InterruptedOffset<kArmPointerSize>().Int32Value();
+  __ LoadFromOffset(kLoadWord, out, TR, offset);
+  __ LoadImmediate(IP, 0);
+  __ StoreToOffset(kStoreWord, IP, TR, offset);
+}
+
 UNIMPLEMENTED_INTRINSIC(ARM, MathMinDoubleDouble)
 UNIMPLEMENTED_INTRINSIC(ARM, MathMinFloatFloat)
 UNIMPLEMENTED_INTRINSIC(ARM, MathMaxDoubleDouble)
