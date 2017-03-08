@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9806acc1_2b866b37",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-08T17:40:43Z",
+      "side": 1,
+      "message": "Comment that the bit represents if the type id has a corresponding class def?",
+      "range": {
+        "startLine": 180,
+        "startChar": 12,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "cbf48d195479ef03ec0e79c174fc6430ae38a01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ccf54c6_497148b3",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-08T17:40:43Z",
+      "side": 1,
+      "message": "Is there an edge case where the dex file could be empty and have no types? That might crash here?",
+      "range": {
+        "startLine": 190,
+        "startChar": 26,
+        "endLine": 190,
+        "endChar": 95
+      },
+      "revId": "cbf48d195479ef03ec0e79c174fc6430ae38a01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
