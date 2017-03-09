@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c156b00e_2a71008d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-09T01:09:56Z",
+      "side": 1,
+      "message": "Is it better to just do IsRuntimeMethod here?",
+      "range": {
+        "startLine": 2343,
+        "startChar": 31,
+        "endLine": 2343,
+        "endChar": 48
+      },
+      "revId": "5667f56867383fc4113aa4a6551efdf9f48ee5e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
