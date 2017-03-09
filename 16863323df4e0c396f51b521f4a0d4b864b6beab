@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dae7bc0_a519d74d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7007,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-09T17:03:45Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be\n\n  IsPowerOfTwo(value + 1)\n\n?",
+      "range": {
+        "startLine": 7007,
+        "startChar": 10,
+        "endLine": 7007,
+        "endChar": 83
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "515c6f01_23e85081",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-09T17:03:45Z",
+      "side": 1,
+      "message": "This optimization (using UBFX to implement a binary \"and\") could be extended to other patterns as well, right?",
+      "range": {
+        "startLine": 7188,
+        "startChar": 0,
+        "endLine": 7189,
+        "endChar": 53
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8ad24ca_77ff6f99",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7087,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-09T17:03:45Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 7087,
+        "startChar": 10,
+        "endLine": 7087,
+        "endChar": 83
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
