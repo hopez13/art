@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97a892c4_1dc0d067",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-09T16:08:42Z",
+      "side": 1,
+      "message": "This is incorrect.",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "47ac70b5855e854eb131c2d3ee8cd0b4f643ba09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c1a746_06cba70f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-09T16:08:42Z",
+      "side": 1,
+      "message": "This uses UseProfile, which is true if a profile is passed in, no matter the filter.",
+      "range": {
+        "startLine": 2892,
+        "startChar": 6,
+        "endLine": 2892,
+        "endChar": 41
+      },
+      "revId": "47ac70b5855e854eb131c2d3ee8cd0b4f643ba09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
