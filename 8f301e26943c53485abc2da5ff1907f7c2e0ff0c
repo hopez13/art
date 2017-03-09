@@ -142,6 +142,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8c93b1e_8d0addea",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-09T21:39:29Z",
+      "side": 1,
+      "message": "Ah right, I forgot FindVirtualOrInterfaceTarget was called just before the TryCHAInline.",
+      "parentUuid": "34c6ce2c_c4e089cc",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
