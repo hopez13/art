@@ -57,6 +57,40 @@
       "revId": "e381ffe345281dc175695c9839488b1980948677",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a032f1f_844deae8",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-09T19:29:02Z",
+      "side": 1,
+      "message": "What happened to ART_TEST_GC_VERIFY\u003dtrue ?",
+      "revId": "e381ffe345281dc175695c9839488b1980948677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d803b5b3_78268738",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-09T19:29:02Z",
+      "side": 1,
+      "message": "What happened to ART_DEFAULT_GC_TYPE\u003dSS ?",
+      "revId": "e381ffe345281dc175695c9839488b1980948677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
