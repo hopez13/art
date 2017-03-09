@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8040c043_ca9a0f72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-09T16:35:42Z",
+      "side": 1,
+      "message": "I see two things wrong with the line:\n\n1) You\u0027re not really disabling it\n2) It\u0027s not just for speed-profile\n\nMaybe something like: Do not allow input-vdex with dexlayout",
+      "parentUuid": "2f16ebda_030f77fc",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "47ac70b5855e854eb131c2d3ee8cd0b4f643ba09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34c1a746_06cba70f",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
