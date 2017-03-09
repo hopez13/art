@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "80af2e1f_4bf6d385",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-09T23:08:28Z",
+      "side": 1,
+      "message": "That is the question. Build bots do run against a current image, as we run them against a host tree. Things would be broken anywhere already if that wasn\u0027t the case (we explicitly cd in run-test-jar).\n\nThere\u0027s an option to zip up built test artifacts, but I think that\u0027s for target only.",
+      "parentUuid": "1e794613_cdd80c45",
+      "revId": "0e0ffbbbe69045c8f88cefd0b20c4dda6c08d293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d687b1b_f53e2112",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-09T23:02:19Z",
       "side": 1,
       "message": "cd \"$DEX_LOCATION\"",
+      "revId": "0e0ffbbbe69045c8f88cefd0b20c4dda6c08d293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff65adf_d3f69b63",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-09T23:08:28Z",
+      "side": 1,
+      "message": "I don\u0027t think we support spaces, ever. But sure. :-)",
+      "parentUuid": "5d687b1b_f53e2112",
       "revId": "0e0ffbbbe69045c8f88cefd0b20c4dda6c08d293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
