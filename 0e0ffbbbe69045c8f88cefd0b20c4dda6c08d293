@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e794613_cdd80c45",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-09T23:02:19Z",
+      "side": 1,
+      "message": "What underlying generated files is this changing?\n\nJust wondering if it\u0027ll break something like buildbot or golem which might not run with the same exact paths as the place it was built on.",
+      "revId": "0e0ffbbbe69045c8f88cefd0b20c4dda6c08d293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d687b1b_f53e2112",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-09T23:02:19Z",
+      "side": 1,
+      "message": "cd \"$DEX_LOCATION\"",
+      "revId": "0e0ffbbbe69045c8f88cefd0b20c4dda6c08d293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
