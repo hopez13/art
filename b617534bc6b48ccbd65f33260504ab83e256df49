@@ -45,6 +45,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e97ad4f5_f77e2062",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-03-09T05:51:32Z",
+      "side": 1,
+      "message": "Is the worry that mono or something will be calling back into this method by unblocking a signal and doing some more stuff?  We would want to avoid calling the handlers again in that scenario, wouldn\u0027t we?",
+      "parentUuid": "83b11a2f_44f77c56",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
