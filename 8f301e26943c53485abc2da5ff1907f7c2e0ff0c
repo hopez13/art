@@ -94,6 +94,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab9042e7_d05bb00b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-09T09:40:30Z",
+      "side": 1,
+      "message": "I understand that. The message I\u0027m failing to get across is that invoke_instruction-\u003eInputAt(0) has a type inferred by the compiler which you could use to lookup the copied method. Obviously if the inferred type is an interface type, you can\u0027t do anything, but if it\u0027s a non-abstract class, then you can lookup the copied method.",
+      "parentUuid": "2ff34d24_85e7e381",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
