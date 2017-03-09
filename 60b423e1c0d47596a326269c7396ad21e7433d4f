@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "87988822_c4ad7f0c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-09T12:00:43Z",
+      "side": 1,
+      "message": "Ah right, that\u0027s because you\u0027re encoding {type id, dex file id} in the profile.",
+      "parentUuid": "f6e8ca3a_62fc4641",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 3
+      },
+      "revId": "60b423e1c0d47596a326269c7396ad21e7433d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a2b43a4_51cca87c",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 19
