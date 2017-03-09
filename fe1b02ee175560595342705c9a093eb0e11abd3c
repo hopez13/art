@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4fa5180_ae070271",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-09T22:22:27Z",
+      "side": 1,
+      "message": "How fast is Thread::Current()? We could avoid it by passing a template bool argument down I think.",
+      "range": {
+        "startLine": 2265,
+        "startChar": 17,
+        "endLine": 2265,
+        "endChar": 34
+      },
+      "revId": "fe1b02ee175560595342705c9a093eb0e11abd3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
