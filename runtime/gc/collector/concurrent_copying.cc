@@ -222,6 +222,8 @@ void ConcurrentCopying::InitializePhase() {
   immune_spaces_.Reset();
   bytes_moved_.StoreRelaxed(0);
   objects_moved_.StoreRelaxed(0);
+  bytes_moved_gc_ = 0;
+  objects_moved_gc_ = 0;
   GcCause gc_cause = GetCurrentIteration()->GetGcCause();
   if (gc_cause == kGcCauseExplicit ||
       gc_cause == kGcCauseForNativeAlloc ||
@@ -1648,9 +1650,9 @@ void ConcurrentCopying::ReclaimPhase() {
     const uint64_t from_objects = region_space_->GetObjectsAllocatedInFromSpace();
     const uint64_t unevac_from_bytes = region_space_->GetBytesAllocatedInUnevacFromSpace();
     const uint64_t unevac_from_objects = region_space_->GetObjectsAllocatedInUnevacFromSpace();
-    uint64_t to_bytes = bytes_moved_.LoadSequentiallyConsistent();
+    uint64_t to_bytes = bytes_moved_.LoadSequentiallyConsistent() + bytes_moved_gc_;
     cumulative_bytes_moved_.FetchAndAddRelaxed(to_bytes);
-    uint64_t to_objects = objects_moved_.LoadSequentiallyConsistent();
+    uint64_t to_objects = objects_moved_.LoadSequentiallyConsistent() + objects_moved_gc_;
     cumulative_objects_moved_.FetchAndAddRelaxed(to_objects);
     if (kEnableFromSpaceAccountingCheck) {
       CHECK_EQ(from_space_num_objects_at_first_pause_, from_objects + unevac_from_objects);
@@ -2259,8 +2261,14 @@ mirror::Object* ConcurrentCopying::Copy(mirror::Object* from_ref) {
     bool success = from_ref->CasLockWordWeakRelaxed(old_lock_word, new_lock_word);
     if (LIKELY(success)) {
       // The CAS succeeded.
-      objects_moved_.FetchAndAddRelaxed(1);
-      bytes_moved_.FetchAndAddRelaxed(region_space_alloc_size);
+      DCHECK(thread_running_gc_ != nullptr);
+      if (LIKELY(Thread::Current() == thread_running_gc_)) {
+        objects_moved_gc_ += 1;
+        bytes_moved_gc_ += region_space_alloc_size;
+      } else {
+        objects_moved_.FetchAndAddRelaxed(1);
+        bytes_moved_.FetchAndAddRelaxed(region_space_alloc_size);
+      }
       if (LIKELY(!fall_back_to_non_moving)) {
         DCHECK(region_space_->IsInToSpace(to_ref));
       } else {

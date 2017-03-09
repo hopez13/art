@@ -282,8 +282,10 @@ class ConcurrentCopying : public GarbageCollector {
   bool weak_ref_access_enabled_ GUARDED_BY(Locks::thread_list_lock_);
 
   // How many objects and bytes we moved. Used for accounting.
-  Atomic<size_t> bytes_moved_;
-  Atomic<size_t> objects_moved_;
+  Atomic<size_t> bytes_moved_;  // Used by mutators
+  Atomic<size_t> objects_moved_;  // Used by mutators
+  size_t bytes_moved_gc_;  // Used by GC
+  size_t objects_moved_gc_;  // Used by GC
   Atomic<uint64_t> cumulative_bytes_moved_;
   Atomic<uint64_t> cumulative_objects_moved_;
 
