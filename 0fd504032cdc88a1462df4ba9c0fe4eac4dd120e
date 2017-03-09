@@ -136,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "98bf3e85_8715534f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-09T14:02:30Z",
+      "side": 1,
+      "message": "Yes, please see PS2 for thread.cc, which now conditionally updates the flag. I believe this makes us safe.",
+      "parentUuid": "0193afa4_dccf0e80",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
