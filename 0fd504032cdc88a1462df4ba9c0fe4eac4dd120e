@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "12ddda77_f83772c5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-09T19:06:31Z",
+      "side": 1,
+      "message": "I suspect you\u0027re right that this eliminates the bugs that show up in an interleaving-based, sequentially consistent execution.\n\nBut I also think this still allows concurrent access to tls32_.interrupted, since Thread::Interrupt and Thread::Interrupted can be called concurrently. By C++ rules, that\u0027s undefined behavior. In practice, it means that we have to worry about various potential C++ compiler optimizations that are now unsound because we\u0027re violating the compiler\u0027s assumptions.\n\nThat part could be fixed by making interrupted atomic and using memory_order_relaxed accesses. But I don\u0027t think that\u0027s really sufficient, in that you want memory ordering guarantees here. The Java spec is not as clear on this as it should be.\n\nThe most important case is the one in which Thread 1 sets up a (possibly trivial) data structure D, then interrupts Thread 2, which calls Interrupted(), and reads D. With your change, strengthened to use memory_order_relaxed, D is no long guaranteed to be correctly visible in Thread 2. I wouldn\u0027t be surprised if this violates some of our own internal assumptions.\n\nThis could be fixed by using memory_order_acquire loads and memory_order_release stores. But that still doesn\u0027t handle the two-threads-interrupting-each-other scenario from the previous message, so we really want memory_order_seq_cst. (Which generates the same code on arm64, but is slower on the store side for arm32 or x86, which probably doesn\u0027t matter.)\n\nAt that point, we need an acquire load or fence on every load access, and a bit more than that for every store. Is it still a win? Possibly, if Interrupted() or IsInterrupted() are far more frequently called than everything else. Which seems plausible, but I\u0027m not sure. I was initially concerned about the monitor code that reads this, but that should only be wait(), which is expensive enough not to matter.\n\nOr we could argue that the spec doesn\u0027t really guarantee this ordering. But I think that\u0027s pretty clearly unintentional, and we probably have code ourselves that assumes it.",
+      "parentUuid": "98bf3e85_8715534f",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1

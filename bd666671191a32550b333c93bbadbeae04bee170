@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "523a637b_f0f78ae9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-09T19:06:31Z",
+      "side": 1,
+      "message": "Any reason not to treat this the same as Interrupted()? It can be invoked from other threads. But since it only reads, I don\u0027t see why it would matter. It would also have to be a seq_cst read.",
+      "range": {
+        "startLine": 2248,
+        "startChar": 2,
+        "endLine": 2248,
+        "endChar": 48
+      },
+      "revId": "bd666671191a32550b333c93bbadbeae04bee170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
