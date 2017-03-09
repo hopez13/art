@@ -102,12 +102,14 @@ $$(core_image_name): PRIVATE_CORE_MULTI_PARAM := $$(core_multi_param)
 $$(core_image_name): $$(HOST_CORE_DEX_LOCATIONS) $$(core_dex2oat_dependency)
 	@echo "host dex2oat: $$@"
 	@mkdir -p $$(dir $$@)
-	$$(hide) $(3) $$(DEX2OAT)$(4) --runtime-arg -Xms$(DEX2OAT_IMAGE_XMS) \
-	  --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
-	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(HOST_CORE_DEX_FILES)) \
-	  $$(addprefix --dex-location=,$$(HOST_CORE_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
-	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
-	  --base=$$(LIBART_IMG_HOST_BASE_ADDRESS) --instruction-set=$$($(2)ART_HOST_ARCH) \
+	$$(hide) $(3) $$(DEX2OAT)$(4) \
+	  --runtime-arg -Xms$(DEX2OAT_IMAGE_XMS) --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
+	  $$(addprefix --dex-file=,$$(abspath $$(HOST_CORE_DEX_FILES))) \
+	  $$(addprefix --dex-location=,$$(abspath $$(HOST_CORE_DEX_LOCATIONS))) \
+	  --oat-file=$$(PRIVATE_CORE_OAT_NAME) --oat-location=$$(PRIVATE_CORE_OAT_NAME) \
+	  --image=$$(PRIVATE_CORE_IMG_NAME) --image-classes=$$(PRELOADED_CLASSES) \
+	  --base=$$(LIBART_IMG_HOST_BASE_ADDRESS) \
+	  --instruction-set=$$($(2)ART_HOST_ARCH) \
 	  $$(LOCAL_$(2)DEX2OAT_HOST_INSTRUCTION_SET_FEATURES_OPTION) \
 	  --host --android-root=$$(HOST_OUT) \
 	  --generate-debug-info --generate-build-id --compile-pic \
@@ -204,12 +206,14 @@ $$(core_image_name): PRIVATE_CORE_OAT_NAME := $$(core_oat_name)
 $$(core_image_name): $$(TARGET_CORE_DEX_FILES) $$(core_dex2oat_dependency)
 	@echo "target dex2oat: $$@"
 	@mkdir -p $$(dir $$@)
-	$$(hide) $(4) $$(DEX2OAT)$(5) --runtime-arg -Xms$(DEX2OAT_IMAGE_XMS) \
-	  --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
-	  --image-classes=$$(PRELOADED_CLASSES) $$(addprefix --dex-file=,$$(TARGET_CORE_DEX_FILES)) \
-	  $$(addprefix --dex-location=,$$(TARGET_CORE_DEX_LOCATIONS)) --oat-file=$$(PRIVATE_CORE_OAT_NAME) \
-	  --oat-location=$$(PRIVATE_CORE_OAT_NAME) --image=$$(PRIVATE_CORE_IMG_NAME) \
-	  --base=$$(LIBART_IMG_TARGET_BASE_ADDRESS) --instruction-set=$$($(2)TARGET_ARCH) \
+	$$(hide) $(4) $$(DEX2OAT)$(5) \
+	  --runtime-arg -Xms$(DEX2OAT_IMAGE_XMS) --runtime-arg -Xmx$(DEX2OAT_IMAGE_XMX) \
+	  $$(addprefix --dex-file=,$$(TARGET_CORE_DEX_FILES)) \
+	  $$(addprefix --dex-location=,$$(TARGET_CORE_DEX_LOCATIONS)) \
+	  --oat-file=$$(PRIVATE_CORE_OAT_NAME) --oat-location=$$(PRIVATE_CORE_OAT_NAME) \
+	  --image=$$(PRIVATE_CORE_IMG_NAME) --image-classes=$$(PRELOADED_CLASSES) \
+	  --base=$$(LIBART_IMG_TARGET_BASE_ADDRESS) \
+	  --instruction-set=$$($(2)TARGET_ARCH) \
 	  --instruction-set-variant=$$($(2)DEX2OAT_TARGET_CPU_VARIANT) \
 	  --instruction-set-features=$$($(2)DEX2OAT_TARGET_INSTRUCTION_SET_FEATURES) \
 	  --android-root=$$(PRODUCT_OUT)/system \

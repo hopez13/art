@@ -160,7 +160,7 @@ while true; do
         HAVE_IMAGE="n"
         shift
     elif [ "x$1" = "x--secondary" ]; then
-        SECONDARY_DEX=":$DEX_LOCATION/$TEST_NAME-ex.jar"
+        SECONDARY_DEX=":$TEST_NAME-ex.jar"
         # Enable cfg-append to make sure we get the dump for both dex files.
         # (otherwise the runtime compilation of the secondary dex will overwrite
         # the dump of the first one).
@@ -588,7 +588,7 @@ dalvikvm_cmdline="$INVOKE_WITH $GDB $ANDROID_ROOT/bin/$DALVIKVM \
                   $DALVIKVM_BOOT_OPT \
                   $TMP_DIR_OPTION \
                   -XX:DumpNativeStackOnSigQuit:false \
-                  -cp $DEX_LOCATION/$TEST_NAME.jar$SECONDARY_DEX $MAIN $ARGS"
+                  -cp $TEST_NAME.jar$SECONDARY_DEX $MAIN $ARGS"
 
 # Remove whitespace.
 dex2oat_cmdline=$(echo $dex2oat_cmdline)
@@ -740,6 +740,8 @@ else
     if [ "$DRY_RUN" = "y" ]; then
       exit 0
     fi
+
+    cd $DEX_LOCATION
 
     if [ "$USE_GDB" = "y" ]; then
       # When running under gdb, we cannot do piping and grepping...
