@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8742fb_b04dd090",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7007,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-09T17:18:55Z",
+      "side": 1,
+      "message": "It could, but it would reduce the set of patterns that we could handle. For example, if value is 2^48 + 2^47 + ... + 2^33 + 2^32 + 2^16 - 1, then it would not be handled, even though it is just a pair of UBFX instructions.",
+      "parentUuid": "5dae7bc0_a519d74d",
+      "range": {
+        "startLine": 7007,
+        "startChar": 10,
+        "endLine": 7007,
+        "endChar": 83
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "515c6f01_23e85081",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-09T17:03:45Z",
       "side": 1,
       "message": "This optimization (using UBFX to implement a binary \"and\") could be extended to other patterns as well, right?",
+      "range": {
+        "startLine": 7188,
+        "startChar": 0,
+        "endLine": 7189,
+        "endChar": 53
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be7eddbb_599cf3d1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7189,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-09T17:18:55Z",
+      "side": 1,
+      "message": "Yes, but it would involve an extra shift, which I think it would be equivalent to letting the register allocator materialize the constant in a register, and just doing the AND directly.",
+      "parentUuid": "515c6f01_23e85081",
       "range": {
         "startLine": 7188,
         "startChar": 0,
