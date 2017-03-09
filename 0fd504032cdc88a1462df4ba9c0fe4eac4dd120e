@@ -208,6 +208,30 @@
     },
     {
       "key": {
+        "uuid": "b628297a_144d61d6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-09T23:10:23Z",
+      "side": 1,
+      "message": "\u003e I assume you mean the C++ compiler? For ART\u0027s optimizing\n\u003e compiler we do control the code generation, and can make\n\u003e sure the read and sore are sequential.\n\nYes, the C++ compiler. Java is more tolerant of data races, though the ordering issues below would still apply.\n\n\u003e Are you describing a Java scenario, or a C++ scenario?\n\u003e Also, are you implying that regardless if it\u0027s C++/Java,\n\u003e we may rely on the current memory barrier behavior of\n\u003e interrupt/interrupted for concurrent data structures\n\u003e not marked volatile? Is that specified by Java?\n\nReally either. In both languages, thread communication\nmechanisms guarantee ordering. And this can clearly be used to\ncommunicate between threads. A design goal was to ensure\nthat programmers who avoid data races and don\u0027t explicitly\nopt out see sequentially consistent (interleaving) behavior,\nwhich requires this kind of visibility.\n\nHowever, this mechanism is obscure enough that the language\nspec doesn\u0027t explicitly guarantee the ordering, so things\nare up for debate.\n\nThe data in question is usually not marked volatile, just as\nit isn\u0027t if accesses are protected by a lock. It\u0027s the lock release\nfollowed by lock acquisition that ensure visibility.",
+      "parentUuid": "9d6e8b54_13f96a5d",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
