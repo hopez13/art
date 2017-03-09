@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43cb2666_aeb906c1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-09T20:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2d5e45_249eb2b9",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 47
+      },
+      "revId": "501ea6bc3ae394d88ab799e2b1288f56e971ca8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8593596f_754871d3",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 24
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-09T12:00:43Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 7,
+        "endLine": 1274,
+        "endChar": 61
+      },
+      "revId": "501ea6bc3ae394d88ab799e2b1288f56e971ca8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14926ba1_b6492b3f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-09T20:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8593596f_754871d3",
       "range": {
         "startLine": 1273,
         "startChar": 7,
