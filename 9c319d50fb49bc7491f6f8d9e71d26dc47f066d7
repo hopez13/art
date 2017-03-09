@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ccd08718_312e24e8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-09T21:49:06Z",
+      "side": 1,
+      "message": "I\u0027ll rephrase/delete it. :)\n\nBut basically if you have 20 dex files, we\u0027ll lookup 20 dex_caches, yet the inline cache has at most 5 types, so more then what we\u0027d need.",
+      "parentUuid": "61024eda_599802ff",
+      "range": {
+        "startLine": 510,
+        "startChar": 29,
+        "endLine": 511,
+        "endChar": 65
+      },
+      "revId": "9c319d50fb49bc7491f6f8d9e71d26dc47f066d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8e61dc1_c73e5f1d",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 25
