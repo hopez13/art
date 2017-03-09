@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d7ff26_3af3f49a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-03-09T18:24:33Z",
+      "side": 1,
+      "message": "nit: why did you do this instead of CHECK_EQ() ?",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 485,
+        "endChar": 3
+      },
+      "revId": "ba13e64dbae7c86b6784895b06b8d516c4274e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
