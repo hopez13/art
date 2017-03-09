@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f290ee0_bb0b156c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2534,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-09T13:28:43Z",
+      "side": 1,
+      "message": "I decided to be conservative (to avoid any potential increase in code size), otherwise this could be changed to ArmEncodableConstantOrRegister(), and then the false input could be either ArmEncodableConstantOrRegister() or Arm8BitEncodableConstantOrRegister() depending on whether the true input was a register (pair) or a constant encodable in 8 bits.",
+      "range": {
+        "startLine": 2534,
+        "startChar": 26,
+        "endLine": 2534,
+        "endChar": 60
+      },
+      "revId": "426b49c45d8088ff3114d3fbcec26db4e00c9324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
