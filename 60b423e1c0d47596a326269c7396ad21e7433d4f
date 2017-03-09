@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "f6e8ca3a_62fc4641",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-09T02:35:52Z",
+      "side": 1,
+      "message": "Actually, I can\u0027t go with LookupResolvedType alone without some dex_cache lookup. The types might not be in the current compilation unit dex file so I must first find the right dex file before calling LookupResolvedType.",
+      "parentUuid": "47d2b063_d667b20c",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 3
+      },
+      "revId": "60b423e1c0d47596a326269c7396ad21e7433d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a2b43a4_51cca87c",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 19
