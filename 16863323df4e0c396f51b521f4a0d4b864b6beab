@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "26958a52_f2273cc4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-09T17:36:04Z",
+      "side": 1,
+      "message": "This does not allow for example BIC for the high word and UBFX for the low word. Shifting all of this to the \"case AND\" in CanEncodeConstantAsImmediate(uint32_t, Opcode, SetCc) would make that simple.",
+      "parentUuid": "7c8742fb_b04dd090",
+      "range": {
+        "startLine": 7007,
+        "startChar": 10,
+        "endLine": 7007,
+        "endChar": 83
+      },
+      "revId": "16863323df4e0c396f51b521f4a0d4b864b6beab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "515c6f01_23e85081",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
