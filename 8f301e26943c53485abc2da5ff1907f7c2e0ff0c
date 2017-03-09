@@ -118,6 +118,30 @@
       "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c6ce2c_c4e089cc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-09T18:53:31Z",
+      "side": 1,
+      "message": "At this point, method is already a devirtualized method from exact type info of rtp (done in FindVirtualOrInterfaceTarget), inline cache, or CHA. So rtp has been attempted. We don\u0027t need to retry it here.",
+      "parentUuid": "ab9042e7_d05bb00b",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 81
+      },
+      "revId": "8f301e26943c53485abc2da5ff1907f7c2e0ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
