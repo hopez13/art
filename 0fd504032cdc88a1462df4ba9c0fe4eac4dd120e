@@ -184,6 +184,30 @@
     },
     {
       "key": {
+        "uuid": "9d6e8b54_13f96a5d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-09T22:39:14Z",
+      "side": 1,
+      "message": "\u003e I suspect you\u0027re right that this eliminates the bugs that show up\n \u003e in an interleaving-based, sequentially consistent execution.\n \u003e \n \u003e But I also think this still allows concurrent access to\n \u003e tls32_.interrupted, since Thread::Interrupt and Thread::Interrupted\n \u003e can be called concurrently. By C++ rules, that\u0027s undefined\n \u003e behavior. In practice, it means that we have to worry about various\n \u003e potential C++ compiler optimizations that are now unsound because\n \u003e we\u0027re violating the compiler\u0027s assumptions.\n\nI assume you mean the C++ compiler? For ART\u0027s optimizing compiler we do control the code generation, and can make sure the read and sore are sequential.\n\n \u003e \n \u003e That part could be fixed by making interrupted atomic and using\n \u003e memory_order_relaxed accesses. But I don\u0027t think that\u0027s really\n \u003e sufficient, in that you want memory ordering guarantees here. The\n \u003e Java spec is not as clear on this as it should be.\n \u003e \n \u003e The most important case is the one in which Thread 1 sets up a\n \u003e (possibly trivial) data structure D, then interrupts Thread 2,\n \u003e which calls Interrupted(), and reads D. With your change,\n \u003e strengthened to use memory_order_relaxed, D is no long guaranteed\n \u003e to be correctly visible in Thread 2. I wouldn\u0027t be surprised if\n \u003e this violates some of our own internal assumptions.\n\nAre you describing a Java scenario, or a C++ scenario? Also, are you implying that regardless if it\u0027s C++/Java, we may rely on the current memory barrier behavior of \ninterrupt/interrupted for concurrent data structures not marked volatile? Is that specified by Java?\n\n \u003e \n \u003e This could be fixed by using memory_order_acquire loads and\n \u003e memory_order_release stores. But that still doesn\u0027t handle the\n \u003e two-threads-interrupting-each-other scenario from the previous\n \u003e message, so we really want memory_order_seq_cst. (Which generates\n \u003e the same code on arm64, but is slower on the store side for arm32\n \u003e or x86, which probably doesn\u0027t matter.)\n \u003e \n \u003e At that point, we need an acquire load or fence on every load\n \u003e access, and a bit more than that for every store. Is it still a\n \u003e win? Possibly, if Interrupted() or IsInterrupted() are far more\n \u003e frequently called than everything else. Which seems plausible, but\n \u003e I\u0027m not sure. I was initially concerned about the monitor code that\n \u003e reads this, but that should only be wait(), which is expensive\n \u003e enough not to matter.\n \u003e \n \u003e Or we could argue that the spec doesn\u0027t really guarantee this\n \u003e ordering. But I think that\u0027s pretty clearly unintentional, and we\n \u003e probably have code ourselves that assumes it.",
+      "parentUuid": "12ddda77_f83772c5",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
