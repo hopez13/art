@@ -43,6 +43,7 @@ struct MipsInstruction {
 static const uint32_t kOpcodeShift = 26;
 
 static const uint32_t kCop1 = (17 << kOpcodeShift);
+static const uint32_t kMsa = (30 << kOpcodeShift);  // MSA major opcode.
 
 static const uint32_t kITypeMask = (0x3f << kOpcodeShift);
 static const uint32_t kJTypeMask = (0x3f << kOpcodeShift);
@@ -51,6 +52,8 @@ static const uint32_t kSpecial0Mask = (0x3f << kOpcodeShift);
 static const uint32_t kSpecial2Mask = (0x3f << kOpcodeShift);
 static const uint32_t kSpecial3Mask = (0x3f << kOpcodeShift);
 static const uint32_t kFpMask = kRTypeMask;
+static const uint32_t kMsaMask = kRTypeMask;
+static const uint32_t kMsaSpecialMask = (0x3f << kOpcodeShift);
 
 static const MipsInstruction gMipsInstructions[] = {
   // "sll r0, r0, 0" is the canonical "nop", used in delay slots.
@@ -417,6 +420,26 @@ static const MipsInstruction gMipsInstructions[] = {
   { kFpMask, kCop1 | 0x10, "sel", "fadt" },
   { kFpMask, kCop1 | 0x1e, "max", "fadt" },
   { kFpMask, kCop1 | 0x1c, "min", "fadt" },
+
+  // MSA instructions.
+  { kMsaMask | (0x1f << 21), kMsa | (0x0 << 21) | 0x1e, "and.v", "kmn" },
+  { kMsaMask | (0x1f << 21), kMsa | (0x1 << 21) | 0x1e, "or.v", "kmn" },
+  { kMsaMask | (0x1f << 21), kMsa | (0x2 << 21) | 0x1e, "nor.v", "kmn" },
+  { kMsaMask | (0x1f << 21), kMsa | (0x3 << 21) | 0x1e, "xor.v", "kmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x0 << 23) | 0xe, "addv", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x1 << 23) | 0xe, "subv", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x0 << 23) | 0x12, "mulv", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x4 << 23) | 0x12, "div_s", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x5 << 23) | 0x12, "div_u", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x0 << 23) | 0xd, "sll", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x1 << 23) | 0xd, "sra", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x2 << 23) | 0xd, "srl", "vkmn" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x0 << 23) | 0x9, "slli", "kmV" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x1 << 23) | 0x9, "srai", "kmV" },
+  { kMsaMask | (0x7 << 23), kMsa | (0x2 << 23) | 0x9, "srli", "kmV" },
+  { kMsaMask | (0x3ff << 16), kMsa | (0xbe << 16) | 0x19, "move.v", "km" },
+  { kMsaSpecialMask | (0xf << 2), kMsa | (0x8 << 2), "ld", "kw" },
+  { kMsaSpecialMask | (0xf << 2), kMsa | (0x9 << 2), "st", "kw" },
 };
 
 static uint32_t ReadU32(const uint8_t* ptr) {
@@ -559,6 +582,57 @@ size_t DisassemblerMips::Dump(std::ostream& os, const uint8_t* instr_ptr) {
           case 't': args << 'f' << rt; break;
           case 'Z': args << (rd + 1); break;  // sz ([d]ext size).
           case 'z': args << (rd - sa + 1); break;  // sz ([d]ins, dinsu size).
+          case 'k': args << 'w' << sa; break;
+          case 'm': args << 'w' << rd; break;
+          case 'n': args << 'w' << rt; break;
+          case 'v':  // MSA df.
+            {
+              int32_t df = (instruction >> 21) & 0x3;
+              switch (df) {
+                case 0: opcode += ".b"; break;
+                case 1: opcode += ".h"; break;
+                case 2: opcode += ".w"; break;
+                case 3: opcode += ".d"; break;
+              }
+              continue;  // No ", ".
+            }
+          case 'V':  // MSA df/m.
+            {
+              int32_t df_m = (instruction >> 16) & 0x7f;
+              if ((df_m & (0x1 << 6)) == 0) {
+                opcode += ".d";
+                args << (df_m & 0x3f);
+                break;
+              }
+              if ((df_m & (0x1 << 5)) == 0) {
+                opcode += ".w";
+                args << (df_m & 0x1f);
+                break;
+              }
+              if ((df_m & (0x1 << 4)) == 0) {
+                opcode += ".h";
+                args << (df_m & 0xf);
+                break;
+              }
+              if ((df_m & (0x1 << 3)) == 0) {
+                opcode += ".b";
+                args << (df_m & 0x7);
+              }
+              break;
+            }
+          case 'w':  // MSA +x(rs).
+            {
+              int32_t s10 = (instruction >> 16) & 0x3ff;
+              int32_t df = instruction & 0x3;
+              switch (df) {
+                case 0: opcode += ".b"; break;
+                case 1: opcode += ".h"; break;
+                case 2: opcode += ".w"; break;
+                case 3: opcode += ".d"; break;
+              }
+              args << StringPrintf("%+d(r%d)", s10 << df, rd);
+              break;
+            }
         }
         if (*(args_fmt + 1)) {
           args << ", ";

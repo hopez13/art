@@ -266,6 +266,7 @@ void TemplateLoadConst64(Asm* a, Rtype rd, Vtype value) {
   }
 }
 
+static constexpr size_t kMips64HalfwordSize = 2;
 static constexpr size_t kMips64WordSize = 4;
 static constexpr size_t kMips64DoublewordSize = 8;
 
@@ -643,6 +644,70 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   void Move(GpuRegister rd, GpuRegister rs);
   void Clear(GpuRegister rd);
   void Not(GpuRegister rd, GpuRegister rs);
+
+  // MSA instructions.
+  void AndV(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void OrV(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void NorV(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void XorV(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+
+  void AddvB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void AddvH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void AddvW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void AddvD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SubvB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SubvH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SubvW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SubvD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void MulvB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void MulvH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void MulvW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void MulvD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_sB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_sH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_sW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_sD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_uB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_uH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_uW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void Div_uD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+
+  void SllB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SllH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SllW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SllD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SraB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SraH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SraW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SraD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SrlB(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SrlH(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SrlW(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+  void SrlD(VectorRegister wd, VectorRegister ws, VectorRegister wt);
+
+  void SlliB(VectorRegister wd, VectorRegister ws, int m);
+  void SlliH(VectorRegister wd, VectorRegister ws, int m);
+  void SlliW(VectorRegister wd, VectorRegister ws, int m);
+  void SlliD(VectorRegister wd, VectorRegister ws, int m);
+  void SraiB(VectorRegister wd, VectorRegister ws, int m);
+  void SraiH(VectorRegister wd, VectorRegister ws, int m);
+  void SraiW(VectorRegister wd, VectorRegister ws, int m);
+  void SraiD(VectorRegister wd, VectorRegister ws, int m);
+  void SrliB(VectorRegister wd, VectorRegister ws, int m);
+  void SrliH(VectorRegister wd, VectorRegister ws, int m);
+  void SrliW(VectorRegister wd, VectorRegister ws, int m);
+  void SrliD(VectorRegister wd, VectorRegister ws, int m);
+
+  void MoveV(VectorRegister wd, VectorRegister ws);
+
+  void LdB(VectorRegister wd, GpuRegister rs, int offset);
+  void LdH(VectorRegister wd, GpuRegister rs, int offset);
+  void LdW(VectorRegister wd, GpuRegister rs, int offset);
+  void LdD(VectorRegister wd, GpuRegister rs, int offset);
+  void StB(VectorRegister wd, GpuRegister rs, int offset);
+  void StH(VectorRegister wd, GpuRegister rs, int offset);
+  void StW(VectorRegister wd, GpuRegister rs, int offset);
+  void StD(VectorRegister wd, GpuRegister rs, int offset);
 
   // Higher level composite instructions.
   int InstrCountForLoadReplicatedConst32(int64_t);
@@ -1300,6 +1365,14 @@ class Mips64Assembler FINAL : public Assembler, public JNIMacroAssembler<Pointer
   void EmitFR(int opcode, int fmt, FpuRegister ft, FpuRegister fs, FpuRegister fd, int funct);
   void EmitFI(int opcode, int fmt, FpuRegister rt, uint16_t imm);
   void EmitBcondc(BranchCondition cond, GpuRegister rs, GpuRegister rt, uint32_t imm16_21);
+  void EmitMsa3R(int operation,
+                 int df,
+                 VectorRegister wt,
+                 VectorRegister ws,
+                 VectorRegister wd,
+                 int minor_opcode);
+  void EmitMsaBIT(int operation, int df_m, VectorRegister ws, VectorRegister wd, int minor_opcode);
+  void EmitMsaMI10(int s10, GpuRegister rs, VectorRegister wd, int minor_opcode, int df);
 
   void Buncond(Mips64Label* label);
   void Bcond(Mips64Label* label,
