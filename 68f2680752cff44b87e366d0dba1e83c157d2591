@@ -34,6 +34,24 @@
       "revId": "68f2680752cff44b87e366d0dba1e83c157d2591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d70f970_71b2341e",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-10T13:48:05Z",
+      "side": 1,
+      "message": "Keep this one, it\u0027s testing the new functionality. Add another one for the negative test. 16383 would use UBFX and 16384 is a modified immediate, so it would be embedded in AND. Something like 1022 would do it for ARM (though that\u0027s a logical immediate for ARM64).",
+      "parentUuid": "0e8fa638_486317d8",
+      "revId": "68f2680752cff44b87e366d0dba1e83c157d2591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
