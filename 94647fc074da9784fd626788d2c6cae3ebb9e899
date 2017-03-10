@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "37a7123e_9229ac6e",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-10T16:32:29Z",
+      "side": 1,
+      "message": "Thanks, that explains why it was like that :).",
+      "parentUuid": "801bcd53_614d74fe",
+      "range": {
+        "startLine": 267,
+        "startChar": 18,
+        "endLine": 267,
+        "endChar": 22
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2a29f30_cdf0ac62",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "245e4dc6_8c7295d5",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-10T16:32:29Z",
+      "side": 1,
+      "message": "Yes, I\u0027m thinking probably --tarball\u003dandroid-v7.tar.gz or something like that.\n\nSo that it\u0027s less magical.\n\nBut we do need to have this even for non-golem flavors of this build:\n\nRight now the golem-side scripts do always need the tarball to run the benchmarks but I\u0027m hoping to fix that soon. The main problem is that we hardcode the $TARGET_PRODUCT_OUT (e.g. arm_krait) in the benchmark run commands and that should be fixed.",
+      "parentUuid": "a2a29f30_cdf0ac62",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3
@@ -82,6 +130,24 @@
       "writtenOn": "2017-03-10T16:08:44Z",
       "side": 1,
       "message": "Why do we need this script by the way? Can\u0027t it be incorporated in the other one?",
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f0de5eb_80cc58cb",
+        "filename": "tools/golem/env",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-10T16:32:29Z",
+      "side": 1,
+      "message": "Probably better off leaving it like this for now, I started writing the script that executes the right dalvikvm/art commands (based on target,cpu) and it needs to reuse a lot of this (for example --list-targets).\n\nActually I need to refactor the other file too but I won\u0027t do that in this CL.",
+      "parentUuid": "a342f8fc_691eb5ee",
       "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
