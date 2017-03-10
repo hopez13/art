@@ -16,6 +16,24 @@
       "revId": "68f2680752cff44b87e366d0dba1e83c157d2591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e8fa638_486317d8",
+        "filename": "test/538-checker-embed-constants/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-10T13:43:48Z",
+      "side": 1,
+      "message": "Do you mean to replace this one completely, or to leave it as it is, and add another one? Also, how does 16383 sound as test value? Or do you want a negative test, e.g. 16384?",
+      "parentUuid": "fa94e2d9_864b1574",
+      "revId": "68f2680752cff44b87e366d0dba1e83c157d2591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
