@@ -165,6 +165,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be6ab10_84b7757d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-10T01:27:51Z",
+      "side": 1,
+      "message": "The only change in state is creating and storing the exception - everything else should be reading the current state, only. Exception throwing doesn\u0027t modify anything until you unwind. I think it should be fine *mostly* (stack overflow may be iffy, but that shouldn\u0027t happen), but I\u0027d have to audit the code.",
+      "parentUuid": "b3e36334_b16a2ce2",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
