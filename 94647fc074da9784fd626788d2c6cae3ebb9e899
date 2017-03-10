@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1a99a3c_e95537b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-10T16:08:44Z",
+      "side": 1,
+      "message": "Update now that env is invoked by build-target.sh?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "801bcd53_614d74fe",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-10T16:08:44Z",
+      "side": 1,
+      "message": "Add a comment that symbols are automatically stripped by Android\u0027s build system for target builds.",
+      "range": {
+        "startLine": 267,
+        "startChar": 18,
+        "endLine": 267,
+        "endChar": 22
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2a29f30_cdf0ac62",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-10T16:08:44Z",
+      "side": 1,
+      "message": "Is the intention that golem will invoke this script? If yes, then you should do this only conditionally.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a342f8fc_691eb5ee",
+        "filename": "tools/golem/env",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-10T16:08:44Z",
+      "side": 1,
+      "message": "Why do we need this script by the way? Can\u0027t it be incorporated in the other one?",
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
