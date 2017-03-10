@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a74bf928_0cffe701",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 6211,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-10T18:32:45Z",
+      "side": 1,
+      "message": "Artem, please note that added the integer operations as well (shifts will follow shortly). So once Q registers are working, we just need to double the VL and all is well :-)",
+      "revId": "a03d6b5ec0c235b7e235a98fdcdfcdb499395c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
