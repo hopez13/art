@@ -117,6 +117,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a6704d6_c219db45",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-10T01:15:39Z",
+      "side": 1,
+      "message": "True, I forgot that we wouldn\u0027t be forwarding the original signal context - which is probably what we should be doing.\n\nThis CL is fine as-is. We should think about the ucontext (and whether storing it is expensive) for a follow-up.",
+      "parentUuid": "1f381cc7_c617aae6",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
