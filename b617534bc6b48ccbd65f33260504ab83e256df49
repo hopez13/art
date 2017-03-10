@@ -93,6 +93,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f381cc7_c617aae6",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-03-10T00:09:44Z",
+      "side": 1,
+      "message": "mono is presumably not going to gracefully handle the signal, because it\u0027ll be coming from this function, not the original signal. Seems like we should just abort if the user handler returns after handling a nested signal.",
+      "parentUuid": "df586930_a48f7fe1",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
