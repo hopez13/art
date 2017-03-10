@@ -213,6 +213,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07b30749_4226817f",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-10T01:31:43Z",
+      "side": 1,
+      "message": "Not really. It\u0027s our fault if our fast-but-dangerous checks fail horribly because some other native code by chance (or design) makes us go wrong. We made the conscious trade-off, to keep NPEs halfway fast.\n\n(Plus, we\u0027d probably try to repro any interesting crash we see, and see it then... :-) )",
+      "parentUuid": "5955c7d3_5310cdf2",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
