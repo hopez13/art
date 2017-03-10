@@ -69,6 +69,30 @@
       "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df586930_a48f7fe1",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-10T00:04:43Z",
+      "side": 1,
+      "message": "The worry is that we might see a mono environment and halfway think it\u0027s ours but crash (somewhere in IsGeneratedCode). We\u0027ll correctly march on to mono now, which handles and returns. Then we get around to one of our NPEs again - but because the flag is still set, we treat it as bad...",
+      "parentUuid": "e97ad4f5_f77e2062",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 22
+      },
+      "revId": "b617534bc6b48ccbd65f33260504ab83e256df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
