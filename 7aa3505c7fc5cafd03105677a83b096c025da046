@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e11e2b9_0120f40e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 8294,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-10T13:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "345faf44_6e8a22f5",
+      "range": {
+        "startLine": 8290,
+        "startChar": 0,
+        "endLine": 8294,
+        "endChar": 3
+      },
+      "revId": "7aa3505c7fc5cafd03105677a83b096c025da046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d07fc43_d10af410",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 18
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-10T12:44:48Z",
       "side": 1,
       "message": "std::min?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 3
+      },
+      "revId": "7aa3505c7fc5cafd03105677a83b096c025da046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e771bdb8_7083804c",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-10T13:01:01Z",
+      "side": 1,
+      "message": "I\u0027m just following the style from StringsSize() and TypesSize().",
+      "parentUuid": "4d07fc43_d10af410",
       "range": {
         "startLine": 131,
         "startChar": 0,
