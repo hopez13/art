@@ -55,7 +55,7 @@ class CompilerOptions FINAL {
   static constexpr size_t kSpaceFilterInlineDepthLimit = 3;
   static constexpr size_t kSpaceFilterInlineMaxCodeUnits = 10;
 
-  static constexpr bool kUseVixlDefault = true;
+  static constexpr bool kUseVixlDefault = false;
 
   CompilerOptions();
   ~CompilerOptions();
