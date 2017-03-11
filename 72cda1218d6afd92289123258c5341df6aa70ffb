@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ece16053_f1471f82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Should be test-art-host-gtest as there are changes in assembler_test.h common to all architectures.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c3331bf_4aa50374",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Before the first MSA instruction definition add a TODO comment about checking MSA presence in instruction set features.",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd00ca52_53a6d800",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Add Mod_s, Mod_u, Fadd, Fsub, Fmul, Fdiv.",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 673,
+        "endChar": 71
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0699202a_a4e8d148",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Add conversion instructions for VisitVecCnv(HVecCnv* instruction) in Aart\u0027s patch: Ffint_S, Ftint_S.",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17fb12a8_49453cc5",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "I\u0027d rename the m\u0027s to shamt3 ... shamt6 for clarity (ditto in the function definitions in the .cc file).",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 699,
+        "endChar": 58
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1751091d_6eae23b8",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Add Splati for VisitVecReplicateScalar(HVecReplicateScalar* instruction) in Aart\u0027s patch.\n\nAdd Fill to zero-out a vector in VisitVecNeg(HVecNeg* instruction).",
+      "range": {
+        "startLine": 701,
+        "startChar": 0,
+        "endLine": 701,
+        "endChar": 51
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dab848b5_e66d5f55",
+        "filename": "compiler/utils/mips64/constants_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "kMsaOperationShift",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97acf3b_46ddf2e4",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-11T00:30:18Z",
+      "side": 1,
+      "message": "Sign-extend s10 with the additional line:\n\n    s10 -\u003d (s10 \u0026 0x200) \u003c\u003c 1;",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
