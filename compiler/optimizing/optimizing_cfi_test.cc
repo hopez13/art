@@ -24,21 +24,16 @@
 #include "optimizing/code_generator.h"
 #include "optimizing/optimizing_unit_test.h"
 #include "utils/assembler.h"
-#ifdef ART_USE_OLD_ARM_BACKEND
-#include "utils/arm/assembler_thumb2.h"
-#else
+
 #include "utils/arm/assembler_arm_vixl.h"
-#endif
+#include "utils/arm/assembler_thumb2.h"
 #include "utils/mips/assembler_mips.h"
 #include "utils/mips64/assembler_mips64.h"
 
 #include "optimizing/optimizing_cfi_test_expected.inc"
 
-#ifndef ART_USE_OLD_ARM_BACKEND
 namespace vixl32 = vixl::aarch32;
-
 using vixl32::r0;
-#endif
 
 namespace art {
 
@@ -51,9 +46,9 @@ class OptimizingCFITest : public CFITest {
   static constexpr bool kGenerateExpected = false;
 
   OptimizingCFITest()
-      : pool_(),
+      : opts_(),
+        pool_(),
         allocator_(&pool_),
-        opts_(),
         isa_features_(),
         graph_(nullptr),
         code_gen_(),
@@ -129,6 +124,9 @@ class OptimizingCFITest : public CFITest {
     return code_gen_.get();
   }
 
+ protected:
+  CompilerOptions opts_;
+
  private:
   class InternalCodeAllocator : public CodeAllocator {
    public:
@@ -149,7 +147,6 @@ class OptimizingCFITest : public CFITest {
 
   ArenaPool pool_;
   ArenaAllocator allocator_;
-  CompilerOptions opts_;
   std::unique_ptr<const InstructionSetFeatures> isa_features_;
   HGraph* graph_;
   std::unique_ptr<CodeGenerator> code_gen_;
@@ -189,6 +186,7 @@ TEST_ISA(kMips64)
 
 #ifdef ART_ENABLE_CODEGEN_arm
 TEST_F(OptimizingCFITest, kThumb2Adjust) {
+  opts_.SetUseVixl(false);
   std::vector<uint8_t> expected_asm(
       expected_asm_kThumb2_adjust,
       expected_asm_kThumb2_adjust + arraysize(expected_asm_kThumb2_adjust));
@@ -196,7 +194,6 @@ TEST_F(OptimizingCFITest, kThumb2Adjust) {
       expected_cfi_kThumb2_adjust,
       expected_cfi_kThumb2_adjust + arraysize(expected_cfi_kThumb2_adjust));
   SetUpFrame(kThumb2);
-#ifdef ART_USE_OLD_ARM_BACKEND
 #define __ down_cast<arm::Thumb2Assembler*>(GetCodeGenerator()->GetAssembler())->
   Label target;
   __ CompareAndBranchIfZero(arm::R0, &target);
@@ -204,7 +201,21 @@ TEST_F(OptimizingCFITest, kThumb2Adjust) {
   for (size_t i = 0; i != 65; ++i) {
     __ ldr(arm::R0, arm::Address(arm::R0));
   }
-#else
+  __ Bind(&target);
+#undef __
+  Finish();
+  Check(kThumb2, "kThumb2_adjust", expected_asm, expected_cfi);
+}
+
+TEST_F(OptimizingCFITest, kThumb2AdjustVIXL) {
+  opts_.SetUseVixl(true);
+  std::vector<uint8_t> expected_asm(
+      expected_asm_kThumb2_adjustVIXL,
+      expected_asm_kThumb2_adjustVIXL + arraysize(expected_asm_kThumb2_adjustVIXL));
+  std::vector<uint8_t> expected_cfi(
+      expected_cfi_kThumb2_adjustVIXL,
+      expected_cfi_kThumb2_adjustVIXL + arraysize(expected_cfi_kThumb2_adjustVIXL));
+  SetUpFrame(kThumb2);
 #define __ down_cast<arm::ArmVIXLAssembler*>(GetCodeGenerator() \
     ->GetAssembler())->GetVIXLAssembler()->
   vixl32::Label target;
@@ -213,7 +224,6 @@ TEST_F(OptimizingCFITest, kThumb2Adjust) {
   for (size_t i = 0; i != 65; ++i) {
     __ Ldr(r0, vixl32::MemOperand(r0));
   }
-#endif
   __ Bind(&target);
 #undef __
   Finish();

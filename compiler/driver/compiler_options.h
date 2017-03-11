@@ -55,6 +55,8 @@ class CompilerOptions FINAL {
   static constexpr size_t kSpaceFilterInlineDepthLimit = 3;
   static constexpr size_t kSpaceFilterInlineMaxCodeUnits = 10;
 
+  static constexpr bool kUseVixlDefault = true;
+
   CompilerOptions();
   ~CompilerOptions();
 
@@ -80,6 +82,7 @@ class CompilerOptions FINAL {
                   const std::string& dump_cfg_file_name,
                   bool dump_cfg_append,
                   bool force_determinism,
+                  bool use_vixl,
                   RegisterAllocator::Strategy regalloc_strategy,
                   const std::vector<std::string>* passes_to_run);
 
@@ -271,6 +274,13 @@ class CompilerOptions FINAL {
     return passes_to_run_;
   }
 
+  bool IsUseVixl() const {
+    return use_vixl_;
+  }
+  void SetUseVixl(bool use_vixl) {
+    use_vixl_ = use_vixl;
+  }
+
  private:
   void ParseDumpInitFailures(const StringPiece& option, UsageFn Usage);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -326,6 +336,9 @@ class CompilerOptions FINAL {
   // Whether the compiler should trade performance for determinism to guarantee exactly reproducible
   // outcomes.
   bool force_determinism_;
+
+  // Whether to use the VIXL backend, where available.
+  bool use_vixl_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

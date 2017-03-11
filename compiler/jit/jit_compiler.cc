@@ -113,6 +113,7 @@ JitCompiler::JitCompiler() {
       /* dump_cfg_file_name */ "",
       /* dump_cfg_append */ false,
       /* force_determinism */ false,
+      CompilerOptions::kUseVixlDefault,
       RegisterAllocator::kRegisterAllocatorDefault,
       /* passes_to_run */ nullptr));
   for (const std::string& argument : Runtime::Current()->GetCompilerOptions()) {
