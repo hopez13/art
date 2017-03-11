@@ -17,28 +17,19 @@
 #include "dex_cache_array_fixups_arm.h"
 
 #include "base/arena_containers.h"
-#ifdef ART_USE_OLD_ARM_BACKEND
 #include "code_generator_arm.h"
-#include "intrinsics_arm.h"
-#else
 #include "code_generator_arm_vixl.h"
+#include "intrinsics_arm.h"
 #include "intrinsics_arm_vixl.h"
-#endif
 #include "utils/dex_cache_arrays_layout-inl.h"
 
 namespace art {
 namespace arm {
-#ifdef ART_USE_OLD_ARM_BACKEND
-typedef CodeGeneratorARM CodeGeneratorARMType;
-typedef IntrinsicLocationsBuilderARM IntrinsicLocationsBuilderARMType;
-#else
-typedef CodeGeneratorARMVIXL CodeGeneratorARMType;
-typedef IntrinsicLocationsBuilderARMVIXL IntrinsicLocationsBuilderARMType;
-#endif
 
 /**
  * Finds instructions that need the dex cache arrays base as an input.
  */
+template <typename CodeGeneratorARMType, typename IntrinsicLocationsBuilderARMType>
 class DexCacheArrayFixupsVisitor : public HGraphVisitor {
  public:
   DexCacheArrayFixupsVisitor(HGraph* graph, CodeGenerator* codegen)
@@ -106,10 +97,20 @@ class DexCacheArrayFixupsVisitor : public HGraphVisitor {
   DexCacheArraysBaseMap dex_cache_array_bases_;
 };
 
-void DexCacheArrayFixups::Run() {
-  DexCacheArrayFixupsVisitor visitor(graph_, codegen_);
+template <typename CodeGeneratorARMType, typename IntrinsicLocationsBuilderARMType>
+static void RunOptimization(HGraph* graph, CodeGenerator* codegen) {
+  DexCacheArrayFixupsVisitor<CodeGeneratorARMType, IntrinsicLocationsBuilderARMType>
+        visitor(graph, codegen);
   visitor.VisitInsertionOrder();
   visitor.MoveBasesIfNeeded();
+}
+
+void DexCacheArrayFixups::Run() {
+  if (codegen_->GetCompilerOptions().IsUseVixl()) {
+    RunOptimization<CodeGeneratorARMVIXL, IntrinsicLocationsBuilderARMVIXL>(graph_, codegen_);
+  } else {
+    RunOptimization<CodeGeneratorARM, IntrinsicLocationsBuilderARM>(graph_, codegen_);
+  }
 }
 
 }  // namespace arm

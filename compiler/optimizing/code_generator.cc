@@ -589,7 +589,7 @@ std::unique_ptr<CodeGenerator> CodeGenerator::Create(HGraph* graph,
 #ifdef ART_ENABLE_CODEGEN_arm
     case kArm:
     case kThumb2: {
-      if (kArmUseVIXL32) {
+      if (compiler_options.IsUseVixl()) {
         return std::unique_ptr<CodeGenerator>(
             new (arena) arm::CodeGeneratorARMVIXL(graph,
                                                   *isa_features.AsArmInstructionSetFeatures(),
