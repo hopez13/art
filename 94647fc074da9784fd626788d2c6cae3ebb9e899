@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "425b45ef_344085d8",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-13T14:04:27Z",
+      "side": 1,
+      "message": "I\u0027m confused. The tarball is already created by golem, why do you need to create it here?",
+      "parentUuid": "245e4dc6_8c7295d5",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3
