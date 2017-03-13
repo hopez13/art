@@ -2,6 +2,74 @@
   "comments": [
     {
       "key": {
+        "uuid": "9c829688_ee2438c3",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-13T23:43:02Z",
+      "side": 1,
+      "message": "document struct (for use in template to get a novector regs version)",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2136929f_c38b7168",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-13T23:43:02Z",
+      "side": 1,
+      "message": "f at next line, or all other arguments aligned",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7255c110_c7014546",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-13T23:43:02Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3753968_08301268",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-13T23:43:02Z",
+      "side": 1,
+      "message": "are these immediate values for the shift? in any case, perhaps add a comment on what shamt means",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e99164f_e7df6a93",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 2
