@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23f742f3_704d9ed7",
+        "filename": "runtime/openjdkjvmti/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-03-13T21:19:46Z",
+      "side": 1,
+      "message": "I usually export something inside a directory called include.  If you exported include and moved the file to include/openjdkjvmti/jvmti.h you wouldn\u0027t need to change all the tests.",
+      "revId": "23e102c79ae34cc52cdf84e49d6bda121291acf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
