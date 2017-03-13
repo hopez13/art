@@ -102,6 +102,7 @@ TEST_ART_TARGET_SYNC_DEPS :=
 include $(art_path)/build/Android.common_test.mk
 include $(art_path)/build/Android.gtest.mk
 include $(art_path)/test/Android.run-test.mk
+include $(art_path)/test/CoreSecondaryTest/Android.mk
 
 TEST_ART_ADB_ROOT_AND_REMOUNT := \
     (adb root && \
