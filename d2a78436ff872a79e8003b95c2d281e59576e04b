@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f016e27d_bba6738e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8951e235_cb5b5607",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c34eec92_6e7c5217",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2017-03-13T18:07:13Z",
       "side": 1,
       "message": "Might merit a heredoc.",
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a61396_4b1eb23e",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c34eec92_6e7c5217",
       "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d15970f7_f35b731a",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Yes, it\u0027s the case for perfect forwarding of arguments without losing things to stripping the double quotes.\n\nhttp://stackoverflow.com/questions/3008695/what-is-the-difference-between-and-in-bash",
+      "parentUuid": "26ac390a_12f9cb72",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 14
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "185a7b40_0c07e9d0",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 4
@@ -76,6 +142,24 @@
       "writtenOn": "2017-03-13T18:07:13Z",
       "side": 1,
       "message": "A comment here indicating defaults from command-line to encourage successors to keep it clean.",
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdb63fc_26bf0327",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "185a7b40_0c07e9d0",
       "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "9542eb7b_94cf58f3",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "If you look at the previous PS it was Nicolas who wanted to make it optional. The first iteration didn\u0027t even have a --tarball option.\n\n(fixed conventions)",
+      "parentUuid": "6f92ea32_45138fab",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33fb25de_243883a9",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 4
@@ -116,6 +224,30 @@
       "writtenOn": "2017-03-13T18:07:13Z",
       "side": 1,
       "message": "Consider packaging the logging and exit into a function that includes the stock message might point to --help. The logging here is inconsistent, some print ERROR, some don\u0027t, but still exit.",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 12
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e3b655f_6bd2c96c",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33fb25de_243883a9",
       "range": {
         "startLine": 164,
         "startChar": 6,
@@ -198,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "aa62c716_322e933f",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0ecdea2_dac045d3",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 40
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5315e33e_7cb9ebca",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 4
@@ -221,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "f6ad217a_6b8a08bc",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5315e33e_7cb9ebca",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 6
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cfb681a_60a72d74",
         "filename": "tools/golem/build-target.sh",
         "patchSetId": 4
@@ -232,6 +412,30 @@
       "writtenOn": "2017-03-13T18:07:13Z",
       "side": 1,
       "message": "Trying this script locally, it fails at this point:\n\nart/tools/golem/build-target.sh -j32 --showcommands --machine-type\u003dandroid-armv8 --golem\u003dart-opt --tarball\n\nexecuting:\n\ntar -czf android-armv8.tar.gz out/x86_64/target/product/armv8/system/system out/x86_64/target/product/armv8/system/data/art-test --exclude .git --exclude .gitignore\ntar: out/x86_64/target/product/armv8/system/system: Cannot stat: No such file or directory\ntar: out/x86_64/target/product/armv8/system/data/art-test: Cannot stat: No such file or directory\n\nThere is an extra \u0027system\u0027 in each of the paths coming from:\n\nget_build_var TARGET_OUT\nout/target/product/armv8/system",
+      "range": {
+        "startLine": 361,
+        "startChar": 1,
+        "endLine": 365,
+        "endChar": 4
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aa7c930_d891b843",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T19:07:29Z",
+      "side": 1,
+      "message": "Thanks, thats what I get for using --simulate to test this.",
+      "parentUuid": "5cfb681a_60a72d74",
       "range": {
         "startLine": 361,
         "startChar": 1,
