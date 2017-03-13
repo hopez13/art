@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e99164f_e7df6a93",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "n4 ... n1 instead of shamt*.",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 65
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d147b218_4508c3a4",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "One empty line is enough, remove the 2nd.",
+      "range": {
+        "startLine": 1409,
+        "startChar": 0,
+        "endLine": 1409,
+        "endChar": 0
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3697c88_272191ea",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "rd",
+      "range": {
+        "startLine": 681,
+        "startChar": 31,
+        "endLine": 681,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8d9c5e4_115def45",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "rd",
+      "range": {
+        "startLine": 686,
+        "startChar": 31,
+        "endLine": 686,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3eb304ba_8943b67c",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "rd",
+      "range": {
+        "startLine": 691,
+        "startChar": 31,
+        "endLine": 691,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1457efa3_9915d5eb",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-13T23:16:09Z",
+      "side": 1,
+      "message": "rd",
+      "range": {
+        "startLine": 696,
+        "startChar": 31,
+        "endLine": 696,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
