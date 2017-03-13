@@ -70,6 +70,24 @@
       "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1ffe23c_e05e77df",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-03-13T19:38:19Z",
+      "side": 1,
+      "message": "Doesn\u0027t that mean it has to be done in the ART source?  We enable mips codegen on all of our builds on the host, and we can\u0027t globally disable ART_USE_READ_BARRIER for host.",
+      "parentUuid": "89f233c9_cb403d6f",
+      "revId": "9bedd416a2e300a5eef23dced9780704aa35ddd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
