@@ -576,6 +576,34 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
     return kNoLifetime;
   }
 
+  // Returns the position of the interval's last use before the specified position - a position of
+  // a use USE_k:
+  // 1. USE_k <= POSITION
+  // 2. For each USE_i <= POSITION ---> pos(USE_i) <= pos(USE_k)
+  //
+  // Example: LiveInterval li; (ranges: { [134,135) }, uses: { 200 248 255 }, { 137 153 201 })
+  // li->LastUseBefore(250) will return 248.
+  size_t LastUseBefore(size_t position) const {
+    DCHECK(!is_temp_);
+
+    if (IsDefiningPosition(position)) {
+      DCHECK(defined_by_->GetLocations()->Out().IsValid());
+      return position;
+    }
+
+    UsePosition* use = first_use_;
+    size_t res_pos = GetStart();
+    size_t end_pos = std::min(position, GetEnd());
+    for (; use != nullptr && use->GetPosition() <= end_pos; use = use->GetNext()) {
+      size_t use_position = use->GetPosition();
+      if (use_position >= GetStart()) {
+        res_pos = use_position;
+      }
+    }
+
+    return res_pos;
+  }
+
   UsePosition* GetFirstUse() const {
     return first_use_;
   }

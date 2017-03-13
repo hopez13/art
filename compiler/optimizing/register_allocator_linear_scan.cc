@@ -991,12 +991,54 @@ bool RegisterAllocatorLinearScan::AllocateBlockedReg(LiveInterval* current) {
       LiveInterval* active = *it;
       if (active->GetRegister() == reg) {
         DCHECK(!active->IsFixed());
-        LiveInterval* split = Split(active, current->GetStart());
+        size_t last_use_pos = active->LastUseBefore(current->GetStart());
+        size_t after_last_use_pos = last_use_pos + 1;
+        LiveInterval* split = nullptr;
+        // In the optimized case we split the active interval right after its last use
+        // (after_last_use_pos) which is still before the required position (current->GetStart())
+        // instead of splitting exactly at this position.
+        //
+        // A split point will be earlier than the current->GetStart(); the second part of the split
+        // either will be:
+        //  - fully spilled (if there are no register uses left)
+        //  - split again: the middle part will be spilled, the third one will be inserted it into
+        //    unhandled set). Thus we won't break the assumption that we never insert an interval
+        //    with earlier start position than the current one (in LinearScan loop
+        //    current->GetStart() never declines).
+        //
+        // Note that there is no sense to do that if after_last_use_pos is equal to (or + 1 from)
+        // the required position.
+        if (active->IsLowInterval() || active->IsHighInterval()
+            || last_use_pos == current->GetStart()
+            || after_last_use_pos == current->GetStart()) {
+          // Default case.
+          split = Split(active, current->GetStart());
+          AddSorted(unhandled_, split);
+        } else {
+          // Optimized case.
+          split = SplitBetween(active, after_last_use_pos, current->GetStart());
+
+          if (split->GetStart() == current->GetStart()) {
+            AddSorted(unhandled_, split);
+          } else {
+            LiveInterval* split2 = nullptr;
+            if (split->FirstRegisterUse() != kNoLifetime) {
+              DCHECK_EQ(split->FirstRegisterUseAfter(after_last_use_pos), split->FirstRegisterUse());
+              size_t split_pos = split->FirstRegisterUse() - 1;
+              DCHECK_GE(split_pos, current->GetStart());
+              split2 = Split(split, split_pos);
+              AddSorted(unhandled_, split2);
+            }
+
+            DCHECK(!split->HasRegister());
+            DCHECK(split->FirstRegisterUse() == kNoLifetime);
+            AllocateSpillSlotFor(split);
+          }
+        }
         if (split != active) {
           handled_.push_back(active);
         }
         RemoveIntervalAndPotentialOtherHalf(&active_, it);
-        AddSorted(unhandled_, split);
         break;
       }
     }
