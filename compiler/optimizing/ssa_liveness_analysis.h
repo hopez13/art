@@ -576,6 +576,27 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
     return kNoLifetime;
   }
 
+  size_t LastUseBefore(size_t position) const {
+    DCHECK(!is_temp_);
+
+    if (IsDefiningPosition(position)) {
+      DCHECK(defined_by_->GetLocations()->Out().IsValid());
+      return position;
+    }
+
+    UsePosition* use = first_use_;
+    size_t res_pos = GetStart();
+    size_t end_pos = std::min(position, GetEnd());
+    for (; use != nullptr && use->GetPosition() <= end_pos; use = use->GetNext()) {
+      size_t use_position = use->GetPosition();
+      if (use_position >= GetStart()) {
+        res_pos = use_position;
+      }
+    }
+
+    return res_pos;
+  }
+
   UsePosition* GetFirstUse() const {
     return first_use_;
   }

@@ -991,12 +991,25 @@ bool RegisterAllocatorLinearScan::AllocateBlockedReg(LiveInterval* current) {
       LiveInterval* active = *it;
       if (active->GetRegister() == reg) {
         DCHECK(!active->IsFixed());
-        LiveInterval* split = Split(active, current->GetStart());
+        size_t last_use_pos = active->LastUseBefore(current->GetStart());
+        size_t after_last_use_pos = last_use_pos + 1;
+        LiveInterval* split = nullptr;
+        if (active->IsLowInterval() || active->IsHighInterval()
+            || last_use_pos == current->GetStart()
+            || after_last_use_pos == current->GetStart()
+            || active->FirstRegisterUseAfter(after_last_use_pos) != kNoLifetime) {
+          split = Split(active, current->GetStart());
+          AddSorted(unhandled_, split);
+        } else {
+          split = SplitBetween(active, after_last_use_pos, current->GetStart());
+          DCHECK(!split->HasRegister());
+          DCHECK(split->FirstRegisterUse() == kNoLifetime);
+          AllocateSpillSlotFor(split);
+        }
         if (split != active) {
           handled_.push_back(active);
         }
         RemoveIntervalAndPotentialOtherHalf(&active_, it);
-        AddSorted(unhandled_, split);
         break;
       }
     }
