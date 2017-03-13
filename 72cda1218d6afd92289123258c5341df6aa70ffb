@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "daa16b50_79a161a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece16053_f1471f82",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c3331bf_4aa50374",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-03-11T00:30:18Z",
       "side": 1,
       "message": "Before the first MSA instruction definition add a TODO comment about checking MSA presence in instruction set features.",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9db6378e_b39e40f8",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3331bf_4aa50374",
       "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8506d64e_bf2dbc36",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd00ca52_53a6d800",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 673,
+        "endChar": 71
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0699202a_a4e8d148",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 1
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "8d42ddc6_500e5997",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0699202a_a4e8d148",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17fb12a8_49453cc5",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 1
@@ -93,6 +177,30 @@
       "writtenOn": "2017-03-11T00:30:18Z",
       "side": 1,
       "message": "I\u0027d rename the m\u0027s to shamt3 ... shamt6 for clarity (ditto in the function definitions in the .cc file).",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 699,
+        "endChar": 58
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f88f358d_2a498307",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17fb12a8_49453cc5",
       "range": {
         "startLine": 688,
         "startChar": 0,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "5e8ed262_8ae61351",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1751091d_6eae23b8",
+      "range": {
+        "startLine": 701,
+        "startChar": 0,
+        "endLine": 701,
+        "endChar": 51
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dab848b5_e66d5f55",
         "filename": "compiler/utils/mips64/constants_mips64.h",
         "patchSetId": 1
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "2bacff0e_52b9b47f",
+        "filename": "compiler/utils/mips64/constants_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dab848b5_e66d5f55",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f97acf3b_46ddf2e4",
         "filename": "disassembler/disassembler_mips.cc",
         "patchSetId": 1
@@ -162,6 +318,24 @@
       "writtenOn": "2017-03-11T00:30:18Z",
       "side": 1,
       "message": "Sign-extend s10 with the additional line:\n\n    s10 -\u003d (s10 \u0026 0x200) \u003c\u003c 1;",
+      "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bee953f_65eedb78",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-13T16:43:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97acf3b_46ddf2e4",
       "revId": "72cda1218d6afd92289123258c5341df6aa70ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
