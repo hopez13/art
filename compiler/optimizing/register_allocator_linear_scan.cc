@@ -991,12 +991,40 @@ bool RegisterAllocatorLinearScan::AllocateBlockedReg(LiveInterval* current) {
       LiveInterval* active = *it;
       if (active->GetRegister() == reg) {
         DCHECK(!active->IsFixed());
-        LiveInterval* split = Split(active, current->GetStart());
+        size_t last_use_pos = active->LastUseBefore(current->GetStart());
+        size_t after_last_use_pos = last_use_pos + 1;
+        LiveInterval* split = nullptr;
+        // In the optimized case we split the interval right after its last use
+        // (after_last_use_pos) which is still before the required position (current->GetStart())
+        // instead of splitting exactly at this position.
+        //
+        // A split point will be earlier than the current->GetStart(); if we don't allocate a spill
+        // slot right in place and continue processing this interval (by inserting it into
+        // unhandled set) we will break the assumption that we never insert an interval with
+        // earlier start position than the current one (in LinearScan loop current->GetStart()
+        // never declines). So we go into optimized case iff it is possible and beneficial to
+        // spill - non-pair intervals which have no register uses after required position.
+        //
+        // Note that there is no sense to do that if after_last_use_pos is equal to (or + 1 from)
+        // the required position.
+        if (active->IsLowInterval() || active->IsHighInterval()
+            || last_use_pos == current->GetStart()
+            || after_last_use_pos == current->GetStart()
+            || active->FirstRegisterUseAfter(after_last_use_pos) != kNoLifetime) {
+          // Default case.
+          split = Split(active, current->GetStart());
+          AddSorted(unhandled_, split);
+        } else {
+          // Optimized case.
+          split = SplitBetween(active, after_last_use_pos, current->GetStart());
+          DCHECK(!split->HasRegister());
+          DCHECK(split->FirstRegisterUse() == kNoLifetime);
+          AllocateSpillSlotFor(split);
+        }
         if (split != active) {
           handled_.push_back(active);
         }
         RemoveIntervalAndPotentialOtherHalf(&active_, it);
-        AddSorted(unhandled_, split);
         break;
       }
     }
