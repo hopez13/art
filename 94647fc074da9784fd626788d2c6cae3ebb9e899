@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "715a83e5_635f876a",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T17:18:39Z",
+      "side": 1,
+      "message": "because we want to refactor all the logic to here?\n\nin golem we will use Build#addResult directly on the .tar.gz file instead of #addOutputDefinition on the list of dirs.",
+      "parentUuid": "425b45ef_344085d8",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3

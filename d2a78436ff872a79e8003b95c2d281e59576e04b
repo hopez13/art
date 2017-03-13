@@ -22,6 +22,30 @@
       "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dee2e89_37f693b0",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-13T17:18:39Z",
+      "side": 1,
+      "message": "I thought if someone is running this command manually it\u0027s better not to specify the tarball name explicitly, using the machine_type name automatically is better because that\u0027s what the golem commands expect anyway.",
+      "parentUuid": "01db688c_351e6780",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 16
+      },
+      "revId": "d2a78436ff872a79e8003b95c2d281e59576e04b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
