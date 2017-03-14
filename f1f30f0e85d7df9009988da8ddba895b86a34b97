@@ -211,6 +211,30 @@
       "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d36ae983_01c5e028",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-14T18:10:33Z",
+      "side": 1,
+      "message": "I believe you are right, this seems a major oversight in the mechanism. Maybe the code lucked out so far, but this needs attention.....",
+      "parentUuid": "4307336f_92aca54e",
+      "range": {
+        "startLine": 798,
+        "startChar": 19,
+        "endLine": 798,
+        "endChar": 40
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
