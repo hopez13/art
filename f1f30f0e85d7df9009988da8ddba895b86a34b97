@@ -235,6 +235,30 @@
       "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cf10378_bedf7a5f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T18:28:17Z",
+      "side": 1,
+      "message": "I think the problem also occurs when we are out of FPU registers and need to spill.",
+      "parentUuid": "d36ae983_01c5e028",
+      "range": {
+        "startLine": 798,
+        "startChar": 19,
+        "endLine": 798,
+        "endChar": 40
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
