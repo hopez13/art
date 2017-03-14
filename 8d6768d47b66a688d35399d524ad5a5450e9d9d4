@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cbd0ae6_ab92505c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-14T17:30:24Z",
+      "side": 1,
+      "message": "The bug was that there was actually class tables consisting of entirely boot image classes?",
+      "range": {
+        "startLine": 1581,
+        "startChar": 33,
+        "endLine": 1581,
+        "endChar": 62
+      },
+      "revId": "8d6768d47b66a688d35399d524ad5a5450e9d9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c84f19fb_7cf18ab2",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-14T17:30:24Z",
+      "side": 1,
+      "message": "I should probably change ZygoteClasses, its a confusing term.",
+      "range": {
+        "startLine": 116,
+        "startChar": 32,
+        "endLine": 116,
+        "endChar": 45
+      },
+      "revId": "8d6768d47b66a688d35399d524ad5a5450e9d9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
