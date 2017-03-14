@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74423b2d_f323ed99",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-14T16:29:34Z",
+      "side": 1,
+      "message": "As this requires a lot of manual work we were trying to avoid (for both maintenance and the burden to remember it on new types), can you please wrap this into a small helper that is named nicely. Maybe something like CheckConstructorInvariants()?\n\n(You could argue that we should templatize it and do a static_assert that it is final to ensure it\u0027s only called in leaves.)",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 3
+      },
+      "revId": "6c3887bba6ff079ab7db32789ed77a6d025e7b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
