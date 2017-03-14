@@ -46,6 +46,30 @@
       "revId": "6c3887bba6ff079ab7db32789ed77a6d025e7b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3c352c3_535714a6",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-14T23:29:33Z",
+      "side": 1,
+      "message": "std::type_traits::is_final\u003cT\u003e (since C++14, which we do use)",
+      "parentUuid": "662d04a6_98134072",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 3
+      },
+      "revId": "6c3887bba6ff079ab7db32789ed77a6d025e7b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
