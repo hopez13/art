@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42e2e286_9f9efa05",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-14T18:43:06Z",
+      "side": 1,
+      "message": "Parenthesis are not supported yet. :P\nIn this case, just gcstess | jit \u0026 debug would be fine.",
+      "range": {
+        "startLine": 133,
+        "startChar": 31,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "643d24c3cded03fbc825ab2687e496eb35f9ef86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
