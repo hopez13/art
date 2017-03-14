@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0c1182b6_3aa568fc",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c829688_ee2438c3",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2136929f_c38b7168",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "90beb0eb_91d70585",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done. Earlier I followed the style from the rest of the file, e.g. in RepeatR(...) and many others. Maybe those should be changed too?",
+      "parentUuid": "2136929f_c38b7168",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7255c110_c7014546",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2017-03-13T23:43:02Z",
       "side": 1,
       "message": "ditto",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec618c3_6f3c8d18",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7255c110_c7014546",
       "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "d55e9315_8907aa43",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e99164f_e7df6a93",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 727,
+        "endChar": 65
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d147b218_4508c3a4",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 2
@@ -122,6 +200,30 @@
       "writtenOn": "2017-03-13T23:16:09Z",
       "side": 1,
       "message": "One empty line is enough, remove the 2nd.",
+      "range": {
+        "startLine": 1409,
+        "startChar": 0,
+        "endLine": 1409,
+        "endChar": 0
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a81529c_a166d0e3",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d147b218_4508c3a4",
       "range": {
         "startLine": 1409,
         "startChar": 0,
@@ -157,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "669ce2d4_76cd52f1",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3697c88_272191ea",
+      "range": {
+        "startLine": 681,
+        "startChar": 31,
+        "endLine": 681,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8d9c5e4_115def45",
         "filename": "disassembler/disassembler_mips.cc",
         "patchSetId": 2
@@ -168,6 +294,30 @@
       "writtenOn": "2017-03-13T23:16:09Z",
       "side": 1,
       "message": "rd",
+      "range": {
+        "startLine": 686,
+        "startChar": 31,
+        "endLine": 686,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3013d50d_d0eadb41",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8d9c5e4_115def45",
       "range": {
         "startLine": 686,
         "startChar": 31,
@@ -203,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "c6902975_86410483",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eb304ba_8943b67c",
+      "range": {
+        "startLine": 691,
+        "startChar": 31,
+        "endLine": 691,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1457efa3_9915d5eb",
         "filename": "disassembler/disassembler_mips.cc",
         "patchSetId": 2
@@ -214,6 +388,30 @@
       "writtenOn": "2017-03-13T23:16:09Z",
       "side": 1,
       "message": "rd",
+      "range": {
+        "startLine": 696,
+        "startChar": 31,
+        "endLine": 696,
+        "endChar": 33
+      },
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48d1960b_9c76d593",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2017-03-14T08:59:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1457efa3_9915d5eb",
       "range": {
         "startLine": 696,
         "startChar": 31,
