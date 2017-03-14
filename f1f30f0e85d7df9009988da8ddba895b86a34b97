@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "836c7158_80b23734",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6216,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "This can be improved for the cases, when constant is encodable into instructions  MOVI, MVNI.",
+      "range": {
+        "startLine": 6216,
+        "startChar": 28,
+        "endLine": 6216,
+        "endChar": 56
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "054c3b0b_9ec430ee",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6220,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "Ditto for FMOV.",
+      "range": {
+        "startLine": 6220,
+        "startChar": 28,
+        "endLine": 6220,
+        "endChar": 57
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d18fbb79_2e7cf17d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6221,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": ", Location::kNoOutputOverlap",
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b449adf4_6f7990b1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6266,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": ", Location::kNoOutputOverlap\n\nExcept maybe VecNot for booleans.",
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a101ca0_77f2e77f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6338,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "This can be improved:\n\n      __ Movi(dst.V8B(), 1);\n      __ Eor(dst.V8B(), dst.V8B(), src.V8B());\n(kOutputOverlap)\n\nor allocate scratch from VIXL and use KNoOutputOverlap.",
+      "range": {
+        "startLine": 6337,
+        "startChar": 6,
+        "endLine": 6338,
+        "endChar": 30
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56318242_7aea6cc7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6365,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": ", Location::kNoOutputOverlap",
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a58ee91c_b4eaf9b8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6522,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "Can be improved for the case when one input is constant and is encodable in ORR.",
+      "range": {
+        "startLine": 6522,
+        "startChar": 36,
+        "endLine": 6522,
+        "endChar": 46
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2004dbea_eaba3e4d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6574,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this restriction here.",
+      "range": {
+        "startLine": 6574,
+        "startChar": 24,
+        "endLine": 6574,
+        "endChar": 52
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "081def59_fcd01688",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6679,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "This won\u0027t work as ST1/LD1 don\u0027t support Offest-indexing mode [base, #imm] for #imm !\u003d 0;\n__ Add(temp, base, offset) should be emitted.",
+      "range": {
+        "startLine": 6679,
+        "startChar": 10,
+        "endLine": 6679,
+        "endChar": 37
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4307336f_92aca54e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-14T17:51:32Z",
+      "side": 1,
+      "message": "Am I correct that current assumption is that there is no vector register which is live across any RuntimeCall?\n\nWhen we jump to SuspendSlowPath we don\u0027t save register in art code and invoke entrypoint directly.\n\nIn art/runtime/arch/x86/quick_entrypoints_x86.S:\n\nDEFINE_FUNCTION art_quick_test_suspend\n    SETUP_SAVE_EVERYTHING_FRAME // save everything for GC\n\nonly lower 64 bits are saved/restored:\n    movq %xmm0, 8(%rsp)\n    movq %xmm1, 16(%rsp)\n    movq %xmm2, 24(%rsp)\n\nMaybe I missed something however.",
+      "range": {
+        "startLine": 798,
+        "startChar": 19,
+        "endLine": 798,
+        "endChar": 40
+      },
+      "revId": "f1f30f0e85d7df9009988da8ddba895b86a34b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
