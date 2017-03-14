@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac13ca2_31e1d97e",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-14T16:19:32Z",
+      "side": 1,
+      "message": "Is that also a problem for obsolete methods?",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 1
+      },
+      "revId": "df008961484475b540ec33a973416b70c9e1fe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40c870b9_5ff083dc",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-14T16:19:32Z",
+      "side": 1,
+      "message": "Since this was buggy, is annotation processing the only caller of these methods?",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 1
+      },
+      "revId": "df008961484475b540ec33a973416b70c9e1fe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
