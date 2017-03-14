@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fe70c173_0eb91596",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-14T00:46:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "565c6d0d_c57eadaf",
+      "range": {
+        "startLine": 153,
+        "startChar": 47,
+        "endLine": 154,
+        "endChar": 62
+      },
+      "revId": "39cf12e38d13ca83ba8d82f4851adebaa4bcbcdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94ce979a_abe9a407",
         "filename": "runtime/openjdkjvmti/ti_class.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-03T19:11:39Z",
       "side": 1,
       "message": "add an assert that the last char is \u0027;\u0027 ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 48
+      },
+      "revId": "39cf12e38d13ca83ba8d82f4851adebaa4bcbcdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e745b48_a7a3b110",
+        "filename": "runtime/openjdkjvmti/ti_class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-14T00:46:17Z",
+      "side": 1,
+      "message": "We have CHECK\u0027s elsewhere that ensure this. Also not really a part of this CL.",
+      "parentUuid": "94ce979a_abe9a407",
       "range": {
         "startLine": 158,
         "startChar": 5,
