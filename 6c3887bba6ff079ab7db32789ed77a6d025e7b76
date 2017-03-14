@@ -22,6 +22,30 @@
       "revId": "6c3887bba6ff079ab7db32789ed77a6d025e7b76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "662d04a6_98134072",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-14T18:33:20Z",
+      "side": 1,
+      "message": "Done. (I didn\u0027t find anything in \u003ctype_traits\u003e that would allow checking if a class is final.)",
+      "parentUuid": "74423b2d_f323ed99",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 3
+      },
+      "revId": "6c3887bba6ff079ab7db32789ed77a6d025e7b76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
