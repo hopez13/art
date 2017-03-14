@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "8b5bddd0_d737be0a",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-14T05:27:51Z",
+      "side": 1,
+      "message": "It\u0027s sh[ift] am[oun]t. The immediate in regular shift/rotate instructions is named the same way. We\u0027re building on existing \"terminology\". That\u0027s why I asked to use shamt instead of simply m. I don\u0027t think any additional comments are necessary here.",
+      "parentUuid": "d3753968_08301268",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e99164f_e7df6a93",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 2
