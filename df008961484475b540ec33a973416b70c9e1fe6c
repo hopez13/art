@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4ec7fa61_8ef122d7",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-14T16:53:14Z",
+      "side": 1,
+      "message": "Sorry I meant nothing relies on it as in nothing will break if it gives the non-obsolete answer when \u0027this\u0027 is an obsolete method. \n\nThis is used in a handful of places including the debugger and exception throwing code.",
+      "parentUuid": "0073ba27_01f7a430",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 1
+      },
+      "revId": "df008961484475b540ec33a973416b70c9e1fe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c870b9_5ff083dc",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 4
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Mind removing it locally and compile to be certain?\n\nMaybe best is just to remove those methods and have the annotation processor handle the obsolete case (as it looks like it really needs to know if things are obsolete).",
       "parentUuid": "40f7a880_d3cf06c2",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 1
+      },
+      "revId": "df008961484475b540ec33a973416b70c9e1fe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de6f0141_5c2238bf",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-14T16:53:14Z",
+      "side": 1,
+      "message": "\u003e Mind removing it locally and compile to be certain?\n\u003e \n\u003e Maybe best is just to remove those methods and have the annotation processor handle the obsolete case (as it looks like it really needs to know if things are obsolete).\n\nI think it\u0027s better to keep it here in case we ever add something that needs this info. Especially since FindObsoleteDexClassDefIndex isn\u0027t trivial we probably don\u0027t want to have it off on its own and forgotten.",
+      "parentUuid": "d9790084_403e406f",
       "range": {
         "startLine": 341,
         "startChar": 0,
