@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a4ecaac_bf78e02c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-14T17:49:22Z",
+      "side": 1,
+      "message": "Yes, we resolved classes before compilation, compiled the code and pruned all app classes, keeping only boot image classes.",
+      "parentUuid": "8cbd0ae6_ab92505c",
+      "range": {
+        "startLine": 1581,
+        "startChar": 33,
+        "endLine": 1581,
+        "endChar": 62
+      },
+      "revId": "8d6768d47b66a688d35399d524ad5a5450e9d9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c84f19fb_7cf18ab2",
         "filename": "runtime/class_table.cc",
         "patchSetId": 4
