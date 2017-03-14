@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84b19ada_2750ad43",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-14T13:59:15Z",
+      "side": 1,
+      "message": "For the record, this variable being uninitialized caused us not to print the \"[hit:...]\" output and initially misled the investigation. However, I\u0027m removing this function now.",
+      "range": {
+        "startLine": 4574,
+        "startChar": 7,
+        "endLine": 4574,
+        "endChar": 18
+      },
+      "revId": "3df0c43e5a72ff0c6b7ac691b9c47a2c19177776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
