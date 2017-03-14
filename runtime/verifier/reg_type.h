@@ -274,11 +274,7 @@ class RegType {
           uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
       : descriptor_(descriptor),
         klass_(klass),
-        cache_id_(cache_id) {
-    if (kIsDebugBuild) {
-      CheckInvariants();
-    }
-  }
+        cache_id_(cache_id) {}
 
   void CheckInvariants() const REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -339,7 +335,11 @@ class ConflictType FINAL : public RegType {
  private:
   ConflictType(mirror::Class* klass, const StringPiece& descriptor,
                uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : RegType(klass, descriptor, cache_id) {}
+      : RegType(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   static const ConflictType* instance_;
 };
@@ -368,7 +368,11 @@ class UndefinedType FINAL : public RegType {
  private:
   UndefinedType(mirror::Class* klass, const StringPiece& descriptor,
                 uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : RegType(klass, descriptor, cache_id) {}
+      : RegType(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   static const UndefinedType* instance_;
 };
@@ -401,7 +405,11 @@ class IntegerType : public Cat1Type {
  private:
   IntegerType(mirror::Class* klass, const StringPiece& descriptor,
               uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const IntegerType* instance_;
 };
 
@@ -419,7 +427,11 @@ class BooleanType FINAL : public Cat1Type {
  private:
   BooleanType(mirror::Class* klass, const StringPiece& descriptor,
               uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   static const BooleanType* instance_;
 };
@@ -438,7 +450,11 @@ class ByteType FINAL : public Cat1Type {
  private:
   ByteType(mirror::Class* klass, const StringPiece& descriptor,
            uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const ByteType* instance_;
 };
 
@@ -456,7 +472,11 @@ class ShortType FINAL : public Cat1Type {
  private:
   ShortType(mirror::Class* klass, const StringPiece& descriptor,
             uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const ShortType* instance_;
 };
 
@@ -474,7 +494,11 @@ class CharType FINAL : public Cat1Type {
  private:
   CharType(mirror::Class* klass, const StringPiece& descriptor,
            uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const CharType* instance_;
 };
 
@@ -492,7 +516,11 @@ class FloatType FINAL : public Cat1Type {
  private:
   FloatType(mirror::Class* klass, const StringPiece& descriptor,
             uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat1Type(klass, descriptor, cache_id) {}
+      : Cat1Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const FloatType* instance_;
 };
 
@@ -517,7 +545,11 @@ class LongLoType FINAL : public Cat2Type {
  private:
   LongLoType(mirror::Class* klass, const StringPiece& descriptor,
              uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat2Type(klass, descriptor, cache_id) {}
+      : Cat2Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const LongLoType* instance_;
 };
 
@@ -535,7 +567,11 @@ class LongHiType FINAL : public Cat2Type {
  private:
   LongHiType(mirror::Class* klass, const StringPiece& descriptor,
              uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat2Type(klass, descriptor, cache_id) {}
+      : Cat2Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const LongHiType* instance_;
 };
 
@@ -554,7 +590,11 @@ class DoubleLoType FINAL : public Cat2Type {
  private:
   DoubleLoType(mirror::Class* klass, const StringPiece& descriptor,
                uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat2Type(klass, descriptor, cache_id) {}
+      : Cat2Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const DoubleLoType* instance_;
 };
 
@@ -572,7 +612,11 @@ class DoubleHiType FINAL : public Cat2Type {
  private:
   DoubleHiType(mirror::Class* klass, const StringPiece& descriptor,
                uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : Cat2Type(klass, descriptor, cache_id) {}
+      : Cat2Type(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   static const DoubleHiType* instance_;
 };
 
@@ -637,7 +681,11 @@ class PreciseConstType FINAL : public ConstantType {
  public:
   PreciseConstType(uint32_t constant, uint16_t cache_id)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : ConstantType(constant, cache_id) {}
+      : ConstantType(constant, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   bool IsPreciseConstant() const OVERRIDE { return true; }
 
@@ -648,7 +696,11 @@ class PreciseConstLoType FINAL : public ConstantType {
  public:
   PreciseConstLoType(uint32_t constant, uint16_t cache_id)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : ConstantType(constant, cache_id) {}
+      : ConstantType(constant, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   bool IsPreciseConstantLo() const OVERRIDE { return true; }
   std::string Dump() const OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
@@ -657,7 +709,11 @@ class PreciseConstHiType FINAL : public ConstantType {
  public:
   PreciseConstHiType(uint32_t constant, uint16_t cache_id)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : ConstantType(constant, cache_id) {}
+      : ConstantType(constant, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   bool IsPreciseConstantHi() const OVERRIDE { return true; }
   std::string Dump() const OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
@@ -667,6 +723,9 @@ class ImpreciseConstType FINAL : public ConstantType {
   ImpreciseConstType(uint32_t constat, uint16_t cache_id)
        REQUIRES_SHARED(Locks::mutator_lock_)
        : ConstantType(constat, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
   }
   bool IsImpreciseConstant() const OVERRIDE { return true; }
   std::string Dump() const OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
@@ -676,7 +735,11 @@ class ImpreciseConstLoType FINAL : public ConstantType {
  public:
   ImpreciseConstLoType(uint32_t constant, uint16_t cache_id)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : ConstantType(constant, cache_id) {}
+      : ConstantType(constant, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   bool IsImpreciseConstantLo() const OVERRIDE { return true; }
   std::string Dump() const OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
@@ -685,7 +748,11 @@ class ImpreciseConstHiType FINAL : public ConstantType {
  public:
   ImpreciseConstHiType(uint32_t constant, uint16_t cache_id)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      : ConstantType(constant, cache_id) {}
+      : ConstantType(constant, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
   bool IsImpreciseConstantHi() const OVERRIDE { return true; }
   std::string Dump() const OVERRIDE REQUIRES_SHARED(Locks::mutator_lock_);
 };
@@ -697,7 +764,11 @@ class UninitializedType : public RegType {
  public:
   UninitializedType(mirror::Class* klass, const StringPiece& descriptor,
                     uint32_t allocation_pc, uint16_t cache_id)
-      : RegType(klass, descriptor, cache_id), allocation_pc_(allocation_pc) {}
+      : RegType(klass, descriptor, cache_id), allocation_pc_(allocation_pc) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   bool IsUninitializedTypes() const OVERRIDE;
   bool IsNonZeroReferenceTypes() const OVERRIDE;
@@ -801,7 +872,11 @@ class ReferenceType FINAL : public RegType {
  public:
   ReferenceType(mirror::Class* klass, const StringPiece& descriptor,
                 uint16_t cache_id) REQUIRES_SHARED(Locks::mutator_lock_)
-      : RegType(klass, descriptor, cache_id) {}
+      : RegType(klass, descriptor, cache_id) {
+    if (kIsDebugBuild) {
+      CheckInvariants();
+    }
+  }
 
   bool IsReference() const OVERRIDE { return true; }
 

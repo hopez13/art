@@ -309,6 +309,9 @@ PreciseReferenceType::PreciseReferenceType(mirror::Class* klass, const StringPie
   // Note: no check for IsInstantiable() here. We may produce this in case an InstantiationError
   //       would be thrown at runtime, but we need to continue verification and *not* create a
   //       hard failure or abort.
+  if (kIsDebugBuild) {
+    CheckInvariants();
+  }
 }
 
 std::string UnresolvedMergedType::Dump() const {
