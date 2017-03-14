@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "c80876c9_a28278af",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-14T16:04:40Z",
+      "side": 1,
+      "message": "Ah, okay I see it is used above too. I am guessing the number denotes the number of bits used? I still think a leading comment like\n\n// Shift instructions, where shamtN denotes shift amount (lower N bits).\n\nor something like that would be helpful (just for the casual reader not so fluent in MIPS speak yet :-) The only other use I could see is imm16, which is a lot more clear right away.",
+      "parentUuid": "8b5bddd0_d737be0a",
+      "revId": "49d0d3e480e6f63145df2c718b7302ef20dba104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e99164f_e7df6a93",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 2
