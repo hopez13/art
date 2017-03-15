@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "0d588603_ff291677",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-15T17:27:15Z",
+      "side": 1,
+      "message": "I think Andreas (and I) would prefer\n\nTest: m ART_USE_VIXL_ARM_BACKEND\u003dtrue test-art-target",
+      "parentUuid": "345da991_8da4761c",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caef90d6_03f1aa66",
         "filename": "test/642-fp-callees/fp_callees.cc",
         "patchSetId": 2
