@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "9bf28f20_260a3c2b",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Moved Compare/Signum to utils.h, the rest to bit_utils.h.",
+      "parentUuid": "f89ffb2f_8f271b3f",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 1
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57fc17c1_b734388f",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "How about LowestOneBitValue()/HighestOneBitValue()?  I\u0027d assume least and most significant would naturally refer to position and would be inclined to just rename the value ones. Reworked HighestOneBitValue() to use CLZ.",
+      "parentUuid": "95abe9c9_ad506ba1",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 1
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a0db41_fd703fc2",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -72,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4527ca98_3e8d8e06",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Added variants of CLZ/CTZ to bit_utils.h that follow java semantics.  Then, just used UNARY_INTRINSIC.",
+      "parentUuid": "11a0db41_fd703fc2",
+      "range": {
+        "startLine": 97,
+        "startChar": 24,
+        "endLine": 97,
+        "endChar": 65
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1809c1d_2333d0ba",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -83,6 +155,24 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "Maybe the BINARY_SIMPLE_INTRINSIC should be generalized to allow different arguments and new type-specific macros can be introduced that make use of BINARY_SIMPLE_INTRINSIC.\n\n#define BINARY_INTRINSIC(name, op, get1, get2, set)         \\\nstatic ALWAYS_INLINE bool name(ShadowFrame* shadow_frame,   \\\n                               const Instruction* inst,     \\\n                               uint16_t inst_data,          \\\n                               JValue* result_register)     \\\n    REQUIRES_SHARED(Locks::mutator_lock_) {                 \\\n  uint32_t arg[Instruction::kMaxVarArgRegs] \u003d {};           \\\n  inst-\u003eGetVarArgs(arg, inst_data);                         \\\n  result_register-\u003eset(op(shadow_frame-\u003eget1, shadow_frame-\u003eget2)); \\\n  return true;                                              \\\n}\n\n#define BINARY_II_INTRINSIC(name, op, set) \\\n    BINARY_INTRINSIC(name, op, GetVReg(arg[0]), GetVReg(arg[1]), set)\n#define BINARY_JI_INTRINSIC(name, op, set) \\\n    BINARY_INTRINSIC(name, op, GetVRegLong(arg[0]), GetVReg(arg[2]), set)\n#define BINARY_JJ_INTRINSIC(name, op, set) \\\n    BINARY_INTRINSIC(name, op, GetVRegLong(arg[0]), GetVRegLong(arg[2]), set)",
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c49d6a_2735fab1",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1809c1d_2333d0ba",
       "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -136,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "81ec10e6_dabcb0c1",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "I was honestly a little surprised these were recognized as intrinsics in the first place.  Are they heavily used in some special and important code?",
+      "parentUuid": "fc3b69b5_8fc2d8ce",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 41
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9556eaaa_af45ca92",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -147,6 +261,30 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "Add BSWAP() to bit_utils.h. Unlike CTZ/CLZ/POPCOUNT, we need also 16-bit version, so I\u0027m not sure if we want just one function or BSWAP16(), BSWAP32() and BSWAP64().",
+      "range": {
+        "startLine": 134,
+        "startChar": 49,
+        "endLine": 134,
+        "endChar": 66
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81ee7ccc_7c7a0150",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done - went ahead and just used a single function for consistency.",
+      "parentUuid": "9556eaaa_af45ca92",
       "range": {
         "startLine": 134,
         "startChar": 49,
@@ -182,6 +320,30 @@
     },
     {
       "key": {
+        "uuid": "3a0db979_692f87f8",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cdf5ca0_424fafdd",
+      "range": {
+        "startLine": 137,
+        "startChar": 45,
+        "endLine": 137,
+        "endChar": 63
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61cab57b_d72b82b3",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -205,6 +367,30 @@
     },
     {
       "key": {
+        "uuid": "4dbf3b42_0ed323c9",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61cab57b_d72b82b3",
+      "range": {
+        "startLine": 149,
+        "startChar": 54,
+        "endLine": 149,
+        "endChar": 67
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "056aec29_faa5bc33",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -216,6 +402,30 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "CTZ",
+      "range": {
+        "startLine": 152,
+        "startChar": 55,
+        "endLine": 152,
+        "endChar": 68
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b382d65_e4b27d66",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "056aec29_faa5bc33",
       "range": {
         "startLine": 152,
         "startChar": 55,
@@ -275,6 +485,54 @@
     },
     {
       "key": {
+        "uuid": "795dfbb3_e50308c9",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Certainly could do this, but am inclined to avoid specialization unless we\u0027re confident that this is at least moderately used.  Do we know?",
+      "parentUuid": "01a66b14_d3ada715",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 99
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef028ef_c5b59122",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done (bit_utils.h)",
+      "parentUuid": "15bcfe9d_28c14f32",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 99
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3197c176_9d5ab9b4",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -286,6 +544,30 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "BSWAP",
+      "range": {
+        "startLine": 183,
+        "startChar": 46,
+        "endLine": 183,
+        "endChar": 63
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75060f49_42af7553",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3197c176_9d5ab9b4",
       "range": {
         "startLine": 183,
         "startChar": 46,
@@ -321,6 +603,30 @@
     },
     {
       "key": {
+        "uuid": "11b6897e_925e0833",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eb78b75_68d69bec",
+      "range": {
+        "startLine": 186,
+        "startChar": 42,
+        "endLine": 186,
+        "endChar": 62
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d24b5b_9c651d35",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -332,6 +638,30 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "CLZ",
+      "range": {
+        "startLine": 198,
+        "startChar": 51,
+        "endLine": 198,
+        "endChar": 66
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50290a56_b258d7b8",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d24b5b_9c651d35",
       "range": {
         "startLine": 198,
         "startChar": 51,
@@ -367,6 +697,30 @@
     },
     {
       "key": {
+        "uuid": "f3d3a2d6_042959f9",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef3af189_f538df27",
+      "range": {
+        "startLine": 201,
+        "startChar": 52,
+        "endLine": 201,
+        "endChar": 67
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbfe42f7_ed7ef330",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 1
@@ -378,6 +732,30 @@
       "writtenOn": "2017-03-15T12:36:00Z",
       "side": 1,
       "message": "BSWAP",
+      "range": {
+        "startLine": 213,
+        "startChar": 47,
+        "endLine": 213,
+        "endChar": 64
+      },
+      "revId": "58d475f2dfa1f83f1bfe3f08c16e746c6a830f89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e56104f6_e30cee1d",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-15T23:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbfe42f7_ed7ef330",
       "range": {
         "startLine": 213,
         "startChar": 47,
