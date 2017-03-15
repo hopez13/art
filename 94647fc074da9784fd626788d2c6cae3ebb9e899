@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "f34dfdde_15269406",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-15T15:17:10Z",
+      "side": 1,
+      "message": "Ah ok, so in order to run locally, we still want a tarball? sgtm",
+      "parentUuid": "f2a89729_9d794ce6",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3
