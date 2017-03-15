@@ -3018,13 +3018,13 @@ void IntrinsicCodeGeneratorX86_64::VisitIntegerValueOf(HInvoke* invoke) {
       mirror::Object* boxed = info.cache->Get(value + (-info.low));
       DCHECK(boxed != nullptr && Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(boxed));
       uint32_t address = dchecked_integral_cast<uint32_t>(reinterpret_cast<uintptr_t>(boxed));
-      __ movl(out, Immediate(address));
+      __ movl(out, Immediate(static_cast<int32_t>(address)));
     } else {
       // Allocate and initialize a new j.l.Integer.
       // TODO: If we JIT, we could allocate the j.l.Integer now, and store it in the
       // JIT object table.
       uint32_t address = dchecked_integral_cast<uint32_t>(reinterpret_cast<uintptr_t>(info.integer));
-      __ movl(CpuRegister(calling_convention.GetRegisterAt(0)), Immediate(address));
+      __ movl(CpuRegister(calling_convention.GetRegisterAt(0)), Immediate(static_cast<int32_t>(address)));
       codegen_->InvokeRuntime(kQuickAllocObjectInitialized, invoke, invoke->GetDexPc());
       CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
       __ movl(Address(out, info.value_offset), Immediate(value));
@@ -3045,7 +3045,7 @@ void IntrinsicCodeGeneratorX86_64::VisitIntegerValueOf(HInvoke* invoke) {
     __ Bind(&allocate);
     // Otherwise allocate and initialize a new j.l.Integer.
     address = dchecked_integral_cast<uint32_t>(reinterpret_cast<uintptr_t>(info.integer));
-    __ movl(CpuRegister(calling_convention.GetRegisterAt(0)), Immediate(address));
+    __ movl(CpuRegister(calling_convention.GetRegisterAt(0)), Immediate(static_cast<int32_t>(address)));
     codegen_->InvokeRuntime(kQuickAllocObjectInitialized, invoke, invoke->GetDexPc());
     CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
     __ movl(Address(out, info.value_offset), in);
