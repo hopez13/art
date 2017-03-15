@@ -118,6 +118,52 @@
       "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caef90d6_03f1aa66",
+        "filename": "test/642-fp-callees/fp_callees.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-15T17:24:09Z",
+      "side": 1,
+      "message": "Maybe you can avoid the assembly if you load a lot (40?) local variables from a \"volatile double[]\" and then you can check if any of them changed after the call. That should use all available callee save registers including FP.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87fd7eed_ae124d67",
+        "filename": "test/642-fp-callees/fp_callees.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-15T17:24:09Z",
+      "side": 1,
+      "message": "You should also tell the compiler that you\u0027re using s29 so that it spills the caller\u0027s s29.",
+      "range": {
+        "startLine": 34,
+        "startChar": 62,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
