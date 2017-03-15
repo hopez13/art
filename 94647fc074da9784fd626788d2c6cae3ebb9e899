@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "f2a89729_9d794ce6",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-15T15:11:02Z",
+      "side": 1,
+      "message": "Fine, then Golem doesn\u0027t need to pass --tarball.\n\nAnyway we still want to have this functionality in the script because if a user runs it they do want a tarball to pass to the golem runner.py",
+      "parentUuid": "86494a83_a4d77817",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3
