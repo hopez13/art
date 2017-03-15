@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "86494a83_a4d77817",
+        "filename": "tools/golem/build-target.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-15T13:14:42Z",
+      "side": 1,
+      "message": "I think I\u0027d personally leave the tarballing to golem, as it\u0027s standard over all the targets (dart, v8, art, ...)",
+      "parentUuid": "715a83e5_635f876a",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 2
+      },
+      "revId": "94647fc074da9784fd626788d2c6cae3ebb9e899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a342f8fc_691eb5ee",
         "filename": "tools/golem/env",
         "patchSetId": 3
