@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c63e4164_54c1c1bc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6581,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2017-03-15T18:24:12Z",
+      "side": 0,
+      "message": "What is the issue with this code? I made the change because VMOV from a core to a FP register (or vice versa) is slow. Why isn\u0027t there an issue with the block starting at line 6600?",
+      "range": {
+        "startLine": 6581,
+        "startChar": 4,
+        "endLine": 6581,
+        "endChar": 46
+      },
+      "revId": "0a1f0798176250853c1fb83f00a436a183d2bfc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
