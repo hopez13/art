@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86b48a94_680e0bc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-15T23:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75f59020_f5b686ed",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "38ee153cd86634226f4b3b2048bcd88c4bc42fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92872229_b35213c8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9d7b4215_33d1e027",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-15T23:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92872229_b35213c8",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "38ee153cd86634226f4b3b2048bcd88c4bc42fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc67593e_6152aef4",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-15T11:16:19Z",
       "side": 1,
       "message": "local variable?",
+      "range": {
+        "startLine": 529,
+        "startChar": 11,
+        "endLine": 529,
+        "endChar": 52
+      },
+      "revId": "38ee153cd86634226f4b3b2048bcd88c4bc42fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc1a2d81_f201fcfd",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-15T23:26:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc67593e_6152aef4",
       "range": {
         "startLine": 529,
         "startChar": 11,
