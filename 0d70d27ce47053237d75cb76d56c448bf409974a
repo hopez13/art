@@ -158,6 +158,24 @@
       "revId": "0d70d27ce47053237d75cb76d56c448bf409974a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05ec1d91_46ead3e6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-16T22:11:16Z",
+      "side": 1,
+      "message": "What about this?\n[ 37% 455/1206 ] test-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-434-shifter-operand32 TIMEOUT\ntimed out in 5\n/usr/local/google/home/shubhamajmera/aosp/art/test/run-test  --output-path /tmp/test-art-qvpo7hq3/run-test-output/test-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-434-shifter-operand32 --always-clean --host --prebuild --optimizing --no-relocate --runtime-option -Xcheck:jni 434-shifter-operand",
+      "parentUuid": "fba45484_b602c346",
+      "revId": "0d70d27ce47053237d75cb76d56c448bf409974a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
