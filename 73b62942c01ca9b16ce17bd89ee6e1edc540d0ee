@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33983ffe_8c760418",
+        "filename": "test/642-fp-callees/fp_callees.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-16T11:08:48Z",
+      "side": 1,
+      "message": "I\u0027d go with 3 more, so that we allow filling all callee-save registers, d8-d15, r4-r11. (Though one will be taken by `mid` anyway and \"r11\", aka \"fp\", can be reserved for frame pointer.)",
+      "revId": "73b62942c01ca9b16ce17bd89ee6e1edc540d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
