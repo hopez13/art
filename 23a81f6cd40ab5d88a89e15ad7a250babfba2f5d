@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eac32ed0_ad7aeb93",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:40:39Z",
+      "side": 1,
+      "message": "Mention that it\u0027s here instead of with the other uint32_t fields because of how we pack fields.",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 87
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ff7932_b228b75c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:40:39Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a8de993_6b81f673",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:40:39Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 53
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
