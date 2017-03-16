@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04307e1a_593dec05",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "We\u0027re not loading `offset` on MIPS64 unlike in the worst case on MIPS32. Change the beginning to\n\n   First, see if `offset`",
+      "range": {
+        "startLine": 2050,
+        "startChar": 5,
+        "endLine": 2050,
+        "endChar": 48
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5949cdc_b8f319c6",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "Remove \"or two\".",
+      "range": {
+        "startLine": 2051,
+        "startChar": 69,
+        "endLine": 2051,
+        "endChar": 76
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bff3cb27_695ecfff",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2065,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "Add a comment:\n\n    // In more complex cases take advantage of the daui instruction, e.g.:\n    //    daui   AT, base, offset_high\n    //   [dahi   AT, 1]                       // When `offset` is close to +2GB.\n    //    lw     reg_lo, offset_low(AT)\n    //   [lw     reg_hi, (offset_low+4)(AT)]  // If misaligned 64-bit load.\n    // or when offset_low+4 overflows int16_t:\n    //    daui   AT, base, offset_high\n    //    daddiu AT, AT, 8\n    //    lw     reg_lo, (offset_low-8)(AT)\n    //    lw     reg_hi, (offset_low-4)(AT)",
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d4c059_795d9786",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "Move the constant here.",
+      "range": {
+        "startLine": 2074,
+        "startChar": 37,
+        "endLine": 2074,
+        "endChar": 44
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7dd0161_a75d24bf",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2083,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "adding",
+      "range": {
+        "startLine": 2083,
+        "startChar": 80,
+        "endLine": 2083,
+        "endChar": 87
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42f0408_92eb2ae5",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-16T21:35:21Z",
+      "side": 1,
+      "message": "We just merged https://android-review.googlesource.com/#/c/350590/, which introduces StoreConstToOffset() that needs similar treatment.",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 43
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
