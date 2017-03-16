@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc3d2b80_1932144b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-16T17:10:16Z",
+      "side": 1,
+      "message": "I wonder if this breaks norelocate tests.",
+      "range": {
+        "startLine": 743,
+        "startChar": 45,
+        "endLine": 743,
+        "endChar": 68
+      },
+      "revId": "466416c201b92bccd2deac8c4aeef3a3ccaec423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
