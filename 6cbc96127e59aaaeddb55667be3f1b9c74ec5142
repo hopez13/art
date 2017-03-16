@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "6d488de3_11647b1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T09:31:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d588603_ff291677",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caef90d6_03f1aa66",
         "filename": "test/642-fp-callees/fp_callees.cc",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "bc87b225_3e1e704b",
+        "filename": "test/642-fp-callees/fp_callees.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T09:31:56Z",
+      "side": 1,
+      "message": "Interesting, volatile seems to do the trick. Done.",
+      "parentUuid": "caef90d6_03f1aa66",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87fd7eed_ae124d67",
         "filename": "test/642-fp-callees/fp_callees.cc",
         "patchSetId": 2
@@ -179,6 +227,30 @@
       "writtenOn": "2017-03-15T17:24:09Z",
       "side": 1,
       "message": "You should also tell the compiler that you\u0027re using s29 so that it spills the caller\u0027s s29.",
+      "range": {
+        "startLine": 34,
+        "startChar": 62,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "6cbc96127e59aaaeddb55667be3f1b9c74ec5142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee3dfb51_2260ce90",
+        "filename": "test/642-fp-callees/fp_callees.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T09:31:56Z",
+      "side": 1,
+      "message": "I\u0027ve removed this part.",
+      "parentUuid": "87fd7eed_ae124d67",
       "range": {
         "startLine": 34,
         "startChar": 62,

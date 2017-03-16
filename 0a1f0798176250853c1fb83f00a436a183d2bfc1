@@ -22,6 +22,30 @@
       "revId": "0a1f0798176250853c1fb83f00a436a183d2bfc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d54873e_bba9ee63",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T09:31:56Z",
+      "side": 0,
+      "message": "There\u0027s no available S register in UseScratchRegisterScope anymore.",
+      "parentUuid": "c63e4164_54c1c1bc",
+      "range": {
+        "startLine": 6581,
+        "startChar": 4,
+        "endLine": 6581,
+        "endChar": 46
+      },
+      "revId": "0a1f0798176250853c1fb83f00a436a183d2bfc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
