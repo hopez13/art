@@ -108,6 +108,8 @@ class ReadBarrierSystemArrayCopySlowPathARM : public SlowPathCode {
     DCHECK_NE(src_stop_addr, IP);
     DCHECK_NE(tmp, IP);
     DCHECK(0 <= tmp && tmp < kNumberOfCoreRegisters) << tmp;
+    // TODO: Load the entrypoint once before the loop, instead of
+    // loading it at every iteration.
     int32_t entry_point_offset =
         CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArmPointerSize>(tmp);
     // This runtime call does not require a stack map.
@@ -1925,17 +1927,17 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
     __ CompareAndBranchIfNonZero(temp3, intrinsic_slow_path->GetEntryLabel());
   }
 
-  int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
-  uint32_t element_size_shift = Primitive::ComponentSizeShift(Primitive::kPrimNot);
-  uint32_t offset = mirror::Array::DataOffset(element_size).Uint32Value();
+  const int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
+  const uint32_t element_size_shift = Primitive::ComponentSizeShift(Primitive::kPrimNot);
+  const uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
 
   // Compute the base source address in `temp1`.
   if (src_pos.IsConstant()) {
     int32_t constant = src_pos.GetConstant()->AsIntConstant()->GetValue();
-    __ AddConstant(temp1, src, element_size * constant + offset);
+    __ AddConstant(temp1, src, element_size * constant + data_offset);
   } else {
     __ add(temp1, src, ShifterOperand(src_pos.AsRegister<Register>(), LSL, element_size_shift));
-    __ AddConstant(temp1, offset);
+    __ AddConstant(temp1, data_offset);
   }
 
   // Compute the end source address in `temp3`.
@@ -1991,6 +1993,17 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
     // on `temp2`.
     __ add(src, src, ShifterOperand(temp2, LSR, 32));
 
+    // Recompute `temp1` (the base source address) from `src` (and
+    // `src_pos`), to honor the artificial dependency of `src` on
+    // `tmp`.
+    if (src_pos.IsConstant()) {
+      int32_t constant = src_pos.GetConstant()->AsIntConstant()->GetValue();
+      __ AddConstant(temp1, src, element_size * constant + data_offset);
+    } else {
+      __ add(temp1, src, ShifterOperand(src_pos.AsRegister<Register>(), LSL, element_size_shift));
+      __ AddConstant(temp1, data_offset);
+    }
+
     // Slow path used to copy array when `src` is gray.
     SlowPathCode* read_barrier_slow_path =
         new (GetAllocator()) ReadBarrierSystemArrayCopySlowPathARM(invoke);
@@ -2010,10 +2023,10 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
     // Compute the base destination address in `temp2`.
     if (dest_pos.IsConstant()) {
       int32_t constant = dest_pos.GetConstant()->AsIntConstant()->GetValue();
-      __ AddConstant(temp2, dest, element_size * constant + offset);
+      __ AddConstant(temp2, dest, element_size * constant + data_offset);
     } else {
       __ add(temp2, dest, ShifterOperand(dest_pos.AsRegister<Register>(), LSL, element_size_shift));
-      __ AddConstant(temp2, offset);
+      __ AddConstant(temp2, data_offset);
     }
 
     // Iterate over the arrays and do a raw copy of the objects. We don't need to
@@ -2032,10 +2045,10 @@ void IntrinsicCodeGeneratorARM::VisitSystemArrayCopy(HInvoke* invoke) {
     // Compute the base destination address in `temp2`.
     if (dest_pos.IsConstant()) {
       int32_t constant = dest_pos.GetConstant()->AsIntConstant()->GetValue();
-      __ AddConstant(temp2, dest, element_size * constant + offset);
+      __ AddConstant(temp2, dest, element_size * constant + data_offset);
     } else {
       __ add(temp2, dest, ShifterOperand(dest_pos.AsRegister<Register>(), LSL, element_size_shift));
-      __ AddConstant(temp2, offset);
+      __ AddConstant(temp2, data_offset);
     }
 
     // Iterate over the arrays and do a raw copy of the objects. We don't need to
