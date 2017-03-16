@@ -42,6 +42,12 @@ static ALWAYS_INLINE bool name(ShadowFrame* shadow_frame,           \
 #define BINARY_JI_INTRINSIC(name, op, set) \
     BINARY_INTRINSIC(name, op, GetVRegLong(arg[0]), GetVReg(arg[2]), set)
 
+#define BINARY_DD_INTRINSIC(name, op, set) \
+    BINARY_INTRINSIC(name, op, GetVRegDouble(arg[0]), GetVRegDouble(arg[2]), set)
+
+#define BINARY_FF_INTRINSIC(name, op, set) \
+    BINARY_INTRINSIC(name, op, GetVRegFloat(arg[0]), GetVRegFloat(arg[1]), set)
+
 #define UNARY_INTRINSIC(name, op, get, set)                  \
 static ALWAYS_INLINE bool name(ShadowFrame* shadow_frame,    \
                                const Instruction* inst,      \
@@ -54,6 +60,67 @@ static ALWAYS_INLINE bool name(ShadowFrame* shadow_frame,    \
   return true;                                               \
 }
 
+#define BINARY_VOID_INTRINSIC(name, op, get1, get2)                      \
+static ALWAYS_INLINE bool name(ShadowFrame* shadow_frame,                \
+                               const Instruction* inst,                  \
+                               uint16_t inst_data,                       \
+                               JValue* result_register ATTRIBUTE_UNUSED) \
+    REQUIRES_SHARED(Locks::mutator_lock_) {                              \
+  uint32_t arg[Instruction::kMaxVarArgRegs] = {};                        \
+  inst->GetVarArgs(arg, inst_data);                                      \
+  op(shadow_frame->get1, shadow_frame->get2);                            \
+  return true;                                                           \
+}
+
+// java.lang.Double.doubleToRawLongBits(D)J
+UNARY_INTRINSIC(MterpDoubleDoubleToRawLongBits, /* NOP */ , GetVRegLong, SetJ);
+
+static ALWAYS_INLINE uint64_t DoubleToLongBits(uint64_t bits) {
+  const uint64_t exp_mask = 0x7ff0000000000000ll;
+  const uint64_t signif_bit_mask = 0x000fffffffffffffll;
+  const uint64_t nan_pattern = 0x7ff8000000000000ll;
+  if (((bits & exp_mask) == exp_mask) && ((bits & signif_bit_mask) != 0ll)) {
+    bits = nan_pattern;
+  }
+  return bits;
+}
+
+// java.lang.Double.doubleToLongBits(D)J
+UNARY_INTRINSIC(MterpDoubleDoubleToLongBits, DoubleToLongBits, GetVRegLong, SetJ);
+
+// java.lang.Double.isInfinite (D)Z
+UNARY_INTRINSIC(MterpDoubleIsInfinite, std::isinf, GetVRegDouble, SetZ);
+
+// java.lang.Double.isNaN (D)Z
+UNARY_INTRINSIC(MterpDoubleIsNaN, std::isnan, GetVRegDouble, SetZ);
+
+// java.lang.Double.doubleLongBitsToDouble (J)D
+UNARY_INTRINSIC(MterpDoubleLongBitsToDouble, (bit_cast<double>), GetVRegLong, SetD);
+
+// java.lang.Float.floatToRawIntBits(D)J
+UNARY_INTRINSIC(MterpFloatFloatToRawIntBits, /* NOP */ , GetVReg, SetJ);
+
+static ALWAYS_INLINE uint32_t FloatToIntBits(uint32_t bits) {
+  const uint32_t exp_mask = 0x7f800000;
+  const uint32_t signif_bit_mask = 0x007fffff;
+  const uint32_t nan_pattern = 0x7fc00000;
+  if (((bits & exp_mask) == exp_mask) && ((bits & signif_bit_mask) != 0)) {
+    bits = nan_pattern;
+  }
+  return bits;
+}
+
+// java.lang.Float.floatToIntBits(D)J
+UNARY_INTRINSIC(MterpFloatFloatToIntBits, FloatToIntBits, GetVReg, SetJ);
+
+// java.lang.Float.isInfinite (F)Z
+UNARY_INTRINSIC(MterpFloatIsInfinite, std::isinf, GetVRegFloat, SetZ);
+
+// java.lang.Float.isNaN (F)Z
+UNARY_INTRINSIC(MterpFloatIsNaN, std::isnan, GetVRegFloat, SetZ);
+
+// java.lang.Float.IntBitsToFloat (I)F
+UNARY_INTRINSIC(MterpFloatIntBitsToFloat, (bit_cast<float>), GetVReg, SetF);
 
 // java.lang.Integer.reverse(I)I
 UNARY_INTRINSIC(MterpIntegerReverse, ReverseBits32, GetVReg, SetI);
@@ -122,10 +189,44 @@ BINARY_JJ_INTRINSIC(MterpLongRotateLeft, (Rot<int64_t, true>), SetJ);
 UNARY_INTRINSIC(MterpLongSignum, Signum, GetVRegLong, SetI);
 
 // java.lang.Short.reverseBytes(S)S
-UNARY_INTRINSIC(MterpShortReverseBytes, BSWAP, GetVRegShort, SetS);
+UNARY_INTRINSIC(MterpShortReverseBytes, BSWAP<int16_t>, GetVReg, SetS);
 
 // java.lang.Math.min(II)I
 BINARY_II_INTRINSIC(MterpMathMinIntInt, std::min, SetI);
+
+template <typename T>
+static inline T FPmin(T a, T b) {
+  if (std::isnan(a)) {
+    return a;
+  }
+  if ((a == 0.0) && (b == 0.0) && std::signbit(b)) {
+    return b;
+  }
+  return (a <= b) ? a : b;
+}
+
+template <typename T>
+static inline T FPmax(T a, T b) {
+  if (std::isnan(a)) {
+    return a;
+  }
+  if ((a == 0.0) && (b == 0.0) && std::signbit(a)) {
+    return b;
+  }
+  return (a >= b) ? a : b;
+}
+
+// java.lang.Math.min(DD)D
+BINARY_DD_INTRINSIC(MterpMathMinDoubleDouble, FPmin, SetD);
+
+// java.lang.Math.max(DD)D
+BINARY_DD_INTRINSIC(MterpMathMaxDoubleDouble, FPmax, SetD);
+
+// java.lang.Math.min(FF)F
+BINARY_FF_INTRINSIC(MterpMathMinFloatFloat, FPmin, SetF);
+
+// java.lang.Math.max(FF)F
+BINARY_FF_INTRINSIC(MterpMathMaxFloatFloat, FPmax, SetF);
 
 // java.lang.Math.min(JJ)J
 BINARY_JJ_INTRINSIC(MterpMathMinLongLong, std::min, SetJ);
@@ -157,6 +258,66 @@ UNARY_INTRINSIC(MterpMathCeil, std::ceil, GetVRegDouble, SetD);
 // java.lang.Math.floor(D)D
 UNARY_INTRINSIC(MterpMathFloor, std::floor, GetVRegDouble, SetD);
 
+// java.lang.Math.rint(D)D
+UNARY_INTRINSIC(MterpMathRint, std::rint, GetVRegDouble, SetD);
+
+template <typename T>
+static inline T peek(uint64_t addr) {
+  const T* p = reinterpret_cast<const T*>(addr);
+  if ((sizeof(T) == 1) || (IsAligned<sizeof(T)>(p))) {
+    return *p;
+  } else {
+    // Force unaligned access pattern.
+    struct unaligned { T v; } __attribute__((packed));
+    return reinterpret_cast<const unaligned*>(addr)->v;
+  }
+}
+
+template <typename T>
+static inline void poke(uint64_t addr, T val) {
+  T* p = reinterpret_cast<T*>(addr);
+  if ((sizeof(T) == 1) || (IsAligned<sizeof(T)>(p))) {
+    *p = val;
+  } else {
+    // Force unaligned access pattern.
+    struct unaligned { T v; } __attribute__((packed));
+    reinterpret_cast<unaligned*>(addr)->v = val;
+  }
+}
+
+// libcore.io.Memory.peekByte(J)B
+UNARY_INTRINSIC(MterpMemoryPeekByte, peek<int8_t>, GetVRegLong, SetB);
+
+// libcore.io.Memory.peekIntNative(J)I
+UNARY_INTRINSIC(MterpMemoryPeekIntNative, peek<int32_t>, GetVRegLong, SetI);
+
+// libcore.io.Memory.peekLongNative(J)I
+UNARY_INTRINSIC(MterpMemoryPeekLongNative, peek<int64_t>, GetVRegLong, SetJ);
+
+// libcore.io.Memory.peekShortNative(J)S
+UNARY_INTRINSIC(MterpMemoryPeekShortNative, peek<int16_t>, GetVRegLong, SetS);
+
+// libcore.io.Memory.pokeByte(JB)V
+BINARY_VOID_INTRINSIC(MterpMemoryPokeByte, poke<int8_t>, GetVRegLong(arg[0]), GetVReg(arg[2]));
+
+// libcore.io.Memory.pokeIntNative(JI)V
+BINARY_VOID_INTRINSIC(MterpMemoryPokeIntNative,
+                      poke<int32_t>,
+                      GetVRegLong(arg[0]),
+                      GetVReg(arg[2]));
+
+// libcore.io.Memory.pokeLongNative(JJ)V
+BINARY_VOID_INTRINSIC(MterpMemoryPokeLongNative,
+                      poke<int64_t>,
+                      GetVRegLong(arg[0]),
+                      GetVRegLong(arg[2]));
+
+// libcore.io.Memory.pokeShortNative(JS)V
+BINARY_VOID_INTRINSIC(MterpMemoryPokeShortNative,
+                      poke<int16_t>,
+                      GetVRegLong(arg[0]),
+                      GetVReg(arg[2]));
+
 // java.lang.Math.sin(D)D
 UNARY_INTRINSIC(MterpMathSin, std::sin, GetVRegDouble, SetD);
 
@@ -166,6 +327,9 @@ UNARY_INTRINSIC(MterpMathCos, std::cos, GetVRegDouble, SetD);
 // java.lang.Math.tan(D)D
 UNARY_INTRINSIC(MterpMathTan, std::tan, GetVRegDouble, SetD);
 
+// java.lang.Math.tanh(D)D
+UNARY_INTRINSIC(MterpMathTanh, std::tanh, GetVRegDouble, SetD);
+
 // java.lang.Math.asin(D)D
 UNARY_INTRINSIC(MterpMathAsin, std::asin, GetVRegDouble, SetD);
 
@@ -174,6 +338,36 @@ UNARY_INTRINSIC(MterpMathAcos, std::acos, GetVRegDouble, SetD);
 
 // java.lang.Math.atan(D)D
 UNARY_INTRINSIC(MterpMathAtan, std::atan, GetVRegDouble, SetD);
+
+// java.lang.Math.atan2(D)D
+BINARY_DD_INTRINSIC(MterpMathAtan2, std::atan2, SetD);
+
+// java.lang.Math.cbrt(D)D
+UNARY_INTRINSIC(MterpMathCbrt, std::cbrt, GetVRegDouble, SetD);
+
+// java.lang.Math.cosh(D)D
+UNARY_INTRINSIC(MterpMathCosh, std::cosh, GetVRegDouble, SetD);
+
+// java.lang.Math.exp(D)D
+UNARY_INTRINSIC(MterpMathExp, std::exp, GetVRegDouble, SetD);
+
+// java.lang.Math.expm1(D)D
+UNARY_INTRINSIC(MterpMathExpm1, std::expm1, GetVRegDouble, SetD);
+
+// java.lang.Math.hypot(DD)D
+BINARY_DD_INTRINSIC(MterpMathHypot, std::hypot, SetD);
+
+// java.lang.Math.log(D)D
+UNARY_INTRINSIC(MterpMathLog, std::log, GetVRegDouble, SetD);
+
+// java.lang.Math.log10(D)D
+UNARY_INTRINSIC(MterpMathLog10, std::log10, GetVRegDouble, SetD);
+
+// java.lang.Math.nextafter10(DD)D
+BINARY_DD_INTRINSIC(MterpMathNextAfter, std::nextafter, SetD);
+
+// java.lang.Math.sinh(D)D
+UNARY_INTRINSIC(MterpMathSinh, std::sinh, GetVRegDouble, SetD);
 
 // java.lang.String.charAt(I)C
 static ALWAYS_INLINE bool MterpStringCharAt(ShadowFrame* shadow_frame,
@@ -340,16 +534,16 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
   Intrinsics intrinsic = static_cast<Intrinsics>(called_method->GetIntrinsic());
   bool res = false;  // Assume failure
   switch (intrinsic) {
-    UNIMPLEMENTED_CASE(DoubleDoubleToRawLongBits /* (D)J */)
-    UNIMPLEMENTED_CASE(DoubleDoubleToLongBits /* (D)J */)
-    UNIMPLEMENTED_CASE(DoubleIsInfinite /* (D)Z */)
-    UNIMPLEMENTED_CASE(DoubleIsNaN /* (D)Z */)
-    UNIMPLEMENTED_CASE(DoubleLongBitsToDouble /* (J)D */)
-    UNIMPLEMENTED_CASE(FloatFloatToRawIntBits /* (F)I */)
-    UNIMPLEMENTED_CASE(FloatFloatToIntBits /* (F)I */)
-    UNIMPLEMENTED_CASE(FloatIsInfinite /* (F)Z */)
-    UNIMPLEMENTED_CASE(FloatIsNaN /* (F)Z */)
-    UNIMPLEMENTED_CASE(FloatIntBitsToFloat /* (I)F */)
+    INTRINSIC_CASE(DoubleDoubleToRawLongBits)
+    INTRINSIC_CASE(DoubleDoubleToLongBits)
+    INTRINSIC_CASE(DoubleIsInfinite)
+    INTRINSIC_CASE(DoubleIsNaN)
+    INTRINSIC_CASE(DoubleLongBitsToDouble)
+    INTRINSIC_CASE(FloatFloatToRawIntBits)
+    INTRINSIC_CASE(FloatFloatToIntBits)
+    INTRINSIC_CASE(FloatIsInfinite)
+    INTRINSIC_CASE(FloatIsNaN)
+    INTRINSIC_CASE(FloatIntBitsToFloat)
     INTRINSIC_CASE(IntegerReverse)
     INTRINSIC_CASE(IntegerReverseBytes)
     INTRINSIC_CASE(IntegerBitCount)
@@ -377,12 +571,12 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
     INTRINSIC_CASE(MathAbsFloat)
     INTRINSIC_CASE(MathAbsLong)
     INTRINSIC_CASE(MathAbsInt)
-    UNIMPLEMENTED_CASE(MathMinDoubleDouble /* (DD)D */)
-    UNIMPLEMENTED_CASE(MathMinFloatFloat /* (FF)F */)
+    INTRINSIC_CASE(MathMinDoubleDouble)
+    INTRINSIC_CASE(MathMinFloatFloat)
     INTRINSIC_CASE(MathMinLongLong)
     INTRINSIC_CASE(MathMinIntInt)
-    UNIMPLEMENTED_CASE(MathMaxDoubleDouble /* (DD)D */)
-    UNIMPLEMENTED_CASE(MathMaxFloatFloat /* (FF)F */)
+    INTRINSIC_CASE(MathMaxDoubleDouble)
+    INTRINSIC_CASE(MathMaxFloatFloat)
     INTRINSIC_CASE(MathMaxLongLong)
     INTRINSIC_CASE(MathMaxIntInt)
     INTRINSIC_CASE(MathCos)
@@ -390,35 +584,35 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
     INTRINSIC_CASE(MathAcos)
     INTRINSIC_CASE(MathAsin)
     INTRINSIC_CASE(MathAtan)
-    UNIMPLEMENTED_CASE(MathAtan2 /* (DD)D */)
-    UNIMPLEMENTED_CASE(MathCbrt /* (D)D */)
-    UNIMPLEMENTED_CASE(MathCosh /* (D)D */)
-    UNIMPLEMENTED_CASE(MathExp /* (D)D */)
-    UNIMPLEMENTED_CASE(MathExpm1 /* (D)D */)
-    UNIMPLEMENTED_CASE(MathHypot /* (DD)D */)
-    UNIMPLEMENTED_CASE(MathLog /* (D)D */)
-    UNIMPLEMENTED_CASE(MathLog10 /* (D)D */)
-    UNIMPLEMENTED_CASE(MathNextAfter /* (DD)D */)
-    UNIMPLEMENTED_CASE(MathSinh /* (D)D */)
+    INTRINSIC_CASE(MathAtan2)
+    INTRINSIC_CASE(MathCbrt)
+    INTRINSIC_CASE(MathCosh)
+    INTRINSIC_CASE(MathExp)
+    INTRINSIC_CASE(MathExpm1)
+    INTRINSIC_CASE(MathHypot)
+    INTRINSIC_CASE(MathLog)
+    INTRINSIC_CASE(MathLog10)
+    INTRINSIC_CASE(MathNextAfter)
+    INTRINSIC_CASE(MathSinh)
     INTRINSIC_CASE(MathTan)
-    UNIMPLEMENTED_CASE(MathTanh /* (D)D */)
+    INTRINSIC_CASE(MathTanh)
     INTRINSIC_CASE(MathSqrt)
     INTRINSIC_CASE(MathCeil)
     INTRINSIC_CASE(MathFloor)
-    UNIMPLEMENTED_CASE(MathRint /* (D)D */)
+    INTRINSIC_CASE(MathRint)
     UNIMPLEMENTED_CASE(MathRoundDouble /* (D)J */)
     UNIMPLEMENTED_CASE(MathRoundFloat /* (F)I */)
     UNIMPLEMENTED_CASE(SystemArrayCopyChar /* ([CI[CII)V */)
     UNIMPLEMENTED_CASE(SystemArrayCopy /* (Ljava/lang/Object;ILjava/lang/Object;II)V */)
     UNIMPLEMENTED_CASE(ThreadCurrentThread /* ()Ljava/lang/Thread; */)
-    UNIMPLEMENTED_CASE(MemoryPeekByte /* (J)B */)
-    UNIMPLEMENTED_CASE(MemoryPeekIntNative /* (J)I */)
-    UNIMPLEMENTED_CASE(MemoryPeekLongNative /* (J)J */)
-    UNIMPLEMENTED_CASE(MemoryPeekShortNative /* (J)S */)
-    UNIMPLEMENTED_CASE(MemoryPokeByte /* (JB)V */)
-    UNIMPLEMENTED_CASE(MemoryPokeIntNative /* (JI)V */)
-    UNIMPLEMENTED_CASE(MemoryPokeLongNative /* (JJ)V */)
-    UNIMPLEMENTED_CASE(MemoryPokeShortNative /* (JS)V */)
+    INTRINSIC_CASE(MemoryPeekByte)
+    INTRINSIC_CASE(MemoryPeekIntNative)
+    INTRINSIC_CASE(MemoryPeekLongNative)
+    INTRINSIC_CASE(MemoryPeekShortNative)
+    INTRINSIC_CASE(MemoryPokeByte)
+    INTRINSIC_CASE(MemoryPokeIntNative)
+    INTRINSIC_CASE(MemoryPokeLongNative)
+    INTRINSIC_CASE(MemoryPokeShortNative)
     INTRINSIC_CASE(StringCharAt)
     INTRINSIC_CASE(StringCompareTo)
     INTRINSIC_CASE(StringEquals)
