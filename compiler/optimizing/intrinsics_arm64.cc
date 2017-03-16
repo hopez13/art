@@ -198,6 +198,8 @@ class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
     DCHECK_NE(LocationFrom(src_stop_addr).reg(), IP0);
     DCHECK_NE(tmp_.reg(), IP0);
     DCHECK(0 <= tmp_.reg() && tmp_.reg() < kNumberOfWRegisters) << tmp_.reg();
+    // TODO: Load the entrypoint once before the loop, instead of
+    // loading it at every iteration.
     int32_t entry_point_offset =
         CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(tmp_.reg());
     // This runtime call does not require a stack map.
@@ -2191,8 +2193,9 @@ static void CheckSystemArrayCopyPosition(MacroAssembler* masm,
   }
 }
 
-// Compute base source address, base destination address, and end source address
-// for System.arraycopy* intrinsics.
+// Compute base source address, base destination address, and end
+// source address for System.arraycopy* intrinsics in `src_base`,
+// `dst_base` and `src_end` respectively.
 static void GenSystemArrayCopyAddresses(MacroAssembler* masm,
                                         Primitive::Type type,
                                         const Register& src,
@@ -2207,8 +2210,8 @@ static void GenSystemArrayCopyAddresses(MacroAssembler* masm,
       << "Unexpected element type: " << type;
   const int32_t element_size = Primitive::ComponentSize(type);
   const int32_t element_size_shift = Primitive::ComponentSizeShift(type);
+  const uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
 
-  uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
   if (src_pos.IsConstant()) {
     int32_t constant = src_pos.GetConstant()->AsIntConstant()->GetValue();
     __ Add(src_base, src, element_size * constant + data_offset);
@@ -2712,12 +2715,18 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       __ Cbnz(temp2, intrinsic_slow_path->GetEntryLabel());
     }
 
+    const Primitive::Type type = Primitive::kPrimNot;
+    const int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
+
     Register src_curr_addr = temp1.X();
     Register dst_curr_addr = temp2.X();
     Register src_stop_addr = temp3.X();
 
+    // Compute base source address, base destination address, and end
+    // source address in `src_curr_addr`, `dst_curr_addr` and
+    // `src_stop_addr` respectively.
     GenSystemArrayCopyAddresses(masm,
-                                Primitive::kPrimNot,
+                                type,
                                 src,
                                 src_pos,
                                 dest,
@@ -2726,8 +2735,6 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
                                 src_curr_addr,
                                 dst_curr_addr,
                                 src_stop_addr);
-
-    const int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
 
     if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
       // TODO: Also convert this intrinsic to the IsGcMarking strategy?
@@ -2801,7 +2808,6 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       __ Bind(&done);
     } else {
       // Non read barrier code.
-
       // Iterate over the arrays and do a raw copy of the objects. We don't need to
       // poison/unpoison.
       vixl::aarch64::Label loop, done;
@@ -2817,6 +2823,7 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       __ Bind(&done);
     }
   }
+
   // We only need one card marking on the destination array.
   codegen_->MarkGCCard(dest.W(), Register(), /* value_can_be_null */ false);
 
