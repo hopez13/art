@@ -1,0 +1,429 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6c744f4_49f29208",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 6208,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Since you\u0027ve added nodes_vector.h (for reasons I agree with), how about adding code_generator_vector_arm64.cc (and friends)?",
+      "range": {
+        "startLine": 6208,
+        "startChar": 0,
+        "endLine": 6208,
+        "endChar": 87
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1680259_3b18f2fd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 7587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 7587,
+        "startChar": 0,
+        "endLine": 7587,
+        "endChar": 58
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fca0f4a_6650f438",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 7741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Comment",
+      "range": {
+        "startLine": 7741,
+        "startChar": 0,
+        "endLine": 7741,
+        "endChar": 74
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1159bfce_99c54bb2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Extra line",
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbc9cd62_f2451822",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Move one up to cover lines 152-154?",
+      "range": {
+        "startLine": 152,
+        "startChar": 22,
+        "endLine": 152,
+        "endChar": 31
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7d9ab3_592700b5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Please also add a kEnableLoopOptimization.",
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c059f4f_24978233",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Add a comment: we do not vectorize if there\u0027s phis.",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 3
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c535ff3b_87f241c9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Add a comment: we do not vectorize if any instruction in the block cannot be vectorized.",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 382,
+        "endChar": 3
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a5397dc_e2c62b43",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 102
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c84e118e_b2c4aee3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Comment.",
+      "range": {
+        "startLine": 438,
+        "startChar": 3,
+        "endLine": 438,
+        "endChar": 61
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74d8829a_f1216a83",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 451,
+        "startChar": 42,
+        "endLine": 452,
+        "endChar": 98
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d4538a5_cfd354e6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Update.",
+      "range": {
+        "startLine": 727,
+        "startChar": 0,
+        "endLine": 741,
+        "endChar": 6
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89753ad5_f3a1f9d2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "We usually use a virtual method on codegen_ for asking such features. Look for example for sharpening.",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 1
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84220901_bac28a6c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "lines too long",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 860,
+        "endChar": 111
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeabd490_ed4c912e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Maybe you can get away the if/else duplication with a macro?",
+      "range": {
+        "startLine": 890,
+        "startChar": 0,
+        "endLine": 894,
+        "endChar": 7
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9729f7_7121ba0f",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "...test_a_?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 38
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c1b4206_448a05dc",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "ditto?",
+      "range": {
+        "startLine": 168,
+        "startChar": 16,
+        "endLine": 168,
+        "endChar": 37
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6e3ea5e_3d557656",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Comments for all of these please.",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 13
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e84fa2_d17427a8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 2315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-16T11:05:29Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2315,
+        "startChar": 0,
+        "endLine": 2315,
+        "endChar": 111
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
