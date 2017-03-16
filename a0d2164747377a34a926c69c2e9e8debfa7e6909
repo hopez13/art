@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45d2ff66_e0824201",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-16T22:14:25Z",
+      "side": 1,
+      "message": "I was going to comment on chattyness here, but I see we do the same on arm.",
+      "revId": "a0d2164747377a34a926c69c2e9e8debfa7e6909",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5789dd2_bc6a48f6",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-16T22:14:25Z",
+      "side": 1,
+      "message": "unrelated to this change, but this test could use some more cases (see the others).",
+      "revId": "a0d2164747377a34a926c69c2e9e8debfa7e6909",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
