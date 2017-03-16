@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4335ee84_8a7ba555",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-03-16T17:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac32ed0_ad7aeb93",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 87
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ff7932_b228b75c",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "59898998_c9a2d1cd",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-03-16T17:38:02Z",
+      "side": 1,
+      "message": "Cleaned up.",
+      "parentUuid": "48ff7932_b228b75c",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a8de993_6b81f673",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-16T11:40:39Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 53
+      },
+      "revId": "23a81f6cd40ab5d88a89e15ad7a250babfba2f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6388347c_07e939a3",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2017-03-16T17:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8de993_6b81f673",
       "range": {
         "startLine": 124,
         "startChar": 0,
