@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d304dba_f56e7c41",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-16T12:47:11Z",
+      "side": 1,
+      "message": "We could do \"BSWAP\u003cint16_t\u003e, GetVReg\" and avoid introducing the GetVRegShort. I don\u0027t care either way.",
+      "range": {
+        "startLine": 125,
+        "startChar": 40,
+        "endLine": 125,
+        "endChar": 59
+      },
+      "revId": "31afbec96e9f9c8e58778694e74aea7ce55e1378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
