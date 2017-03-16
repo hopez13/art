@@ -198,6 +198,8 @@ class ReadBarrierSystemArrayCopySlowPathARM64 : public SlowPathCodeARM64 {
     DCHECK_NE(LocationFrom(src_stop_addr).reg(), IP0);
     DCHECK_NE(tmp_.reg(), IP0);
     DCHECK(0 <= tmp_.reg() && tmp_.reg() < kNumberOfWRegisters) << tmp_.reg();
+    // TODO: Load the entrypoint once before the loop, instead of
+    // loading it at every iteration.
     int32_t entry_point_offset =
         CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(tmp_.reg());
     // This runtime call does not require a stack map.
@@ -2207,8 +2209,8 @@ static void GenSystemArrayCopyAddresses(MacroAssembler* masm,
       << "Unexpected element type: " << type;
   const int32_t element_size = Primitive::ComponentSize(type);
   const int32_t element_size_shift = Primitive::ComponentSizeShift(type);
+  const uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
 
-  uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
   if (src_pos.IsConstant()) {
     int32_t constant = src_pos.GetConstant()->AsIntConstant()->GetValue();
     __ Add(src_base, src, element_size * constant + data_offset);
@@ -2728,6 +2730,8 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
                                 src_stop_addr);
 
     const int32_t element_size = Primitive::ComponentSize(Primitive::kPrimNot);
+    const int32_t element_size_shift = Primitive::ComponentSizeShift(Primitive::kPrimNot);
+    const uint32_t data_offset = mirror::Array::DataOffset(element_size).Uint32Value();
 
     if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
       // TODO: Also convert this intrinsic to the IsGcMarking strategy?
@@ -2777,6 +2781,18 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopy(HInvoke* invoke) {
       // `src` is unchanged by this operation, but its value now depends
       // on `tmp`.
       __ Add(src.X(), src.X(), Operand(tmp.X(), LSR, 32));
+
+      // Recompute `src_curr_addr` from `src` (and `src_pos`), to
+      // honor the artificial dependency of `src` on `tmp`.
+      if (src_pos.IsConstant()) {
+        int32_t constant = src_pos.GetConstant()->AsIntConstant()->GetValue();
+        __ Add(src_curr_addr, src, element_size * constant + data_offset);
+      } else {
+        __ Add(src_curr_addr, src, data_offset);
+        __ Add(src_curr_addr,
+               src_curr_addr,
+               Operand(XRegisterFrom(src_pos), LSL, element_size_shift));
+      }
 
       // Slow path used to copy array when `src` is gray.
       SlowPathCodeARM64* read_barrier_slow_path =
