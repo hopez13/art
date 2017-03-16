@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c37fa527_74011c6d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-16T20:23:12Z",
+      "side": 1,
+      "message": "Right; I changed that in PS2, and did some refactoring as well.",
+      "parentUuid": "781c2e98_2f2084fb",
+      "range": {
+        "startLine": 1979,
+        "startChar": 0,
+        "endLine": 1981,
+        "endChar": 20
+      },
+      "revId": "b805e129f08e1a34f4dd32fe94ac6edea56e7404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "756d4a0b_46432270",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-16T16:58:46Z",
       "side": 1,
       "message": "And then this can be moved before the `temp1` and `temp3` initialization, so that we can avoid generating extra code below.",
+      "range": {
+        "startLine": 1983,
+        "startChar": 0,
+        "endLine": 1994,
+        "endChar": 53
+      },
+      "revId": "b805e129f08e1a34f4dd32fe94ac6edea56e7404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe1bb3b2_e2b8aa0b",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-16T20:23:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "756d4a0b_46432270",
       "range": {
         "startLine": 1983,
         "startChar": 0,
