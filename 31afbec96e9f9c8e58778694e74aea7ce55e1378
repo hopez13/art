@@ -22,6 +22,30 @@
       "revId": "31afbec96e9f9c8e58778694e74aea7ce55e1378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5888fa1_8abe546c",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-16T14:20:27Z",
+      "side": 1,
+      "message": "Well, less code is better.  I\u0027ve got another batch of intrinsics on the way.  I\u0027ll make this change in the next CL.",
+      "parentUuid": "7d304dba_f56e7c41",
+      "range": {
+        "startLine": 125,
+        "startChar": 40,
+        "endLine": 125,
+        "endChar": 59
+      },
+      "revId": "31afbec96e9f9c8e58778694e74aea7ce55e1378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
