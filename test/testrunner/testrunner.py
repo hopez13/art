@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2017, The Android Open Source Project
 #
@@ -72,6 +72,8 @@ DEBUGGABLE_TYPES = set()
 ADDRESS_SIZES = set()
 OPTIMIZING_COMPILER_TYPES = set()
 ADDRESS_SIZES_TARGET = {'host': set(), 'target': set()}
+# The value is in seconds.
+timeout = 600
 
 # DISABLED_TEST_CONTAINER holds information about the disabled tests. It is a map
 # that has key as the test name (like 001-HelloWorld), and value as set of
@@ -444,7 +446,7 @@ def run_test(command, test, test_variant, test_name):
     else:
       test_skipped = False
       proc = subprocess.Popen(command.split(), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
-      script_output = proc.stdout.read().strip()
+      script_output = proc.communicate(timeout=timeout)[0].decode('ascii')
       test_passed = not proc.wait()
 
     if not test_skipped:
@@ -461,9 +463,14 @@ def run_test(command, test, test_variant, test_name):
       skipped_tests.append(test_name)
     else:
       print_test_info(test_name, '')
-  except Exception, e:
+  except subprocess.TimeoutExpired as e:
     failed_tests.append(test_name)
-    print_text(('%s\n%s\n') % (command, str(e)))
+    print_test_info(test_name, 'TIMEOUT', 'timed out in %d\n%s' % (
+        timeout, command))
+  except Exception as e:
+    failed_tests.append(test_name)
+    print_test_info(test_name, 'FAIL')
+    print_text(('%s\n%s\n\n') % (command, str(e)))
   finally:
     semaphore.release()
 
@@ -500,11 +507,11 @@ def print_test_info(test_name, result, failed_test_info=""):
       test_count,
       total_test_count)
 
-    if result == "FAIL":
+    if result == 'FAIL' or result == 'TIMEOUT':
       info += ('%s %s %s\n%s\n') % (
         progress_info,
         test_name,
-        COLOR_ERROR + 'FAIL' + COLOR_NORMAL,
+        COLOR_ERROR + result + COLOR_NORMAL,
         failed_test_info)
     else:
       result_text = ''
@@ -533,7 +540,7 @@ def print_test_info(test_name, result, failed_test_info=""):
           test_name,
           result_text)
     print_text(info)
-  except Exception, e:
+  except Exception as e:
     print_text(('%s\n%s\n') % (test_name, str(e)))
     failed_tests.append(test_name)
   finally:
@@ -744,10 +751,12 @@ def parse_option():
   global build
   global gdb
   global gdb_arg
+  global timeout
 
   parser = argparse.ArgumentParser(description="Runs all or a subset of the ART test suite.")
   parser.add_argument('-t', '--test', dest='test', help='name of the test')
   parser.add_argument('-j', type=int, dest='n_thread')
+  parser.add_argument('--timeout', default=600, type=int, dest='timeout')
   for variant in TOTAL_VARIANTS_SET:
     flag = '--' + variant
     flag_dest = variant.replace('-', '_')
@@ -855,7 +864,7 @@ def parse_option():
     gdb = True
     if options['gdb_arg']:
       gdb_arg = options['gdb_arg']
-
+  timeout = options['timeout']
   return test
 
 def main():
@@ -884,7 +893,7 @@ def main():
     while threading.active_count() > 1:
       time.sleep(0.1)
     print_analysis()
-  except Exception, e:
+  except Exception as e:
     print_analysis()
     print_text(str(e))
     sys.exit(1)
