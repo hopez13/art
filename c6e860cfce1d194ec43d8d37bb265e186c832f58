@@ -140,6 +140,30 @@
       "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0f1566f_83af2fa8",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-17T20:16:29Z",
+      "side": 1,
+      "message": "If you don\u0027t do this and run testrunner.py in a window narrower than the test_name you will get a bunch of warning messages saying that index\u0027s should not be floats.\n\nPlease do this now.",
+      "parentUuid": "62f3a60c_bb7fcf4a",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 52
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
