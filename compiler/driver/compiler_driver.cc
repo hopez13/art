@@ -2087,6 +2087,12 @@ void CompilerDriver::Verify(jobject jclass_loader,
     }
   }
 
+  if (dump_stats_) {
+    verifier_stats_ = new verifier::MethodVerifierStats();
+  } else {
+    verifier_stats_ = NULL;
+  }
+
   // Note: verification should not be pulling in classes anymore when compiling the boot image,
   //       as all should have been resolved before. As such, doing this in parallel should still
   //       be deterministic.
@@ -2098,6 +2104,11 @@ void CompilerDriver::Verify(jobject jclass_loader,
                   parallel_thread_pool_.get(),
                   parallel_thread_count_,
                   timings);
+  }
+
+  if (verifier_stats_) {
+    verifier_stats_->Log();
+    delete verifier_stats_;
   }
 
   if (!GetCompilerOptions().IsBootImage()) {
@@ -2115,8 +2126,9 @@ void CompilerDriver::Verify(jobject jclass_loader,
 
 class VerifyClassVisitor : public CompilationVisitor {
  public:
-  VerifyClassVisitor(const ParallelCompilationManager* manager, verifier::HardFailLogMode log_level)
-     : manager_(manager), log_level_(log_level) {}
+  VerifyClassVisitor(const ParallelCompilationManager* manager, verifier::HardFailLogMode log_level,
+                     verifier::MethodVerifierStats *verifier_stats)
+      : manager_(manager), log_level_(log_level), verifier_stats_(verifier_stats) {}
 
   virtual void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) OVERRIDE {
     ATRACE_CALL();
@@ -2153,7 +2165,8 @@ class VerifyClassVisitor : public CompilationVisitor {
                                                 Runtime::Current()->GetCompilerCallbacks(),
                                                 true /* allow soft failures */,
                                                 log_level_,
-                                                &error_msg);
+                                                &error_msg,
+                                                verifier_stats_);
       if (failure_kind == verifier::MethodVerifier::kHardFailure) {
         LOG(ERROR) << "Verification failed on class " << PrettyDescriptor(descriptor)
                    << " because: " << error_msg;
@@ -2212,6 +2225,7 @@ class VerifyClassVisitor : public CompilationVisitor {
  private:
   const ParallelCompilationManager* const manager_;
   const verifier::HardFailLogMode log_level_;
+  verifier::MethodVerifierStats* verifier_stats_;
 };
 
 void CompilerDriver::VerifyDexFile(jobject class_loader,
@@ -2227,7 +2241,7 @@ void CompilerDriver::VerifyDexFile(jobject class_loader,
   verifier::HardFailLogMode log_level = GetCompilerOptions().AbortOnHardVerifierFailure()
                               ? verifier::HardFailLogMode::kLogInternalFatal
                               : verifier::HardFailLogMode::kLogWarning;
-  VerifyClassVisitor visitor(&context, log_level);
+  VerifyClassVisitor visitor(&context, log_level, verifier_stats_);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, thread_count);
 }
 

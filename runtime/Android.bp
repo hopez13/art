@@ -457,6 +457,7 @@ gensrcs {
         "thread_state.h",
         "ti/agent.h",
         "verifier/method_verifier.h",
+        "verifier/method_verifier_stats.h",
     ],
     output_extension: "operator_out.cc",
 }
