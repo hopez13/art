@@ -1043,7 +1043,8 @@ bool Redefiner::ClassRedefinition::CheckVerification(const RedefinitionDataIter&
                                                  false, /*allow_soft_failures*/
                                                  /*log_level*/
                                                  art::verifier::HardFailLogMode::kLogWarning,
-                                                 &error);
+                                                 &error,
+                                                 NULL /* MethodVerifierStats */);
   bool passes = failure == art::verifier::MethodVerifier::kNoFailure;
   if (!passes) {
     RecordFailure(ERR(FAILS_VERIFICATION), "Failed to verify class. Error was: " + error);

@@ -36,6 +36,7 @@
 #include "jit/profile_compilation_info.h"
 #include "invoke_type.h"
 #include "method_reference.h"
+#include "verifier/method_verifier_stats.h"
 #include "mirror/class.h"  // For mirror::Class::Status.
 #include "os.h"
 #include "runtime.h"
@@ -542,6 +543,8 @@ class CompilerDriver {
   // In the second phase, current_dex_to_dex_methods_ points to the BitVector with method
   // indexes for dex-to-dex compilation in the current dex file.
   const BitVector* current_dex_to_dex_methods_;
+
+  verifier::MethodVerifierStats *verifier_stats_;
 
   friend class CompileClassVisitor;
   friend class DexToDexDecompilerTest;

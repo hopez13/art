@@ -31,6 +31,7 @@
 #include "handle.h"
 #include "instruction_flags.h"
 #include "method_reference.h"
+#include "method_verifier_stats.h"
 #include "register_line.h"
 #include "reg_type_cache.h"
 #include "verifier_log_mode.h"
@@ -166,7 +167,8 @@ class MethodVerifier {
                                  CompilerCallbacks* callbacks,
                                  bool allow_soft_failures,
                                  HardFailLogMode log_level,
-                                 std::string* error)
+                                 std::string* error,
+                                 MethodVerifierStats* verifier_stats)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   static MethodVerifier* VerifyMethodAndDump(Thread* self,
@@ -300,10 +302,12 @@ class MethodVerifier {
                  bool allow_soft_failures,
                  bool need_precise_constants,
                  bool verify_to_dump,
-                 bool allow_thread_suspension)
+                 bool allow_thread_suspension,
+                 MethodVerifierStats* verifier_stats)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void UninstantiableError(const char* descriptor);
+  void LogStats(VerifyError error);
   static bool IsInstantiableOrPrimitive(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Is the method being verified a constructor? See the comment on the field.
@@ -346,7 +350,8 @@ class MethodVerifier {
                                    bool allow_soft_failures,
                                    HardFailLogMode log_level,
                                    bool need_precise_constants,
-                                   std::string* error_string)
+                                   std::string* error_string,
+                                   MethodVerifierStats* verifier_stats)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   /*
@@ -373,7 +378,8 @@ class MethodVerifier {
                                   bool allow_soft_failures,
                                   HardFailLogMode log_level,
                                   bool need_precise_constants,
-                                  std::string* hard_failure_msg)
+                                  std::string* hard_failure_msg,
+                                  MethodVerifierStats* verifier_stats)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void FindLocksAtDexPc() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -860,6 +866,8 @@ class MethodVerifier {
   //
   // Note: this flag is only valid once Verify() has started.
   bool is_constructor_;
+
+  MethodVerifierStats *verifier_stats_;
 
   // Link, for the method verifier root linked list.
   MethodVerifier* link_;

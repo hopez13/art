@@ -15,6 +15,7 @@
  */
 
 #include "method_verifier-inl.h"
+#include "method_verifier_stats.h"
 
 #include <iostream>
 
@@ -180,7 +181,8 @@ MethodVerifier::FailureKind MethodVerifier::VerifyClass(Thread* self,
                      callbacks,
                      allow_soft_failures,
                      log_level,
-                     error);
+                     error,
+                     NULL /* MethodVerifierStats */);
 }
 
 template <bool kDirect>
@@ -215,7 +217,8 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethods(Thread* self,
                                                           bool allow_soft_failures,
                                                           HardFailLogMode log_level,
                                                           bool need_precise_constants,
-                                                          std::string* error_string) {
+                                                          std::string* error_string,
+                                                          MethodVerifierStats* verifier_stat) {
   DCHECK(it != nullptr);
 
   MethodVerifier::FailureData failure_data;
@@ -256,7 +259,8 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethods(Thread* self,
                                                       allow_soft_failures,
                                                       log_level,
                                                       need_precise_constants,
-                                                      &hard_failure_msg);
+                                                      &hard_failure_msg,
+                                                      verifier_stat);
     if (result.kind == kHardFailure) {
       if (failure_data.kind == kHardFailure) {
         // If we logged an error before, we need a newline.
@@ -285,7 +289,8 @@ MethodVerifier::FailureKind MethodVerifier::VerifyClass(Thread* self,
                                                         CompilerCallbacks* callbacks,
                                                         bool allow_soft_failures,
                                                         HardFailLogMode log_level,
-                                                        std::string* error) {
+                                                        std::string* error,
+                                                        MethodVerifierStats *verifier_stats) {
   ScopedTrace trace(__FUNCTION__);
 
   // A class must not be abstract and final.
@@ -318,7 +323,8 @@ MethodVerifier::FailureKind MethodVerifier::VerifyClass(Thread* self,
                                                           allow_soft_failures,
                                                           log_level,
                                                           false /* need precise constants */,
-                                                          error);
+                                                          error,
+                                                          verifier_stats);
   // Virtual methods.
   MethodVerifier::FailureData data2 = VerifyMethods<false>(self,
                                                            linker,
@@ -331,7 +337,8 @@ MethodVerifier::FailureKind MethodVerifier::VerifyClass(Thread* self,
                                                            allow_soft_failures,
                                                            log_level,
                                                            false /* need precise constants */,
-                                                           error);
+                                                           error,
+                                                           verifier_stats);
 
   data1.Merge(data2);
 
@@ -379,7 +386,8 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          bool allow_soft_failures,
                                                          HardFailLogMode log_level,
                                                          bool need_precise_constants,
-                                                         std::string* hard_failure_msg) {
+                                                         std::string* hard_failure_msg,
+                                                         MethodVerifierStats* verifier_stats) {
   MethodVerifier::FailureData result;
   uint64_t start_ns = kTimeVerifyMethod ? NanoTime() : 0;
 
@@ -396,7 +404,8 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                           allow_soft_failures,
                           need_precise_constants,
                           false /* verify to dump */,
-                          true /* allow_thread_suspension */);
+                          true /* allow_thread_suspension */,
+                          verifier_stats);
   if (verifier.Verify()) {
     // Verification completed, however failures may be pending that didn't cause the verification
     // to hard fail.
@@ -525,7 +534,8 @@ MethodVerifier* MethodVerifier::VerifyMethodAndDump(Thread* self,
                                                 true /* allow_soft_failures */,
                                                 true /* need_precise_constants */,
                                                 true /* verify_to_dump */,
-                                                true /* allow_thread_suspension */);
+                                                true /* allow_thread_suspension */,
+                                                NULL /* MethodVerifierStats */);
   verifier->Verify();
   verifier->DumpFailures(vios->Stream());
   vios->Stream() << verifier->info_messages_.str();
@@ -553,7 +563,8 @@ MethodVerifier::MethodVerifier(Thread* self,
                                bool allow_soft_failures,
                                bool need_precise_constants,
                                bool verify_to_dump,
-                               bool allow_thread_suspension)
+                               bool allow_thread_suspension,
+                               MethodVerifierStats* verifier_stats)
     : self_(self),
       arena_stack_(Runtime::Current()->GetArenaPool()),
       arena_(&arena_stack_),
@@ -587,6 +598,7 @@ MethodVerifier::MethodVerifier(Thread* self,
       verify_to_dump_(verify_to_dump),
       allow_thread_suspension_(allow_thread_suspension),
       is_constructor_(false),
+      verifier_stats_(verifier_stats),
       link_(nullptr) {
   self->PushVerifier(this);
 }
@@ -614,7 +626,8 @@ void MethodVerifier::FindLocksAtDexPc(ArtMethod* m, uint32_t dex_pc,
                           true  /* allow_soft_failures */,
                           false /* need_precise_constants */,
                           false /* verify_to_dump */,
-                          false /* allow_thread_suspension */);
+                          false /* allow_thread_suspension */,
+                          NULL /* MethodVerifierStats */);
   verifier.interesting_dex_pc_ = dex_pc;
   verifier.monitor_enter_dex_pcs_ = monitor_enter_dex_pcs;
   verifier.FindLocksAtDexPc();
@@ -669,7 +682,8 @@ ArtField* MethodVerifier::FindAccessedFieldAtDexPc(ArtMethod* m, uint32_t dex_pc
                           true  /* allow_soft_failures */,
                           false /* need_precise_constants */,
                           false /* verify_to_dump */,
-                          true  /* allow_thread_suspension */);
+                          true  /* allow_thread_suspension */,
+                          NULL /* MethodVerifierStats */);
   return verifier.FindAccessedFieldAtDexPc(dex_pc);
 }
 
@@ -709,7 +723,8 @@ ArtMethod* MethodVerifier::FindInvokedMethodAtDexPc(ArtMethod* m, uint32_t dex_p
                           true  /* allow_soft_failures */,
                           false /* need_precise_constants */,
                           false /* verify_to_dump */,
-                          true  /* allow_thread_suspension */);
+                          true  /* allow_thread_suspension */,
+                          NULL /* MethodVerifierStats */);
   return verifier.FindInvokedMethodAtDexPc(dex_pc);
 }
 
@@ -899,7 +914,9 @@ bool MethodVerifier::Verify() {
 std::ostream& MethodVerifier::Fail(VerifyError error) {
   // Mark the error type as encountered.
   encountered_failure_types_ |= static_cast<uint32_t>(error);
-
+  if (verifier_stats_) {
+    LogStats(error);
+  }
   switch (error) {
     case VERIFY_ERROR_NO_CLASS:
     case VERIFY_ERROR_NO_FIELD:
@@ -968,6 +985,47 @@ std::ostream& MethodVerifier::Fail(VerifyError error) {
   std::ostringstream* failure_message = new std::ostringstream(location, std::ostringstream::ate);
   failure_messages_.push_back(failure_message);
   return *failure_message;
+}
+
+void MethodVerifier::LogStats(VerifyError error) {
+  switch (error) {
+    case VERIFY_ERROR_BAD_CLASS_HARD:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorBadClassHard);
+      break;
+    case VERIFY_ERROR_BAD_CLASS_SOFT:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorBadClassSoft);
+      break;
+    case VERIFY_ERROR_NO_CLASS:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorNoClass);
+      break;
+    case VERIFY_ERROR_NO_FIELD:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorNoField);
+      break;
+    case VERIFY_ERROR_NO_METHOD:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorNoMethod);
+      break;
+    case VERIFY_ERROR_ACCESS_CLASS:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorAccessClass);
+      break;
+    case VERIFY_ERROR_ACCESS_FIELD:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorAccessField);
+      break;
+    case VERIFY_ERROR_ACCESS_METHOD:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorAccessMethod);
+      break;
+    case VERIFY_ERROR_CLASS_CHANGE:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorClassChange);
+      break;
+    case VERIFY_ERROR_INSTANTIATION:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorInstantiation);
+      break;
+    case VERIFY_ERROR_FORCE_INTERPRETER:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorForceInterpreter);
+      break;
+    case VERIFY_ERROR_LOCKING:
+      verifier_stats_->RecordStat(MethodVerifierStat::kVerifyErrorLocking);
+      break;
+  }
 }
 
 std::ostream& MethodVerifier::LogVerifyInfo() {
