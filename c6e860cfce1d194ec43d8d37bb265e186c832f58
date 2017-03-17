@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca09f555_48bef0eb",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-17T17:51:52Z",
+      "side": 1,
+      "message": "Just add universal_newlines\u003dTrue",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 96
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11fb88e2_f0162caf",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-17T17:51:52Z",
+      "side": 1,
+      "message": "Not needed with universal_newlines\u003dtrue\n\nAlso some tests output non-ascii chars on failure. (945 is one example IIRC, it has a \tλ)",
+      "range": {
+        "startLine": 458,
+        "startChar": 58,
+        "endLine": 458,
+        "endChar": 74
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0082e16d_110d23f9",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-17T17:51:52Z",
+      "side": 1,
+      "message": "Should be //2 so the result is always an integer.",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 52
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
