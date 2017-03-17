@@ -51,6 +51,24 @@
       "revId": "a0d2164747377a34a926c69c2e9e8debfa7e6909",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7431d214_93a4cc40",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-17T16:09:15Z",
+      "side": 1,
+      "message": "Ah, okay. In that case I agree, just add the mpis64r6 case as another test, but compared it against default, since they are the same. You can do that in another CL, I am okay with this one.",
+      "parentUuid": "7a7ec40c_803432d1",
+      "revId": "a0d2164747377a34a926c69c2e9e8debfa7e6909",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
