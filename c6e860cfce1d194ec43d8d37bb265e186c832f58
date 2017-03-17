@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0862daf0_a336d38a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-17T19:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca09f555_48bef0eb",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 96
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11fb88e2_f0162caf",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "075e5865_5b22600f",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-17T19:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11fb88e2_f0162caf",
+      "range": {
+        "startLine": 458,
+        "startChar": 58,
+        "endLine": 458,
+        "endChar": 74
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0082e16d_110d23f9",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-17T17:51:52Z",
       "side": 1,
       "message": "Should be //2 so the result is always an integer.",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 52
+      },
+      "revId": "c6e860cfce1d194ec43d8d37bb265e186c832f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62f3a60c_bb7fcf4a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-17T19:42:01Z",
+      "side": 1,
+      "message": "Lets touch this in a separate change.",
+      "parentUuid": "0082e16d_110d23f9",
       "range": {
         "startLine": 545,
         "startChar": 0,
