@@ -42,6 +42,7 @@ function find_libdir() {
 invoke_with=
 DALVIKVM=dalvikvm
 LIBART=libart.so
+JIT_PROFILE=false
 
 while true; do
   if [ "$1" = "--invoke-with" ]; then
@@ -62,6 +63,9 @@ while true; do
     shift
   elif [ "$1" = "--perf-report" ]; then
     PERF="report"
+    shift
+  elif [ "$1" = "--profile" ]; then
+    JIT_PROFILE="report"
     shift
   elif expr "$1" : "--" >/dev/null 2>&1; then
     echo "unknown option: $1" 1>&2
@@ -92,7 +96,57 @@ if [ z"$PERF" != z ]; then
   DEBUG_OPTION="-Xcompiler-option --generate-debug-info"
 fi
 
+PROFILE_OPTION=""
+if [ z"$JIT_PROFILE" != z ]; then
+  PROFILE_PATH=$ANDROID_DATA/primary.prof;
+  touch $PROFILE_PATH
+
+  # Replace the compiler filter with interpret-only so that we
+  # can capture the profile.
+  LEFT=$(echo $@ | sed -r 's/--compiler-filter.*//')
+  RIGHT=$(echo $@ | sed -r 's/.*compiler-filter[^ ]* //')
+  MODARGS="${LEFT} --compiler-filter=interpret-only ${RIGHT}"
+
+  ANDROID_DATA=$ANDROID_DATA \
+  ANDROID_ROOT=$ANDROID_ROOT \
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH \
+  PATH=$ANDROID_ROOT/bin:$PATH \
+  LD_USE_LOAD_BIAS=1 \
+  $invoke_with $ANDROID_ROOT/bin/$DALVIKVM $lib \
+    -XXlib:$LIBART \
+    -Xnorelocate \
+    -Ximage:$ANDROID_ROOT/framework/core.art \
+    -Xjitsaveprofilinginfo \
+    -Xps-min-methods-to-save:0 \
+    -Xps-min-classes-to-save:0 \
+    -Xps-min-notification-before-wake:10 \
+    -Xps-profile-path:$PROFILE_PATH \
+    -Xusejit:true \
+    $MODARGS
+
+  EXIT_STATUS=$?
+
+  if [ $EXIT_STATUS != 0 ]; then
+    exit $EXIT_STATUS
+  fi
+
+  PROFILE_OPTION="-Xcompiler-option --profile-file=$PROFILE_PATH"
+fi
+
 # We use the PIC core image to work with perf.
+echo ANDROID_DATA=$ANDROID_DATA \
+  ANDROID_ROOT=$ANDROID_ROOT \
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH \
+  PATH=$ANDROID_ROOT/bin:$PATH \
+  LD_USE_LOAD_BIAS=1 \
+  $invoke_with $ANDROID_ROOT/bin/$DALVIKVM $lib \
+    -XXlib:$LIBART \
+    -Xnorelocate \
+    -Ximage:$ANDROID_ROOT/framework/core.art \
+    $DEBUG_OPTION \
+    $PROFILE_OPTION \
+    "$@"
+
 ANDROID_DATA=$ANDROID_DATA \
   ANDROID_ROOT=$ANDROID_ROOT \
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH \
@@ -103,6 +157,7 @@ ANDROID_DATA=$ANDROID_DATA \
     -Xnorelocate \
     -Ximage:$ANDROID_ROOT/framework/core.art \
     $DEBUG_OPTION \
+    $PROFILE_OPTION \
     "$@"
 
 EXIT_STATUS=$?
