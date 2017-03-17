@@ -15,6 +15,7 @@
  */
 
 #include "method_verifier-inl.h"
+#include "method_verifier_stats.h"
 
 #include <iostream>
 
@@ -592,6 +593,7 @@ MethodVerifier::MethodVerifier(Thread* self,
 }
 
 MethodVerifier::~MethodVerifier() {
+  verifier_stats_.Log();
   Thread::Current()->PopVerifier(this);
   STLDeleteElements(&failure_messages_);
 }
@@ -897,9 +899,10 @@ bool MethodVerifier::Verify() {
 }
 
 std::ostream& MethodVerifier::Fail(VerifyError error) {
+  verifier_stats_.RecordStat(error);
   // Mark the error type as encountered.
   encountered_failure_types_ |= static_cast<uint32_t>(error);
-
+  LogStats(error);
   switch (error) {
     case VERIFY_ERROR_NO_CLASS:
     case VERIFY_ERROR_NO_FIELD:
@@ -968,6 +971,45 @@ std::ostream& MethodVerifier::Fail(VerifyError error) {
   std::ostringstream* failure_message = new std::ostringstream(location, std::ostringstream::ate);
   failure_messages_.push_back(failure_message);
   return *failure_message;
+}
+
+void MethodVerifier::LogStats() {
+  case VERIFY_ERROR_BAD_CLASS_HARD:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorBadClassHard);
+  break;
+  case VERIFY_ERROR_BAD_CLASS_SOFT:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorBadClassSoft);
+  break;
+  case VERIFY_ERROR_NO_CLASS:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorNoClass);
+  break;
+  case VERIFY_ERROR_NO_FIELD:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorNoField);
+  break;
+  case VERIFY_ERROR_NO_METHOD:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorNoMethod);
+  break;
+  case VERIFY_ERROR_ACCESS_CLASS:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorAccessClass);
+  break;
+  case VERIFY_ERROR_ACCESS_FIELD:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorAccessField);
+  break;
+  case VERIFY_ERROR_ACCESS_METHOD:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorAccessMethod);
+  break;
+  case VERIFY_ERROR_CLASS_CHANGE:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorClassChange);
+  break;
+  case VERIFY_ERROR_INSTANTIATION:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorInstantiation);
+  break;
+  case VERIFY_ERROR_FORCE_INTERPRETER:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorForceInterpreter);
+  break;
+  case VERIFY_ERROR_LOCKING:
+    verifier_stats_.RecordStat(MethodVerifierStats.kVerifyErrorLocking);
+  break;
 }
 
 std::ostream& MethodVerifier::LogVerifyInfo() {

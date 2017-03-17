@@ -99,6 +99,7 @@ enum VerifyError {
   VERIFY_ERROR_LOCKING = 2048,            // Could not guarantee balanced locking. This should be
                                           // punted to the interpreter with access checks.
 };
+#include "method_verifier_stats.h"
 std::ostream& operator<<(std::ostream& os, const VerifyError& rhs);
 
 // We don't need to store the register data for many instructions, because we either only need
@@ -304,7 +305,9 @@ class MethodVerifier {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void UninstantiableError(const char* descriptor);
+  void LogStats(VerifyError error);
   static bool IsInstantiableOrPrimitive(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+  MethodVerifierStats verifier_stats_;
 
   // Is the method being verified a constructor? See the comment on the field.
   bool IsConstructor() const {
