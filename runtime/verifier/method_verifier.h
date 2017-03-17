@@ -31,6 +31,7 @@
 #include "handle.h"
 #include "instruction_flags.h"
 #include "method_reference.h"
+#include "method_verifier_stats.h"
 #include "register_line.h"
 #include "reg_type_cache.h"
 #include "verifier_log_mode.h"
@@ -305,6 +306,7 @@ class MethodVerifier {
 
   void UninstantiableError(const char* descriptor);
   static bool IsInstantiableOrPrimitive(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+  MethodVerifierStats verifier_stats_;
 
   // Is the method being verified a constructor? See the comment on the field.
   bool IsConstructor() const {

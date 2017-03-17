@@ -15,6 +15,7 @@
  */
 
 #include "method_verifier-inl.h"
+#include "method_verifier_stats.h"
 
 #include <iostream>
 
@@ -592,6 +593,7 @@ MethodVerifier::MethodVerifier(Thread* self,
 }
 
 MethodVerifier::~MethodVerifier() {
+  verifier_stats_.Log();
   Thread::Current()->PopVerifier(this);
   STLDeleteElements(&failure_messages_);
 }
@@ -897,6 +899,7 @@ bool MethodVerifier::Verify() {
 }
 
 std::ostream& MethodVerifier::Fail(VerifyError error) {
+  verifier_stats_.RecordStat(error);
   // Mark the error type as encountered.
   encountered_failure_types_ |= static_cast<uint32_t>(error);
 
