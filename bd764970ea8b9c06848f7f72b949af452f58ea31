@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb60b524_0e8a4e28",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-17T12:57:52Z",
+      "side": 1,
+      "message": "Can you guarantee that memcpy() is non-tearing?",
+      "range": {
+        "startLine": 2674,
+        "startChar": 18,
+        "endLine": 2674,
+        "endChar": 24
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e26c94e_34fe1c49",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-17T12:57:52Z",
+      "side": 1,
+      "message": "SetOut()?",
+      "range": {
+        "startLine": 2684,
+        "startChar": 13,
+        "endLine": 2684,
+        "endChar": 20
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
