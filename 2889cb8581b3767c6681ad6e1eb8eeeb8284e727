@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d90568_819ea176",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-17T16:45:27Z",
+      "side": 1,
+      "message": "Use kPageSize from globals.h instead of adding a new constant?",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 39
+      },
+      "revId": "2889cb8581b3767c6681ad6e1eb8eeeb8284e727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
