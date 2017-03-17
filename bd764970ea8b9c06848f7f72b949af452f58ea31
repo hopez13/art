@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5eb4f409_a720a4bb",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-17T17:46:41Z",
+      "side": 1,
+      "message": "Can you guarantee that memcpy() shall never try to copy a java \"char\" (i.e. 16-bit) as two 8-bit bytes (with LB/SB)? System.arraycopy() guarantees atomicity at the element level.",
+      "parentUuid": "6056d05a_1dbe4f1b",
+      "range": {
+        "startLine": 2674,
+        "startChar": 18,
+        "endLine": 2674,
+        "endChar": 24
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e26c94e_34fe1c49",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 4
