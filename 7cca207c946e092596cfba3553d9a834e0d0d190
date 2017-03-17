@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "52a0601d_642147ea",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04307e1a_593dec05",
+      "range": {
+        "startLine": 2050,
+        "startChar": 5,
+        "endLine": 2050,
+        "endChar": 48
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5949cdc_b8f319c6",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-16T21:35:21Z",
       "side": 1,
       "message": "Remove \"or two\".",
+      "range": {
+        "startLine": 2051,
+        "startChar": 69,
+        "endLine": 2051,
+        "endChar": 76
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe2e189_94e1c9a5",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5949cdc_b8f319c6",
       "range": {
         "startLine": 2051,
         "startChar": 69,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "f83c5157_a5c66d09",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2065,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff3cb27_695ecfff",
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74d4c059_795d9786",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-03-16T21:35:21Z",
       "side": 1,
       "message": "Move the constant here.",
+      "range": {
+        "startLine": 2074,
+        "startChar": 37,
+        "endLine": 2074,
+        "endChar": 44
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3229ae3c_7a65d2a6",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d4c059_795d9786",
       "range": {
         "startLine": 2074,
         "startChar": 37,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "79f5934c_dce898ff",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2083,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7dd0161_a75d24bf",
+      "range": {
+        "startLine": 2083,
+        "startChar": 80,
+        "endLine": 2083,
+        "endChar": 87
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42f0408_92eb2ae5",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2017-03-16T21:35:21Z",
       "side": 1,
       "message": "We just merged https://android-review.googlesource.com/#/c/350590/, which introduces StoreConstToOffset() that needs similar treatment.",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 43
+      },
+      "revId": "7cca207c946e092596cfba3553d9a834e0d0d190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49eb91d1_2e1f0da3",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T01:23:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42f0408_92eb2ae5",
       "range": {
         "startLine": 864,
         "startChar": 0,
