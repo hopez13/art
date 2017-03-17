@@ -304,7 +304,9 @@ class MethodVerifier {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void UninstantiableError(const char* descriptor);
+  void LogStats(VerifyError error);
   static bool IsInstantiableOrPrimitive(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+  MethodVerifierStats verifier_stats_;
 
   // Is the method being verified a constructor? See the comment on the field.
   bool IsConstructor() const {
