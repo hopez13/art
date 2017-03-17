@@ -596,7 +596,11 @@ bool HInliner::TryInlineMonomorphicCall(HInvoke* invoke_instruction,
     resolved_method = GetMonomorphicType(classes)->FindVirtualMethodForVirtual(
         resolved_method, pointer_size);
   }
-  DCHECK(resolved_method != nullptr);
+  if (resolved_method == nullptr) {
+    // Bogus AOT profile, bail.
+    DCHECK(Runtime::Current()->IsAotCompiler());
+    return false;
+  }
   HInstruction* receiver = invoke_instruction->InputAt(0);
   HInstruction* cursor = invoke_instruction->GetPrevious();
   HBasicBlock* bb_cursor = invoke_instruction->GetBlock();
@@ -739,6 +743,14 @@ bool HInliner::TryInlinePolymorphicCall(HInvoke* invoke_instruction,
       method = handle->FindVirtualMethodForVirtual(resolved_method, pointer_size);
     }
 
+    if (method == nullptr) {
+      DCHECK(Runtime::Current()->IsAotCompiler());
+      // AOT profile is bogus. This loop expects to iterate over all entries,
+      // so just just continue.
+      all_targets_inlined = false;
+      continue;
+    }
+
     HInstruction* receiver = invoke_instruction->InputAt(0);
     HInstruction* cursor = invoke_instruction->GetPrevious();
     HBasicBlock* bb_cursor = invoke_instruction->GetBlock();
@@ -780,7 +792,7 @@ bool HInliner::TryInlinePolymorphicCall(HInvoke* invoke_instruction,
         }
         invoke_instruction->GetBlock()->RemoveInstruction(invoke_instruction);
         // Because the inline cache data can be populated concurrently, we force the end of the
-        // iteration. Otherhwise, we could see a new receiver type.
+        // iteration. Otherwise, we could see a new receiver type.
         break;
       } else {
         CreateDiamondPatternForPolymorphicInline(compare, return_replacement, invoke_instruction);
