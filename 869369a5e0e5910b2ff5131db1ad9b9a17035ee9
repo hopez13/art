@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83aa4fee_980763e6",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:53:33Z",
+      "side": 1,
+      "message": "Maybe improve the comment: \"timeout for individual tests. TODO: make it adjustable per tests and for buildbots\".",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "869369a5e0e5910b2ff5131db1ad9b9a17035ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c92e91e4_ca62cc51",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:53:33Z",
+      "side": 1,
+      "message": "use the \"timeout\" variable?",
+      "range": {
+        "startLine": 759,
+        "startChar": 43,
+        "endLine": 759,
+        "endChar": 47
+      },
+      "revId": "869369a5e0e5910b2ff5131db1ad9b9a17035ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
