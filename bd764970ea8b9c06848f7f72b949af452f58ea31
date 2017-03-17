@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "288792b9_22a0bea1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T18:43:02Z",
+      "side": 1,
+      "message": "Is non-tearing also a requirement for the StringGetCharsNoCheck intrinsic?",
+      "parentUuid": "5eb4f409_a720a4bb",
+      "range": {
+        "startLine": 2674,
+        "startChar": 18,
+        "endLine": 2674,
+        "endChar": 24
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e26c94e_34fe1c49",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 4
