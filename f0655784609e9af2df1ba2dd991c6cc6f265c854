@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f03f5da_3460bd67",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:50:48Z",
+      "side": 1,
+      "message": "true?",
+      "range": {
+        "startLine": 68,
+        "startChar": 17,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "f0655784609e9af2df1ba2dd991c6cc6f265c854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98dfc341_6df51949",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:50:48Z",
+      "side": 1,
+      "message": "Add a comment \"Create profile file\".",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "f0655784609e9af2df1ba2dd991c6cc6f265c854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c71d667_368a0a49",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:50:48Z",
+      "side": 1,
+      "message": "Per the email conversation with Richard, you probably want to invoke dex2oat explicitly here, and have the generated speed-profile oat file be picked up by the next dalvikvm invocaiton.",
+      "revId": "f0655784609e9af2df1ba2dd991c6cc6f265c854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bc54843_b0633274",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-17T09:50:48Z",
+      "side": 1,
+      "message": "I don\u0027t think you intended to add this.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 8
+      },
+      "revId": "f0655784609e9af2df1ba2dd991c6cc6f265c854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
