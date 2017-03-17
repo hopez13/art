@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "634bdb9d_8dc4124a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-17T15:44:11Z",
+      "side": 1,
+      "message": "I don\u0027t think this function should be responsible for the check. It could be reused for SystemArrayCopyChar in future.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "601206bfdc2065bb4c448a2f91907c675acae3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "732ef07d_4dbb9408",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-17T15:44:11Z",
+      "side": 1,
+      "message": "What\u0027s the difference between GenSystemArrayCopyBaseSourceAddress() and GenSystemArrayCopyBaseDestinationAddress()? They look quite identical.",
+      "revId": "601206bfdc2065bb4c448a2f91907c675acae3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
