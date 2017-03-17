@@ -7020,13 +7020,16 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
   uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
   uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
   uint32_t primitive_offset = mirror::Class::PrimitiveTypeOffset().Int32Value();
-  Label done, zero;
+  Label done;
+  Label* const final_label = codegen_->GetFinalLabel(instruction, &done);
   SlowPathCodeARM* slow_path = nullptr;
 
   // Return 0 if `obj` is null.
   // avoid null check if we know obj is not null.
   if (instruction->MustDoNullCheck()) {
-    __ CompareAndBranchIfZero(obj, &zero);
+    DCHECK_NE(out, obj);
+    __ LoadImmediate(out, 0);
+    __ CompareAndBranchIfZero(obj, final_label);
   }
 
   switch (type_check_kind) {
@@ -7039,10 +7042,17 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
                                         maybe_temp_loc,
                                         kCompilerReadBarrierOption);
       __ cmp(out, ShifterOperand(cls));
+      __ mov(out, ShifterOperand(0), AL, kCcKeep);
+
       // Classes must be equal for the instanceof to succeed.
-      __ b(&zero, NE);
-      __ LoadImmediate(out, 1);
-      __ b(&done);
+      if (ArmAssembler::IsLowRegister(out)) {
+        __ it(EQ);
+        __ mov(out, ShifterOperand(1), EQ);
+      } else {
+        __ b(final_label, NE);
+        __ LoadImmediate(out, 1);
+      }
+
       break;
     }
 
@@ -7064,14 +7074,11 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
                                        super_offset,
                                        maybe_temp_loc,
                                        kCompilerReadBarrierOption);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ CompareAndBranchIfZero(out, &done);
+      // If `out` is null, we use it for the result, and jump to the final label.
+      __ CompareAndBranchIfZero(out, final_label);
       __ cmp(out, ShifterOperand(cls));
       __ b(&loop, NE);
       __ LoadImmediate(out, 1);
-      if (zero.IsLinked()) {
-        __ b(&done);
-      }
       break;
     }
 
@@ -7095,13 +7102,26 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
                                        maybe_temp_loc,
                                        kCompilerReadBarrierOption);
       __ CompareAndBranchIfNonZero(out, &loop);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ b(&done);
-      __ Bind(&success);
-      __ LoadImmediate(out, 1);
-      if (zero.IsLinked()) {
-        __ b(&done);
+
+      if (ArmAssembler::IsLowRegister(out)) {
+        // If `out` is null, we use it for the result, and we set the condition
+        // flags to `NE`, so that the IT block that comes afterwards (and which
+        // handles the successful case) turns into a NOP (instead of overwriting
+        // `out`).
+        __ cmp(out, ShifterOperand(1));
+        __ Bind(&success);
+        // There is only one branch to the `success` label (which is bound to this
+        // IT block), and it has the same condition, `EQ`, so in that case the MOV
+        // is executed.
+        __ it(EQ);
+        __ mov(out, ShifterOperand(1), EQ);
+      } else {
+        // If `out` is null, we use it for the result, and jump to the final label.
+        __ b(final_label);
+        __ Bind(&success);
+        __ LoadImmediate(out, 1);
       }
+
       break;
     }
 
@@ -7124,14 +7144,23 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
                                        component_offset,
                                        maybe_temp_loc,
                                        kCompilerReadBarrierOption);
-      // If `out` is null, we use it for the result, and jump to `done`.
-      __ CompareAndBranchIfZero(out, &done);
+      // If `out` is null, we use it for the result, and jump to the final label.
+      __ CompareAndBranchIfZero(out, final_label);
       __ LoadFromOffset(kLoadUnsignedHalfword, out, out, primitive_offset);
       static_assert(Primitive::kPrimNot == 0, "Expected 0 for kPrimNot");
-      __ CompareAndBranchIfNonZero(out, &zero);
-      __ Bind(&exact_check);
-      __ LoadImmediate(out, 1);
-      __ b(&done);
+      __ cmp(out, ShifterOperand(0));
+      __ mov(out, ShifterOperand(0), AL, kCcKeep);
+
+      if (ArmAssembler::IsLowRegister(out)) {
+        __ Bind(&exact_check);
+        __ it(EQ);
+        __ mov(out, ShifterOperand(1), EQ);
+      } else {
+        __ b(final_label, NE);
+        __ Bind(&exact_check);
+        __ LoadImmediate(out, 1);
+      }
+
       break;
     }
 
@@ -7151,9 +7180,6 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
       codegen_->AddSlowPath(slow_path);
       __ b(slow_path->GetEntryLabel(), NE);
       __ LoadImmediate(out, 1);
-      if (zero.IsLinked()) {
-        __ b(&done);
-      }
       break;
     }
 
@@ -7182,16 +7208,8 @@ void InstructionCodeGeneratorARM::VisitInstanceOf(HInstanceOf* instruction) {
                                                                     /* is_fatal */ false);
       codegen_->AddSlowPath(slow_path);
       __ b(slow_path->GetEntryLabel());
-      if (zero.IsLinked()) {
-        __ b(&done);
-      }
       break;
     }
-  }
-
-  if (zero.IsLinked()) {
-    __ Bind(&zero);
-    __ LoadImmediate(out, 0);
   }
 
   if (done.IsLinked()) {
