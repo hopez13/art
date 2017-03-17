@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86e21258_cd017d07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-17T00:11:46Z",
+      "side": 1,
+      "message": "That\u0027s a load of bull.\n\nCustom classloader, and recursive function calling itself via reflection will trigger the first one.\n\n(The second one would be finicky, agreed.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "cc9d1cbb1fb3dfb8fc5a395982afaebaecbc90e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
