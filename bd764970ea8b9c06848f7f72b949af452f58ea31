@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6056d05a_1dbe4f1b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T17:39:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean by non-tearing. Are you asking if memcpy() is thread safe?\n\nMIPS is more like ARM than like x86, and the ARM code just has a simple loop to copy one character at a time. I don\u0027t see anything that marks the loop as being a critical code section.",
+      "parentUuid": "cb60b524_0e8a4e28",
+      "range": {
+        "startLine": 2674,
+        "startChar": 18,
+        "endLine": 2674,
+        "endChar": 24
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e26c94e_34fe1c49",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-17T12:57:52Z",
       "side": 1,
       "message": "SetOut()?",
+      "range": {
+        "startLine": 2684,
+        "startChar": 13,
+        "endLine": 2684,
+        "endChar": 20
+      },
+      "revId": "bd764970ea8b9c06848f7f72b949af452f58ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e542cfb3_084ac245",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-17T17:39:32Z",
+      "side": 1,
+      "message": "This AddTemp, and the 3 calls to AddTemp a few lines up reserve as temporary registers the 3 input registers, and the one return value (aka output) register for the exclusive use of memcpy() because memcpy() uses the normal MIPS linkage conventions, and memcpy() returns a value. Even though the intrinsic function doesn\u0027t make use of memcpy\u0027s return value, the normal MIPS return value register is reserved here to ensure that the compiler doesn\u0027t allocate the return register for some other use; this prevents memcpy() to trashing a temporary value is the register which might still be needed in some other part of the code.\n\nAs I understand it SetOut would be used to reserve a return value (output) register for the intrinsic function (i.e. arraycopy()) but the intrinsic function is declared as having a void return type so no register needs to be allocated to return a value from the intrinsic.",
+      "parentUuid": "3e26c94e_34fe1c49",
       "range": {
         "startLine": 2684,
         "startChar": 13,
