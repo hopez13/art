@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "288eb8f9_0c067a38",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-18T09:46:39Z",
+      "side": 1,
+      "message": "That was on purpose. I added a comment.",
+      "parentUuid": "634bdb9d_8dc4124a",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "601206bfdc2065bb4c448a2f91907c675acae3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "732ef07d_4dbb9408",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2017-03-17T15:44:11Z",
       "side": 1,
       "message": "What\u0027s the difference between GenSystemArrayCopyBaseSourceAddress() and GenSystemArrayCopyBaseDestinationAddress()? They look quite identical.",
+      "revId": "601206bfdc2065bb4c448a2f91907c675acae3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2610f43f_880656f3",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-03-18T09:46:39Z",
+      "side": 1,
+      "message": "Good point; I\u0027ve refactored them.",
+      "parentUuid": "732ef07d_4dbb9408",
       "revId": "601206bfdc2065bb4c448a2f91907c675acae3a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
