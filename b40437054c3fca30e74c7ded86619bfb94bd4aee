@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5fe3e04_60ee9a96",
+        "filename": "runtime/arch/mips64/instruction_set_features_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-20T17:13:36Z",
+      "side": 1,
+      "message": "I see the point adding this to the same test and reuse the default pointer. But since they are testing \"different\" variants, I would have a tiny preference making this a second test (first on default, second on r6) and just requesting the FromVariant default again to test equivalence (if they are ever different, that would keep the others valid and just require removing one line)",
+      "revId": "b40437054c3fca30e74c7ded86619bfb94bd4aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
