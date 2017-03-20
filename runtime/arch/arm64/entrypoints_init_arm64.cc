@@ -70,6 +70,10 @@ extern "C" mirror::Object* art_quick_read_barrier_mark_reg27(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg28(mirror::Object*);
 extern "C" mirror::Object* art_quick_read_barrier_mark_reg29(mirror::Object*);
 
+extern "C" mirror::Object* art_quick_read_barrier_mark_introspection(mirror::Object*);
+extern "C" mirror::Object* art_quick_read_barrier_mark_introspection_arrays(mirror::Object*);
+extern "C" mirror::Object* art_quick_read_barrier_mark_introspection_gc_roots(mirror::Object*);
+
 void UpdateReadBarrierEntrypoints(QuickEntryPoints* qpoints, bool is_marking) {
   // ARM64 is the architecture with the largest number of core
   // registers (32) that supports the read barrier configuration.
@@ -109,6 +113,18 @@ void UpdateReadBarrierEntrypoints(QuickEntryPoints* qpoints, bool is_marking) {
   qpoints->pReadBarrierMarkReg27 = is_marking ? art_quick_read_barrier_mark_reg27 : nullptr;
   qpoints->pReadBarrierMarkReg28 = is_marking ? art_quick_read_barrier_mark_reg28 : nullptr;
   qpoints->pReadBarrierMarkReg29 = is_marking ? art_quick_read_barrier_mark_reg29 : nullptr;
+
+  // Check that array switch cases are at appropriate offsets from the introspection entrypoint.
+  DCHECK_ALIGNED(art_quick_read_barrier_mark_introspection, 512u);
+  uintptr_t array_diff =
+      reinterpret_cast<uintptr_t>(art_quick_read_barrier_mark_introspection_arrays) -
+      reinterpret_cast<uintptr_t>(art_quick_read_barrier_mark_introspection);
+  DCHECK_EQ(0x100u, array_diff);
+  uintptr_t gc_roots_diff =
+      reinterpret_cast<uintptr_t>(art_quick_read_barrier_mark_introspection_gc_roots) -
+      reinterpret_cast<uintptr_t>(art_quick_read_barrier_mark_introspection);
+  DCHECK_EQ(0x300u, gc_roots_diff);
+  qpoints->pReadBarrierMarkReg16 = is_marking ? art_quick_read_barrier_mark_introspection : nullptr;
 }
 
 void InitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qpoints) {
