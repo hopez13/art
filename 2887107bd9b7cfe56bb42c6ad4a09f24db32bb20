@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54b78af9_06ba738f",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-20T15:54:55Z",
+      "side": 1,
+      "message": "Can\u0027t you just append a new --compiler-filter argument to the end to overwrite any existing --compiler-filter arguments?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900f6949_a32ebbfe",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-20T15:54:55Z",
+      "side": 1,
+      "message": "funny indent",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 3
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61e714ef_27e4d0b9",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-20T15:54:55Z",
+      "side": 1,
+      "message": "Why not do the first invocation with a different DALVIK_CACHE directory and simply delete the entire directory?",
+      "range": {
+        "startLine": 136,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
