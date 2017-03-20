@@ -112,7 +112,7 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
     // There may be a thunk before method2.
     if (last_result.second != last_method_offset) {
       // Thunk present. Check that there's only one.
-      uint32_t thunk_end = CompiledCode::AlignCode(gap_end, kArm64) + ThunkSize();
+      uint32_t thunk_end = CompiledCode::AlignCode(gap_end, kArm64) + MethodCallThunkSize();
       uint32_t header_offset = thunk_end + CodeAlignmentSize(thunk_end);
       CHECK_EQ(last_result.second, header_offset + sizeof(OatQuickMethodHeader));
     }
@@ -126,24 +126,29 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
     return result.second;
   }
 
-  uint32_t ThunkSize() {
-    return static_cast<Arm64RelativePatcher*>(patcher_.get())->thunk_code_.size();
+  std::vector<uint8_t> CompileMethodCallThunk() {
+    ArmBaseRelativePatcher::ThunkKey key(ArmBaseRelativePatcher::ThunkType::kMethodCall,
+                                         ArmBaseRelativePatcher::ThunkParams{{ 0, 0 }});
+    return static_cast<Arm64RelativePatcher*>(patcher_.get())->CompileThunk(key);
+  }
+
+  uint32_t MethodCallThunkSize() {
+    return CompileMethodCallThunk().size();
   }
 
   bool CheckThunk(uint32_t thunk_offset) {
-    Arm64RelativePatcher* patcher = static_cast<Arm64RelativePatcher*>(patcher_.get());
-    ArrayRef<const uint8_t> expected_code(patcher->thunk_code_);
+    const std::vector<uint8_t> expected_code = CompileMethodCallThunk();
     if (output_.size() < thunk_offset + expected_code.size()) {
       LOG(ERROR) << "output_.size() == " << output_.size() << " < "
           << "thunk_offset + expected_code.size() == " << (thunk_offset + expected_code.size());
       return false;
     }
     ArrayRef<const uint8_t> linked_code(&output_[thunk_offset], expected_code.size());
-    if (linked_code == expected_code) {
+    if (linked_code == ArrayRef<const uint8_t>(expected_code)) {
       return true;
     }
     // Log failure info.
-    DumpDiff(expected_code, linked_code);
+    DumpDiff(ArrayRef<const uint8_t>(expected_code), linked_code);
     return false;
   }
 
@@ -329,7 +334,7 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
     InsertInsn(&expected_thunk_code, 4u, b_in);
     ASSERT_EQ(expected_thunk_code.size(), 8u);
 
-    uint32_t thunk_size = ThunkSize();
+    uint32_t thunk_size = MethodCallThunkSize();
     ASSERT_EQ(thunk_offset + thunk_size, output_.size());
     ASSERT_EQ(thunk_size, expected_thunk_code.size());
     ArrayRef<const uint8_t> thunk_code(&output_[thunk_offset], thunk_size);
@@ -620,9 +625,10 @@ TEST_F(Arm64RelativePatcherTestDefault, CallOtherJustTooFarAfter) {
   uint32_t last_method_offset = GetMethodOffset(last_method_idx);
   ASSERT_TRUE(IsAligned<kArm64Alignment>(last_method_offset));
   uint32_t last_method_header_offset = last_method_offset - sizeof(OatQuickMethodHeader);
+  uint32_t thunk_size = MethodCallThunkSize();
   uint32_t thunk_offset =
-      RoundDown(last_method_header_offset - ThunkSize(), GetInstructionSetAlignment(kArm64));
-  DCHECK_EQ(thunk_offset + ThunkSize() + CodeAlignmentSize(thunk_offset + ThunkSize()),
+      RoundDown(last_method_header_offset - thunk_size, GetInstructionSetAlignment(kArm64));
+  DCHECK_EQ(thunk_offset + thunk_size + CodeAlignmentSize(thunk_offset + thunk_size),
             last_method_header_offset);
   uint32_t diff = thunk_offset - (method1_offset + bl_offset_in_method1);
   CHECK_ALIGNED(diff, 4u);
