@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "822b1cd2_48bfa55a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-20T17:57:20Z",
+      "side": 1,
+      "message": "note I can use \"movups\" here and save a byte per instruction in code size, but for now I kept the \"type\" consistent; let me know what you prefer",
+      "revId": "98b56b62d1c85ee019e08ed9ddfd66fcb6364cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
