@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5ccf91c_6820f4b7",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-20T17:07:12Z",
+      "side": 1,
+      "message": "I don\u0027t want to rely on the order of flag parsing. Having just one --compiler-filter is cleaner imo",
+      "parentUuid": "54b78af9_06ba738f",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "900f6949_a32ebbfe",
         "filename": "tools/art",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "994fb4e9_b99c6389",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-20T17:07:12Z",
+      "side": 1,
+      "message": "I\u0027ll fix.",
+      "parentUuid": "900f6949_a32ebbfe",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 3
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61e714ef_27e4d0b9",
         "filename": "tools/art",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-20T15:54:55Z",
       "side": 1,
       "message": "Why not do the first invocation with a different DALVIK_CACHE directory and simply delete the entire directory?",
+      "range": {
+        "startLine": 136,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9e81e19_1d0ca238",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-20T17:07:12Z",
+      "side": 1,
+      "message": "Good alternative but it will make things more annoying  on device runs...",
+      "parentUuid": "61e714ef_27e4d0b9",
       "range": {
         "startLine": 136,
         "startChar": 1,
