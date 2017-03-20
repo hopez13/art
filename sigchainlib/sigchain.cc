@@ -221,7 +221,7 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   if ((handler_flags & SA_NODEFER)) {
     sigdelset(&mask, signo);
   }
-  sigprocmask(SIG_SETMASK, &mask, nullptr);
+  linked_sigprocmask(SIG_SETMASK, &mask, nullptr);
 
   if ((handler_flags & SA_SIGINFO)) {
     chains[signo].action_.sa_sigaction(signo, siginfo, ucontext_raw);
