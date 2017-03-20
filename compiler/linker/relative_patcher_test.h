@@ -169,6 +169,10 @@ class RelativePatcherTest : public testing::Test {
                                                patch,
                                                offset + patch.LiteralOffset(),
                                                target_offset);
+          } else if (patch.GetType() == LinkerPatch::Type::kBakerReadBarrierBranch) {
+            patcher_->PatchBakerReadBarrierBranch(&patched_code_,
+                                                  patch,
+                                                  offset + patch.LiteralOffset());
           } else {
             LOG(FATAL) << "Bad patch type. " << patch.GetType();
             UNREACHABLE();
