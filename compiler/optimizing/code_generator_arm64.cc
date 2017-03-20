@@ -25,6 +25,7 @@
 #include "gc/accounting/card_table.h"
 #include "intrinsics.h"
 #include "intrinsics_arm64.h"
+#include "linker/arm64/relative_patcher_arm64.h"
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "offsets.h"
@@ -1411,6 +1412,7 @@ CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
                                graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       pc_relative_type_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       type_bss_entry_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
+      baker_read_barrier_patches_(graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       jit_string_patches_(StringReferenceValueComparator(),
                           graph->GetArena()->Adapter(kArenaAllocCodeGenerator)),
       jit_class_patches_(TypeReferenceValueComparator(),
@@ -4510,6 +4512,11 @@ vixl::aarch64::Label* CodeGeneratorARM64::NewPcRelativeDexCacheArrayPatch(
   return NewPcRelativePatch(dex_file, element_offset, adrp_label, &pc_relative_dex_cache_patches_);
 }
 
+vixl::aarch64::Label* CodeGeneratorARM64::NewBakerReadBarrierPatch(uint32_t custom_data) {
+  baker_read_barrier_patches_.emplace_back(custom_data);
+  return &baker_read_barrier_patches_.back().label;
+}
+
 vixl::aarch64::Label* CodeGeneratorARM64::NewPcRelativePatch(
     const DexFile& dex_file,
     uint32_t offset_or_index,
@@ -4608,7 +4615,8 @@ void CodeGeneratorARM64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patc
       pc_relative_string_patches_.size() +
       boot_image_type_patches_.size() +
       pc_relative_type_patches_.size() +
-      type_bss_entry_patches_.size();
+      type_bss_entry_patches_.size() +
+      baker_read_barrier_patches_.size();
   linker_patches->reserve(size);
   for (const PcRelativePatchInfo& info : pc_relative_dex_cache_patches_) {
     linker_patches->push_back(LinkerPatch::DexCacheArrayPatch(info.label.GetLocation(),
@@ -4641,6 +4649,10 @@ void CodeGeneratorARM64::EmitLinkerPatches(ArenaVector<LinkerPatch>* linker_patc
     linker_patches->push_back(LinkerPatch::TypePatch(literal->GetOffset(),
                                                      target_type.dex_file,
                                                      target_type.type_index.index_));
+  }
+  for (const BakerReadBarrierPatchInfo& info : baker_read_barrier_patches_) {
+    linker_patches->push_back(LinkerPatch::BakerReadBarrierBranchPatch(info.label.GetLocation(),
+                                                                       info.custom_data));
   }
   DCHECK_EQ(size, linker_patches->size());
 }
@@ -5991,6 +6003,36 @@ void CodeGeneratorARM64::GenerateReferenceLoadWithBakerReadBarrier(HInstruction*
   // entrypoint will already be loaded in `temp2`.
   Register temp2 = lr;
   Location temp2_loc = LocationFrom(temp2);
+  if ((instruction->IsStaticFieldGet() || instruction->IsInstanceFieldGet()) &&
+      offset < 16384 &&
+      !always_update_field &&
+      !use_load_acquire &&
+      !Runtime::Current()->UseJitCompilation()) {
+    DCHECK(!index.IsValid());
+    UseScratchRegisterScope temps(GetVIXLAssembler());
+    temps.Exclude(ip0, ip1);
+    // ip1 = Thread::Current()->pReadBarrierMarkReg16, i.e. pReadBarrierMarkIntrospection.
+    const int32_t entry_point_offset =
+        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(ip0.GetCode());
+    uint32_t custom_data = linker::Arm64RelativePatcher::EncodeBakerReadBarrierData(
+        linker::Arm64RelativePatcher::BakerReadBarrierKind::kOffset,
+        obj.GetCode(),
+        obj.GetCode());
+    vixl::aarch64::Label* cbnz_label = NewBakerReadBarrierPatch(custom_data);
+
+    __ Ldr(ip1, MemOperand(tr, entry_point_offset));
+    EmissionCheckScope guard(GetVIXLAssembler(), 3 * vixl::aarch64::kInstructionSize);
+    vixl::aarch64::Label return_address;
+    __ adr(lr, &return_address);
+    __ Bind(cbnz_label);
+    __ cbnz(ip1, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
+    __ ldr(RegisterFrom(ref, Primitive::kPrimNot), MemOperand(obj.X(), offset));
+    if (needs_null_check) {
+      MaybeRecordImplicitNullCheck(instruction);
+    }
+    __ Bind(&return_address);
+    return;
+  }
   SlowPathCodeARM64* slow_path;
   if (always_update_field) {
     // LoadReferenceWithBakerReadBarrierAndUpdateFieldSlowPathARM64
