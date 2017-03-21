@@ -22,6 +22,30 @@
       "revId": "bcc65c17f6c4548ef0223ac79f279aa7401d1b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e27d491_63c534c2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5715,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-21T16:03:24Z",
+      "side": 1,
+      "message": "Yes, that was the proposal in my design doc.\n\nIf you look in the quick entry points, the suspend point does SETUP_SAVE/RESTORE_EVERYTHING_FRAME. This in turns looks as follows. So instead of 16x8 bytes, this will become 16x16 bytes, and wider moves.\n\n   // Save FPRs.\n    movq %xmm0, 8(%rsp)\n    movq %xmm1, 16(%rsp)\n    movq %xmm2, 24(%rsp)\n    movq %xmm3, 32(%rsp)\n    movq %xmm4, 40(%rsp)\n    movq %xmm5, 48(%rsp)\n    movq %xmm6, 56(%rsp)\n    movq %xmm7, 64(%rsp)\n    movq %xmm8, 72(%rsp)\n    movq %xmm9, 80(%rsp)\n    movq %xmm10, 88(%rsp)\n    movq %xmm11, 96(%rsp)\n    movq %xmm12, 104(%rsp)\n    movq %xmm13, 112(%rsp)\n    movq %xmm14, 120(%rsp)\n    movq %xmm15, 128(%rsp)",
+      "parentUuid": "25177652_430730e9",
+      "range": {
+        "startLine": 5715,
+        "startChar": 30,
+        "endLine": 5715,
+        "endChar": 78
+      },
+      "revId": "bcc65c17f6c4548ef0223ac79f279aa7401d1b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
