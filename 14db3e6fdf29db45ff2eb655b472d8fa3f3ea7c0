@@ -22,6 +22,30 @@
       "revId": "14db3e6fdf29db45ff2eb655b472d8fa3f3ea7c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcf8d1c9_840836db",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-21T17:22:19Z",
+      "side": 1,
+      "message": "We simply don\u0027t try to devirtualize proxy method here since it\u0027s a generic invoker that\u0027s not for good performance anyway. It causes trouble when that proxy method is in another dex file.",
+      "parentUuid": "f6506270_f2e132bf",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 63
+      },
+      "revId": "14db3e6fdf29db45ff2eb655b472d8fa3f3ea7c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
