@@ -46,6 +46,30 @@
       "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf5b03a1_5f8c6c2d",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-21T17:28:32Z",
+      "side": 1,
+      "message": "Actually the exact answer is \"ExactAssemblyScope is required because VIXL assembler (not macroassembler) is used. IT instruction should be only used via assembler (not macroassembler)\".",
+      "parentUuid": "ba59562b_bdfbdd90",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 22
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
