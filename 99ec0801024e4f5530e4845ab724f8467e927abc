@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d6ca064_cbb6cc2b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:00:45Z",
+      "side": 1,
+      "message": "KeepClass could have side effects if it ends up calling PruneAppImageClassInternal. I think that\u0027s an unfortunate side of the API. Could we make KeepClass have no side-effect (and maybe rename it to IsClassKept)?",
+      "range": {
+        "startLine": 993,
+        "startChar": 17,
+        "endLine": 993,
+        "endChar": 26
+      },
+      "revId": "99ec0801024e4f5530e4845ab724f8467e927abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e35a0136_34de5909",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:00:45Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1042,
+        "endChar": 50
+      },
+      "revId": "99ec0801024e4f5530e4845ab724f8467e927abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efc1d94_cc45744c",
+        "filename": "test/159-app-image-fields/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:00:45Z",
+      "side": 1,
+      "message": "Add a comment that you\u0027re not checking -1, as there\u0027s no real guarantee we\u0027ll get a OOME.\n\nBut I think you should still check value is either 0 or -1.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "99ec0801024e4f5530e4845ab724f8467e927abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
