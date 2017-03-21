@@ -120,6 +120,9 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("");
   UsageError("  --create-profile-from=<filename>: creates a profile from a list of classes.");
   UsageError("");
+  UsageError("  --generate-methods=<boolean>: Generate the profile methods by adding every method");
+  UsageError("      in the list classes. Defaults to true.");
+  UsageError("");
   UsageError("");
   UsageError("  --dex-location=<string>: location string to use with corresponding");
   UsageError("      apk-fd to find dex files");
@@ -153,6 +156,7 @@ class ProfMan FINAL {
       dump_only_(false),
       dump_classes_(false),
       dump_output_to_fd_(kInvalidFd),
+      generate_methods_(true),
       test_profile_num_dex_(kDefaultTestProfileNumDex),
       test_profile_method_ratio_(kDefaultTestProfileMethodRatio),
       test_profile_class_ratio_(kDefaultTestProfileClassRatio),
@@ -188,6 +192,12 @@ class ProfMan FINAL {
         dump_classes_ = true;
       } else if (option.starts_with("--create-profile-from=")) {
         create_profile_from_file_ = option.substr(strlen("--create-profile-from=")).ToString();
+      } else if (option.starts_with("--generate-methods=")) {
+        std::string value = option.substr(strlen("--generate-methods=")).ToString();
+        if (value != "false" && value != "true") {
+          Usage("Invalid boolean for argument '%s'", option.data());
+        }
+        generate_methods_ = (value == "true");
       } else if (option.starts_with("--dump-output-to-fd=")) {
         ParseUintOption(option, "--dump-output-to-fd", &dump_output_to_fd_, Usage);
       } else if (option.starts_with("--profile-file=")) {
@@ -659,7 +669,26 @@ class ProfMan FINAL {
             dex_file->GetBaseLocation(),
             dex_file->GetLocationChecksum());
       dex_resolved_classes.first->AddClass(class_ref.type_index);
-      profile->AddMethodsAndClasses(std::vector<ProfileMethodInfo>(), resolved_class_set);
+      std::vector<ProfileMethodInfo> methods;
+      if (generate_methods_) {
+        const DexFile::ClassDef* class_def = dex_file->FindClassDef(class_ref.type_index);
+        const uint8_t* class_data = dex_file->GetClassData(*class_def);
+        if (class_data != nullptr) {
+          ClassDataItemIterator it(*dex_file, class_data);
+          while (it.HasNextStaticField() || it.HasNextInstanceField()) {
+            it.Next();
+          }
+          while (it.HasNextDirectMethod() || it.HasNextVirtualMethod()) {
+            if (it.GetMethodCodeItemOffset() != 0) {
+              // Add all of the methods that have code to the profile.
+              const uint32_t method_idx = it.GetMemberIndex();
+              methods.push_back(ProfileMethodInfo(dex_file, method_idx));
+            }
+            it.Next();
+          }
+        }
+      }
+      profile->AddMethodsAndClasses(methods, resolved_class_set);
       return true;
     }
 
@@ -833,6 +862,7 @@ class ProfMan FINAL {
   int dump_output_to_fd_;
   std::string test_profile_;
   std::string create_profile_from_file_;
+  bool generate_methods_;
   uint16_t test_profile_num_dex_;
   uint16_t test_profile_method_ratio_;
   uint16_t test_profile_class_ratio_;
