@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c52e147c_aacfc0cc",
+        "filename": "tools/art",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-21T18:06:38Z",
+      "side": 1,
+      "message": "for host yes, but on device we use the real dalvik cache which might contain the boot image and system apps.",
+      "parentUuid": "651fdccf_3149ba57",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "a6ae666f32d6d5f7ef7478fcbd42c033d7cf5fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05df6bc3_561181d1",
         "filename": "tools/art",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-21T14:39:26Z",
       "side": 1,
       "message": "Looks like --profile doesn\u0027t imply --speed-profile? Should you set it if you see the user did not provide any compiler filter?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 2
+      },
+      "revId": "a6ae666f32d6d5f7ef7478fcbd42c033d7cf5fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc62d9f4_9011f979",
+        "filename": "tools/art",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-21T18:06:38Z",
+      "side": 1,
+      "message": "That\u0027s intended. jeff is doing dexlayout even if we don\u0027t have --sped-profile. In case we add benchmarking for that this will come in handy.",
+      "parentUuid": "05df6bc3_561181d1",
       "range": {
         "startLine": 149,
         "startChar": 0,
