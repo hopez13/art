@@ -22,6 +22,30 @@
       "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba59562b_bdfbdd90",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-03-21T17:19:27Z",
+      "side": 1,
+      "message": "Yes, this ExactAssemblyScope is needed here because of the following it block.\nActually there are many similar usages of ExactAssemblyScope in this intrinsics_arm_vixl.cc file. If you think it\u0027s necessary, I\u0027m happy to add comments to all these places, not just for this scope here.",
+      "parentUuid": "ff86a81e_52a38cce",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 22
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
