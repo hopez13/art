@@ -56,7 +56,7 @@ static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 64;
 static constexpr size_t kMaximumCodeUnitSize = 4096;
 
 // Controls the use of inline caches in AOT mode.
-static constexpr bool kUseAOTInlineCaches = false;
+static constexpr bool kUseAOTInlineCaches = true;
 
 void HInliner::Run() {
   const CompilerOptions& compiler_options = compiler_driver_->GetCompilerOptions();

@@ -545,10 +545,10 @@ class ProfMan FINAL {
         continue;
       }
       dex::TypeIndex type_index = dex_file->GetIndexForTypeId(*type_id);
-      if (dex_file->FindClassDef(type_index) == nullptr) {
-        // Class is only referenced in the current dex file but not defined in it.
-        continue;
-      }
+      // if (dex_file->FindClassDef(type_index) == nullptr) {
+      //   // Class is only referenced in the current dex file but not defined in it.
+      //   continue;
+      // }
       class_ref->dex_file = dex_file;
       class_ref->type_index = type_index;
       return true;

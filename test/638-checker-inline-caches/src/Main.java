@@ -103,6 +103,10 @@ public class Main {
     return a.getValue();
   }
 
+  public static int inlineMonomorphicSubAArray(Super[] a) {
+    return a[0].getValue();
+  }
+
   /// CHECK-START: int Main.inlineMegamorphic(Super) inliner (before)
   /// CHECK:       InvokeVirtual method_name:Super.getValue
 
@@ -163,6 +167,14 @@ public class Main {
       throw new Error("Expected 24");
     }
 
+    if (inlineMonomorphicSubAArray(new SubA[] {new SubA()}) != 42) {
+      throw new Error("Expected 42");
+    }
+
+    if (inlineMonomorphicSubAArray(new SubC[] {new SubC()}) != 24) {
+      throw new Error("Expected 24");
+    }
+
     // Call with a different type than the one from the inline cache.
     if (inlinePolymophicCrossDexSubASubC(new SubB()) != 38) {
       throw new Error("Expected 38");
@@ -186,6 +198,7 @@ public class Main {
     testInlineMonomorphic();
     testInlinePolymorhic();
     testInlineMegamorphic();
+
     testNoInlineCache();
   }
 
