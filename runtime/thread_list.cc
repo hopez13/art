@@ -1407,7 +1407,7 @@ void ThreadList::Unregister(Thread* self) {
       break;
     } else {
       MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
-      if (!self->IsSuspended()) {
+      if (self->IsRunnableWithNoSetFlags()) {
         list_.remove(self);
         break;
       }

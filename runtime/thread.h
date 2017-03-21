@@ -230,6 +230,12 @@ class Thread {
     return tls32_.debug_suspend_count;
   }
 
+  bool IsRunnableWithNoSetFlags() const REQUIRES(Locks::thread_suspend_count_lock_) {
+    union StateAndFlags state_and_flags;
+    state_and_flags.as_int = tls32_.state_and_flags.as_int;
+    return state_and_flags.as_struct.state == kRunnable && state_and_flags.as_struct.flags == 0;
+  }
+
   bool IsSuspended() const {
     union StateAndFlags state_and_flags;
     state_and_flags.as_int = tls32_.state_and_flags.as_int;
