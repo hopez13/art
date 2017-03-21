@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d258f37f_a5eb6d89",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-21T17:20:15Z",
+      "side": 1,
+      "message": "The CompareAndBranchIfNonZero() above is pointless as it branches backwards and can never be CBNZ. We could use \"CMP out, #1; BHS loop\" instead and remove this CMP.",
+      "range": {
+        "startLine": 7111,
+        "startChar": 8,
+        "endLine": 7111,
+        "endChar": 39
+      },
+      "revId": "4b62d7cbdf9d265958c5eee3fbc2721d9b50eaa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
