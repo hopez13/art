@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff86a81e_52a38cce",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:03:00Z",
+      "side": 1,
+      "message": "I guess you you need this scope here because of it? Please add a comment.",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 22
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
