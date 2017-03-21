@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25177652_430730e9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5715,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T09:57:54Z",
+      "side": 1,
+      "message": "Hmm, I actually forgot that we do that indeed for suspend check. Aren\u0027t we saving the same set of registers with SIMD? So is the cost here only that the stack needed in the suspend check entrypoint will be higher?\n\nIf that\u0027s the only cost, then I\u0027m fine changing the entrypoint instead.",
+      "range": {
+        "startLine": 5715,
+        "startChar": 30,
+        "endLine": 5715,
+        "endChar": 78
+      },
+      "revId": "bcc65c17f6c4548ef0223ac79f279aa7401d1b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
