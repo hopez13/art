@@ -66,8 +66,9 @@ constexpr uint32_t X86CalleeSaveFpSpills(Runtime::CalleeSaveType type) {
 }
 
 constexpr uint32_t X86CalleeSaveFrameSize(Runtime::CalleeSaveType type) {
+  uint32_t wsz = (type == Runtime::kSaveEverything) ? 4 : 2;
   return RoundUp((POPCOUNT(X86CalleeSaveCoreSpills(type)) /* gprs */ +
-                  2 * POPCOUNT(X86CalleeSaveFpSpills(type)) /* fprs */ +
+                  wsz * POPCOUNT(X86CalleeSaveFpSpills(type)) /* fprs */ +
                   1 /* Method* */) * static_cast<size_t>(kX86PointerSize), kStackAlignment);
 }
 

@@ -293,28 +293,28 @@ MACRO0(SETUP_SAVE_EVERYTHING_FRAME_R14_R15_SAVED)
     PUSH rcx
     PUSH rax
     // Create space for FPRs and stack alignment padding.
-    subq MACRO_LITERAL(8 + 16 * 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(8 + 16 * 8)
+    subq MACRO_LITERAL(8 + 16 * 16), %rsp
+    CFI_ADJUST_CFA_OFFSET(8 + 16 * 16)
     // R10 := Runtime::Current()
     movq _ZN3art7Runtime9instance_E@GOTPCREL(%rip), %r10
     movq (%r10), %r10
     // Save FPRs.
-    movq %xmm0, 8(%rsp)
-    movq %xmm1, 16(%rsp)
-    movq %xmm2, 24(%rsp)
-    movq %xmm3, 32(%rsp)
-    movq %xmm4, 40(%rsp)
-    movq %xmm5, 48(%rsp)
-    movq %xmm6, 56(%rsp)
-    movq %xmm7, 64(%rsp)
-    movq %xmm8, 72(%rsp)
-    movq %xmm9, 80(%rsp)
-    movq %xmm10, 88(%rsp)
-    movq %xmm11, 96(%rsp)
-    movq %xmm12, 104(%rsp)
-    movq %xmm13, 112(%rsp)
-    movq %xmm14, 120(%rsp)
-    movq %xmm15, 128(%rsp)
+    movups %xmm0, 8(%rsp)
+    movups %xmm1, 24(%rsp)
+    movups %xmm2, 40(%rsp)
+    movups %xmm3, 56(%rsp)
+    movups %xmm4, 72(%rsp)
+    movups %xmm5, 88(%rsp)
+    movups %xmm6, 104(%rsp)
+    movups %xmm7, 120(%rsp)
+    movups %xmm8, 136(%rsp)
+    movups %xmm9, 152(%rsp)
+    movups %xmm10, 168(%rsp)
+    movups %xmm11, 184(%rsp)
+    movups %xmm12, 200(%rsp)
+    movups %xmm13, 216(%rsp)
+    movups %xmm14, 232(%rsp)
+    movups %xmm15, 248(%rsp)
     // Push ArtMethod* for save everything frame method.
     pushq RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET(%r10)
     CFI_ADJUST_CFA_OFFSET(8)
@@ -323,7 +323,7 @@ MACRO0(SETUP_SAVE_EVERYTHING_FRAME_R14_R15_SAVED)
 
     // Ugly compile-time check, but we only have the preprocessor.
     // Last +8: implicit return address pushed on stack when caller made call.
-#if (FRAME_SIZE_SAVE_EVERYTHING != 15 * 8 + 16 * 8 + 16 + 8)
+#if (FRAME_SIZE_SAVE_EVERYTHING != 15 * 8 + 16 * 16 + 16 + 8)
 #error "FRAME_SIZE_SAVE_EVERYTHING(X86_64) size not as expected."
 #endif
 #endif  // __APPLE__
@@ -350,22 +350,22 @@ END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_FRPS)
     // Restore FPRs. Method and padding is still on the stack.
-    movq 16(%rsp), %xmm0
-    movq 24(%rsp), %xmm1
-    movq 32(%rsp), %xmm2
-    movq 40(%rsp), %xmm3
-    movq 48(%rsp), %xmm4
-    movq 56(%rsp), %xmm5
-    movq 64(%rsp), %xmm6
-    movq 72(%rsp), %xmm7
-    movq 80(%rsp), %xmm8
-    movq 88(%rsp), %xmm9
-    movq 96(%rsp), %xmm10
-    movq 104(%rsp), %xmm11
-    movq 112(%rsp), %xmm12
-    movq 120(%rsp), %xmm13
-    movq 128(%rsp), %xmm14
-    movq 136(%rsp), %xmm15
+    movups 16(%rsp), %xmm0
+    movups 32(%rsp), %xmm1
+    movups 48(%rsp), %xmm2
+    movups 64(%rsp), %xmm3
+    movups 80(%rsp), %xmm4
+    movups 96(%rsp), %xmm5
+    movups 112(%rsp), %xmm6
+    movups 128(%rsp), %xmm7
+    movups 144(%rsp), %xmm8
+    movups 160(%rsp), %xmm9
+    movups 176(%rsp), %xmm10
+    movups 192(%rsp), %xmm11
+    movups 208(%rsp), %xmm12
+    movups 224(%rsp), %xmm13
+    movups 240(%rsp), %xmm14
+    movups 256(%rsp), %xmm15
 END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_RAX)
@@ -390,8 +390,8 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME)
     RESTORE_SAVE_EVERYTHING_FRAME_FRPS
 
     // Remove save everything callee save method, stack alignment padding and FPRs.
-    addq MACRO_LITERAL(16 + 16 * 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(-(16 + 16 * 8))
+    addq MACRO_LITERAL(16 + 16 * 16), %rsp
+    CFI_ADJUST_CFA_OFFSET(-(16 + 16 * 16))
 
     POP rax
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_RAX
@@ -401,8 +401,8 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_KEEP_RAX)
     RESTORE_SAVE_EVERYTHING_FRAME_FRPS
 
     // Remove save everything callee save method, stack alignment padding and FPRs, skip RAX.
-    addq MACRO_LITERAL(16 + 16 * 8 + 8), %rsp
-    CFI_ADJUST_CFA_OFFSET(-(16 + 16 * 8 + 8))
+    addq MACRO_LITERAL(16 + 16 * 16 + 8), %rsp
+    CFI_ADJUST_CFA_OFFSET(-(16 + 16 * 16 + 8))
 
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_RAX
 END_MACRO
