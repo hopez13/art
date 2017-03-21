@@ -1,4 +1,28 @@
 target_config = {
+
+# Configuration syntax:
+#
+#   Required keys: (Use one of these)
+#    * cmd' - Runs an arbitrary (shell) command.
+#    * 'target' - Runs a 'make <target>' command.
+#    * none of the above - Runs a testrunner.py command.
+#
+#   Optional keys: (Use any of these)
+#    * env - Add additional environment variable to the current environment.
+#    * flags - Pass extra flags to the command being run.
+#    * forward_flags - Forward the flags from run_build_test_target.py to this command.
+#
+#
+# *** IMPORTANT ***:
+#    This configuration is used by the android build server. Targets must not be renamed
+#    or removed.
+#
+
+##########################################
+
+    # ART run-test configurations
+    # (calls testrunner which builds and then runs the test targets)
+
     'art-test' : {
         'flags' : [],
         'env' : {
@@ -185,6 +209,10 @@ target_config = {
             'ART_HEAP_POISONING' : 'true'
         }
     },
+
+    # ART gtest configurations
+    # (calls make 'target' which builds and then runs the gtests).
+
     'art-gtest' : {
         'target' :  'test-art-host-gtest',
         'env' : {
@@ -261,5 +289,71 @@ target_config = {
             'ART_HEAP_POISONING' : 'true',
             'ART_USE_READ_BARRIER' : 'false'
         }
-    }
+    },
+
+   # ART Golem build targets used by go/lem (continuous ART benchmarking),
+   # (art-opt-cc is used by default since it mimics the default preopt config),
+   #
+   # calls golem/build-target.sh which builds a golem tarball
+
+    'art-golem-android-armv7': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : '-j',
+        'flags' : [
+            '--showcommands',
+            '--machine-type=android-armv7',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
+    'art-golem-android-armv8': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : '-j',
+        'flags' : [
+            '--showcommands',
+            '--machine-type=android-armv8',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
+    'art-golem-linux-armv7': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : '-j',
+        'flags' : [
+            '--showcommands',
+            '--machine-type=linux-armv7',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
+    'art-golem-linux-armv8': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : '-j',
+        'flags' : [
+            '--showcommands',
+            '--machine-type=linux-armv8',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
+    'art-golem-linux-ia32': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : '-j',
+        'flags' : [
+            '--showcommands',
+            '--machine-type=linux-ia32',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
+    'art-golem-linux-x64': {
+        'cmd' : 'art/tools/golem/build-target.sh',
+        'forward_flags' : ['-j'],
+        'flags' : [
+            '--showcommands',
+            '--machine-type=linux-x64',
+            '--golem=art-opt-cc',
+            '--tarball',
+        ]
+    },
 }
