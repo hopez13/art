@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c20aa2e_46731aa5",
+        "filename": "tools/art",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:38:12Z",
+      "side": 1,
+      "message": "drop this? You probably don\u0027t want perf invoke on it.",
+      "range": {
+        "startLine": 118,
+        "startChar": 5,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "a6ae666f32d6d5f7ef7478fcbd42c033d7cf5fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "651fdccf_3149ba57",
+        "filename": "tools/art",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-21T14:38:12Z",
+      "side": 1,
+      "message": "Why don\u0027t you just delete the whole dalvik-cache?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "a6ae666f32d6d5f7ef7478fcbd42c033d7cf5fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
