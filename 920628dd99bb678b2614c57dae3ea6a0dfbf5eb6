@@ -73,6 +73,23 @@
     },
     {
       "key": {
+        "uuid": "6074b863_f26757ef",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-22T17:52:03Z",
+      "side": 1,
+      "message": "Why don\u0027t we do this..\n\nchange cmd to golem\n \n    golem: \"android-armv8\"\n\nchange target to \"make\" or \"gtest\"\n\n   make: \"test-art-host-gtest\"\n\nchange the run-test \"flags\" to \"run-test\"\n\n  run-test: [\u0027--optimizing\u0027, \u0027--interpreter\u0027]\n\nthis way we don\u0027t need a type key (it\u0027s redundant) and the primary key (golem,make-run-test) determines the exact command (type) to use from the main script. we can also delete forward_flags because all of these forward -j anyway.",
+      "revId": "920628dd99bb678b2614c57dae3ea6a0dfbf5eb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f50f7f7_48cfd216",
         "filename": "test/testrunner/target_config.py",
         "patchSetId": 1
