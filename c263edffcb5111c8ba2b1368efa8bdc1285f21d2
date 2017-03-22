@@ -22,6 +22,30 @@
       "revId": "c263edffcb5111c8ba2b1368efa8bdc1285f21d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "802b1541_c087bc0d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-22T20:33:43Z",
+      "side": 1,
+      "message": "Maybe logd would optimize away the logs though?",
+      "parentUuid": "351a19e1_56d29f93",
+      "range": {
+        "startLine": 2174,
+        "startChar": 6,
+        "endLine": 2178,
+        "endChar": 71
+      },
+      "revId": "c263edffcb5111c8ba2b1368efa8bdc1285f21d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
