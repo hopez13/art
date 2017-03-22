@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c739dc36_7b490448",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 0,
+      "message": "Any reason why it\u0027s not a DexFile (represented as a long) you are storing?",
+      "range": {
+        "startLine": 492,
+        "startChar": 13,
+        "endLine": 492,
+        "endChar": 20
+      },
+      "revId": "f11cbe1361cc93f07e7a5ab1c9f0af4605552535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

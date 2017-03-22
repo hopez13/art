@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7dd4654_b34fb8d2",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 1,
+      "message": "Rename?",
+      "range": {
+        "startLine": 484,
+        "startChar": 37,
+        "endLine": 484,
+        "endChar": 55
+      },
+      "revId": "d2f0f5d739ed71ff95a4db708fdc090ecfde19ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "718ef6d8_8a987d61",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 1,
+      "message": "Where is the saving happening? Should you just say \"return\"?",
+      "range": {
+        "startLine": 491,
+        "startChar": 5,
+        "endLine": 491,
+        "endChar": 9
+      },
+      "revId": "d2f0f5d739ed71ff95a4db708fdc090ecfde19ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c10734ae_659192a4",
+        "filename": "test/981-dedup-original-dex/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 1,
+      "message": "Update.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "d2f0f5d739ed71ff95a4db708fdc090ecfde19ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db859666_712fcce7",
+        "filename": "test/981-dedup-original-dex/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 1,
+      "message": "All 2017.",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "d2f0f5d739ed71ff95a4db708fdc090ecfde19ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4ebf70f_1aacf32b",
+        "filename": "test/981-dedup-original-dex/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T09:44:33Z",
+      "side": 1,
+      "message": "\"now\" ? Could you check earlier it\u0027s a byte array?",
+      "range": {
+        "startLine": 121,
+        "startChar": 46,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "d2f0f5d739ed71ff95a4db708fdc090ecfde19ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
