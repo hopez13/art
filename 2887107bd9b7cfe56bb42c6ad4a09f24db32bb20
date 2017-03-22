@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9b731995_d4bb110e",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-22T10:36:13Z",
+      "side": 1,
+      "message": "For me, it would be much easier to understand the intent if --compiler-filter was appended to the command line than it is trying to decode what these sed scripts do.",
+      "parentUuid": "a5ccf91c_6820f4b7",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "900f6949_a32ebbfe",
         "filename": "tools/art",
         "patchSetId": 4
