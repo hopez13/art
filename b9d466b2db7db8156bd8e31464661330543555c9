@@ -70,6 +70,30 @@
       "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1057126e_e5766d08",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T10:25:53Z",
+      "side": 1,
+      "message": "I think always putting a short comment like:\n// ExactAsemblyScope because we are using IT\n\nwould be useful.",
+      "parentUuid": "bf5b03a1_5f8c6c2d",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 22
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
