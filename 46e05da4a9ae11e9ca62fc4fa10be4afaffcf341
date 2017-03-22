@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ab1544c6_405073a2",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T15:59:13Z",
+      "side": 1,
+      "message": "No, I am not going to do that :-) I have been breaking up the CL into logical parts that stand by themselves for simplicity, but this change would require me to revert one file back to LOG(FATAL) (since the visitors are needed). I really wanted to demonstrate that the new HIR nodes are sufficiently flexible to be mapped onto more than one target.",
+      "parentUuid": "481c2719_5cb8141c",
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eeccaf4_6c488891",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 34
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "47b2a8fa_dac7c33d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T15:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eeccaf4_6c488891",
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9593d2b_9b3e7308",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 34
@@ -47,6 +83,30 @@
       "writtenOn": "2017-03-22T13:28:35Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 105
+      },
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c15eb43_a951becc",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T15:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9593d2b_9b3e7308",
       "range": {
         "startLine": 90,
         "startChar": 0,
