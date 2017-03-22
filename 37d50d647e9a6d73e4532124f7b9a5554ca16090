@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dd35b492_5c6bdaa2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T17:12:04Z",
+      "side": 1,
+      "message": "Well my suggestion is semantically equivalent, so I don\u0027t understand the testing issue. Of course you are free to ignore the comment, since you had the +2 already from Nicolas. Perhaps you can use the free time this adds to your schedule to review some of our CLs for a change?",
+      "parentUuid": "275a93a6_141aa6e7",
+      "revId": "37d50d647e9a6d73e4532124f7b9a5554ca16090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18fb5cf0_e8d75f70",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
