@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ce568e3_016c8954",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-22T13:47:22Z",
+      "side": 1,
+      "message": "What if --compiler-filter has not been specified? Does this duplicate the arguments?\n\nIf the script is reaching out to sed, the script could just use:\necho $@ | sed -e \u0027/\\(--compiler-filter\u003d\\)/\\1interpret-only/\u0027\n\nIt doesn\u0027t look like the -r\u0027s are needed in the existing invocations.",
+      "range": {
+        "startLine": 111,
+        "startChar": 11,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1094e682_dec5e7c2",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-22T13:47:22Z",
+      "side": 1,
+      "message": "The more traditional sed usage would be s_/__ as sed will take the first character after s and use that as the pattern separator.",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 20
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2777d8e_9db6b64c",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-22T13:47:22Z",
+      "side": 1,
+      "message": "s_/_@_g",
+      "range": {
+        "startLine": 143,
+        "startChar": 14,
+        "endLine": 143,
+        "endChar": 23
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19ccb0f6_d38afe04",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-22T13:47:22Z",
+      "side": 1,
+      "message": "This looks like the only place needing -r. Alternatively, the script could use [.] instead of -r and \\.\n\nThis script only needs a single invocation of sed. It would use less resources with a single sed instance:\n\nsed -e \u0027s/.*-cp[^ ]* //\u0027 \\\n    -e ... \\\n    -e ... \\\n    -e ...",
+      "range": {
+        "startLine": 144,
+        "startChar": 14,
+        "endLine": 144,
+        "endChar": 20
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
