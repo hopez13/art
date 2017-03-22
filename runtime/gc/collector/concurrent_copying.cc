@@ -2173,7 +2173,9 @@ mirror::Object* ConcurrentCopying::Copy(mirror::Object* from_ref) {
                                                &non_moving_space_bytes_allocated, nullptr, &dummy);
       CHECK(to_ref != nullptr) << "Fall-back non-moving space allocation failed for a "
                                << obj_size << " byte object in region type "
-                               << region_space_->GetRegionType(from_ref);
+                               << region_space_->GetRegionType(from_ref)
+                               << " object address=" << from_ref
+                               << " type=" << from_ref->PrettyTypeOf();
       bytes_allocated = non_moving_space_bytes_allocated;
       // Mark it in the mark bitmap.
       accounting::ContinuousSpaceBitmap* mark_bitmap =
