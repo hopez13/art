@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351a19e1_56d29f93",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-22T20:21:21Z",
+      "side": 1,
+      "message": "I wonder whether you should split this. What if it\u0027s corrupted enough that PrettyTypeOf will fault? Then you\u0027ll get zero output...",
+      "range": {
+        "startLine": 2174,
+        "startChar": 6,
+        "endLine": 2178,
+        "endChar": 71
+      },
+      "revId": "c263edffcb5111c8ba2b1368efa8bdc1285f21d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
