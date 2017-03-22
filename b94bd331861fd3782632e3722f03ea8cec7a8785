@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "d308946a_b826a72d",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T22:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23a12549_5504d7c1",
+      "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4219083_8536458b",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 2
@@ -66,6 +84,30 @@
       "writtenOn": "2017-03-22T21:25:37Z",
       "side": 1,
       "message": "Not necessary?",
+      "range": {
+        "startLine": 2007,
+        "startChar": 13,
+        "endLine": 2007,
+        "endChar": 17
+      },
+      "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44093ee_7e8088c8",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T22:23:25Z",
+      "side": 1,
+      "message": "you need a condition here, right, or do you suggest something else?",
+      "parentUuid": "c4219083_8536458b",
       "range": {
         "startLine": 2007,
         "startChar": 13,
