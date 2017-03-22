@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "551519ea_af0d65b2",
+        "filename": "dex2oat/include/dex2oat_return_codes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-22T08:49:33Z",
+      "side": 1,
+      "message": "Please add documentation describing what these return codes mean. If you intend for these return codes to be public API visible to dex2oat users, please also update the dex2oat Usage text.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "f788297b28e0c91945ae5f4d41f987514ce45e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
