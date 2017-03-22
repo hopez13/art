@@ -16,6 +16,24 @@
       "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec3cf220_fab9b2f0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T20:06:09Z",
+      "side": 1,
+      "message": "Good question.  Matthew exploits the fact that BitVector resizes automatically for nonzero bits on the set operation:\n\n if (idx \u003e\u003d storage_size_ * kWordBits) {\n      EnsureSize(idx);\n    }\n\nTesting outside the allocated bitvector is guarded by the internal storage.\n\n\nThe true size is recorded in num_stack_slots_used (see L2022)",
+      "parentUuid": "a730d7fa_4c5d0e30",
+      "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
