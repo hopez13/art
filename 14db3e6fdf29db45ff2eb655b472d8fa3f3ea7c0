@@ -70,6 +70,30 @@
       "revId": "14db3e6fdf29db45ff2eb655b472d8fa3f3ea7c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c40fd6ef_847ab776",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-22T16:45:21Z",
+      "side": 1,
+      "message": "Done. Added:\n    // Proxy method is a generic invoker that\u0027s not worth\n    // devirtualizing/inlining. It also causes issues when the proxy\n    // method is in another dex file if we try to rewrite invoke-interface to\n    // invoke-virtual because proxy method doesn\u0027t have a real dex file.",
+      "parentUuid": "ef6ccd97_51b9d287",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 63
+      },
+      "revId": "14db3e6fdf29db45ff2eb655b472d8fa3f3ea7c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
