@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a693f335_d873b1ec",
+        "filename": "test/testrunner/run_build_test_target.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-22T17:06:43Z",
+      "side": 1,
+      "message": "We should check this using a explicit flag for \"golem\" test, rather than using \u0027cmd\u0027, which is generic.",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "920628dd99bb678b2614c57dae3ea6a0dfbf5eb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f50f7f7_48cfd216",
         "filename": "test/testrunner/target_config.py",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 8,
         "endLine": 300,
         "endChar": 28
+      },
+      "revId": "920628dd99bb678b2614c57dae3ea6a0dfbf5eb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "935e6329_4dffd9b7",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-22T17:06:43Z",
+      "side": 1,
+      "message": "We should introduce one more flag - \"type\"\nFor this case, it is \"golem\". Depending upon the type, we can invoke the commands, for eg, for run-test, it is testrunner, for gtest, it is make target and for this is the bash script",
+      "range": {
+        "startLine": 301,
+        "startChar": 8,
+        "endLine": 301,
+        "endChar": 31
       },
       "revId": "920628dd99bb678b2614c57dae3ea6a0dfbf5eb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
