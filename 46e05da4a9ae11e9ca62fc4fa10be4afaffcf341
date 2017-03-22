@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "481c2719_5cb8141c",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T13:28:35Z",
+      "side": 1,
+      "message": "How about making this change for just one arch for now (say x86)? That will make the review easier.",
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eeccaf4_6c488891",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T13:28:35Z",
+      "side": 1,
+      "message": "You need to update the SIMD info here (I know we don\u0027t do loop optimization on the callee, but just in case...).",
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9593d2b_9b3e7308",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T13:28:35Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 105
+      },
+      "revId": "46e05da4a9ae11e9ca62fc4fa10be4afaffcf341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
