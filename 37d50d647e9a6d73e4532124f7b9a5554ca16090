@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "275a93a6_141aa6e7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-03-22T17:03:43Z",
+      "side": 1,
+      "message": "I\u0027m just thinking of returning single_impl unless it\u0027s a proxy method, in which case we return nullptr also. It seems to me not that bad. I\u0027ve done all testing based on the current version so I\u0027m sort of reluctant to change it.",
+      "parentUuid": "7c0679a5_d2d9a70d",
+      "revId": "37d50d647e9a6d73e4532124f7b9a5554ca16090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18fb5cf0_e8d75f70",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
