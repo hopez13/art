@@ -19,6 +19,7 @@
 #include "arch/instruction_set.h"
 #include "compiler_filter.h"
 #include "dexopt_test.h"
+#include "dexoptanalyzer_return_codes.h"
 
 namespace art {
 
@@ -54,17 +55,31 @@ class DexoptAnalyzerTest : public DexoptTest {
   }
 
   int DexoptanalyzerToOatFileAssistant(int dexoptanalyzerResult) {
-    switch (dexoptanalyzerResult) {
-      case 0: return OatFileAssistant::kNoDexOptNeeded;
-      case 1: return OatFileAssistant::kDex2OatFromScratch;
-      case 2: return OatFileAssistant::kDex2OatForBootImage;
-      case 3: return OatFileAssistant::kDex2OatForFilter;
-      case 4: return OatFileAssistant::kDex2OatForRelocation;
-      case 5: return -OatFileAssistant::kDex2OatForBootImage;
-      case 6: return -OatFileAssistant::kDex2OatForFilter;
-      case 7: return -OatFileAssistant::kDex2OatForRelocation;
-      default: return dexoptanalyzerResult;
+    switch (static_cast<dexoptanalyzer::ReturnCodes>(dexoptanalyzerResult)) {
+      case dexoptanalyzer::ReturnCodes::kNoDexOptNeeded:
+        return OatFileAssistant::kNoDexOptNeeded;
+      case dexoptanalyzer::ReturnCodes::kDex2OatFromScratch:
+        return OatFileAssistant::kDex2OatFromScratch;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOat:
+        return OatFileAssistant::kDex2OatForBootImage;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForFilterOat:
+        return OatFileAssistant::kDex2OatForFilter;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOat:
+        return OatFileAssistant::kDex2OatForRelocation;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOdex:
+        return -OatFileAssistant::kDex2OatForBootImage;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForFilterOdex:
+        return -OatFileAssistant::kDex2OatForFilter;
+      case dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOdex:
+        return -OatFileAssistant::kDex2OatForRelocation;
+
+      // Enumerate failure cases. This allows -Wswitch to complain if we're missing something.
+      case art::dexoptanalyzer::ReturnCodes::kErrorInvalidArguments:
+      case art::dexoptanalyzer::ReturnCodes::kErrorCannotCreateRuntime:
+      case art::dexoptanalyzer::ReturnCodes::kErrorUnknownDexOptNeeded:
+        break;
     }
+    return dexoptanalyzerResult;
   }
 
   // Verify that the output of dexoptanalyzer for the given arguments is the same
