@@ -25,6 +25,81 @@
     },
     {
       "key": {
+        "uuid": "934c6a57_54aa6ce1",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-22T14:48:51Z",
+      "side": 1,
+      "message": "This approach has some potential issues, it will strip whitespace from the arguments. Plus see Orion\u0027s comment.\n\nInstead I recommend to loop through $0 until $# , if you find compiler-filter replace it with what you want.\n\n    extra\u003d\"--compiler-filter\u003dinterpret-only\"\n    while ...\n       if [ ${$i} \u003d\u003d --compiler-filter\u003d* ]; then\n          ${$i}\u003d\"--compiler-filter\u003dinterpret-only\"\n          extra\u003d\"\"\n       fi\n     done\n\n     .... dalvikvm \"$extra\" \"$@\"",
+      "parentUuid": "2ce568e3_016c8954",
+      "range": {
+        "startLine": 111,
+        "startChar": 11,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b97590ca_d20d63bb",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-22T14:48:51Z",
+      "side": 1,
+      "message": "Not going to work with golem, the first run\u0027s output needs to be stripped otherwise it will get 2 sets of metrics for the same run.",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93d83b99_45236b8a",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-22T14:48:51Z",
+      "side": 1,
+      "message": "What if the MODARGS have any of the args above..? It\u0027s ok?",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dc73955_0bbc00e3",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-22T14:48:51Z",
+      "side": 1,
+      "message": "It needs to support multiple classpaths (and multiple -cp args). golem uses that quite frequently for example dacapo, specjvm etc.",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1094e682_dec5e7c2",
         "filename": "tools/art",
         "patchSetId": 6
