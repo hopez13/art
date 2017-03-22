@@ -22,6 +22,30 @@
       "revId": "f788297b28e0c91945ae5f4d41f987514ce45e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6a0950_f1e2f0b4",
+        "filename": "dex2oat/include/dex2oat_return_codes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-22T18:04:19Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/354841 adds comments here.\n\nI do not think Usage is a good place for this. Anyone who wants to depend on this should include this header (that\u0027s why it\u0027s exported).",
+      "parentUuid": "551519ea_af0d65b2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "f788297b28e0c91945ae5f4d41f987514ce45e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
