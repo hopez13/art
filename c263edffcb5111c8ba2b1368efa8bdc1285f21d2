@@ -46,6 +46,30 @@
       "revId": "c263edffcb5111c8ba2b1368efa8bdc1285f21d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dd31eed_6f9050a5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-22T20:42:12Z",
+      "side": 1,
+      "message": "Mark it FATAL_WITHOUT_ABORT, and hopefully it\u0027s still in the tombstone\u0027s part of the logcat?",
+      "parentUuid": "802b1541_c087bc0d",
+      "range": {
+        "startLine": 2174,
+        "startChar": 6,
+        "endLine": 2178,
+        "endChar": 71
+      },
+      "revId": "c263edffcb5111c8ba2b1368efa8bdc1285f21d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
