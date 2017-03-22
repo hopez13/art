@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5586dc3a_80865d9b",
+        "filename": "runtime/arch/x86/quick_method_frame_info_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-22T13:12:47Z",
+      "side": 1,
+      "message": "I\u0027d avoid the special casing here and just do 4.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "44cc750eacfae30b494d86be32e9ab859e1f09dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
