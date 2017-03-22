@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c0679a5_d2d9a70d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T16:53:31Z",
+      "side": 1,
+      "message": "note that the logic has become a bit convoluted now (since fall through this if still returns null for nullptr).\n\nHow about\n\nif (single_impl \u003d\u003d nullptr) {\n  // No single implementation found.\n  return nullptr;\n} else if (single-\u003eimpl-\u003eIsProxyMethod()) {\n   // what you had\n}\nreturn single_impl;",
+      "revId": "37d50d647e9a6d73e4532124f7b9a5554ca16090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18fb5cf0_e8d75f70",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
