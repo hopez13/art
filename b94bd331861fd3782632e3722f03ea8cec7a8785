@@ -117,6 +117,30 @@
       "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90466bc5_a5f1223f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-22T23:41:55Z",
+      "side": 1,
+      "message": "ok, removed the true",
+      "parentUuid": "c44093ee_7e8088c8",
+      "range": {
+        "startLine": 2007,
+        "startChar": 13,
+        "endLine": 2007,
+        "endChar": 17
+      },
+      "revId": "b94bd331861fd3782632e3722f03ea8cec7a8785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
