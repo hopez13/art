@@ -22,6 +22,30 @@
       "revId": "0aeef5bac0cc85e14896611ed811a26fd0825bd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdc40d62_adb4805a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-22T13:59:27Z",
+      "side": 1,
+      "message": "Yes.\n\nIt seems like it\u0027d be good if we either:\n1) re-name this script to something like run-art \n2) run it from art/tools/art with current build settings\n\nAs-is finding usages is harder than need be. Casual grepping is a fail:\n\ncd libcore\ngit grep art | wc -l\n14347\n\nIt looks like libcore has it\u0027s own fork in ojluni/src/test/artrun.",
+      "parentUuid": "9c2ae752_d780f9b6",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "0aeef5bac0cc85e14896611ed811a26fd0825bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
