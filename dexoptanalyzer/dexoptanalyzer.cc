@@ -20,6 +20,7 @@
 #include "android-base/strings.h"
 #include "compiler_filter.h"
 #include "dex_file.h"
+#include "dexoptanalyzer_return_codes.h"
 #include "noop_compiler_callbacks.h"
 #include "oat_file_assistant.h"
 #include "os.h"
@@ -28,22 +29,6 @@
 #include "utils.h"
 
 namespace art {
-
-// See OatFileAssistant docs for the meaning of the valid return codes.
-enum ReturnCodes {
-  kNoDexOptNeeded = 0,
-  kDex2OatFromScratch = 1,
-  kDex2OatForBootImageOat = 2,
-  kDex2OatForFilterOat = 3,
-  kDex2OatForRelocationOat = 4,
-  kDex2OatForBootImageOdex = 5,
-  kDex2OatForFilterOdex = 6,
-  kDex2OatForRelocationOdex = 7,
-
-  kErrorInvalidArguments = 101,
-  kErrorCannotCreateRuntime = 102,
-  kErrorUnknownDexOptNeeded = 103
-};
 
 static int original_argc;
 static char** original_argv;
@@ -102,26 +87,57 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("    available its result (dexoptNeeded) as the exit/return code. i.e. it will not");
   UsageError("    return 0 for success and a non zero values for errors as the conventional");
   UsageError("    commands. The following return codes are possible:");
-  UsageError("        kNoDexOptNeeded = 0");
-  UsageError("        kDex2OatFromScratch = 1");
-  UsageError("        kDex2OatForBootImageOat = 2");
-  UsageError("        kDex2OatForFilterOat = 3");
-  UsageError("        kDex2OatForRelocationOat = 4");
-  UsageError("        kDex2OatForBootImageOdex = 5");
-  UsageError("        kDex2OatForFilterOdex = 6");
-  UsageError("        kDex2OatForRelocationOdex = 7");
+  UsageError("        kNoDexOptNeeded = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kNoDexOptNeeded));
+  UsageError("        kDex2OatFromScratch = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatFromScratch));
+  UsageError("        kDex2OatForBootImageOat = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOat));
+  UsageError("        kDex2OatForFilterOat = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForFilterOat));
+  UsageError("        kDex2OatForRelocationOat = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOat));
+  UsageError("        kDex2OatForBootImageOdex = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOdex));
+  UsageError("        kDex2OatForFilterOdex = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForFilterOdex));
+  UsageError("        kDex2OatForRelocationOdex = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOdex));
 
-  UsageError("        kErrorInvalidArguments = 101");
-  UsageError("        kErrorCannotCreateRuntime = 102");
-  UsageError("        kErrorUnknownDexOptNeeded = 103");
+  UsageError("        kErrorInvalidArguments = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kErrorInvalidArguments));
+  UsageError("        kErrorCannotCreateRuntime = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kErrorCannotCreateRuntime));
+  UsageError("        kErrorUnknownDexOptNeeded = %d",
+             static_cast<int>(dexoptanalyzer::ReturnCodes::kErrorUnknownDexOptNeeded));
   UsageError("");
 
-  exit(kErrorInvalidArguments);
+  // The following is a no-op switch, but will ensure that all enum values are here. This should
+  // match the UsageError lines above. If you have to add a case statement, add a UsageError line!
+  switch (static_cast<dexoptanalyzer::ReturnCodes>(reinterpret_cast<uintptr_t>(fmt))) {
+    case dexoptanalyzer::ReturnCodes::kNoDexOptNeeded:
+    case dexoptanalyzer::ReturnCodes::kDex2OatFromScratch:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOat:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForFilterOat:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOat:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOdex:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForFilterOdex:
+    case dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOdex:
+
+    case dexoptanalyzer::ReturnCodes::kErrorInvalidArguments:
+    case dexoptanalyzer::ReturnCodes::kErrorCannotCreateRuntime:
+    case dexoptanalyzer::ReturnCodes::kErrorUnknownDexOptNeeded:
+      break;
+  }
+
+  exit(static_cast<int>(dexoptanalyzer::ReturnCodes::kErrorInvalidArguments));
 }
 
 class DexoptAnalyzer FINAL {
  public:
-  DexoptAnalyzer() : assume_profile_changed_(false) {}
+  DexoptAnalyzer() : isa_(InstructionSet::kNone),
+                     compiler_filter_(CompilerFilter::Filter::kVerifyNone),
+                     assume_profile_changed_(false) {}
 
   void ParseArgs(int argc, char **argv) {
     original_argc = argc;
@@ -207,38 +223,46 @@ class DexoptAnalyzer FINAL {
     return true;
   }
 
-  int GetDexOptNeeded() {
+  dexoptanalyzer::ReturnCodes GetDexOptNeeded() {
     // If the file does not exist there's nothing to do.
     // This is a fast path to avoid creating the runtime (b/34385298).
     if (!OS::FileExists(dex_file_.c_str())) {
-      return kNoDexOptNeeded;
+      return dexoptanalyzer::ReturnCodes::kNoDexOptNeeded;
     }
     if (!CreateRuntime()) {
-      return kErrorCannotCreateRuntime;
+      return dexoptanalyzer::ReturnCodes::kErrorCannotCreateRuntime;
     }
     OatFileAssistant oat_file_assistant(dex_file_.c_str(), isa_, /*load_executable*/ false);
     // Always treat elements of the bootclasspath as up-to-date.
     // TODO(calin): this check should be in OatFileAssistant.
     if (oat_file_assistant.IsInBootClassPath()) {
-      return kNoDexOptNeeded;
+      return dexoptanalyzer::ReturnCodes::kNoDexOptNeeded;
     }
     int dexoptNeeded = oat_file_assistant.GetDexOptNeeded(
         compiler_filter_, assume_profile_changed_);
 
     // Convert OatFileAssitant codes to dexoptanalyzer codes.
     switch (dexoptNeeded) {
-      case OatFileAssistant::kNoDexOptNeeded: return kNoDexOptNeeded;
-      case OatFileAssistant::kDex2OatFromScratch: return kDex2OatFromScratch;
-      case OatFileAssistant::kDex2OatForBootImage: return kDex2OatForBootImageOat;
-      case OatFileAssistant::kDex2OatForFilter: return kDex2OatForFilterOat;
-      case OatFileAssistant::kDex2OatForRelocation: return kDex2OatForRelocationOat;
+      case OatFileAssistant::kNoDexOptNeeded:
+        return dexoptanalyzer::ReturnCodes::kNoDexOptNeeded;
+      case OatFileAssistant::kDex2OatFromScratch:
+        return dexoptanalyzer::ReturnCodes::kDex2OatFromScratch;
+      case OatFileAssistant::kDex2OatForBootImage:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOat;
+      case OatFileAssistant::kDex2OatForFilter:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForFilterOat;
+      case OatFileAssistant::kDex2OatForRelocation:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOat;
 
-      case -OatFileAssistant::kDex2OatForBootImage: return kDex2OatForBootImageOdex;
-      case -OatFileAssistant::kDex2OatForFilter: return kDex2OatForFilterOdex;
-      case -OatFileAssistant::kDex2OatForRelocation: return kDex2OatForRelocationOdex;
+      case -OatFileAssistant::kDex2OatForBootImage:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForBootImageOdex;
+      case -OatFileAssistant::kDex2OatForFilter:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForFilterOdex;
+      case -OatFileAssistant::kDex2OatForRelocation:
+        return dexoptanalyzer::ReturnCodes::kDex2OatForRelocationOdex;
       default:
         LOG(ERROR) << "Unknown dexoptNeeded " << dexoptNeeded;
-        return kErrorUnknownDexOptNeeded;
+        return dexoptanalyzer::ReturnCodes::kErrorUnknownDexOptNeeded;
     }
   }
 
@@ -255,7 +279,7 @@ static int dexoptAnalyze(int argc, char** argv) {
 
   // Parse arguments. Argument mistakes will lead to exit(kErrorInvalidArguments) in UsageError.
   analyzer.ParseArgs(argc, argv);
-  return analyzer.GetDexOptNeeded();
+  return static_cast<int>(analyzer.GetDexOptNeeded());
 }
 
 }  // namespace art
