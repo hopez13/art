@@ -2071,6 +2071,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   void SetLocations(LocationSummary* locations) { locations_ = locations; }
 
   void ReplaceWith(HInstruction* instruction);
+  void ReplaceUsesDominatedBy(HInstruction* dominator, HInstruction* replacement);
   void ReplaceInput(HInstruction* replacement, size_t index);
 
   // This is almost the same as doing `ReplaceWith()`. But in this helper, the
@@ -2934,27 +2935,88 @@ class HTryBoundary FINAL : public HTemplateInstruction<0> {
 };
 
 // Deoptimize to interpreter, upon checking a condition.
-class HDeoptimize FINAL : public HTemplateInstruction<1> {
+class HDeoptimize FINAL : public HVariableInputSizeInstruction {
  public:
-  // We set CanTriggerGC to prevent any intermediate address to be live
-  // at the point of the `HDeoptimize`.
-  HDeoptimize(HInstruction* cond, uint32_t dex_pc)
-      : HTemplateInstruction(SideEffects::CanTriggerGC(), dex_pc) {
+  enum class Kind {
+    kBCE,
+    kInline,
+  };
+
+  // Use this constructor when the `HDeoptimize` acts as a barrier, where no code can move
+  // across.
+  HDeoptimize(ArenaAllocator* arena, HInstruction* cond, Kind kind, uint32_t dex_pc)
+      : HVariableInputSizeInstruction(
+            SideEffects::All(),
+            dex_pc,
+            arena,
+            /* number_of_inputs */ 1,
+            kArenaAllocMisc),
+        kind_(kind),
+        can_be_moved_(false) {
     SetRawInputAt(0, cond);
   }
+  
+  // Use this constructor when the `HDeoptimize` guards an instruction, and any user
+  // that relies on the deoptimization to pass should have its input be the `HDeoptimize`
+  // instead of `guard`.
+  // We set CanTriggerGC to prevent any intermediate address to be live
+  // at the point of the `HDeoptimize`.
+  HDeoptimize(ArenaAllocator* arena,
+              HInstruction* cond,
+              HInstruction* guard,
+              Kind kind,
+              uint32_t dex_pc)
+      : HVariableInputSizeInstruction(
+            SideEffects::CanTriggerGC(),
+            dex_pc,
+            arena,
+            /* number_of_inputs */ 2,
+            kArenaAllocMisc),
+        kind_(kind),
+        can_be_moved_(true) {
+    SetRawInputAt(0, cond);
+    SetRawInputAt(1, guard);
+  }
 
-  bool CanBeMoved() const OVERRIDE { return true; }
+  bool CanBeMoved() const OVERRIDE { return can_be_moved_; }
+
   bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const OVERRIDE {
     return true;
   }
+
   bool NeedsEnvironment() const OVERRIDE { return true; }
+
   bool CanThrow() const OVERRIDE { return true; }
+
+  Kind GetKind() const { return kind_; }
+
+  Primitive::Type GetType() const OVERRIDE {
+    return GuardsAnInput() ? GuardedInput()->GetType() : Primitive::kPrimVoid;
+  }
+
+  bool GuardsAnInput() const {
+    return InputCount() == 2;
+  }
+
+  HInstruction* GuardedInput() const {
+    DCHECK(GuardsAnInput());
+    return InputAt(1);
+  }
+
+  void RemoveGuard() {
+    RemoveInputAt(1);
+  }
 
   DECLARE_INSTRUCTION(Deoptimize);
 
  private:
+  const Kind kind_;
+  const bool can_be_moved_;
+
   DISALLOW_COPY_AND_ASSIGN(HDeoptimize);
 };
+
+std::ostream& operator<<(std::ostream& os, const HDeoptimize::Kind& rhs);
 
 // Represents a should_deoptimize flag. Currently used for CHA-based devirtualization.
 // The compiled code checks this flag value in a guard before devirtualized call and
