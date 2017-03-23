@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7eaf6baa_5a2808ec",
+        "filename": "test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-23T22:10:52Z",
+      "side": 1,
+      "message": "BUILD_TOP is not set generally. ANDROID_BUILD_TOP is set during lunch and without lunch it assumes itself to be in the root directory.",
+      "parentUuid": "91797160_1314ceb2",
+      "revId": "55a6ecd1db3bd01d02de694f1d1c5b7258110323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4490510b_c92005ac",
         "filename": "test.py",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-23T21:43:17Z",
       "side": 1,
       "message": "What does this do if it runs outside of ANDROID_BUILD_TOP? Does it put \u0027out\u0027 directory in the cwd?",
+      "revId": "55a6ecd1db3bd01d02de694f1d1c5b7258110323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f21e69c_df354adc",
+        "filename": "test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-23T22:10:52Z",
+      "side": 1,
+      "message": "If ANDROID_BUILD_TOP is set, it will run without any issue from anywhere. Without it, it will assume that it is in that the cwd is the top.",
+      "parentUuid": "4490510b_c92005ac",
       "revId": "55a6ecd1db3bd01d02de694f1d1c5b7258110323",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
