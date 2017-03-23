@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6cb3987b_2959321f",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-23T12:40:11Z",
+      "side": 1,
+      "message": "Don\u0027t bother doing this in Makefile, Shubham is removing the support for it. You can only do it in testrunner.",
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94aeed2c_18ff31ce",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -42,6 +59,52 @@
         "startChar": 20,
         "endLine": 1323,
         "endChar": 32
+      },
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b574ab1_b2e9cb86",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-23T12:40:11Z",
+      "side": 1,
+      "message": "Code is the same. Please share it.",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 2
+      },
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4469abf0_cad59747",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-23T12:40:11Z",
+      "side": 1,
+      "message": "I think I\u0027d just make this a COMPILER_TYPES. And then you can add that to the default set of things that get run.",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 35
       },
       "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
