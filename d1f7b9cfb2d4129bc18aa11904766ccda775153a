@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a6f0b77_de324681",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-03-23T22:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cb3987b_2959321f",
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94aeed2c_18ff31ce",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -89,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "ed59e6df_0e5cc2d4",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-03-23T22:49:42Z",
+      "side": 1,
+      "message": "I\u0027ll refactor this once I make it generate something that\u0027s both random and reproducible. Right now I\u0027m just using the existing profman random test profile generation.",
+      "parentUuid": "2b574ab1_b2e9cb86",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 2
+      },
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4469abf0_cad59747",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
@@ -100,6 +142,30 @@
       "writtenOn": "2017-03-23T12:40:11Z",
       "side": 1,
       "message": "I think I\u0027d just make this a COMPILER_TYPES. And then you can add that to the default set of things that get run.",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 35
+      },
+      "revId": "d1f7b9cfb2d4129bc18aa11904766ccda775153a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b6aca6_d3c682ad",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-03-23T22:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4469abf0_cad59747",
       "range": {
         "startLine": 252,
         "startChar": 0,
