@@ -25,6 +25,40 @@
     },
     {
       "key": {
+        "uuid": "4726c20b_7703ef05",
+        "filename": "test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T21:35:28Z",
+      "side": 1,
+      "message": "?",
+      "revId": "bcd82efaa9a57b2c0eaa144bf4ff037af467985b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8394adc_629b52c8",
+        "filename": "test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T21:35:28Z",
+      "side": 1,
+      "message": "Is this consistently defaulting to run either host or target if neither --host nor --target is specified?",
+      "revId": "bcd82efaa9a57b2c0eaa144bf4ff037af467985b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7181d78c_664c0cb1",
         "filename": "test.py",
         "patchSetId": 1
