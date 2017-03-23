@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "749199c8_f20dccd2",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-23T18:47:42Z",
+      "side": 1,
+      "message": "Please see the patch 2. Its using the same approach sys.stdout.isatty()",
+      "parentUuid": "da402a27_bdae7e1e",
+      "range": {
+        "startLine": 811,
+        "startChar": 9,
+        "endLine": 811,
+        "endChar": 21
+      },
+      "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c50dfc48_38eb2a44",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
