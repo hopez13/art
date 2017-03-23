@@ -808,6 +808,7 @@ def parse_option():
   parser.add_argument('--build-target', dest='build_target', help='master-art-host targets')
   parser.set_defaults(build = env.ART_TEST_RUN_TEST_BUILD)
   parser.add_argument('--gdb', action='store_true', dest='gdb')
+  parser.add_argument('--no-color', action='store_true', dest='no_color')
   parser.add_argument('--gdb-arg', dest='gdb_arg')
 
   options = vars(parser.parse_args())
@@ -895,6 +896,16 @@ def parse_option():
     if options['gdb_arg']:
       gdb_arg = options['gdb_arg']
   timeout = options['timeout']
+
+  if options['no_color']:
+    global COLOR_ERROR
+    global COLOR_PASS
+    global COLOR_SKIP
+    global COLOR_NORMAL
+    COLOR_ERROR = ''
+    COLOR_PASS = ''
+    COLOR_SKIP = ''
+    COLOR_NORMAL = ''
   return test
 
 def main():

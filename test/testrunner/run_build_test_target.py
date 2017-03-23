@@ -63,6 +63,7 @@ if target.get('run-tests'):
   run_test_command += ['-b']
   run_test_command += ['--host']
   run_test_command += ['--verbose']
+  run_test_command += ['--no-color']
 
   print run_test_command
   if subprocess.call(run_test_command):
