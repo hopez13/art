@@ -120,6 +120,11 @@ NO_RETURN static void Usage(const char *fmt, ...) {
   UsageError("");
   UsageError("  --create-profile-from=<filename>: creates a profile from a list of classes.");
   UsageError("");
+  UsageError("  --create-random-profile=<filename>: creates a random profile.");
+  UsageError("");
+  UsageError("  --random-seed=<number>: seed for random number generator used when creating");
+  UsageError("      random profiles. Defaults to 0.");
+  UsageError("");
   UsageError("  --dex-location=<string>: location string to use with corresponding");
   UsageError("      apk-fd to find dex files");
   UsageError("");
@@ -153,6 +158,7 @@ class ProfMan FINAL {
       dump_only_(false),
       dump_classes_(false),
       dump_output_to_fd_(kInvalidFd),
+      random_seed_(0u),
       test_profile_num_dex_(kDefaultTestProfileNumDex),
       test_profile_method_ratio_(kDefaultTestProfileMethodRatio),
       test_profile_class_ratio_(kDefaultTestProfileClassRatio),
@@ -188,6 +194,10 @@ class ProfMan FINAL {
         dump_classes_ = true;
       } else if (option.starts_with("--create-profile-from=")) {
         create_profile_from_file_ = option.substr(strlen("--create-profile-from=")).ToString();
+      } else if (option.starts_with("--create-random-profile=")) {
+        create_random_profile_ = option.substr(strlen("--create-random-profile=")).ToString();
+      } else if (option.starts_with("--random-seed=")) {
+        ParseUintOption(option, "--random-seed", &random_seed_, Usage);
       } else if (option.starts_with("--dump-output-to-fd=")) {
         ParseUintOption(option, "--dump-output-to-fd", &dump_output_to_fd_, Usage);
       } else if (option.starts_with("--profile-file=")) {
@@ -790,6 +800,43 @@ class ProfMan FINAL {
     return !create_profile_from_file_.empty();
   }
 
+  int CreateRandomProfile() {
+    // Validate parameters for this command.
+    if (apk_files_.empty() && apks_fd_.empty()) {
+      Usage("APK files must be specified");
+    }
+    if (dex_locations_.empty()) {
+      Usage("DEX locations must be specified");
+    }
+    // for ZipArchive::OpenFromFd
+    MemMap::Init();
+    // Open the profile output file.
+    int fd = open(create_random_profile_.c_str(), O_CREAT | O_TRUNC | O_WRONLY, 0644);
+    if (fd < 0) {
+      LOG(ERROR) << "Cannot open " << create_random_profile_ << strerror(errno);
+      return -1;
+    }
+
+    // Open the dex files to look up classes and methods.
+    std::vector<std::unique_ptr<const DexFile>> dex_files;
+    OpenApkFilesFromLocations(&dex_files);
+
+    // Randomly populate the profile info for the set of dex files.
+    ProfileCompilationInfo info;
+    info.GenerateRandomProfileInfo(dex_files, random_seed_);
+
+    // Write the profile file.
+    CHECK(info.Save(fd));
+    if (close(fd) < 0) {
+      PLOG(WARNING) << "Failed to close descriptor";
+    }
+    return 0;
+  }
+
+  bool ShouldCreateRandomProfile() {
+    return !create_random_profile_.empty();
+  }
+
   int GenerateTestProfile() {
     // Validate parameters for this command.
     if (test_profile_method_ratio_ > 100) {
@@ -854,6 +901,8 @@ class ProfMan FINAL {
   int dump_output_to_fd_;
   std::string test_profile_;
   std::string create_profile_from_file_;
+  std::string create_random_profile_;
+  uint32_t random_seed_;
   uint16_t test_profile_num_dex_;
   uint16_t test_profile_method_ratio_;
   uint16_t test_profile_class_ratio_;
@@ -878,6 +927,9 @@ static int profman(int argc, char** argv) {
   }
   if (profman.ShouldCreateProfile()) {
     return profman.CreateProfile();
+  }
+  if (profman.ShouldCreateRandomProfile()) {
+    return profman.CreateRandomProfile();
   }
   // Process profile information and assess if we need to do a profile guided compilation.
   // This operation involves I/O.
