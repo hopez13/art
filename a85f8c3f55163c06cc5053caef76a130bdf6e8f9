@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0da4be0_a9922de6",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-23T19:56:19Z",
+      "side": 1,
+      "message": "Obsolete.",
+      "parentUuid": "10e4b0b2_86e8ae55",
+      "range": {
+        "startLine": 872,
+        "startChar": 7,
+        "endLine": 872,
+        "endChar": 17
+      },
+      "revId": "a85f8c3f55163c06cc5053caef76a130bdf6e8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79b54586_e7e71bd6",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-21T10:04:20Z",
       "side": 1,
       "message": "Remove copied line.",
+      "range": {
+        "startLine": 874,
+        "startChar": 0,
+        "endLine": 874,
+        "endChar": 52
+      },
+      "revId": "a85f8c3f55163c06cc5053caef76a130bdf6e8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e83c02d6_4349e1d0",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-23T19:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b54586_e7e71bd6",
       "range": {
         "startLine": 874,
         "startChar": 0,
