@@ -245,6 +245,11 @@ class ProfileCompilationInfo {
   // Clear the resolved classes from the current object.
   void ClearResolvedClasses();
 
+  // Populate the profile info with random classes and methods from the provided dex files.
+  // Uses given random seed to initialize the random number generator.
+  void GenerateRandomProfileInfo(std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                                 uint32_t random_seed);
+
   // Return the profile key associated with the given dex location.
   static std::string GetProfileDexFileKey(const std::string& dex_location);
 

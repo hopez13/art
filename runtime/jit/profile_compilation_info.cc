@@ -1169,6 +1169,39 @@ bool ProfileCompilationInfo::GenerateTestProfile(int fd,
   return info.Save(fd);
 }
 
+void ProfileCompilationInfo::GenerateRandomProfileInfo(
+    std::vector<std::unique_ptr<const DexFile>>& dex_files,
+    uint32_t random_seed) {
+  std::srand(random_seed);
+  for (std::unique_ptr<const DexFile>& dex_file : dex_files) {
+    const std::string& location = dex_file->GetLocation();
+    uint32_t checksum = dex_file->GetLocationChecksum();
+    for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+      const DexFile::ClassDef& class_def = dex_file->GetClassDef(i);
+      const uint8_t* class_data = dex_file->GetClassData(class_def);
+      if (class_data != nullptr) {
+        ClassDataItemIterator it(*dex_file, class_data);
+        while (it.HasNextStaticField() || it.HasNextInstanceField()) {
+          it.Next();
+        }
+        while (it.HasNextDirectMethod() || it.HasNextVirtualMethod()) {
+          if (it.GetMethodCodeItemOffset() != 0) {
+            // Randomly add a method from the class (with 50% chance).
+            if (std::rand() % 2 != 0) {
+              AddMethodIndex(location, checksum, it.GetMemberIndex());
+            }
+          }
+          it.Next();
+        }
+      }
+      // Randomly add a class from the dex file (with 50% chance).
+      if (std::rand() % 2 != 0) {
+        AddClassIndex(location, checksum, dex::TypeIndex(class_def.class_idx_));
+      }
+    }
+  }
+}
+
 bool ProfileCompilationInfo::OfflineProfileMethodInfo::operator==(
       const OfflineProfileMethodInfo& other) const {
   if (inline_caches.size() != other.inline_caches.size()) {
