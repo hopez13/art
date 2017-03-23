@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "132a6085_e8bd332a",
+        "filename": "test/080-oom-throw/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-23T13:13:12Z",
+      "side": 1,
+      "message": "Whenever we add a \u0027run\u0027 file, it\u0027d be good to document why we need to special case the test, and explain individual options. That will prevent future readers of the test go find out in gerrit history.",
+      "range": {
+        "startLine": 17,
+        "startChar": 33,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "30f530e86f5ab9f627cf209aafeb94470b83633e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
