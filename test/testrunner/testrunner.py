@@ -31,7 +31,7 @@ dependencies:
 There are various options to invoke the script which are:
 -t: Either the test name as in art/test or the test name including the variant
     information. Eg, "-t 001-HelloWorld",
-    "-t test-art-host-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-001-HelloWorld32"
+    "-t test-art-host-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-no-profile-001-HelloWorld32"
 -j: Number of thread workers to be used. Eg - "-j64"
 --dry-run: Instead of running the test name, just print its name.
 --verbose
@@ -69,6 +69,7 @@ JNI_TYPES = set()
 IMAGE_TYPES = set()
 PICTEST_TYPES = set()
 DEBUGGABLE_TYPES = set()
+PROFILE_TYPES = set()
 ADDRESS_SIZES = set()
 OPTIMIZING_COMPILER_TYPES = set()
 ADDRESS_SIZES_TARGET = {'host': set(), 'target': set()}
@@ -143,6 +144,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['prebuild'] = {'no-prebuild', 'no-dex2oat', 'prebuild'}
   VARIANT_TYPE_DICT['relocate'] = {'relocate-npatchoat', 'relocate', 'no-relocate'}
   VARIANT_TYPE_DICT['jni'] = {'jni', 'forcecopy', 'checkjni'}
+  VARIANT_TYPE_DICT['profile'] = {'profile', 'no-profile'}
   VARIANT_TYPE_DICT['address_sizes'] = {'64', '32'}
   VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'optimizing',
                               'regalloc_gc'}
@@ -247,6 +249,11 @@ def setup_test_env():
   if not DEBUGGABLE_TYPES: # Default
     DEBUGGABLE_TYPES.add('ndebuggable')
 
+  if env.ART_TEST_RUN_TEST_PROFILE:
+    PROFILE_TYPES.add('profile')
+  if not PROFILE_TYPES: # Default
+    PROFILE_TYPES.add('no-profile')
+
   if not ADDRESS_SIZES:
     ADDRESS_SIZES_TARGET['target'].add(env.ART_PHONY_TEST_TARGET_SUFFIX)
     ADDRESS_SIZES_TARGET['host'].add(env.ART_PHONY_TEST_HOST_SUFFIX)
@@ -288,6 +295,7 @@ def run_tests(tests):
   total_test_count *= len(PICTEST_TYPES)
   total_test_count *= len(DEBUGGABLE_TYPES)
   total_test_count *= len(COMPILER_TYPES)
+  total_test_count *= len(PROFILE_TYPES)
   target_address_combinations = 0
   for target in TARGET_TYPES:
     for address_size in ADDRESS_SIZES_TARGET[target]:
@@ -314,10 +322,10 @@ def run_tests(tests):
   config = itertools.product(tests, TARGET_TYPES, RUN_TYPES, PREBUILD_TYPES,
                              COMPILER_TYPES, RELOCATE_TYPES, TRACE_TYPES,
                              GC_TYPES, JNI_TYPES, IMAGE_TYPES, PICTEST_TYPES,
-                             DEBUGGABLE_TYPES)
+                             DEBUGGABLE_TYPES, PROFILE_TYPES)
 
   for test, target, run, prebuild, compiler, relocate, trace, gc, \
-      jni, image, pictest, debuggable in config:
+      jni, image, pictest, debuggable, profile in config:
     for address_size in ADDRESS_SIZES_TARGET[target]:
       if stop_testrunner:
         # When ART_TEST_KEEP_GOING is set to false, then as soon as a test
@@ -339,11 +347,12 @@ def run_tests(tests):
       test_name += image + '-'
       test_name += pictest + '-'
       test_name += debuggable + '-'
+      test_name += profile + "-"
       test_name += test
       test_name += address_size
 
       variant_set = {target, run, prebuild, compiler, relocate, trace, gc, jni,
-                     image, pictest, debuggable, address_size}
+                     image, pictest, debuggable, profile, address_size}
 
       options_test = options_all
 
@@ -403,6 +412,9 @@ def run_tests(tests):
 
       if debuggable == 'debuggable':
         options_test += ' --debuggable'
+
+      if profile == 'profile':
+        options_test += ' --random-profile'
 
       if address_size == '64':
         options_test += ' --64'
@@ -710,7 +722,7 @@ def parse_test_name(test_name):
   It supports two types of test_name:
   1) Like 001-HelloWorld. In this case, it will just verify if the test actually
   exists and if it does, it returns the testname.
-  2) Like test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-001-HelloWorld32
+  2) Like test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-npictest-ndebuggable-no-profile-001-HelloWorld32
   In this case, it will parse all the variants and check if they are placed
   correctly. If yes, it will set the various VARIANT_TYPES to use the
   variants required to run the test. Again, it returns the test_name
@@ -736,6 +748,7 @@ def parse_test_name(test_name):
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['image']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['pictest']) + ')-'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['debuggable']) + ')-'
+  regex += '(' + '|'.join(VARIANT_TYPE_DICT['profile']) + ')-'
   regex += '(' + '|'.join(RUN_TEST_SET) + ')'
   regex += '(' + '|'.join(VARIANT_TYPE_DICT['address_sizes']) + ')$'
   match = re.match(regex, test_name)
@@ -751,8 +764,9 @@ def parse_test_name(test_name):
     IMAGE_TYPES.add(match.group(9))
     PICTEST_TYPES.add(match.group(10))
     DEBUGGABLE_TYPES.add(match.group(11))
-    ADDRESS_SIZES.add(match.group(13))
-    return {match.group(12)}
+    PROFILE_TYPES.add(match.group(12))
+    ADDRESS_SIZES.add(match.group(14))
+    return {match.group(13)}
   raise ValueError(test_name + " is not a valid test")
 
 
@@ -847,6 +861,8 @@ def parse_option():
     RELOCATE_TYPES.add('relocate')
   if options['ndebuggable']:
     DEBUGGABLE_TYPES.add('ndebuggable')
+  if options['no-profile']:
+    PROFILE_TYPES.add('no-profile')
   if options['no_image']:
     IMAGE_TYPES.add('no-image')
   if options['optimizing']:
@@ -869,6 +885,8 @@ def parse_option():
     GC_TYPES.add('gcverify')
   if options['debuggable']:
     DEBUGGABLE_TYPES.add('debuggable')
+  if options['profile']:
+    PROFILE_TYPES.add('profile')
   if options['prebuild']:
     PREBUILD_TYPES.add('prebuild')
   if options['debug']:

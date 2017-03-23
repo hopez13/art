@@ -120,6 +120,9 @@ ART_TEST_RUN_TEST_ALWAYS_CLEAN ?= true
 # Do you want run-tests with the --debuggable flag
 ART_TEST_RUN_TEST_DEBUGGABLE ?= $(ART_TEST_FULL)
 
+# Do you want to do run-tests with profiles?
+ART_TEST_RUN_TEST_PROFILE ?= $(ART_TEST_FULL)
+
 # Do you want to test multi-part boot-image functionality?
 ART_TEST_RUN_TEST_MULTI_IMAGE ?= $(ART_TEST_FULL)
 
