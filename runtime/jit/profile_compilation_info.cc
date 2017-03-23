@@ -1169,6 +1169,28 @@ bool ProfileCompilationInfo::GenerateTestProfile(int fd,
   return info.Save(fd);
 }
 
+void ProfileCompilationInfo::GenerateRandomProfileInfo(
+    std::vector<std::unique_ptr<const DexFile>>& dex_files,
+    uint32_t random_seed) {
+  std::srand(random_seed);
+  for (std::unique_ptr<const DexFile>& dex_file : dex_files) {
+    const std::string& location = dex_file->GetLocation();
+    uint32_t checksum = dex_file->GetLocationChecksum();
+    for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+      // Randomly add a class from the dex file (with 50% chance).
+      if (std::rand() % 2 != 0) {
+        AddClassIndex(location, checksum, dex::TypeIndex(dex_file->GetClassDef(i).class_idx_));
+      }
+    }
+    for (uint32_t i = 0; i < dex_file->NumMethodIds(); ++i) {
+      // Randomly add a method from the dex file (with 50% chance).
+      if (std::rand() % 2 != 0) {
+        AddMethodIndex(location, checksum, i);
+      }
+    }
+  }
+}
+
 bool ProfileCompilationInfo::OfflineProfileMethodInfo::operator==(
       const OfflineProfileMethodInfo& other) const {
   if (inline_caches.size() != other.inline_caches.size()) {
