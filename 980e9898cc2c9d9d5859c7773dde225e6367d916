@@ -46,6 +46,47 @@
       "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da402a27_bdae7e1e",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T18:02:54Z",
+      "side": 1,
+      "message": "What does ttyname tell you?\n\nos.ttyname will just crash if you give it stdout/stderr\n\n  File \"colors.py\", line 4, in \u003cmodule\u003e\n    print os.ttyname(sys.stdout.fileno())\n  OSError: [Errno 25] Inappropriate ioctl for device\n\nThe right approach is probably to detect if its tty:\n\n  sys.stdout.isatty()\n\nStrictly speaking there\u0027s color code limitations on different TTYs but let\u0027s not go there...\n\nI think the flag should be more like\n\n  --colorize yes/no\n\nthe default value being whether or not stdout is a tty.",
+      "parentUuid": "aff357a0_02e2ccc4",
+      "range": {
+        "startLine": 811,
+        "startChar": 9,
+        "endLine": 811,
+        "endChar": 21
+      },
+      "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c50dfc48_38eb2a44",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T18:02:54Z",
+      "side": 1,
+      "message": "Seems a bit hacky, can you refactor your other code to a colorize_string function?",
+      "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
