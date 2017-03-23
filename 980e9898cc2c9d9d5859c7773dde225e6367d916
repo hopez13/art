@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f166298_a013debf",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-23T11:57:44Z",
+      "side": 1,
+      "message": "This solution is okay (and other projects here do similar). \n\nIs there a path to doing this automagically here (or lower down)? Perhaps something based upon:\n\n  os.ttyname(1)\n  os.ttyname(2)",
+      "range": {
+        "startLine": 811,
+        "startChar": 9,
+        "endLine": 811,
+        "endChar": 21
+      },
+      "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
