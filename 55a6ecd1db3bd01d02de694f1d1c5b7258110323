@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91797160_1314ceb2",
+        "filename": "test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T21:43:17Z",
+      "side": 1,
+      "message": "nit: default should be \u0027..\u0027 (as in $BUILD_TOP/art -\u003e $BUILD_TOP) and not os.getcwd",
+      "revId": "55a6ecd1db3bd01d02de694f1d1c5b7258110323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4490510b_c92005ac",
+        "filename": "test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-23T21:43:17Z",
+      "side": 1,
+      "message": "What does this do if it runs outside of ANDROID_BUILD_TOP? Does it put \u0027out\u0027 directory in the cwd?",
+      "revId": "55a6ecd1db3bd01d02de694f1d1c5b7258110323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
