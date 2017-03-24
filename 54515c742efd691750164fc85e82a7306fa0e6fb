@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "324ce97a_f6704ebd",
+        "filename": "test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-24T14:57:28Z",
+      "side": 1,
+      "message": "Fix this up in a follow up.",
+      "parentUuid": "cd1deea5_f2e13166",
+      "range": {
+        "startLine": 39,
+        "startChar": 29,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "54515c742efd691750164fc85e82a7306fa0e6fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5db7873_55873c78",
         "filename": "test.py",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-24T09:17:15Z",
       "side": 1,
       "message": "why not one line?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "54515c742efd691750164fc85e82a7306fa0e6fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6811fb4c_4e0e1e99",
+        "filename": "test.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-24T14:57:28Z",
+      "side": 1,
+      "message": "I thought it would cross the 80 character limit.",
+      "parentUuid": "d5db7873_55873c78",
       "range": {
         "startLine": 44,
         "startChar": 4,
