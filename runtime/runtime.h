@@ -76,6 +76,7 @@ namespace verifier {
 }  // namespace verifier
 class ArenaPool;
 class ArtMethod;
+class CallStackTracker;
 class ClassHierarchyAnalysis;
 class ClassLinker;
 class Closure;
