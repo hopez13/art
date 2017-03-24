@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "13d325ff_0412bea9",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-24T18:06:40Z",
+      "side": 1,
+      "message": "Ok I got this to work with our android shell (mksh), it is very finicky because it doesn\u0027t support some array syntaxes that bash does.\n\n  function replace_compiler_filter() {\n    replaced\u003d(\"$@\")\n  \n    ((index\u003d0))\n    while ((index \u003c\u003d $#)); do\n      what\u003d\"${replaced[$index]}\"\n  \n      case \"$what\" in\n        --compiler-filter\u003d*)\n          what\u003d\"--compiler-filter\u003dinterpret-only\"\n          replaced[$index]\u003d\"$what\"\n          ;;\n      esac\n  \n  \n      ((index++))\n      shift\n    done\n  }\n  \n  # the result is in \u0027replaced\u0027 array\n  replace_compiler_filter \"$@\"\n  \n  sh ./counter \"${replaced[@]}\"\n\n\nand here\u0027s how it looks like:\n\n  iam@invoker:~/workspace/scratch/shell$ adb shell /data/local/tmp/subst \"foo with spaces\" --compiler-filter\u003dawesome bar\n  num args  3\n  arg:  foo with spaces\n  arg:  --compiler-filter\u003dinterpret-only\n  arg:  bar",
+      "parentUuid": "934c6a57_54aa6ce1",
+      "range": {
+        "startLine": 111,
+        "startChar": 11,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b97590ca_d20d63bb",
         "filename": "tools/art",
         "patchSetId": 6
