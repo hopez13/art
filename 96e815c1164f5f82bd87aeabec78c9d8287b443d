@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "097c0ac6_5a780ca3",
+        "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T18:54:28Z",
+      "side": 1,
+      "message": "If you extract this in the runtime it will quirky to deal with error codes.\n\nI don\u0027t really feel a need that we must have the same enum for the both. I mean, you can easily statically check the enum here match the one in OatFileAssistant if the only goal is to make them have the same values.",
+      "parentUuid": "a0ee18e4_b94902c1",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52206329_92f8eb3d",
         "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
         "patchSetId": 2
