@@ -22,6 +22,30 @@
       "revId": "05c3a5c20004677cadbd5e0c2f193efcf211bdc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d256ed95_f86c358e",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2017-03-24T03:29:13Z",
+      "side": 1,
+      "message": "Replaced this patch with one that makes sigprocmask behave normally whenever we\u0027re in a signal handler.",
+      "parentUuid": "cab5f5b7_dc4636e5",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 50
+      },
+      "revId": "05c3a5c20004677cadbd5e0c2f193efcf211bdc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
