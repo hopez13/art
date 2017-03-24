@@ -22,6 +22,8 @@
 #include <sys/ucontext.h>
 #include <unistd.h>
 
+#include <utility>
+
 #include "base/macros.h"
 
 static int signal_count;
@@ -99,6 +101,10 @@ static void signalhandler(int sig ATTRIBUTE_UNUSED, siginfo_t* info ATTRIBUTE_UN
 
 static struct sigaction oldaction;
 
+auto tie(struct sigaction& sa) {
+  return std::tie(sa.sa_flags, sa.sa_sigaction, sa.sa_mask, sa.sa_restorer);
+}
+
 extern "C" JNIEXPORT void JNICALL Java_Main_initSignalTest(JNIEnv*, jclass) {
   struct sigaction action;
   action.sa_sigaction = signalhandler;
@@ -110,6 +116,11 @@ extern "C" JNIEXPORT void JNICALL Java_Main_initSignalTest(JNIEnv*, jclass) {
 #endif
 
   sigaction(SIGSEGV, &action, &oldaction);
+  struct sigaction check;
+  sigaction(SIGSEGV, nullptr, &check);
+  if (tie(action) != tie(check)) {
+    printf("sigaction returned different value\n");
+  }
   signal(BLOCKED_SIGNAL, blocked_signal);
   signal(UNBLOCKED_SIGNAL, unblocked_signal);
 }
