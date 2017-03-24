@@ -203,6 +203,9 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-Xpatchoat:_")
           .WithType<std::string>()
           .IntoKey(M::PatchOat)
+      .Define("-Xtrackdexaccesses:_")
+          .WithType<std::string>()
+          .IntoKey(M::TrackDexAccesses)
       .Define({"-Xrelocate", "-Xnorelocate"})
           .WithValues({true, false})
           .IntoKey(M::Relocate)
@@ -719,6 +722,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Xjitwarmupthreshold:integervalue\n");
   UsageMessage(stream, "  -Xjitosrthreshold:integervalue\n");
   UsageMessage(stream, "  -Xjitprithreadweight:integervalue\n");
+  UsageMessage(stream, "  -Xtrackdexaccesses:dexlocations\n");
   UsageMessage(stream, "  -X[no]relocate\n");
   UsageMessage(stream, "  -X[no]dex2oat (Whether to invoke dex2oat on the application)\n");
   UsageMessage(stream, "  -X[no]image-dex2oat (Whether to create and use a boot image)\n");

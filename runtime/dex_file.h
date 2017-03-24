@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 
+#include "backtrace_helper.h"
 #include "base/logging.h"
 #include "base/value_object.h"
 #include "dex_file_types.h"
@@ -32,6 +33,7 @@
 
 namespace art {
 
+class CallStackTracker;
 class MemMap;
 class OatDexFile;
 class Signature;
@@ -445,6 +447,7 @@ class DexFile {
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             CallStackTracker* call_stack_tracker,
                                              std::string* error_msg);
 
   // Opens .dex file that has been memory-mapped by the caller.
@@ -545,6 +548,9 @@ class DexFile {
   // Returns the StringId at the specified index.
   const StringId& GetStringId(dex::StringIndex idx) const {
     DCHECK_LT(idx.index_, NumStringIds()) << GetLocation();
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
     return string_ids_[idx.index_];
   }
 
@@ -585,6 +591,9 @@ class DexFile {
   // Returns the TypeId at the specified index.
   const TypeId& GetTypeId(dex::TypeIndex idx) const {
     DCHECK_LT(idx.index_, NumTypeIds()) << GetLocation();
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
     return type_ids_[idx.index_];
   }
 
@@ -616,6 +625,9 @@ class DexFile {
   // Returns the FieldId at the specified index.
   const FieldId& GetFieldId(uint32_t idx) const {
     DCHECK_LT(idx, NumFieldIds()) << GetLocation();
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
     return field_ids_[idx];
   }
 
@@ -654,6 +666,9 @@ class DexFile {
   // Returns the MethodId at the specified index.
   const MethodId& GetMethodId(uint32_t idx) const {
     DCHECK_LT(idx, NumMethodIds()) << GetLocation();
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
     return method_ids_[idx];
   }
 
@@ -747,20 +762,24 @@ class DexFile {
   const uint8_t* GetClassData(const ClassDef& class_def) const {
     if (class_def.class_data_off_ == 0) {
       return nullptr;
-    } else {
-      return begin_ + class_def.class_data_off_;
     }
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
+    return begin_ + class_def.class_data_off_;
   }
 
-  //
+  // Returns a code item pointer for a code offset.
   const CodeItem* GetCodeItem(const uint32_t code_off) const {
     DCHECK_LT(code_off, size_) << "Code item offset larger then maximum allowed offset";
     if (code_off == 0) {
       return nullptr;  // native or abstract method
-    } else {
-      const uint8_t* addr = begin_ + code_off;
-      return reinterpret_cast<const CodeItem*>(addr);
     }
+    if (UNLIKELY(call_stack_tracker_ != nullptr)) {
+      RecordDexAccess(__FUNCTION__);
+    }
+    const uint8_t* addr = begin_ + code_off;
+    return reinterpret_cast<const CodeItem*>(addr);
   }
 
   const char* GetReturnTypeDescriptor(const ProtoId& proto_id) const;
@@ -1140,6 +1159,7 @@ class DexFile {
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             CallStackTracker* call_stack_tracker,
                                              std::string* error_msg,
                                              VerifyResult* verify_result = nullptr);
 
@@ -1157,7 +1177,10 @@ class DexFile {
           size_t size,
           const std::string& location,
           uint32_t location_checksum,
-          const OatDexFile* oat_dex_file);
+          const OatDexFile* oat_dex_file,
+          CallStackTracker* call_stack_tracker);
+
+  void RecordDexAccess(const char* source) const;
 
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
@@ -1222,6 +1245,9 @@ class DexFile {
   // pointer to the OatDexFile it was loaded from. Otherwise oat_dex_file_ is
   // null.
   mutable const OatDexFile* oat_dex_file_;
+
+  // Call stack tracker for accesses.
+  CallStackTracker* const call_stack_tracker_;
 
   friend class DexFileVerifierTest;
   friend class OatWriter;

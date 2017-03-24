@@ -35,7 +35,8 @@ void DumpNativeStack(std::ostream& os,
                      BacktraceMap* map = nullptr,
                      const char* prefix = "",
                      ArtMethod* current_method = nullptr,
-                     void* ucontext = nullptr)
+                     void* ucontext = nullptr,
+                     size_t num_ignore_frames = 0u)
     NO_THREAD_SAFETY_ANALYSIS;
 
 // Dumps the kernel stack for thread 'tid' to 'os'. Note that this is only available on linux-x86.
