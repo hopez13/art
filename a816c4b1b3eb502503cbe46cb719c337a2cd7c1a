@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a6396462_c55f02e6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-24T02:50:11Z",
+      "side": 1,
+      "message": "Had logging changes.",
+      "parentUuid": "9e80357f_9ec13557",
+      "range": {
+        "startLine": 1378,
+        "startChar": 75,
+        "endLine": 1379,
+        "endChar": 18
+      },
+      "revId": "a816c4b1b3eb502503cbe46cb719c337a2cd7c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a79942b3_4209cf46",
         "filename": "compiler/image_writer.h",
         "patchSetId": 6
