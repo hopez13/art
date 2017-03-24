@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "ed2d2775_ccdd5685",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-24T11:35:32Z",
+      "side": 1,
+      "message": "The example failure is exactly what could be trapped for detecting not a tty, os.isatty() is a better check.",
+      "parentUuid": "da402a27_bdae7e1e",
+      "range": {
+        "startLine": 811,
+        "startChar": 9,
+        "endLine": 811,
+        "endChar": 21
+      },
+      "revId": "980e9898cc2c9d9d5859c7773dde225e6367d916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c50dfc48_38eb2a44",
         "filename": "test/testrunner/testrunner.py",
         "patchSetId": 1
