@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "315c87b9_e4a99cde",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T17:48:34Z",
+      "side": 1,
+      "message": "Interesting question: should we reset rounding mode on return from JNI?  I could force rounding mode here, but looking at libcore\u0027s Math.rint() it appears it also bottoms out into a vanilla call to native rint() with no rounding mode checking that I can see.  Or, if native code mucks with the rounding mode perhaps it should expect to fail?",
+      "parentUuid": "630a1c9a_46a90ab3",
+      "range": {
+        "startLine": 262,
+        "startChar": 31,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c7c868_b4c319fd",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4
