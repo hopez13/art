@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6d6cfc21_3d96cba5",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-03-24T22:35:10Z",
+      "side": 1,
+      "message": "The floating point control word on x86 must be preserved over calls and so there is no need to preserve it (see the System V ABI documents). For Neon/SSE operations the rounding mode is implicit in the opcode. What the STL does above this is another matter.",
+      "parentUuid": "315c87b9_e4a99cde",
+      "range": {
+        "startLine": 262,
+        "startChar": 31,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c7c868_b4c319fd",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4
