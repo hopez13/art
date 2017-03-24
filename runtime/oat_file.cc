@@ -1319,6 +1319,11 @@ std::unique_ptr<const DexFile> OatFile::OatDexFile::OpenDexFile(std::string* err
   ScopedTrace trace(__PRETTY_FUNCTION__);
   static constexpr bool kVerify = false;
   static constexpr bool kVerifyChecksum = false;
+  CallStackTracker* call_stack_tracker = nullptr;
+  Runtime* runtime = Runtime::Current();
+  if (runtime != nullptr) {
+    call_stack_tracker = runtime->GetCallStackTrackerForDexLocation(GetDexFileLocation());
+  }
   return DexFile::Open(dex_file_pointer_,
                        FileSize(),
                        dex_file_location_,
@@ -1326,6 +1331,7 @@ std::unique_ptr<const DexFile> OatFile::OatDexFile::OpenDexFile(std::string* err
                        this,
                        kVerify,
                        kVerifyChecksum,
+                       call_stack_tracker,
                        error_msg);
 }
 

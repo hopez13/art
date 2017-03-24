@@ -1470,7 +1470,8 @@ TEST_F(ClassLinkerTest, RegisterDexFileName) {
                                                 old_dex_file->Size(),
                                                 location->ToModifiedUtf8(),
                                                 0u,
-                                                nullptr));
+                                                nullptr,
+                                                /* call_stack_tracker */ nullptr));
   {
     WriterMutexLock mu(soa.Self(), *Locks::dex_lock_);
     // Check that inserting with a UTF16 name works.

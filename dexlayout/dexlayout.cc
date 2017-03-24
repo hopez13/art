@@ -1738,6 +1738,7 @@ void DexLayout::OutputDexFile(const DexFile* dex_file) {
                                                                  /*oat_dex_file*/ nullptr,
                                                                  /*verify*/ true,
                                                                  /*verify_checksum*/ false,
+                                                                 /* call_stack_tracker */ nullptr,
                                                                  &error_msg));
     DCHECK(output_dex_file != nullptr) << "Failed to re-open output file:" << error_msg;
   }

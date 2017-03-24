@@ -54,7 +54,7 @@ static void FixUpChecksum(uint8_t* dex_file) {
 class DexFileVerifierTest : public CommonRuntimeTest {
  protected:
   DexFile* GetDexFile(const uint8_t* dex_bytes, size_t length) {
-    return new DexFile(dex_bytes, length, "tmp", 0, nullptr);
+    return new DexFile(dex_bytes, length, "tmp", 0, nullptr, /* call_stack_tracker */ nullptr);
   }
 
   void VerifyModification(const char* dex_file_base64_content,
