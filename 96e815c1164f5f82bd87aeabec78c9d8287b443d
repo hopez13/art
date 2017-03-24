@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e6a5b07_24fc0862",
+        "filename": "dexoptanalyzer/dexoptanalyzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-24T10:37:26Z",
+      "side": 1,
+      "message": "if we expect all users of dexoptanalyzer to include dexoptanalyzer_return_codes.h, replace this usage information with a pointer to dexoptanalyzer_return_codes.h and require users to import that file to interpret the return codes?",
+      "range": {
+        "startLine": 88,
+        "startChar": 72,
+        "endLine": 113,
+        "endChar": 17
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "148ac992_88297c80",
+        "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-24T10:37:26Z",
+      "side": 1,
+      "message": "If we are going to expose these exit codes more widely, then I would like to change OatFileAssistant::GetDexOptNeeded to return a value from this enum rather than +/- OatFileAssistant::DexOptNeeded. That way we avoid having two different ways of packing the dexopt status into an int.\n\nIn that vein, how about defining this enum as art::DexOptNeededExitCode?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52206329_92f8eb3d",
+        "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-24T10:37:26Z",
+      "side": 1,
+      "message": "Call this ExitStatus rather than ReturnCode? With the goal of making it explicit that these values are used as a command exit status, so they should be positive and fit in 8 bits.",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
