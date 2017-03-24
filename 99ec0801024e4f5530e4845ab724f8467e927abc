@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f47514d1_fb4c36e2",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-24T14:13:20Z",
+      "side": 1,
+      "message": "The comment is more about \"why do you need this\", not \"what effect does that have\", which I agree the type name explains itself.",
+      "parentUuid": "dfc8b45d_f1c28af1",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1042,
+        "endChar": 50
+      },
+      "revId": "99ec0801024e4f5530e4845ab724f8467e927abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9efc1d94_cc45744c",
         "filename": "test/159-app-image-fields/src/Main.java",
         "patchSetId": 5
