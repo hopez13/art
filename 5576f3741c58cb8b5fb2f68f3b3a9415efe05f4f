@@ -22,6 +22,30 @@
       "revId": "5576f3741c58cb8b5fb2f68f3b3a9415efe05f4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0c1bea5_97c5472c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5309,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-24T19:58:44Z",
+      "side": 1,
+      "message": "Ah, thanks for that heads up. That is a subtle difference that need to be dealt with when we extend ARM64 to 128 bit. I will give this some thought.",
+      "parentUuid": "6952dce8_ee8b1b9e",
+      "range": {
+        "startLine": 5309,
+        "startChar": 9,
+        "endLine": 5309,
+        "endChar": 15
+      },
+      "revId": "5576f3741c58cb8b5fb2f68f3b3a9415efe05f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
