@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2ef31b3f_444709f0",
+        "filename": "tools/art",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "Adding extra flags after we specified the main class doesn\u0027t work as they are ignored. I added a function as Igor suggested.",
+      "parentUuid": "9b731995_d4bb110e",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "2887107bd9b7cfe56bb42c6ad4a09f24db32bb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "900f6949_a32ebbfe",
         "filename": "tools/art",
         "patchSetId": 4

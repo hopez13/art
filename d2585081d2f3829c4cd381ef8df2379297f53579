@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ec02327d_6e53d61d",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "Thanks for the help Igor.",
+      "parentUuid": "13d325ff_0412bea9",
+      "range": {
+        "startLine": 111,
+        "startChar": 11,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b97590ca_d20d63bb",
         "filename": "tools/art",
         "patchSetId": 6
@@ -84,6 +108,24 @@
       "writtenOn": "2017-03-22T14:48:51Z",
       "side": 1,
       "message": "Not going to work with golem, the first run\u0027s output needs to be stripped otherwise it will get 2 sets of metrics for the same run.",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea8df66_2fb73120",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "thanks. Done.",
+      "parentUuid": "b97590ca_d20d63bb",
       "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -107,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "b9eb9205_4bb7e6a8",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "Not really, but that\u0027s a limitation of this script. Unless you want to fully parse runtime arguments here is little we can do. Note that it\u0027s the same for the other invocation of dalvikvm.",
+      "parentUuid": "93d83b99_45236b8a",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0dc73955_0bbc00e3",
         "filename": "tools/art",
         "patchSetId": 6
@@ -124,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "c5a41bd4_3c65deee",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "0dc73955_0bbc00e3",
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1094e682_dec5e7c2",
         "filename": "tools/art",
         "patchSetId": 6
@@ -135,6 +213,30 @@
       "writtenOn": "2017-03-22T13:47:22Z",
       "side": 1,
       "message": "The more traditional sed usage would be s_/__ as sed will take the first character after s and use that as the pattern separator.",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 20
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b0effe3_cd0a802e",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "1094e682_dec5e7c2",
       "range": {
         "startLine": 142,
         "startChar": 15,
@@ -170,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "508cd429_7c47d6d3",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "e2777d8e_9db6b64c",
+      "range": {
+        "startLine": 143,
+        "startChar": 14,
+        "endLine": 143,
+        "endChar": 23
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19ccb0f6_d38afe04",
         "filename": "tools/art",
         "patchSetId": 6
@@ -181,6 +307,30 @@
       "writtenOn": "2017-03-22T13:47:22Z",
       "side": 1,
       "message": "This looks like the only place needing -r. Alternatively, the script could use [.] instead of -r and \\.\n\nThis script only needs a single invocation of sed. It would use less resources with a single sed instance:\n\nsed -e \u0027s/.*-cp[^ ]* //\u0027 \\\n    -e ... \\\n    -e ... \\\n    -e ...",
+      "range": {
+        "startLine": 144,
+        "startChar": 14,
+        "endLine": 144,
+        "endChar": 20
+      },
+      "revId": "d2585081d2f3829c4cd381ef8df2379297f53579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4b55f38_1a22febd",
+        "filename": "tools/art",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-24T23:39:29Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "19ccb0f6_d38afe04",
       "range": {
         "startLine": 144,
         "startChar": 14,
