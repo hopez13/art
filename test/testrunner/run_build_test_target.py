@@ -51,7 +51,8 @@ if target.get('target'):
   build_command += ' -j' + str(n_threads)
   build_command += ' -C ' + env.ANDROID_BUILD_TOP
   build_command += ' ' + target.get('target')
-  print build_command.split()
+  sys.stdout.write(build_command)
+  sys.stdout.flush()
   if subprocess.call(build_command.split()):
     sys.exit(1)
 
@@ -63,8 +64,8 @@ if target.get('run-tests'):
   run_test_command += ['-b']
   run_test_command += ['--host']
   run_test_command += ['--verbose']
-
-  print run_test_command
+  sys.stdout.write(run_test_command)
+  sys.stdout.flush()
   if subprocess.call(run_test_command):
     sys.exit(1)
 
