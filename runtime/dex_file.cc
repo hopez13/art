@@ -35,6 +35,7 @@
 #include "base/logging.h"
 #include "base/systrace.h"
 #include "base/unix_file/fd_file.h"
+#include "call_stack_tracker.h"
 #include "dex_file-inl.h"
 #include "dex_file_verifier.h"
 #include "jvalue.h"
@@ -71,6 +72,12 @@ struct DexFile::AnnotationValue {
   JValue value_;
   uint8_t type_;
 };
+
+void DexFile::RecordDexAccess(const char* source) const {
+  DCHECK(call_stack_tracker_ != nullptr);
+  std::string message(StringPrintf("%s(%s)", source, GetLocation().c_str()));
+  call_stack_tracker_->Record(std::move(message), 3);
+}
 
 bool DexFile::GetMultiDexChecksums(const char* filename,
                                    std::vector<uint32_t>* checksums,
@@ -532,7 +539,8 @@ DexFile::DexFile(const uint8_t* base,
       num_method_handles_(0),
       call_site_ids_(nullptr),
       num_call_site_ids_(0),
-      oat_dex_file_(oat_dex_file) {
+      oat_dex_file_(oat_dex_file),
+      call_stack_tracker_(nullptr) {
   CHECK(begin_ != nullptr) << GetLocation();
   CHECK_GT(size_, 0U) << GetLocation();
   // Check base (=header) alignment.
@@ -541,6 +549,10 @@ DexFile::DexFile(const uint8_t* base,
   CHECK_ALIGNED(begin_, alignof(Header));
 
   InitializeSectionsFromMapList();
+  CallStackTracker* tracker = CallStackTracker::Current();
+  if (tracker != nullptr && tracker->TrackDexLocation(GetLocation())) {
+    call_stack_tracker_ = tracker;
+  }
 }
 
 DexFile::~DexFile() {

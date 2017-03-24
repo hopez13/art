@@ -63,6 +63,7 @@ enum LockLevel {
   kJdwpSocketLock,
   kRegionSpaceRegionLock,
   kMarkSweepMarkStackLock,
+  kCallStackTrackerLock,
   kRosAllocGlobalLock,
   kRosAllocBracketLock,
   kRosAllocBulkFreeLock,

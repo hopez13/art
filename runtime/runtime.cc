@@ -64,6 +64,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/unix_file/fd_file.h"
+#include "call_stack_tracker.h"
 #include "cha.h"
 #include "class_linker-inl.h"
 #include "compiler_callbacks.h"
@@ -383,6 +384,7 @@ Runtime::~Runtime() {
   arena_pool_.reset();
   jit_arena_pool_.reset();
   MemMap::Shutdown();
+  CallStackTracker::Reset();
 
   // TODO: acquire a static mutex on Runtime to avoid racing.
   CHECK(instance_ == nullptr || instance_ == this);
@@ -1070,6 +1072,15 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     GetInstrumentation()->ForceInterpretOnly();
   }
 
+  const std::string dex_accesses_string = runtime_options.GetOrDefault(Opt::TrackDexAccesses);
+  if (!dex_accesses_string.empty()) {
+    std::vector<std::string> dex_filenames;
+    Split(dex_accesses_string, ',', &dex_filenames);
+    CallStackTracker* tracker = new CallStackTracker();
+    CallStackTracker::Reset(tracker);
+    tracker->AddDexFiles(dex_filenames);
+  }
+
   zygote_max_failed_boots_ = runtime_options.GetOrDefault(Opt::ZygoteMaxFailedBoots);
   experimental_flags_ = runtime_options.GetOrDefault(Opt::Experimental);
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
@@ -1589,6 +1600,9 @@ void Runtime::DumpForSigQuit(std::ostream& os) {
   {
     ScopedObjectAccess soa(Thread::Current());
     callbacks_->SigQuit();
+  }
+  if (CallStackTracker::Current() != nullptr) {
+    CallStackTracker::Current()->Dump(os);
   }
 }
 
