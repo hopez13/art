@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6952dce8_ee8b1b9e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5309,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-24T17:29:05Z",
+      "side": 1,
+      "message": "If you just introduce new location type only for SIMD slot but not for SIMD reg then in \"virtual void CodeGenerator::MoveLocation(Location dst, Location src, Primitive::Type dst_type) \u003d 0;\" it will be unclear whether 64 or 128 bits are needed to be moved (for FPUReg-\u003eFPUReg case).\n\nOn X86 you use the same instruction \"movaps\"; however on ARM64 depending on the size of registers (64, 128) we need to use either \"fmov d1, d2\" or \"mov v1.16b, v2.16b\".\n\nDo you suggest to use 128bit version of move when (SetHasSIMD \u003d\u003d true) for now until proper register allocator support for SIMD register is introduced?",
+      "range": {
+        "startLine": 5309,
+        "startChar": 9,
+        "endLine": 5309,
+        "endChar": 15
+      },
+      "revId": "5576f3741c58cb8b5fb2f68f3b3a9415efe05f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
