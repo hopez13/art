@@ -35,6 +35,7 @@
 #include "base/logging.h"
 #include "base/systrace.h"
 #include "base/unix_file/fd_file.h"
+#include "call_stack_tracker.h"
 #include "dex_file-inl.h"
 #include "dex_file_verifier.h"
 #include "jvalue.h"
@@ -71,6 +72,12 @@ struct DexFile::AnnotationValue {
   JValue value_;
   uint8_t type_;
 };
+
+void DexFile::RecordDexAccess(const char* source) const {
+  DCHECK(call_stack_tracker_ != nullptr);
+  std::string message(StringPrintf("%s(%s)", source, GetLocation().c_str()));
+  call_stack_tracker_->Record(std::move(message), 3);
+}
 
 bool DexFile::GetMultiDexChecksums(const char* filename,
                                    std::vector<uint32_t>* checksums,
@@ -159,6 +166,7 @@ std::unique_ptr<const DexFile> DexFile::Open(const uint8_t* base,
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             CallStackTracker* call_stack_tracker,
                                              std::string* error_msg) {
   ScopedTrace trace(std::string("Open dex file from RAM ") + location);
   return OpenCommon(base,
@@ -168,6 +176,7 @@ std::unique_ptr<const DexFile> DexFile::Open(const uint8_t* base,
                     oat_dex_file,
                     verify,
                     verify_checksum,
+                    call_stack_tracker,
                     error_msg);
 }
 
@@ -194,6 +203,7 @@ std::unique_ptr<const DexFile> DexFile::Open(const std::string& location,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
+                                                 /* call_stack_tracker */ nullptr,
                                                  error_msg);
   if (dex_file != nullptr) {
     dex_file->mem_map_.reset(map.release());
@@ -313,6 +323,7 @@ std::unique_ptr<const DexFile> DexFile::OpenFile(int fd,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
+                                                 /* call_stack_tracker */ nullptr,
                                                  error_msg);
   if (dex_file != nullptr) {
     dex_file->mem_map_.reset(map.release());
@@ -379,6 +390,7 @@ std::unique_ptr<const DexFile> DexFile::OpenOneDexFileFromZip(const ZipArchive& 
                                                  kNoOatDexFile,
                                                  /* verify */ true,
                                                  verify_checksum,
+                                                 /* call_stack_tracker */ nullptr,
                                                  error_msg,
                                                  &verify_result);
   if (dex_file == nullptr) {
@@ -476,6 +488,7 @@ std::unique_ptr<DexFile> DexFile::OpenCommon(const uint8_t* base,
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
+                                             CallStackTracker* call_stack_tracker,
                                              std::string* error_msg,
                                              VerifyResult* verify_result) {
   if (verify_result != nullptr) {
@@ -485,7 +498,8 @@ std::unique_ptr<DexFile> DexFile::OpenCommon(const uint8_t* base,
                                                 size,
                                                 location,
                                                 location_checksum,
-                                                oat_dex_file));
+                                                oat_dex_file,
+                                                call_stack_tracker));
   if (dex_file == nullptr) {
     *error_msg = StringPrintf("Failed to open dex file '%s' from memory: %s", location.c_str(),
                               error_msg->c_str());
@@ -516,7 +530,8 @@ DexFile::DexFile(const uint8_t* base,
                  size_t size,
                  const std::string& location,
                  uint32_t location_checksum,
-                 const OatDexFile* oat_dex_file)
+                 const OatDexFile* oat_dex_file,
+                 CallStackTracker* call_stack_tracker)
     : begin_(base),
       size_(size),
       location_(location),
@@ -532,7 +547,8 @@ DexFile::DexFile(const uint8_t* base,
       num_method_handles_(0),
       call_site_ids_(nullptr),
       num_call_site_ids_(0),
-      oat_dex_file_(oat_dex_file) {
+      oat_dex_file_(oat_dex_file),
+      call_stack_tracker_(call_stack_tracker) {
   CHECK(begin_ != nullptr) << GetLocation();
   CHECK_GT(size_, 0U) << GetLocation();
   // Check base (=header) alignment.

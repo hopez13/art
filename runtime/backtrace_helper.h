@@ -17,7 +17,8 @@
 #ifndef ART_RUNTIME_BACKTRACE_HELPER_H_
 #define ART_RUNTIME_BACKTRACE_HELPER_H_
 
-#include <unwind.h>
+#include <cstddef>
+#include <cstdint>
 
 namespace art {
 
@@ -32,24 +33,7 @@ class BacktraceCollector {
   }
 
   // Collect the backtrace, do not call more than once.
-  void Collect() {
-    _Unwind_Backtrace(&Callback, this);
-  }
-
- private:
-  static _Unwind_Reason_Code Callback(_Unwind_Context* context, void* arg) {
-    auto* const state = reinterpret_cast<BacktraceCollector*>(arg);
-    const uintptr_t ip = _Unwind_GetIP(context);
-    // The first stack frame is get_backtrace itself. Skip it.
-    if (ip != 0 && state->skip_count_ > 0) {
-      --state->skip_count_;
-      return _URC_NO_REASON;
-    }
-    // ip may be off for ARM but it shouldn't matter since we only use it for hashing.
-    state->out_frames_[state->num_frames_] = ip;
-    state->num_frames_++;
-    return state->num_frames_ >= state->max_depth_ ? _URC_END_OF_STACK : _URC_NO_REASON;
-  }
+  void Collect();
 
   uintptr_t* const out_frames_ = nullptr;
   size_t num_frames_ = 0u;
@@ -67,8 +51,7 @@ class FixedSizeBacktrace {
     num_frames_ = collector.NumFrames();
   }
 
-  uint64_t Hash() const {
-    uint64_t hash = 9314237;
+  uint64_t Hash(uint64_t hash = 9314237) const {
     for (size_t i = 0; i < num_frames_; ++i) {
       hash = hash * 2654435761 + frames_[i];
       hash += (hash >> 13) ^ (hash << 6);
@@ -76,10 +59,32 @@ class FixedSizeBacktrace {
     return hash;
   }
 
+  bool operator==(const FixedSizeBacktrace& other) const {
+    if (num_frames_ != other.num_frames_) {
+      return false;
+    }
+    for (size_t i = 0; i < num_frames_; ++i) {
+      if (frames_[i] != other.frames_[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  size_t NumFrames() const {
+    return num_frames_;
+  }
+
+  void PopFrame() {
+    --num_frames_;
+  }
+
  private:
   uintptr_t frames_[kMaxFrames];
   size_t num_frames_;
 };
+
+
 
 }  // namespace art
 

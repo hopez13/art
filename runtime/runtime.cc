@@ -64,6 +64,7 @@
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/unix_file/fd_file.h"
+#include "call_stack_tracker.h"
 #include "cha.h"
 #include "class_linker-inl.h"
 #include "compiler_callbacks.h"
@@ -261,6 +262,7 @@ Runtime::Runtime()
   std::fill(callee_save_methods_, callee_save_methods_ + arraysize(callee_save_methods_), 0u);
   interpreter::CheckInterpreterAsmConstants();
   callbacks_.reset(new RuntimeCallbacks());
+  call_stack_tracker_.reset(new CallStackTracker());
 }
 
 Runtime::~Runtime() {
@@ -1070,6 +1072,16 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     GetInstrumentation()->ForceInterpretOnly();
   }
 
+  const std::string dex_accesses_string = runtime_options.GetOrDefault(Opt::TrackDexAccesses);
+  if (!dex_accesses_string.empty()) {
+    std::vector<std::string> dex_filenames;
+    Split(dex_accesses_string, ',', &dex_filenames);
+    for (const std::string& filename : dex_filenames) {
+      LOG(ERROR) << "Adding string " << filename << " " << dex_accesses_string;
+      tracked_access_dex_files_.insert(filename);
+    }
+  }
+
   zygote_max_failed_boots_ = runtime_options.GetOrDefault(Opt::ZygoteMaxFailedBoots);
   experimental_flags_ = runtime_options.GetOrDefault(Opt::Experimental);
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
@@ -1590,6 +1602,7 @@ void Runtime::DumpForSigQuit(std::ostream& os) {
     ScopedObjectAccess soa(Thread::Current());
     callbacks_->SigQuit();
   }
+  call_stack_tracker_->Dump(os);
 }
 
 void Runtime::DumpLockHolders(std::ostream& os) {
@@ -2344,6 +2357,16 @@ void Runtime::DeoptimizeBootImage() {
     UpdateEntryPointsClassVisitor visitor(GetInstrumentation());
     GetClassLinker()->VisitClasses(&visitor);
   }
+}
+
+CallStackTracker* Runtime::GetCallStackTrackerForDexLocation(const std::string& dex_location)
+    const {
+  for (const std::string& location : tracked_access_dex_files_) {
+    if (dex_location.substr(0, location.length()) == location) {
+      return call_stack_tracker_.get();
+    }
+  }
+  return nullptr;
 }
 
 }  // namespace art

@@ -284,7 +284,8 @@ void DumpNativeStack(std::ostream& os,
                      BacktraceMap* existing_map,
                      const char* prefix,
                      ArtMethod* current_method,
-                     void* ucontext_ptr) {
+                     void* ucontext_ptr,
+                     size_t num_ignore_frames) {
   // b/18119146
   if (RUNNING_ON_MEMORY_TOOL != 0) {
     return;
@@ -297,7 +298,7 @@ void DumpNativeStack(std::ostream& os,
     map = tmp_map.get();
   }
   std::unique_ptr<Backtrace> backtrace(Backtrace::Create(BACKTRACE_CURRENT_PROCESS, tid, map));
-  if (!backtrace->Unwind(0, reinterpret_cast<ucontext*>(ucontext_ptr))) {
+  if (!backtrace->Unwind(num_ignore_frames, reinterpret_cast<ucontext*>(ucontext_ptr))) {
     os << prefix << "(backtrace::Unwind failed for thread " << tid
        << ": " <<  backtrace->GetErrorString(backtrace->GetError()) << ")" << std::endl;
     return;

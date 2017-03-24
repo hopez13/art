@@ -238,6 +238,7 @@ class TestDexFileBuilder {
         nullptr,
         kVerify,
         kVerifyChecksum,
+        /* call_stack_tracker */ nullptr,
         &error_msg));
     CHECK(dex_file != nullptr) << error_msg;
     return dex_file;

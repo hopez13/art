@@ -1326,6 +1326,7 @@ std::unique_ptr<const DexFile> OatFile::OatDexFile::OpenDexFile(std::string* err
                        this,
                        kVerify,
                        kVerifyChecksum,
+                       Runtime::Current()->GetCallStackTrackerForDexLocation(GetDexFileLocation()),
                        error_msg);
 }
 

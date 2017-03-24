@@ -76,6 +76,7 @@ namespace verifier {
 }  // namespace verifier
 class ArenaPool;
 class ArtMethod;
+class CallStackTracker;
 class ClassHierarchyAnalysis;
 class ClassLinker;
 class Closure;
@@ -661,6 +662,8 @@ class Runtime {
 
   void InitThreadGroups(Thread* self);
 
+  CallStackTracker* GetCallStackTrackerForDexLocation(const std::string& dex_location) const;
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -897,6 +900,12 @@ class Runtime {
 
   // Whether zygote code is in a section that should not start threads.
   bool zygote_no_threads_;
+
+  // Tracked call stacks.
+  std::unique_ptr<CallStackTracker> call_stack_tracker_;
+
+  // Dex files to track access.
+  std::set<std::string> tracked_access_dex_files_;
 
   // Saved environment.
   class EnvSnapshot {
