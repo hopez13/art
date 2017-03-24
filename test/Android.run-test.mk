@@ -260,7 +260,6 @@ target_prereq_rules :=
 core-image-dependencies :=
 name-to-var :=
 ART_TEST_HOST_RUN_TEST_DEPENDENCIES :=
-TEST_ART_TARGET_SYNC_DEPS :=
 define-test-art-host-or-target-run-test-group :=
 TARGET_TYPES :=
 COMPILER_TYPES :=
