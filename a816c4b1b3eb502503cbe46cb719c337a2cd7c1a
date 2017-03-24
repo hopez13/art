@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1f9adb2_af4f8a1b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-24T01:38:19Z",
+      "side": 1,
+      "message": "If you don\u0027t care about the iterator, why not\n\n bool added \u003d xyz.second;",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 618,
+        "endChar": 9
+      },
+      "revId": "a816c4b1b3eb502503cbe46cb719c337a2cd7c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e80357f_9ec13557",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-24T01:38:19Z",
+      "side": 1,
+      "message": "\u0026\u0026, why change and reformat this from before?",
+      "range": {
+        "startLine": 1378,
+        "startChar": 75,
+        "endLine": 1379,
+        "endChar": 18
+      },
+      "revId": "a816c4b1b3eb502503cbe46cb719c337a2cd7c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a79942b3_4209cf46",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-24T01:38:19Z",
+      "side": 1,
+      "message": "What is a MaybeCount? Comments, please.",
+      "range": {
+        "startLine": 566,
+        "startChar": 7,
+        "endLine": 566,
+        "endChar": 12
+      },
+      "revId": "a816c4b1b3eb502503cbe46cb719c337a2cd7c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
