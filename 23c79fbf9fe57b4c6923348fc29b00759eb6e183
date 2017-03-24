@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed63af6f_0d490594",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T16:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff57b14b_d2e87188",
+      "range": {
+        "startLine": 98,
+        "startChar": 45,
+        "endLine": 98,
+        "endChar": 46
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886912b9_e6bc29d2",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-24T10:36:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8abf873_550200dc",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T16:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886912b9_e6bc29d2",
       "range": {
         "startLine": 123,
         "startChar": 42,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d64a04d9_28c93f5a",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T16:14:25Z",
+      "side": 1,
+      "message": "My understanding is that the default rounding mode is FE_TONEAREST, which by my reading matches what we want.  But, I\u0027ll happily await Hans\u0027 comment.",
+      "parentUuid": "4d5f7922_2d4db60a",
+      "range": {
+        "startLine": 262,
+        "startChar": 31,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c7c868_b4c319fd",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "933426e8_8e5aa654",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T16:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2c7c868_b4c319fd",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 54
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cef9824_f663222b",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-24T10:36:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 54
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eea81611_105a3734",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2017-03-24T16:14:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cef9824_f663222b",
       "range": {
         "startLine": 283,
         "startChar": 4,
