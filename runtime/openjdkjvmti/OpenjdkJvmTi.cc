@@ -79,15 +79,22 @@ EventHandler gEventHandler;
 
 class JvmtiFunctions {
  private:
-  static bool IsValidEnv(jvmtiEnv* env) {
-    return env != nullptr;
+  static jvmtiError getEnvironmentError(jvmtiEnv* env) {
+    if (env == nullptr) {
+      return ERR(INVALID_ENVIRONMENT);
+    } else if (art::Thread::Current() == nullptr) {
+      return ERR(UNATTACHED_THREAD);
+    } else {
+      return OK;
+    }
   }
 
-#define ENSURE_VALID_ENV(env)          \
-  do {                                 \
-    if (!IsValidEnv(env)) {            \
-      return ERR(INVALID_ENVIRONMENT); \
-    }                                  \
+#define ENSURE_VALID_ENV(env)                                            \
+  do {                                                                   \
+    jvmtiError ensure_valid_env_ ## __LINE__ = getEnvironmentError(env); \
+    if (ensure_valid_env_ ## __LINE__ != OK) {                           \
+      return ensure_valid_env_ ## __LINE__ ;                             \
+    }                                                                    \
   } while (false)
 
 #define ENSURE_HAS_CAP(env, cap) \
@@ -121,14 +128,17 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetThreadState(jvmtiEnv* env, jthread thread, jint* thread_state_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::GetThreadState(env, thread, thread_state_ptr);
   }
 
   static jvmtiError GetCurrentThread(jvmtiEnv* env, jthread* thread_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::GetCurrentThread(env, thread_ptr);
   }
 
   static jvmtiError GetAllThreads(jvmtiEnv* env, jint* threads_count_ptr, jthread** threads_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::GetAllThreads(env, threads_count_ptr, threads_ptr);
   }
 
@@ -171,6 +181,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetThreadInfo(jvmtiEnv* env, jthread thread, jvmtiThreadInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::GetThreadInfo(env, thread, info_ptr);
   }
 
@@ -203,26 +214,31 @@ class JvmtiFunctions {
                                    jvmtiStartFunction proc,
                                    const void* arg,
                                    jint priority) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::RunAgentThread(env, thread, proc, arg, priority);
   }
 
   static jvmtiError SetThreadLocalStorage(jvmtiEnv* env, jthread thread, const void* data) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::SetThreadLocalStorage(env, thread, data);
   }
 
   static jvmtiError GetThreadLocalStorage(jvmtiEnv* env, jthread thread, void** data_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadUtil::GetThreadLocalStorage(env, thread, data_ptr);
   }
 
   static jvmtiError GetTopThreadGroups(jvmtiEnv* env,
                                        jint* group_count_ptr,
                                        jthreadGroup** groups_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadGroupUtil::GetTopThreadGroups(env, group_count_ptr, groups_ptr);
   }
 
   static jvmtiError GetThreadGroupInfo(jvmtiEnv* env,
                                        jthreadGroup group,
                                        jvmtiThreadGroupInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadGroupUtil::GetThreadGroupInfo(env, group, info_ptr);
   }
 
@@ -232,6 +248,7 @@ class JvmtiFunctions {
                                            jthread** threads_ptr,
                                            jint* group_count_ptr,
                                            jthreadGroup** groups_ptr) {
+    ENSURE_VALID_ENV(env);
     return ThreadGroupUtil::GetThreadGroupChildren(env,
                                                    group,
                                                    thread_count_ptr,
@@ -246,6 +263,7 @@ class JvmtiFunctions {
                                   jint max_frame_count,
                                   jvmtiFrameInfo* frame_buffer,
                                   jint* count_ptr) {
+    ENSURE_VALID_ENV(env);
     return StackUtil::GetStackTrace(env,
                                     thread,
                                     start_depth,
@@ -258,6 +276,7 @@ class JvmtiFunctions {
                                       jint max_frame_count,
                                       jvmtiStackInfo** stack_info_ptr,
                                       jint* thread_count_ptr) {
+    ENSURE_VALID_ENV(env);
     return StackUtil::GetAllStackTraces(env, max_frame_count, stack_info_ptr, thread_count_ptr);
   }
 
@@ -266,6 +285,7 @@ class JvmtiFunctions {
                                              const jthread* thread_list,
                                              jint max_frame_count,
                                              jvmtiStackInfo** stack_info_ptr) {
+    ENSURE_VALID_ENV(env);
     return StackUtil::GetThreadListStackTraces(env,
                                                thread_count,
                                                thread_list,
@@ -274,6 +294,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetFrameCount(jvmtiEnv* env, jthread thread, jint* count_ptr) {
+    ENSURE_VALID_ENV(env);
     return StackUtil::GetFrameCount(env, thread, count_ptr);
   }
 
@@ -287,6 +308,7 @@ class JvmtiFunctions {
                                      jint depth,
                                      jmethodID* method_ptr,
                                      jlocation* location_ptr) {
+    ENSURE_VALID_ENV(env);
     return StackUtil::GetFrameLocation(env, thread, depth, method_ptr, location_ptr);
   }
 
@@ -422,6 +444,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError ForceGarbageCollection(jvmtiEnv* env) {
+    ENSURE_VALID_ENV(env);
     return HeapUtil::ForceGarbageCollection(env);
   }
 
@@ -603,6 +626,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetLoadedClasses(jvmtiEnv* env, jint* class_count_ptr, jclass** classes_ptr) {
+    ENSURE_VALID_ENV(env);
     HeapUtil heap_util(ArtJvmTiEnv::AsArtJvmTiEnv(env)->object_tag_table.get());
     return heap_util.GetLoadedClasses(env, class_count_ptr, classes_ptr);
   }
@@ -611,6 +635,7 @@ class JvmtiFunctions {
                                           jobject initiating_loader,
                                           jint* class_count_ptr,
                                           jclass** classes_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassLoaderClasses(env, initiating_loader, class_count_ptr, classes_ptr);
   }
 
@@ -618,10 +643,12 @@ class JvmtiFunctions {
                                       jclass klass,
                                       char** signature_ptr,
                                       char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassSignature(env, klass, signature_ptr, generic_ptr);
   }
 
   static jvmtiError GetClassStatus(jvmtiEnv* env, jclass klass, jint* status_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassStatus(env, klass, status_ptr);
   }
 
@@ -633,6 +660,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetClassModifiers(jvmtiEnv* env, jclass klass, jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassModifiers(env, klass, modifiers_ptr);
   }
 
@@ -640,6 +668,7 @@ class JvmtiFunctions {
                                     jclass klass,
                                     jint* method_count_ptr,
                                     jmethodID** methods_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassMethods(env, klass, method_count_ptr, methods_ptr);
   }
 
@@ -647,6 +676,7 @@ class JvmtiFunctions {
                                    jclass klass,
                                    jint* field_count_ptr,
                                    jfieldID** fields_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassFields(env, klass, field_count_ptr, fields_ptr);
   }
 
@@ -654,6 +684,7 @@ class JvmtiFunctions {
                                              jclass klass,
                                              jint* interface_count_ptr,
                                              jclass** interfaces_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetImplementedInterfaces(env, klass, interface_count_ptr, interfaces_ptr);
   }
 
@@ -661,6 +692,7 @@ class JvmtiFunctions {
                                            jclass klass,
                                            jint* minor_version_ptr,
                                            jint* major_version_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassVersionNumbers(env, klass, minor_version_ptr, major_version_ptr);
   }
 
@@ -674,22 +706,26 @@ class JvmtiFunctions {
   }
 
   static jvmtiError IsInterface(jvmtiEnv* env, jclass klass, jboolean* is_interface_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::IsInterface(env, klass, is_interface_ptr);
   }
 
   static jvmtiError IsArrayClass(jvmtiEnv* env,
                                  jclass klass,
                                  jboolean* is_array_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::IsArrayClass(env, klass, is_array_class_ptr);
   }
 
   static jvmtiError IsModifiableClass(jvmtiEnv* env,
                                       jclass klass,
                                       jboolean* is_modifiable_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return Redefiner::IsModifiableClass(env, klass, is_modifiable_class_ptr);
   }
 
   static jvmtiError GetClassLoader(jvmtiEnv* env, jclass klass, jobject* classloader_ptr) {
+    ENSURE_VALID_ENV(env);
     return ClassUtil::GetClassLoader(env, klass, classloader_ptr);
   }
 
@@ -735,10 +771,12 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetObjectSize(jvmtiEnv* env, jobject object, jlong* size_ptr) {
+    ENSURE_VALID_ENV(env);
     return ObjectUtil::GetObjectSize(env, object, size_ptr);
   }
 
   static jvmtiError GetObjectHashCode(jvmtiEnv* env, jobject object, jint* hash_code_ptr) {
+    ENSURE_VALID_ENV(env);
     return ObjectUtil::GetObjectHashCode(env, object, hash_code_ptr);
   }
 
@@ -755,6 +793,7 @@ class JvmtiFunctions {
                                  char** name_ptr,
                                  char** signature_ptr,
                                  char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return FieldUtil::GetFieldName(env, klass, field, name_ptr, signature_ptr, generic_ptr);
   }
 
@@ -762,6 +801,7 @@ class JvmtiFunctions {
                                            jclass klass,
                                            jfieldID field,
                                            jclass* declaring_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return FieldUtil::GetFieldDeclaringClass(env, klass, field, declaring_class_ptr);
   }
 
@@ -769,6 +809,7 @@ class JvmtiFunctions {
                                       jclass klass,
                                       jfieldID field,
                                       jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return FieldUtil::GetFieldModifiers(env, klass, field, modifiers_ptr);
   }
 
@@ -785,30 +826,35 @@ class JvmtiFunctions {
                                   char** name_ptr,
                                   char** signature_ptr,
                                   char** generic_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetMethodName(env, method, name_ptr, signature_ptr, generic_ptr);
   }
 
   static jvmtiError GetMethodDeclaringClass(jvmtiEnv* env,
                                             jmethodID method,
                                             jclass* declaring_class_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetMethodDeclaringClass(env, method, declaring_class_ptr);
   }
 
   static jvmtiError GetMethodModifiers(jvmtiEnv* env,
                                        jmethodID method,
                                        jint* modifiers_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetMethodModifiers(env, method, modifiers_ptr);
   }
 
   static jvmtiError GetMaxLocals(jvmtiEnv* env,
                                  jmethodID method,
                                  jint* max_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetMaxLocals(env, method, max_ptr);
   }
 
   static jvmtiError GetArgumentsSize(jvmtiEnv* env,
                                      jmethodID method,
                                      jint* size_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetArgumentsSize(env, method, size_ptr);
   }
 
@@ -824,6 +870,7 @@ class JvmtiFunctions {
                                       jmethodID method,
                                       jlocation* start_location_ptr,
                                       jlocation* end_location_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::GetMethodLocation(env, method, start_location_ptr, end_location_ptr);
   }
 
@@ -844,6 +891,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError IsMethodNative(jvmtiEnv* env, jmethodID method, jboolean* is_native_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::IsMethodNative(env, method, is_native_ptr);
   }
 
@@ -853,6 +901,7 @@ class JvmtiFunctions {
   }
 
   static jvmtiError IsMethodObsolete(jvmtiEnv* env, jmethodID method, jboolean* is_obsolete_ptr) {
+    ENSURE_VALID_ENV(env);
     return MethodUtil::IsMethodObsolete(env, method, is_obsolete_ptr);
   }
 
@@ -869,38 +918,47 @@ class JvmtiFunctions {
   }
 
   static jvmtiError CreateRawMonitor(jvmtiEnv* env, const char* name, jrawMonitorID* monitor_ptr) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::CreateRawMonitor(env, name, monitor_ptr);
   }
 
   static jvmtiError DestroyRawMonitor(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::DestroyRawMonitor(env, monitor);
   }
 
   static jvmtiError RawMonitorEnter(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::RawMonitorEnter(env, monitor);
   }
 
   static jvmtiError RawMonitorExit(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::RawMonitorExit(env, monitor);
   }
 
   static jvmtiError RawMonitorWait(jvmtiEnv* env, jrawMonitorID monitor, jlong millis) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::RawMonitorWait(env, monitor, millis);
   }
 
   static jvmtiError RawMonitorNotify(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::RawMonitorNotify(env, monitor);
   }
 
   static jvmtiError RawMonitorNotifyAll(jvmtiEnv* env, jrawMonitorID monitor) {
+    ENSURE_VALID_ENV(env);
     return MonitorUtil::RawMonitorNotifyAll(env, monitor);
   }
 
   static jvmtiError SetJNIFunctionTable(jvmtiEnv* env, const jniNativeInterface* function_table) {
+    ENSURE_VALID_ENV(env);
     return JNIUtil::SetJNIFunctionTable(env, function_table);
   }
 
   static jvmtiError GetJNIFunctionTable(jvmtiEnv* env, jniNativeInterface** function_table) {
+    ENSURE_VALID_ENV(env);
     return JNIUtil::GetJNIFunctionTable(env, function_table);
   }
 
@@ -955,14 +1013,16 @@ class JvmtiFunctions {
     return gEventHandler.SetEvent(art_env, art_thread, GetArtJvmtiEvent(art_env, event_type), mode);
   }
 
-  static jvmtiError GenerateEvents(jvmtiEnv* env ATTRIBUTE_UNUSED,
+  static jvmtiError GenerateEvents(jvmtiEnv* env,
                                    jvmtiEvent event_type ATTRIBUTE_UNUSED) {
+    ENSURE_VALID_ENV(env);
     return OK;
   }
 
-  static jvmtiError GetExtensionFunctions(jvmtiEnv* env ATTRIBUTE_UNUSED,
+  static jvmtiError GetExtensionFunctions(jvmtiEnv* env,
                                           jint* extension_count_ptr,
                                           jvmtiExtensionFunctionInfo** extensions) {
+    ENSURE_VALID_ENV(env);
     // We do not have any extension functions.
     *extension_count_ptr = 0;
     *extensions = nullptr;
@@ -970,9 +1030,10 @@ class JvmtiFunctions {
     return ERR(NONE);
   }
 
-  static jvmtiError GetExtensionEvents(jvmtiEnv* env ATTRIBUTE_UNUSED,
+  static jvmtiError GetExtensionEvents(jvmtiEnv* env,
                                        jint* extension_count_ptr,
                                        jvmtiExtensionEventInfo** extensions) {
+    ENSURE_VALID_ENV(env);
     // We do not have any extension events.
     *extension_count_ptr = 0;
     *extensions = nullptr;
@@ -980,9 +1041,10 @@ class JvmtiFunctions {
     return ERR(NONE);
   }
 
-  static jvmtiError SetExtensionEventCallback(jvmtiEnv* env ATTRIBUTE_UNUSED,
+  static jvmtiError SetExtensionEventCallback(jvmtiEnv* env,
                                               jint extension_event_index ATTRIBUTE_UNUSED,
                                               jvmtiExtensionEvent callback ATTRIBUTE_UNUSED) {
+    ENSURE_VALID_ENV(env);
     // We do not have any extension events, so any call is illegal.
     return ERR(ILLEGAL_ARGUMENT);
   }
@@ -1164,38 +1226,47 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetTimerInfo(jvmtiEnv* env, jvmtiTimerInfo* info_ptr) {
+    ENSURE_VALID_ENV(env);
     return TimerUtil::GetTimerInfo(env, info_ptr);
   }
 
   static jvmtiError GetTime(jvmtiEnv* env, jlong* nanos_ptr) {
+    ENSURE_VALID_ENV(env);
     return TimerUtil::GetTime(env, nanos_ptr);
   }
 
   static jvmtiError GetAvailableProcessors(jvmtiEnv* env, jint* processor_count_ptr) {
+    ENSURE_VALID_ENV(env);
     return TimerUtil::GetAvailableProcessors(env, processor_count_ptr);
   }
 
   static jvmtiError AddToBootstrapClassLoaderSearch(jvmtiEnv* env, const char* segment) {
+    ENSURE_VALID_ENV(env);
     return SearchUtil::AddToBootstrapClassLoaderSearch(env, segment);
   }
 
   static jvmtiError AddToSystemClassLoaderSearch(jvmtiEnv* env, const char* segment) {
+    ENSURE_VALID_ENV(env);
     return SearchUtil::AddToSystemClassLoaderSearch(env, segment);
   }
 
   static jvmtiError GetSystemProperties(jvmtiEnv* env, jint* count_ptr, char*** property_ptr) {
+    ENSURE_VALID_ENV(env);
     return PropertiesUtil::GetSystemProperties(env, count_ptr, property_ptr);
   }
 
   static jvmtiError GetSystemProperty(jvmtiEnv* env, const char* property, char** value_ptr) {
+    ENSURE_VALID_ENV(env);
     return PropertiesUtil::GetSystemProperty(env, property, value_ptr);
   }
 
   static jvmtiError SetSystemProperty(jvmtiEnv* env, const char* property, const char* value) {
+    ENSURE_VALID_ENV(env);
     return PropertiesUtil::SetSystemProperty(env, property, value);
   }
 
   static jvmtiError GetPhase(jvmtiEnv* env, jvmtiPhase* phase_ptr) {
+    ENSURE_VALID_ENV(env);
     return PhaseUtil::GetPhase(env, phase_ptr);
   }
 
@@ -1303,9 +1374,10 @@ class JvmtiFunctions {
     }
   }
 
-  static jvmtiError SetVerboseFlag(jvmtiEnv* env ATTRIBUTE_UNUSED,
+  static jvmtiError SetVerboseFlag(jvmtiEnv* env,
                                    jvmtiVerboseFlag flag,
                                    jboolean value) {
+    ENSURE_VALID_ENV(env);
     if (flag == jvmtiVerboseFlag::JVMTI_VERBOSE_OTHER) {
       // OTHER is special, as it's 0, so can't do a bit check.
       bool val = (value == JNI_TRUE) ? true : false;
@@ -1359,8 +1431,8 @@ class JvmtiFunctions {
     return ERR(NONE);
   }
 
-  static jvmtiError GetJLocationFormat(jvmtiEnv* env ATTRIBUTE_UNUSED,
-                                       jvmtiJlocationFormat* format_ptr) {
+  static jvmtiError GetJLocationFormat(jvmtiEnv* env, jvmtiJlocationFormat* format_ptr) {
+    ENSURE_VALID_ENV(env);
     // Report BCI as jlocation format. We report dex bytecode indices.
     if (format_ptr == nullptr) {
       return ERR(NULL_POINTER);
