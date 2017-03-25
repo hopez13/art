@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "40360600_e1ba2492",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-25T00:21:12Z",
+      "side": 1,
+      "message": "Does anyone understand exactly what that statement in the ABI means? fesetround() just seems to set the control words. Who\u0027s responsible for ensuring that \"The control bits of the MXCSR register are callee-saved (preserved across calls)...\" The Posix page seems to encourage the programmer to do so, but ...",
+      "parentUuid": "6d6cfc21_3d96cba5",
+      "range": {
+        "startLine": 262,
+        "startChar": 31,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "23c79fbf9fe57b4c6923348fc29b00759eb6e183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c7c868_b4c319fd",
         "filename": "runtime/interpreter/interpreter_intrinsics.cc",
         "patchSetId": 4

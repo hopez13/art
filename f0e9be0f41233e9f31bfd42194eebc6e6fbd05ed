@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03cd040c_e8d50970",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-25T00:21:12Z",
+      "side": 1,
+      "message": "Does it make sense to prepend\n\nif (a \u003e b) return b;\nif (b \u003e a) return a;\n\nThat makes the code slightly longer, but probably greatly reduces the expected dynamic comparisons.",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 3
+      },
+      "revId": "f0e9be0f41233e9f31bfd42194eebc6e6fbd05ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6571bbbc_5d1dc62e",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-25T00:21:12Z",
+      "side": 1,
+      "message": "Does this work as intended? The gcc manual says:\n\n\"The aligned attribute can only increase alignment. Alignment can be decreased by specifying the packed attribute. See below.\"",
+      "range": {
+        "startLine": 279,
+        "startChar": 10,
+        "endLine": 279,
+        "endChar": 37
+      },
+      "revId": "f0e9be0f41233e9f31bfd42194eebc6e6fbd05ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
