@@ -49,10 +49,20 @@ struct ArtClassDefinition {
   JvmtiUniquePtr<unsigned char> dex_data;
   art::ArraySlice<const unsigned char> original_dex_file;
 
-  ArtClassDefinition() = default;
+  ArtClassDefinition()
+      : klass(nullptr),
+        loader(nullptr),
+        name(),
+        protection_domain(nullptr),
+        dex_len(0),
+        dex_data(nullptr),
+        original_dex_file(),
+        modified(false) {}
+
   ArtClassDefinition(ArtClassDefinition&& o) = default;
 
   void SetNewDexData(ArtJvmTiEnv* env, jint new_dex_len, unsigned char* new_dex_data) {
+    DCHECK(!modified);
     if (new_dex_data == nullptr) {
       return;
     } else if (new_dex_data != dex_data.get() || new_dex_len != dex_len) {
