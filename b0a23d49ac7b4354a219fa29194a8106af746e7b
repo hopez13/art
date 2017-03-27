@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a764a63_303e1696",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T08:29:18Z",
+      "side": 1,
+      "message": "tws",
+      "range": {
+        "startLine": 2958,
+        "startChar": 0,
+        "endLine": 2958,
+        "endChar": 2
+      },
+      "revId": "b0a23d49ac7b4354a219fa29194a8106af746e7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce5cae2_a345b697",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T08:29:18Z",
+      "side": 1,
+      "message": "Use HInstruction::packed_fields_.",
+      "range": {
+        "startLine": 3013,
+        "startChar": 0,
+        "endLine": 3014,
+        "endChar": 27
+      },
+      "revId": "b0a23d49ac7b4354a219fa29194a8106af746e7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "174d60c6_8456f444",
+        "filename": "test/644-checker-deopt/profile",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T08:29:18Z",
+      "side": 1,
+      "message": "What does this mean? The received can be either Main or Main?",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 48
+      },
+      "revId": "b0a23d49ac7b4354a219fa29194a8106af746e7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cad57a2_21002427",
+        "filename": "test/644-checker-deopt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T08:29:18Z",
+      "side": 1,
+      "message": "tws",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "b0a23d49ac7b4354a219fa29194a8106af746e7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
