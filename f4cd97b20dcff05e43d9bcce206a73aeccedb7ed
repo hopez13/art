@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57b159a3_9665549b",
+        "filename": "runtime/arch/mips/entrypoints_init_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "So it would be enough to have 31 entrypoints instead of 32. And considering that ZERO is special, mips could simply subtract 1 from the register number and stick to 30 without adding too much complexity.",
+      "range": {
+        "startLine": 381,
+        "startChar": 85,
+        "endLine": 381,
+        "endChar": 91
+      },
+      "revId": "f4cd97b20dcff05e43d9bcce206a73aeccedb7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f418ce_089fd7f0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use \"SDu $f0, $f1, 16, $sp, $t1\"? In that case, this is not a good candidate for the delay slot and the \"sw $v0, 96($sp)\" can be moved here instead.",
+      "range": {
+        "startLine": 2261,
+        "startChar": 4,
+        "endLine": 2261,
+        "endChar": 8
+      },
+      "revId": "f4cd97b20dcff05e43d9bcce206a73aeccedb7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63756569_6733de10",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Bump the oat version.",
+      "revId": "f4cd97b20dcff05e43d9bcce206a73aeccedb7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

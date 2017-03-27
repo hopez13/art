@@ -1,0 +1,441 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3264f3_696b9142",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Unnecessary, given the DCHECK() above.",
+      "range": {
+        "startLine": 557,
+        "startChar": 4,
+        "endLine": 557,
+        "endChar": 72
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdb6e477_14ba8ba2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 658,
+        "startChar": 4,
+        "endLine": 658,
+        "endChar": 72
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c964fc9a_f7118530",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "No, given the comment about \"relaxed\" ordering.",
+      "range": {
+        "startLine": 726,
+        "startChar": 4,
+        "endLine": 726,
+        "endChar": 18
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "826608cd_994ffd3a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 741,
+        "startChar": 4,
+        "endLine": 741,
+        "endChar": 18
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eccc3ba5_faabc261",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Unnecessary, given the DCHECK() above.",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 503,
+        "endChar": 71
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00d5cfee_113e2f09",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 603,
+        "startChar": 4,
+        "endLine": 603,
+        "endChar": 71
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5837db9_4cd1d498",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "No, given the comment about \"relaxed\" ordering.",
+      "range": {
+        "startLine": 666,
+        "startChar": 4,
+        "endLine": 666,
+        "endChar": 18
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f79f630_8ec6074f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 676,
+        "startChar": 4,
+        "endLine": 676,
+        "endChar": 18
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4533708e_d4265478",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "\"IntIntIntToInt\" implies that the return type should be \"int\" which is clearly not required...\nOTOH, the bad naming is consistent with codegens for x86/x86-64/arm/arm64.",
+      "range": {
+        "startLine": 1517,
+        "startChar": 12,
+        "endLine": 1517,
+        "endChar": 41
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94247450_2764619f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Calling Unsafe.get*() with unaligned offset is an application error (in C++ I\u0027d call that \"undefined behavior\"). Do not concern yourself with Java code that does that.",
+      "range": {
+        "startLine": 1585,
+        "startChar": 6,
+        "endLine": 1585,
+        "endChar": 54
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dd33c4f_6ff11ddd",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "This is old code but please remind we what are LWL and LWR?",
+      "range": {
+        "startLine": 1589,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 28
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb25a3b0_16004e5a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Same as above, misaligned access is application error.",
+      "range": {
+        "startLine": 1599,
+        "startChar": 6,
+        "endLine": 1599,
+        "endChar": 71
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "562191dc_dbddfc6c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "You\u0027re asking the codegen to add the index, so the \"__ Addu(TMP, base, offset_lo);\" above is a dead instruction. Maybe you should pass an invalid location here and TMP instead of base?",
+      "range": {
+        "startLine": 1608,
+        "startChar": 61,
+        "endLine": 1609,
+        "endChar": 68
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ca4f999_b757ee19",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 1746,
+        "startChar": 0,
+        "endLine": 1747,
+        "endChar": 81
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43358974_13baf734",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Ignore application errors.",
+      "range": {
+        "startLine": 1200,
+        "startChar": 6,
+        "endLine": 1200,
+        "endChar": 54
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96dfd61f_ce0345c2",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Ignore application errors.",
+      "range": {
+        "startLine": 1208,
+        "startChar": 6,
+        "endLine": 1208,
+        "endChar": 54
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70b21b5f_2fa778d6",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Same as mips: pass invalid location and TMP instead of base?",
+      "range": {
+        "startLine": 1224,
+        "startChar": 61,
+        "endLine": 1225,
+        "endChar": 68
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6cf89e7_082b4c63",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Ignore application errors.",
+      "range": {
+        "startLine": 1344,
+        "startChar": 0,
+        "endLine": 1345,
+        "endChar": 83
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63e1849_0728fba5",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T15:38:51Z",
+      "side": 1,
+      "message": "Ignore application errors.",
+      "range": {
+        "startLine": 1355,
+        "startChar": 6,
+        "endLine": 1355,
+        "endChar": 54
+      },
+      "revId": "e2843e0799cecf5f8ee88af3e137849b88a1e0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
