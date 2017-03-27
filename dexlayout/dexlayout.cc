@@ -1528,6 +1528,121 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   return new_class_data_order;
 }
 
+void DexLayout::LayoutStringData(const DexFile* dex_file) {
+  const size_t num_strings = header_->GetCollections().StringIds().size();
+  std::vector<bool> is_shorty(num_strings, false);
+  std::vector<bool> from_hot_method(num_strings, false);
+  for (size_t i = 0; i < dex_file->NumClassDefs(); ++i) {
+    const DexFile::ClassDef& cls = dex_file->GetClassDef(i);
+    const uint8_t* data = dex_file->GetClassData(cls);
+    if (data == nullptr) {
+      continue;
+    }
+    if (!info_->ContainsClass(*dex_file, cls.class_idx_)) {
+      // Only care about startup classes.
+      continue;
+    }
+    ClassDataItemIterator it(*dex_file, data);
+    while (it.HasNextStaticField() || it.HasNextInstanceField()) {
+      it.Next();
+    }
+    // Add class name.
+    from_hot_method[dex_file->GetTypeId(cls.class_idx_).descriptor_idx_.index_] = true;
+    for (; it.HasNextVirtualMethod() || it.HasNextDirectMethod(); it.Next()) {
+      const DexFile::CodeItem* item = it.GetMethodCodeItem();
+      if (item == nullptr) {
+        continue;
+      }
+      const DexFile::MethodId& method_id = dex_file->GetMethodId(it.GetMemberIndex());
+      is_shorty[dex_file->GetProtoId(method_id.proto_idx_).shorty_idx_.index_] = true;
+      const bool is_clinit = (it.GetMethodAccessFlags() & kAccConstructor) != 0 &&
+          (it.GetMethodAccessFlags() & kAccStatic) != 0;
+      const bool method_executed = is_clinit ||
+          info_->ContainsMethod(MethodReference(dex_file, it.GetMemberIndex()));
+      if (!method_executed) {
+        continue;
+      }
+      // A method in the profile, we will compile it and likely execute it. Lets group the
+      // associated string data together.
+      // Mark all of the shorties. TODO: we only should care about shorties called from clinits?
+      const uint32_t insns_size = item->insns_size_in_code_units_;
+      const uint16_t* insns = item->insns_;
+      for (const Instruction* inst = Instruction::At(insns);
+          reinterpret_cast<const uint16_t*>(inst) < insns + insns_size;
+          inst = inst->Next()) {
+        if (inst->Opcode() == Instruction::CONST_STRING ||
+            inst->Opcode() == Instruction::CONST_STRING_JUMBO) {
+          const size_t string_idx = (inst->Opcode() == Instruction::CONST_STRING)
+              ? inst->VRegB_21c()
+              : inst->VRegB_31c();
+          CHECK_LT(string_idx, num_strings);
+          from_hot_method[string_idx] = true;
+        } else if (inst->Opcode() == Instruction::SGET_OBJECT) {
+          // TODO: Add all of the static getters / setters?
+          const size_t field_idx = inst->VRegB_21c();
+          const DexFile::FieldId& field_id = dex_file->GetFieldId(field_idx);
+          from_hot_method[field_id.name_idx_.index_] = true;
+          from_hot_method[dex_file->GetTypeId(field_id.type_idx_).descriptor_idx_.index_] = true;
+        }
+      }
+    }
+  }
+  // Sort string data by speficied order.
+  std::vector<dex_ir::StringId*> string_ids;
+  size_t min_offset = std::numeric_limits<size_t>::max();
+  size_t max_offset = 0;
+  size_t hot_bytes = 0;
+  for (auto& string_id : header_->GetCollections().StringIds()) {
+    string_ids.push_back(string_id.get());
+    const size_t cur_offset = string_id->DataItem()->GetOffset();
+    CHECK_NE(cur_offset, 0u);
+    min_offset = std::min(min_offset, cur_offset);
+    dex_ir::StringData* data = string_id->DataItem();
+    const size_t element_size = UnsignedLeb128Size(CountModifiedUtf8Chars(data->Data())) +
+        strlen(data->Data()) + 1;
+    size_t end_offset = cur_offset + element_size;
+    if (is_shorty[string_id->GetIndex()] || from_hot_method[string_id->GetIndex()]) {
+      hot_bytes += element_size;
+    }
+    max_offset = std::max(max_offset, end_offset);
+  }
+  VLOG(compiler) << "Hot string data bytes " << hot_bytes << "/" << max_offset - min_offset;
+  std::sort(string_ids.begin(),
+            string_ids.end(),
+            [&is_shorty, &from_hot_method](const dex_ir::StringId* a,
+                                           const dex_ir::StringId* b) {
+    const bool a_is_hot = from_hot_method[a->GetIndex()];
+    const bool b_is_hot = from_hot_method[b->GetIndex()];
+    if (a_is_hot != b_is_hot) {
+      return a_is_hot < b_is_hot;
+    }
+    // After hot methods are partitioned, subpartition shorties.
+    const bool a_is_shorty = is_shorty[a->GetIndex()];
+    const bool b_is_shorty = is_shorty[b->GetIndex()];
+    if (a_is_shorty != b_is_shorty) {
+      return a_is_shorty < b_is_shorty;
+    }
+    // Preserve order.
+    return a->DataItem()->GetOffset() < b->DataItem()->GetOffset();
+  });
+  // Now we know what order we want the string data, reorder the offsets.
+  size_t offset = min_offset;
+  for (dex_ir::StringId* string_id : string_ids) {
+    dex_ir::StringData* data = string_id->DataItem();
+    data->SetOffset(offset);
+    offset += UnsignedLeb128Size(CountModifiedUtf8Chars(data->Data()));
+    offset += strlen(data->Data()) + 1;  // Add one extra for null.
+  }
+  if (offset > max_offset) {
+    const uint32_t diff = offset - max_offset;
+    // If we expanded the string data section, we need to update the offsets or else we will
+    // corrupt the next section when writing out.
+    FixupSections(header_->GetCollections().StringDatasOffset(), diff);
+    // Update file size.
+    header_->SetFileSize(header_->FileSize() + diff);
+  }
+}
+
 // Orders code items according to specified class data ordering.
 // NOTE: If the section following the code items is byte aligned, the last code item is left in
 // place to preserve alignment. Layout needs an overhaul to handle movement of other sections.
@@ -1686,6 +1801,7 @@ void DexLayout::FixupSections(uint32_t offset, uint32_t diff) {
 }
 
 void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
+  LayoutStringData(dex_file);
   std::vector<dex_ir::ClassData*> new_class_data_order = LayoutClassDefsAndClassData(dex_file);
   int32_t diff = LayoutCodeItems(new_class_data_order);
   // Move sections after ClassData by diff bytes.
