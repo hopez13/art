@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d50a6d0_ffd65dcf",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-27T20:52:25Z",
+      "side": 1,
+      "message": "This will look bizarre to tests that pass --profile run in speed-profile mode. I think if --profile is passed, that should invalidate the use of --randome-profile (especially knowing that such tests may fail if the profile is not the one expected).\n\nCalin, WDYT?",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 2
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fa0ca67_bef9c3e1",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-27T20:52:25Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this.",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 50
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e144c11c_c548036a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-27T20:52:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 50
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
