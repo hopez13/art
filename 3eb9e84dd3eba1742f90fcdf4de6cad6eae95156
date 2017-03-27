@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "ea5aaf68_fa8a2055",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:35:36Z",
+      "side": 1,
+      "message": "Hmm, I see. It\u0027s the same pattern as follow_links. I think both will fail in that case.\n\nI don\u0027t think we use spaces in our names though...\n\nDo you want this fixed?",
+      "parentUuid": "6d6e464e_5d766652",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6647fe_ebbbda04",
         "filename": "tools/art",
         "patchSetId": 7
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Not sure if it matters for setting a variable (x\u003dy which at least bash seems to tolerate) but for command expansion it will be an extra arg.\n\nSubtle things like comparisons can also fail\n\n   foo\u003d\"FOO BAR\"\n   if [ $FOO !\u003d 0 ]; then\n     ...\n   fi\n\nexpands to\n   \n   if [ FOO BAR !\u003d 0 ]; then\n     ...\n   fi\n\nand it\u0027ll just error out with a syntax error.",
       "parentUuid": "e5b8cf32_13c2df52",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0028de7_169411e2",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:35:36Z",
+      "side": 1,
+      "message": "thanks.",
+      "parentUuid": "21cbb15b_9886b015",
       "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -326,6 +362,30 @@
       "side": 1,
       "message": "Got it. I see it\u0027s opposite of L117",
       "parentUuid": "ce81776f_55b99312",
+      "range": {
+        "startLine": 164,
+        "startChar": 36,
+        "endLine": 164,
+        "endChar": 58
+      },
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6897c7dc_55ce0367",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:35:36Z",
+      "side": 1,
+      "message": "yep",
+      "parentUuid": "af133acc_a1ba8f88",
       "range": {
         "startLine": 164,
         "startChar": 36,
