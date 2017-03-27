@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee8b9dc4_2f9b4d42",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T15:22:07Z",
+      "side": 1,
+      "message": "To strictly follow the contract of va_start/end:\neach invocation of va_start() must be matched by a corresponding invocation of va_end() in the same function. I.e va_end is to be called before return statement in CHECK_NON_NULL_ARGUMENT_RETURN_ZERO. Same applies for the occurrences of va_start+CHECK_NON_NULL_ARGUMENT_RETURN_ZERO below.",
+      "revId": "2d10b206f9d0b97396b7dadb9a6415cd39efd341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
