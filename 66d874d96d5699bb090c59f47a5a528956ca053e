@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66ec1996_0860ef78",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T14:20:33Z",
+      "side": 1,
+      "message": "pos cannot be npos here because the same condition is checked above (followed by a return)",
+      "revId": "66d874d96d5699bb090c59f47a5a528956ca053e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
