@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "4d53117a_a67ec254",
+        "filename": "profman/profman.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T21:01:42Z",
+      "side": 1,
+      "message": "you don\u0027t need this. Please reuse --generate-test-profile option.",
+      "range": {
+        "startLine": 123,
+        "startChar": 18,
+        "endLine": 123,
+        "endChar": 39
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676ddc6b_00d72423",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T21:01:42Z",
+      "side": 1,
+      "message": "Follow the same flow we have for GenerateTestProfile: make static and pass the fd. Also, please just overload that method. No need for another name.",
+      "range": {
+        "startLine": 250,
+        "startChar": 7,
+        "endLine": 250,
+        "endChar": 32
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d50a6d0_ffd65dcf",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 5
@@ -13,6 +59,30 @@
       "writtenOn": "2017-03-27T20:52:25Z",
       "side": 1,
       "message": "This will look bizarre to tests that pass --profile run in speed-profile mode. I think if --profile is passed, that should invalidate the use of --randome-profile (especially knowing that such tests may fail if the profile is not the one expected).\n\nCalin, WDYT?",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 2
+      },
+      "revId": "e3c4a90949324533bbeb94edf5e0208c0f535022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd128105_8807fc72",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T21:01:42Z",
+      "side": 1,
+      "message": "Yes, it should be an error to pass both. However it might be tricky to configure that for now and I\u0027d be ok if we just make sure that --profile takes precedence. i.e. we should never use a random profile when --profile is given.",
+      "parentUuid": "7d50a6d0_ffd65dcf",
       "range": {
         "startLine": 513,
         "startChar": 0,
