@@ -64,6 +64,7 @@ TEST_IS_NDEBUG="n"
 APP_IMAGE="y"
 VDEX_FILTER=""
 PROFILE="n"
+RANDOM_PROFILE="n"
 
 # if "y", run 'sync' before dalvikvm to make sure all files from
 # build step (e.g. dex2oat) were finished writing.
@@ -272,6 +273,9 @@ while true; do
         shift
     elif [ "x$1" = "x--profile" ]; then
         PROFILE="y"
+        shift
+    elif [ "x$1" = "x--random-profile" ]; then
+        RANDOM_PROFILE="y"
         shift
     elif expr "x$1" : "x--" >/dev/null 2>&1; then
         echo "unknown $0 option: $1" 1>&2
@@ -514,8 +518,15 @@ if [ "$PROFILE" = "y" ]; then
     --reference-profile-file=$DEX_LOCATION/$TEST_NAME.prof"
   COMPILE_FLAGS="${COMPILE_FLAGS} --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
   FLAGS="${FLAGS} -Xcompiler-option --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
+elif [ "$RANDOM_PROFILE" = "y" ]; then
+  profman_cmdline="${ANDROID_ROOT}/bin/profman  \
+    --apk=$DEX_LOCATION/$TEST_NAME.jar \
+    --dex-location=$DEX_LOCATION/$TEST_NAME.jar \
+    --generate-test-profile=$DEX_LOCATION/$TEST_NAME.prof \
+    --generate-test-profile-seed=0"
+  COMPILE_FLAGS="${COMPILE_FLAGS} --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
+  FLAGS="${FLAGS} -Xcompiler-option --profile-file=$DEX_LOCATION/$TEST_NAME.prof"
 fi
-
 
 if [ "$PREBUILD" = "y" ]; then
   mkdir_locations="${mkdir_locations} ${DEX_LOCATION}/oat/$ISA"
@@ -603,7 +614,7 @@ if [ "$HOST" = "n" ]; then
       adb shell mkdir -p $DEX_LOCATION
       adb push $TEST_NAME.jar $DEX_LOCATION
       adb push $TEST_NAME-ex.jar $DEX_LOCATION
-      if [ "$PROFILE" = "y" ]; then
+      if [ "$PROFILE" = "y" || "$RANDOM_PROFILE" = "y" ]; then
         adb push profile $DEX_LOCATION
       fi
     else
@@ -611,7 +622,7 @@ if [ "$HOST" = "n" ]; then
       adb shell mkdir -p $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME.jar $DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME-ex.jar $DEX_LOCATION >/dev/null 2>&1
-      if [ "$PROFILE" = "y" ]; then
+      if [ "$PROFILE" = "y" || "$RANDOM_PROFILE" = "y" ]; then
         adb push profile $DEX_LOCATION >/dev/null 2>&1
       fi
 
