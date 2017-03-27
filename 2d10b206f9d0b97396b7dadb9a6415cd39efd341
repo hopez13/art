@@ -16,6 +16,24 @@
       "revId": "2d10b206f9d0b97396b7dadb9a6415cd39efd341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "955c1101_57806347",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-03-27T15:40:26Z",
+      "side": 1,
+      "message": "SGTM. Sounds like a check to get into clang-tidy.",
+      "parentUuid": "ee8b9dc4_2f9b4d42",
+      "revId": "2d10b206f9d0b97396b7dadb9a6415cd39efd341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
