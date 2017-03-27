@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "6d6e464e_5d766652",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-27T22:28:07Z",
+      "side": 1,
+      "message": "Shell doesn\u0027t allow you to return any kind of data structures (other than numeric return value) from a function, and returning it as a string is a hack.\n\nYou could probably modify it to use eval to choose which environment variable gets the array output, but IMHO that\u0027s not worth it. \n\nRenaming \u0027replaced\u0027 to \u0027args_with_interpret_only\u0027 or \u0027REPLACED_ARGS\u0027 or similar should be sufficient.\n\n\u003e And does it really matter?\n\nOnly if you don\u0027t want spaces in your arguments to work :).",
+      "parentUuid": "a85987c7_a28d0955",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6647fe_ebbbda04",
         "filename": "tools/art",
         "patchSetId": 7
@@ -101,6 +119,24 @@
       "side": 1,
       "message": "Done, but why?",
       "parentUuid": "0b6647fe_ebbbda04",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21cbb15b_9886b015",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-27T22:28:07Z",
+      "side": 1,
+      "message": "Not sure if it matters for setting a variable (x\u003dy which at least bash seems to tolerate) but for command expansion it will be an extra arg.\n\nSubtle things like comparisons can also fail\n\n   foo\u003d\"FOO BAR\"\n   if [ $FOO !\u003d 0 ]; then\n     ...\n   fi\n\nexpands to\n   \n   if [ FOO BAR !\u003d 0 ]; then\n     ...\n   fi\n\nand it\u0027ll just error out with a syntax error.",
+      "parentUuid": "e5b8cf32_13c2df52",
       "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -213,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "4303c835_1a5c2d55",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-27T22:28:07Z",
+      "side": 1,
+      "message": "Ok, sorry must have missed that.",
+      "parentUuid": "98f92465_775ff60a",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11322345_45a559af",
         "filename": "tools/art",
         "patchSetId": 7
@@ -248,6 +302,30 @@
       "side": 1,
       "message": "I don\u0027t want to create the folders again.",
       "parentUuid": "11322345_45a559af",
+      "range": {
+        "startLine": 164,
+        "startChar": 36,
+        "endLine": 164,
+        "endChar": 58
+      },
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af133acc_a1ba8f88",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-27T22:28:07Z",
+      "side": 1,
+      "message": "Got it. I see it\u0027s opposite of L117",
+      "parentUuid": "ce81776f_55b99312",
       "range": {
         "startLine": 164,
         "startChar": 36,
