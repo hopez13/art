@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74821182_ac1822ee",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T09:22:22Z",
+      "side": 1,
+      "message": "This seems to be a bug because input_file.get() cannot be null here (as the pointer is initialized to the result of operator new)",
+      "revId": "70bef0d8f6aa30b0da5c6ca56e1bc5729f74654b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
