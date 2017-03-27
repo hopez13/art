@@ -78,6 +78,7 @@ static const uint8_t kBase64Map[256] = {
 };
 
 uint8_t* DecodeBase64(const char* src, size_t* dst_size) {
+  CHECK(dst_size != nullptr);
   std::vector<uint8_t> tmp;
   uint32_t t = 0, y = 0;
   int g = 3;
@@ -114,11 +115,7 @@ uint8_t* DecodeBase64(const char* src, size_t* dst_size) {
     return nullptr;
   }
   std::unique_ptr<uint8_t[]> dst(new uint8_t[tmp.size()]);
-  if (dst_size != nullptr) {
-    *dst_size = tmp.size();
-  } else {
-    *dst_size = 0;
-  }
+  *dst_size = tmp.size();
   std::copy(tmp.begin(), tmp.end(), dst.get());
   return dst.release();
 }
