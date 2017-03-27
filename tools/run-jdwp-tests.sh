@@ -51,6 +51,8 @@ host="no"
 # Use JIT compiling by default.
 use_jit=true
 variant_cmdline_parameter="--variant=X32"
+# Timeout of JDWP test in ms.
+jdwp_test_timeout=10000
 
 while true; do
   if [[ "$1" == "--mode=host" ]]; then
@@ -150,6 +152,7 @@ vogar $vm_command \
       $image_compiler_option \
       --timeout 800 \
       --vm-arg -Djpda.settings.verbose=true \
+      --vm-arg -Djpda.settings.timeout=$jdwp_test_timeout \
       --vm-arg -Djpda.settings.transportAddress=127.0.0.1:55107 \
       --vm-arg -Djpda.settings.debuggeeJavaPath="$art_debugee $image $debuggee_args" \
       --classpath $test_jack \
