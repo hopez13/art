@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0db8d2a3_502ab08d",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T10:48:00Z",
+      "side": 1,
+      "message": "Not actually relates to this commit but fd should he closed here to prevent resource leak.",
+      "revId": "2cebb24bfc3247d3e9be138a3350106737455918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
