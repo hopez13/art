@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "b0361cdf_e4223cfb",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-27T22:45:53Z",
+      "side": 1,
+      "message": "I would somewhat prefer it to be fixed because I don\u0027t think it\u0027s a complicated fix. My original suggestion was handling white-spaces correctly.\n\nIt is indeed annoying not to return things but that\u0027s just how shell is. Unfortunately we don\u0027t have other scripting languages on android right now.",
+      "parentUuid": "ea5aaf68_fa8a2055",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6647fe_ebbbda04",
         "filename": "tools/art",
         "patchSetId": 7
