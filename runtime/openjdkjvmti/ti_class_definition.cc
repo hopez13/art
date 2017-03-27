@@ -48,8 +48,12 @@ bool ArtClassDefinition::IsModified(art::Thread* self) const {
   art::StackHandleScope<1> hs(self);
   art::Handle<art::mirror::Class> h_klass(hs.NewHandle(self->DecodeJObject(klass)->AsClass()));
   const art::DexFile& cur_dex_file = h_klass->GetDexFile();
+  // Skip the checksum since that might have been changed for the agents.
+  const size_t checksum_skip = OFFSETOF_MEMBER(art::DexFile::Header, signature_);
   return static_cast<jint>(cur_dex_file.Size()) != dex_len ||
-      memcmp(cur_dex_file.Begin(), dex_data.get(), dex_len) != 0;
+      memcmp(cur_dex_file.Begin() + checksum_skip,
+             dex_data.get() + checksum_skip,
+             dex_len - checksum_skip) != 0;
 }
 
 }  // namespace openjdkjvmti
