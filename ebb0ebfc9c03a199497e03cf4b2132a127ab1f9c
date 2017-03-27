@@ -661,6 +661,30 @@
     },
     {
       "key": {
+        "uuid": "925f0613_3441d02f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Sorry, I was not sure what the action item was. Note that this function calls back into vectorizer functions. It feels natural to do it this way, but if you prefer another solution, could you please be a bit more specific?",
+      "parentUuid": "677db7a1_588d166a",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 1
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84220901_bac28a6c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 26

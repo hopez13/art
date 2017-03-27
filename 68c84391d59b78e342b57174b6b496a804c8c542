@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfa2e9be_5570ca39",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eecea8f_d84cdb07",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 106
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4ab3ecf_d48f75f9",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "Comment please",
+      "range": {
+        "startLine": 356,
+        "startChar": 5,
+        "endLine": 356,
+        "endChar": 19
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97655c70_4a74b0c0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ab3ecf_d48f75f9",
       "range": {
         "startLine": 356,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1ab421e6_c13c7257",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Yes, you are right this would be easily overlooked later.\nChanged.",
+      "parentUuid": "e2017f7f_78845931",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 52
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9faf2f1f_14a48930",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 474,
+        "startChar": 41,
+        "endLine": 475,
+        "endChar": 89
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37159a39_174aa09c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9faf2f1f_14a48930",
       "range": {
         "startLine": 474,
         "startChar": 41,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f5e91276_5057d0e7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02623c7f_94cba626",
+      "range": {
+        "startLine": 506,
+        "startChar": 21,
+        "endLine": 506,
+        "endChar": 25
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3525f42_5bac4bee",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -128,6 +248,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "This looks odd, maybe add a comment that \u0027header\u0027 is not a loop header anymore?",
+      "range": {
+        "startLine": 511,
+        "startChar": 2,
+        "endLine": 511,
+        "endChar": 74
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbf6914e_db0b71d9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3525f42_5bac4bee",
       "range": {
         "startLine": 511,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6a958d5a_b4f519a8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f64bccaa_16ed6edd",
+      "range": {
+        "startLine": 528,
+        "startChar": 6,
+        "endLine": 528,
+        "endChar": 10
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "856dd3d7_a8753b66",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -174,6 +342,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "Same CHECK comment as above.",
+      "range": {
+        "startLine": 537,
+        "startChar": 4,
+        "endLine": 537,
+        "endChar": 9
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f07696_3310348a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "856dd3d7_a8753b66",
       "range": {
         "startLine": 537,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "9f93147a_4ea08f42",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done. also for the vector length method.",
+      "parentUuid": "f9431697_8358e418",
+      "range": {
+        "startLine": 564,
+        "startChar": 8,
+        "endLine": 564,
+        "endChar": 24
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f814c16e_beeaf1d6",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -220,6 +436,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "Maybe more readable if written with individual tests? eg:\n\nif (instruction-\u003eIsGoto()) {\n  return true;\n}\n\nif (!...) {\n return ...\n}",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 65
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151fb767_eee62688",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f814c16e_beeaf1d6",
       "range": {
         "startLine": 578,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "23b530a0_766d954e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "True, but it would be a less convincing vectorizer :-)\nSorry for the workload. I hope the design doc made life a bit easier.",
+      "parentUuid": "bb3bd83f_434cd084",
+      "range": {
+        "startLine": 625,
+        "startChar": 2,
+        "endLine": 625,
+        "endChar": 47
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84417fa2_eddc5676",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -266,6 +530,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "readability: i would have reversed the conditions.",
+      "range": {
+        "startLine": 676,
+        "startChar": 8,
+        "endLine": 676,
+        "endChar": 76
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5630b927_a2267932",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84417fa2_eddc5676",
       "range": {
         "startLine": 676,
         "startChar": 8,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "d86ad1e7_0c327779",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dbec414_0fd3ad73",
+      "range": {
+        "startLine": 814,
+        "startChar": 25,
+        "endLine": 814,
+        "endChar": 42
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ba351d_34ebc946",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -312,6 +624,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "The relation with the simd_ flag check above is hard to grasp.",
+      "range": {
+        "startLine": 829,
+        "startChar": 35,
+        "endLine": 829,
+        "endChar": 77
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e8a5ae_3dd8ae97",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ba351d_34ebc946",
       "range": {
         "startLine": 829,
         "startChar": 35,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "08f05d51_069fb9a0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "You asked me to change the AcceptXXX methods above (with side effects) to IsXXXAccepted, but here you want the opposite?",
+      "parentUuid": "f15d9fa2_c79519bd",
+      "range": {
+        "startLine": 994,
+        "startChar": 24,
+        "endLine": 994,
+        "endChar": 42
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0b37e5f_6971d770",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "b02eccef_3b9fb4e5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0b37e5f_6971d770",
+      "range": {
+        "startLine": 1100,
+        "startChar": 2,
+        "endLine": 1100,
+        "endChar": 55
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e54ecde6_4206ea69",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 40
@@ -381,6 +765,30 @@
       "writtenOn": "2017-03-27T14:41:52Z",
       "side": 1,
       "message": "From what instruction to what instruction?\n\nAlso, make the key base on instruction id?",
+      "range": {
+        "startLine": 162,
+        "startChar": 60,
+        "endLine": 162,
+        "endChar": 82
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60382377_0f00e40d",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-27T17:45:27Z",
+      "side": 1,
+      "message": "Added more doc. Note that I use the pointer based mapping in all my induction code too. Nowhere does this introduce non-determinism, since we do not use any iterators over the map.",
+      "parentUuid": "e54ecde6_4206ea69",
       "range": {
         "startLine": 162,
         "startChar": 60,
