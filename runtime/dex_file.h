@@ -520,6 +520,8 @@ class DexFile {
     return location_checksum_;
   }
 
+  static uint32_t CalculateChecksum(const uint8_t* dex_data, size_t size);
+
   const Header& GetHeader() const {
     DCHECK(header_ != nullptr) << GetLocation();
     return *header_;

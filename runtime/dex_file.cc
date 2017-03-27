@@ -23,6 +23,7 @@
 #include <string.h>
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <zlib.h>
 
 #include <memory>
 #include <sstream>
@@ -71,6 +72,14 @@ struct DexFile::AnnotationValue {
   JValue value_;
   uint8_t type_;
 };
+
+uint32_t DexFile::CalculateChecksum(const uint8_t* dex_data, size_t len) {
+  const uint32_t expected_size = static_cast<uint32_t>(len);
+  // The checksum doesn't include the header fields before signature_ (magic_ & checksum_).
+  const uint32_t non_sum = OFFSETOF_MEMBER(DexFile::Header, signature_);
+  const uint8_t* non_sum_ptr = dex_data + non_sum;
+  return adler32(adler32(0L, Z_NULL, 0), non_sum_ptr, expected_size - non_sum);
+}
 
 bool DexFile::GetMultiDexChecksums(const char* filename,
                                    std::vector<uint32_t>* checksums,
