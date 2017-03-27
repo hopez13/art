@@ -180,6 +180,13 @@ jvmtiError Transformer::GetDexDataForRetransformation(ArtJvmTiEnv* env,
   return CopyDataIntoJvmtiBuffer(env, dex.Begin(), *dex_data_len, /*out*/dex_data);
 }
 
+// Recompute and update the adler checksum of the dex file bytes in place.
+static void RecomputeDexCheckSum(unsigned char* data, jint len) {
+  art::DexFile::Header* header = reinterpret_cast<art::DexFile::Header*>(data);
+  header->checksum_ = art::DexFile::CalculateChecksum(reinterpret_cast<const uint8_t*>(data),
+                                                      static_cast<size_t>(len));
+}
+
 // TODO Move this function somewhere more appropriate.
 // Gets the data surrounding the given class.
 // TODO Make this less magical.
@@ -208,6 +215,7 @@ jvmtiError Transformer::FillInTransformationData(ArtJvmTiEnv* env,
     unsigned char* new_data;
     jvmtiError res = GetDexDataForRetransformation(env, hs_klass, &def->dex_len, &new_data);
     if (res == OK) {
+      RecomputeDexCheckSum(new_data, def->dex_len);
       def->dex_data = MakeJvmtiUniquePtr(env, new_data);
     } else {
       return res;
