@@ -32,6 +32,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include <zlib.h>
+
 #include "transform.h"
 
 #include "art_method.h"
@@ -180,6 +182,18 @@ jvmtiError Transformer::GetDexDataForRetransformation(ArtJvmTiEnv* env,
   return CopyDataIntoJvmtiBuffer(env, dex.Begin(), *dex_data_len, /*out*/dex_data);
 }
 
+// Recompute and update the adler checksum of the dex file bytes in place.
+static void RecomputeDexCheckSum(unsigned char* data, jint len) {
+  uint32_t adler_checksum = adler32(0L, Z_NULL, 0);
+  const uint32_t expected_size = static_cast<uint32_t>(len);
+  // The checksum doesn't include the header fields before signature_ (magic_ & checksum_).
+  const uint32_t non_sum = OFFSETOF_MEMBER(art::DexFile::Header, signature_);
+  const uint8_t* non_sum_ptr = reinterpret_cast<const uint8_t*>(data) + non_sum;
+  adler_checksum = adler32(adler_checksum, non_sum_ptr, expected_size - non_sum);
+  art::DexFile::Header* header = reinterpret_cast<art::DexFile::Header*>(data);
+  header->checksum_ = adler_checksum;
+}
+
 // TODO Move this function somewhere more appropriate.
 // Gets the data surrounding the given class.
 // TODO Make this less magical.
@@ -208,6 +222,7 @@ jvmtiError Transformer::FillInTransformationData(ArtJvmTiEnv* env,
     unsigned char* new_data;
     jvmtiError res = GetDexDataForRetransformation(env, hs_klass, &def->dex_len, &new_data);
     if (res == OK) {
+      RecomputeDexCheckSum(new_data, def->dex_len);
       def->dex_data = MakeJvmtiUniquePtr(env, new_data);
     } else {
       return res;

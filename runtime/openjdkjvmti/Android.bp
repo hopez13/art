@@ -51,6 +51,18 @@ cc_defaults {
         "libbase",
         "libnativehelper",
     ],
+    target: {
+        android: {
+            static_libs: [
+                "libz",
+            ],
+        },
+        host: {
+            shared_libs: [
+                "libz-host",
+            ],
+        },
+    },
 }
 
 art_cc_library {
