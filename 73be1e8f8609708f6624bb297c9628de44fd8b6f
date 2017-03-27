@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24515b92_d7091daa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T11:11:19Z",
+      "side": 1,
+      "message": "It looks like a bug that art_method_ is not initialized (in the constructor)",
+      "revId": "73be1e8f8609708f6624bb297c9628de44fd8b6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
