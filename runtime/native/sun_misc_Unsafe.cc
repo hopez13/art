@@ -299,6 +299,8 @@ static void Unsafe_copyMemory(JNIEnv *env, jobject unsafe ATTRIBUTE_UNUSED, jlon
   if (size < 0 || size != (jlong)(size_t) size) {
     ScopedFastNativeObjectAccess soa(env);
     ThrowIllegalAccessException("wrong number of bytes");
+    // Prevent calling memcpy() with invalid sz.
+    return;
   }
   size_t sz = (size_t)size;
   memcpy(reinterpret_cast<void *>(dst), reinterpret_cast<void *>(src), sz);
@@ -345,6 +347,7 @@ static void Unsafe_copyMemoryToPrimitiveArray(JNIEnv *env,
   // size is nonnegative and fits into size_t
   if (size < 0 || size != (jlong)(size_t) size) {
     ThrowIllegalAccessException("wrong number of bytes");
+    return;
   }
   size_t sz = (size_t)size;
   size_t dst_offset = (size_t)dstOffset;
@@ -376,6 +379,7 @@ static void Unsafe_copyMemoryFromPrimitiveArray(JNIEnv *env,
   // size is nonnegative and fits into size_t
   if (size < 0 || size != (jlong)(size_t) size) {
     ThrowIllegalAccessException("wrong number of bytes");
+    return;
   }
   size_t sz = (size_t)size;
   size_t src_offset = (size_t)srcOffset;
