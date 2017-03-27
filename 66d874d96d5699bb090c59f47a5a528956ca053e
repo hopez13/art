@@ -16,6 +16,24 @@
       "revId": "66d874d96d5699bb090c59f47a5a528956ca053e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df52327_fb825e1c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-27T15:56:01Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. I uploaded https://android-review.googlesource.com/#/c/357829 for this.",
+      "parentUuid": "66ec1996_0860ef78",
+      "revId": "66d874d96d5699bb090c59f47a5a528956ca053e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
