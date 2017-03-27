@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "819edc95_b92f9d00",
+        "filename": "compiler/optimizing/cha_guard_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T15:33:45Z",
+      "side": 1,
+      "message": "Initialization of instruction_iterator_ (to null) is missing in the constructor. While the object is allocated in the zero-initialized arena, probably it is better to initialize it anyway.",
+      "revId": "b0b051ad6c9fab511346882650d5d689f805a980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
