@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7432637b_93161340",
+        "filename": "profman/profman.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T11:03:14Z",
+      "side": 1,
+      "message": "Resource leak: missing close here. It is better to store the result of GetClassNames to a local variable.",
+      "revId": "7c80f2d716a7931ab66096322fcb6b951426b151",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b08a11b_f5e8e708",
+        "filename": "profman/profman.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T11:03:14Z",
+      "side": 1,
+      "message": "input_file.get() cannot ne null here because input_file is initialized by the result of operator new",
+      "revId": "7c80f2d716a7931ab66096322fcb6b951426b151",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
