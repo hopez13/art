@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4624623_b4794f64",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T09:46:05Z",
+      "side": 1,
+      "message": "Is it ok that uninitialized \"changed\" local variable might be passed to HandleChangedCapabilities?",
+      "revId": "73afd322e0e55ec4cda570cc240e1f22db215851",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aad6696_baef5e9f",
+        "filename": "runtime/openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T09:46:05Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "73afd322e0e55ec4cda570cc240e1f22db215851",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
