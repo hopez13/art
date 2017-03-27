@@ -45,6 +45,30 @@
       "revId": "f0e9be0f41233e9f31bfd42194eebc6e6fbd05ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27fc3f58_fb6898f5",
+        "filename": "runtime/interpreter/interpreter_intrinsics.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-27T12:09:44Z",
+      "side": 1,
+      "message": "\"When used as part of a typedef, the aligned attribute can both increase and decrease alignment, and specifying the packed attribute generates a warning.\"",
+      "parentUuid": "6571bbbc_5d1dc62e",
+      "range": {
+        "startLine": 279,
+        "startChar": 10,
+        "endLine": 279,
+        "endChar": 37
+      },
+      "revId": "f0e9be0f41233e9f31bfd42194eebc6e6fbd05ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
