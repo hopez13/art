@@ -68,6 +68,23 @@
       "revId": "9c20a14103f87a8a7ad53f7d3e863887ea4e800a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6a0de68_45688087",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T09:50:36Z",
+      "side": 1,
+      "message": "Null pointer dereference here",
+      "revId": "9c20a14103f87a8a7ad53f7d3e863887ea4e800a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
