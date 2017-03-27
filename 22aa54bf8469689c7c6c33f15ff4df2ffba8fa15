@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5b80838_6a6a7f4e",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-03-27T13:09:59Z",
+      "side": 1,
+      "message": "this seems to be a bug: cursor_ is not initialized in the ctor",
+      "revId": "22aa54bf8469689c7c6c33f15ff4df2ffba8fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
