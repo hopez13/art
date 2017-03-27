@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "805611e9_58921419",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "I think it\u0027s better to be explicit with the compiler filter, but I\u0027m ok to change this.",
+      "parentUuid": "371b93dd_807c25be",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c993c76_544f5d22",
         "filename": "tools/art",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a85987c7_a28d0955",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "I don\u0027t really understand the comment...  It\u0027s above my bash expertise :)\n\nI do want to be able to write my_local_var\u003dreplace_compiler_filter_with_interepret_only() instead of relying on a global set by the function.\n\nAnd does it really matter?",
+      "parentUuid": "5c993c76_544f5d22",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6647fe_ebbbda04",
         "filename": "tools/art",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2017-03-27T21:43:50Z",
       "side": 1,
       "message": "nit: surround variable assignment/expansion with \"\" if possible",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b8cf32_13c2df52",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "Done, but why?",
+      "parentUuid": "0b6647fe_ebbbda04",
       "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -100,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "e532b6a8_097f0e63",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "I prefer to be explicit in this case but ok.",
+      "parentUuid": "372ef899_c22626f5",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 41
+      },
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f13e2a9b_8412bafa",
         "filename": "tools/art",
         "patchSetId": 7
@@ -117,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "98f92465_775ff60a",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "I think I replied to this before:\n\n\"Not really, but that\u0027s a limitation of this script. Unless you want to fully parse runtime arguments here, there\u0027s little we can do. Note that it\u0027s the same for the other invocation of dalvikvm.\"",
+      "parentUuid": "f13e2a9b_8412bafa",
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11322345_45a559af",
         "filename": "tools/art",
         "patchSetId": 7
@@ -128,6 +224,30 @@
       "writtenOn": "2017-03-27T21:43:50Z",
       "side": 1,
       "message": "Can this just delete everything in dalvik-cache? Why does it need ISA?",
+      "range": {
+        "startLine": 164,
+        "startChar": 36,
+        "endLine": 164,
+        "endChar": 58
+      },
+      "revId": "3eb9e84dd3eba1742f90fcdf4de6cad6eae95156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce81776f_55b99312",
+        "filename": "tools/art",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-27T22:16:38Z",
+      "side": 1,
+      "message": "I don\u0027t want to create the folders again.",
+      "parentUuid": "11322345_45a559af",
       "range": {
         "startLine": 164,
         "startChar": 36,
