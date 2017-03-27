@@ -255,6 +255,11 @@ class ProfileCompilationInfo {
                                   uint16_t method_ratio,
                                   uint16_t class_ratio);
 
+  // Generate a test profile which will randomly contain classes and methods from
+  // the provided list of dex files.
+  static bool GenerateTestProfile(int fd,
+                                  std::vector<std::unique_ptr<const DexFile>>& dex_files);
+
   // Check that the given profile method info contain the same data.
   static bool Equals(const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi1,
                      const ProfileCompilationInfo::OfflineProfileMethodInfo& pmi2);
