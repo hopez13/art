@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb5a4de7_38d82b03",
+        "filename": "tools/art",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-28T21:29:19Z",
+      "side": 1,
+      "message": "FWIW you could do\n\n  DALVIK_CACHE_DIRS\u003d(\"$ANDROID_DATA\"/dalvik-cache/{arm,arm64,x86,x86_64}/)\n\n  mkdir -p \"${DALVIK_CACHE_DIRS[@]}\"\n  rm -rf \"${DALVIK_CACHE_DIRS[@]}\"\n\n(the idea being that {} expands eagerly before the \u003d assignment happens)\n\nalthough it doesn\u0027t seem too bad for me as it is, so I didn\u0027t make any remarks on it.",
+      "revId": "64f45cb014945e982de7ed9eae8189eaebfe94a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
