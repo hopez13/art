@@ -256,6 +256,30 @@
     },
     {
       "key": {
+        "uuid": "0ee2b676_30910af6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-28T22:33:52Z",
+      "side": 1,
+      "message": "Got a bit confused because I thought Thread#isInterrupted is only called by current thread. I double checked the .java and it\u0027s not the case.\n\nThat relaxed load optimization should only be safe in \"Thread#interrupted\" context since it\u0027s only callable for Thread::Current().",
+      "parentUuid": "e51eb696_1467c8f3",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
