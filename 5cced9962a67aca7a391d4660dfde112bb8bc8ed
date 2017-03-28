@@ -847,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "df144462_6f4dbcf0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "I looked at the reverse post order that would have been generated for the resulting code, and this was the result (modulo unrelated block numberings).",
+      "parentUuid": "cbed915f_947b121b",
+      "range": {
+        "startLine": 2354,
+        "startChar": 0,
+        "endLine": 2356,
+        "endChar": 48
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1248cff6_96f02ea3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 43
@@ -858,6 +882,30 @@
       "writtenOn": "2017-03-28T17:32:13Z",
       "side": 1,
       "message": "VecOperation?",
+      "range": {
+        "startLine": 1453,
+        "startChar": 23,
+        "endLine": 1453,
+        "endChar": 34
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a129e026_d497514b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Yes, of course. Good catch.",
+      "parentUuid": "1248cff6_96f02ea3",
       "range": {
         "startLine": 1453,
         "startChar": 23,
@@ -893,6 +941,30 @@
     },
     {
       "key": {
+        "uuid": "c75a0a61_5f60b960",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b7f91fb_3b641df0",
+      "range": {
+        "startLine": 1454,
+        "startChar": 24,
+        "endLine": 1454,
+        "endChar": 35
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "365a87b3_1cdeacfb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 43
@@ -904,6 +976,30 @@
       "writtenOn": "2017-03-28T17:32:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1455,
+        "startChar": 24,
+        "endLine": 1455,
+        "endChar": 35
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e391aae_f6ff8c55",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "365a87b3_1cdeacfb",
       "range": {
         "startLine": 1455,
         "startChar": 24,
@@ -987,6 +1083,30 @@
     },
     {
       "key": {
+        "uuid": "c0d90812_dc855f7c",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "The API does not really restrict the tested base to be a power of two (so asking IsAlignedAt(3) is allowed). But since two reviewers really feel strongly about the performance of this method I optimized for the power of two case and made that an API restriction.",
+      "parentUuid": "f91e0b28_6057c9c3",
+      "range": {
+        "startLine": 40,
+        "startChar": 43,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3d25934_8a4c30cb",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 43
@@ -998,6 +1118,30 @@
       "writtenOn": "2017-03-28T17:32:13Z",
       "side": 1,
       "message": "I guess this is easier than defining a HTemplateVecOperation\u003c\u003e mimicking the HTemplateInstruction?",
+      "range": {
+        "startLine": 58,
+        "startChar": 29,
+        "endLine": 58,
+        "endChar": 58
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "650ddd13_9902a244",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Yes Sir!",
+      "parentUuid": "b3d25934_8a4c30cb",
       "range": {
         "startLine": 58,
         "startChar": 29,
@@ -1027,6 +1171,24 @@
     },
     {
       "key": {
+        "uuid": "4d7ec84d_c49318af",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Yes, I am more and more leaning in that direction as well, especially since we will need that to do the right thing for ARM64 when we go 128-bit",
+      "parentUuid": "222c956b_efe0d118",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31a52a49_203715b2",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 43
@@ -1038,6 +1200,30 @@
       "writtenOn": "2017-03-28T17:32:13Z",
       "side": 1,
       "message": "/* number_of_inputs */",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b221a0c_0d7d90ac",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31a52a49_203715b2",
       "range": {
         "startLine": 120,
         "startChar": 62,
@@ -1073,6 +1259,30 @@
     },
     {
       "key": {
+        "uuid": "94a5a51e_610c0282",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e94a0e_34d0012f",
+      "range": {
+        "startLine": 133,
+        "startChar": 62,
+        "endLine": 133,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a9fd535_04c4d82d",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 43
@@ -1090,6 +1300,24 @@
     },
     {
       "key": {
+        "uuid": "dfd2be21_6c776ab9",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "For now vector code is not further simplified later (we rely on the scalar code to be optimized already on input). But this is something I plan to add later.",
+      "parentUuid": "6a9fd535_04c4d82d",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0d95980_af169688",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 43
@@ -1101,6 +1329,24 @@
       "writtenOn": "2017-03-28T17:32:13Z",
       "side": 1,
       "message": "Maybe DCHECK_EQ(packed_type, input-\u003eAsVecOperation()-\u003eGetPackedType())? Or do we deliberately want allow a different type and check at codegen?",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db103280_398a3f5f",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T17:53:05Z",
+      "side": 1,
+      "message": "No, for now that is a good DCHECK to add",
+      "parentUuid": "e0d95980_af169688",
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
