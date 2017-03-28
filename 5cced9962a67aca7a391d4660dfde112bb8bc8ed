@@ -824,6 +824,98 @@
     },
     {
       "key": {
+        "uuid": "cbed915f_947b121b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 2356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "The `new_body` could be inserted right after the `new_header`, right?",
+      "range": {
+        "startLine": 2354,
+        "startChar": 0,
+        "endLine": 2356,
+        "endChar": 48
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1248cff6_96f02ea3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "VecOperation?",
+      "range": {
+        "startLine": 1453,
+        "startChar": 23,
+        "endLine": 1453,
+        "endChar": 34
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b7f91fb_3b641df0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1454,
+        "startChar": 24,
+        "endLine": 1454,
+        "endChar": 35
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "365a87b3_1cdeacfb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1455,
+        "startChar": 24,
+        "endLine": 1455,
+        "endChar": 35
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7321700b_52b59035",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 43
@@ -865,6 +957,150 @@
         "endLine": 40,
         "endChar": 44
       },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91e0b28_6057c9c3",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "DCHECK(IsPowerOfTwo(base));\nreturn ((offset_ | base_) \u0026 (base - 1u)) \u003d\u003d 0u;",
+      "parentUuid": "7321700b_52b59035",
+      "range": {
+        "startLine": 40,
+        "startChar": 43,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3d25934_8a4c30cb",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "I guess this is easier than defining a HTemplateVecOperation\u003c\u003e mimicking the HTemplateInstruction?",
+      "range": {
+        "startLine": 58,
+        "startChar": 29,
+        "endLine": 58,
+        "endChar": 58
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "222c956b_efe0d118",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "I\u0027m in favor of extending the types used by the compiler beyond that defined by `Primitive` for use by the runtime. Unsigned byte would be useful for merging `a[i] \u0026 0xff`.",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31a52a49_203715b2",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "/* number_of_inputs */",
+      "range": {
+        "startLine": 120,
+        "startChar": 62,
+        "endLine": 120,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e94a0e_34d0012f",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "/* number_of_inputs */",
+      "range": {
+        "startLine": 133,
+        "startChar": 62,
+        "endLine": 133,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a9fd535_04c4d82d",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "No IsCommutative() or other helpers as in HBinaryOperation?",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0d95980_af169688",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-28T17:32:13Z",
+      "side": 1,
+      "message": "Maybe DCHECK_EQ(packed_type, input-\u003eAsVecOperation()-\u003eGetPackedType())? Or do we deliberately want allow a different type and check at codegen?",
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
