@@ -25,7 +25,9 @@
 
 #include "base/logging.h"
 #include "base/macros.h"
+#include "bytecode_utils.h"
 #include "dex_file.h"
+#include "dex_instruction.h"
 #include "jit/jit.h"
 #include "jni.h"
 #include "native_stack_dump.h"
@@ -71,6 +73,53 @@ void JNICALL CheckDexFileHook(jvmtiEnv* jvmti_env ATTRIBUTE_UNUSED,
                                                    &error));
   if (dex.get() == nullptr) {
     std::cout << "Failed to verify dex file for " << name << " because " << error << std::endl;
+    return;
+  }
+  for (uint32_t i = 0; i < dex->NumClassDefs(); i++) {
+    const DexFile::ClassDef& def = dex->GetClassDef(i);
+    const uint8_t* data_item = dex->GetClassData(def);
+    if (data_item == nullptr) {
+      continue;
+    }
+    ClassDataItemIterator it(*dex, data_item);
+    while (it.HasNextStaticField()) {
+      it.Next();
+    }
+    while (it.HasNextInstanceField()) {
+      it.Next();
+    }
+    while (it.HasNextVirtualMethod() || it.HasNextDirectMethod()) {
+      const DexFile::CodeItem* code_item = it.GetMethodCodeItem();
+      if (code_item != nullptr) {
+        for (CodeItemIterator code_it(*code_item); !code_it.Done(); code_it.Advance()) {
+          Instruction* inst = const_cast<Instruction*>(&code_it.CurrentInstruction());
+          switch (inst->Opcode()) {
+            case Instruction::RETURN_VOID_NO_BARRIER:
+            case Instruction::IGET_QUICK:
+            case Instruction::IGET_WIDE_QUICK:
+            case Instruction::IGET_OBJECT_QUICK:
+            case Instruction::IGET_BOOLEAN_QUICK:
+            case Instruction::IGET_BYTE_QUICK:
+            case Instruction::IGET_CHAR_QUICK:
+            case Instruction::IGET_SHORT_QUICK:
+            case Instruction::IPUT_BOOLEAN_QUICK:
+            case Instruction::IPUT_BYTE_QUICK:
+            case Instruction::IPUT_CHAR_QUICK:
+            case Instruction::IPUT_SHORT_QUICK:
+            case Instruction::IPUT_WIDE_QUICK:
+            case Instruction::IPUT_OBJECT_QUICK:
+            case Instruction::INVOKE_VIRTUAL_QUICK:
+            case Instruction::INVOKE_VIRTUAL_RANGE_QUICK:
+              std::cout << "Unexpected instruction found: "
+                        << inst->DumpString(dex.get()) << std::endl;
+              break;
+            default:
+              break;
+          }
+        }
+      }
+      it.Next();
+    }
   }
 }
 

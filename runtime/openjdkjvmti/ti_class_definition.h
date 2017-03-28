@@ -47,6 +47,7 @@ struct ArtClassDefinition {
   jobject protection_domain;
   jint dex_len;
   JvmtiUniquePtr<unsigned char> dex_data;
+  JvmtiUniquePtr<unsigned char> original_dex_file_memory;
   art::ArraySlice<const unsigned char> original_dex_file;
 
   ArtClassDefinition()
@@ -56,7 +57,9 @@ struct ArtClassDefinition {
         protection_domain(nullptr),
         dex_len(0),
         dex_data(nullptr),
+        original_dex_file_memory(nullptr),
         original_dex_file(),
+        redefined(false),
         modified(false) {}
 
   ArtClassDefinition(ArtClassDefinition&& o) = default;
@@ -71,13 +74,27 @@ struct ArtClassDefinition {
     }
   }
 
+  void SetRedefined() {
+    redefined = true;
+    modified = true;
+  }
+
   void SetModified() {
     modified = true;
   }
 
-  bool IsModified(art::Thread* self) const REQUIRES_SHARED(art::Locks::mutator_lock_);
+  art::ArraySlice<const unsigned char> GetNewOriginalDexFile() const {
+    if (redefined) {
+      return original_dex_file;
+    } else {
+      return art::ArraySlice<const unsigned char>();
+    }
+  }
+
+  bool IsModified() const REQUIRES_SHARED(art::Locks::mutator_lock_);
 
  private:
+  bool redefined;
   bool modified;
 };
 

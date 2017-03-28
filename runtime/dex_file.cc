@@ -23,6 +23,7 @@
 #include <string.h>
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <zlib.h>
 
 #include <memory>
 #include <sstream>
@@ -66,6 +67,12 @@ const uint8_t DexFile::kDexMagicVersions[DexFile::kNumDexVersions][DexFile::kDex
   // Dex version 038: Android "O" and beyond.
   {'0', '3', '8', '\0'}
 };
+
+uint32_t DexFile::CalculateChecksum(const DexFile& d) {
+  const uint32_t non_sum = OFFSETOF_MEMBER(DexFile::Header, signature_);
+  const uint8_t* non_sum_ptr = d.Begin() + non_sum;
+  return adler32(adler32(0L, Z_NULL, 0), non_sum_ptr, d.Size() - non_sum);
+}
 
 struct DexFile::AnnotationValue {
   JValue value_;
