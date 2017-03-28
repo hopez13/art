@@ -208,6 +208,24 @@
     },
     {
       "key": {
+        "uuid": "c4b477bd_4875b579",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T19:41:00Z",
+      "side": 1,
+      "message": "good point",
+      "parentUuid": "8bb363ab_74fd3fe6",
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d96c177_907c9eee",
         "filename": "tools/art",
         "patchSetId": 9
@@ -219,6 +237,30 @@
       "writtenOn": "2017-03-28T09:00:23Z",
       "side": 1,
       "message": "poor mips :-) Sounds like you want to share some variable with line 112.",
+      "range": {
+        "startLine": 154,
+        "startChar": 36,
+        "endLine": 154,
+        "endChar": 58
+      },
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efb507c6_d4a8bf0e",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T19:41:00Z",
+      "side": 1,
+      "message": "not sure how to make the shell expansion work with variable, and this looks simpler than iterating over a list.",
+      "parentUuid": "5d96c177_907c9eee",
       "range": {
         "startLine": 154,
         "startChar": 36,
