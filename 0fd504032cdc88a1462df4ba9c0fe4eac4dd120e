@@ -280,6 +280,30 @@
     },
     {
       "key": {
+        "uuid": "2fcdf75d_178dc8c4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T23:00:19Z",
+      "side": 1,
+      "message": "It is a bit deeply nested in the comments, but +1 on using at least an atomic annotations. Writing under a guard, but not reading under a guard is never correct.",
+      "parentUuid": "12ddda77_f83772c5",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -314,6 +338,23 @@
       "writtenOn": "2017-03-08T16:40:41Z",
       "side": 1,
       "message": "is_interrupted might be slightly less grammatically ambiguous, the field above is is_gc_marking, but fine as-is also.",
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a059e82c_43c47563",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T23:00:19Z",
+      "side": 1,
+      "message": "also seems to guard wait_cond_ (missing in original doc)?",
       "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
