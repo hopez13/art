@@ -685,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "a08c4b9a_78917f22",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T08:43:44Z",
+      "side": 1,
+      "message": "Ok I didn\u0027t realize it was calling back into vectorizer land. I think we can keep it like this.",
+      "parentUuid": "925f0613_3441d02f",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 1
+      },
+      "revId": "ebb0ebfc9c03a199497e03cf4b2132a127ab1f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84220901_bac28a6c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 26

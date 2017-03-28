@@ -707,6 +707,30 @@
     },
     {
       "key": {
+        "uuid": "00bd327a_c3d1ed24",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 40
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T08:43:44Z",
+      "side": 1,
+      "message": "In general, I read IsXXX methods as having no side effects. I did not realize IsVectorLengthAccepted was having side effects :(\n\nMay I suggest SetOrCheckVectorLength instead of IsVectorLengthAccepted?",
+      "parentUuid": "08f05d51_069fb9a0",
+      "range": {
+        "startLine": 994,
+        "startChar": 24,
+        "endLine": 994,
+        "endChar": 42
+      },
+      "revId": "68c84391d59b78e342b57174b6b496a804c8c542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0b37e5f_6971d770",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 40
