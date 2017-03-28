@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5737be9c_bfa5c825",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T21:27:43Z",
+      "side": 1,
+      "message": "No, the old behavior was en echo from a function. Here you\u0027re echoing in the main script.",
+      "parentUuid": "0bebe594_0dadbb9b",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "761d9edc_e6d7fae8",
         "filename": "tools/art",
         "patchSetId": 9
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Agreed too, python would be better if we could have it on the device.\n\nThe other approach would\u0027ve been writing the golem configs in dart and just put --compiler-filter\u003dinterpret-only right before the main class arg.\n\nI think the pain of editing this script (rather than the dart configs) is worth it though because now people could interactively run with profiles easily without knowing all the magic flags (on L139)\n\n(and yet another other option would be not to make \u0027art\u0027 look like a dalvikvm command but to only pass things after a certain parameter , e.g. -- to the main class:\n\n   art ALL_ART_ARGS -- org.main.class ALL_MAIN_ARGS\n\nthen we could trivially append --compile-filter\u003dinterpret-only before the --. it\u0027s probably more user friendly the way it is now though).",
       "parentUuid": "29619fde_fb3e545f",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 1
+      },
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b1d85fe_85273a0d",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T21:27:43Z",
+      "side": 1,
+      "message": "Note: I was half-trolling about python :) Obviously Dart would be a far more superior choice.",
+      "parentUuid": "9e53e331_fd8340eb",
       "range": {
         "startLine": 41,
         "startChar": 0,
