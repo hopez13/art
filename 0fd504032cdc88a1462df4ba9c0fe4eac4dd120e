@@ -232,6 +232,30 @@
     },
     {
       "key": {
+        "uuid": "e51eb696_1467c8f3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-28T21:50:17Z",
+      "side": 1,
+      "message": "We discussed with Hans offline.\n\nJLS 17.4.4 (Synchronization order) defines Thread.interrupt to synchronize-with thread.[is]Interrupted:\n\n\u003e If thread T1 interrupts thread T2, the interrupt by T1 synchronizes-with any point where any other thread (including T2) determines that T2 has been interrupted (by having an InterruptedException thrown or by invoking Thread.interrupted or Thread.isInterrupted).\n\nThis means we need at least acquire/release (C++) semantics for access to \u0027interrupted\u0027.\n\nJLS 17.4.2 (Actions) doesn\u0027t define Thread.interrupt as a \"synchronization action\" , but it does for other thread actions (start, check if terminated, etc).\n\nSo it\u0027s likely within the spirit that thread.interrupt is also a \"synchronization action\" even though it\u0027s not stated explicitly. This means it would have to participate in the total order of all other synchronization actions.\n\nSo in C++ semantics it should actually be a seq_cst access.\n\n-------\nIn practice this distinction is likely moot since ARM doesn\u0027t have LD/ST that match acq/rel exactly (both LDAR and STLR are seq_cst).\n\nAs an additional optimization if interrupted is false then we don\u0027t need to do additional reorderings:\n\n std::atomic\u003cbool\u003e interrupted;\n\n bool isInterrupted() {\n   bool val \u003d false;\n   if (tls32_.interrupted.load_explicit(memory_order::relaxed)) {\n      val \u003d tls32_.interrupted.load_explicit(memory_order::seq_cst);\n      // or replace with store to clear the flag\n   }\n   return val;\n  }\n\n\nThis should give the speedup you are hoping for because so long as interruptions don\u0027t happen.",
+      "parentUuid": "b628297a_144d61d6",
+      "range": {
+        "startLine": 2255,
+        "startChar": 2,
+        "endLine": 2255,
+        "endChar": 28
+      },
+      "revId": "0fd504032cdc88a1462df4ba9c0fe4eac4dd120e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "734a6d5f_db08db1c",
         "filename": "runtime/thread.h",
         "patchSetId": 1
