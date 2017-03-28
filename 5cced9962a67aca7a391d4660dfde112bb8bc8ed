@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "264d9c44_43c75322",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "18630d56_a3575a3a",
+      "range": {
+        "startLine": 435,
+        "startChar": 4,
+        "endLine": 435,
+        "endChar": 12
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80aba9b4_5128b769",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 43
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-28T16:13:58Z",
       "side": 1,
       "message": "You probably don\u0027t need that.",
+      "range": {
+        "startLine": 528,
+        "startChar": 59,
+        "endLine": 528,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7043f13_3028d6fb",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "80aba9b4_5128b769",
       "range": {
         "startLine": 528,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "de9fef9f_9a5e73b3",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "This code was in preparation of some bitmasking to implement conditionals (in a far, future CL). Right now this code is indeed never reached.",
+      "parentUuid": "08b4beb0_17b8bf2e",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 25
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17930d26_87f84fdd",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "Unnecessary edit.",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 49
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1c7a873_c7c33585",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "I made it a bit more compact, both Mingyao and I were editing this part at some point :-)",
+      "parentUuid": "17930d26_87f84fdd",
       "range": {
         "startLine": 118,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "384a33f7_53e45143",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "I have not seen any, but the idea indeed is indeed to tune this over time. Please let me know your results.",
+      "parentUuid": "00be6dad_39f51573",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 3
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3658abe_85a00e4e",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -128,6 +248,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "\u003e100 chars",
+      "range": {
+        "startLine": 423,
+        "startChar": 91,
+        "endLine": 423,
+        "endChar": 103
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a259af1_4e37afb2",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3658abe_85a00e4e",
       "range": {
         "startLine": 423,
         "startChar": 91,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e2491809_33e9236d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ee5299_ecd8f98d",
+      "range": {
+        "startLine": 598,
+        "startChar": 42,
+        "endLine": 598,
+        "endChar": 45
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13c8b27a_10b28415",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -174,6 +342,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "Each of these blocks is like a self-contained function. It\u0027d reduce the nesting and eliminate the elses\u0027s if each ended in return. The there could be whitespace between each outer condition.",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 636,
+        "endChar": 3
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e945c6e_88538a3a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "I usually err on the side that reviewers are always right :-), but I really like this kind of compact code with tight if then elses. If start adding returns, it is easy to miss something",
+      "parentUuid": "13c8b27a_10b28415",
       "range": {
         "startLine": 616,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e4673b37_5c8b3730",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "induction/BCE/loop use this a bit more, I agree; bit of a personal preference",
+      "parentUuid": "daad2d9b_8e5391ef",
+      "range": {
+        "startLine": 739,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 60
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91daa441_462ce8b6",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -220,6 +436,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "std::numeric_limits::max_value\u003cint32_t\u003e()\nstd::numeric_limits::max_value\u003cint64_t\u003e()",
+      "range": {
+        "startLine": 743,
+        "startChar": 43,
+        "endLine": 745,
+        "endChar": 65
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901ee4ee_8a12fc15",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91daa441_462ce8b6",
       "range": {
         "startLine": 743,
         "startChar": 43,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "85175146_55e2fd4f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "That is what I was trying to say based on your slides. I have rephrased, take a look if this reads better.",
+      "parentUuid": "21e70665_2e6f4a04",
+      "range": {
+        "startLine": 769,
+        "startChar": 9,
+        "endLine": 769,
+        "endChar": 42
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6497d_46f7e15d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -266,6 +530,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "IsPowerOfTwo(length) \u0026\u0026 length \u003e\u003d 2u",
+      "range": {
+        "startLine": 826,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 24
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e20e789e_c727f0a3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f6497d_46f7e15d",
       "range": {
         "startLine": 826,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "4f2c045a_6ebe1181",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done, also based on Nicolas input.",
+      "parentUuid": "c21a8128_6b893597",
+      "range": {
+        "startLine": 834,
+        "startChar": 9,
+        "endLine": 834,
+        "endChar": 34
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1409e048_97403b44",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -312,6 +624,24 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "Consider moving GENVEC definition here (from memory it seems the more common pattern), moving new (global_allocator_) into it, and de-abbreviating.",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06d0c127_26d78fd0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "I tried to move the new part in it too, but I could not make the macro magic work around the parenthesis. Although slightly longer, the code below does reflect the new operations a bit more clear....\n\nRenamed the GEN",
+      "parentUuid": "1409e048_97403b44",
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -335,6 +665,24 @@
     },
     {
       "key": {
+        "uuid": "d5906ea6_8e2c2d45",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb7b8765_f2cf89be",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f178392_30618e5b",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 43
@@ -346,6 +694,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "Most method names here are avoiding abbreviation.",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 93,
+        "endChar": 10
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "329e3dda_9784c1dd",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Gen -\u003e Generate? Done. also below.",
+      "parentUuid": "6f178392_30618e5b",
       "range": {
         "startLine": 93,
         "startChar": 7,
@@ -381,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "257d2a27_c08dc5c4",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "869f5ee0_8e3ec700",
+      "range": {
+        "startLine": 178,
+        "startChar": 15,
+        "endLine": 178,
+        "endChar": 20
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdae8386_a14d44ca",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 43
@@ -392,6 +788,30 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "As a reader, I might prefer an enum here. Had to scan back from the implementation file.",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 12
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1717cd0_88456e8e",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "OK, made this an SEQUENTIAL/VECTOR enum",
+      "parentUuid": "fdae8386_a14d44ca",
       "range": {
         "startLine": 179,
         "startChar": 2,
@@ -427,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "331bd8e2_6adc61dc",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 43
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "I picked readability over performance here, and nothing prevents a client from calling this with a non-power of two. I do enforce power of two in the ALIGN(base, offset) format, but calling IsAlignedAt(3) would be a valid query.",
+      "parentUuid": "7321700b_52b59035",
+      "range": {
+        "startLine": 40,
+        "startChar": 43,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "975081ef_6edd3d35",
         "filename": "test/640-checker-byte-simd/src/Main.java",
         "patchSetId": 43
@@ -438,6 +882,24 @@
       "writtenOn": "2017-03-28T15:28:29Z",
       "side": 1,
       "message": "Should these have a TODO for checker annotations?",
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87233a29_3e9e3fe5",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-28T16:54:04Z",
+      "side": 1,
+      "message": "My intention was to check for vectorization with the methods above, and for correctness with some of these extra methods. If you prefer we can give them check code too",
+      "parentUuid": "975081ef_6edd3d35",
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
