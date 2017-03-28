@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2473c8de_1235bb35",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T21:30:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f0b8b50_41437216",
+      "range": {
+        "startLine": 386,
+        "startChar": 10,
+        "endLine": 386,
+        "endChar": 17
+      },
+      "revId": "921f94db28218dc83881672c1cd14f52d37326ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "759c6bba_544e17e0",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1ce1c74e_227654a4",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T21:30:51Z",
+      "side": 1,
+      "message": "I guess we could. Done.",
+      "parentUuid": "759c6bba_544e17e0",
+      "range": {
+        "startLine": 801,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 17
+      },
+      "revId": "921f94db28218dc83881672c1cd14f52d37326ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "384c3db3_4facad84",
         "filename": "runtime/jit/profile_compilation_info.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-28T12:57:20Z",
       "side": 1,
       "message": "Add a comment what \"key\" means here?",
+      "range": {
+        "startLine": 279,
+        "startChar": 35,
+        "endLine": 279,
+        "endChar": 46
+      },
+      "revId": "921f94db28218dc83881672c1cd14f52d37326ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "534904ce_86adfe40",
+        "filename": "runtime/jit/profile_compilation_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T21:30:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "384c3db3_4facad84",
       "range": {
         "startLine": 279,
         "startChar": 35,
