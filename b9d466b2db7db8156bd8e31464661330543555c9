@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35e98c3e_c4ec591c",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-03-28T08:53:21Z",
+      "side": 1,
+      "message": "Done. I\u0027ve added final label support in PS3. Thanks for the pointing this out.",
+      "parentUuid": "6cb7f6cb_770bfabd",
+      "range": {
+        "startLine": 758,
+        "startChar": 2,
+        "endLine": 758,
+        "endChar": 21
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff86a81e_52a38cce",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I think always putting a short comment like:\n// ExactAsemblyScope because we are using IT\n\nwould be useful.",
       "parentUuid": "bf5b03a1_5f8c6c2d",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 22
+      },
+      "revId": "b9d466b2db7db8156bd8e31464661330543555c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03811ccf_c53c9604",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2017-03-28T08:53:21Z",
+      "side": 1,
+      "message": "Done. I\u0027ve added this short comment here in PS3.",
+      "parentUuid": "1057126e_e5766d08",
       "range": {
         "startLine": 778,
         "startChar": 4,
