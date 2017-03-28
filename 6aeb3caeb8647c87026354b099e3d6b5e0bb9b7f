@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a42b99ee_58980132",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-03-28T19:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c77e637_70f192d0",
+      "revId": "6aeb3caeb8647c87026354b099e3d6b5e0bb9b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86233fe3_6ee3ad0e",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-28T12:45:23Z",
       "side": 1,
       "message": "It\u0027d be nice to share this with lines 519-520",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 81
+      },
+      "revId": "6aeb3caeb8647c87026354b099e3d6b5e0bb9b7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24d35713_58394ef3",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-03-28T19:58:44Z",
+      "side": 1,
+      "message": "I\u0027ve refactored this so that the lines are no longer duplicated.",
+      "parentUuid": "86233fe3_6ee3ad0e",
       "range": {
         "startLine": 527,
         "startChar": 0,
