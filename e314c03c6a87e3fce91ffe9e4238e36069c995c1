@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62a86d9c_bf1c1a87",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T23:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db3b78f_423ec1f1",
+      "range": {
+        "startLine": 785,
+        "startChar": 10,
+        "endLine": 785,
+        "endChar": 19
+      },
+      "revId": "e314c03c6a87e3fce91ffe9e4238e36069c995c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "754c6ac4_533a679e",
         "filename": "runtime/jit/profile_compilation_info.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-28T23:48:41Z",
       "side": 1,
       "message": "You just checked that it\u0027s empty and now you\u0027re clearing the empty?",
+      "range": {
+        "startLine": 807,
+        "startChar": 2,
+        "endLine": 807,
+        "endChar": 56
+      },
+      "revId": "e314c03c6a87e3fce91ffe9e4238e36069c995c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dba55120_0bb01adf",
+        "filename": "runtime/jit/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-03-28T23:51:50Z",
+      "side": 1,
+      "message": "Thanks. I forgot to delete this.",
+      "parentUuid": "754c6ac4_533a679e",
       "range": {
         "startLine": 807,
         "startChar": 2,
