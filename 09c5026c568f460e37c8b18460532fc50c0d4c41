@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "761d9edc_e6d7fae8",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-28T11:51:21Z",
+      "side": 1,
+      "message": "Having been bitten by mksh this week, I\u0027d suggest a more conservative approach along the lines of:\n\nfunction replace_compiler_filter_with_interpret_only() {\n  ARGS_WITH_INTERPRET_ONLY\u003d\"\"\n  while [ $# -ne 0 ]; do\n    # Strip out compiler filter if present.\n    if [[ \"$1 $2\" \u003d\u003d \"-Xcompiler-option --compiler-filter\u003d\"* ]]; then\n      shift\n    else\n      ARGS_WITH_INTERPRET_ONLY\u003d\"$ARGS_WITH_INTERPRET_ONLY \\\"$1\\\"\"\n    fi\n    shift\n  done\n  ARGS_WITH_INTERPRET_ONLY\u003d\"-Xcompiler-option --compiler-filter\u003dinterpret-only $ARGS_WITH_INTERPRET_ONLY\"\n}",
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ea196f3_40785001",
         "filename": "tools/art",
         "patchSetId": 9
