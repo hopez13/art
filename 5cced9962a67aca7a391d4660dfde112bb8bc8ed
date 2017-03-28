@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "18630d56_a3575a3a",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-28T16:13:58Z",
+      "side": 1,
+      "message": "What about other types?\nI could implement other cases in the follow up patch.",
+      "range": {
+        "startLine": 435,
+        "startChar": 4,
+        "endLine": 435,
+        "endChar": 12
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80aba9b4_5128b769",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-28T16:13:58Z",
+      "side": 1,
+      "message": "You probably don\u0027t need that.",
+      "range": {
+        "startLine": 528,
+        "startChar": 59,
+        "endLine": 528,
+        "endChar": 63
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08b4beb0_17b8bf2e",
+        "filename": "compiler/optimizing/code_generator_vector_x86_64.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-28T16:13:58Z",
+      "side": 1,
+      "message": "HNot is not defined for floating point in java, isn\u0027t it? Scalar codegens don\u0027t implement this.",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 25
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17930d26_87f84fdd",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 43
@@ -18,6 +87,29 @@
         "startChar": 2,
         "endLine": 119,
         "endChar": 49
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00be6dad_39f51573",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-28T16:13:58Z",
+      "side": 1,
+      "message": "I understand that this is kind of simplistic heuristic and later an improved vectorization cost heuristic can be developed, but what about the performance just with the patch: are there any degradation on benchmarks which have short loops? I am currently checking it for ARM64 with our benchmarks sets.",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 3
       },
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -133,6 +225,29 @@
         "startChar": 43,
         "endLine": 745,
         "endChar": 65
+      },
+      "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21e70665_2e6f4a04",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 43
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-03-28T16:13:58Z",
+      "side": 1,
+      "message": "It is a strong assumption, ARMv8 AArch64 guarantees it for Android.",
+      "range": {
+        "startLine": 769,
+        "startChar": 9,
+        "endLine": 769,
+        "endChar": 42
       },
       "revId": "5cced9962a67aca7a391d4660dfde112bb8bc8ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
