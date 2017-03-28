@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df30a401_302cf4cc",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T14:41:05Z",
+      "side": 1,
+      "message": "You could also have a bootclasspath check fast path, right?",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 54
+      },
+      "revId": "6aa91df5c04c9e00c8e4293f690f0717461598df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7df8fef4_97b9745b",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-28T14:41:05Z",
+      "side": 1,
+      "message": "Not your fault, but this is sad :( I think we should move our WllKnownClasses to handles.",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 73
+      },
+      "revId": "6aa91df5c04c9e00c8e4293f690f0717461598df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
