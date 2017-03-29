@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "1f1b8362_bf82c550",
+        "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-03-29T15:22:06Z",
+      "side": 1,
+      "message": "But is the common case actually true?\n\nThe usage in installd differentiates between oat files and odex files (because it seems to only be only for odex files). Using the DexFile codes would remove error checks. Using the OatFileAssistant/DexOptAnalyzer codes would broaden DexFile and leak details into the framework (that we tried to avoid before).",
+      "parentUuid": "92c7c081_744dba6e",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52206329_92f8eb3d",
         "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
         "patchSetId": 2
