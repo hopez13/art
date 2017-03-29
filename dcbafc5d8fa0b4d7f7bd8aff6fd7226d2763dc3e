@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e248cb2_9b833832",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T05:50:16Z",
+      "side": 1,
+      "message": "I\u0027d also run the test on CI20.",
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca037f2b_14f7eb5c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T05:50:16Z",
+      "side": 1,
+      "message": "Remove if not necessary.",
+      "range": {
+        "startLine": 2678,
+        "startChar": 80,
+        "endLine": 2679,
+        "endChar": 46
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b19e2030_d1ee3fa8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T05:50:16Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2690,
+        "startChar": 80,
+        "endLine": 2691,
+        "endChar": 46
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5a09e51_4185daa6",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T05:50:16Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 2704,
+        "startChar": 0,
+        "endLine": 2704,
+        "endChar": 101
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb0e8ee6_c8d32d3d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2722,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T05:50:16Z",
+      "side": 1,
+      "message": "All of these kQuick* must be included in IsDirectEntrypoint() (art/runtime/arch/mips/entrypoints_direct_mips.h).",
+      "range": {
+        "startLine": 2722,
+        "startChar": 34,
+        "endLine": 2722,
+        "endChar": 43
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
