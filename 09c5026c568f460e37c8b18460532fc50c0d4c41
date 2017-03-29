@@ -204,6 +204,24 @@
     },
     {
       "key": {
+        "uuid": "3a7fe2d5_3079e1c8",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-29T16:25:15Z",
+      "side": 1,
+      "message": "\u003e The current solution fails when -Xcompiler-option is missing, but not really an operational issue.\n\nCan you elaborate?\n\nIf -Xcompiler-option is missing then I think it would\u0027ve barfed in dalvikvm anyway?",
+      "parentUuid": "6ee09319_1ba6935c",
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ea196f3_40785001",
         "filename": "tools/art",
         "patchSetId": 9
