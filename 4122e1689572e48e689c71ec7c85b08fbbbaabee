@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da223b67_ab34ecaa",
+        "filename": "runtime/openjdkjvmti/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Done.\n\nI was just copy-culting from the art/runtime include.",
+      "parentUuid": "652d28a0_c4472cb5",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aeb4c6a_cc5c822e",
         "filename": "runtime/openjdkjvmti/fixed_up_dex_file.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-29T17:35:39Z",
       "side": 1,
       "message": "ART style is early-exit. Reorder, or continue.",
+      "range": {
+        "startLine": 91,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 12
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f87baf94_0fd636c8",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aeb4c6a_cc5c822e",
       "range": {
         "startLine": 91,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5c7d5137_8b0b15da",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fff76d_77dc7cb3",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f01be0d_eaaa6e9e",
         "filename": "runtime/openjdkjvmti/ti_class_definition.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-29T17:35:39Z",
       "side": 1,
       "message": "Grammar",
+      "range": {
+        "startLine": 50,
+        "startChar": 38,
+        "endLine": 50,
+        "endChar": 70
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "737b2861_845ce98f",
+        "filename": "runtime/openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f01be0d_eaaa6e9e",
       "range": {
         "startLine": 50,
         "startChar": 38,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1591e5ef_92245e6a",
+        "filename": "runtime/openjdkjvmti/ti_class_definition.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Yeah. I got preempted from doing that to get this in.\n\nIt is the next thing on my agenda.",
+      "parentUuid": "1123b746_3c6bb476",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8322e67a_94bf82f4",
         "filename": "runtime/openjdkjvmti/transform.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2017-03-29T17:35:39Z",
       "side": 1,
       "message": "Stale?",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 68
+      },
+      "revId": "4122e1689572e48e689c71ec7c85b08fbbbaabee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd82c620_b8528441",
+        "filename": "runtime/openjdkjvmti/transform.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8322e67a_94bf82f4",
       "range": {
         "startLine": 178,
         "startChar": 4,
