@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df1c56cc_aa68f23c",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-29T08:11:37Z",
+      "side": 1,
+      "message": "Why not an instance method if you\u0027re passing a DexFile?",
+      "range": {
+        "startLine": 1091,
+        "startChar": 36,
+        "endLine": 1091,
+        "endChar": 52
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31f1936d_bde72dcc",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-29T08:11:37Z",
+      "side": 1,
+      "message": "IsAtMethod?",
+      "range": {
+        "startLine": 1325,
+        "startChar": 7,
+        "endLine": 1325,
+        "endChar": 15
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa58af73_261eb48f",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-29T08:11:37Z",
+      "side": 1,
+      "message": "How about: \"this is made complicated by the fact ...\". \"However, given jvmti is the exception, we do not optimize for it\".",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 98
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8379c008_45b5ca86",
+        "filename": "test/983-source-transform-verify/source_transform.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-29T08:11:37Z",
+      "side": 1,
+      "message": "I think you could protect yourself from any new quickened opcode by using the fact they all seem to be annotated with kVerifyRuntimeOnly in dex_instruction_list.h.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 68
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
