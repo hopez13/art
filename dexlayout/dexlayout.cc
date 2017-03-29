@@ -1528,6 +1528,64 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   return new_class_data_order;
 }
 
+void DexLayout::LayoutDebugInfo(const DexFile* dex_file) {
+  const size_t num_methods = header_->GetCollections().MethodIds().size();
+  std::vector<bool> has_hot_debug_info(num_methods, false);
+  using DebugInfoPair = std::pair<const dex_ir::MethodId*, dex_ir::DebugInfoItem*>;
+  std::vector<DebugInfoPair> debug_infos;
+  for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
+    const bool is_profile_class =
+        info_->ContainsClass(*dex_file, dex::TypeIndex(class_def->ClassType()->GetIndex()));
+    dex_ir::ClassData* data = class_def->GetClassData();
+    if (data == nullptr) {
+      continue;
+    }
+    for (size_t i = 0; i < 2; ++i) {
+      for (auto& method : *(i == 0 ? data->DirectMethods() : data->VirtualMethods())) {
+        const dex_ir::MethodId* method_id = method->GetMethodId();
+        dex_ir::CodeItem* code_item = method->GetCodeItem();
+        if (code_item == nullptr) {
+          continue;
+        }
+        dex_ir::DebugInfoItem* debug_info = code_item->DebugInfo();
+        if (debug_info == nullptr) {
+          continue;
+        }
+        debug_infos.emplace_back(method_id, debug_info);
+        const bool is_clinit = is_profile_class &&
+            (method->GetAccessFlags() & kAccConstructor) != 0 &&
+            (method->GetAccessFlags() & kAccStatic) != 0;
+        const bool method_executed = is_clinit ||
+            info_->ContainsMethod(MethodReference(dex_file, method_id->GetIndex()));
+        if (method_executed) {
+          has_hot_debug_info[method_id->GetIndex()] = true;
+        }
+      }
+    }
+  }
+  std::sort(debug_infos.begin(),
+            debug_infos.end(),
+            [&has_hot_debug_info](const DebugInfoPair& a, const DebugInfoPair& b) {
+    const bool a_is_hot = has_hot_debug_info[a.first->GetIndex()];
+    const bool b_is_hot = has_hot_debug_info[b.first->GetIndex()];
+    if (a_is_hot != b_is_hot) {
+      return a_is_hot < b_is_hot;
+    }
+    return a.second->GetOffset() < b.second->GetOffset();  // Preserve order.
+  });
+  const uint32_t base_offset = header_->GetCollections().DebugInfoItemsOffset();
+  uint32_t offset = header_->GetCollections().DebugInfoItemsOffset();
+  std::unordered_set<dex_ir::DebugInfoItem*> assigned;  // In case there are shared offsets.
+  for (auto&& pair : debug_infos) {
+    dex_ir::DebugInfoItem* debug_info = pair.second;
+    if (assigned.insert(debug_info).second) {
+      // Only assign the offset if it has not already been assigned.
+      debug_info->SetOffset(offset);
+      offset += debug_info->GetDebugInfoSize();
+    }
+  }
+}
+
 void DexLayout::LayoutStringData(const DexFile* dex_file) {
   const size_t num_strings = header_->GetCollections().StringIds().size();
   std::vector<bool> is_shorty(num_strings, false);
@@ -1792,6 +1850,7 @@ void DexLayout::FixupSections(uint32_t offset, uint32_t diff) {
 
 void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
   LayoutStringData(dex_file);
+  LayoutDebugInfo(dex_file);
   std::vector<dex_ir::ClassData*> new_class_data_order = LayoutClassDefsAndClassData(dex_file);
   int32_t diff = LayoutCodeItems(new_class_data_order);
   // Move sections after ClassData by diff bytes.
