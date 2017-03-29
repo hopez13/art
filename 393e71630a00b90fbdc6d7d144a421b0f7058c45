@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0118c62_02fa3ed2",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T17:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df1c56cc_aa68f23c",
+      "range": {
+        "startLine": 1091,
+        "startChar": 36,
+        "endLine": 1091,
+        "endChar": 52
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31f1936d_bde72dcc",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-29T08:11:37Z",
       "side": 1,
       "message": "IsAtMethod?",
+      "range": {
+        "startLine": 1325,
+        "startChar": 7,
+        "endLine": 1325,
+        "endChar": 15
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff77d822_6387a16b",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T17:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f1936d_bde72dcc",
       "range": {
         "startLine": 1325,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1171c55b_5f41977a",
+        "filename": "runtime/openjdkjvmti/fixed_up_dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T17:14:13Z",
+      "side": 1,
+      "message": "Done \u0026 clarified.",
+      "parentUuid": "fa58af73_261eb48f",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 98
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8379c008_45b5ca86",
         "filename": "test/983-source-transform-verify/source_transform.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-29T08:11:37Z",
       "side": 1,
       "message": "I think you could protect yourself from any new quickened opcode by using the fact they all seem to be annotated with kVerifyRuntimeOnly in dex_instruction_list.h.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 68
+      },
+      "revId": "393e71630a00b90fbdc6d7d144a421b0f7058c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f460c46b_b73d41c0",
+        "filename": "test/983-source-transform-verify/source_transform.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T17:14:13Z",
+      "side": 1,
+      "message": "not RETURN_VOID_NO_BARRIER\n\n  V(0x73, RETURN_VOID_NO_BARRIER, \"return-void-no-barrier\", k10x, kIndexNone, kReturn, kVerifyNone) \\\n\nAlthough I am not sure if that is just a bug.\n\nRegardless I am going to add other checks here. Including that.",
+      "parentUuid": "8379c008_45b5ca86",
       "range": {
         "startLine": 96,
         "startChar": 0,
