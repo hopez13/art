@@ -22,6 +22,30 @@
       "revId": "bfb438a330e887b7e63e659a890098eb05420a10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92d00112_d2db7e8c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2017-03-29T07:17:53Z",
+      "side": 0,
+      "message": "If I understand the idea correctly, to prevent load-load and load-store dependencies the barrier/fence must follow the load, not precede it. This is how these intrinsics and field get/set are implemented on 32-bit ARM. And the same should apply to MIPS.",
+      "parentUuid": "6257ffd8_bb82c763",
+      "range": {
+        "startLine": 1550,
+        "startChar": 0,
+        "endLine": 1552,
+        "endChar": 3
+      },
+      "revId": "bfb438a330e887b7e63e659a890098eb05420a10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
