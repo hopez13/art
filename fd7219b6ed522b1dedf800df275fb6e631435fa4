@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3abb1207_e7c2cc94",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-29T17:25:25Z",
+      "side": 1,
+      "message": "Okay, done. Is this a new requirement, just looking at the other files in Art, I cannot say we are very disciplined about that?",
+      "parentUuid": "02f85ac0_0b505e82",
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1b12d7f_68b7d78e",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 45
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-29T16:58:26Z",
       "side": 1,
       "message": "struct or class with named members, please.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 49
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9fdb5c0_744e3720",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-29T17:25:25Z",
+      "side": 1,
+      "message": "Yes sir.",
+      "parentUuid": "c1b12d7f_68b7d78e",
       "range": {
         "startLine": 82,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c3d60525_fa4cd059",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-29T17:25:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78a2e333_359f61ff",
+      "range": {
+        "startLine": 100,
+        "startChar": 64,
+        "endLine": 100,
+        "endChar": 66
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c21c93d_e273e6ed",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 45
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "6124933d_4eeff8c4",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-29T17:25:25Z",
+      "side": 1,
+      "message": "It is a nice contrasting shortcut with loop_allocator_ vs global_allocator_. It makes it easier to see right away where memory goes, since the new(xxx)\u0027s look the same otherwise.",
+      "parentUuid": "4c21c93d_e273e6ed",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53477f57_f319d7a4",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 45
@@ -99,6 +189,24 @@
       "writtenOn": "2017-03-29T16:58:26Z",
       "side": 1,
       "message": "Do we need to consider the alignment here?",
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a01575b_160a6e74",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-29T17:25:25Z",
+      "side": 1,
+      "message": "Not at the moment, since both ARM and x86 simply use the unaligned moves into the stack. But I would love to become a bit more disciplined here and enforce alignment. TBD",
+      "parentUuid": "53477f57_f319d7a4",
       "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
