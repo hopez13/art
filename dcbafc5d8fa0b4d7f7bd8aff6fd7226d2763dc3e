@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e9009f2_e8920d72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-29T12:39:19Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "5e248cb2_9b833832",
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca037f2b_14f7eb5c",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-03-29T05:50:16Z",
       "side": 1,
       "message": "Remove if not necessary.",
+      "range": {
+        "startLine": 2678,
+        "startChar": 80,
+        "endLine": 2679,
+        "endChar": 46
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04e4dc74_f2497f69",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-29T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca037f2b_14f7eb5c",
       "range": {
         "startLine": 2678,
         "startChar": 80,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "21900857_352b03d8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-29T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b19e2030_d1ee3fa8",
+      "range": {
+        "startLine": 2690,
+        "startChar": 80,
+        "endLine": 2691,
+        "endChar": 46
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5a09e51_4185daa6",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "0bd2c0dc_dc8682e7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-29T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5a09e51_4185daa6",
+      "range": {
+        "startLine": 2704,
+        "startChar": 0,
+        "endLine": 2704,
+        "endChar": 101
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb0e8ee6_c8d32d3d",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2017-03-29T05:50:16Z",
       "side": 1,
       "message": "All of these kQuick* must be included in IsDirectEntrypoint() (art/runtime/arch/mips/entrypoints_direct_mips.h).",
+      "range": {
+        "startLine": 2722,
+        "startChar": 34,
+        "endLine": 2722,
+        "endChar": 43
+      },
+      "revId": "dcbafc5d8fa0b4d7f7bd8aff6fd7226d2763dc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3150e8cf_e25d1367",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2722,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-03-29T12:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb0e8ee6_c8d32d3d",
       "range": {
         "startLine": 2722,
         "startChar": 34,
