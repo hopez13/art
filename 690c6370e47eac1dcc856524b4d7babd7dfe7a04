@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbc3671a_e09d77e6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "This change shouldn\u0027t be needed for std::atomic.",
+      "range": {
+        "startLine": 1958,
+        "startChar": 2,
+        "endLine": 1958,
+        "endChar": 41
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59f4eed0_9953ac84",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2253,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "The crucial observation now seems to be that no other thread can reset the flag; thus there is no need to make the check and reset atomic.",
+      "range": {
+        "startLine": 2253,
+        "startChar": 2,
+        "endLine": 2253,
+        "endChar": 74
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee648e9e_f98dec96",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2253,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "Should probably be:\n\n// No other thread can concurrently reset the interrupted flag.\n\nTo me, what\u0027s unusual about this code is that it does not need to use an atomic exchange. But I think that\u0027s correct.",
+      "range": {
+        "startLine": 2253,
+        "startChar": 2,
+        "endLine": 2253,
+        "endChar": 74
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc43a3df_50e2066c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "I think this is probably correct. But it would be more obviously correct inside the critical section. And I can\u0027t imagine there is a measurable performance difference.",
+      "range": {
+        "startLine": 2267,
+        "startChar": 2,
+        "endLine": 2269,
+        "endChar": 3
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25ca3ac_53300541",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "white space.",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 2
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40b78cfd_ea141a43",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-29T19:01:23Z",
+      "side": 1,
+      "message": "Should we start using std::atomic directly and move away from Atomic\u003c\u003e?",
+      "range": {
+        "startLine": 1421,
+        "startChar": 4,
+        "endLine": 1421,
+        "endChar": 33
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
