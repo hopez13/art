@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02f85ac0_0b505e82",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T16:58:26Z",
+      "side": 1,
+      "message": "UNREACHABLE() after each LOG(FATAL) in a switch default statement.",
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1b12d7f_68b7d78e",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T16:58:26Z",
+      "side": 1,
+      "message": "struct or class with named members, please.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 49
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78a2e333_359f61ff",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T16:58:26Z",
+      "side": 1,
+      "message": "More expressive name?",
+      "range": {
+        "startLine": 100,
+        "startChar": 64,
+        "endLine": 100,
+        "endChar": 66
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c21c93d_e273e6ed",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 45
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T16:58:26Z",
+      "side": 1,
+      "message": "Why do we need this shortcut to graph_-\u003eGetArena()?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53477f57_f319d7a4",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T16:58:26Z",
+      "side": 1,
+      "message": "Do we need to consider the alignment here?",
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
