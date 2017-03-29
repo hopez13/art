@@ -45,6 +45,54 @@
       "revId": "eb4db25929615437643db80a69e25ee65d035a87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55de2875_88184db6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d547ee38_a0d19c4b",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "eb4db25929615437643db80a69e25ee65d035a87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f76a149c_8f50bdd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T18:57:03Z",
+      "side": 1,
+      "message": "It\u0027s only called in a kIsDebugBuild if statement.",
+      "parentUuid": "f2498b3c_b880973d",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "eb4db25929615437643db80a69e25ee65d035a87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
