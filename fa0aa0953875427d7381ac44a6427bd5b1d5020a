@@ -22,6 +22,30 @@
       "revId": "fa0aa0953875427d7381ac44a6427bd5b1d5020a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edc5eedb_e998932e",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-29T20:21:48Z",
+      "side": 1,
+      "message": "This is a test bug (sort of)\n\nIt should be fixed once go/aog/358740 goes in.",
+      "parentUuid": "badb4f5d_5a8d2ecc",
+      "range": {
+        "startLine": 373,
+        "startChar": 19,
+        "endLine": 373,
+        "endChar": 46
+      },
+      "revId": "fa0aa0953875427d7381ac44a6427bd5b1d5020a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
