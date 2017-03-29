@@ -168,6 +168,42 @@
     },
     {
       "key": {
+        "uuid": "05f8673e_b0bb977e",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-29T07:59:49Z",
+      "side": 1,
+      "message": "Yes, I appreciate that and didn\u0027t flag it as not working. At the same time, two reviewers felt it looked overly complicated.",
+      "parentUuid": "1760c117_087cd121",
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ee09319_1ba6935c",
+        "filename": "tools/art",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-03-29T07:59:49Z",
+      "side": 1,
+      "message": "The suggestion was a reaction to the comment about switching language. For a shell-script, these seem like desirable properties:\n\n1) fewer language features.\n2) fewer lines of code.\n3) fewer variables.\n4) single result assignment.\n\nThe current solution fails when -Xcompiler-option is missing, but not really an operational issue.",
+      "parentUuid": "5dfa3087_87c2cd09",
+      "revId": "09c5026c568f460e37c8b18460532fc50c0d4c41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ea196f3_40785001",
         "filename": "tools/art",
         "patchSetId": 9
