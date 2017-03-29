@@ -64,6 +64,7 @@ ArmFeaturesUniquePtr ArmInstructionSetFeatures::FromVariant(
       "cortex-a15",
       "cortex-a17",
       "krait",
+      "kryo",
   };
   bool has_div = has_armv8a || FindVariantInArray(arm_variants_with_div,
                                                   arraysize(arm_variants_with_div),
@@ -76,6 +77,7 @@ ArmFeaturesUniquePtr ArmInstructionSetFeatures::FromVariant(
       "cortex-a15",
       "cortex-a17",
       "krait",
+      "kryo",
   };
   bool has_atomic_ldrd_strd = has_armv8a || FindVariantInArray(arm_variants_with_lpae,
                                                                arraysize(arm_variants_with_lpae),
