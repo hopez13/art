@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "92c7c081_744dba6e",
+        "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-03-29T08:27:49Z",
+      "side": 1,
+      "message": "We should have the same enum for both to better keep installd in sync with art.\n\nIf we think it is important enough to include a header file for the dexoptanalyzer::ReturnCodes rather than hard coding them in installd, then it should be important enough to include a header file for the dalvik.system.DexFile return codes currently hard coded in installd\u0027s dexopt.h (NO_DEXOPT_NEEDED \u003d 0, DEX2OAT_FROM_SCRATCH \u003d 1, etc.). But it\u0027s silly to have two headers with status codes describing the same information, just packed in a different way. This unnecessary complexity makes the interface between installd and ART harder to understand and more costly to develop and maintain.\n\nWhat\u0027s quirky about dealing with error codes? If installd cares about the error code for dexoptanalyzer::ReturnCodes, then those same error conditions should be relevant for the dexopt needed status codes, in which case they should be included in the enum returned by getDexOptNeeded. If installd doesn\u0027t care about the error codes, then they should not be included in the header exported to installd.\n\nWhen I say follow-up refactor is OK, I mean I would prefer for this CL to expose the status codes we eventually intend to use for both dexoptanalyzer and getDexOptNeeded, but this CL need not change getDexOptNeeded to start using that new status code yet. I would prefer the shared status code to be defined as part of \"art\", not \"dexoptanalyzer\".",
+      "parentUuid": "097c0ac6_5a780ca3",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "96e815c1164f5f82bd87aeabec78c9d8287b443d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52206329_92f8eb3d",
         "filename": "dexoptanalyzer/include/dexoptanalyzer_return_codes.h",
         "patchSetId": 2
