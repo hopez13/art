@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "21bbd818_594f0583",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 45
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-29T17:29:47Z",
+      "side": 1,
+      "message": "It is often needed to avoid compiler warnings (i.e. errors), for example if the other cases have a \"return \u003cvalue\u003e\" and the default does not. Other than that, it\u0027s just consistency.",
+      "parentUuid": "3abb1207_e7c2cc94",
+      "revId": "fd7219b6ed522b1dedf800df275fb6e631435fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1b12d7f_68b7d78e",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 45
