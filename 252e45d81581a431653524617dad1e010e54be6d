@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "40e86ee1_8b076cc0",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-30T21:40:49Z",
+      "side": 1,
+      "message": "The vixl one is continuously tested. The non-vixl one not anymore. We\u0027re using it as a backup for now.",
+      "parentUuid": "3ac012f6_068c05dc",
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00ade80_59c28809",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-03-30T18:41:37Z",
       "side": 1,
       "message": "This can now interleave with SetInterrupted(e.g. false), leading to a weird case that NotifyLocked happens with the interrupt state being false.\n\nBut that seems like it doesn\u0027t matter because NotifyLocked triggers a signal, whose waiters re-read the interrupt state.",
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0f7a9c3_df96fdc8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-30T21:40:49Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "b00ade80_59c28809",
       "revId": "252e45d81581a431653524617dad1e010e54be6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
