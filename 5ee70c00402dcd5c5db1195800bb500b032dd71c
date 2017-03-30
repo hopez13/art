@@ -1,0 +1,412 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b29605eb_c4e70892",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "/* generate_code */ - the comment at end of line then becomes unnecessary.",
+      "range": {
+        "startLine": 544,
+        "startChar": 58,
+        "endLine": 544,
+        "endChar": 59
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77b46558_d1dac655",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Do we ever have a TypeConversion to boolean? I don\u0027t think out code generators would handle that correctly.",
+      "range": {
+        "startLine": 644,
+        "startChar": 9,
+        "endLine": 644,
+        "endChar": 38
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e5f5f43_fc0aa82d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Use \"vector_map_-\u003eGetOrCreate(\u003clambda\u003e)\" to avoid doing a second traversal of the binary tree for insertion. (Unless you think it would hurt readability.)",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 3
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86cdb959_7e8e290b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "offset does not contribute to the vector_map_\u0027s key? What about\n\n  void AddAndConvert(int[] input, int offset1, int offset2, int size, float[] dst) {\n    for (int i \u003d 0; i !\u003d size; ++i) {\n      float[i] \u003d (float) (input[offset1 + i] + input[offset2 + i]);\n    }\n  }",
+      "range": {
+        "startLine": 823,
+        "startChar": 72,
+        "endLine": 823,
+        "endChar": 78
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ce6a948_a6754139",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "What about X86 and X86_64?",
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aa2ea9b_58b27273",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "You rely on LICM for these tests?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "336de9a9_ecc4eb35",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Add AND(false) test at the end.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 14
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a56ff7a_8281d197",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Move the OR test down so that the array has both true and false values for the XOR and NOT tests.",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 13
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "738d1c28_3e6927c2",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Add XOR(false) test.",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 14
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec82953e_f0fb360d",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Not supported on any arch I suppose. (Because DivByZero.)",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4cd2a56_aa2e1994",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Can you provide better names, please? shl4(), sar2(), shr2().",
+      "range": {
+        "startLine": 125,
+        "startChar": 14,
+        "endLine": 125,
+        "endChar": 17
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcde4b15_51076878",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Do we completely optimize this away?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 37
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d395af_c888a5c7",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Do you expect this to be vectorized? Maybe add11WithCleanupLoop()?",
+      "range": {
+        "startLine": 184,
+        "startChar": 14,
+        "endLine": 184,
+        "endChar": 19
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e2575ee_62f9c6e9",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Add extra parentheses so that readers do not need to understand that type conversion has higher precedence than shift.",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 32
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea54dbef_7d145064",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "Maybe we should test shr1() instead of shr2() so that we don\u0027t lose all the zero bits.\n\nThis also asks for the \"unsigned byte\" type, so that we can implement vectorization of\n\n  a[i] \u003d (byte)((a[i] \u0026 0xff) \u003e\u003e\u003e 1);",
+      "range": {
+        "startLine": 242,
+        "startChar": 26,
+        "endLine": 242,
+        "endChar": 30
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9c60c66_a48c323c",
+        "filename": "test/640-checker-char-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "All archs.",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77a5b04c_ca1a19b9",
+        "filename": "test/640-checker-double-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "What about conversion from int[]?",
+      "range": {
+        "startLine": 115,
+        "startChar": 14,
+        "endLine": 115,
+        "endChar": 28
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0cfa4df1_5efbd81c",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-03-30T14:43:53Z",
+      "side": 1,
+      "message": "All archs.",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
