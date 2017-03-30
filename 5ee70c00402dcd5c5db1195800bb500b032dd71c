@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "90ddb61e_906143a3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Seems not. Removed the case.",
+      "parentUuid": "77b46558_d1dac655",
+      "range": {
+        "startLine": 644,
+        "startChar": 9,
+        "endLine": 644,
+        "endChar": 38
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e5f5f43_fc0aa82d",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 47
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "Use \"vector_map_-\u003eGetOrCreate(\u003clambda\u003e)\" to avoid doing a second traversal of the binary tree for insertion. (Unless you think it would hurt readability.)",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 3
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc931f6a_8bbc959d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "I would indeed prefer to do such compile-time improvements a bit later (and I doubt this will show up on any profile). But you are right to watch out for this.",
+      "parentUuid": "3e5f5f43_fc0aa82d",
       "range": {
         "startLine": 809,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "8dcbd903_b5ba3764",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 47
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Org is bound to the ArrayRef (not the base). So the two inputs will have two different HInstructions. The offset is just the result of parsing org (into base/offset). So they will have the same base, but different orgs.",
+      "parentUuid": "86cdb959_7e8e290b",
+      "range": {
+        "startLine": 823,
+        "startChar": 72,
+        "endLine": 823,
+        "endChar": 78
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ce6a948_a6754139",
         "filename": "test/640-checker-boolean-simd/src/Main.java",
         "patchSetId": 47
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "6de095d3_0f858c05",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Well, that is something I want to bring up in an upcoming discussion. Currently we do not every check the features flags (afai) in our regular runs, so SSE4.1 is never set.",
+      "parentUuid": "7ce6a948_a6754139",
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aa2ea9b_58b27273",
         "filename": "test/640-checker-boolean-simd/src/Main.java",
         "patchSetId": 47
@@ -122,6 +212,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "You rely on LICM for these tests?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bba521d2_1d6f3583",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Not really LICM, but BCE for sure.",
+      "parentUuid": "3aa2ea9b_58b27273",
       "range": {
         "startLine": 40,
         "startChar": 6,
@@ -180,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "271b811b_db834026",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a56ff7a_8281d197",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 13
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "738d1c28_3e6927c2",
         "filename": "test/640-checker-boolean-simd/src/Main.java",
         "patchSetId": 47
@@ -191,6 +329,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "Add XOR(false) test.",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 14
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4abdc827_e1ffebc9",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "738d1c28_3e6927c2",
       "range": {
         "startLine": 107,
         "startChar": 4,
@@ -226,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "970f18d2_534be4b2",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Indeed. I kept this method for the integral cases just to match the float/double case.",
+      "parentUuid": "ec82953e_f0fb360d",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4cd2a56_aa2e1994",
         "filename": "test/640-checker-byte-simd/src/Main.java",
         "patchSetId": 47
@@ -237,6 +423,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "Can you provide better names, please? shl4(), sar2(), shr2().",
+      "range": {
+        "startLine": 125,
+        "startChar": 14,
+        "endLine": 125,
+        "endChar": 17
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a842c7c_67958869",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4cd2a56_aa2e1994",
       "range": {
         "startLine": 125,
         "startChar": 14,
@@ -272,6 +482,30 @@
     },
     {
       "key": {
+        "uuid": "08679a73_1e0bacda",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "We do indeed, making this slightly less relevant as a test case.",
+      "parentUuid": "bcde4b15_51076878",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 37
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9d395af_c888a5c7",
         "filename": "test/640-checker-byte-simd/src/Main.java",
         "patchSetId": 47
@@ -283,6 +517,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "Do you expect this to be vectorized? Maybe add11WithCleanupLoop()?",
+      "range": {
+        "startLine": 184,
+        "startChar": 14,
+        "endLine": 184,
+        "endChar": 19
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8083af0a_ab37f8de",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "For now I leave it in the middle. It is here to make sure that if we vectorize, we don\u0027t overrun left or right.",
+      "parentUuid": "d9d395af_c888a5c7",
       "range": {
         "startLine": 184,
         "startChar": 14,
@@ -318,6 +576,30 @@
     },
     {
       "key": {
+        "uuid": "f6b8e303_2fdd73ee",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e2575ee_62f9c6e9",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 32
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea54dbef_7d145064",
         "filename": "test/640-checker-byte-simd/src/Main.java",
         "patchSetId": 47
@@ -329,6 +611,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "Maybe we should test shr1() instead of shr2() so that we don\u0027t lose all the zero bits.\n\nThis also asks for the \"unsigned byte\" type, so that we can implement vectorization of\n\n  a[i] \u003d (byte)((a[i] \u0026 0xff) \u003e\u003e\u003e 1);",
+      "range": {
+        "startLine": 242,
+        "startChar": 26,
+        "endLine": 242,
+        "endChar": 30
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d7dc01d_3249afb9",
+        "filename": "test/640-checker-byte-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Yes, the \"unsigned\" case is coming, also with some very nifty idioms around averaging and halving! I also plan to add more tests around that time.",
+      "parentUuid": "ea54dbef_7d145064",
       "range": {
         "startLine": 242,
         "startChar": 26,
@@ -364,6 +670,30 @@
     },
     {
       "key": {
+        "uuid": "a5762f9b_4fe8ec32",
+        "filename": "test/640-checker-char-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9c60c66_a48c323c",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77a5b04c_ca1a19b9",
         "filename": "test/640-checker-double-simd/src/Main.java",
         "patchSetId": 47
@@ -387,6 +717,30 @@
     },
     {
       "key": {
+        "uuid": "93508713_34db1bca",
+        "filename": "test/640-checker-double-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Ah, for now the vectorizer keeps the lengths the same (so int-float and double-long). More situations (more idiomatic) TBD",
+      "parentUuid": "77a5b04c_ca1a19b9",
+      "range": {
+        "startLine": 115,
+        "startChar": 14,
+        "endLine": 115,
+        "endChar": 28
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cfa4df1_5efbd81c",
         "filename": "test/640-checker-int-simd/src/Main.java",
         "patchSetId": 47
@@ -398,6 +752,30 @@
       "writtenOn": "2017-03-30T14:43:53Z",
       "side": 1,
       "message": "All archs.",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a56720b1_16c81900",
+        "filename": "test/640-checker-int-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T15:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cfa4df1_5efbd81c",
       "range": {
         "startLine": 78,
         "startChar": 17,
