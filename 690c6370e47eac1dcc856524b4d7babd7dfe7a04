@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ea7ea2d1_6be4681d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-30T10:54:45Z",
+      "side": 1,
+      "message": "Yes, which we actually don\u0027t have a constructor for. I\u0027ve put back the store.",
+      "parentUuid": "bd8e2f09_f1c87f9e",
+      "range": {
+        "startLine": 1958,
+        "startChar": 2,
+        "endLine": 1958,
+        "endChar": 41
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59f4eed0_9953ac84",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -344,6 +368,30 @@
       "side": 1,
       "message": "I don\u0027t have a strong opinion either.",
       "parentUuid": "a1d4592e_33e99f3a",
+      "range": {
+        "startLine": 1421,
+        "startChar": 4,
+        "endLine": 1421,
+        "endChar": 33
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f80b1f1_3fed6e42",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-03-30T10:54:45Z",
+      "side": 1,
+      "message": "OK, this file seems to be consistently using Atomic, so I\u0027ll stick with it for now.",
+      "parentUuid": "9a83a916_204398d5",
       "range": {
         "startLine": 1421,
         "startChar": 4,
