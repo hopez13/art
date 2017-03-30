@@ -142,6 +142,8 @@ if [ "$JIT_PROFILE" = true ]; then
       -Xps-min-methods-to-save:0 \
       -Xps-min-classes-to-save:0 \
       -Xps-min-notification-before-wake:10 \
+      -Xps-min-methods-to-save:1 \
+      -Xps-min-classes-to-save:1 \
       -Xps-profile-path:$PROFILE_PATH \
       -Xusejit:true \
       "${ARGS_WITH_INTERPRET_ONLY[@]}" \
