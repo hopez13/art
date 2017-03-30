@@ -272,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "afc84016_dce10d90",
+        "filename": "test/640-checker-boolean-simd/src/Main.java",
+        "patchSetId": 47
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-03-30T16:26:15Z",
+      "side": 1,
+      "message": "Ah, yes, StaticFieldGet has been moved earlier. But I also rely on BCE removing bounds checks. I actually am thinking that doing BCE and vectorization at the same time could result in better code (since we could use the cleanup loop for out of bounds, removing the need for deopt altogether), but leave that as a later exercise....",
+      "parentUuid": "6637669f_c2991ae4",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "5ee70c00402dcd5c5db1195800bb500b032dd71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "336de9a9_ecc4eb35",
         "filename": "test/640-checker-boolean-simd/src/Main.java",
         "patchSetId": 47
