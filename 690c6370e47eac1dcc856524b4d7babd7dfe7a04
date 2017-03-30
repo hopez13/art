@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bd8e2f09_f1c87f9e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "Sorry. I meant that it should be possible to do this as a constructor field initialization as before. Though I guess it would now go in the tls32_ constructor?",
+      "parentUuid": "ddd4b090_ebf0c156",
+      "range": {
+        "startLine": 1958,
+        "startChar": 2,
+        "endLine": 1958,
+        "endChar": 41
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59f4eed0_9953ac84",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Not sure I follow: What do you mean \"there is no need to make the check and reset\"?",
       "parentUuid": "59f4eed0_9953ac84",
+      "range": {
+        "startLine": 2253,
+        "startChar": 2,
+        "endLine": 2253,
+        "endChar": 74
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "566aaa90_0279c4dd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2253,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "I was just repeating that the load and store don\u0027t need to be combined into an atomic exchange.",
+      "parentUuid": "3a203539_343c16d3",
       "range": {
         "startLine": 2253,
         "startChar": 2,
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "Are we deprecating Atomic?\n\nNo strong opinion here, I can use either.",
       "parentUuid": "40b78cfd_ea141a43",
+      "range": {
+        "startLine": 1421,
+        "startChar": 4,
+        "endLine": 1421,
+        "endChar": 33
+      },
+      "revId": "690c6370e47eac1dcc856524b4d7babd7dfe7a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a83a916_204398d5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion either.",
+      "parentUuid": "a1d4592e_33e99f3a",
       "range": {
         "startLine": 1421,
         "startChar": 4,

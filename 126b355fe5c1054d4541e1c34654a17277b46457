@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3d09a1f_a9f62fca",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2767,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "We probably need a dmb before the store, inside the conditional, as well.",
+      "range": {
+        "startLine": 2767,
+        "startChar": 5,
+        "endLine": 2767,
+        "endChar": 26
+      },
+      "revId": "126b355fe5c1054d4541e1c34654a17277b46457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b8d5ae_c735d721",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3036,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "We should use acquire (ldar) and release operations here, not dmb.",
+      "range": {
+        "startLine": 3036,
+        "startChar": 5,
+        "endLine": 3036,
+        "endChar": 23
+      },
+      "revId": "126b355fe5c1054d4541e1c34654a17277b46457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbc4369d_c150ece1",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3162,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "Same comments here.",
+      "range": {
+        "startLine": 3162,
+        "startChar": 5,
+        "endLine": 3162,
+        "endChar": 57
+      },
+      "revId": "126b355fe5c1054d4541e1c34654a17277b46457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f5da3b6_016db028",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3419,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "This still seems to have the race that was pointed out earlier. I think the store needs to be conditional. And to really get seq_cst semantics, we probably need an mfence after the conditionally executed store. seq_cst stores are compiled to mov; \u003cmfence or equivalent\u003e.",
+      "range": {
+        "startLine": 3419,
+        "startChar": 2,
+        "endLine": 3419,
+        "endChar": 39
+      },
+      "revId": "126b355fe5c1054d4541e1c34654a17277b46457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2802f8ad_ec73dc73",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3098,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-03-30T04:04:06Z",
+      "side": 1,
+      "message": "Same comments here.",
+      "range": {
+        "startLine": 3098,
+        "startChar": 6,
+        "endLine": 3098,
+        "endChar": 39
+      },
+      "revId": "126b355fe5c1054d4541e1c34654a17277b46457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
