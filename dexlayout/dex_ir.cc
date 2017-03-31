@@ -763,5 +763,133 @@ ClassData* Collections::CreateClassData(
   return class_data;
 }
 
+static uint32_t HeaderOffset(const dex_ir::Collections& collections ATTRIBUTE_UNUSED) {
+  return 0;
+}
+
+static uint32_t HeaderSize(const dex_ir::Collections& collections ATTRIBUTE_UNUSED) {
+  // Size is in elements, so there is only one header.
+  return 1;
+}
+
+struct FileSectionDescriptor {
+ public:
+  std::string name_;
+  uint16_t type_;
+  std::function<uint32_t(const dex_ir::Collections&)> size_fn_;
+  std::function<uint32_t(const dex_ir::Collections&)> offset_fn_;
+};
+
+static const std::vector<FileSectionDescriptor> kFileSectionDescriptors = {
+  {
+    "Header",
+    DexFile::kDexTypeHeaderItem,
+    &HeaderSize,
+    &HeaderOffset,
+  }, {
+    "StringId",
+    DexFile::kDexTypeStringIdItem,
+    &dex_ir::Collections::StringIdsSize,
+    &dex_ir::Collections::StringIdsOffset
+  }, {
+    "TypeId",
+    DexFile::kDexTypeTypeIdItem,
+    &dex_ir::Collections::TypeIdsSize,
+    &dex_ir::Collections::TypeIdsOffset
+  }, {
+    "ProtoId",
+    DexFile::kDexTypeProtoIdItem,
+    &dex_ir::Collections::ProtoIdsSize,
+    &dex_ir::Collections::ProtoIdsOffset
+  }, {
+    "FieldId",
+    DexFile::kDexTypeFieldIdItem,
+    &dex_ir::Collections::FieldIdsSize,
+    &dex_ir::Collections::FieldIdsOffset
+  }, {
+    "MethodId",
+    DexFile::kDexTypeMethodIdItem,
+    &dex_ir::Collections::MethodIdsSize,
+    &dex_ir::Collections::MethodIdsOffset
+  }, {
+    "ClassDef",
+    DexFile::kDexTypeClassDefItem,
+    &dex_ir::Collections::ClassDefsSize,
+    &dex_ir::Collections::ClassDefsOffset
+  }, {
+    "StringData",
+    DexFile::kDexTypeStringDataItem,
+    &dex_ir::Collections::StringDatasSize,
+    &dex_ir::Collections::StringDatasOffset
+  }, {
+    "TypeList",
+    DexFile::kDexTypeTypeList,
+    &dex_ir::Collections::TypeListsSize,
+    &dex_ir::Collections::TypeListsOffset
+  }, {
+    "EncArr",
+    DexFile::kDexTypeEncodedArrayItem,
+    &dex_ir::Collections::EncodedArrayItemsSize,
+    &dex_ir::Collections::EncodedArrayItemsOffset
+  }, {
+    "Annotation",
+    DexFile::kDexTypeAnnotationItem,
+    &dex_ir::Collections::AnnotationItemsSize,
+    &dex_ir::Collections::AnnotationItemsOffset
+  }, {
+    "AnnoSet",
+    DexFile::kDexTypeAnnotationSetItem,
+    &dex_ir::Collections::AnnotationSetItemsSize,
+    &dex_ir::Collections::AnnotationSetItemsOffset
+  }, {
+    "AnnoSetRL",
+    DexFile::kDexTypeAnnotationSetRefList,
+    &dex_ir::Collections::AnnotationSetRefListsSize,
+    &dex_ir::Collections::AnnotationSetRefListsOffset
+  }, {
+    "AnnoDir",
+    DexFile::kDexTypeAnnotationsDirectoryItem,
+    &dex_ir::Collections::AnnotationsDirectoryItemsSize,
+    &dex_ir::Collections::AnnotationsDirectoryItemsOffset
+  }, {
+    "DebugInfo",
+    DexFile::kDexTypeDebugInfoItem,
+    &dex_ir::Collections::DebugInfoItemsSize,
+    &dex_ir::Collections::DebugInfoItemsOffset
+  }, {
+    "CodeItem",
+    DexFile::kDexTypeCodeItem,
+    &dex_ir::Collections::CodeItemsSize,
+    &dex_ir::Collections::CodeItemsOffset
+  }, {
+    "ClassData",
+    DexFile::kDexTypeClassDataItem,
+    &dex_ir::Collections::ClassDatasSize,
+    &dex_ir::Collections::ClassDatasOffset
+  }
+};
+
+std::vector<dex_ir::DexFileSection> GetSortedDexFileSections(dex_ir::Header* header,
+                                                             bool sort_descending) {
+  const dex_ir::Collections& collections = header->GetCollections();
+  std::vector<dex_ir::DexFileSection> sorted_sections;
+  // Build the table that will map from offset to color
+  for (const FileSectionDescriptor& s : kFileSectionDescriptors) {
+    sorted_sections.emplace_back(dex_ir::DexFileSection(s.name_, s.type_, s.size_fn_(collections),
+                                                        s.offset_fn_(collections)));
+  }
+  // Sort by offset.
+  std::sort(sorted_sections.begin(),
+            sorted_sections.end(),
+            [&](dex_ir::DexFileSection& a, dex_ir::DexFileSection& b) {
+              if (sort_descending) {
+                return a.offset_ > b.offset_;
+              } else {
+                return a.offset_ < b.offset_;
+              }
+            });
+  return sorted_sections;
+}
+
 }  // namespace dex_ir
 }  // namespace art
