@@ -1531,8 +1531,7 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2) + data_offset;
         __ LoadFromOffset(kLoadSignedHalfword, out, obj, offset, null_checker);
       } else {
-        __ Dsll(TMP, index.AsRegister<GpuRegister>(), TIMES_2);
-        __ Daddu(TMP, obj, TMP);
+        __ Dlsa(TMP, index.AsRegister<GpuRegister>(), obj, TIMES_2);
         __ LoadFromOffset(kLoadSignedHalfword, out, TMP, data_offset, null_checker);
       }
       break;
@@ -1579,13 +1578,11 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
           __ LoadFromOffset(kLoadUnsignedByte, out, TMP, data_offset);
           __ Bc(&done);
           __ Bind(&uncompressed_load);
-          __ Dsll(TMP, index_reg, TIMES_2);
-          __ Daddu(TMP, obj, TMP);
+          __ Dlsa(TMP, index_reg, obj, TIMES_2);
           __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset);
           __ Bind(&done);
         } else {
-          __ Dsll(TMP, index_reg, TIMES_2);
-          __ Daddu(TMP, obj, TMP);
+          __ Dlsa(TMP, index_reg, obj, TIMES_2);
           __ LoadFromOffset(kLoadUnsignedHalfword, out, TMP, data_offset, null_checker);
         }
       }
@@ -1602,8 +1599,7 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
         __ LoadFromOffset(load_type, out, obj, offset, null_checker);
       } else {
-        __ Dsll(TMP, index.AsRegister<GpuRegister>(), TIMES_4);
-        __ Daddu(TMP, obj, TMP);
+        __ Dlsa(TMP, index.AsRegister<GpuRegister>(), obj, TIMES_4);
         __ LoadFromOffset(load_type, out, TMP, data_offset, null_checker);
       }
       break;
@@ -1616,8 +1612,7 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
         __ LoadFromOffset(kLoadDoubleword, out, obj, offset, null_checker);
       } else {
-        __ Dsll(TMP, index.AsRegister<GpuRegister>(), TIMES_8);
-        __ Daddu(TMP, obj, TMP);
+        __ Dlsa(TMP, index.AsRegister<GpuRegister>(), obj, TIMES_8);
         __ LoadFromOffset(kLoadDoubleword, out, TMP, data_offset, null_checker);
       }
       break;
@@ -1630,8 +1625,7 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4) + data_offset;
         __ LoadFpuFromOffset(kLoadWord, out, obj, offset, null_checker);
       } else {
-        __ Dsll(TMP, index.AsRegister<GpuRegister>(), TIMES_4);
-        __ Daddu(TMP, obj, TMP);
+        __ Dlsa(TMP, index.AsRegister<GpuRegister>(), obj, TIMES_4);
         __ LoadFpuFromOffset(kLoadWord, out, TMP, data_offset, null_checker);
       }
       break;
@@ -1644,8 +1638,7 @@ void InstructionCodeGeneratorMIPS64::VisitArrayGet(HArrayGet* instruction) {
             (index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8) + data_offset;
         __ LoadFpuFromOffset(kLoadDoubleword, out, obj, offset, null_checker);
       } else {
-        __ Dsll(TMP, index.AsRegister<GpuRegister>(), TIMES_8);
-        __ Daddu(TMP, obj, TMP);
+        __ Dlsa(TMP, index.AsRegister<GpuRegister>(), obj, TIMES_8);
         __ LoadFpuFromOffset(kLoadDoubleword, out, TMP, data_offset, null_checker);
       }
       break;
@@ -1758,8 +1751,7 @@ void InstructionCodeGeneratorMIPS64::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_2;
       } else {
-        __ Dsll(base_reg, index.AsRegister<GpuRegister>(), TIMES_2);
-        __ Daddu(base_reg, obj, base_reg);
+        __ Dlsa(base_reg, index.AsRegister<GpuRegister>(), obj, TIMES_2);
       }
       if (value_location.IsConstant()) {
         int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
@@ -1779,8 +1771,7 @@ void InstructionCodeGeneratorMIPS64::VisitArraySet(HArraySet* instruction) {
           data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4;
         } else {
           DCHECK(index.IsRegister()) << index;
-          __ Dsll(base_reg, index.AsRegister<GpuRegister>(), TIMES_4);
-          __ Daddu(base_reg, obj, base_reg);
+          __ Dlsa(base_reg, index.AsRegister<GpuRegister>(), obj, TIMES_4);
         }
         if (value_location.IsConstant()) {
           int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
@@ -1842,8 +1833,7 @@ void InstructionCodeGeneratorMIPS64::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8;
       } else {
-        __ Dsll(base_reg, index.AsRegister<GpuRegister>(), TIMES_8);
-        __ Daddu(base_reg, obj, base_reg);
+        __ Dlsa(base_reg, index.AsRegister<GpuRegister>(), obj, TIMES_8);
       }
       if (value_location.IsConstant()) {
         int64_t value = CodeGenerator::GetInt64ValueOf(value_location.GetConstant());
@@ -1860,8 +1850,7 @@ void InstructionCodeGeneratorMIPS64::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_4;
       } else {
-        __ Dsll(base_reg, index.AsRegister<GpuRegister>(), TIMES_4);
-        __ Daddu(base_reg, obj, base_reg);
+        __ Dlsa(base_reg, index.AsRegister<GpuRegister>(), obj, TIMES_4);
       }
       if (value_location.IsConstant()) {
         int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
@@ -1878,8 +1867,7 @@ void InstructionCodeGeneratorMIPS64::VisitArraySet(HArraySet* instruction) {
       if (index.IsConstant()) {
         data_offset += index.GetConstant()->AsIntConstant()->GetValue() << TIMES_8;
       } else {
-        __ Dsll(base_reg, index.AsRegister<GpuRegister>(), TIMES_8);
-        __ Daddu(base_reg, obj, base_reg);
+        __ Dlsa(base_reg, index.AsRegister<GpuRegister>(), obj, TIMES_8);
       }
       if (value_location.IsConstant()) {
         int64_t value = CodeGenerator::GetInt64ValueOf(value_location.GetConstant());

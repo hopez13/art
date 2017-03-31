@@ -635,11 +635,33 @@ void MipsAssembler::Ins(Register rd, Register rt, int pos, int size) {
   DsFsmInstrRrr(EmitR(0x1f, rt, rd, static_cast<Register>(pos + size - 1), pos, 0x04), rd, rd, rt);
 }
 
+// TODO: This instruction is available in both R6 and MSA and it should be used when available.
 void MipsAssembler::Lsa(Register rd, Register rs, Register rt, int saPlusOne) {
   CHECK(IsR6());
   CHECK(1 <= saPlusOne && saPlusOne <= 4) << saPlusOne;
   int sa = saPlusOne - 1;
   DsFsmInstrRrr(EmitR(0x0, rs, rt, rd, sa, 0x05), rd, rs, rt);
+}
+
+// This function emits "lsa" if it's available. By using this function we can remove a lot of the
+// messy "if (IsR6()) { ... } else { ... }" statements from the code.
+void MipsAssembler::ShiftAndAdd(Register dst,
+                                Register src_idx,
+                                Register src_base,
+                                int shamt,
+                                Register tmp) {
+  // src_base is the base address of a 'C' type array.
+  // src_idx is the index of the item in the array which we wish to access.
+  // dst is the address of the item we wish to access.
+  CHECK(1 <= shamt && shamt <= 4) << shamt;
+  CHECK_NE(src_base, tmp);
+  CHECK((tmp != src_idx) || (tmp == dst)) << "tmp = " << tmp << "; src_idx = " << src_idx << "; dst = " << dst;
+  if (IsR6()) {
+    Lsa(dst, src_idx, src_base, shamt);
+  } else {
+    Sll(tmp, src_idx, shamt);
+    Addu(dst, src_base, tmp);
+  }
 }
 
 void MipsAssembler::Lb(Register rt, Register rs, uint16_t imm16) {

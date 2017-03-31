@@ -2620,12 +2620,7 @@ void IntrinsicCodeGeneratorMIPS::VisitStringGetCharsNoCheck(HInvoke* invoke) {
 
   // Calculate destination address.
   __ Addiu(dstPtr, dstObj, data_offset);
-  if (IsR6()) {
-    __ Lsa(dstPtr, dstBegin, dstPtr, char_shift);
-  } else {
-    __ Sll(AT, dstBegin, char_shift);
-    __ Addu(dstPtr, dstPtr, AT);
-  }
+  __ ShiftAndAdd(dstPtr, dstBegin, dstPtr, char_shift);
 
   if (mirror::kUseStringCompression) {
     MipsLabel uncompressed_copy, compressed_loop;
@@ -2653,12 +2648,7 @@ void IntrinsicCodeGeneratorMIPS::VisitStringGetCharsNoCheck(HInvoke* invoke) {
 
   // Calculate source address.
   __ Addiu(srcPtr, srcObj, value_offset);
-  if (IsR6()) {
-    __ Lsa(srcPtr, srcBegin, srcPtr, char_shift);
-  } else {
-    __ Sll(AT, srcBegin, char_shift);
-    __ Addu(srcPtr, srcPtr, AT);
-  }
+  __ ShiftAndAdd(srcPtr, srcBegin, srcPtr, char_shift);
 
   // Calculate number of bytes to copy from number of characters.
   __ Sll(numChrs, numChrs, char_shift);
