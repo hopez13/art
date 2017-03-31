@@ -1,0 +1,425 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f39d8d5_0375ba0c",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary, libpagemap already exports the headers.",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53bd1ebb_90d532ec",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: Should there be a comment to explain what the uint32_t is?",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d5f6c5_f15f94e6",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line\n\nalso why doesn\u0027t this just use push_back? emplace_back is doing extra work because it just calls push_back with the args (so it calls move constructor for DexFileSection which you had already made).",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f75dc0a2_2eab011b",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: maybe this should be \u003d since its just looking at a boolean?",
+      "range": {
+        "startLine": 884,
+        "startChar": 13,
+        "endLine": 884,
+        "endChar": 14
+      },
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4694e5_08ccd3e5",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: POD structs don\u0027t need the _ according to the style guide",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a9587b8_cb659367",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "Should this be const?",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71b9c44b_51f5fefd",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "(this can still use a \u003d here, it will be the same performance)",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "695be8f4_194db54e",
+        "filename": "dexlayout/dex_visualize.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c09c26c6_121210d5",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: POD structs don\u0027t need _",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1399720a_6e80796e",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: iterators are usually \"it\", counters are usually \"i\"",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d2840a5_390cfbee",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "(strange to see printf instead of std::cout -- we have StringPrintf for the string formatting)",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81d11739_8e0e1f1c",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4641e8cb_d10c0838",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b437e61_2a138d7b",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "(#s seem a bit magical)",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0873deb1_1a9633cd",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3dbbc7b_a0b4acdc",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d8508ee_4750363e",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: * to the left",
+      "range": {
+        "startLine": 215,
+        "startChar": 49,
+        "endLine": 215,
+        "endChar": 51
+      },
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54286b31_2103e915",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: nullptr",
+      "range": {
+        "startLine": 221,
+        "startChar": 49,
+        "endLine": 221,
+        "endChar": 53
+      },
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4c1f77c_0553f28c",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: add /*out*/",
+      "range": {
+        "startLine": 235,
+        "startChar": 58,
+        "endLine": 235,
+        "endChar": 68
+      },
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10559521_bed7a1a6",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "860ec314_e79a89e8",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a432f58_0cf9b293",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "nit: all the *s to the left (missed a few other places in this file)",
+      "range": {
+        "startLine": 263,
+        "startChar": 23,
+        "endLine": 263,
+        "endChar": 25
+      },
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e85a99_24a8e673",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T23:02:56Z",
+      "side": 1,
+      "message": "you can use kill(0) here to check if pid is really alive",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
