@@ -27,6 +27,8 @@
 
 namespace art {
 
+class DexFile;
+
 // VDEX files contain extracted DEX files. The VdexFile class maps the file to
 // memory and provides tools for accessing its individual sections.
 //
@@ -121,6 +123,9 @@ class VdexFile {
     DCHECK_LT(dex_file_index, GetHeader().GetNumberOfDexFiles());
     return reinterpret_cast<const uint32_t*>(Begin() + sizeof(Header))[dex_file_index];
   }
+
+  bool OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                       std::string* error_msg);
 
  private:
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}
