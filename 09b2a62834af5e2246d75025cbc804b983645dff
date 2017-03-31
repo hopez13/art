@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "427f8882_621028cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T16:46:11Z",
+      "side": 1,
+      "message": "add Bug: 35810246",
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43dfe36e_15f53bd7",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T16:46:11Z",
+      "side": 1,
+      "message": "?",
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3cf3ab8_2d6b0d1e",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T16:46:11Z",
+      "side": 1,
+      "message": "?",
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78373d08_68c4f853",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T16:46:11Z",
+      "side": 1,
+      "message": "Is there any reason why this can\u0027t work even without ANDROID_BUILD_TOP ? My other presubmit script actually needed a binary that\u0027s only available on the $PATH if one is lunched. This script seems to just use cpplint.py",
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "255f72cb_a95e4fed",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-03-31T16:46:11Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem like it\u0027ll work unless its called from ANDROID_BUILD_TOP, can you make this work regardless of what directory it\u0027s called from?",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 46
+      },
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
