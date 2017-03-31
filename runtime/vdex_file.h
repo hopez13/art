@@ -22,6 +22,7 @@
 
 #include "base/array_ref.h"
 #include "base/macros.h"
+#include "dex_file.h"
 #include "mem_map.h"
 #include "os.h"
 
@@ -121,6 +122,9 @@ class VdexFile {
     DCHECK_LT(dex_file_index, GetHeader().GetNumberOfDexFiles());
     return reinterpret_cast<const uint32_t*>(Begin() + sizeof(Header))[dex_file_index];
   }
+
+  bool OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_files,
+                       std::string* error_msg);
 
  private:
   explicit VdexFile(MemMap* mmap) : mmap_(mmap) {}

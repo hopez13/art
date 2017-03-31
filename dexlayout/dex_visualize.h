@@ -24,6 +24,8 @@
 #define ART_DEXLAYOUT_DEX_VISUALIZE_H_
 
 #include <stddef.h>
+#include <string>
+#include <vector>
 
 namespace art {
 
