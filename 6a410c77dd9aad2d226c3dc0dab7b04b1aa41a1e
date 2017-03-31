@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96f59902_f5a2a44f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "35800981",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e903c88_dfd15050",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "White space error.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 1
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5768c07e_ed720258",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "4 space indent?",
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cab11ac_801c7346",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "kPageSize",
+      "range": {
+        "startLine": 72,
+        "startChar": 47,
+        "endLine": 72,
+        "endChar": 53
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "002ad9eb_c5044649",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "The logic has an assumption about the order of the sections, I think it would be cleaner to check section.size_.",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 11
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6262502_86cf8c78",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "kPageSize",
+      "range": {
+        "startLine": 108,
+        "startChar": 51,
+        "endLine": 108,
+        "endChar": 57
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21ed7974_0b058cae",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "RoundUp(start + dex_file_size, kPageSize) / kPageSize;",
+      "range": {
+        "startLine": 109,
+        "startChar": 17,
+        "endLine": 109,
+        "endChar": 57
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70eaf7b2_386ef3a4",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "Here",
+      "range": {
+        "startLine": 110,
+        "startChar": 83,
+        "endLine": 110,
+        "endChar": 89
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c6787_fef625a6",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 111,
+        "startChar": 27,
+        "endLine": 111,
+        "endChar": 33
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6f2d10_d5a9f05a",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-03-31T01:47:30Z",
+      "side": 1,
+      "message": "Can this fail? If so we should probably log instead of crashing.",
+      "range": {
+        "startLine": 135,
+        "startChar": 38,
+        "endLine": 135,
+        "endChar": 57
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
