@@ -1104,6 +1104,25 @@ class MapItem : public Item {
   DISALLOW_COPY_AND_ASSIGN(MapItem);
 };
 
+// Interface for building a vector of file sections for use by other clients.
+struct DexFileSection {
+ public:
+  DexFileSection(const std::string& name, uint16_t type, uint32_t size, uint32_t offset)
+      : name(name), type(type), size(size), offset(offset) { }
+  std::string name;
+  uint16_t type;
+  uint32_t size;
+  uint32_t offset;
+};
+
+enum SortDirection {
+  kSortAscending,
+  kSortDescending
+};
+
+std::vector<DexFileSection> GetSortedDexFileSections(dex_ir::Header* header,
+                                                     SortDirection direction);
+
 }  // namespace dex_ir
 }  // namespace art
 
