@@ -90,6 +90,30 @@
       "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ccf07ce_3d01bcb1",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-03-31T16:52:15Z",
+      "side": 1,
+      "message": "It seems to be only working when called from art/",
+      "parentUuid": "255f72cb_a95e4fed",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 46
+      },
+      "revId": "09b2a62834af5e2246d75025cbc804b983645dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
