@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b42a3c1e_1fc74a9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96f59902_f5a2a44f",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e903c88_dfd15050",
         "filename": "dexlayout/Android.bp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "580f61d0_3371efc2",
+        "filename": "dexlayout/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "3e903c88_dfd15050",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 1
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5768c07e_ed720258",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2017-03-31T01:47:30Z",
       "side": 1,
       "message": "4 space indent?",
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4c3c0b8_d556cd80",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5768c07e_ed720258",
       "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -135,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "146f74f2_122b74bb",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "The sections are sorted in descending order for exactly this reason.  I don\u0027t understand...",
+      "parentUuid": "002ad9eb_c5044649",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 11
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6262502_86cf8c78",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -193,6 +283,30 @@
       "writtenOn": "2017-03-31T01:47:30Z",
       "side": 1,
       "message": "RoundUp(start + dex_file_size, kPageSize) / kPageSize;",
+      "range": {
+        "startLine": 109,
+        "startChar": 17,
+        "endLine": 109,
+        "endChar": 57
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb1b3406_e37f4b88",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ed7974_0b058cae",
       "range": {
         "startLine": 109,
         "startChar": 17,
@@ -310,6 +424,30 @@
       "writtenOn": "2017-03-31T01:47:30Z",
       "side": 1,
       "message": "Can this fail? If so we should probably log instead of crashing.",
+      "range": {
+        "startLine": 135,
+        "startChar": 38,
+        "endLine": 135,
+        "endChar": 57
+      },
+      "revId": "6a410c77dd9aad2d226c3dc0dab7b04b1aa41a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4d8b315_ea5b39fb",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-03-31T22:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e6f2d10_d5a9f05a",
       "range": {
         "startLine": 135,
         "startChar": 38,
