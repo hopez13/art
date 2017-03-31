@@ -16,6 +16,24 @@
       "revId": "38ede96260319a4c609b4e0c2e8015020d05596b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47f18362_8ab5e9c3",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-03-31T17:26:40Z",
+      "side": 1,
+      "message": "Yes and then I\u0027d need to test that it actually all still works.\n\nWe do want to make sure we continue having some way to do cpplint for the whole tree for treehugger and I don\u0027t feel like fidling with makefiles that haven\u0027t been touched in 4 years.",
+      "parentUuid": "87534e0f_f611ef72",
+      "revId": "38ede96260319a4c609b4e0c2e8015020d05596b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
