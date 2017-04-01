@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37cf2278_f0eadfbd",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "My vim let me down and that\u0027s one I can never remember.",
+      "parentUuid": "219a633d_b26d1635",
+      "range": {
+        "startLine": 1110,
+        "startChar": 89,
+        "endLine": 1110,
+        "endChar": 90
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1eee3729_8b05cc9d",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-01T02:13:42Z",
       "side": 1,
       "message": "If you\u0027re already defining constants, why not go all the way and make it an enum?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 0,
+        "endLine": 1119,
+        "endChar": 45
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "affef007_538b9ba4",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eee3729_8b05cc9d",
       "range": {
         "startLine": 1118,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d84f0233_3fedbfa3",
+        "filename": "dexlayout/dex_visualize.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "Evolutionary vestiges.  Nice catch.  Removed.",
+      "parentUuid": "7155800f_6d7f601e",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "488aea20_a15c72c1",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-01T02:13:42Z",
       "side": 1,
       "message": "-s twice?",
+      "range": {
+        "startLine": 95,
+        "startChar": 23,
+        "endLine": 96,
+        "endChar": 79
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0285bdd7_e2e99feb",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "doh.  Fixed.",
+      "parentUuid": "488aea20_a15c72c1",
       "range": {
         "startLine": 95,
         "startChar": 23,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b892f3ad_118a4553",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ca72dd7_cf1fab99",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 7
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "580cb251_9410cef4",
         "filename": "runtime/vdex_file.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-01T02:13:42Z",
       "side": 1,
       "message": "I thought it\u0027s legal to forward-declare unique-ptr types?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "f3b155822170a84bce0621cee6487a247de81465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffde213f_f2d56982",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-01T06:23:42Z",
+      "side": 1,
+      "message": "Apparently it\u0027s OK where I\u0027ve used it.  Removed.",
+      "parentUuid": "580cb251_9410cef4",
       "range": {
         "startLine": 25,
         "startChar": 0,
