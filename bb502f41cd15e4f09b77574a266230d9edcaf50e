@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3efeb429_078f10bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T15:21:28Z",
+      "side": 1,
+      "message": "Pagemap only gives page granularity, so I had to use a tie-breaker for which section type gets credit for the page.  I used the one with the latest starting address.  That makes for oddities like this.",
+      "parentUuid": "b8ae1868_503a3cf5",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "bb502f41cd15e4f09b77574a266230d9edcaf50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f377d4a3_8f48038a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-03T08:20:34Z",
       "side": 1,
       "message": "Here you break down by dex section. Can you have an option to give a breakdown by relevant Java class (perhaps as a future CL)? I think that would be very useful in identifying which classes lead to vdex memory being resident.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 6
+      },
+      "revId": "bb502f41cd15e4f09b77574a266230d9edcaf50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11256cc7_d7cd43fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T15:21:28Z",
+      "side": 1,
+      "message": "Sure, we can drill down farther into the dexlayout stuff to account for such things.  I\u0027ll add a TODO.",
+      "parentUuid": "f377d4a3_8f48038a",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7cd20706_93ec451e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T15:21:28Z",
+      "side": 1,
+      "message": "Sure.  I can do that.",
+      "parentUuid": "4ed0012f_88a8ffba",
+      "range": {
+        "startLine": 33,
+        "startChar": 45,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "bb502f41cd15e4f09b77574a266230d9edcaf50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee13ba27_89038b6e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-03T08:20:34Z",
       "side": 1,
       "message": "This is number of pages right? Can you indicate somewhere in the output that this is in units of pages? Why show this in hex instead of decimal?",
+      "range": {
+        "startLine": 35,
+        "startChar": 28,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "bb502f41cd15e4f09b77574a266230d9edcaf50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08bd4493_0ef503be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T15:21:28Z",
+      "side": 1,
+      "message": "I\u0027ll change the header.  As for hex, it\u0027s old habit for fixed width columns.  I\u0027ll change it.",
+      "parentUuid": "ee13ba27_89038b6e",
       "range": {
         "startLine": 35,
         "startChar": 28,
