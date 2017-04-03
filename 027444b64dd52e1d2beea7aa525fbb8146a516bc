@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "58ef04b9_5bb5d3f1",
+        "filename": "test/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-03T17:20:21Z",
+      "side": 1,
+      "message": "I\u0027m excluding all on-load-specific ones right now (basically the things that are special-cased in common_load), and 945 falls into this category.",
+      "parentUuid": "8e51174e_8fc405f0",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 49
+      },
+      "revId": "027444b64dd52e1d2beea7aa525fbb8146a516bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "728edbe4_a5ab76fa",
         "filename": "test/ti-agent/scoped_primitive_array.h",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-04-03T17:15:06Z",
       "side": 1,
       "message": "Where is this coming from? Can we not just include it from there?",
+      "revId": "027444b64dd52e1d2beea7aa525fbb8146a516bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaecb902_962ccf91",
+        "filename": "test/ti-agent/scoped_primitive_array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-03T17:20:21Z",
+      "side": 1,
+      "message": "This is from libnativehelper, which is not available in CTS. Same for the other Scoped variants.",
+      "parentUuid": "728edbe4_a5ab76fa",
       "revId": "027444b64dd52e1d2beea7aa525fbb8146a516bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
