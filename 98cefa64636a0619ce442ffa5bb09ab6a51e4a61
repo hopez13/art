@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7efda138_d070bb43",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T20:49:37Z",
+      "side": 1,
+      "message": "\u0026 comes before the space.  Here and below.",
+      "range": {
+        "startLine": 1655,
+        "startChar": 13,
+        "endLine": 1655,
+        "endChar": 15
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79607361_ef0ce235",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T20:49:37Z",
+      "side": 1,
+      "message": "no space here",
+      "range": {
+        "startLine": 1656,
+        "startChar": 21,
+        "endLine": 1656,
+        "endChar": 22
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "671ae516_28fdd495",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T20:49:37Z",
+      "side": 1,
+      "message": "We want these loops interchanged, I think.  isExecuted stuff goes together, then !isExecuted.  isVirtual is the minor key.",
+      "range": {
+        "startLine": 1684,
+        "startChar": 2,
+        "endLine": 1685,
+        "endChar": 61
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52881955_0234e902",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T20:49:37Z",
+      "side": 1,
+      "message": "If it fits (I didn\u0027t check), keep this whole clause together on the second line.",
+      "range": {
+        "startLine": 1691,
+        "startChar": 38,
+        "endLine": 1692,
+        "endChar": 56
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
