@@ -360,6 +360,12 @@ void EnterInterpreterFromInvoke(Thread* self,
     return;
   }
 
+  if (UNLIKELY(method->IsObsolete())) {
+    ThrowInternalError("Attempting to invoke obsolete version of '%s'.",
+                       method->PrettyMethod().c_str());
+    return;
+  }
+
   const char* old_cause = self->StartAssertNoThreadSuspension("EnterInterpreterFromInvoke");
   const DexFile::CodeItem* code_item = method->GetCodeItem();
   uint16_t num_regs;
