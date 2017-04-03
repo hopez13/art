@@ -1494,7 +1494,7 @@ void DexLayout::DumpDexFile() {
   }
 }
 
-std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const DexFile* dex_file) {
+void DexLayout::LayoutClassDefsAndClassData(const DexFile* dex_file) {
   std::vector<dex_ir::ClassDef*> new_class_def_order;
   for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
     dex::TypeIndex type_idx(class_def->ClassType()->GetIndex());
@@ -1511,7 +1511,6 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
   uint32_t class_defs_offset = header_->GetCollections().ClassDefsOffset();
   uint32_t class_data_offset = header_->GetCollections().ClassDatasOffset();
   std::unordered_set<dex_ir::ClassData*> visited_class_data;
-  std::vector<dex_ir::ClassData*> new_class_data_order;
   for (uint32_t i = 0; i < new_class_def_order.size(); ++i) {
     dex_ir::ClassDef* class_def = new_class_def_order[i];
     class_def->SetIndex(i);
@@ -1522,10 +1521,8 @@ std::vector<dex_ir::ClassData*> DexLayout::LayoutClassDefsAndClassData(const Dex
       class_data->SetOffset(class_data_offset);
       class_data_offset += class_data->GetSize();
       visited_class_data.insert(class_data);
-      new_class_data_order.push_back(class_data);
     }
   }
-  return new_class_data_order;
 }
 
 void DexLayout::LayoutStringData(const DexFile* dex_file) {
@@ -1636,7 +1633,7 @@ void DexLayout::LayoutStringData(const DexFile* dex_file) {
 // Orders code items according to specified class data ordering.
 // NOTE: If the section following the code items is byte aligned, the last code item is left in
 // place to preserve alignment. Layout needs an overhaul to handle movement of other sections.
-int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_data_order) {
+int32_t DexLayout::LayoutCodeItems(const DexFile *dex_file) {
   // Do not move code items if class data section precedes code item section.
   // ULEB encoding is variable length, causing problems determining the offset of the code items.
   // TODO: We should swap the order of these sections in the future to avoid this issue.
@@ -1646,41 +1643,52 @@ int32_t DexLayout::LayoutCodeItems(std::vector<dex_ir::ClassData*> new_class_dat
     return 0;
   }
 
+
   // Find the last code item so we can leave it in place if the next section is not 4 byte aligned.
+  dex_ir::CodeItem* last_code_item = nullptr;
   std::unordered_set<dex_ir::CodeItem*> visited_code_items;
   bool is_code_item_aligned = IsNextSectionCodeItemAligned(code_item_offset);
   if (!is_code_item_aligned) {
-    dex_ir::CodeItem* last_code_item = nullptr;
     for (auto& code_item_pair : header_->GetCollections().CodeItems()) {
       std::unique_ptr<dex_ir::CodeItem>& code_item = code_item_pair.second;
-      if (last_code_item == nullptr || last_code_item->GetOffset() < code_item->GetOffset()) {
+      if (last_code_item == nullptr
+          || last_code_item->GetOffset() < code_item->GetOffset()) {
         last_code_item = code_item.get();
       }
     }
-    // Preserve the last code item by marking it already visited.
-    visited_code_items.insert(last_code_item);
+  }
+
+  std::vector<dex_ir::CodeItem*> code_items[2];
+  for (size_t isVirtual = 0; isVirtual < 2; ++isVirtual) {
+    for (std::unique_ptr<dex_ir::ClassDef>& class_def : header_->GetCollections().ClassDefs()) {
+      const bool is_profile_class =
+          info_->ContainsClass(*dex_file, dex::TypeIndex(class_def->ClassType()->GetIndex()));
+
+      dex_ir::ClassData* class_data = class_def->GetClassData();
+      for (auto& method : *(isVirtual ?
+                            class_data->VirtualMethods() : class_data->DirectMethods())) {
+        const dex_ir::MethodId *method_id = method->GetMethodId();
+        dex_ir::CodeItem *code_item = method->GetCodeItem();
+        if (code_item == last_code_item || !code_item) {
+          continue;
+        }
+        const bool is_clinit = is_profile_class &&
+            (method->GetAccessFlags() & kAccConstructor) != 0 &&
+            (method->GetAccessFlags() & kAccStatic) != 0;
+        const bool is_method_executed = is_clinit ||
+            info_->ContainsMethod(MethodReference(dex_file, method_id->GetIndex()));
+        code_items[is_method_executed].push_back(code_item);
+      }
+    }
   }
 
   int32_t diff = 0;
-  for (dex_ir::ClassData* class_data : new_class_data_order) {
-    class_data->SetOffset(class_data->GetOffset() + diff);
-    for (auto& method : *class_data->DirectMethods()) {
-      dex_ir::CodeItem* code_item = method->GetCodeItem();
-      if (code_item != nullptr && visited_code_items.find(code_item) == visited_code_items.end()) {
-        visited_code_items.insert(code_item);
-        diff += UnsignedLeb128Size(code_item_offset) - UnsignedLeb128Size(code_item->GetOffset());
-        code_item->SetOffset(code_item_offset);
-        code_item_offset += RoundUp(code_item->GetSize(), kDexCodeItemAlignment);
-      }
-    }
-    for (auto& method : *class_data->VirtualMethods()) {
-      dex_ir::CodeItem* code_item = method->GetCodeItem();
-      if (code_item != nullptr && visited_code_items.find(code_item) == visited_code_items.end()) {
-        visited_code_items.insert(code_item);
-        diff += UnsignedLeb128Size(code_item_offset) - UnsignedLeb128Size(code_item->GetOffset());
-        code_item->SetOffset(code_item_offset);
-        code_item_offset += RoundUp(code_item->GetSize(), kDexCodeItemAlignment);
-      }
+  for (int isExecuted = 1; isExecuted >= 0; --isExecuted) {
+    for (dex_ir::CodeItem* code_item : code_items[isExecuted]) {
+      diff += UnsignedLeb128Size(code_item_offset)
+          - UnsignedLeb128Size(code_item->GetOffset());
+      code_item->SetOffset(code_item_offset);
+      code_item_offset += RoundUp(code_item->GetSize(), kDexCodeItemAlignment);
     }
   }
   // Adjust diff to be 4-byte aligned.
@@ -1792,8 +1800,8 @@ void DexLayout::FixupSections(uint32_t offset, uint32_t diff) {
 
 void DexLayout::LayoutOutputFile(const DexFile* dex_file) {
   LayoutStringData(dex_file);
-  std::vector<dex_ir::ClassData*> new_class_data_order = LayoutClassDefsAndClassData(dex_file);
-  int32_t diff = LayoutCodeItems(new_class_data_order);
+  int32_t diff = LayoutCodeItems(dex_file);
+  LayoutClassDefsAndClassData(dex_file);
   // Move sections after ClassData by diff bytes.
   FixupSections(header_->GetCollections().ClassDatasOffset(), diff);
   // Update file size.
