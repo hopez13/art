@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "185cd598_7a510b0b",
+        "filename": "dexlayout/dex_ir.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1084139
+      },
+      "writtenOn": "2017-04-03T09:21:15Z",
+      "side": 1,
+      "message": "it looks like a memory leak: encoded_value is allocated in ReadEncodedValue and lost on return here.",
+      "revId": "3ab96b460684781af58b3f9c5b9fb0e370de6b50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
