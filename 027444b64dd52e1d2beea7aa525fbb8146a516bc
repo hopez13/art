@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e51174e_8fc405f0",
+        "filename": "test/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-03T17:15:06Z",
+      "side": 1,
+      "message": "This one I don\u0027t think relies on any ART specific/internal runtime stuff IIRC.",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 49
+      },
+      "revId": "027444b64dd52e1d2beea7aa525fbb8146a516bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728edbe4_a5ab76fa",
+        "filename": "test/ti-agent/scoped_primitive_array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-03T17:15:06Z",
+      "side": 1,
+      "message": "Where is this coming from? Can we not just include it from there?",
+      "revId": "027444b64dd52e1d2beea7aa525fbb8146a516bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
