@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40e09d4e_26bab823",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T04:55:28Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right about elements, and I\u0027ve added comments.",
+      "parentUuid": "d811de62_09777e0f",
+      "range": {
+        "startLine": 1114,
+        "startChar": 2,
+        "endLine": 1114,
+        "endChar": 16
+      },
+      "revId": "cc908d92fa1ec8dce590a6f3abe6e40177db1700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "934d5dc7_a532dce6",
         "filename": "dexlayout/dex_ir.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-03T01:37:19Z",
       "side": 1,
       "message": "Enum classes are so much better, because all the implicit conversion crap etc is gone. But I\u0027ll leave it up to you whether you\u0027re OK with the verbosity that\u0027s required.",
+      "range": {
+        "startLine": 1118,
+        "startChar": 0,
+        "endLine": 1118,
+        "endChar": 4
+      },
+      "revId": "cc908d92fa1ec8dce590a6f3abe6e40177db1700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ea9ded5_756f6664",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T04:55:28Z",
+      "side": 1,
+      "message": "Great suggestion!  Done.",
+      "parentUuid": "934d5dc7_a532dce6",
       "range": {
         "startLine": 1118,
         "startChar": 0,
