@@ -486,6 +486,24 @@
     },
     {
       "key": {
+        "uuid": "c5175cc0_ddfa4552",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-03T17:07:31Z",
+      "side": 1,
+      "message": "I guess it\u0027s trying to align the outputs to match the columns on L160?\n\nIn which case maybe this just needs some extra comments to explain how to change the magic #s.\n\nOr alternatively slightly refactor it to automatically calculate the padding based off the columns above.\n\nFor example the string length \"Section name              \" is 26 which is how you would get the \"26\" in %-26s",
+      "parentUuid": "c69e6e7a_853e7ba9",
+      "revId": "82b88af4994f241a04791dbdf22509bde1a4422b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0873deb1_1a9633cd",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 3
