@@ -1614,6 +1614,13 @@ ENTRY art_quick_to_interpreter_bridge
     DELIVER_PENDING_EXCEPTION
 END art_quick_to_interpreter_bridge
 
+    .extern artInvokeObsoleteMethod
+ENTRY art_invoke_obsolete_method_stub
+    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME r1
+    mov     r1, r9                    @ pass Thread::Current
+    blx     artInvokeObsoleteMethod   @ (Method* method, Thread*)
+END art_invoke_obsolete_method_stub
+
     /*
      * Routine that intercepts method calls and returns.
      */

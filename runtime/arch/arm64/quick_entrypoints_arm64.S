@@ -2152,6 +2152,22 @@ ENTRY art_quick_to_interpreter_bridge
     RETURN_OR_DELIVER_PENDING_EXCEPTION
 END art_quick_to_interpreter_bridge
 
+/*
+ * Called to attempt to execute an obsolete method. On entry the arguments match those of a quick
+ * call:
+ * x0 = method being called/to bridge to.
+ * x1..x7, d0..d7 = arguments to that method.
+ */
+ENTRY art_invoke_obsolete_method_stub
+    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
+    //  x0 will contain mirror::ArtMethod* method.
+    mov x1, xSELF                          // Thread::Current()
+    // uint64_t artInvokeObsoleteMethod(mirror::ArtMethod* method, Thread* self)
+    bl   artInvokeObsoleteMethod
+    brk 0                           // Unreached.
+END art_invoke_obsolete_method_stub
+
+
 
 //
 // Instrumentation-related stubs
