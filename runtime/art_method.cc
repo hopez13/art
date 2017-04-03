@@ -297,6 +297,12 @@ void ArtMethod::Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue*
     return;
   }
 
+  if (UNLIKELY(IsObsolete())) {
+    ThrowInternalError("Attempting to invoke obsolete version of '%s'.",
+                       PrettyMethod().c_str());
+    return;
+  }
+
   if (kIsDebugBuild) {
     self->AssertThreadSuspensionIsAllowable();
     CHECK_EQ(kRunnable, self->GetState());
