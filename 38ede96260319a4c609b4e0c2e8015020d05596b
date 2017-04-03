@@ -34,6 +34,24 @@
       "revId": "38ede96260319a4c609b4e0c2e8015020d05596b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d49428f_8946a87d",
+        "filename": "tools/cpplint_presubmit.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-03T17:14:00Z",
+      "side": 1,
+      "message": "It seems to me we can turn on the presubmit check for modified code for now and add a but and a TODO for the full check.",
+      "parentUuid": "47f18362_8ab5e9c3",
+      "revId": "38ede96260319a4c609b4e0c2e8015020d05596b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
