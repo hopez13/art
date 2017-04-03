@@ -861,7 +861,7 @@ class MethodVerifier {
   // Note: this flag is only valid once Verify() has started.
   bool is_constructor_;
 
-  // Link, for the method verifier root linked list.
+  // Link, for the method verifier root linked list.const
   MethodVerifier* link_;
 
   friend class art::Thread;
