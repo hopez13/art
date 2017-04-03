@@ -687,6 +687,14 @@ void BuildQuickShadowFrameVisitor::Visit() {
   ++cur_reg_;
 }
 
+extern "C" uint64_t artInvokeObsoleteMethod(ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(method->IsObsolete());
+  ThrowInternalError("Attempting to invoke obsolete version of '%s'.",
+                     method->PrettyMethod().c_str());
+  return 0;
+}
+
 extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Ensure we don't get thread suspension until the object arguments are safely in the shadow

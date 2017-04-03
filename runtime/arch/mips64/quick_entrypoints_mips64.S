@@ -1818,6 +1818,22 @@ ENTRY art_quick_to_interpreter_bridge
     DELIVER_PENDING_EXCEPTION
 END art_quick_to_interpreter_bridge
 
+    .extern artInvokeObsoleteMethod
+ENTRY art_invoke_obsolete_method_stub
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    jal     artInvokeObsoleteMethod    # (Method* method)
+    nop                                # Delay slot.
+    ld      $t0, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
+    daddiu  $sp, $sp, REFS_AND_ARGS_MINUS_REFS_SIZE  # skip a0-a7 and f12-f19
+    RESTORE_SAVE_REFS_ONLY_FRAME
+    bne     $t0, $zero, 1f
+    dmtc1   $v0, $f0               # place return value to FP return value
+    jalr    $zero, $ra
+    nop                            # Delay slot.
+1:
+    DELIVER_PENDING_EXCEPTION
+END art_invoke_obsolete_method_stub
+
     /*
      * Routine that intercepts method calls and returns.
      */

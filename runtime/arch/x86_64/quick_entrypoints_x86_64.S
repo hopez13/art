@@ -1902,6 +1902,19 @@ DEFINE_FUNCTION art_quick_to_interpreter_bridge
 END_FUNCTION art_quick_to_interpreter_bridge
 
     /*
+     * Called to catch an attempt to invoke an obsolete method.
+     * RDI = method being called / to bridge to.
+     * RSI, RDX, RCX, R8, R9 are arguments to that method.
+     */
+DEFINE_FUNCTION art_invoke_obsolete_method_stub
+    SETUP_SAVE_REFS_AND_ARGS_FRAME     // Set up frame and save arguments.
+    call SYMBOL(artInvokeObsoleteMethod)  // (method)
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME   // TODO: no need to restore arguments in this case.
+    movq %rax, %xmm0                   // Place return value also into floating point return value.
+    RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
+END_FUNCTION art_invoke_obsolete_method_stub
+
+    /*
      * Routine that intercepts method calls and returns.
      */
 DEFINE_FUNCTION art_quick_instrumentation_entry
