@@ -1877,6 +1877,23 @@ ENTRY art_quick_to_interpreter_bridge
     DELIVER_PENDING_EXCEPTION
 END art_quick_to_interpreter_bridge
 
+    .extern artInvokeObsoleteMethod
+ENTRY art_invoke_obsolete_method_stub
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+    la      $t9, artInvokeObsoleteMethod
+    jalr    $t9                                 # (Method* method)
+    nop                                         # Delay slot
+    lw      $t7, THREAD_EXCEPTION_OFFSET(rSELF) # load Thread::Current()->exception_
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    bnez    $t7, 1f
+    # don't care if $v0 and/or $v1 are modified, when exception branch taken
+    MTD     $v0, $v1, $f0, $f1                  # move float value to return value
+    jalr    $zero, $ra
+    nop
+1:
+    DELIVER_PENDING_EXCEPTION
+END art_invoke_obsolete_method_stub
+
     /*
      * Routine that intercepts method calls and returns.
      */

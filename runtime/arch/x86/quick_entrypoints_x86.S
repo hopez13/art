@@ -1937,6 +1937,30 @@ DEFINE_FUNCTION art_quick_to_interpreter_bridge
     RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
 END_FUNCTION art_quick_to_interpreter_bridge
 
+DEFINE_FUNCTION art_invoke_obsolete_method_stub
+    SETUP_SAVE_REFS_AND_ARGS_FRAME  ebx, ebx  // save frame
+    subl LITERAL(12), %esp        // Align stack.
+    CFI_ADJUST_CFA_OFFSET(12)
+    PUSH eax                      // pass method
+    call SYMBOL(artInvokeObsoleteMethod)  // (method)
+    addl LITERAL(16), %esp        // pop arguments
+    CFI_ADJUST_CFA_OFFSET(-16)
+
+    // Return eax:edx in xmm0 also.
+    movd %eax, %xmm0
+    movd %edx, %xmm1
+    punpckldq %xmm1, %xmm0
+
+    addl LITERAL(48), %esp        // Remove FPRs and EAX, ECX, EDX, EBX.
+    CFI_ADJUST_CFA_OFFSET(-48)
+
+    POP ebp                       // Restore callee saves
+    POP esi
+    POP edi
+
+    RETURN_OR_DELIVER_PENDING_EXCEPTION    // return or deliver exception
+END_FUNCTION art_invoke_obsolete_method_stub
+
     /*
      * Routine that intercepts method calls and returns.
      */

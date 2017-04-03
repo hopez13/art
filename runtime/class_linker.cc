@@ -8507,6 +8507,15 @@ void ClassLinker::SetEntryPointsToInterpreter(ArtMethod* method) const {
   }
 }
 
+void ClassLinker::SetEntryPointsForObsoleteMethod(ArtMethod* method) const {
+  DCHECK(method->IsObsolete());
+  if (!method->IsNative()) {
+    method->SetEntryPointFromQuickCompiledCode(GetInvokeObsoleteMethodStub());
+  } else {
+    SetEntryPointsToCompiledCode(method, GetQuickGenericJniStub());
+  }
+}
+
 void ClassLinker::DumpForSigQuit(std::ostream& os) {
   ScopedObjectAccess soa(Thread::Current());
   ReaderMutexLock mu(soa.Self(), *Locks::classlinker_classes_lock_);

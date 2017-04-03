@@ -1614,6 +1614,22 @@ ENTRY art_quick_to_interpreter_bridge
     DELIVER_PENDING_EXCEPTION
 END art_quick_to_interpreter_bridge
 
+    .extern artInvokeObsoleteMethod
+ENTRY art_invoke_obsolete_method_stub
+    SETUP_SAVE_REFS_AND_ARGS_FRAME r1
+    blx     artInvokeObsoleteMethod   @ (Method* method)
+    ldr     r2, [r9, #THREAD_EXCEPTION_OFFSET]  @ load Thread::Current()->exception_
+    // Tear down the callee-save frame. Skip arg registers.
+    add     sp, #(FRAME_SIZE_SAVE_REFS_AND_ARGS - FRAME_SIZE_SAVE_REFS_ONLY)
+    .cfi_adjust_cfa_offset -(FRAME_SIZE_SAVE_REFS_AND_ARGS - FRAME_SIZE_SAVE_REFS_ONLY)
+    RESTORE_SAVE_REFS_ONLY_FRAME
+    cbnz    r2, 1f                 @ success if no exception is pending
+    vmov    d0, r0, r1             @ store into fpr, for when it's a fpr return...
+    bx      lr                     @ return on success
+1:
+    DELIVER_PENDING_EXCEPTION
+END art_invoke_obsolete_method_stub
+
     /*
      * Routine that intercepts method calls and returns.
      */
