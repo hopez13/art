@@ -566,15 +566,19 @@ void GraphChecker::HandleLoop(HBasicBlock* loop_header) {
         loop_information->GetPreHeader()->GetSuccessors().size()));
   }
 
-  if (loop_information->GetSuspendCheck() == nullptr) {
+  if (loop_information->GetHeaderEnvironmentHolder() == nullptr) {
     AddError(StringPrintf(
-        "Loop with header %d does not have a suspend check.",
+        "Loop with header %d does not have an environment holder.",
         loop_header->GetBlockId()));
   }
 
-  if (loop_information->GetSuspendCheck() != loop_header->GetFirstInstructionDisregardMoves()) {
+  if (loop_information->GetHeaderEnvironmentHolder() !=
+      loop_header->GetFirstInstructionDisregardMoves() &&
+      loop_information->GetHeaderEnvironmentHolder() !=
+      loop_header->GetFirstInstructionDisregardMoves()->GetNext()) {
     AddError(StringPrintf(
-        "Loop header %d does not have the loop suspend check as the first instruction.",
+        "Loop header %d does not have the loop header environment holder "
+        "as the first or the second instruction.",
         loop_header->GetBlockId()));
   }
 

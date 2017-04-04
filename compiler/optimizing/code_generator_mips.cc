@@ -6785,6 +6785,15 @@ void InstructionCodeGeneratorMIPS::VisitSuspendCheck(HSuspendCheck* instruction)
   GenerateSuspendCheck(instruction, nullptr);
 }
 
+void LocationsBuilderMIPS::VisitEnvironmentHolder(HEnvironmentHolder* instruction) {
+  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+}
+
+void InstructionCodeGeneratorMIPS::VisitEnvironmentHolder(
+    HEnvironmentHolder* instruction ATTRIBUTE_UNUSED) {
+  // No-op.
+}
+
 void LocationsBuilderMIPS::VisitThrow(HThrow* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);

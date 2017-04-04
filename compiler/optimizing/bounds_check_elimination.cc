@@ -1617,14 +1617,14 @@ class BCEVisitor : public HGraphVisitor {
 
   /** Inserts a deoptimization test in a loop preheader. */
   void InsertDeoptInLoop(HLoopInformation* loop, HBasicBlock* block, HInstruction* condition) {
-    HInstruction* suspend = loop->GetSuspendCheck();
+    HInstruction* env_holder = loop->GetHeaderEnvironmentHolder();
     block->InsertInstructionBefore(condition, block->GetLastInstruction());
     HDeoptimize* deoptimize = new (GetGraph()->GetArena()) HDeoptimize(
-        GetGraph()->GetArena(), condition, HDeoptimize::Kind::kBCE, suspend->GetDexPc());
+        GetGraph()->GetArena(), condition, HDeoptimize::Kind::kBCE, env_holder->GetDexPc());
     block->InsertInstructionBefore(deoptimize, block->GetLastInstruction());
-    if (suspend->HasEnvironment()) {
+    if (env_holder->HasEnvironment()) {
       deoptimize->CopyEnvironmentFromWithLoopPhiAdjustment(
-          suspend->GetEnvironment(), loop->GetHeader());
+          env_holder->GetEnvironment(), loop->GetHeader());
     }
   }
 

@@ -665,7 +665,7 @@ void CodeGenerator::ComputeStackMapAndMethodInfoSize(size_t* stack_map_size,
 static void CheckCovers(uint32_t dex_pc,
                         const HGraph& graph,
                         const CodeInfo& code_info,
-                        const ArenaVector<HSuspendCheck*>& loop_headers,
+                        const ArenaVector<HEnvironmentHolder*>& loop_headers,
                         ArenaVector<size_t>* covered) {
   CodeInfoEncoding encoding = code_info.ExtractEncoding();
   for (size_t i = 0; i < loop_headers.size(); ++i) {
@@ -687,12 +687,12 @@ static void CheckLoopEntriesCanBeUsedForOsr(const HGraph& graph,
     // One can write loops through try/catch, which we do not support for OSR anyway.
     return;
   }
-  ArenaVector<HSuspendCheck*> loop_headers(graph.GetArena()->Adapter(kArenaAllocMisc));
+  ArenaVector<HEnvironmentHolder*> loop_headers(graph.GetArena()->Adapter(kArenaAllocMisc));
   for (HBasicBlock* block : graph.GetReversePostOrder()) {
     if (block->IsLoopHeader()) {
-      HSuspendCheck* suspend_check = block->GetLoopInformation()->GetSuspendCheck();
-      if (!suspend_check->GetEnvironment()->IsFromInlinedInvoke()) {
-        loop_headers.push_back(suspend_check);
+      HEnvironmentHolder* env_holder = block->GetLoopInformation()->GetHeaderEnvironmentHolder();
+      if (!env_holder->GetEnvironment()->IsFromInlinedInvoke()) {
+        loop_headers.push_back(env_holder);
       }
     }
   }

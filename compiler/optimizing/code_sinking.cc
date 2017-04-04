@@ -315,6 +315,7 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
           if (graph_->IsDebuggable() ||
               user->IsDeoptimize() ||
               user->CanThrowIntoCatchBlock() ||
+              user->IsEnvironmentHolder() ||
               (user->IsSuspendCheck() && graph_->IsCompilingOsr())) {
             can_move = false;
             break;

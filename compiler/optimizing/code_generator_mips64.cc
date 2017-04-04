@@ -4679,6 +4679,15 @@ void InstructionCodeGeneratorMIPS64::VisitSuspendCheck(HSuspendCheck* instructio
   GenerateSuspendCheck(instruction, nullptr);
 }
 
+void LocationsBuilderMIPS64::VisitEnvironmentHolder(HEnvironmentHolder* instruction) {
+  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+}
+
+void InstructionCodeGeneratorMIPS64::VisitEnvironmentHolder(
+    HEnvironmentHolder* instruction ATTRIBUTE_UNUSED) {
+  // No-op.
+}
+
 void LocationsBuilderMIPS64::VisitThrow(HThrow* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);

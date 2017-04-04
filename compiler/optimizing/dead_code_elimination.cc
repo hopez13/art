@@ -360,6 +360,16 @@ void HDeadCodeElimination::RemoveDeadInstructions() {
       if (inst->IsDeadAndRemovable()) {
         block->RemoveInstruction(inst);
         MaybeRecordStat(MethodCompilationStat::kRemovedDeadInstruction);
+      } else if (eliminate_suspend_checks_ && !graph_->IsCompilingOsr() && inst->IsSuspendCheck()) {
+        // Don't eliminate suspend checks for the OSR case because it would require a suspend check
+        // to enter the compiled code upon OSR.
+        HLoopInformation* info = block->GetLoopInformation();
+        if (info != nullptr /*&& info->IsBackEdge(*block)*/ && inst == info->GetSuspendCheck()) {
+          DCHECK(inst->GetNext()->IsEnvironmentHolder());
+          DCHECK_EQ(info->GetHeaderEnvironmentHolder(), inst->GetNext());
+          info->SetSuspendCheck(nullptr);
+          block->RemoveInstruction(inst);
+        }
       }
     }
   }

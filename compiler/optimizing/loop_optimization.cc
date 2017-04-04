@@ -344,26 +344,47 @@ bool HLoopOptimization::IsPhiInduction(HPhi* phi) {
 }
 
 // Find: phi: Phi(init, addsub)
-//       s:   SuspendCheck
+//       s:   SuspendCheck (may be removed)
+//       e:   EnvironmentHolder
 //       c:   Condition(phi, bound)
 //       i:   If(c)
 // TODO: Find a less pattern matching approach?
 bool HLoopOptimization::IsEmptyHeader(HBasicBlock* block) {
   DCHECK(iset_->empty());
   HInstruction* phi = block->GetFirstPhi();
-  if (phi != nullptr && phi->GetNext() == nullptr && IsPhiInduction(phi->AsPhi())) {
-    HInstruction* s = block->GetFirstInstruction();
-    if (s != nullptr && s->IsSuspendCheck()) {
-      HInstruction* c = s->GetNext();
-      if (c != nullptr && c->IsCondition() && c->GetUses().HasExactlyOneElement()) {
-        HInstruction* i = c->GetNext();
-        if (i != nullptr && i->IsIf() && i->InputAt(0) == c) {
-          iset_->insert(c);
-          iset_->insert(s);
-          return true;
-        }
-      }
+  if (!(phi != nullptr && phi->GetNext() == nullptr && IsPhiInduction(phi->AsPhi()))) {
+    return false;
+  }
+  HInstruction* s = nullptr;
+  HInstruction* e = nullptr;
+  HInstruction* c = nullptr;
+  HInstruction* curr = block->GetFirstInstruction();
+  if (curr == nullptr) {
+    return false;
+  }
+  if (curr->IsSuspendCheck()) {
+    s = curr;
+    curr = curr->GetNext();
+  }
+  if (curr->IsEnvironmentHolder()) {
+    e = curr;
+    curr = curr->GetNext();
+  } else {
+    return false;
+  }
+  if (curr != nullptr && curr->IsCondition() && curr->GetUses().HasExactlyOneElement()) {
+    c = curr;
+    curr = curr->GetNext();
+  } else {
+    return false;
+  }
+  if (curr != nullptr && curr->IsIf() && curr->InputAt(0) == c) {
+    if (s != nullptr) {
+      iset_->insert(s);
     }
+    iset_->insert(e);
+    iset_->insert(c);
+    return true;
   }
   return false;
 }

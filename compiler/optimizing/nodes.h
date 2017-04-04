@@ -49,6 +49,7 @@ class HBasicBlock;
 class HCurrentMethod;
 class HDoubleConstant;
 class HEnvironment;
+class HEnvironmentHolder;
 class HFloatConstant;
 class HGraphBuilder;
 class HGraphVisitor;
@@ -741,6 +742,7 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   HLoopInformation(HBasicBlock* header, HGraph* graph)
       : header_(header),
         suspend_check_(nullptr),
+        header_env_holder_(nullptr),
         irreducible_(false),
         contains_irreducible_loop_(false),
         back_edges_(graph->GetArena()->Adapter(kArenaAllocLoopInfoBackEdges)),
@@ -765,6 +767,12 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
   HSuspendCheck* GetSuspendCheck() const { return suspend_check_; }
   void SetSuspendCheck(HSuspendCheck* check) { suspend_check_ = check; }
   bool HasSuspendCheck() const { return suspend_check_ != nullptr; }
+
+  HEnvironmentHolder* GetHeaderEnvironmentHolder() const { return header_env_holder_; }
+  void SetHeaderEnvironmentHolder(HEnvironmentHolder* header_env_holder) {
+    header_env_holder_ = header_env_holder;
+  }
+  bool HasHeaderEnvironmentHolder() const { return header_env_holder_ != nullptr; }
 
   void AddBackEdge(HBasicBlock* back_edge) {
     back_edges_.push_back(back_edge);
@@ -836,6 +844,7 @@ class HLoopInformation : public ArenaObject<kArenaAllocLoopInfo> {
 
   HBasicBlock* header_;
   HSuspendCheck* suspend_check_;
+  HEnvironmentHolder* header_env_holder_;
   bool irreducible_;
   bool contains_irreducible_loop_;
   ArenaVector<HBasicBlock*> back_edges_;
@@ -1311,6 +1320,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(Goto, Instruction)                                                  \
   M(GreaterThan, Condition)                                             \
   M(GreaterThanOrEqual, Condition)                                      \
+  M(EnvironmentHolder, Instruction)                                     \
   M(If, Instruction)                                                    \
   M(InstanceFieldGet, Instruction)                                      \
   M(InstanceFieldSet, Instruction)                                      \
@@ -2007,6 +2017,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
         !DoesAnyWrite() &&
         !CanThrow() &&
         !IsSuspendCheck() &&
+        !IsEnvironmentHolder() &&
         !IsControlFlow() &&
         !IsNativeDebugInfo() &&
         !IsParameterValue() &&
@@ -5583,6 +5594,21 @@ class HSuspendCheck FINAL : public HTemplateInstruction<0> {
   SlowPathCode* slow_path_;
 
   DISALLOW_COPY_AND_ASSIGN(HSuspendCheck);
+};
+
+class HEnvironmentHolder FINAL : public HTemplateInstruction<0> {
+ public:
+  explicit HEnvironmentHolder(uint32_t dex_pc = kNoDexPc)
+      : HTemplateInstruction(SideEffects::None(), dex_pc) {}
+
+  bool NeedsEnvironment() const OVERRIDE {
+    return true;
+  }
+
+  DECLARE_INSTRUCTION(EnvironmentHolder);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HEnvironmentHolder);
 };
 
 // Pseudo-instruction which provides the native debugger with mapping information.

@@ -767,7 +767,7 @@ void OptimizingCompiler::RunOptimizations(HGraph* graph,
   HDeadCodeElimination* dce2 = new (arena) HDeadCodeElimination(
       graph, stats, "dead_code_elimination$after_inlining");
   HDeadCodeElimination* dce3 = new (arena) HDeadCodeElimination(
-      graph, stats, "dead_code_elimination$final");
+      graph, stats, "dead_code_elimination$final", /*eliminate_suspend_checks*/ true);
   HConstantFolding* fold1 = new (arena) HConstantFolding(graph, "constant_folding");
   InstructionSimplifier* simplify1 = new (arena) InstructionSimplifier(graph, codegen, stats);
   HSelectGenerator* select_generator = new (arena) HSelectGenerator(graph, stats);

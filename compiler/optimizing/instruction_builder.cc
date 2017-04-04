@@ -259,8 +259,12 @@ void HInstructionBuilder::SetLoopHeaderPhiInputs() {
 static bool IsBlockPopulated(HBasicBlock* block) {
   if (block->IsLoopHeader()) {
     // Suspend checks were inserted into loop headers during building of dominator tree.
-    DCHECK(block->GetFirstInstruction()->IsSuspendCheck());
-    return block->GetFirstInstruction() != block->GetLastInstruction();
+    DCHECK_GE(block->GetInstructions().CountSize(), 2U);
+    HInstruction* first_instr = block->GetFirstInstruction();
+    HInstruction* second_instr = first_instr->GetNext();
+    DCHECK(first_instr->IsSuspendCheck());
+    DCHECK(second_instr->IsEnvironmentHolder());
+    return second_instr != block->GetLastInstruction();
   } else {
     return !block->GetInstructions().IsEmpty();
   }
@@ -297,6 +301,12 @@ bool HInstructionBuilder::Build() {
       AppendInstruction(new (arena_) HExit());
       continue;
     } else if (current_block_->IsLoopHeader()) {
+      HEnvironmentHolder* env_holder = new (arena_) HEnvironmentHolder(current_block_->GetDexPc());
+      current_block_->GetLoopInformation()->SetHeaderEnvironmentHolder(env_holder);
+      InsertInstructionAtTop(env_holder);
+
+      DCHECK(current_block_->GetLoopInformation()->HasHeaderEnvironmentHolder());
+
       HSuspendCheck* suspend_check = new (arena_) HSuspendCheck(current_block_->GetDexPc());
       current_block_->GetLoopInformation()->SetSuspendCheck(suspend_check);
       // This is slightly odd because the loop header might not be empty (TryBoundary).

@@ -364,8 +364,16 @@ void HGraph::SimplifyLoop(HBasicBlock* header) {
 
   HInstruction* first_instruction = header->GetFirstInstruction();
   if (first_instruction != nullptr && first_instruction->IsSuspendCheck()) {
-    // Called from DeadBlockElimination. Update SuspendCheck pointer.
+    // Called from DeadBlockElimination. Update SuspendCheck/EnvironmentHolder pointer.
     info->SetSuspendCheck(first_instruction->AsSuspendCheck());
+    HInstruction* second_instruction = first_instruction->GetNext();
+    if (second_instruction != nullptr && second_instruction->IsEnvironmentHolder()) {
+      info->SetHeaderEnvironmentHolder(second_instruction->AsEnvironmentHolder());
+    }
+  }
+  if (first_instruction != nullptr && first_instruction->IsEnvironmentHolder()) {
+    // Called from DeadBlockElimination. Update EnvironmentHolder pointer.
+    info->SetHeaderEnvironmentHolder(first_instruction->AsEnvironmentHolder());
   }
 }
 
@@ -433,6 +441,14 @@ void HGraph::SimplifyCFG() {
                block->GetFirstInstruction()->IsSuspendCheck()) {
       // We are being called by the dead code elimiation pass, and what used to be
       // a loop got dismantled. Just remove the suspend check.
+      block->RemoveInstruction(block->GetFirstInstruction());
+      HInstruction* second_instruction = block->GetFirstInstruction()->GetNext();
+      if (second_instruction != nullptr && second_instruction->IsEnvironmentHolder()) {
+        block->RemoveInstruction(second_instruction);
+      }
+    } else if (!block->IsEntryBlock() &&
+               block->GetFirstInstruction() != nullptr &&
+               block->GetFirstInstruction()->IsEnvironmentHolder()) {
       block->RemoveInstruction(block->GetFirstInstruction());
     }
   }
