@@ -147,7 +147,10 @@ JitCompiler::JitCompiler() {
     }
   }
   if (instruction_set_features_ == nullptr) {
-    instruction_set_features_ = InstructionSetFeatures::FromCppDefines();
+    // If instruction set features are not explicitly defined through any compiler options,
+    // query the current cpu info for a suitable set of features. Since the JIT compiler
+    // is used, we can be certain the current cpu is the one we are compiling for.
+    instruction_set_features_ = InstructionSetFeatures::FromCpuInfo();
   }
   cumulative_logger_.reset(new CumulativeLogger("jit times"));
   compiler_driver_.reset(new CompilerDriver(
