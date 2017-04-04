@@ -22,6 +22,30 @@
       "revId": "c99d60941b15f55a91f38ab416114fd1fd13686e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc60e7c6_c87cc105",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-04T16:55:54Z",
+      "side": 1,
+      "message": "Done.\n\nMoved to just having the artInvokeObsoleteMethod call QuickDeliverException.",
+      "parentUuid": "9d19ba86_3af43778",
+      "range": {
+        "startLine": 1626,
+        "startChar": 4,
+        "endLine": 1626,
+        "endChar": 71
+      },
+      "revId": "c99d60941b15f55a91f38ab416114fd1fd13686e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
