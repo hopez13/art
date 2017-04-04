@@ -516,6 +516,7 @@ bool HScheduler::IsSchedulable(const HInstruction* instruction) const {
       instruction->IsClassTableGet() ||
       instruction->IsCurrentMethod() ||
       instruction->IsDivZeroCheck() ||
+      instruction->IsEnvironmentHolder() ||
       instruction->IsInstanceFieldGet() ||
       instruction->IsInstanceFieldSet() ||
       instruction->IsInstanceOf() ||
@@ -575,7 +576,8 @@ bool HScheduler::IsSchedulingBarrier(const HInstruction* instr) const {
       // Don't break calling convention.
       instr->IsParameterValue() ||
       // Code generation of goto relies on SuspendCheck's position.
-      instr->IsSuspendCheck();
+      instr->IsSuspendCheck() ||
+      instr->IsEnvironmentHolder();
 }
 
 void HInstructionScheduling::Run(bool only_optimize_loop_blocks,

@@ -5731,6 +5731,15 @@ void InstructionCodeGeneratorX86::VisitSuspendCheck(HSuspendCheck* instruction) 
   GenerateSuspendCheck(instruction, nullptr);
 }
 
+void LocationsBuilderX86::VisitEnvironmentHolder(HEnvironmentHolder* instruction) {
+  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+}
+
+void InstructionCodeGeneratorX86::VisitEnvironmentHolder(
+    HEnvironmentHolder* instruction ATTRIBUTE_UNUSED) {
+  // No-op.
+}
+
 void InstructionCodeGeneratorX86::GenerateSuspendCheck(HSuspendCheck* instruction,
                                                        HBasicBlock* successor) {
   SuspendCheckSlowPathX86* slow_path =

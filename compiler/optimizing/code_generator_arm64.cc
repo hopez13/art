@@ -5537,6 +5537,15 @@ void InstructionCodeGeneratorARM64::VisitSuspendCheck(HSuspendCheck* instruction
   GenerateSuspendCheck(instruction, nullptr);
 }
 
+void LocationsBuilderARM64::VisitEnvironmentHolder(HEnvironmentHolder* instruction) {
+  new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kNoCall);
+}
+
+void InstructionCodeGeneratorARM64::VisitEnvironmentHolder(
+    HEnvironmentHolder* instruction ATTRIBUTE_UNUSED) {
+  // No-op.
+}
+
 void LocationsBuilderARM64::VisitThrow(HThrow* instruction) {
   LocationSummary* locations =
       new (GetGraph()->GetArena()) LocationSummary(instruction, LocationSummary::kCallOnMainOnly);

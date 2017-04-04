@@ -29,8 +29,10 @@ namespace art {
  */
 class HDeadCodeElimination : public HOptimization {
  public:
-  HDeadCodeElimination(HGraph* graph, OptimizingCompilerStats* stats, const char* name)
-      : HOptimization(graph, name, stats) {}
+  HDeadCodeElimination(HGraph* graph, OptimizingCompilerStats* stats, const char* name,
+                       bool eliminate_suspend_checks = false)
+      : HOptimization(graph, name, stats),
+        eliminate_suspend_checks_(eliminate_suspend_checks) {}
 
   void Run() OVERRIDE;
   static constexpr const char* kDeadCodeEliminationPassName = "dead_code_elimination";
@@ -42,6 +44,8 @@ class HDeadCodeElimination : public HOptimization {
   void RemoveDeadInstructions();
   bool SimplifyIfs();
   void ConnectSuccessiveBlocks();
+
+  const bool eliminate_suspend_checks_;
 
   DISALLOW_COPY_AND_ASSIGN(HDeadCodeElimination);
 };
