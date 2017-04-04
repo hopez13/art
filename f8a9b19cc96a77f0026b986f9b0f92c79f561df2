@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "58da8d52_ae659cdf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8513,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-04T18:53:41Z",
+      "side": 1,
+      "message": "I feel that\u0027s something we could optimize, as transition code doesn\u0027t change. But for now it\u0027s OK.",
+      "parentUuid": "23a446e7_e1407887",
+      "range": {
+        "startLine": 8512,
+        "startChar": 0,
+        "endLine": 8513,
+        "endChar": 97
+      },
+      "revId": "f8a9b19cc96a77f0026b986f9b0f92c79f561df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e3a646_20756c4d",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 4
