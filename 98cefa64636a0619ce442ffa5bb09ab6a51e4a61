@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d7d6bfe_f7323804",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T00:38:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7efda138_d070bb43",
+      "range": {
+        "startLine": 1655,
+        "startChar": 13,
+        "endLine": 1655,
+        "endChar": 15
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79607361_ef0ce235",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-03T20:49:37Z",
       "side": 1,
       "message": "no space here",
+      "range": {
+        "startLine": 1656,
+        "startChar": 21,
+        "endLine": 1656,
+        "endChar": 22
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "509b0bf5_c86abb65",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T00:38:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79607361_ef0ce235",
       "range": {
         "startLine": 1656,
         "startChar": 21,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e8210a83_ea53c799",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T00:38:47Z",
+      "side": 1,
+      "message": "Did you mean - place direct executed method then virtual executed  then direct non executed and virtual non executed. I assumed that direct methods go together.",
+      "parentUuid": "671ae516_28fdd495",
+      "range": {
+        "startLine": 1684,
+        "startChar": 2,
+        "endLine": 1685,
+        "endChar": 61
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52881955_0234e902",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-03T20:49:37Z",
       "side": 1,
       "message": "If it fits (I didn\u0027t check), keep this whole clause together on the second line.",
+      "range": {
+        "startLine": 1691,
+        "startChar": 38,
+        "endLine": 1692,
+        "endChar": 56
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6bb4ea4_c822d79e",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T00:38:47Z",
+      "side": 1,
+      "message": "What\u0027s the max line length value we use?",
+      "parentUuid": "52881955_0234e902",
       "range": {
         "startLine": 1691,
         "startChar": 38,
