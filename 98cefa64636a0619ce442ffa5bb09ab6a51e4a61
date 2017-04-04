@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "0c050a5a_7559b2c7",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-04T15:55:08Z",
+      "side": 1,
+      "message": "I mean all executed methods go together and all unexecuted methods go together.  The distinction between virtual and static methods isn\u0027t relevant to the executed/unexecuted distinction.",
+      "parentUuid": "e8210a83_ea53c799",
+      "range": {
+        "startLine": 1684,
+        "startChar": 2,
+        "endLine": 1685,
+        "endChar": 61
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52881955_0234e902",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "What\u0027s the max line length value we use?",
       "parentUuid": "52881955_0234e902",
+      "range": {
+        "startLine": 1691,
+        "startChar": 38,
+        "endLine": 1692,
+        "endChar": 56
+      },
+      "revId": "98cefa64636a0619ce442ffa5bb09ab6a51e4a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4534e49b_97e61690",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-04T15:55:08Z",
+      "side": 1,
+      "message": "100 chars is the Android style guide AFAIK.  I don\u0027t like it, but I follow the guide :-).",
+      "parentUuid": "d6bb4ea4_c822d79e",
       "range": {
         "startLine": 1691,
         "startChar": 38,
