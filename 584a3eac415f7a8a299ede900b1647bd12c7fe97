@@ -46,6 +46,30 @@
       "revId": "584a3eac415f7a8a299ede900b1647bd12c7fe97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b542383_070fb274",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-04T16:16:02Z",
+      "side": 1,
+      "message": "I have added support for pcmpeqq and pcmpgtq. It seems better to disassemble this then to print the unknown opcodes, even for SSE4.2 (technically, even SSE4.1 may not be there).",
+      "parentUuid": "cbeb0dad_02b7e191",
+      "range": {
+        "startLine": 749,
+        "startChar": 8,
+        "endLine": 749,
+        "endChar": 25
+      },
+      "revId": "584a3eac415f7a8a299ede900b1647bd12c7fe97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
