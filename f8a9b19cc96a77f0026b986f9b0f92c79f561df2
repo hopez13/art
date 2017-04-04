@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02fb16e6_a136a886",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-04T18:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07e1ae3c_5fc33d21",
+      "range": {
+        "startLine": 2167,
+        "startChar": 4,
+        "endLine": 2167,
+        "endChar": 49
+      },
+      "revId": "f8a9b19cc96a77f0026b986f9b0f92c79f561df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce5242a7_830cee24",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-04T18:33:58Z",
       "side": 1,
       "message": "Why aren\u0027t you using this consistently?",
+      "range": {
+        "startLine": 1943,
+        "startChar": 0,
+        "endLine": 1943,
+        "endChar": 82
+      },
+      "revId": "f8a9b19cc96a77f0026b986f9b0f92c79f561df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ab3051a_0e924675",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1943,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-04T18:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce5242a7_830cee24",
       "range": {
         "startLine": 1943,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "23a446e7_e1407887",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8513,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-04T18:45:16Z",
+      "side": 1,
+      "message": "no we do obsolete them (And need to) we just cannot change the entrypoint since it\u0027s needed to find the oat-method data.",
+      "parentUuid": "c619c80d_a58f75f5",
+      "range": {
+        "startLine": 8512,
+        "startChar": 0,
+        "endLine": 8513,
+        "endChar": 97
+      },
+      "revId": "f8a9b19cc96a77f0026b986f9b0f92c79f561df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e3a646_20756c4d",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-04T18:33:58Z",
       "side": 1,
       "message": "Can you make a comment here why this can happen (forced interpreter?)? Maybe add a DCHECK?",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 3
+      },
+      "revId": "f8a9b19cc96a77f0026b986f9b0f92c79f561df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09917e88_1d1476ab",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-04T18:45:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e3a646_20756c4d",
       "range": {
         "startLine": 363,
         "startChar": 2,
