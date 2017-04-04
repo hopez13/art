@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e432a9c4_6656dabd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-04T08:16:40Z",
+      "side": 1,
+      "message": "Can these numbers be right aligned?",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "0660028973c47e1ceaa352ec799a686f4cf24c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7444fbb4_9ee8b4dc",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-04T08:16:40Z",
+      "side": 1,
+      "message": "Use DexFile::GetMultiDexClassesDexName.\n\nOr GetMultiDexLocation, passing the dex location to this function so you can tell dex files opened from different vdex apart?\n\nWhen the dex file is opened from an oat file, it uses ResolveRelativeEncodedDexLocation. I don\u0027t recall how important it is for this location to be accurate. If it matters, perhaps you need to use ResolveRelativeEncodedDexLocation to make sure the dex location is correct?",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 98
+      },
+      "revId": "0660028973c47e1ceaa352ec799a686f4cf24c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81291c80_b3a50cdf",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-04T08:16:40Z",
+      "side": 1,
+      "message": "Use GetLocationChecksum(i)?",
+      "range": {
+        "startLine": 134,
+        "startChar": 53,
+        "endLine": 134,
+        "endChar": 77
+      },
+      "revId": "0660028973c47e1ceaa352ec799a686f4cf24c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4d59014_fc132f89",
+        "filename": "runtime/vdex_file.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-04T08:16:40Z",
+      "side": 1,
+      "message": "Add a comment documenting what this function does.\n\nFor example, it appears the opened dex files are not intended \n (and haven\u0027t been tested) to be used for running code?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 47
+      },
+      "revId": "0660028973c47e1ceaa352ec799a686f4cf24c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
