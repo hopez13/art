@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b289c302_dc14a3a3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afeb458d_2db39620",
+      "range": {
+        "startLine": 2236,
+        "startChar": 2,
+        "endLine": 2236,
+        "endChar": 17
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a97518db_e8469d8a",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 8
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9a079575_3c32a761",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a97518db_e8469d8a",
+      "range": {
+        "startLine": 2237,
+        "startChar": 22,
+        "endLine": 2237,
+        "endChar": 58
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1bb99e2_67f74f3c",
         "filename": "runtime/Android.bp",
         "patchSetId": 8
@@ -82,6 +130,24 @@
       "writtenOn": "2017-03-28T00:31:56Z",
       "side": 1,
       "message": "Tab at the beginning of the line.",
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8029f9_55a0e651",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bb99e2_67f74f3c",
       "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -134,6 +200,54 @@
     },
     {
       "key": {
+        "uuid": "461d0112_27b40572",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67246ceb_e3d8f9c8",
+      "range": {
+        "startLine": 1047,
+        "startChar": 57,
+        "endLine": 1047,
+        "endChar": 76
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d857908_00afb470",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d81f1cfc_0319ad8f",
+      "range": {
+        "startLine": 1047,
+        "startChar": 49,
+        "endLine": 1047,
+        "endChar": 53
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5de9571_693424ec",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 8
@@ -145,6 +259,30 @@
       "writtenOn": "2017-03-28T00:31:56Z",
       "side": 1,
       "message": "ditto.\n\nWhy is this null?",
+      "range": {
+        "startLine": 185,
+        "startChar": 21,
+        "endLine": 185,
+        "endChar": 51
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c33128df_d2fc5492",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5de9571_693424ec",
       "range": {
         "startLine": 185,
         "startChar": 21,
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "73ff4258_2ba6ec64",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bfcb656_2de0fd0e",
+      "range": {
+        "startLine": 538,
+        "startChar": 48,
+        "endLine": 538,
+        "endChar": 78
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4eefbeb_8be53b24",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 8
@@ -191,6 +353,30 @@
       "writtenOn": "2017-03-28T00:31:56Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 630,
+        "startChar": 26,
+        "endLine": 630,
+        "endChar": 56
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "053142ff_841beeef",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4eefbeb_8be53b24",
       "range": {
         "startLine": 630,
         "startChar": 26,
@@ -226,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "d6a08314_bb266a09",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4633760b_0b81c2a3",
+      "range": {
+        "startLine": 686,
+        "startChar": 26,
+        "endLine": 686,
+        "endChar": 55
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7365357d_3ff0fea6",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 8
@@ -249,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "9ca2db17_ea4ae299",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7365357d_3ff0fea6",
+      "range": {
+        "startLine": 727,
+        "startChar": 26,
+        "endLine": 727,
+        "endChar": 56
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3652fee0_0165a0a9",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 8
@@ -260,6 +494,30 @@
       "writtenOn": "2017-03-28T00:31:56Z",
       "side": 1,
       "message": "instead of repeating \nverifier_stats-\u003eRecordStat()\n\nyou can record the stat in a local variable and call verifier_stats-\u003eRecordStat() at the end.",
+      "range": {
+        "startLine": 991,
+        "startChar": 3,
+        "endLine": 1028,
+        "endChar": 3
+      },
+      "revId": "66b85c92ca7771e36697ff51da8238a87a0e22cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24eabb37_fa5a8a90",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-04T20:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3652fee0_0165a0a9",
       "range": {
         "startLine": 991,
         "startChar": 3,
