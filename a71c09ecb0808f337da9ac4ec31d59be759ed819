@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "72c80bef_6b9a8842",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-05T16:58:14Z",
+      "side": 1,
+      "message": "This variable name can be more descriptive.\n\nART_TEST_985_JNI_ONLOAD_THROW is probably a better name. and leave a comment saying to look in test/985-jni-onload-throw/run",
+      "revId": "a71c09ecb0808f337da9ac4ec31d59be759ed819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b51f59d4_3768146d",
         "filename": "test/985-jni-onload-throw/run",
         "patchSetId": 3
@@ -13,6 +30,30 @@
       "writtenOn": "2017-04-05T16:30:34Z",
       "side": 1,
       "message": "Please add a comment about what you\u0027re doing here.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 49
+      },
+      "revId": "a71c09ecb0808f337da9ac4ec31d59be759ed819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6be20b90_edb81ed6",
+        "filename": "test/985-jni-onload-throw/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-05T16:58:14Z",
+      "side": 1,
+      "message": "don\u0027t think this needs the \"exec\"",
+      "parentUuid": "b51f59d4_3768146d",
       "range": {
         "startLine": 1,
         "startChar": 0,
