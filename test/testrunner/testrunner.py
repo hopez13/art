@@ -439,6 +439,11 @@ def run_tests(tests):
           options_test += ' --instruction-set-features ' + \
                           env.HOST_2ND_ARCH_PREFIX_DEX2OAT_HOST_INSTRUCTION_SET_FEATURES
 
+      building_with_jack = env.get_env('ANDROID_COMPILE_WITH_JACK')
+      if building_with_jack is not None:
+        # Use the default run-test behavior unless ANDROID_COMPILE_WITH_JACK is explicitly set.
+        options_test += building_with_jack and '--build-with-jack' or '--build-with-javac-dx'
+
       # TODO(http://36039166): This is a temporary solution to
       # fix build breakages.
       options_test = (' --output-path %s') % (
