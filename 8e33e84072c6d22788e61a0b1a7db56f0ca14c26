@@ -34,6 +34,24 @@
       "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a7ee4c_8d1d96d0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-05T12:43:58Z",
+      "side": 1,
+      "message": "How can a merely resolved class be instantiated? Doesn\u0027t it need to be at least initializing?",
+      "parentUuid": "367cdcc0_00ba3395",
+      "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
