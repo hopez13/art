@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebfa006e_da16e3e1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-05T10:05:22Z",
+      "side": 1,
+      "message": "The problem is that marking the class resolved and updating the CHA info should be atomic as the things stand right now.\n\nHowever, why do we update the CHA info when making the class resolved? I think it would be correct to postpone the CHA info update until just before running the \u003cclinit\u003e() if any.",
+      "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
