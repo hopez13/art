@@ -70,6 +70,24 @@
       "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f120328f_fbb34b2d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-05T13:31:15Z",
+      "side": 1,
+      "message": "And my point is that the thread that actually wins the race to initialize the class can update CHA info before calling \u003cclinit\u003e() from ClassLinker::InitializeClass().",
+      "parentUuid": "7de08a9c_cc618f69",
+      "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
