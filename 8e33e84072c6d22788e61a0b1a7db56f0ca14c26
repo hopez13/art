@@ -106,6 +106,24 @@
       "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e8f706_8f3e24d3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-04-05T17:38:02Z",
+      "side": 1,
+      "message": "The issue here is single_impl\u0027s class isn\u0027t resolved yet when single_impl is set as another method\u0027s single-implementation. So doing it at class init time doesn\u0027t solve it since the race is still there. And not all classes have \u003cclinit\u003e so doing CHA info update at link time controls all cases. Grabbing cha_lock_ doesn\u0027t help either since that status of single-implementation can change during compilation anyway so in a sense it\u0027s speculative.\n\nLater during JitCodeCache::CommitCodeInternal() we grab cha_lock_ and verify all single-implementation assumptions are still valid since they can change during compilation time. We make sure all single-implementation assumption verification and dependency registration are atomic under cha_lock_ so either assumptions are not valid anymore and we discard the compiled code or the dependency will guaranteed to be seen by CHA for possible code invalidation.",
+      "parentUuid": "f18e0feb_adf806eb",
+      "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
