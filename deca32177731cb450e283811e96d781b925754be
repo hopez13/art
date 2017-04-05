@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d509138_fc12a1fe",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-05T04:55:12Z",
+      "side": 1,
+      "message": "The layout before the else reads a bit strange. Perhaps simply using\n\n// Only a ...\nreturn root;\n\nwithout the unnecessary else reads better?",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc89aae3_52bdc601",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-05T04:55:12Z",
+      "side": 1,
+      "message": "Nit: Build    .\n(capital and period at end)",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4ffbcd7_c362e4ac",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-05T04:55:12Z",
+      "side": 1,
+      "message": "DISABLED missing?",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
