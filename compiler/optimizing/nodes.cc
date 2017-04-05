@@ -526,6 +526,70 @@ HCurrentMethod* HGraph::GetCurrentMethod() {
   return cached_current_method_;
 }
 
+HParameterValue* HGraph::GetThisParameter() {
+  // Fetch the cached value if one exists. Debug builds ignore cached value for extra robustness.
+  if (cached_current_this_parameter_ != nullptr && !kIsDebugBuild) {
+    return cached_current_this_parameter_;
+  }
+  // else no cached value; calculate it the first time.
+
+  HParameterValue* this_parameter = nullptr;
+
+  // Scan for the "this" parameter in the entry block.
+  // It is the HParameterValue for which IsThis() returns true.
+  HInstruction* maybe_this = GetEntryBlock()->GetFirstInstruction();
+  HInstruction* const last_instruction = GetEntryBlock()->GetLastInstruction();
+
+  while (maybe_this != nullptr) {
+    if (maybe_this->IsParameterValue()) {
+      HParameterValue* parameter_candidate = maybe_this->AsParameterValue();
+      if (parameter_candidate->IsThis()) {
+        this_parameter = parameter_candidate;
+        break;
+      }
+    }
+
+    if (maybe_this == last_instruction) {
+      break;
+    }
+
+    maybe_this = maybe_this->GetNext();
+  }
+
+  if (kIsDebugBuild) {
+    if (GetArtMethod() != nullptr) {
+      // This can be null sometimes, just skip this DCHECK then rather than crash.
+      const bool is_method_static = GetArtMethod()->IsStatic();
+
+      if (is_method_static) {
+        CHECK(this_parameter == nullptr)
+            << "instance methods must always have a 'this': " << PrettyMethod();
+      } else {
+        CHECK(this_parameter != nullptr)
+            << "static methods must never have a 'this': " << PrettyMethod();
+      }
+    }
+
+    if (this_parameter != nullptr && cached_current_this_parameter_ != nullptr) {
+      // The value should not change after being calculated once.
+      CHECK(this_parameter == cached_current_this_parameter_)
+          << "'this' parameter must not change after being cached: " << PrettyMethod();
+    }
+  }
+
+  cached_current_this_parameter_ = this_parameter;
+  return this_parameter;
+}
+
+const char* HGraph::GetMethodName() const {
+  const DexFile::MethodId& method_id = dex_file_.GetMethodId(method_idx_);
+  return dex_file_.GetMethodName(method_id);
+}
+
+std::string HGraph::PrettyMethod(bool with_signature) const {
+  return dex_file_.PrettyMethod(method_idx_, with_signature);
+}
+
 HConstant* HGraph::GetConstant(Primitive::Type type, int64_t value, uint32_t dex_pc) {
   switch (type) {
     case Primitive::Type::kPrimBoolean:
@@ -1146,6 +1210,17 @@ void HVariableInputSizeInstruction::RemoveInputAt(size_t index) {
     DCHECK_EQ(inputs_[i].GetUseNode()->GetIndex(), i + 1u);
     inputs_[i].GetUseNode()->SetIndex(i);
   }
+}
+
+void HVariableInputSizeInstruction::RemoveAllInputs() {
+  RemoveEnvironmentUses(this);
+  DCHECK(!HasEnvironmentUses());
+
+  RemoveAsUserOfAllInputs();
+  DCHECK(!HasUses());
+
+  inputs_.clear();
+  DCHECK_EQ(0u, InputCount());
 }
 
 #define DEFINE_ACCEPT(name, super)                                             \

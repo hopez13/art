@@ -588,6 +588,8 @@ void HInstructionBuilder::Binop_22b(const Instruction& instruction, bool reverse
   UpdateLocal(instruction.VRegA(), current_block_->GetLastInstruction());
 }
 
+// Does the method being compiled need any constructor barriers being inserted?
+// (Always 'false' for methods that aren't <init>.)
 static bool RequiresConstructorBarrier(const DexCompilationUnit* cu, CompilerDriver* driver) {
   // Can be null in unit tests only.
   if (UNLIKELY(cu == nullptr)) {
@@ -596,6 +598,11 @@ static bool RequiresConstructorBarrier(const DexCompilationUnit* cu, CompilerDri
 
   Thread* self = Thread::Current();
   return cu->IsConstructor()
+      && !cu->IsStatic()
+      // RequiresConstructorBarrier must only be queried for <init> methods;
+      // it's effectively "false" for every other method.
+      //
+      // See CompilerDriver::RequiresConstructBarrier for more explanation.
       && driver->RequiresConstructorBarrier(self, cu->GetDexFile(), cu->GetClassDefIndex());
 }
 
@@ -639,13 +646,24 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
                                       Primitive::Type type,
                                       uint32_t dex_pc) {
   if (type == Primitive::kPrimVoid) {
+    // Only <init> (which is a return-void) could possibly have a constructor fence.
     // This may insert additional redundant constructor fences from the super constructors.
     // TODO: remove redundant constructor fences (b/36656456).
     if (RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_)) {
-      AppendInstruction(new (arena_) HMemoryBarrier(kStoreStore, dex_pc));
+      // Compiling instance constructor.
+      if (kIsDebugBuild) {
+        std::string method_name = graph_->GetMethodName();
+        CHECK_EQ(std::string("<init>"), method_name);
+      }
+
+      HInstruction* fence_target = graph_->GetThisParameter();
+      DCHECK(fence_target != nullptr);
+
+      AppendInstruction(new (arena_) HConstructorFence(fence_target, dex_pc, arena_));
     }
     AppendInstruction(new (arena_) HReturnVoid(dex_pc));
   } else {
+    DCHECK(!RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_));
     HInstruction* value = LoadLocal(instruction.VRegA(), type);
     AppendInstruction(new (arena_) HReturn(value, dex_pc));
   }
