@@ -1462,8 +1462,12 @@ bool HInliner::TryPatternSubstitution(HInvoke* invoke_instruction,
         }
       }
       if (needs_constructor_barrier) {
-        HMemoryBarrier* barrier = new (graph_->GetArena()) HMemoryBarrier(kStoreStore, kNoDexPc);
-        invoke_instruction->GetBlock()->InsertInstructionBefore(barrier, invoke_instruction);
+        DCHECK(obj != nullptr);
+
+        HConstructorFence* constructor_fence =
+            new (graph_->GetArena()) HConstructorFence(obj, kNoDexPc, graph_->GetArena());
+        invoke_instruction->GetBlock()->InsertInstructionBefore(constructor_fence,
+                                                                invoke_instruction);
       }
       *return_replacement = nullptr;
       break;

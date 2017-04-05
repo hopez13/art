@@ -49,6 +49,7 @@ const char* const ArenaAllocatorStatsImpl<kCount>::kAllocNames[] = {
   "Successors   ",
   "Dominated    ",
   "Instruction  ",
+  "ConstructorFenceInputs",
   "InvokeInputs ",
   "PhiInputs    ",
   "LoopInfo     ",

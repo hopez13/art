@@ -46,6 +46,7 @@ namespace art {
 
 class GraphChecker;
 class HBasicBlock;
+class HConstructorFence;
 class HCurrentMethod;
 class HDoubleConstant;
 class HEnvironment;
@@ -57,6 +58,7 @@ class HIntConstant;
 class HInvoke;
 class HLongConstant;
 class HNullConstant;
+class HParameterValue;
 class HPhi;
 class HSuspendCheck;
 class HTryBoundary;
@@ -536,6 +538,12 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   uint32_t GetMethodIdx() const {
     return method_idx_;
   }
+
+  // Get the method name (without the signature), e.g. "<init>"
+  const char* GetMethodName() const;
+
+  // Get the pretty method name (class + name + optionally signature).
+  std::string PrettyMethod(bool with_signature = true) const;
 
   InvokeType GetInvokeType() const {
     return invoke_type_;
@@ -1297,6 +1305,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(ClearException, Instruction)                                        \
   M(ClinitCheck, Instruction)                                           \
   M(Compare, BinaryOperation)                                           \
+  M(ConstructorFence, Instruction)                                      \
   M(CurrentMethod, Instruction)                                         \
   M(ShouldDeoptimizeFlag, Instruction)                                  \
   M(Deoptimize, Instruction)                                            \
@@ -1472,8 +1481,11 @@ FOR_EACH_INSTRUCTION(FORWARD_DECLARATION)
 template <typename T>
 class HUseListNode : public ArenaObject<kArenaAllocUseListNode> {
  public:
+  // Get the instruction which has this use as one of the inputs.
   T GetUser() const { return user_; }
+  // Get the position of the input record that this use corresponds to.
   size_t GetIndex() const { return index_; }
+  // Set the position of the input record that this use corresponds to.
   void SetIndex(size_t index) { index_ = index; }
 
   // Hook for the IntrusiveForwardList<>.
@@ -2033,7 +2045,8 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
         !IsNativeDebugInfo() &&
         !IsParameterValue() &&
         // If we added an explicit barrier then we should keep it.
-        !IsMemoryBarrier();
+        !IsMemoryBarrier() &&
+        !IsConstructorFence();
   }
 
   bool IsDeadAndRemovable() const {
@@ -2426,6 +2439,16 @@ class HVariableInputSizeInstruction : public HInstruction {
   void AddInput(HInstruction* input);
   void InsertInputAt(size_t index, HInstruction* input);
   void RemoveInputAt(size_t index);
+
+  // Removes all the inputs.
+  // Also removes this instructions from each input's use list
+  // (for non-environment uses only).
+  //
+  // The instructions that used to be the former inputs do not get deleted.
+  //
+  // Note: This only makes sense to do right before register allocation
+  // when an input doesn't really correspond to a machine register.
+  void RemoveAllInputs();
 
  protected:
   HVariableInputSizeInstruction(SideEffects side_effects,
@@ -5065,7 +5088,7 @@ class HParameterValue FINAL : public HExpression<0> {
   const DexFile& GetDexFile() const { return dex_file_; }
   dex::TypeIndex GetTypeIndex() const { return type_index_; }
   uint8_t GetIndex() const { return index_; }
-  bool IsThis() const ATTRIBUTE_UNUSED { return GetPackedFlag<kFlagIsThis>(); }
+  bool IsThis() const { return GetPackedFlag<kFlagIsThis>(); }
 
   bool CanBeNull() const OVERRIDE { return GetPackedFlag<kFlagCanBeNull>(); }
   void SetCanBeNull(bool can_be_null) { SetPackedFlag<kFlagCanBeNull>(can_be_null); }
@@ -6495,6 +6518,88 @@ class HMemoryBarrier FINAL : public HTemplateInstruction<0> {
   using BarrierKindField = BitField<MemBarrierKind, kFieldBarrierKind, kFieldBarrierKindSize>;
 
   DISALLOW_COPY_AND_ASSIGN(HMemoryBarrier);
+};
+
+// A constructor fence models the freezes for the final fields of an object
+// being constructed (semantically at the end of the constructor).
+// (Note: unrelated final field writes to other objects get their own separate constuctor fence).
+//
+// JLS 17.5.1 "Semantics of final fields" states that a freeze action happens
+// for all final fields (that were set) at the end of the invoked constructor.
+//
+// (Note that if calling a super-constructor or forwarding to another constructor,
+// the freezes would happen at the end of *that* constructor being invoked).
+//
+// The memory model guarantees that when the object being constructed is "published"
+// (i.e. escapes the current thread via a store), then any final field writes
+// must be observable on other threads (once they observe the publish).
+//
+// Furthermore, anything reachable from the final fields must also be observable
+// as at least up-to-date as the final fields (so final object field could itself
+// have an object with non-final fields; yet the freeze must also extend to them).
+//
+// HConstructorFence can serve double duty as a fence for new-instance/new-array allocations of
+// already-initialized classes; in that case the allocation must act as a "default-initializer"
+// of the object which effectively writes the "final" class into the object header.
+//
+// See also:
+// * CompilerDriver::RequiresConstructorBarrier
+// * QuasiAtomic::ThreadFenceForConstructor
+//
+class HConstructorFence FINAL : public HVariableInputSizeInstruction {
+                                  // A fence has variable inputs because the inputs can be removed
+                                  // after prepare_for_register_allocation phase.
+                                  // (TODO: In the future a fence could freeze multiple objects
+                                  //        after merging two fences together).
+ public:
+  // fence_object is the object being fenced.
+  //
+  // It makes sense in the following situations:
+  // * <init> constructors, it's the "this" parameter (i.e. HParameterValue, s.t. IsThis() == true).
+  // * new-instance-like instructions, it's the return value (i.e. HNewInstance).
+  HConstructorFence(HInstruction* fence_object,
+                    uint32_t dex_pc,
+                    ArenaAllocator* arena)
+    // Initially starts out as an "all reads" side effect; this is to prevent final stores prior to
+    // the fence to being reordered past this fence (or vice versa).
+    //
+    // Later phases can reduce the "all reads" down to just the types of final fields that were
+    // written to (and for objects, this should remain as "all reads" due to the recursive
+    // reachability; see above).
+        : HVariableInputSizeInstruction(SideEffects::AllReads(),
+                                        dex_pc,
+                                        arena,
+                                        /* number_of_inputs */ 1,
+                                        kArenaAllocConstructorFenceInputs) {
+    DCHECK(fence_object != nullptr);
+    SetRawInputAt(0, fence_object);
+  }
+
+  // The object associated with this constructor fence.
+  //
+  // (Note: This will be null after the prepare_for_register_allocation phase,
+  // as all constructor fence inputs are removed there).
+  HInstruction* GetFenceObject() {
+    return InputAt(0);
+  }
+
+  // Find all the HConstructorFence uses (`fence_use`) for `this` and:
+  // - Delete `fence_use` from `this`'s use list.
+  // - Delete `this` from `fence_use`'s inputs list.
+  // - If the `fence_use` is dead, remove it from the graph.
+  //
+  // A fence is considered dead once it no longer has any uses
+  // and all of the inputs are dead.
+  //
+  // This must *not* be called during/after prepare_for_register_allocation,
+  // because that removes all the inputs to the fences but the fence is actually
+  // still considered live.
+  static void RemoveConstructorFences(HInstruction* instruction);
+
+  DECLARE_INSTRUCTION(ConstructorFence);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HConstructorFence);
 };
 
 class HMonitorOperation FINAL : public HTemplateInstruction<1> {
