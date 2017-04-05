@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11c2c15d_10fcf454",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2017-04-05T20:24:55Z",
+      "side": 1,
+      "message": "It\u0027s a known issue that Nexus 4 misreports supporting at least divide via /proc/cpuinfo and so there is a more accurate system property. In general CppDefines should be more accurate, assuming the build for the device was configured properly. I wouldn\u0027t be surprised if LPAE were misreported in /proc/cpuinfo for devices. If CppDefines aren\u0027t working well for you I imagine you are looking at emulator/pass-through performance and the fix there may be to fix the emulator build. Or make this change conditional on being an emulator build.",
+      "range": {
+        "startLine": 153,
+        "startChar": 56,
+        "endLine": 153,
+        "endChar": 70
+      },
+      "revId": "7e03950f07d55c9b78f552a8c0164694e2170e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
