@@ -566,14 +566,27 @@ class LSEVisitor : public HGraphVisitor {
       store->GetBlock()->RemoveInstruction(store);
     }
 
+    ArenaVector<HInstruction*> fence_uses(GetGraph()->GetArena()->Adapter(kArenaAllocLSE));
+
     // Eliminate allocations that are not used.
+    //
+    // Eliminate any constructor fences for singletons because
+    // they never escape this thread.
     for (HInstruction* new_instance : singleton_new_instances_) {
+      if (HasConstructorFenceUses(new_instance, /*out*/&fence_uses)) {
+        RemoveConstructorFenceUses(/*inout*/&fence_uses);
+      }
+
       if (!new_instance->HasNonEnvironmentUses()) {
         new_instance->RemoveEnvironmentUsers();
         new_instance->GetBlock()->RemoveInstruction(new_instance);
       }
     }
     for (HInstruction* new_array : singleton_new_arrays_) {
+      if (HasConstructorFenceUses(new_array, /*out*/&fence_uses)) {
+        RemoveConstructorFenceUses(/*inout*/&fence_uses);
+      }
+
       if (!new_array->HasNonEnvironmentUses()) {
         new_array->RemoveEnvironmentUsers();
         new_array->GetBlock()->RemoveInstruction(new_array);
@@ -598,6 +611,39 @@ class LSEVisitor : public HGraphVisitor {
       // Make sure the store is kept.
       possibly_removed_stores_.erase(idx);
     }
+  }
+
+  static void RemoveConstructorFenceUses(/*inout*/ArenaVector<HInstruction*>* fence_uses) {
+    DCHECK(fence_uses != nullptr);
+
+    for (HInstruction* inst : *fence_uses) {
+      inst->RemoveEnvironmentUsers();
+      inst->GetBlock()->RemoveInstruction(inst);
+    }
+
+    fence_uses->clear();  // to avoid dangling pointers.
+  }
+
+  static bool HasConstructorFenceUses(HInstruction* instruction,
+                                     /*out*/
+                                     ArenaVector<HInstruction*>* fence_uses) {
+    DCHECK(instruction != nullptr);
+    DCHECK(fence_uses != nullptr);
+
+    bool found_uses = false;
+
+    for (const HUseListNode<HInstruction *>& use_node : instruction->GetUses()) {
+        HInstruction* use = use_node.GetUser();
+
+        // Constructor fence has inputs that are kept around purely for analysis purposes.
+        if (use->IsConstructorFence()) {
+          fence_uses->push_back(use);
+          found_uses = true;
+          continue;
+        }
+    }
+
+    return found_uses;
   }
 
   void HandleLoopSideEffects(HBasicBlock* block) {
