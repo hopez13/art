@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0d02ca4_3d60277d",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-05T15:59:47Z",
+      "side": 1,
+      "message": "The dangers of cut and paste.  I should have looked more closely.  Done.",
+      "parentUuid": "1d509138_fc12a1fe",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc89aae3_52bdc601",
         "filename": "dexlayout/dexdiag_test.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "14361ee4_a9878376",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-05T15:59:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc89aae3_52bdc601",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4ffbcd7_c362e4ac",
         "filename": "dexlayout/dexdiag_test.cc",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-04-05T04:55:12Z",
       "side": 1,
       "message": "DISABLED missing?",
+      "revId": "deca32177731cb450e283811e96d781b925754be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24117e2f_82773157",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-05T15:59:47Z",
+      "side": 1,
+      "message": "No, the builders want to see a build for host for all gtests (treehugger caught this), and this one test can be run.  Usefully, I doubt it; but run, yes.",
+      "parentUuid": "b4ffbcd7_c362e4ac",
       "revId": "deca32177731cb450e283811e96d781b925754be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
