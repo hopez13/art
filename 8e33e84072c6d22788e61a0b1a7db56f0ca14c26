@@ -16,6 +16,24 @@
       "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367cdcc0_00ba3395",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-05T12:16:28Z",
+      "side": 1,
+      "message": "See Mingyao\u0027s comment here:\nhttps://cs.corp.google.com/android/art/runtime/class_linker.cc?sq\u003dpackage:%5Eandroid$\u0026dr\u0026l\u003d5272\n\nMaybe we can relax it.",
+      "parentUuid": "ebfa006e_da16e3e1",
+      "revId": "8e33e84072c6d22788e61a0b1a7db56f0ca14c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
