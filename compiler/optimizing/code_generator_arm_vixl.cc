@@ -3103,6 +3103,19 @@ void InstructionCodeGeneratorARMVIXL::VisitDoubleConstant(
   // Will be generated at use site.
 }
 
+void LocationsBuilderARMVIXL::VisitConstructorFence(HConstructorFence* constructor_fence) {
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(constructor_fence, LocationSummary::kNoCall);
+
+  locations->SetInAt(0, Location::NoLocation());
+  locations->SetOut(Location::NoLocation());
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitConstructorFence(
+    HConstructorFence* constructor_fence ATTRIBUTE_UNUSED) {
+  codegen_->GenerateMemoryBarrier(MemBarrierKind::kStoreStore);
+}
+
 void LocationsBuilderARMVIXL::VisitMemoryBarrier(HMemoryBarrier* memory_barrier) {
   memory_barrier->SetLocations(nullptr);
 }

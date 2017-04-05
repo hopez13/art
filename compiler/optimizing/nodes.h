@@ -1305,6 +1305,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(ClearException, Instruction)                                        \
   M(ClinitCheck, Instruction)                                           \
   M(Compare, BinaryOperation)                                           \
+  M(ConstructorFence, Instruction)                                      \
   M(CurrentMethod, Instruction)                                         \
   M(ShouldDeoptimizeFlag, Instruction)                                  \
   M(Deoptimize, Instruction)                                            \
@@ -6498,6 +6499,27 @@ class HMemoryBarrier FINAL : public HTemplateInstruction<0> {
   using BarrierKindField = BitField<MemBarrierKind, kFieldBarrierKind, kFieldBarrierKindSize>;
 
   DISALLOW_COPY_AND_ASSIGN(HMemoryBarrier);
+};
+
+// Same semantics as QuasiAtomic::ThreadFenceForConstructor
+class HConstructorFence FINAL : public HExpression<1> {
+ public:
+  // this_object is usually the 0th parameter to your non-static constructor, OR
+  // the Class reference (e.g. HLoadClass) for a static constructor.
+  explicit HConstructorFence(HInstruction* this_object, uint32_t dex_pc = kNoDexPc)
+      : HExpression(Primitive::Type::kPrimVoid, SideEffects::AllWrites(), dex_pc) {
+    DCHECK(this_object != nullptr);
+    SetRawInputAt(0, this_object);
+  }
+
+  HInstruction* GetThisObject() {
+    return InputAt(0);
+  }
+
+  DECLARE_INSTRUCTION(ConstructorFence);
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HConstructorFence);
 };
 
 class HMonitorOperation FINAL : public HTemplateInstruction<1> {

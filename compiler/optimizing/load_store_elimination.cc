@@ -566,15 +566,19 @@ class LSEVisitor : public HGraphVisitor {
       store->GetBlock()->RemoveInstruction(store);
     }
 
+    ArenaVector<HInstruction*> fake_uses(GetGraph()->GetArena()->Adapter(kArenaAllocLSE));
+
     // Eliminate allocations that are not used.
     for (HInstruction* new_instance : singleton_new_instances_) {
-      if (!new_instance->HasNonEnvironmentUses()) {
+      if (!InstructionHasRealUses(new_instance, /*out*/&fake_uses)) {
+        RemoveAllFakeUses(/*inout*/&fake_uses);
         new_instance->RemoveEnvironmentUsers();
         new_instance->GetBlock()->RemoveInstruction(new_instance);
       }
     }
     for (HInstruction* new_array : singleton_new_arrays_) {
-      if (!new_array->HasNonEnvironmentUses()) {
+      if (!InstructionHasRealUses(new_array, /*out*/&fake_uses)) {
+        RemoveAllFakeUses(/*inout*/&fake_uses);
         new_array->RemoveEnvironmentUsers();
         new_array->GetBlock()->RemoveInstruction(new_array);
       }
@@ -598,6 +602,39 @@ class LSEVisitor : public HGraphVisitor {
       // Make sure the store is kept.
       possibly_removed_stores_.erase(idx);
     }
+  }
+
+  static void RemoveAllFakeUses(/*inout*/ArenaVector<HInstruction*>* fake_uses) {
+    DCHECK(fake_uses != nullptr);
+
+    for (HInstruction* inst : *fake_uses) {
+      inst->RemoveEnvironmentUsers();
+      inst->GetBlock()->RemoveInstruction(inst);
+    }
+
+    fake_uses->clear();  // to avoid dangling pointers.
+  }
+
+  static bool InstructionHasRealUses(HInstruction* instruction,
+                                     /*out*/
+                                     ArenaVector<HInstruction*>* fake_uses) {
+    DCHECK(instruction != nullptr);
+    DCHECK(fake_uses != nullptr);
+
+    for (const HUseListNode<HInstruction *>& use_node : instruction->GetUses()) {
+        HInstruction* use = use_node.GetUser();
+
+        // Constructor fence has inputs that are kept around purely for analysis purposes.
+        if (use->IsConstructorFence()) {
+          // Ignore constructor fences as a "real use".
+          fake_uses->push_back(use);
+          continue;
+        }
+
+        return true;
+    }
+
+    return false;
   }
 
   void HandleLoopSideEffects(HBasicBlock* block) {

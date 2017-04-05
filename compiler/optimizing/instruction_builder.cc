@@ -634,13 +634,46 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
                                       Primitive::Type type,
                                       uint32_t dex_pc) {
   if (type == Primitive::kPrimVoid) {
+    // Only <clinit> and <init> (which both return-void) could possibly have constructor fences.
     if (graph_->ShouldGenerateConstructorBarrier()) {
       // The compilation unit is null during testing.
       if (dex_compilation_unit_ != nullptr) {
         DCHECK(RequiresConstructorBarrier(dex_compilation_unit_, compiler_driver_))
           << "Inconsistent use of ShouldGenerateConstructorBarrier. Should not generate a barrier.";
       }
-      AppendInstruction(new (arena_) HMemoryBarrier(kStoreStore, dex_pc));
+
+      // What about static <clinit> ? Maybe get the HLoadClass somehow?
+      HInstruction* this_object = graph_->GetEntryBlock()->GetFirstInstruction();
+
+      // Find the "this" parameter. It's not necessarily the first instruction in the entry
+      // block, so we need to do a scan.
+      while (this_object != nullptr) {
+        if (this_object->IsParameterValue()) {
+          if (static_cast<HParameterValue*>(this_object)->IsThis()) {
+            break;
+          }
+        }
+
+        if (this_object == graph_->GetEntryBlock()->GetLastInstruction()) {
+          break;
+        }
+
+        this_object = this_object->GetNext();
+      }
+
+      if (kIsDebugBuild) {
+        std::string pretty_method =
+            dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex());
+
+        CHECK(this_object != nullptr) << pretty_method;
+        CHECK(this_object->IsParameterValue()) << pretty_method;
+        CHECK(static_cast<HParameterValue*>(this_object)->IsThis()) << pretty_method;
+      }
+
+      DCHECK(this_object != nullptr);
+      DCHECK(this_object->IsParameterValue());
+      DCHECK(static_cast<HParameterValue*>(this_object)->IsThis());
+      AppendInstruction(new (arena_) HConstructorFence(this_object, dex_pc));
     }
     AppendInstruction(new (arena_) HReturnVoid(dex_pc));
   } else {

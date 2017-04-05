@@ -7783,6 +7783,19 @@ void InstructionCodeGeneratorMIPS::VisitRem(HRem* instruction) {
   }
 }
 
+void LocationsBuilderMIPS::VisitConstructorFence(HConstructorFence* constructor_fence) {
+  LocationSummary* locations =
+      new (GetGraph()->GetArena()) LocationSummary(constructor_fence, LocationSummary::kNoCall);
+
+  locations->SetInAt(0, Location::NoLocation());
+  locations->SetOut(Location::NoLocation());
+}
+
+void InstructionCodeGeneratorMIPS::VisitConstructorFence(
+    HConstructorFence* constructor_fence ATTRIBUTE_UNUSED) {
+  GenerateMemoryBarrier(MemBarrierKind::kStoreStore);
+}
+
 void LocationsBuilderMIPS::VisitMemoryBarrier(HMemoryBarrier* memory_barrier) {
   memory_barrier->SetLocations(nullptr);
 }

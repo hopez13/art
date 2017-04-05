@@ -27,6 +27,42 @@ class Circle {
   private double radius;
 }
 
+class CircleFinal {
+  CircleFinal(double radius) {
+    this.radius = radius;
+  }
+  public double getRadius() {
+    return radius;
+  }
+  public double getArea() {
+    return radius * radius * Math.PI;
+  }
+  private final double radius;
+}
+
+class EllipseFinal extends CircleFinal {
+  EllipseFinal(double vertex, double covertex) {
+    super(vertex);
+
+    this.covertex = covertex;
+  }
+
+  public double getVertex() {
+    return getRadius();
+  }
+
+  public double getCovertex() {
+    return covertex;
+  }
+
+  @Override
+  public double getArea() {
+    return getRadius() * covertex * Math.PI;
+  }
+
+  private final double covertex;
+}
+
 class TestClass {
   static {
     sTestClassObj = new TestClass(-1, -2);
@@ -91,6 +127,45 @@ public class Main {
 
   static double calcCircleArea(double radius) {
     return new Circle(radius).getArea();
+  }
+
+  /// CHECK-START: double Main.calcCircleFinalArea(double) load_store_elimination (before)
+  /// CHECK: NewInstance
+  /// CHECK: InstanceFieldSet
+  /// CHECK: ConstructorFence
+  /// CHECK: InstanceFieldGet
+
+  /// CHECK-START: double Main.calcCircleFinalArea(double) load_store_elimination (after)
+  /// CHECK-NOT: NewInstance
+  /// CHECK-NOT: InstanceFieldSet
+  /// CHECK-NOT: ConstructorFence
+  /// CHECK-NOT: InstanceFieldGet
+
+  // Make sure the constructor fence gets eliminated when the allocation is eliminated.
+  static double calcCircleFinalArea(double radius) {
+    return new CircleFinal(radius).getArea();
+  }
+
+  /// CHECK-START: double Main.calcEllipseFinalArea(double, double) load_store_elimination (before)
+  /// CHECK: NewInstance
+  /// CHECK: InstanceFieldSet
+  // TODO: The super constructor fence should not be eliminated already.
+  // CHECK: ConstructorFence
+  /// CHECK: InstanceFieldSet
+  /// CHECK: ConstructorFence
+  /// CHECK: InstanceFieldGet
+  /// CHECK: InstanceFieldGet
+
+  /// CHECK-START: double Main.calcEllipseFinalArea(double, double) load_store_elimination (after)
+  /// CHECK-NOT: NewInstance
+  /// CHECK-NOT: InstanceFieldSet
+  /// CHECK-NOT: ConstructorFence
+  /// CHECK-NOT: InstanceFieldGet
+
+  // Multiple constructor fences can accumulate through inheritance, make sure
+  // they are all eliminated when the allocation is eliminated.
+  static double calcEllipseFinalArea(double vertex, double covertex) {
+    return new EllipseFinal(vertex, covertex).getArea();
   }
 
   /// CHECK-START: int Main.test1(TestClass, TestClass) load_store_elimination (before)
@@ -948,6 +1023,8 @@ public class Main {
 
   public static void main(String[] args) {
     assertDoubleEquals(Math.PI * Math.PI * Math.PI, calcCircleArea(Math.PI));
+    assertDoubleEquals(Math.PI * Math.PI * Math.PI, calcCircleFinalArea(Math.PI));
+    assertDoubleEquals(Math.PI * Math.PI * Math.PI, calcEllipseFinalArea(Math.PI, Math.PI));
     assertIntEquals(test1(new TestClass(), new TestClass()), 3);
     assertIntEquals(test2(new TestClass()), 1);
     TestClass obj1 = new TestClass();
