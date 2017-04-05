@@ -16,6 +16,24 @@
       "revId": "7d7cfdf19c8fa4801f2315feb01ad3c9f4023c24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bba92976_a92cf1ac",
+        "filename": "dexlayout/dexdiag_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-05T00:31:46Z",
+      "side": 1,
+      "message": "It turns out that libpagemap isn\u0027t even built for x86 at the moment and had problems when I try.\n\nSo I build on host, but comment everything out except the letter key option.  Done.",
+      "parentUuid": "2e6a0ad8_8cd0df22",
+      "revId": "7d7cfdf19c8fa4801f2315feb01ad3c9f4023c24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
