@@ -22,6 +22,30 @@
       "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17dc0624_1517b15e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5063,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T21:49:35Z",
+      "side": 1,
+      "message": "This seemed to work for me when I built everything (make build-art-host). How do I trigger the warning?",
+      "parentUuid": "c5d24043_0e22c9e9",
+      "range": {
+        "startLine": 5063,
+        "startChar": 2,
+        "endLine": 5063,
+        "endChar": 76
+      },
+      "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
