@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a7ad3a5_f535a5a6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3075,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "Instead of doing this, just remove the input in prepare_for_register_allocation.",
+      "range": {
+        "startLine": 3071,
+        "startChar": 0,
+        "endLine": 3075,
+        "endChar": 44
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08a01160_a0eb399e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "How is that related? The constructors only apply to instance here.",
+      "range": {
+        "startLine": 1459,
+        "startChar": 8,
+        "endLine": 1459,
+        "endChar": 42
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e0a939_9870ca50",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "ShouldGenerateConstructorBarrier only applies to instances AFAIR. Also in the code below, you are you for \u0027this\u0027 anyway.",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e040b5f_770b1f49",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "Just like we have GetNullConstant on graph, please add a GetThisParameter. Also avoid scanning, just cache it in the graph.",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae903d1a_32ad7d08",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "this_object-\u003eAsParameterValue()",
+      "range": {
+        "startLine": 670,
+        "startChar": 14,
+        "endLine": 670,
+        "endChar": 55
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e758d7ca_bb91e36e",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 675,
+        "startChar": 13,
+        "endLine": 675,
+        "endChar": 55
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8b7ef53_01e24f12",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "Instead of doing this, you actually know if you\u0027re talking about a singleton, so there you can just remove the barrier.",
+      "range": {
+        "startLine": 569,
+        "startChar": 4,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "609c2abf_e815e5e8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 6507,
+        "startChar": 49,
+        "endLine": 6507,
+        "endChar": 53
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bdee581_6333d213",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "Not in the current code base, which only works for references, so I\u0027d rather you don\u0027t mention it.",
+      "range": {
+        "startLine": 6507,
+        "startChar": 78,
+        "endLine": 6508,
+        "endChar": 68
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eedf8092_62c91cd2",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T16:47:19Z",
+      "side": 1,
+      "message": "I\u0027d prefer if you would do this in a separate test, that would just focus on lse with memory barriers.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 45
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
