@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "998acb4e_2bfd76df",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2093,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 2093,
+        "startChar": 22,
+        "endLine": 2093,
+        "endChar": 26
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c35c6aa_d2c45452",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 2130,
+        "startChar": 51,
+        "endLine": 2130,
+        "endChar": 52
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd983a4a_2ffe43c2",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "Use std::unique_ptr.",
+      "range": {
+        "startLine": 547,
+        "startChar": 2,
+        "endLine": 547,
+        "endChar": 49
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef8e385_1e92e842",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "misplaced.",
+      "range": {
+        "startLine": 547,
+        "startChar": 32,
+        "endLine": 547,
+        "endChar": 33
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "776ae276_d4fddaa6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "Nit: I\u0027d rephrase this to \"We only collect stats at compile time, ie with dex2oat\".",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ca4e090_c32b529f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 295,
+        "startChar": 76,
+        "endLine": 295,
+        "endChar": 77
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a30b15c8_90dce4ab",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "misplaced",
+      "range": {
+        "startLine": 870,
+        "startChar": 22,
+        "endLine": 870,
+        "endChar": 23
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78fd90b0_eef3c347",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "remove extra space.",
+      "range": {
+        "startLine": 130,
+        "startChar": 13,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e96527_697eba45",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-06T14:41:55Z",
+      "side": 1,
+      "message": "misplaced.",
+      "range": {
+        "startLine": 131,
+        "startChar": 29,
+        "endLine": 131,
+        "endChar": 30
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
