@@ -441,7 +441,10 @@ static bool AreSharedLibrariesOk(const std::string& shared_libraries,
   }
 
   for (size_t i = 0; i < dex_files.size(); ++i) {
-    if (dex_files[i]->GetLocation() != shared_libraries_split[i * 2]) {
+    std::string absolute_library_path =
+        OatFile::ResolveRelativeEncodedDexLocation(dex_files[i]->GetLocation().c_str(),
+                                                   shared_libraries_split[i * 2]);
+    if (dex_files[i]->GetLocation() != absolute_library_path) {
       return false;
     }
     char* end;

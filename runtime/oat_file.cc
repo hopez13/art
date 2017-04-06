@@ -1499,9 +1499,18 @@ static constexpr char kDexClassPathEncodingSeparator = '*';
 
 std::string OatFile::EncodeDexFileDependencies(const std::vector<const DexFile*>& dex_files) {
   std::ostringstream out;
+  char buf[1024];
+  std::string cwd = getcwd(buf, 1024);
+  size_t cwd_length = cwd.length();
 
   for (const DexFile* dex_file : dex_files) {
-    out << dex_file->GetLocation().c_str();
+    const std::string& location = dex_file->GetLocation();
+    // Find paths that were relative and convert them back from absolute.
+    if (cwd != "/" && location.substr(0, cwd_length) == cwd) {
+      out << location.substr(cwd_length + 1).c_str();
+    } else {
+      out << dex_file->GetLocation().c_str();
+    }
     out << kDexClassPathEncodingSeparator;
     out << dex_file->GetLocationChecksum();
     out << kDexClassPathEncodingSeparator;
