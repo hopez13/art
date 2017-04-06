@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "04a245ee_24cb36e8",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-04-06T02:30:31Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "72c80bef_6b9a8842",
+      "revId": "a71c09ecb0808f337da9ac4ec31d59be759ed819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b51f59d4_3768146d",
         "filename": "test/985-jni-onload-throw/run",
         "patchSetId": 3
@@ -53,6 +71,54 @@
       "writtenOn": "2017-04-05T16:58:14Z",
       "side": 1,
       "message": "don\u0027t think this needs the \"exec\"",
+      "parentUuid": "b51f59d4_3768146d",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 49
+      },
+      "revId": "a71c09ecb0808f337da9ac4ec31d59be759ed819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3977e084_c4455ead",
+        "filename": "test/985-jni-onload-throw/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-04-06T02:30:31Z",
+      "side": 1,
+      "message": "Other tests use the exec; without it, we end up with a useless shell process hanging around. It doesn\u0027t really matter much, but we might as well do what other tests do.",
+      "parentUuid": "6be20b90_edb81ed6",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 49
+      },
+      "revId": "a71c09ecb0808f337da9ac4ec31d59be759ed819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43e683b8_fe205284",
+        "filename": "test/985-jni-onload-throw/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-04-06T02:30:31Z",
+      "side": 1,
+      "message": "Will do.",
       "parentUuid": "b51f59d4_3768146d",
       "range": {
         "startLine": 1,
