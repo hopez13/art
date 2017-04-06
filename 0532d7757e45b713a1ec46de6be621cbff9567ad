@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c90c58ea_78133c4c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-06T01:37:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a good idea. Don\u0027t make this dependent on cwd, because that sounds like unexpected side effects.\n\nHow about passing in a normalizing path, and then we can decide on a getcwd in dex2oat, or a command line parameter.",
+      "range": {
+        "startLine": 1502,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 5
+      },
+      "revId": "0532d7757e45b713a1ec46de6be621cbff9567ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
