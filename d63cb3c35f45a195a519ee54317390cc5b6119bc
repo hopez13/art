@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2813b4ef_00859fed",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Right, I don\u0027t know the high level well enough to understand if it would ever inline \u003cclinit\u003e (perhaps with compiler-filter kEverything?)",
+      "parentUuid": "08a01160_a0eb399e",
+      "range": {
+        "startLine": 1459,
+        "startChar": 8,
+        "endLine": 1459,
+        "endChar": 42
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0e0a939_9870ca50",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-04-06T16:47:19Z",
       "side": 1,
       "message": "ShouldGenerateConstructorBarrier only applies to instances AFAIR. Also in the code below, you are you for \u0027this\u0027 anyway.",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac37b4e7_5f96cca7",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Do we care about the correctness of compiling \u003cclinit\u003e ?\n\nI was thinking in the compiler filter kEverything which I think might even build static constructors?\n\nTo handle the case we should probably use the HLoadClass (similar to how sput/sget works) as the input.",
+      "parentUuid": "d0e0a939_9870ca50",
       "range": {
         "startLine": 637,
         "startChar": 4,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "c81e20da_f06ffe9d",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "It seems like it\u0027s almost always the 2nd entry, cache it anyway?",
+      "parentUuid": "7e040b5f_770b1f49",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae903d1a_32ad7d08",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2017-04-06T16:47:19Z",
       "side": 1,
       "message": "this_object-\u003eAsParameterValue()",
+      "range": {
+        "startLine": 670,
+        "startChar": 14,
+        "endLine": 670,
+        "endChar": 55
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6d3ff7e_ea3b916f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Beautiful, didn\u0027t know about this since it\u0027s hidden by macros :).",
+      "parentUuid": "ae903d1a_32ad7d08",
       "range": {
         "startLine": 670,
         "startChar": 14,
@@ -163,6 +259,47 @@
     },
     {
       "key": {
+        "uuid": "f19754df_0e108fa0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "I think I agree in principle after reading how CalculateEscape works.\n\nWhat I don\u0027t understand is why in the original code it still has this guard in L571 and L577 if the singleton invariant is enough?\n\n(btw it was Mingyao who suggested I add the \"instruction has real uses\" check at this point in LSE)",
+      "parentUuid": "b8b7ef53_01e24f12",
+      "range": {
+        "startLine": 569,
+        "startChar": 4,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6ed18eb_44e235e9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Nicolas, how do you want to handle this?\n\n(Or perhaps it\u0027s ok to just leave it like this, but Mingyao suggested that we \"just get it working\" and that you would have an idea how/if to generalize this cleanly).\n\nI guess right now LSE is the only one to run into this but in theory any other optimization should also treat constructorfence inputs as \"weak\" inputs that don\u0027t (by themselves) hold the input live.\n\n(The analogy to a strong reference/weak reference is perhaps apt here.)",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -209,6 +346,30 @@
     },
     {
       "key": {
+        "uuid": "5a2c52fa_7c5e392c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6508,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Sure, I can remove this line for now.\n\nCan you elaborate by \"which only works for references?\"",
+      "parentUuid": "9bdee581_6333d213",
+      "range": {
+        "startLine": 6507,
+        "startChar": 78,
+        "endLine": 6508,
+        "endChar": 68
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eedf8092_62c91cd2",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -220,6 +381,30 @@
       "writtenOn": "2017-04-06T16:47:19Z",
       "side": 1,
       "message": "I\u0027d prefer if you would do this in a separate test, that would just focus on lse with memory barriers.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 45
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfbc276b_47ea114a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T17:32:33Z",
+      "side": 1,
+      "message": "Sure, 530-checker-lse-barrier or what?",
+      "parentUuid": "eedf8092_62c91cd2",
       "range": {
         "startLine": 132,
         "startChar": 0,
