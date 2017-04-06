@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c9dcb84c_0e2b8463",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-06T18:08:04Z",
+      "side": 1,
+      "message": "we care about the correctness of the compiler. So if you don\u0027t expect clinit here, please (d)check it.",
+      "parentUuid": "ac37b4e7_5f96cca7",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e040b5f_770b1f49",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "It seems like it\u0027s almost always the 2nd entry, cache it anyway?",
       "parentUuid": "7e040b5f_770b1f49",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665920d8_e764cc81",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-06T18:08:04Z",
+      "side": 1,
+      "message": "yes please. Makes things cleaner and if I remember right there are other places where we need it (and could be cleaned up).",
+      "parentUuid": "c81e20da_f06ffe9d",
       "range": {
         "startLine": 646,
         "startChar": 0,
@@ -300,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "d7cefe33_4f8b560f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-06T18:08:04Z",
+      "side": 1,
+      "message": "So the handling here and above is not ideal imo. It creates inconsistencies in the graph. Once the input of the ContructorFence is removed from the graph what should be the expected result of getThisObject()? (as the fence survives this analysis).\n\nI don\u0027t have an immediate alternative proposal but I\u0027m thinking about.",
+      "parentUuid": "e6ed18eb_44e235e9",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -316,6 +382,29 @@
         "startChar": 49,
         "endLine": 6507,
         "endChar": 53
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f2b607d_fe4c58e2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6507,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-06T18:08:04Z",
+      "side": 1,
+      "message": "remove the \"usually\" and mention all cases if there are others.",
+      "range": {
+        "startLine": 6507,
+        "startChar": 20,
+        "endLine": 6507,
+        "endChar": 27
       },
       "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -410,6 +499,29 @@
         "startChar": 0,
         "endLine": 146,
         "endChar": 45
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c76307_8546cf99",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-06T18:08:04Z",
+      "side": 1,
+      "message": "pretty hard to read. consider adding new lines or wrap around /* */",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 28
       },
       "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
