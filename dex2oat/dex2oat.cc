@@ -1486,7 +1486,7 @@ class Dex2Oat FINAL {
       }
 
       // Open dex files for class path.
-      const std::vector<std::string> class_path_locations =
+      std::vector<std::string> class_path_locations =
           GetClassPathLocations(runtime_->GetClassPathString());
       OpenClassPathFiles(class_path_locations,
                          &class_path_files_,
@@ -2180,17 +2180,23 @@ class Dex2Oat FINAL {
 
   // Opens requested class path files and appends them to opened_dex_files. If the dex files have
   // been stripped, this opens them from their oat files and appends them to opened_oat_files.
-  static void OpenClassPathFiles(const std::vector<std::string>& class_path_locations,
+  static void OpenClassPathFiles(std::vector<std::string>& class_path_locations,
                                  std::vector<std::unique_ptr<const DexFile>>* opened_dex_files,
                                  std::vector<std::unique_ptr<OatFile>>* opened_oat_files,
                                  InstructionSet isa) {
     DCHECK(opened_dex_files != nullptr) << "OpenClassPathFiles dex out-param is nullptr";
     DCHECK(opened_oat_files != nullptr) << "OpenClassPathFiles oat out-param is nullptr";
-    for (const std::string& location : class_path_locations) {
+    char buf[1024];
+    std::string current_working_directory = getcwd(buf, 1024);
+    for (std::string& location : class_path_locations) {
       // Stop early if we detect the special shared library, which may be passed as the classpath
       // for dex2oat when we want to skip the shared libraries check.
       if (location == OatFile::kSpecialSharedLibrary) {
         break;
+      }
+      // If path is relative, append it to the current working directory.
+      if (location[0] != '/') {
+        location = current_working_directory + '/' + location;
       }
       static constexpr bool kVerifyChecksum = true;
       std::string error_msg;
