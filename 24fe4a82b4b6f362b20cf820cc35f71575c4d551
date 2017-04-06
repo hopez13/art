@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41147664_d9c28955",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T23:31:48Z",
+      "side": 1,
+      "message": "Not sure if we need \"throw throw\" there in twice. Probably just \"ART_TEST_985_ONLOAD_THROW\" would be enough.",
+      "revId": "24fe4a82b4b6f362b20cf820cc35f71575c4d551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
