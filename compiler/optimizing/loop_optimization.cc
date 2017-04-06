@@ -544,12 +544,13 @@ void HLoopOptimization::GenerateNewLoop(LoopNode* node,
     bool vectorized_def = VectorizeDef(node, it.Current(), /*generate_code*/ true);
     DCHECK(vectorized_def);
   }
-  // Generate body.
+  // Generate body from the map using a layout in original program order.
   HEnvironment* env = vector_header_->GetFirstInstruction()->GetEnvironment();
   for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
     auto i = vector_map_->find(it.Current());
     if (i != vector_map_->end() && !i->second->IsInBlock()) {
-      Insert(vector_body_, i->second);  // lays out in original order
+      Insert(vector_body_, i->second);
+      // Deal with instructions that need an environment, such as the scalar intrinsics.
       if (i->second->NeedsEnvironment()) {
         i->second->CopyEnvironmentFromWithLoopPhiAdjustment(env, vector_header_);
       }
@@ -992,7 +993,8 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
         }  // switch invoke
       } else {
         // In scalar code, simply clone the method invoke, and replace its operands
-        // with the corresponding new scalar instructions in the loop.
+        // with the corresponding new scalar instructions in the loop. The instruction
+        // will get an environment during layout in original program order.
         DCHECK(vector_mode_ == kSequential);
         HInvokeStaticOrDirect* new_invoke = new (global_allocator_) HInvokeStaticOrDirect(
             global_allocator_,
