@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "3d6aee01_4fa9f540",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T18:25:27Z",
+      "side": 1,
+      "message": "It already DCHECKs that this_object is not null, which should only happen if it is \u003cclinit\u003e. Should I add explicit DCHECK that it\u0027s not \u003cclinit\u003e?\n\nMy primary question though is whether it should support compiling \u003cclinit\u003e or not?",
+      "parentUuid": "c9dcb84c_0e2b8463",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e040b5f_770b1f49",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -211,6 +235,30 @@
       "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8fad8ba_bdf3e93e",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T18:25:27Z",
+      "side": 1,
+      "message": "\"Makes things cleaner\" -\u003e if it\u0027s a \"GetThisParameter\" helper should satisfy that?\n\nI was trying to clarify if this helper should retrieve from a cache or just calculate it once and cache it afterwards, or always calculate it , or something else?",
+      "parentUuid": "665920d8_e764cc81",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -363,6 +411,24 @@
       "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f16830ea_3e4ed2e1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T18:25:27Z",
+      "side": 1,
+      "message": "\u003e So the handling here and above is not ideal imo.\n\nYes, please, suggest something cleaner! :)\n\n\u003e (as the fence survives this analysis).\n\nI\u0027m not sure if that can happen in this case?\n\nThe removal of the HNewInstance is also accompanied by the removal of the HConstructorFence (see RemoveAllFakeUses). In fact I actually tried avoiding this during development (to keep things simple) and it triggered a DCHECK failure if it tried to remove an instruction that was in use by another instruction.\n\n(Plus the new LSE2 tests explicitly makes sure the fence gets removed, but perhaps I misunderstood what you meant?)",
+      "parentUuid": "d7cefe33_4f8b560f",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -526,6 +592,30 @@
       "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec142f7_22a692b9",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-06T18:25:27Z",
+      "side": 1,
+      "message": "Like this?\n \n  //// STUFF\n\n  /*\n  ////\n  ////  4 or 2 slashes here? does checker understand /* ?\n  ////\n  */\n\n  //// OTHER STUFF\n\n?",
+      "parentUuid": "90c76307_8546cf99",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
