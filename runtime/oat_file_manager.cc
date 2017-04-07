@@ -482,6 +482,7 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
   }
 
   // Now drain the queue.
+  bool has_duplicates = false;
   while (!queue.empty()) {
     // Modifying the top element is only safe if we pop right after.
     DexFileAndClassPair compare_pop(queue.top());
@@ -498,7 +499,7 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
                            compare_pop.GetCachedDescriptor(),
                            compare_pop.GetDexFile()->GetLocation().c_str(),
                            top.GetDexFile()->GetLocation().c_str());
-          return true;
+          has_duplicates = true;
         }
         queue.pop();
         AddNext(top, queue);
@@ -510,7 +511,7 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
     AddNext(compare_pop, queue);
   }
 
-  return false;
+  return has_duplicates;
 }
 
 // Check for class-def collisions in dex files.
