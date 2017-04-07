@@ -15,7 +15,6 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
 art_path := $(LOCAL_PATH)
 
 ########################################################################
@@ -81,6 +80,9 @@ include $(art_path)/tools/Android.mk
 include $(art_path)/tools/ahat/Android.mk
 include $(art_path)/tools/dexfuzz/Android.mk
 include $(art_path)/libart_fake/Android.mk
+
+# Java library for JVMTI run-tests.
+include $(art_path)/test/Android.run-test-jvmti-java-library.mk
 
 ART_HOST_DEPENDENCIES := \
   $(ART_HOST_EXECUTABLES) \
