@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "828de7c7_d4caeb15",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2017-04-07T07:56:25Z",
+      "side": 1,
+      "message": "I think we could save one branch here:\n\n  __ Daddiu(TMP, AT, 1);\n  __ Dati(TMP, 0x8000);  // TMP \u003d AT + 0x8000 0000 0000 0001\n                         // or    AT - 0x7FFF FFFF FFFF FFFF.\n                         // IOW, TMP\u003d1 if AT\u003dLong.MIN_VALUE\n                         // or   TMP\u003d0 if AT\u003dLong.MAX_VALUE.\n  __ Dsrl(TMP, TMP, 1);  // TMP\u003d0 if AT\u003dLong.MIN_VALUE\n                         //       or AT\u003dLong.MAX_VALUE.\n  __ Beqzc(TMP, \u0026done);",
+      "range": {
+        "startLine": 855,
+        "startChar": 0,
+        "endLine": 858,
+        "endChar": 26
+      },
+      "revId": "ba737fda7fa14ec958fe10bcb659c6aab21fb984",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
