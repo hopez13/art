@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "a47c855a_62bf0731",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-07T23:10:57Z",
+      "side": 1,
+      "message": "+1, it\u0027s essentially a volatile read/write of that field.\n\nIt only needs to be globally ordered with respect to other volatile-like operations (synchronization actions/synchronizes-with).\n-----\n\nI think it\u0027s effectively equivalent to this in Java\n\n   volatile boolean is_interrupted;\n   static boolean interrupted() {\n     Thread t \u003d Thread.currentThread();\n     boolean i \u003d t.is_interrupted;\n     if (i) t.is_interrupted \u003d false;\n     return i; \n   }\n\nand I suppose this variant is slower than the intrinsics if we always have TR and don\u0027t need to load the Thread object",
+      "parentUuid": "dd10e5f4_ef501232",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c937fe8_402d631d",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-07T23:10:57Z",
+      "side": 1,
+      "message": "Thread.interrupted offers synchronization similar to the fences, why are the fences marked kCanThrow? Does that provide some sort of synchronization guarantee?",
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3ee7647_7bd65276",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 5
