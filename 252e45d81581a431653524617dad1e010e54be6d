@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "dd10e5f4_ef501232",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-07T14:13:44Z",
+      "side": 1,
+      "message": "If interrupted, we essentially need SideEffects::FieldReadOfType(., /* is_volatile */ true). That\u0027s not \"NoHeapSideEffect\".",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3ee7647_7bd65276",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-07T14:13:44Z",
+      "side": 1,
+      "message": "Or move inside the if-block above?",
+      "range": {
+        "startLine": 2771,
+        "startChar": 59,
+        "endLine": 2771,
+        "endChar": 74
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73110e9e_c49a4fe8",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3040,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-07T14:13:44Z",
+      "side": 1,
+      "message": "LDAR and STLR always have offset #0, so we\u0027re making the macro assembler materialize the TR+offset twice. We could do that explicitly and save an instruction.",
+      "range": {
+        "startLine": 3040,
+        "startChar": 2,
+        "endLine": 3040,
+        "endChar": 20
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ac012f6_068c05dc",
         "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
         "patchSetId": 5
@@ -31,6 +100,52 @@
       "side": 1,
       "message": "The vixl one is continuously tested. The non-vixl one not anymore. We\u0027re using it as a backup for now.",
       "parentUuid": "3ac012f6_068c05dc",
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f380bf97_55d016f9",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-07T14:13:44Z",
+      "side": 1,
+      "message": "/* far_target */ false",
+      "range": {
+        "startLine": 3170,
+        "startChar": 38,
+        "endLine": 3170,
+        "endChar": 39
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1098172_d1faf187",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-07T14:13:44Z",
+      "side": 1,
+      "message": "Remove the extra line.",
+      "range": {
+        "startLine": 3124,
+        "startChar": 0,
+        "endLine": 3124,
+        "endChar": 0
+      },
       "revId": "252e45d81581a431653524617dad1e010e54be6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
