@@ -27,6 +27,7 @@
 
 #include <sstream>
 
+#include "android-base/stringprintf.h"
 #include "arch/instruction_set.h"
 #include "base/time_utils.h"
 #include "base/unix_file/fd_file.h"
@@ -65,8 +66,10 @@ static void DumpCmdLine(std::ostream& os) {
 #endif
 }
 
-SignalCatcher::SignalCatcher(const std::string& stack_trace_file)
-    : stack_trace_file_(stack_trace_file),
+SignalCatcher::SignalCatcher(const std::string& stack_trace_dir,
+                             const std::string& stack_trace_file)
+    : stack_trace_dir_(stack_trace_dir),
+      stack_trace_file_(stack_trace_file),
       lock_("SignalCatcher lock"),
       cond_("SignalCatcher::cond_", lock_),
       thread_(nullptr) {
@@ -100,19 +103,46 @@ bool SignalCatcher::ShouldHalt() {
   return halt_;
 }
 
+std::string SignalCatcher::GetStackTraceFileName() {
+  if (!stack_trace_dir_.empty()) {
+    // We'll try five times to create a file with a unique name, seeding the
+    // pseudo random generator each time. If this doesn't work, give up and
+    // log to stdout.
+    for (int i = 0; i < 5; ++i) {
+        std::srand(NanoTime());
+        // Sample output for PID 1234 : /data/anr-pid1234-cafeffee.txt
+        const std::string file_name = android::base::StringPrintf(
+            "%s/anr-pid%" PRId32 "-%08" PRIx32 ".txt",
+            stack_trace_dir_.c_str(),
+            static_cast<int32_t>(getpid()),
+            static_cast<uint32_t>(std::rand()));
+
+        if (!OS::FileExists(file_name.c_str())) {
+          return file_name;
+        }
+    }
+
+    LOG(WARNING) << "Unable to create stack trace file at path : " << stack_trace_dir_;
+    return "";
+  }
+
+  return stack_trace_file_;
+}
+
 void SignalCatcher::Output(const std::string& s) {
-  if (stack_trace_file_.empty()) {
+  const std::string stack_trace_file = GetStackTraceFileName();
+  if (stack_trace_file.empty()) {
     LOG(INFO) << s;
     return;
   }
 
   ScopedThreadStateChange tsc(Thread::Current(), kWaitingForSignalCatcherOutput);
-  int fd = open(stack_trace_file_.c_str(), O_APPEND | O_CREAT | O_WRONLY, 0666);
+  int fd = open(stack_trace_file.c_str(), O_APPEND | O_CREAT | O_WRONLY, 0666);
   if (fd == -1) {
     PLOG(ERROR) << "Unable to open stack trace file '" << stack_trace_file_ << "'";
     return;
   }
-  std::unique_ptr<File> file(new File(fd, stack_trace_file_, true));
+  std::unique_ptr<File> file(new File(fd, stack_trace_file, true));
   bool success = file->WriteFully(s.data(), s.size());
   if (success) {
     success = file->FlushCloseOrErase() == 0;
@@ -120,9 +150,9 @@ void SignalCatcher::Output(const std::string& s) {
     file->Erase();
   }
   if (success) {
-    LOG(INFO) << "Wrote stack traces to '" << stack_trace_file_ << "'";
+    LOG(INFO) << "Wrote stack traces to '" << stack_trace_file << "'";
   } else {
-    PLOG(ERROR) << "Failed to write stack traces to '" << stack_trace_file_ << "'";
+    PLOG(ERROR) << "Failed to write stack traces to '" << stack_trace_file << "'";
   }
 }
 
