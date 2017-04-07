@@ -16,6 +16,24 @@
       "revId": "24fe4a82b4b6f362b20cf820cc35f71575c4d551",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7885553a_28594797",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1130394
+      },
+      "writtenOn": "2017-04-07T17:13:50Z",
+      "side": 1,
+      "message": "\"ART_TEST\" is the top-level disambiguator. \"985_ONLOAD_THROW\" is the name of the test. \"THROW_IN_JNI_ONLOAD\" is the action that setting the environment variable causes. If you want to eliminate the second \"THROW\", one of the latter two will be incomplete.\n\nBut look: can you +2 the CL so we don\u0027t need to go back and forth here? I\u0027ll change the name to whatever you want, even if it\u0027s \"ZOMG_PONIES\" or whatever. I just want to avoid lots of high-latency iterations here.",
+      "parentUuid": "41147664_d9c28955",
+      "revId": "24fe4a82b4b6f362b20cf820cc35f71575c4d551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
