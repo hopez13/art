@@ -22,6 +22,30 @@
       "revId": "0532d7757e45b713a1ec46de6be621cbff9567ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4994bae_f2218135",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-07T00:08:52Z",
+      "side": 1,
+      "message": "I\u0027ve created a dex2oat command line parameter for the current working directory.",
+      "parentUuid": "c90c58ea_78133c4c",
+      "range": {
+        "startLine": 1502,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 5
+      },
+      "revId": "0532d7757e45b713a1ec46de6be621cbff9567ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
