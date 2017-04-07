@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d84dc3d_0f9d954d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-07T09:03:40Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me from the linked bug why PackageManager was changed to use relative paths. Can you elaborate on the reason for this change?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41abb30f_21b07688",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-07T09:03:40Z",
+      "side": 1,
+      "message": "This is used to resolve relative paths passed via the -classpath option?\n\nIf we are going to support relative paths for class:\n1. Why not use the same interface as standard java, which I think is relative to the current directory where the class path is specified.\n2. Shouldn\u0027t we be supporting relative paths generally in the runtime, not just in dex2oat?",
+      "range": {
+        "startLine": 388,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe3550ae_bd6db9b9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-07T09:03:40Z",
+      "side": 1,
+      "message": "Why change OpenClassPathFiles to modify class_path_locations? It looks like the only use of class_path_locations after this is to pass to EncodeDexFileDependencies. If you don\u0027t modify class_path_locations here, you don\u0027t need to change EncodeDexFileDependencies, right?",
+      "range": {
+        "startLine": 1495,
+        "startChar": 5,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f40dd35_c62b265f",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-07T09:03:40Z",
+      "side": 1,
+      "message": "Can you add a comment describing what this code does and what it is for? I think the purpose is to verify that the dex files are in the same order as the shared library paths?",
+      "range": {
+        "startLine": 444,
+        "startChar": 1,
+        "endLine": 447,
+        "endChar": 63
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
