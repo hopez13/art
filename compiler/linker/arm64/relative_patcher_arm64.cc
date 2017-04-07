@@ -313,7 +313,16 @@ void Arm64RelativePatcher::PatchBakerReadBarrierBranch(std::vector<uint8_t>* cod
         uint32_t next_insn = GetInsn(code, literal_offset + 4u);
         // LDR (immediate) with correct base_reg.
         CheckValidReg(next_insn & 0x1fu);  // Check destination register.
-        CHECK_EQ(next_insn & 0xffc003e0u, 0xb9400000u | (key.GetOffsetParams().base_reg << 5));
+        CHECK_EQ(next_insn & 0xffc003e0u, 0xb9400000u | (key.GetFieldParams().base_reg << 5));
+        break;
+      }
+      case ThunkType::kBakerReadBarrierArray: {
+        DCHECK_GE(code->size() - literal_offset, 8u);
+        uint32_t next_insn = GetInsn(code, literal_offset + 4u);
+        // LDR (register) with correct base_reg, S=1 and option=011 (LDR Wt, [Xn, Xm, LSL #2]).
+        CheckValidReg(next_insn & 0x1fu);  // Check destination register.
+        CHECK_EQ(next_insn & 0xffe0ffe0u, 0xb8607800u | (key.GetArrayParams().base_reg << 5));
+        CheckValidReg((next_insn >> 16) & 0x1f);
         break;
       }
       case ThunkType::kBakerReadBarrierRoot: {
@@ -344,10 +353,16 @@ ArmBaseRelativePatcher::ThunkKey Arm64RelativePatcher::GetBakerReadBarrierKey(
   ThunkParams params;
   switch (type) {
     case BakerReadBarrierKind::kField:
-      params.offset_params.base_reg = BakerReadBarrierFirstRegField::Decode(value);
-      CheckValidReg(params.offset_params.base_reg);
-      params.offset_params.holder_reg = BakerReadBarrierSecondRegField::Decode(value);
-      CheckValidReg(params.offset_params.holder_reg);
+      params.field_params.base_reg = BakerReadBarrierFirstRegField::Decode(value);
+      CheckValidReg(params.field_params.base_reg);
+      params.field_params.holder_reg = BakerReadBarrierSecondRegField::Decode(value);
+      CheckValidReg(params.field_params.holder_reg);
+      break;
+    case BakerReadBarrierKind::kArray:
+      params.array_params.base_reg = BakerReadBarrierFirstRegField::Decode(value);
+      CheckValidReg(params.array_params.base_reg);
+      params.array_params.dummy = 0u;
+      DCHECK_EQ(BakerReadBarrierSecondRegField::Decode(value), kInvalidEncodedReg);
       break;
     case BakerReadBarrierKind::kGcRoot:
       params.root_params.root_reg = BakerReadBarrierFirstRegField::Decode(value);
@@ -362,6 +377,9 @@ ArmBaseRelativePatcher::ThunkKey Arm64RelativePatcher::GetBakerReadBarrierKey(
   constexpr uint8_t kTypeTranslationOffset = 1u;
   static_assert(static_cast<uint32_t>(BakerReadBarrierKind::kField) + kTypeTranslationOffset ==
                 static_cast<uint32_t>(ThunkType::kBakerReadBarrierField),
+                "Thunk type translation check.");
+  static_assert(static_cast<uint32_t>(BakerReadBarrierKind::kArray) + kTypeTranslationOffset ==
+                static_cast<uint32_t>(ThunkType::kBakerReadBarrierArray),
                 "Thunk type translation check.");
   static_assert(static_cast<uint32_t>(BakerReadBarrierKind::kGcRoot) + kTypeTranslationOffset ==
                 static_cast<uint32_t>(ThunkType::kBakerReadBarrierRoot),
@@ -414,8 +432,8 @@ std::vector<uint8_t> Arm64RelativePatcher::CompileThunk(const ThunkKey& key) {
       // and return to the LDR instruction to load the reference. Otherwise, use introspection
       // to load the reference and call the entrypoint (in IP1) that performs further checks
       // on the reference and marks it if needed.
-      auto holder_reg = Register::GetXRegFromCode(key.GetOffsetParams().holder_reg);
-      auto base_reg = Register::GetXRegFromCode(key.GetOffsetParams().base_reg);
+      auto holder_reg = Register::GetXRegFromCode(key.GetFieldParams().holder_reg);
+      auto base_reg = Register::GetXRegFromCode(key.GetFieldParams().base_reg);
       UseScratchRegisterScope temps(assembler.GetVIXLAssembler());
       temps.Exclude(ip0, ip1);
       // If base_reg differs from holder_reg, the offset was too large and we must have
@@ -441,6 +459,26 @@ std::vector<uint8_t> Arm64RelativePatcher::CompileThunk(const ThunkKey& key) {
         __ Ldr(ip0, MemOperand(vixl::aarch64::x19, offset));
         __ Br(ip0);
       }
+      break;
+    }
+    case ThunkType::kBakerReadBarrierArray: {
+      auto base_reg = Register::GetXRegFromCode(key.GetArrayParams().base_reg);
+      UseScratchRegisterScope temps(assembler.GetVIXLAssembler());
+      temps.Exclude(ip0, ip1);
+      vixl::aarch64::Label slow_path;
+      int32_t data_offset =
+          mirror::Array::DataOffset(Primitive::ComponentSize(Primitive::kPrimNot)).Int32Value();
+      MemOperand lock_word(base_reg, mirror::Object::MonitorOffset().Int32Value() - data_offset);
+      DCHECK_LT(lock_word.GetOffset(), 0);
+      EmitGrayCheckAndFastPath(assembler, base_reg, lock_word, &slow_path);
+      __ Bind(&slow_path);
+      MemOperand ldr_address(lr, BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET);
+      __ Ldr(ip0.W(), ldr_address);         // Load the LDR (register) unsigned offset.
+      __ Ubfx(ip0, ip0, 16, 6);             // Extract the index register, plus 32 (bit 21 is set).
+      __ Bfi(ip1, ip0, 3, 6);               // Insert ip0 to the entrypoint address to create
+                                            // a switch case target based on the index register.
+      __ Mov(ip0, base_reg);                // Move the base register to ip0.
+      __ Br(ip1);                           // Jump to the entrypoint's array switch case.
       break;
     }
     case ThunkType::kBakerReadBarrierRoot: {
@@ -488,6 +526,7 @@ uint32_t Arm64RelativePatcher::MaxPositiveDisplacement(ThunkType type) {
     case ThunkType::kMethodCall:
       return kMaxMethodCallPositiveDisplacement;
     case ThunkType::kBakerReadBarrierField:
+    case ThunkType::kBakerReadBarrierArray:
     case ThunkType::kBakerReadBarrierRoot:
       return kMaxBcondPositiveDisplacement;
   }
@@ -498,6 +537,7 @@ uint32_t Arm64RelativePatcher::MaxNegativeDisplacement(ThunkType type) {
     case ThunkType::kMethodCall:
       return kMaxMethodCallNegativeDisplacement;
     case ThunkType::kBakerReadBarrierField:
+    case ThunkType::kBakerReadBarrierArray:
     case ThunkType::kBakerReadBarrierRoot:
       return kMaxBcondNegativeDisplacement;
   }

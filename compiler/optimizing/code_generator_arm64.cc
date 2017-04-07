@@ -91,6 +91,7 @@ constexpr uint32_t kReferenceLoadMinFarOffset = 16 * KB;
 
 // Flags controlling the use of link-time generated thunks for Baker read barriers.
 constexpr bool kBakerReadBarrierLinkTimeThunksEnableForFields = true;
+constexpr bool kBakerReadBarrierLinkTimeThunksEnableForArrays = true;
 constexpr bool kBakerReadBarrierLinkTimeThunksEnableForGcRoots = true;
 
 // Some instructions have special requirements for a temporary, for example
@@ -2759,6 +2760,7 @@ void InstructionCodeGeneratorARM64::VisitArrayGet(HArrayGet* instruction) {
     // Object ArrayGet with Baker's read barrier case.
     // Note that a potential implicit null check is handled in the
     // CodeGeneratorARM64::GenerateArrayLoadWithBakerReadBarrier call.
+    DCHECK(!instruction->CanDoImplicitNullCheckOn(instruction->InputAt(0)));
     if (index.IsConstant()) {
       // Array load with a constant index can be treated as a field load.
       offset += Int64ConstantFrom(index) << Primitive::ComponentSizeShift(type);
@@ -2769,12 +2771,12 @@ void InstructionCodeGeneratorARM64::VisitArrayGet(HArrayGet* instruction) {
                                                       obj.W(),
                                                       offset,
                                                       maybe_temp,
-                                                      /* needs_null_check */ true,
+                                                      /* needs_null_check */ false,
                                                       /* use_load_acquire */ false);
     } else {
       Register temp = WRegisterFrom(locations->GetTemp(0));
       codegen_->GenerateArrayLoadWithBakerReadBarrier(
-          instruction, out, obj.W(), offset, index, temp, /* needs_null_check */ true);
+          instruction, out, obj.W(), offset, index, temp, /* needs_null_check */ false);
     }
   } else {
     // General case.
@@ -6132,16 +6134,50 @@ void CodeGeneratorARM64::GenerateArrayLoadWithBakerReadBarrier(HInstruction* ins
   DCHECK(kEmitCompilerReadBarrier);
   DCHECK(kUseBakerReadBarrier);
 
+  static_assert(
+      sizeof(mirror::HeapReference<mirror::Object>) == sizeof(int32_t),
+      "art::mirror::HeapReference<art::mirror::Object> and int32_t have different sizes.");
+  size_t scale_factor = Primitive::ComponentSizeShift(Primitive::kPrimNot);
+
+  if (kBakerReadBarrierLinkTimeThunksEnableForArrays &&
+      !Runtime::Current()->UseJitCompilation()) {
+    DCHECK(index.IsValid());
+    Register index_reg = RegisterFrom(index, Primitive::kPrimInt);
+    Register ref_reg = RegisterFrom(ref, Primitive::kPrimNot);
+
+    UseScratchRegisterScope temps(GetVIXLAssembler());
+    DCHECK(temps.IsAvailable(ip0));
+    DCHECK(temps.IsAvailable(ip1));
+    temps.Exclude(ip0, ip1);
+    uint32_t custom_data =
+        linker::Arm64RelativePatcher::EncodeBakerReadBarrierArrayData(temp.GetCode());
+    vixl::aarch64::Label* cbnz_label = NewBakerReadBarrierPatch(custom_data);
+
+    // ip1 = Thread::Current()->pReadBarrierMarkReg16, i.e. pReadBarrierMarkIntrospection.
+    DCHECK_EQ(ip0.GetCode(), 16u);
+    const int32_t entry_point_offset =
+        CodeGenerator::GetReadBarrierMarkEntryPointsOffset<kArm64PointerSize>(ip0.GetCode());
+    __ Ldr(ip1, MemOperand(tr, entry_point_offset));
+    __ Add(temp.X(), obj.X(), Operand(data_offset));
+    EmissionCheckScope guard(GetVIXLAssembler(), 3 * vixl::aarch64::kInstructionSize);
+    vixl::aarch64::Label return_address;
+    __ adr(lr, &return_address);
+    __ Bind(cbnz_label);
+    __ cbnz(ip1, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
+    static_assert(BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET == -4,
+                  "Array LDR must be 1 instruction (4B) before the return address label.");
+    __ ldr(ref_reg, MemOperand(temp.X(), index_reg.X(), LSL, scale_factor));
+    DCHECK(!needs_null_check);  // The thunk cannot handle the null check.
+    __ Bind(&return_address);
+    return;
+  }
+
   // Array cells are never volatile variables, therefore array loads
   // never use Load-Acquire instructions on ARM64.
   const bool use_load_acquire = false;
 
-  static_assert(
-      sizeof(mirror::HeapReference<mirror::Object>) == sizeof(int32_t),
-      "art::mirror::HeapReference<art::mirror::Object> and int32_t have different sizes.");
   // /* HeapReference<Object> */ ref =
   //     *(obj + data_offset + index * sizeof(HeapReference<Object>))
-  size_t scale_factor = Primitive::ComponentSizeShift(Primitive::kPrimNot);
   GenerateReferenceLoadWithBakerReadBarrier(instruction,
                                             ref,
                                             obj,
