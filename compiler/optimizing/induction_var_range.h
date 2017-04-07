@@ -156,10 +156,12 @@ class InductionVarRange {
   bool IsFinite(HLoopInformation* loop, /*out*/ int64_t* tc) const;
 
   /**
-   * Checks if instruction is a unit stride induction inside the closest enveloping loop.
-   * Returns invariant offset on success.
+   * Checks if instruction is a unit stride induction inside the closest enveloping loop
+   * of the given context. Returns invariant offset on success.
    */
-  bool IsUnitStride(HInstruction* instruction, /*out*/ HInstruction** offset) const;
+  bool IsUnitStride(HInstruction* context,
+                    HInstruction* instruction,
+                    /*out*/ HInstruction** offset) const;
 
   /**
    * Generates the trip count expression for the given loop. Code is generated in given block

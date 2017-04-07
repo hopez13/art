@@ -19,6 +19,9 @@
  */
 public class Main {
 
+  private static int[] xx;
+  private static int[] yy;
+
   /// CHECK-START: int Main.earlyExitFirst(int) loop_optimization (before)
   /// CHECK-DAG: Phi loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: Phi loop:<<Loop>>      outer_loop:none
@@ -270,6 +273,16 @@ public class Main {
     }
   }
 
+  // If vectorized, invariant stride should be recognized
+  // as a reduction, not a unit stride in outer loop.
+  static void reduc() {
+    for (int i0 = 0; i0 < 2; i0++) {
+      for (int i1 = 0; i1 < 469; i1++) {
+        xx[i0] -= (++yy[i1]);
+      }
+    }
+  }
+
   public static void main(String[] args) {
     expectEquals(10, earlyExitFirst(-1));
     for (int i = 0; i <= 10; i++) {
@@ -333,6 +346,15 @@ public class Main {
     narrowingSubscript(a);
     for (int i = 0; i < 16; i++) {
       expectEquals(2.0f, a[i]);
+    }
+
+    xx = new int[2];
+    yy = new int[469];
+    reduc();
+    expectEquals(-469, xx[0]);
+    expectEquals(-938, xx[1]);
+    for (int i = 0; i < 469; i++) {
+      expectEquals(2, yy[i]);
     }
 
     System.out.println("passed");
