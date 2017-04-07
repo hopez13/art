@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
+package art;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Main {
-  public static void main(String[] args) throws Exception {
+public class Test906 {
+  public static void run() throws Exception {
+    Main.bindAgentJNIForClass(Test906.class);
     doTest();
   }
 
@@ -30,12 +33,12 @@ public class Main {
     A[] aArray = new A[5];
     String s = "Hello World";
 
-    setTag(a, 1);
-    setTag(b, 2);
-    setTag(b2, 3);
-    setTag(aArray, 4);
-    setTag(s, 5);
-    setTag(B.class, 100);
+    Main.setTag(a, 1);
+    Main.setTag(b, 2);
+    Main.setTag(b2, 3);
+    Main.setTag(aArray, 4);
+    Main.setTag(s, 5);
+    Main.setTag(B.class, 100);
 
     int all = iterateThroughHeapCount(0, null, Integer.MAX_VALUE);
     int tagged = iterateThroughHeapCount(HEAP_FILTER_OUT_UNTAGGED, null, Integer.MAX_VALUE);
@@ -77,48 +80,48 @@ public class Main {
     n = iterateThroughHeapData(HEAP_FILTER_OUT_UNTAGGED, null, classTags, sizes, tags, lengths);
     System.out.println(sort(n, classTags, sizes, tags, lengths));
 
-    System.out.println(iterateThroughHeapString(getTag(s)));
-    System.out.println(getTag(s));
+    System.out.println(iterateThroughHeapString(Main.getTag(s)));
+    System.out.println(Main.getTag(s));
 
     boolean[] zArray = new boolean[] { false, true };
-    setTag(zArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(zArray)));
-    System.out.println(getTag(zArray));
+    Main.setTag(zArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(zArray)));
+    System.out.println(Main.getTag(zArray));
 
     byte[] bArray = new byte[] { 1, 2, 3 };
-    setTag(bArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(bArray)));
-    System.out.println(getTag(bArray));
+    Main.setTag(bArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(bArray)));
+    System.out.println(Main.getTag(bArray));
 
     char[] cArray = new char[] { 'A', 'Z' };
-    setTag(cArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(cArray)));
-    System.out.println(getTag(cArray));
+    Main.setTag(cArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(cArray)));
+    System.out.println(Main.getTag(cArray));
 
     short[] sArray = new short[] { 1, 2, 3 };
-    setTag(sArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(sArray)));
-    System.out.println(getTag(sArray));
+    Main.setTag(sArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(sArray)));
+    System.out.println(Main.getTag(sArray));
 
     int[] iArray = new int[] { 1, 2, 3 };
-    setTag(iArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(iArray)));
-    System.out.println(getTag(iArray));
+    Main.setTag(iArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(iArray)));
+    System.out.println(Main.getTag(iArray));
 
     float[] fArray = new float[] { 0.0f, 1.0f };
-    setTag(fArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(fArray)));
-    System.out.println(getTag(fArray));
+    Main.setTag(fArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(fArray)));
+    System.out.println(Main.getTag(fArray));
 
     long[] lArray = new long[] { 1, 2, 3 };
-    setTag(lArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(lArray)));
-    System.out.println(getTag(lArray));
+    Main.setTag(lArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(lArray)));
+    System.out.println(Main.getTag(lArray));
 
     double[] dArray = new double[] { 0.0, 1.0 };
-    setTag(dArray, 1);
-    System.out.println(iterateThroughHeapPrimitiveArray(getTag(dArray)));
-    System.out.println(getTag(dArray));
+    Main.setTag(dArray, 1);
+    System.out.println(iterateThroughHeapPrimitiveArray(Main.getTag(dArray)));
+    System.out.println(Main.getTag(dArray));
 
     // Force GCs to clean up dirt.
     Runtime.getRuntime().gc();
@@ -140,39 +143,39 @@ public class Main {
   }
 
   private static void doTestPrimitiveFieldsClasses() {
-    setTag(IntObject.class, 10000);
+    Main.setTag(IntObject.class, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(IntObject.class));
-    setTag(IntObject.class, 0);
+    System.out.println(Main.getTag(IntObject.class));
+    Main.setTag(IntObject.class, 0);
 
-    setTag(FloatObject.class, 10000);
+    Main.setTag(FloatObject.class, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(FloatObject.class));
-    setTag(FloatObject.class, 0);
+    System.out.println(Main.getTag(FloatObject.class));
+    Main.setTag(FloatObject.class, 0);
 
-    setTag(Inf1.class, 10000);
+    Main.setTag(Inf1.class, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(Inf1.class));
-    setTag(Inf1.class, 0);
+    System.out.println(Main.getTag(Inf1.class));
+    Main.setTag(Inf1.class, 0);
 
-    setTag(Inf2.class, 10000);
+    Main.setTag(Inf2.class, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(Inf2.class));
-    setTag(Inf2.class, 0);
+    System.out.println(Main.getTag(Inf2.class));
+    Main.setTag(Inf2.class, 0);
   }
 
   private static void doTestPrimitiveFieldsIntegral() {
     IntObject intObject = new IntObject();
-    setTag(intObject, 10000);
+    Main.setTag(intObject, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(intObject));
+    System.out.println(Main.getTag(intObject));
   }
 
   private static void doTestPrimitiveFieldsFloat() {
     FloatObject floatObject = new FloatObject();
-    setTag(floatObject, 10000);
+    Main.setTag(floatObject, 10000);
     System.out.println(iterateThroughHeapPrimitiveFields(10000));
-    System.out.println(getTag(floatObject));
+    System.out.println(Main.getTag(floatObject));
   }
 
   static class A {
@@ -250,9 +253,6 @@ public class Main {
     Object p = new Object();
     static int sI = 6;
   }
-
-  private static native void setTag(Object o, long tag);
-  private static native long getTag(Object o);
 
   private final static int HEAP_FILTER_OUT_TAGGED = 0x4;
   private final static int HEAP_FILTER_OUT_UNTAGGED = 0x8;

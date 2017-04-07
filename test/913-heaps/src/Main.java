@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
+package art;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Main {
-  public static void main(String[] args) throws Exception {
+public class Test913 {
+  public static void run() throws Exception {
+    Main.bindAgentJNIForClass(Test913.class);
+
     doTest();
     new TestConfig().doFollowReferencesTest();
 
@@ -69,7 +73,7 @@ public class Main {
     setupGcCallback();
 
     enableGcTracking(true);
-    run();
+    runGc();
     enableGcTracking(false);
   }
 
@@ -81,37 +85,37 @@ public class Main {
       String s2 = str2;
     };
 
-    setTag(str, 1);
-    setTag(str2, 2);
+    Main.setTag(str, 1);
+    Main.setTag(str2, 2);
     System.out.println(Arrays.toString(followReferencesString(o)));
-    System.out.println(getTag(str));
-    System.out.println(getTag(str2));
+    System.out.println(Main.getTag(str));
+    System.out.println(Main.getTag(str2));
   }
 
   public static void doPrimitiveArrayTest() throws Exception {
     final boolean[] zArray = new boolean[] { false, true };
-    setTag(zArray, 1);
+    Main.setTag(zArray, 1);
 
     final byte[] bArray = new byte[] { 1, 2, 3 };
-    setTag(bArray, 2);
+    Main.setTag(bArray, 2);
 
     final char[] cArray = new char[] { 'A', 'Z' };
-    setTag(cArray, 3);
+    Main.setTag(cArray, 3);
 
     final short[] sArray = new short[] { 1, 2, 3 };
-    setTag(sArray, 4);
+    Main.setTag(sArray, 4);
 
     final int[] iArray = new int[] { 1, 2, 3 };
-    setTag(iArray, 5);
+    Main.setTag(iArray, 5);
 
     final float[] fArray = new float[] { 0.0f, 1.0f };
-    setTag(fArray, 6);
+    Main.setTag(fArray, 6);
 
     final long[] lArray = new long[] { 1, 2, 3 };
-    setTag(lArray, 7);
+    Main.setTag(lArray, 7);
 
     final double[] dArray = new double[] { 0.0, 1.0 };
-    setTag(dArray, 8);
+    Main.setTag(dArray, 8);
 
     Object o = new Object() {
       Object z = zArray;
@@ -125,14 +129,14 @@ public class Main {
     };
 
     System.out.println(followReferencesPrimitiveArray(o));
-    System.out.print(getTag(zArray));
-    System.out.print(getTag(bArray));
-    System.out.print(getTag(cArray));
-    System.out.print(getTag(sArray));
-    System.out.print(getTag(iArray));
-    System.out.print(getTag(fArray));
-    System.out.print(getTag(lArray));
-    System.out.println(getTag(dArray));
+    System.out.print(Main.getTag(zArray));
+    System.out.print(Main.getTag(bArray));
+    System.out.print(Main.getTag(cArray));
+    System.out.print(Main.getTag(sArray));
+    System.out.print(Main.getTag(iArray));
+    System.out.print(Main.getTag(fArray));
+    System.out.print(Main.getTag(lArray));
+    System.out.println(Main.getTag(dArray));
   }
 
   public static void doPrimitiveFieldTest() throws Exception {
@@ -156,42 +160,42 @@ public class Main {
   }
 
   private static void doTestPrimitiveFieldsClasses() {
-    setTag(IntObject.class, 10000);
+    Main.setTag(IntObject.class, 10000);
     System.out.println(followReferencesPrimitiveFields(IntObject.class));
-    System.out.println(getTag(IntObject.class));
-    setTag(IntObject.class, 0);
+    System.out.println(Main.getTag(IntObject.class));
+    Main.setTag(IntObject.class, 0);
 
-    setTag(FloatObject.class, 10000);
+    Main.setTag(FloatObject.class, 10000);
     System.out.println(followReferencesPrimitiveFields(FloatObject.class));
-    System.out.println(getTag(FloatObject.class));
-    setTag(FloatObject.class, 0);
+    System.out.println(Main.getTag(FloatObject.class));
+    Main.setTag(FloatObject.class, 0);
 
-    setTag(Inf1.class, 10000);
+    Main.setTag(Inf1.class, 10000);
     System.out.println(followReferencesPrimitiveFields(Inf1.class));
-    System.out.println(getTag(Inf1.class));
-    setTag(Inf1.class, 0);
+    System.out.println(Main.getTag(Inf1.class));
+    Main.setTag(Inf1.class, 0);
 
-    setTag(Inf2.class, 10000);
+    Main.setTag(Inf2.class, 10000);
     System.out.println(followReferencesPrimitiveFields(Inf2.class));
-    System.out.println(getTag(Inf2.class));
-    setTag(Inf2.class, 0);
+    System.out.println(Main.getTag(Inf2.class));
+    Main.setTag(Inf2.class, 0);
   }
 
   private static void doTestPrimitiveFieldsIntegral() {
     IntObject intObject = new IntObject();
-    setTag(intObject, 10000);
+    Main.setTag(intObject, 10000);
     System.out.println(followReferencesPrimitiveFields(intObject));
-    System.out.println(getTag(intObject));
+    System.out.println(Main.getTag(intObject));
   }
 
   private static void doTestPrimitiveFieldsFloat() {
     FloatObject floatObject = new FloatObject();
-    setTag(floatObject, 10000);
+    Main.setTag(floatObject, 10000);
     System.out.println(followReferencesPrimitiveFields(floatObject));
-    System.out.println(getTag(floatObject));
+    System.out.println(Main.getTag(floatObject));
   }
 
-  private static void run() {
+  private static void runGc() {
     clearStats();
     forceGarbageCollection();
     printStats();
@@ -233,7 +237,7 @@ public class Main {
       Runtime.getRuntime().gc();
       Runtime.getRuntime().gc();
 
-      setTag(Thread.currentThread(), 3000);
+      Main.setTag(Thread.currentThread(), 3000);
 
       {
         ArrayList<Object> tmpStorage = new ArrayList<>();
@@ -283,37 +287,37 @@ public class Main {
     }
 
     private static void tagClasses(Verifier v) {
-      setTag(A.class, 1000);
+      Main.setTag(A.class, 1000);
 
-      setTag(B.class, 1001);
+      Main.setTag(B.class, 1001);
       v.add("1001@0", "1000@0");  // B.class --(superclass)--> A.class.
 
-      setTag(C.class, 1002);
+      Main.setTag(C.class, 1002);
       v.add("1002@0", "1001@0");  // C.class --(superclass)--> B.class.
       v.add("1002@0", "2001@0");  // C.class --(interface)--> I2.class.
 
-      setTag(I1.class, 2000);
+      Main.setTag(I1.class, 2000);
 
-      setTag(I2.class, 2001);
+      Main.setTag(I2.class, 2001);
       v.add("2001@0", "2000@0");  // I2.class --(interface)--> I1.class.
     }
 
     private static A createTree(Verifier v) {
       A aInst = new A();
-      setTag(aInst, 1);
+      Main.setTag(aInst, 1);
       String aInstStr = "1@1000";
       String aClassStr = "1000@0";
       v.add(aInstStr, aClassStr);  // A -->(class) --> A.class.
 
       A a2Inst = new A();
-      setTag(a2Inst, 2);
+      Main.setTag(a2Inst, 2);
       aInst.foo = a2Inst;
       String a2InstStr = "2@1000";
       v.add(a2InstStr, aClassStr);  // A2 -->(class) --> A.class.
       v.add(aInstStr, a2InstStr);   // A -->(field) --> A2.
 
       B bInst = new B();
-      setTag(bInst, 3);
+      Main.setTag(bInst, 3);
       aInst.foo2 = bInst;
       String bInstStr = "3@1001";
       String bClassStr = "1001@0";
@@ -321,14 +325,14 @@ public class Main {
       v.add(aInstStr, bInstStr);   // A -->(field) --> B.
 
       A a3Inst = new A();
-      setTag(a3Inst, 4);
+      Main.setTag(a3Inst, 4);
       bInst.bar = a3Inst;
       String a3InstStr = "4@1000";
       v.add(a3InstStr, aClassStr);  // A3 -->(class) --> A.class.
       v.add(bInstStr, a3InstStr);   // B -->(field) --> A3.
 
       C cInst = new C();
-      setTag(cInst, 5);
+      Main.setTag(cInst, 5);
       bInst.bar2 = cInst;
       String cInstStr = "5@1000";
       String cClassStr = "1002@0";
@@ -336,7 +340,7 @@ public class Main {
       v.add(bInstStr, cInstStr);   // B -->(field) --> C.
 
       A a4Inst = new A();
-      setTag(a4Inst, 6);
+      Main.setTag(a4Inst, 6);
       cInst.baz = a4Inst;
       String a4InstStr = "6@1000";
       v.add(a4InstStr, aClassStr);  // A4 -->(class) --> A.class.
@@ -600,9 +604,6 @@ public class Main {
   private static native int getGcStarts();
   private static native int getGcFinishes();
   private static native void forceGarbageCollection();
-
-  public static native void setTag(Object o, long tag);
-  public static native long getTag(Object o);
 
   public static native String[] followReferences(int heapFilter, Class<?> klassFilter,
       Object initialObject, int stopAfter, int followSet, Object jniRef);
