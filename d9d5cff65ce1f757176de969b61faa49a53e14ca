@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5819b76c_cf0a07f5",
+        "filename": "runtime/openjdkjvmti/ti_redefine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-07T21:43:22Z",
+      "side": 1,
+      "message": "You should move the comment from the definition to the declaration. Should this be named RestoreIfUnneeded or w/e to indicate that it\u0027s not a sure-fire restore?",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 44
+      },
+      "revId": "d9d5cff65ce1f757176de969b61faa49a53e14ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
