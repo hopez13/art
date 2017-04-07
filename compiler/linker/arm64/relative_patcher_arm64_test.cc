@@ -18,6 +18,7 @@
 #include "linker/relative_patcher_test.h"
 #include "linker/arm64/relative_patcher_arm64.h"
 #include "lock_word.h"
+#include "mirror/array-inl.h"
 #include "mirror/object.h"
 #include "oat_quick_method_header.h"
 
@@ -46,8 +47,14 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
   static constexpr uint32_t kBlPlusMax = 0x95ffffffu;
   static constexpr uint32_t kBlMinusMax = 0x96000000u;
 
-  // LDR immediate, unsigned offset.
+  // LDR immediate, 32-bit, unsigned offset.
   static constexpr uint32_t kLdrWInsn = 0xb9400000u;
+
+  // LDR register, 32-bit, LSL #2.
+  static constexpr uint32_t kLdrWLsl2Insn = 0xb8607800u;
+
+  // LDUR, 32-bit.
+  static constexpr uint32_t kLdurWInsn = 0xb8400000u;
 
   // ADD/ADDS/SUB/SUBS immediate, 64-bit.
   static constexpr uint32_t kAddXInsn = 0x91000000u;
@@ -68,7 +75,7 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
   static constexpr uint32_t kLdrXSpRelInsn = 0xf94003edu;
 
   // CBNZ x17, +0. Bits 5-23 are a placeholder for target offset from PC in units of 4-bytes.
-  static constexpr uint32_t kCbnzIP1Plus0Insn = 0xb5000011;
+  static constexpr uint32_t kCbnzIP1Plus0Insn = 0xb5000011u;
 
   void InsertInsn(std::vector<uint8_t>* code, size_t pos, uint32_t insn) {
     CHECK_LE(pos, code->size());
@@ -188,7 +195,7 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
 
   std::vector<uint8_t> GenNops(size_t num_nops) {
     std::vector<uint8_t> result;
-    result.reserve(num_nops * 4u + 4u);
+    result.reserve(num_nops * 4u);
     for (size_t i = 0; i != num_nops; ++i) {
       PushBackInsn(&result, kNopInsn);
     }
@@ -466,6 +473,14 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
   std::vector<uint8_t> CompileBakerOffsetThunk(uint32_t base_reg, uint32_t holder_reg) {
     const LinkerPatch patch = LinkerPatch::BakerReadBarrierBranchPatch(
         0u, Arm64RelativePatcher::EncodeBakerReadBarrierFieldData(base_reg, holder_reg));
+    auto* patcher = down_cast<Arm64RelativePatcher*>(patcher_.get());
+    ArmBaseRelativePatcher::ThunkKey key = patcher->GetBakerReadBarrierKey(patch);
+    return patcher->CompileThunk(key);
+  }
+
+  std::vector<uint8_t> CompileBakerArrayThunk(uint32_t base_reg) {
+    LinkerPatch patch = LinkerPatch::BakerReadBarrierBranchPatch(
+        0u, Arm64RelativePatcher::EncodeBakerReadBarrierArrayData(base_reg));
     auto* patcher = down_cast<Arm64RelativePatcher*>(patcher_.get());
     ArmBaseRelativePatcher::ThunkKey key = patcher->GetBakerReadBarrierKey(patch);
     return patcher->CompileThunk(key);
@@ -942,7 +957,7 @@ void Arm64RelativePatcherTest::TestBakerField(uint32_t offset, uint32_t root_reg
       if (holder_reg == base_reg) {
         // Verify that the null-check CBZ uses the correct register, i.e. holder_reg.
         ASSERT_GE(output_.size() - gray_check_offset, 4u);
-        ASSERT_EQ(0x34000000 | holder_reg, GetOutputInsn(thunk_offset) & 0xff00001f);
+        ASSERT_EQ(0x34000000 | holder_reg, GetOutputInsn(thunk_offset) & 0xff00001fu);
         gray_check_offset +=4u;
       }
       // Verify that the lock word for gray bit check is loaded from the holder address.
@@ -955,9 +970,9 @@ void Arm64RelativePatcherTest::TestBakerField(uint32_t offset, uint32_t root_reg
           /* ip0 */ 16;
       EXPECT_EQ(load_lock_word, GetOutputInsn(gray_check_offset));
       // Verify the gray bit check.
-      const uint32_t check_gray_bit_witout_offset =
+      const uint32_t check_gray_bit_without_offset =
           0x37000000 | (LockWord::kReadBarrierStateShift << 19) | /* ip0 */ 16;
-      EXPECT_EQ(check_gray_bit_witout_offset, GetOutputInsn(gray_check_offset + 4u) & 0xfff8001f);
+      EXPECT_EQ(check_gray_bit_without_offset, GetOutputInsn(gray_check_offset + 4u) & 0xfff8001fu);
       // Verify the fake dependency.
       const uint32_t fake_dependency =
           0x8b408000 |              // ADD Xd, Xn, Xm, LSR 32
@@ -1132,7 +1147,88 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddleUnreachableFr
   ASSERT_TRUE(CheckLinkedMethod(MethodRef(5), ArrayRef<const uint8_t>(expected_code2)));
 }
 
-TEST_F(Arm64RelativePatcherTestDefault, BakerRootGcRoot) {
+TEST_F(Arm64RelativePatcherTestDefault, BakerArray) {
+  uint32_t valid_regs[] = {
+      0,  1,  2,  3,  4,  5,  6,  7,  8,  9,
+      10, 11, 12, 13, 14, 15,         18, 19,  // IP0 and IP1 are reserved.
+      20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+      // LR and SP/ZR are reserved.
+  };
+  auto ldr = [](uint32_t base_reg) {
+    uint32_t index_reg = (base_reg == 0u) ? 1u : 0u;
+    uint32_t root_reg = (base_reg == 2) ? 3u : 2u;
+    return kLdrWLsl2Insn | (index_reg << 16) | (base_reg << 5) | root_reg;
+  };
+  constexpr size_t kMethodCodeSize = 8u;
+  constexpr size_t kLiteralOffset = 0u;
+  uint32_t method_idx = 0u;
+  for (uint32_t base_reg : valid_regs) {
+    ++method_idx;
+    const std::vector<uint8_t> raw_code = RawCode({kCbnzIP1Plus0Insn, ldr(base_reg)});
+    ASSERT_EQ(kMethodCodeSize, raw_code.size());
+    ArrayRef<const uint8_t> code(raw_code);
+    const LinkerPatch patches[] = {
+        LinkerPatch::BakerReadBarrierBranchPatch(
+            kLiteralOffset, Arm64RelativePatcher::EncodeBakerReadBarrierArrayData(base_reg)),
+    };
+    AddCompiledMethod(MethodRef(method_idx), code, ArrayRef<const LinkerPatch>(patches));
+  }
+  Link();
+
+  // All thunks are at the end.
+  uint32_t thunk_offset = GetMethodOffset(method_idx) + RoundUp(kMethodCodeSize, kArm64Alignment);
+  method_idx = 0u;
+  for (uint32_t base_reg : valid_regs) {
+    ++method_idx;
+    uint32_t cbnz_offset = thunk_offset - (GetMethodOffset(method_idx) + kLiteralOffset);
+    uint32_t cbnz = kCbnzIP1Plus0Insn | (cbnz_offset << (5 - 2));
+    const std::vector<uint8_t> expected_code = RawCode({cbnz, ldr(base_reg)});
+    ASSERT_EQ(kMethodCodeSize, expected_code.size());
+    EXPECT_TRUE(CheckLinkedMethod(MethodRef(method_idx), ArrayRef<const uint8_t>(expected_code)));
+
+    std::vector<uint8_t> expected_thunk = CompileBakerArrayThunk(base_reg);
+    ASSERT_GT(output_.size(), thunk_offset);
+    ASSERT_GE(output_.size() - thunk_offset, expected_thunk.size());
+    ArrayRef<const uint8_t> compiled_thunk(output_.data() + thunk_offset,
+                                           expected_thunk.size());
+    if (ArrayRef<const uint8_t>(expected_thunk) != compiled_thunk) {
+      DumpDiff(ArrayRef<const uint8_t>(expected_thunk), compiled_thunk);
+      ASSERT_TRUE(false);
+    }
+
+    // Verify that the lock word for gray bit check is loaded from the correct address
+    // before the base_reg which points to the array data.
+    static constexpr size_t kGrayCheckInsns = 5;
+    ASSERT_GE(output_.size() - thunk_offset, 4u * kGrayCheckInsns);
+    int32_t data_offset =
+        mirror::Array::DataOffset(Primitive::ComponentSize(Primitive::kPrimNot)).Int32Value();
+    int32_t offset = mirror::Object::MonitorOffset().Int32Value() - data_offset;
+    ASSERT_LT(offset, 0);
+    const uint32_t load_lock_word =
+        kLdurWInsn |
+        ((offset & 0x1ffu) << 12) |
+        (base_reg << 5) |
+        /* ip0 */ 16;
+    EXPECT_EQ(load_lock_word, GetOutputInsn(thunk_offset));
+    // Verify the gray bit check.
+    const uint32_t check_gray_bit_without_offset =
+        0x37000000u | (LockWord::kReadBarrierStateShift << 19) | /* ip0 */ 16;
+    EXPECT_EQ(check_gray_bit_without_offset, GetOutputInsn(thunk_offset + 4u) & 0xfff8001fu);
+    // Verify the fake dependency.
+    const uint32_t fake_dependency =
+        0x8b408000 |              // ADD Xd, Xn, Xm, LSR 32
+        (/* ip0 */ 16 << 16) |    // Xm = ip0
+        (base_reg << 5) |         // Xn = base_reg
+        base_reg;                 // Xd = base_reg
+    EXPECT_EQ(fake_dependency, GetOutputInsn(thunk_offset + 12u));
+    // Do not check the rest of the implementation.
+
+    // The next thunk follows on the next aligned offset.
+    thunk_offset += RoundUp(expected_thunk.size(), kArm64Alignment);
+  }
+}
+
+TEST_F(Arm64RelativePatcherTestDefault, BakerGcRoot) {
   uint32_t valid_regs[] = {
       0,  1,  2,  3,  4,  5,  6,  7,  8,  9,
       10, 11, 12, 13, 14, 15,         18, 19,  // IP0 and IP1 are reserved.
@@ -1180,7 +1276,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerRootGcRoot) {
 
     // Verify that the fast-path null-check CBZ uses the correct register, i.e. root_reg.
     ASSERT_GE(output_.size() - thunk_offset, 4u);
-    ASSERT_EQ(0x34000000 | root_reg, GetOutputInsn(thunk_offset) & 0xff00001f);
+    ASSERT_EQ(0x34000000 | root_reg, GetOutputInsn(thunk_offset) & 0xff00001fu);
     // Do not check the rest of the implementation.
 
     // The next thunk follows on the next aligned offset.
