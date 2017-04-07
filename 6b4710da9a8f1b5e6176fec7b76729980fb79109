@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6f3c040_62398492",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-07T20:17:38Z",
+      "side": 1,
+      "message": "only one space after else and before {",
+      "range": {
+        "startLine": 1803,
+        "startChar": 6,
+        "endLine": 1803,
+        "endChar": 7
+      },
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "565ae3f5_207777a1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-07T20:17:38Z",
+      "side": 1,
+      "message": "so we leave long/double for the next CL I assume?",
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
