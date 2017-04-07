@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e6e2422e_6d9f8d2e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-07T17:36:19Z",
+      "side": 1,
+      "message": "During installation at compile time, the PackageManager is passing shared libraries to dex2oat with -classpath. For split apps, we want the splits to have the proper dependencies, and are now passing previous parts of the split apk as shared libraries as we compile them all. These apks are staged in a temp dir during compilation, so we pass a relative path for them instead. This lets us still find them at runtime when performing the shared libraries check.",
+      "parentUuid": "3d84dc3d_0f9d954d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41abb30f_21b07688",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-07T09:03:40Z",
       "side": 1,
       "message": "This is used to resolve relative paths passed via the -classpath option?\n\nIf we are going to support relative paths for class:\n1. Why not use the same interface as standard java, which I think is relative to the current directory where the class path is specified.\n2. Shouldn\u0027t we be supporting relative paths generally in the runtime, not just in dex2oat?",
+      "range": {
+        "startLine": 388,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93a521ba_e18c5ec0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-07T17:36:19Z",
+      "side": 1,
+      "message": "Yes, this is for relative paths being passed with -classpath.\n\n1. I was originally using the current working directory for relative paths. Talking with Andreas, we thought that there might be unintended side effects, so controlling it with a switch would prevent that.\n2. If there\u0027s a need in the general runtime for it, sure.",
+      "parentUuid": "41abb30f_21b07688",
       "range": {
         "startLine": 388,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "750b12d3_67bed961",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-07T17:36:19Z",
+      "side": 1,
+      "message": "I can keep class_path_locations const if that\u0027s what you\u0027re asking. I was modifying the paths within OpenClassPathFiles, not for them to be used later by anything.",
+      "parentUuid": "fe3550ae_bd6db9b9",
+      "range": {
+        "startLine": 1495,
+        "startChar": 5,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f40dd35_c62b265f",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-07T09:03:40Z",
       "side": 1,
       "message": "Can you add a comment describing what this code does and what it is for? I think the purpose is to verify that the dex files are in the same order as the shared library paths?",
+      "range": {
+        "startLine": 444,
+        "startChar": 1,
+        "endLine": 447,
+        "endChar": 63
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caadc0f5_0f9596d4",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-07T17:36:19Z",
+      "side": 1,
+      "message": "Yes, this checks that the dex files are in the same order as the shared libraries dex2oat had at compile time.",
+      "parentUuid": "3f40dd35_c62b265f",
       "range": {
         "startLine": 444,
         "startChar": 1,
