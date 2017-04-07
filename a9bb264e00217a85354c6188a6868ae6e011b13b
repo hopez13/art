@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5835fe9_4de123de",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-07T20:47:07Z",
+      "side": 1,
+      "message": "this is a bit unclear. Could you document what the context is?",
+      "range": {
+        "startLine": 160,
+        "startChar": 18,
+        "endLine": 160,
+        "endChar": 25
+      },
+      "revId": "a9bb264e00217a85354c6188a6868ae6e011b13b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcd31549_65a1344f",
+        "filename": "test/623-checker-loop-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-07T20:47:07Z",
+      "side": 1,
+      "message": "do these need to be fields?\n\nIt took me a bit to figure out that reduc() will update the vectors. Add a comment if they need to be fields.",
+      "range": {
+        "startLine": 351,
+        "startChar": 4,
+        "endLine": 353,
+        "endChar": 11
+      },
+      "revId": "a9bb264e00217a85354c6188a6868ae6e011b13b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
