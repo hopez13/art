@@ -482,6 +482,7 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
   }
 
   // Now drain the queue.
+  bool has_duplicates = false;
   while (!queue.empty()) {
     // Modifying the top element is only safe if we pop right after.
     DexFileAndClassPair compare_pop(queue.top());
@@ -493,12 +494,15 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
       if (strcmp(compare_pop.GetCachedDescriptor(), top.GetCachedDescriptor()) == 0) {
         // Same descriptor. Check whether it's crossing old-oat-files to new-oat-files.
         if (compare_pop.FromLoadedOat() != top.FromLoadedOat()) {
-          *error_msg =
-              StringPrintf("Found duplicated class when checking oat files: '%s' in %s and %s",
-                           compare_pop.GetCachedDescriptor(),
-                           compare_pop.GetDexFile()->GetLocation().c_str(),
-                           top.GetDexFile()->GetLocation().c_str());
-          return true;
+          *error_msg = StringPrintf("Found duplicate classes in %s and %s",
+                                    compare_pop.GetDexFile()->GetLocation().c_str(),
+                                    top.GetDexFile()->GetLocation().c_str());
+          LOG(ERROR) << StringPrintf(
+              "Found duplicated class when checking oat files: '%s' in %s and %s",
+              compare_pop.GetCachedDescriptor(),
+              compare_pop.GetDexFile()->GetLocation().c_str(),
+              top.GetDexFile()->GetLocation().c_str());
+          has_duplicates = true;
         }
         queue.pop();
         AddNext(top, queue);
@@ -510,7 +514,7 @@ static bool CollisionCheck(std::vector<const DexFile*>& dex_files_loaded,
     AddNext(compare_pop, queue);
   }
 
-  return false;
+  return has_duplicates;
 }
 
 // Check for class-def collisions in dex files.
