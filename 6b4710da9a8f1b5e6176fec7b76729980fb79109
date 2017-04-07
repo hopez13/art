@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "becbab66_62114276",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-07T21:16:45Z",
+      "side": 1,
+      "message": "shouldn\u0027t this become Q register?",
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "565ae3f5_207777a1",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
