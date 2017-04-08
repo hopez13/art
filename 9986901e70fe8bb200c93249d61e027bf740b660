@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eb39595_d8655a97",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-08T01:54:05Z",
+      "side": 1,
+      "message": "Why a deque instead of a vector?",
+      "range": {
+        "startLine": 786,
+        "startChar": 2,
+        "endLine": 786,
+        "endChar": 12
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cb10c27_f347ee3d",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-08T01:54:05Z",
+      "side": 1,
+      "message": "Seems kind of hacky to reuse this entrypoint.",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce462727_0ab2fe84",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2519,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-08T01:54:05Z",
+      "side": 1,
+      "message": "IP1",
+      "range": {
+        "startLine": 2519,
+        "startChar": 37,
+        "endLine": 2519,
+        "endChar": 40
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c12ed42_0dd58944",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2675,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-08T01:54:05Z",
+      "side": 1,
+      "message": "Null case might be common enough to do the check in the thunk to avoid a branch?",
+      "range": {
+        "startLine": 2675,
+        "startChar": 4,
+        "endLine": 2675,
+        "endChar": 7
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cca83e09_76efa939",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-08T01:54:05Z",
+      "side": 1,
+      "message": "In practice I think this should be the common case. Maybe use tbz + fall-through to help branch predictor?",
+      "range": {
+        "startLine": 2678,
+        "startChar": 4,
+        "endLine": 2678,
+        "endChar": 8
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
