@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "7dbde0dc_da70b821",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-09T16:21:20Z",
+      "side": 1,
+      "message": "All of that is too fine grain for our simple variant of side effects.",
+      "parentUuid": "a47c855a_62bf0731",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a581cd4_42e598f8",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-09T16:21:20Z",
+      "side": 1,
+      "message": "It isn\u0027t a Java heap read.The field is in native memory.",
+      "parentUuid": "dd10e5f4_ef501232",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c937fe8_402d631d",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 5
@@ -66,6 +114,24 @@
     },
     {
       "key": {
+        "uuid": "0091ea48_080510c6",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-09T16:21:20Z",
+      "side": 1,
+      "message": "You can double check if it\u0027s needed. Maybe it\u0027s not as the null check is explicit in the graph.",
+      "parentUuid": "6c937fe8_402d631d",
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3ee7647_7bd65276",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 5
@@ -77,6 +143,30 @@
       "writtenOn": "2017-04-07T14:13:44Z",
       "side": 1,
       "message": "Or move inside the if-block above?",
+      "range": {
+        "startLine": 2771,
+        "startChar": 59,
+        "endLine": 2771,
+        "endChar": 74
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78c0082e_b0090b95",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-09T16:21:20Z",
+      "side": 1,
+      "message": "WDYM? It\u0027s already in the if block above line 2767.",
+      "parentUuid": "b3ee7647_7bd65276",
       "range": {
         "startLine": 2771,
         "startChar": 59,
