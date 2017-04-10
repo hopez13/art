@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8483518_5c413f9d",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T14:19:49Z",
+      "side": 1,
+      "message": "vixl::aarch64::Label is not movable. (See also the comment at line 758 which is somewhat related.)\n\nWhen the first ArenaDeque\u003c\u003es were introduced above, the art::Label was also not movable, so ArenaVector\u003c\u003e was not an option for other backends either. And with the old ARM backend\u0027s notion of \"tracked labels\" where the assembler keeps pointers to those labels and updates them when finalizing code, those art::Labels must have been kept in place anyway.",
+      "parentUuid": "3eb39595_d8655a97",
+      "range": {
+        "startLine": 786,
+        "startChar": 2,
+        "endLine": 786,
+        "endChar": 12
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cb10c27_f347ee3d",
         "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
         "patchSetId": 25
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-08T01:54:05Z",
       "side": 1,
       "message": "Seems kind of hacky to reuse this entrypoint.",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88f7389e_5eff7e93",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T14:19:49Z",
+      "side": 1,
+      "message": "Do you want me to add another one?",
+      "parentUuid": "2cb10c27_f347ee3d",
       "range": {
         "startLine": 129,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "44dfb0a1_dcf8d97d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T14:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce462727_0ab2fe84",
+      "range": {
+        "startLine": 2519,
+        "startChar": 37,
+        "endLine": 2519,
+        "endChar": 40
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c12ed42_0dd58944",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 25
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "97f6b931_f711c4f8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T14:19:49Z",
+      "side": 1,
+      "message": "We would also need to do the \"return switch\" (lines 2688-2693) in the thunk. We may as well move all the checks then. I\u0027ll prepare an experiment for Golem.",
+      "parentUuid": "3c12ed42_0dd58944",
+      "range": {
+        "startLine": 2675,
+        "startChar": 4,
+        "endLine": 2675,
+        "endChar": 7
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cca83e09_76efa939",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 25
@@ -105,6 +201,30 @@
       "writtenOn": "2017-04-08T01:54:05Z",
       "side": 1,
       "message": "In practice I think this should be the common case. Maybe use tbz + fall-through to help branch predictor?",
+      "range": {
+        "startLine": 2678,
+        "startChar": 4,
+        "endLine": 2678,
+        "endChar": 8
+      },
+      "revId": "9986901e70fe8bb200c93249d61e027bf740b660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f8c48c_67d00535",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T14:19:49Z",
+      "side": 1,
+      "message": "Done, replicating the structure from READ_BARRIER_MARK_REG.",
+      "parentUuid": "cca83e09_76efa939",
       "range": {
         "startLine": 2678,
         "startChar": 4,
