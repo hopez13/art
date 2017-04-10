@@ -8451,60 +8451,124 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
     ArtMethod* method;
     uintptr_t field_or_method;
   } target;
-  uint32_t num_params;
-  mirror::MethodHandle::Kind kind;
+
+
   DexFile::MethodHandleType handle_type =
       static_cast<DexFile::MethodHandleType>(mh.method_handle_type_);
   switch (handle_type) {
     case DexFile::MethodHandleType::kStaticPut: {
-      kind = mirror::MethodHandle::Kind::kStaticPut;
       target.field = ResolveField(mh.field_or_method_idx_, referrer, true /* is_static */);
+      break;
+    }
+    case DexFile::MethodHandleType::kStaticGet: {
+      target.field = ResolveField(mh.field_or_method_idx_, referrer, true /* is_static */);
+      break;
+    }
+    case DexFile::MethodHandleType::kInstancePut: {
+      target.field = ResolveField(mh.field_or_method_idx_, referrer, false /* is_static */);
+      break;
+    }
+    case DexFile::MethodHandleType::kInstanceGet: {
+      target.field = ResolveField(mh.field_or_method_idx_, referrer, false /* is_static */);
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeStatic: {
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kStatic);
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeInstance: {
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kVirtual);
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeConstructor: {
+      UNIMPLEMENTED(FATAL) << "Invoke constructor is implemented as a transform.";
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeDirect: {
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kDirect);
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeInterface: {
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kInterface);
+      break;
+    }
+  }
+
+  // Common check for resolution failure.
+  if (target.field_or_method == 0) {
+    DCHECK(Thread::Current()->IsExceptionPending());
+    return nullptr;
+  }
+
+  // Determine the kind and number of parameters after it's safe to
+  // follow the field or method pointer.
+  mirror::MethodHandle::Kind kind;
+  uint32_t num_params;
+  switch (handle_type) {
+    case DexFile::MethodHandleType::kStaticPut: {
+      kind = mirror::MethodHandle::Kind::kStaticPut;
       num_params = 1;
       break;
     }
     case DexFile::MethodHandleType::kStaticGet: {
       kind = mirror::MethodHandle::Kind::kStaticGet;
-      target.field = ResolveField(mh.field_or_method_idx_, referrer, true /* is_static */);
       num_params = 0;
       break;
     }
     case DexFile::MethodHandleType::kInstancePut: {
       kind = mirror::MethodHandle::Kind::kInstancePut;
-      target.field = ResolveField(mh.field_or_method_idx_, referrer, false /* is_static */);
       num_params = 2;
       break;
     }
     case DexFile::MethodHandleType::kInstanceGet: {
       kind = mirror::MethodHandle::Kind::kInstanceGet;
-      target.field = ResolveField(mh.field_or_method_idx_, referrer, false /* is_static */);
       num_params = 1;
       break;
     }
     case DexFile::MethodHandleType::kInvokeStatic: {
       kind = mirror::MethodHandle::Kind::kInvokeStatic;
-      target.method = ResolveMethod<kNoICCECheckForCache>(self,
-                                                          mh.field_or_method_idx_,
-                                                          referrer,
-                                                          InvokeType::kStatic);
       uint32_t shorty_length;
       target.method->GetShorty(&shorty_length);
-      num_params = shorty_length - 1;  // Remove 1 for return value.
+      num_params = shorty_length - 1;  // Remove 1 for the return value.
       break;
     }
     case DexFile::MethodHandleType::kInvokeInstance: {
       kind = mirror::MethodHandle::Kind::kInvokeVirtual;
-      target.method = ResolveMethod<kNoICCECheckForCache>(self,
-                                                          mh.field_or_method_idx_,
-                                                          referrer,
-                                                          InvokeType::kVirtual);
       uint32_t shorty_length;
       target.method->GetShorty(&shorty_length);
-      num_params = shorty_length - 1;  // Remove 1 for return value.
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
       break;
     }
     case DexFile::MethodHandleType::kInvokeConstructor: {
       UNIMPLEMENTED(FATAL) << "Invoke constructor is implemented as a transform.";
       num_params = 0;
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeDirect: {
+      kind = mirror::MethodHandle::Kind::kInvokeDirect;
+      uint32_t shorty_length;
+      target.method->GetShorty(&shorty_length);
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeInterface: {
+      kind = mirror::MethodHandle::Kind::kInvokeInterface;
+      uint32_t shorty_length;
+      target.method->GetShorty(&shorty_length);
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
+      break;
     }
   }
 
@@ -8540,8 +8604,10 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       return_type = hs.NewHandle(target.field->GetType<true>());
       break;
     }
-    case DexFile::MethodHandleType::kInvokeStatic:
-    case DexFile::MethodHandleType::kInvokeInstance: {
+    case DexFile::MethodHandleType::kInvokeDirect:
+    case DexFile::MethodHandleType::kInvokeInstance:
+    case DexFile::MethodHandleType::kInvokeInterface:
+    case DexFile::MethodHandleType::kInvokeStatic: {
       // TODO(oth): This will not work for varargs methods as this
       // requires instantiating a Transformer. This resolution step
       // would be best done in managed code rather than in the run
@@ -8549,14 +8615,19 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
       Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
       DexFileParameterIterator it(*dex_file, target.method->GetPrototype());
-      for (int32_t i = 0; it.HasNext(); i++, it.Next()) {
+      int32_t index = 0;
+      if (handle_type != DexFile::MethodHandleType::kInvokeStatic) {
+        method_params->Set(index++, target.method->GetDeclaringClass());
+      }
+      while (it.HasNext()) {
         const dex::TypeIndex type_idx = it.GetTypeIdx();
         mirror::Class* klass = ResolveType(*dex_file, type_idx, dex_cache, class_loader);
         if (nullptr == klass) {
           DCHECK(self->IsExceptionPending());
           return nullptr;
         }
-        method_params->Set(i, klass);
+        method_params->Set(index++, klass);
+        it.Next();
       }
       return_type = hs.NewHandle(target.method->GetReturnType(true));
       break;
