@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c461398f_a0017fa6",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T09:57:37Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter in what memory the field is. If the spec says that the interrupting thread synchronizes with the interrupted thread, we need to have correct semantics, i.e. stores in the interrupting thread before Thread.interrupt() must be visible to the interrupted thread after checking Thread.interrupted().",
+      "parentUuid": "2a581cd4_42e598f8",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c937fe8_402d631d",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 5
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "WDYM? It\u0027s already in the if block above line 2767.",
       "parentUuid": "b3ee7647_7bd65276",
+      "range": {
+        "startLine": 2771,
+        "startChar": 59,
+        "endLine": 2771,
+        "endChar": 74
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37d60a1d_598fbad8",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-10T09:57:37Z",
+      "side": 1,
+      "message": "I mean reordering the \"Bind(\u0026done)\" above and \"dmb(ish)\" below.",
+      "parentUuid": "78c0082e_b0090b95",
       "range": {
         "startLine": 2771,
         "startChar": 59,
