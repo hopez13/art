@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "016d87c9_42919c07",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5063,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T22:00:24Z",
+      "side": 1,
+      "message": "Done.\n\nSee L5064, it needs ATTRIBUTE_UNUSED or the compiler will warn (and error) that nothing is using \"IsThis\"\n\nIt was previously being used by some other code in this CL, but now I removed it.\n\nI didn\u0027t want to remove it altogether because my next (LSE fence) CL is already using #IsThis to find the 0th parameter to a virtual function call",
+      "parentUuid": "3938da49_a67b11a0",
+      "range": {
+        "startLine": 5063,
+        "startChar": 2,
+        "endLine": 5063,
+        "endChar": 76
+      },
+      "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b81fe35_a7c6c928",
         "filename": "compiler/optimizing/optimizing_unit_test.h",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "writtenOn": "2017-04-10T17:57:28Z",
       "side": 1,
       "message": "use a local variable or /* .. */ comments. Otherwise, line re-ordering becomes a nightmare.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea39ad47_0d95fe8e",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T22:00:24Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1b81fe35_a7c6c928",
       "range": {
         "startLine": 84,
         "startChar": 10,
