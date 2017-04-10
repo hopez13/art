@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "b60ae931_c4ebbcda",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T23:05:38Z",
+      "side": 1,
+      "message": "You can get a clinit here if kEverything is selected. I think you can test it in case I missed something.\n\nWhat I meant with my first comment, is that this code should not crash or fail dchecks in a valid use-case. If you are aware of a code that prevents reaching this point for clinit than document and add a DCHECK. (I am not :) ). \n\nUsing HLoadClass as input sounds good to me though I suspect it might complicate the analysis later.",
+      "parentUuid": "3d6aee01_4fa9f540",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e040b5f_770b1f49",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "\"Makes things cleaner\" -\u003e if it\u0027s a \"GetThisParameter\" helper should satisfy that?\n\nI was trying to clarify if this helper should retrieve from a cache or just calculate it once and cache it afterwards, or always calculate it , or something else?",
       "parentUuid": "665920d8_e764cc81",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88fd5a43_b3aed32f",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T23:05:38Z",
+      "side": 1,
+      "message": "Given that you have a while loop here I would cache it in the beginning of the graph builder.\n\nYou can easily check how many time the method would be invoke on large apps. If you deem that the cache is useless just recomputing could work as well.",
+      "parentUuid": "b8fad8ba_bdf3e93e",
       "range": {
         "startLine": 646,
         "startChar": 0,
@@ -432,6 +480,24 @@
     },
     {
       "key": {
+        "uuid": "5ba66f4e_200713f9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T23:05:38Z",
+      "side": 1,
+      "message": "Ah, you\u0027re right. I didn\u0027t read RemoveAllFakeUses properly.\n\nI don\u0027t like the idea of Real/Fake uses. The semantics are questionable imo.\n\nHow about you just test here for HasConstructorFenceUses and RemoveContructorFenceUses? It would be pretty explicit about what the intention is here.\n\nWe can think about expanding the scope and generalize when we actually need to.",
+      "parentUuid": "f16830ea_3e4ed2e1",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -607,6 +673,30 @@
       "side": 1,
       "message": "Like this?\n \n  //// STUFF\n\n  /*\n  ////\n  ////  4 or 2 slashes here? does checker understand /* ?\n  ////\n  */\n\n  //// OTHER STUFF\n\n?",
       "parentUuid": "90c76307_8546cf99",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc08353d_c85a09a0",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T23:05:38Z",
+      "side": 1,
+      "message": "No strong preference. Anything that reads a bit better than parsing the number of \u0027/\u0027 to identify the comment is good.\n\nE.g I\u0027d put the TODO right before the method (after \"// Multiple... \"",
+      "parentUuid": "6ec142f7_22a692b9",
       "range": {
         "startLine": 152,
         "startChar": 3,
