@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64b6e258_7f92fbab",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3075,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a7ad3a5_f535a5a6",
+      "range": {
+        "startLine": 3071,
+        "startChar": 0,
+        "endLine": 3075,
+        "endChar": 44
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08a01160_a0eb399e",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Right, I don\u0027t know the high level well enough to understand if it would ever inline \u003cclinit\u003e (perhaps with compiler-filter kEverything?)",
       "parentUuid": "08a01160_a0eb399e",
+      "range": {
+        "startLine": 1459,
+        "startChar": 8,
+        "endLine": 1459,
+        "endChar": 42
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef03ef5f_ae553e91",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2813b4ef_00859fed",
       "range": {
         "startLine": 1459,
         "startChar": 8,
@@ -191,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "edd52f09_263c3650",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b60ae931_c4ebbcda",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e040b5f_770b1f49",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -310,6 +382,30 @@
     },
     {
       "key": {
+        "uuid": "78a2ae85_e5fb20c9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88fd5a43_b3aed32f",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 7
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae903d1a_32ad7d08",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -357,6 +453,30 @@
     },
     {
       "key": {
+        "uuid": "bc838d0b_2a7ea2f9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d3ff7e_ea3b916f",
+      "range": {
+        "startLine": 670,
+        "startChar": 14,
+        "endLine": 670,
+        "endChar": 55
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e758d7ca_bb91e36e",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -368,6 +488,30 @@
       "writtenOn": "2017-04-06T16:47:19Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 675,
+        "startChar": 13,
+        "endLine": 675,
+        "endChar": 55
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a4400b7_2853fc97",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e758d7ca_bb91e36e",
       "range": {
         "startLine": 675,
         "startChar": 13,
@@ -415,6 +559,30 @@
       "side": 1,
       "message": "I think I agree in principle after reading how CalculateEscape works.\n\nWhat I don\u0027t understand is why in the original code it still has this guard in L571 and L577 if the singleton invariant is enough?\n\n(btw it was Mingyao who suggested I add the \"instruction has real uses\" check at this point in LSE)",
       "parentUuid": "b8b7ef53_01e24f12",
+      "range": {
+        "startLine": 569,
+        "startChar": 4,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abe253c1_0d680635",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Still not sure about this.\n\nMingyao, thoughts?",
+      "parentUuid": "f19754df_0e108fa0",
       "range": {
         "startLine": 569,
         "startChar": 4,
@@ -498,6 +666,24 @@
     },
     {
       "key": {
+        "uuid": "2b98a3dc_3951b1b8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Should I have those \"HasConstructorFencesUses / RemoveConstructorFenceUses\" in this file or in nodes.h ?",
+      "parentUuid": "5ba66f4e_200713f9",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -532,6 +718,30 @@
       "writtenOn": "2017-04-06T18:08:04Z",
       "side": 1,
       "message": "remove the \"usually\" and mention all cases if there are others.",
+      "range": {
+        "startLine": 6507,
+        "startChar": 20,
+        "endLine": 6507,
+        "endChar": 27
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d1484cb_10d13647",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6507,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T23:36:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f2b607d_fe4c58e2",
       "range": {
         "startLine": 6507,
         "startChar": 20,
