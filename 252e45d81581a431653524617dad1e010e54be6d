@@ -227,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "23651768_08a5ac65",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-04-10T17:41:05Z",
+      "side": 1,
+      "message": "Indeed, if we want to preserve the seq_cst semantics, I think we can at most move it in. Consider if each of 2 threads does, form a state in which both flags are set:\n\ninterruped();\nother.isInterrupted();\n\nWithout that fence, I think both threads can see a result of true.\n\nMoving it in is probably OK, since the only thread that can clear the flag is us, and therefore a load of false means we must have seen our own write (or the initializing one), which doesn\u0027t add any visibility guarantees",
+      "parentUuid": "37d60a1d_598fbad8",
+      "range": {
+        "startLine": 2771,
+        "startChar": 59,
+        "endLine": 2771,
+        "endChar": 74
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73110e9e_c49a4fe8",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 5
