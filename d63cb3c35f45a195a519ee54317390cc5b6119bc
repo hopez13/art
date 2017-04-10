@@ -684,6 +684,24 @@
     },
     {
       "key": {
+        "uuid": "4ffe2013_909745c4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T23:41:07Z",
+      "side": 1,
+      "message": "Keep them here until you actually have other uses.",
+      "parentUuid": "2b98a3dc_3951b1b8",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
