@@ -273,6 +273,7 @@ class DexFile {
                                   // can be any non-static method on any class (or interface) except
                                   // for “<init>”.
     kInvokeConstructor = 0x0006,  // an invoker for a given constructor.
+    kInvokeDirect      = 0x0007,  // an invoker for a direct (special) method.
     kLast = kInvokeConstructor
   };
 
