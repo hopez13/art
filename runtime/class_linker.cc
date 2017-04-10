@@ -8406,7 +8406,7 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
                                                           InvokeType::kStatic);
       uint32_t shorty_length;
       target.method->GetShorty(&shorty_length);
-      num_params = shorty_length - 1;  // Remove 1 for return value.
+      num_params = shorty_length - 1;  // Remove 1 for the return value.
       break;
     }
     case DexFile::MethodHandleType::kInvokeInstance: {
@@ -8417,12 +8417,35 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
                                                           InvokeType::kVirtual);
       uint32_t shorty_length;
       target.method->GetShorty(&shorty_length);
-      num_params = shorty_length - 1;  // Remove 1 for return value.
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
       break;
     }
     case DexFile::MethodHandleType::kInvokeConstructor: {
       UNIMPLEMENTED(FATAL) << "Invoke constructor is implemented as a transform.";
       num_params = 0;
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeDirect: {
+      kind = mirror::MethodHandle::Kind::kInvokeDirect;
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kDirect);
+      uint32_t shorty_length;
+      target.method->GetShorty(&shorty_length);
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
+      break;
+    }
+    case DexFile::MethodHandleType::kInvokeInterface: {
+      kind = mirror::MethodHandle::Kind::kInvokeInterface;
+      target.method = ResolveMethod<kNoICCECheckForCache>(self,
+                                                          mh.field_or_method_idx_,
+                                                          referrer,
+                                                          InvokeType::kInterface);
+      uint32_t shorty_length;
+      target.method->GetShorty(&shorty_length);
+      num_params = shorty_length;  // Add 1 for the receiver, remove 1 for the return value.
+      break;
     }
   }
 
@@ -8458,8 +8481,10 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       return_type = hs.NewHandle(target.field->GetType<true>());
       break;
     }
-    case DexFile::MethodHandleType::kInvokeStatic:
-    case DexFile::MethodHandleType::kInvokeInstance: {
+    case DexFile::MethodHandleType::kInvokeDirect:
+    case DexFile::MethodHandleType::kInvokeInstance:
+    case DexFile::MethodHandleType::kInvokeInterface:
+    case DexFile::MethodHandleType::kInvokeStatic: {
       // TODO(oth): This will not work for varargs methods as this
       // requires instantiating a Transformer. This resolution step
       // would be best done in managed code rather than in the run
@@ -8467,14 +8492,19 @@ mirror::MethodHandle* ClassLinker::ResolveMethodHandle(uint32_t method_handle_id
       Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
       Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
       DexFileParameterIterator it(*dex_file, target.method->GetPrototype());
-      for (int32_t i = 0; it.HasNext(); i++, it.Next()) {
+      int32_t index = 0;
+      if (handle_type != DexFile::MethodHandleType::kInvokeStatic) {
+        method_params->Set(index++, target.method->GetDeclaringClass());
+      }
+      while (it.HasNext()) {
         const dex::TypeIndex type_idx = it.GetTypeIdx();
         mirror::Class* klass = ResolveType(*dex_file, type_idx, dex_cache, class_loader);
         if (nullptr == klass) {
           DCHECK(self->IsExceptionPending());
           return nullptr;
         }
-        method_params->Set(i, klass);
+        method_params->Set(index++, klass);
+        it.Next();
       }
       return_type = hs.NewHandle(target.method->GetReturnType(true));
       break;
