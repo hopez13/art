@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb248716_c32c6f93",
+        "filename": "test/985-jni-onload-throw/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-10T20:34:19Z",
+      "side": 1,
+      "message": "This fails on target:\n\nhttps://build.chromium.org/p/client.art/builders/hammerhead-debug/builds/6595/steps/test%20optimizing/logs/stdio\n\nBasically, \u0027run\u0027 command builds a single file that gets pushed to device and then executed via adb shell.\n\nSo extra variables need to be appended to the right of \u0027run\u0027\n\nFor example\n\n ${RUN} --env ART_TEST...\u003d1\n\nand then modifying etc/run-test-jar to accept the new --env flag.",
+      "revId": "d111f90a386f7bad1474189390fce7a8d1ff1ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
