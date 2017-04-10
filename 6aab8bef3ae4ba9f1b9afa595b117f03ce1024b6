@@ -94,6 +94,53 @@
       "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3938da49_a67b11a0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5063,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T17:57:28Z",
+      "side": 1,
+      "message": "I don\u0027t really understand the TODO... and I think I agree with Nicolas to remove it.\n\nWhy did you need this change here anyway?",
+      "parentUuid": "6a1b9c06_96098862",
+      "range": {
+        "startLine": 5063,
+        "startChar": 2,
+        "endLine": 5063,
+        "endChar": 76
+      },
+      "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b81fe35_a7c6c928",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-10T17:57:28Z",
+      "side": 1,
+      "message": "use a local variable or /* .. */ comments. Otherwise, line re-ordering becomes a nightmare.",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "6aab8bef3ae4ba9f1b9afa595b117f03ce1024b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
