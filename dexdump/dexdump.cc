@@ -1588,6 +1588,7 @@ static void dumpClass(const DexFile* pDexFile, int idx, char** pLastPackage) {
 static void dumpMethodHandle(const DexFile* pDexFile, u4 idx) {
   const DexFile::MethodHandleItem& mh = pDexFile->GetMethodHandle(idx);
   bool is_invoke = false;
+  bool is_instance = false;
   const char* type;
   switch (static_cast<DexFile::MethodHandleType>(mh.method_handle_type_)) {
     case DexFile::MethodHandleType::kStaticPut:
@@ -1598,9 +1599,11 @@ static void dumpMethodHandle(const DexFile* pDexFile, u4 idx) {
       break;
     case DexFile::MethodHandleType::kInstancePut:
       type = "put-instance";
+      is_instance = true;
       break;
     case DexFile::MethodHandleType::kInstanceGet:
       type = "get-instance";
+      is_instance = true;
       break;
     case DexFile::MethodHandleType::kInvokeStatic:
       type = "invoke-static";
@@ -1608,10 +1611,12 @@ static void dumpMethodHandle(const DexFile* pDexFile, u4 idx) {
       break;
     case DexFile::MethodHandleType::kInvokeInstance:
       type = "invoke-instance";
+      is_instance = true;
       is_invoke = true;
       break;
     case DexFile::MethodHandleType::kInvokeConstructor:
       type = "invoke-constructor";
+      is_instance = true;
       is_invoke = true;
       break;
   }
@@ -1629,6 +1634,10 @@ static void dumpMethodHandle(const DexFile* pDexFile, u4 idx) {
     declaring_class = pDexFile->GetFieldDeclaringClassDescriptor(field_id);
     member = pDexFile->GetFieldName(field_id);
     member_type = pDexFile->GetFieldTypeDescriptor(field_id);
+  }
+
+  if (is_instance) {
+    member_type = android::base::StringPrintf("(%s%s", declaring_class, member_type.c_str() + 1);
   }
 
   if (gOptions.outputFormat == OUTPUT_PLAIN) {
