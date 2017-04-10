@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "821d7b88_92b9457c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-04-10T10:45:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6f3c040_62398492",
+      "range": {
+        "startLine": 1803,
+        "startChar": 6,
+        "endLine": 1803,
+        "endChar": 7
+      },
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "becbab66_62114276",
         "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "84f8b1db_33bec78c",
+        "filename": "compiler/optimizing/code_generator_vector_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-04-10T10:45:12Z",
+      "side": 1,
+      "message": "Actually it doesn\u0027t really matter now .Dt modifiers don\u0027t care about particular type of register - only reg_code; for instance d1.V16B() and v1.V16B() will be the same.\n\nHowever in the follow up (long and double) case I\u0027ve replaced Dreg with Vreg which looks nicer.",
+      "parentUuid": "becbab66_62114276",
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "565ae3f5_207777a1",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-04-07T20:17:38Z",
       "side": 1,
       "message": "so we leave long/double for the next CL I assume?",
+      "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a799cc90_a0fdd746",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2017-04-10T10:45:12Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "565ae3f5_207777a1",
       "revId": "6b4710da9a8f1b5e6176fec7b76729980fb79109",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
