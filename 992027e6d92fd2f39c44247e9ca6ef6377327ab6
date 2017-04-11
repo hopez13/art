@@ -46,6 +46,30 @@
       "revId": "992027e6d92fd2f39c44247e9ca6ef6377327ab6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ffec7eb_0b74e80c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-11T17:53:32Z",
+      "side": 1,
+      "message": "Note that even with string compression disabled we would need to deal with a different data offset.",
+      "parentUuid": "52781b79_76c705ec",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 64
+      },
+      "revId": "992027e6d92fd2f39c44247e9ca6ef6377327ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
