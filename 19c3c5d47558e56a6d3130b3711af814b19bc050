@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "17dfb57f_8751f94d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-11T18:11:59Z",
+      "side": 1,
+      "message": "Yea maybe we can discuss if that would make sense later, but a base classpath directory is all I need for now.",
+      "parentUuid": "50faafd9_8e1ecd99",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41abb30f_21b07688",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "My understanding from the comment Andreas put on a previous patch set was it was bad to use the current working directory in EncodeDexFileDependencies. If you pass EncodeDexFileDependencies the relative paths to start with, then it doesn\u0027t need to use the current working directory, regardless of whether the current working directory or an extra option is used in dex2oat.\n\nIf you are going to use this extra option, please mention \"-classpath\" directly in the usage description for this option. Perhaps call the option \"--classpath-dir\" instead of \"--base-dir\" so it is clear the option applies to the classpath, and not, say, the dex file?",
       "parentUuid": "93a521ba_e18c5ec0",
+      "range": {
+        "startLine": 388,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ece5c8a_93530754",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-11T18:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aac1815_4ac3feac",
       "range": {
         "startLine": 388,
         "startChar": 1,
@@ -215,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "a6007bce_1b616286",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-11T18:11:59Z",
+      "side": 1,
+      "message": "I don\u0027t think I can avoid reverting the paths in EncodeDexFileDependencies. I\u0027m passing in the opened class_path_files there, not the class_path_locations. I can\u0027t just pass class_path_locations because OpenClassPathFiles may fail to open some of them, and only the opened ones should be passed to EncodeDexFileDependencies. The opened dex files have absolute addresses.",
+      "parentUuid": "6082466d_f17a9bfa",
+      "range": {
+        "startLine": 1495,
+        "startChar": 5,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f40dd35_c62b265f",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -274,6 +346,30 @@
       "side": 1,
       "message": "Please add this statement as a comment in the code itself.",
       "parentUuid": "caadc0f5_0f9596d4",
+      "range": {
+        "startLine": 444,
+        "startChar": 1,
+        "endLine": 447,
+        "endChar": 63
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda07970_4dc98320",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2017-04-11T18:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e36fb38_3d0b6488",
       "range": {
         "startLine": 444,
         "startChar": 1,
