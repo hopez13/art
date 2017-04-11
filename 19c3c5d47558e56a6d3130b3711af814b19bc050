@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "50faafd9_8e1ecd99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-11T08:16:28Z",
+      "side": 1,
+      "message": "A similar thing happens when we compile dex files from a staging directory. In that case, we pass the full path to the dex file with \u0027--dex-file\u0027 (or pass a file descriptor), and pass the relative path to be written to the generated oat file using the \u0027--dex-location\u0027 argument to dex2oat.\n\nTo be consistent, perhaps we should add a \u0027--classpath-locations\u0027 argument to list the relative paths? I\u0027m not sure.",
+      "parentUuid": "e6e2422e_6d9f8d2e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41abb30f_21b07688",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, this is for relative paths being passed with -classpath.\n\n1. I was originally using the current working directory for relative paths. Talking with Andreas, we thought that there might be unintended side effects, so controlling it with a switch would prevent that.\n2. If there\u0027s a need in the general runtime for it, sure.",
       "parentUuid": "41abb30f_21b07688",
+      "range": {
+        "startLine": 388,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aac1815_4ac3feac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-11T08:16:28Z",
+      "side": 1,
+      "message": "My understanding from the comment Andreas put on a previous patch set was it was bad to use the current working directory in EncodeDexFileDependencies. If you pass EncodeDexFileDependencies the relative paths to start with, then it doesn\u0027t need to use the current working directory, regardless of whether the current working directory or an extra option is used in dex2oat.\n\nIf you are going to use this extra option, please mention \"-classpath\" directly in the usage description for this option. Perhaps call the option \"--classpath-dir\" instead of \"--base-dir\" so it is clear the option applies to the classpath, and not, say, the dex file?",
+      "parentUuid": "93a521ba_e18c5ec0",
       "range": {
         "startLine": 388,
         "startChar": 1,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6082466d_f17a9bfa",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-11T08:16:28Z",
+      "side": 1,
+      "message": "I\u0027m suggesting you not modify the contents of class_path_locations here, because that way you can pass the relative paths to EncodeDexFileDependencies later on, so no change is required to EncodeDexFileDependencies to support \"relativizing\" the passed in paths.",
+      "parentUuid": "750b12d3_67bed961",
+      "range": {
+        "startLine": 1495,
+        "startChar": 5,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f40dd35_c62b265f",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "Yes, this checks that the dex files are in the same order as the shared libraries dex2oat had at compile time.",
       "parentUuid": "3f40dd35_c62b265f",
+      "range": {
+        "startLine": 444,
+        "startChar": 1,
+        "endLine": 447,
+        "endChar": 63
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e36fb38_3d0b6488",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-11T08:16:28Z",
+      "side": 1,
+      "message": "Please add this statement as a comment in the code itself.",
+      "parentUuid": "caadc0f5_0f9596d4",
       "range": {
         "startLine": 444,
         "startChar": 1,
