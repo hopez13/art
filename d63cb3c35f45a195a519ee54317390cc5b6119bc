@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "bc54d590_0b4f3692",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Thanks for this insight Mingyao.\n\nI had initially written some code using HLoadClass, which was making me uncomfortable since I wasn\u0027t sure how to actually test it.\n\nI dropped the \u0027static\u0027 case, fixed a \"bug\" in RequriesConstructorBarrier (it wasn\u0027t checking statics, leading to possibly making redundant barriers for returns from a \u003cclinit\u003e ) and added comments justifying why its ok.",
+      "parentUuid": "d6a999d8_406b2e3d",
+      "range": {
+        "startLine": 637,
+        "startChar": 4,
+        "endLine": 637,
+        "endChar": 96
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e040b5f_770b1f49",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -643,6 +667,30 @@
     },
     {
       "key": {
+        "uuid": "6d1f8e80_6564e374",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Thanks for explaining this. I fixed the code.",
+      "parentUuid": "a2a2f163_ad28011e",
+      "range": {
+        "startLine": 569,
+        "startChar": 4,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6ed18eb_44e235e9",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -750,6 +798,24 @@
     },
     {
       "key": {
+        "uuid": "056716d9_da56b70c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ffe2013_909745c4",
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "609c2abf_e815e5e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -808,6 +874,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "4f2b607d_fe4c58e2",
+      "range": {
+        "startLine": 6507,
+        "startChar": 20,
+        "endLine": 6507,
+        "endChar": 27
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd269e3_aa7171cb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6507,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Added extensive comments for this. Please take a look.",
+      "parentUuid": "5d1484cb_10d13647",
       "range": {
         "startLine": 6507,
         "startChar": 20,
@@ -879,6 +969,30 @@
       "side": 1,
       "message": "As I commented in another place, static initializer is protected by locking/waiting mechanism, which is stronger than fences. So no need to worry about \u003cclinit\u003e.",
       "parentUuid": "5a2c52fa_7c5e392c",
+      "range": {
+        "startLine": 6507,
+        "startChar": 78,
+        "endLine": 6508,
+        "endChar": 68
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425cd590_486fd23e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6508,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80015fb8_d8ece659",
       "range": {
         "startLine": 6507,
         "startChar": 78,
@@ -997,6 +1111,30 @@
       "side": 1,
       "message": "No strong preference. Anything that reads a bit better than parsing the number of \u0027/\u0027 to identify the comment is good.\n\nE.g I\u0027d put the TODO right before the method (after \"// Multiple... \"",
       "parentUuid": "6ec142f7_22a692b9",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a7efeea_78004ef1",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-11T23:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc08353d_c85a09a0",
       "range": {
         "startLine": 152,
         "startChar": 3,
