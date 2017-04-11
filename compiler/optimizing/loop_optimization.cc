@@ -623,6 +623,10 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     }
     return true;
   } else if (instruction->IsArrayGet()) {
+    // Reject strings (to avoid [un]compressed encoding issues).
+    if (instruction->AsArrayGet()->IsStringCharAt()) {
+      return false;
+    }
     // Accept a right-hand-side array base[index] for
     // (1) exact matching vector type,
     // (2) loop-invariant base,
