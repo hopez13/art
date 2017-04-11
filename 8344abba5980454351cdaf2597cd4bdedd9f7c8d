@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a432025_ac938ef5",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Leave a TODO to rename this as it\u0027s not literal?",
+      "range": {
+        "startLine": 225,
+        "startChar": 56,
+        "endLine": 225,
+        "endChar": 70
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a783b64_038a93f8",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Maybe add a high-level (eg. pseudo code) comment on what this sequence does?",
+      "range": {
+        "startLine": 410,
+        "startChar": 20,
+        "endLine": 410,
+        "endChar": 42
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28b3eb84_fec7c6e1",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 440,
+        "startChar": 20,
+        "endLine": 440,
+        "endChar": 41
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81b07e6e_17ef8a71",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Add a comment that ip1 holds the entrypoint address at the entry of this thunk and adding BAKER_MARK_INTROSPECTION_GC_ROOT_ENTRYPOINT_OFFSET adjusts it to point to art_quick_read_barrier_mark_introspection_gc_roots?",
+      "range": {
+        "startLine": 455,
+        "startChar": 18,
+        "endLine": 455,
+        "endChar": 21
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f07b7c7_3c0c195e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6010,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Maybe add a pseudo code comment like the GCRoot case?",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6fcf1e9_8211ca39",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2645,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Say this paragraph corresponds to art_quick_read_barrier_mark_introspection?",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0625058_66453b61",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2648,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Similarly, art_quick_read_barrier_mark_introspection_arrays?",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b48ad10_d906e63a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2657,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Similarly, art_quick_read_barrier_mark_introspection_gc_roots?",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffda3c7_54bcdca3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2661,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-11T00:17:21Z",
+      "side": 1,
+      "message": "Say 768 \u003d BAKER_MARK_INTROSPECTION_GC_ROOT_ENTRYPOINT_OFFSET?",
+      "range": {
+        "startLine": 2661,
+        "startChar": 27,
+        "endLine": 2661,
+        "endChar": 30
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
