@@ -22,6 +22,30 @@
       "revId": "3101e58114b21876f77940d716385c54f697761b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5d6000c_24358a8b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-11T20:05:49Z",
+      "side": 1,
+      "message": "I missed your comment. Don\u0027t think linking to bug is needed, it was an obvious oversight, but I think we are all familiar with the string encoding (we can link in the bug to the other bug if you want)",
+      "parentUuid": "02d94bba_60770061",
+      "range": {
+        "startLine": 627,
+        "startChar": 16,
+        "endLine": 627,
+        "endChar": 26
+      },
+      "revId": "3101e58114b21876f77940d716385c54f697761b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
