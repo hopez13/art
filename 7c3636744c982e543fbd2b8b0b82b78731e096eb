@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1567e874_b2fba5a7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "This same check appears in the x86 version of the code as \"Check that length(input) \u003e\u003d pos.\" I just rewrote the MIPS check by subtracting \"pos\" from both sides of the inequality.\n\nThe location builder verifies that if \"pos\" is a constant that the its value is non-negative. Likewise, the location builder verifies that if the length is a constant it is non-negative. But I don\u0027t see any check in the location builder for verifying that either \"length_const \u003e\u003d pos_const\", or that \"length_const - pos_const \u003e\u003d 0\".",
+      "parentUuid": "c8d6941a_36a97da6",
+      "range": {
+        "startLine": 2742,
+        "startChar": 0,
+        "endLine": 2743,
+        "endChar": 47
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9130e670_3005cff6",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-12T17:25:26Z",
       "side": 1,
       "message": "This long piece is repeated 3 times in this function. I\u0027d recommend a helper function.",
+      "range": {
+        "startLine": 2772,
+        "startChar": 0,
+        "endLine": 2785,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd5c34f7_782634fe",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2785,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9130e670_3005cff6",
       "range": {
         "startLine": 2772,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b4ba1630_c37ee250",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "Code removed since the check doesn\u0027t occur in the x86 code. This intrinsic isn\u0027t implemented for ARM.",
+      "parentUuid": "9e5b16ce_91cd6767",
+      "range": {
+        "startLine": 2808,
+        "startChar": 0,
+        "endLine": 2814,
+        "endChar": 3
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f61a2d9b_97383eef",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-12T17:25:26Z",
       "side": 1,
       "message": "The constant length paths in CheckPosition() are currently unused but it\u0027s OK to keep them, assuming you shall implement the object array intrinsic in the future. Similarly, the length_is_input_length is now always false but we could add such optimization to this intrinsic as well.",
+      "range": {
+        "startLine": 2840,
+        "startChar": 43,
+        "endLine": 2840,
+        "endChar": 76
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f45b9b65_589606d3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2840,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "Yes, we plan to implement the object array intrinsic in the future.",
+      "parentUuid": "f61a2d9b_97383eef",
       "range": {
         "startLine": 2840,
         "startChar": 43,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a09eb38d_eee1c103",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2866,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbeeec71_aa20ab17",
+      "range": {
+        "startLine": 2861,
+        "startChar": 0,
+        "endLine": 2866,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aba41cf3_905c77d5",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2017-04-12T17:25:26Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2874,
+        "startChar": 0,
+        "endLine": 2879,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa466c17_c54d5551",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2879,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2017-04-12T23:43:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba41cf3_905c77d5",
       "range": {
         "startLine": 2874,
         "startChar": 0,
