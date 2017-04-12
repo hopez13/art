@@ -279,10 +279,14 @@ inline const char* ArtMethod::GetName() {
     return "<runtime internal callee-save all registers method>";
   } else if (this == runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnly)) {
     return "<runtime internal callee-save reference registers method>";
+  } else if (this == runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnlyForMonitorOps)) {
+    return "<runtime internal callee-save reference registers method for monitor ops>";
   } else if (this == runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs)) {
     return "<runtime internal callee-save reference and argument registers method>";
   } else if (this == runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverything)) {
     return "<runtime internal save-every-register method>";
+  } else if (this == runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverythingForClinit)) {
+    return "<runtime internal save-every-register method for clinit>";
   } else {
     return "<unknown runtime internal method>";
   }

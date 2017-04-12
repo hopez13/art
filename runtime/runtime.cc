@@ -2301,6 +2301,9 @@ bool Runtime::IsVerificationSoftFail() const {
 }
 
 bool Runtime::IsAsyncDeoptimizeable(uintptr_t code) const {
+  if (code == 0) {
+    return false;
+  }
   // We only support async deopt (ie the compiled code is not explicitly asking for
   // deopt, but something else like the debugger) in debuggable JIT code.
   // We could look at the oat file where `code` is being defined,

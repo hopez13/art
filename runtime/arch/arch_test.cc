@@ -86,10 +86,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 #undef BAKER_MARK_INTROSPECTION_FIELD_LDR_NARROW_ENTRYPOINT_OFFSET
 #undef BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_WIDE_ENTRYPOINT_OFFSET
 #undef BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_NARROW_ENTRYPOINT_OFFSET
@@ -107,10 +111,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 #undef BAKER_MARK_INTROSPECTION_ARRAY_SWITCH_OFFSET
 #undef BAKER_MARK_INTROSPECTION_GC_ROOT_ENTRYPOINT_OFFSET
 #undef BAKER_MARK_INTROSPECTION_FIELD_LDR_OFFSET
@@ -124,10 +132,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 #undef BAKER_MARK_INTROSPECTION_REGISTER_COUNT
 #undef BAKER_MARK_INTROSPECTION_FIELD_ARRAY_ENTRY_SIZE
 #undef BAKER_MARK_INTROSPECTION_GC_ROOT_ENTRIES_OFFSET
@@ -140,10 +152,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 #undef BAKER_MARK_INTROSPECTION_REGISTER_COUNT
 #undef BAKER_MARK_INTROSPECTION_FIELD_ARRAY_ENTRY_SIZE
 #undef BAKER_MARK_INTROSPECTION_GC_ROOT_ENTRIES_OFFSET
@@ -156,10 +172,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 }  // namespace x86
 
 namespace x86_64 {
@@ -168,10 +188,14 @@ static constexpr size_t kFrameSizeSaveAllCalleeSaves = FRAME_SIZE_SAVE_ALL_CALLE
 #undef FRAME_SIZE_SAVE_ALL_CALLEE_SAVES
 static constexpr size_t kFrameSizeSaveRefsOnly = FRAME_SIZE_SAVE_REFS_ONLY;
 #undef FRAME_SIZE_SAVE_REFS_ONLY
+static constexpr size_t kFrameSizeSaveRefsOnlyForMonitorOps = FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS;
+#undef FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS
 static constexpr size_t kFrameSizeSaveRefsAndArgs = FRAME_SIZE_SAVE_REFS_AND_ARGS;
 #undef FRAME_SIZE_SAVE_REFS_AND_ARGS
 static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
 #undef FRAME_SIZE_SAVE_EVERYTHING
+static constexpr size_t kFrameSizeSaveEverythingForClinit = FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT;
+#undef FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT
 }  // namespace x86_64
 
 // Check architecture specific constants are sound.
@@ -184,11 +208,17 @@ static constexpr size_t kFrameSizeSaveEverything = FRAME_SIZE_SAVE_EVERYTHING;
                    CalleeSaveType::kSaveRefsOnly,         \
                    arch::kFrameSizeSaveRefsOnly);         \
     CheckFrameSize(InstructionSet::k##Arch,               \
+                   CalleeSaveType::kSaveRefsOnlyForMonitorOps,  \
+                   arch::kFrameSizeSaveRefsOnlyForMonitorOps);  \
+    CheckFrameSize(InstructionSet::k##Arch,               \
                    CalleeSaveType::kSaveRefsAndArgs,      \
                    arch::kFrameSizeSaveRefsAndArgs);      \
     CheckFrameSize(InstructionSet::k##Arch,               \
                    CalleeSaveType::kSaveEverything,       \
                    arch::kFrameSizeSaveEverything);       \
+    CheckFrameSize(InstructionSet::k##Arch,               \
+                   CalleeSaveType::kSaveEverythingForClinit,  \
+                   arch::kFrameSizeSaveEverythingForClinit);  \
   }
 TEST_ARCH(Arm, arm)
 TEST_ARCH(Arm64, arm64)

@@ -66,7 +66,7 @@
      * Macro that sets up the callee save frame to conform with
      * Runtime::CreateCalleeSaveMethod(kSaveRefsOnly).
      */
-.macro SETUP_SAVE_REFS_ONLY_FRAME rTemp
+.macro SETUP_SAVE_REFS_ONLY_FRAME rTemp, runtime_method_offset = RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET
     // Note: We could avoid saving R8 in the case of Baker read
     // barriers, as it is overwritten by REFRESH_MARKING_REGISTER
     // later; but it's not worth handling this special case.
@@ -83,7 +83,7 @@
     .cfi_adjust_cfa_offset 4
     RUNTIME_CURRENT2 \rTemp                       @ Load Runtime::Current into rTemp.
     @ Load kSaveRefsOnly Method* into rTemp.
-    ldr \rTemp, [\rTemp, #RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET]
+    ldr \rTemp, [\rTemp, #\runtime_method_offset]
     str \rTemp, [sp, #0]                          @ Place Method* at bottom of stack.
     str sp, [r9, #THREAD_TOP_QUICK_FRAME_OFFSET]  @ Place sp in Thread::Current()->top_quick_frame.
 
@@ -91,6 +91,10 @@
 #if (FRAME_SIZE_SAVE_REFS_ONLY != 28 + 4)
 #error "FRAME_SIZE_SAVE_REFS_ONLY(ARM) size not as expected."
 #endif
+.endm
+
+.macro SETUP_SAVE_REFS_ONLY_FRAME_FOR_MONITOR_OPS rTemp
+    SETUP_SAVE_REFS_ONLY_FRAME \rTemp, RUNTIME_SAVE_REFS_ONLY_FOR_MONITOR_OPS_METHOD_OFFSET
 .endm
 
 .macro RESTORE_SAVE_REFS_ONLY_FRAME
@@ -182,7 +186,7 @@
      * Runtime::CreateCalleeSaveMethod(kSaveEverything)
      * when core registers are already saved.
      */
-.macro SETUP_SAVE_EVERYTHING_FRAME_CORE_REGS_SAVED rTemp
+.macro SETUP_SAVE_EVERYTHING_FRAME_CORE_REGS_SAVED rTemp, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
                                         @ 14 words of callee saves and args already saved.
     vpush {d0-d15}                      @ 32 words, 2 for each of the 16 saved doubles.
     .cfi_adjust_cfa_offset 128
@@ -190,7 +194,7 @@
     .cfi_adjust_cfa_offset 8
     RUNTIME_CURRENT1 \rTemp             @ Load Runtime::Current into rTemp.
     @ Load kSaveEverything Method* into rTemp.
-    ldr \rTemp, [\rTemp, #RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET]
+    ldr \rTemp, [\rTemp, #\runtime_method_offset]
     str \rTemp, [sp, #0]                @ Place Method* at bottom of stack.
     str sp, [r9, #THREAD_TOP_QUICK_FRAME_OFFSET]  @ Place sp in Thread::Current()->top_quick_frame.
 
@@ -204,7 +208,7 @@
      * Macro that sets up the callee save frame to conform with
      * Runtime::CreateCalleeSaveMethod(kSaveEverything)
      */
-.macro SETUP_SAVE_EVERYTHING_FRAME rTemp
+.macro SETUP_SAVE_EVERYTHING_FRAME rTemp, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
     push {r0-r12, lr}                   @ 14 words of callee saves and args.
     .cfi_adjust_cfa_offset 56
     .cfi_rel_offset r0, 0
@@ -221,7 +225,7 @@
     .cfi_rel_offset r11, 44
     .cfi_rel_offset ip, 48
     .cfi_rel_offset lr, 52
-    SETUP_SAVE_EVERYTHING_FRAME_CORE_REGS_SAVED \rTemp
+    SETUP_SAVE_EVERYTHING_FRAME_CORE_REGS_SAVED \rTemp, \runtime_method_offset
 .endm
 
 .macro RESTORE_SAVE_EVERYTHING_FRAME
@@ -245,6 +249,41 @@
     .cfi_restore r12
     .cfi_restore lr
     .cfi_adjust_cfa_offset -56
+.endm
+
+.macro RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET offset
+    vldr    d0, [sp, \offset+8]
+    vldr    d1, [sp, #8+\offset+8]
+    vldr    d2, [sp, #16+\offset+8]
+    vldr    d3, [sp, #24+\offset+8]
+    vldr    d4, [sp, #32+\offset+8]
+    vldr    d5, [sp, #40+\offset+8]
+    vldr    d6, [sp, #48+\offset+8]
+    vldr    d7, [sp, #56+\offset+8]
+    vldr    d8, [sp, #64+\offset+8]
+    vldr    d9, [sp, #72+\offset+8]
+    vldr    d10, [sp, #80+\offset+8]
+    vldr    d11, [sp, #88+\offset+8]
+    vldr    d12, [sp, #96+\offset+8]
+    vldr    d13, [sp, #104+\offset+8]
+    vldr    d14, [sp, #112+\offset+8]
+    vldr    d15, [sp, #120+\offset+8]
+    ldr     r0, [sp, #128+\offset+8]
+    ldr     r1, [sp, #132+\offset+8]
+    ldr     r2, [sp, #136+\offset+8]
+    ldr     r3, [sp, #140+\offset+8]
+    ldr     r4, [sp, #144+\offset+8]
+    ldr     r5, [sp, #148+\offset+8]
+    ldr     r6, [sp, #152+\offset+8]
+    ldr     r7, [sp, #156+\offset+8]
+    ldr     r8, [sp, #160+\offset+8]
+    ldr     r9, [sp, #164+\offset+8]
+    ldr     r10, [sp, #168+\offset+8]
+    ldr     r11, [sp, #172+\offset+8]
+    ldr     r12, [sp, #176+\offset+8]
+    ldr     lr, [sp, #180+\offset+8]
+
+    // Leave sp unchanged.
 .endm
 
 .macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_R0
@@ -703,7 +742,7 @@ ENTRY art_quick_lock_object
 .Llock_strex_fail:
     b      .Lretry_lock               @ retry
 .Lslow_lock:
-    SETUP_SAVE_REFS_ONLY_FRAME r1     @ save callee saves in case we block
+    SETUP_SAVE_REFS_ONLY_FRAME_FOR_MONITOR_OPS r1     @ save callee saves in case we block
     mov    r1, r9                     @ pass Thread::Current
     bl     artLockObjectFromCode      @ (Object* obj, Thread*)
     RESTORE_SAVE_REFS_ONLY_FRAME
@@ -713,7 +752,7 @@ ENTRY art_quick_lock_object
 END art_quick_lock_object
 
 ENTRY art_quick_lock_object_no_inline
-    SETUP_SAVE_REFS_ONLY_FRAME r1     @ save callee saves in case we block
+    SETUP_SAVE_REFS_ONLY_FRAME_FOR_MONITOR_OPS r1     @ save callee saves in case we block
     mov    r1, r9                     @ pass Thread::Current
     bl     artLockObjectFromCode      @ (Object* obj, Thread*)
     RESTORE_SAVE_REFS_ONLY_FRAME
@@ -771,7 +810,7 @@ ENTRY art_quick_unlock_object
     b      .Lretry_unlock             @ retry
 .Lslow_unlock:
     @ save callee saves in case exception allocation triggers GC
-    SETUP_SAVE_REFS_ONLY_FRAME r1
+    SETUP_SAVE_REFS_ONLY_FRAME_FOR_MONITOR_OPS r1
     mov    r1, r9                     @ pass Thread::Current
     bl     artUnlockObjectFromCode    @ (Object* obj, Thread*)
     RESTORE_SAVE_REFS_ONLY_FRAME
@@ -1004,10 +1043,10 @@ END \name
 .endm
 
 // Macro for string and type resolution and initialization.
-.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL name, entrypoint
+.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL name, entrypoint, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
     .extern \entrypoint
 ENTRY \name
-    SETUP_SAVE_EVERYTHING_FRAME r1    @ save everything in case of GC
+    SETUP_SAVE_EVERYTHING_FRAME r1, \runtime_method_offset    @ save everything in case of GC
     mov    r1, r9                     @ pass Thread::Current
     bl     \entrypoint                @ (uint32_t index, Thread*)
     cbz    r0, 1f                     @ If result is null, deliver the OOME.
@@ -1021,8 +1060,12 @@ ENTRY \name
 END \name
 .endm
 
-ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_static_storage, artInitializeStaticStorageFromCode
-ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_type, artInitializeTypeFromCode
+.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT name, entrypoint
+    ONE_ARG_SAVE_EVERYTHING_DOWNCALL \name, \entrypoint, RUNTIME_SAVE_EVERYTHING_FOR_CLINIT_METHOD_OFFSET
+.endm
+
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT art_quick_initialize_static_storage, artInitializeStaticStorageFromCode
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT art_quick_initialize_type, artInitializeTypeFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_type_and_verify_access, artInitializeTypeAndVerifyAccessFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_string, artResolveStringFromCode
 
@@ -1828,14 +1871,20 @@ ENTRY art_quick_instrumentation_entry
     mov   r12, r0        @ r12 holds reference to code
     ldr   r0, [sp, #4]   @ restore r0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    adr   lr, art_quick_instrumentation_exit
+    add   lr, #1         @ thumb mode
     REFRESH_MARKING_REGISTER
-    blx   r12            @ call method with lr set to art_quick_instrumentation_exit
-@ Deliberate fall-through into art_quick_instrumentation_exit.
-    .type art_quick_instrumentation_exit, #function
-    .global art_quick_instrumentation_exit
-art_quick_instrumentation_exit:
+    bx    r12            @ call method with lr set to art_quick_instrumentation_exit
+.Ldeliver_instrumentation_entry_exception:
+    @ Deliver exception for art_quick_instrumentation_entry placed after
+    @ art_quick_instrumentation_exit so that the fallthrough works.
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    DELIVER_PENDING_EXCEPTION
+END art_quick_instrumentation_entry
+
+ENTRY art_quick_instrumentation_exit
     mov   lr, #0         @ link register is to here, so clobber with 0 for later checks
-    SETUP_SAVE_REFS_ONLY_FRAME r2  @ set up frame knowing r2 and r3 must be dead on exit
+    SETUP_SAVE_EVERYTHING_FRAME r2
     mov   r12, sp        @ remember bottom of caller's frame
     push  {r0-r1}        @ save return value
     .cfi_adjust_cfa_offset 8
@@ -1848,27 +1897,23 @@ art_quick_instrumentation_exit:
     mov   r1, r12        @ pass SP
     mov   r0, r9         @ pass Thread::Current
     blx   artInstrumentationMethodExitFromCode  @ (Thread*, SP, gpr_res*, fpr_res*)
-
-    mov   r2, r0         @ link register saved by instrumentation
-    mov   lr, r1         @ r1 is holding link register if we're to bounce to deoptimize
-    vpop  {d0}           @ restore fp return value
-    .cfi_adjust_cfa_offset -8
-    pop   {r0, r1}       @ restore return value
-    .cfi_adjust_cfa_offset -8
-    .cfi_restore r0
-    .cfi_restore r1
-    RESTORE_SAVE_REFS_ONLY_FRAME
+    cbz   r0, .Ldo_deliver_instrumentation_exception @ Deliver exception if we got nullptr as function.
+    str   r0, [sp, #FRAME_SIZE_SAVE_EVERYTHING + 16 - 4]   // Store to return pc on stack.
+    cbnz   r1, .Ldeoptimize
+    // Normal return.
+    add   sp, #16
+    .cfi_adjust_cfa_offset -16
+    RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
-    cbz   r2, .Ldo_deliver_instrumentation_exception
-                         @ Deliver exception if we got nullptr as function.
-    bx    r2             @ Otherwise, return
-.Ldeliver_instrumentation_entry_exception:
-    @ Deliver exception for art_quick_instrumentation_entry placed after
-    @ art_quick_instrumentation_exit so that the fallthrough works.
-    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    bx lr
 .Ldo_deliver_instrumentation_exception:
-    DELIVER_PENDING_EXCEPTION
-END art_quick_instrumentation_entry
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+.Ldeoptimize:
+    str   r1, [sp]       // Save instrumentation-saved return pc on stack.
+    RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET 16
+    // Jump to art_quick_deoptimize.
+    bx    lr
+END art_quick_instrumentation_exit
 
     /*
      * Instrumentation has requested that we deoptimize into the interpreter. The deoptimization
@@ -1876,7 +1921,14 @@ END art_quick_instrumentation_entry
      */
     .extern artDeoptimize
 ENTRY art_quick_deoptimize
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME r0
+    // Preserve all registers while loading the instrumentation-saved return pc
+    // to lr to fake a call.
+    push   {r0}
+    ldr    lr, [sp, #4]
+    pop    {r0}
+    add    sp, #FRAME_SIZE_SAVE_EVERYTHING + 16
+
+    SETUP_SAVE_EVERYTHING_FRAME r0
     mov    r0, r9         @ pass Thread::Current
     blx    artDeoptimize  @ (Thread*)
 END art_quick_deoptimize
