@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "91b1738a_317d72ae",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T14:29:55Z",
+      "side": 1,
+      "message": "The memory visibility of the Java heap is directly affected by the synchronization, so I don\u0027t see why you want to exclude it from the \"side effects in the compiler [] representing effects on the Java heap.\"",
+      "parentUuid": "5f123e61_8f42c4bd",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c937fe8_402d631d",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 5
