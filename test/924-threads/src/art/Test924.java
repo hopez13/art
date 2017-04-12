@@ -16,6 +16,7 @@
 
 package art;
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,36 +30,55 @@ import java.util.Map;
 public class Test924 {
   public static void run() throws Exception {
     Main.bindAgentJNIForClass(Test924.class);
-    doTest();
+
+    // Run the test on its own thread, so we have a known state for the "current" thread.
+    Thread t = new Thread("TestThread") {
+      @Override
+      public void run() {
+        try {
+          doTest();
+        } catch (Exception e) {
+          throw new RuntimeException(e);
+        }
+      }
+    };
+    t.start();
+    t.join();
   }
+
+  private final static PrintWriter DIRECT_WRITER = new PrintWriter(System.out, true);
 
   private static void doTest() throws Exception {
     Thread t1 = Thread.currentThread();
     Thread t2 = getCurrentThread();
+
+    // Need to adjust priority, as on-device this may be unexpected (and we prefer not
+    // to special-case this.)
+    t1.setPriority(5);
 
     if (t1 != t2) {
       throw new RuntimeException("Expected " + t1 + " but got " + t2);
     }
     System.out.println("currentThread OK");
 
-    printThreadInfo(t1);
-    printThreadInfo(null);
+    printThreadInfo(t1, DIRECT_WRITER);
+    printThreadInfo(null, DIRECT_WRITER);
 
     Thread t3 = new Thread("Daemon Thread");
     t3.setDaemon(true);
     // Do not start this thread, yet.
-    printThreadInfo(t3);
+    printThreadInfo(t3, DIRECT_WRITER);
     // Start, and wait for it to die.
     t3.start();
     t3.join();
     Thread.sleep(500);  // Wait a little bit.
     // Thread has died, check that we can still get info.
-    printThreadInfo(t3);
+    printThreadInfo(t3, DIRECT_WRITER);
 
     // Try a subclass of thread.
     Thread t4 = new Thread("Subclass") {
     };
-    printThreadInfo(t4);
+    printThreadInfo(t4, DIRECT_WRITER);
 
     doStateTests();
 
@@ -256,13 +276,35 @@ public class Test924 {
   private static void doTestEvents() throws Exception {
     enableThreadEvents(true);
 
-    Thread t = new Thread("EventTestThread");
+    final CountDownLatch cdl1 = new CountDownLatch(1);
+    final CountDownLatch cdl2 = new CountDownLatch(1);
+
+    Runnable r = new Runnable() {
+      @Override
+      public void run() {
+        try {
+          cdl1.countDown();
+          cdl2.await();
+        } catch (Exception e) {
+          throw new RuntimeException(e);
+        }
+      }
+    };
+    Thread t = new Thread(r, "EventTestThread");
 
     System.out.println("Constructed thread");
     Thread.yield();
+    Thread.sleep(100);
+    System.out.println(Arrays.toString(getThreadEventMessages()));
 
     t.start();
+    cdl1.await();
+
+    System.out.println(Arrays.toString(getThreadEventMessages()));
+
+    cdl2.countDown();
     t.join();
+    System.out.println(Arrays.toString(getThreadEventMessages()));
 
     System.out.println("Thread joined");
 
@@ -316,18 +358,18 @@ public class Test924 {
     System.out.println(Integer.toHexString(state) + " = " + sb.toString());
   }
 
-  private static void printThreadInfo(Thread t) {
+  private static void printThreadInfo(Thread t, PrintWriter pw) {
     Object[] threadInfo = getThreadInfo(t);
     if (threadInfo == null || threadInfo.length != 5) {
       System.out.println(Arrays.toString(threadInfo));
       throw new RuntimeException("threadInfo length wrong");
     }
 
-    System.out.println(threadInfo[0]);  // Name
-    System.out.println(threadInfo[1]);  // Priority
-    System.out.println(threadInfo[2]);  // Daemon
-    System.out.println(threadInfo[3]);  // Threadgroup
-    System.out.println(threadInfo[4] == null ? "null" : threadInfo[4].getClass());  // Context CL.
+    pw.println(threadInfo[0]);  // Name
+    pw.println(threadInfo[1]);  // Priority
+    pw.println(threadInfo[2]);  // Daemon
+    pw.println(threadInfo[3]);  // Threadgroup
+    pw.println(threadInfo[4] == null ? "null" : threadInfo[4].getClass());  // Context CL.
   }
 
   private static native Thread getCurrentThread();
@@ -337,4 +379,5 @@ public class Test924 {
   private static native void setTLS(Thread t, long l);
   private static native long getTLS(Thread t);
   private static native void enableThreadEvents(boolean b);
+  private static native String[] getThreadEventMessages();
 }
