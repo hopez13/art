@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d3abbfea_5d03bc2d",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "nit: Seems like this could be refactored into a function to avoid duplicating this logic elsewhere.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95323c05_db22d792",
         "filename": "tools/art",
         "patchSetId": 1
@@ -13,6 +30,23 @@
       "writtenOn": "2017-04-12T14:30:38Z",
       "side": 1,
       "message": "It may verge on too fancy, but keeping --32 or --64 would work if the ISA were detected via \"uname -m\". As-is, changes will need to be made to golem.\n\nOtherwise, can this be consistent in how we describe option arguments? See --invoke-with?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6466b92b_ec32f085",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "+1\n\nAlso I think this should minimize changing interface to minimize changing other places that use this script.\n\nOtherwise this can have a lot of fallout for a long time.",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -36,6 +70,40 @@
     },
     {
       "key": {
+        "uuid": "bff5f35b_83edf786",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "in dalvikvm this is -Xcompiler-option\n\nby changing this to --compiler-arg you would have to rewrite all the places this script is used.\n\nI recommend keeping this as -Xcompiler-option (same as dalvikvm)",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23fdec5b_eee3770d",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "Orion recommends making everything local here.\n\nI agree. Furthermore, I\u0027d like to say that local variables should have a lowercase naming convention for simplicity.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a21ca5_1da8bab8",
         "filename": "tools/art",
         "patchSetId": 1
@@ -47,6 +115,23 @@
       "writtenOn": "2017-04-12T14:30:38Z",
       "side": 1,
       "message": "local CLASSPATH...",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6f23303_d80b2cf3",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "I think dalvikvm supports $CLASSPATH, -cp, -classpath, and -Djava.class.path\u003d%s ?\n\nI recommend supporting the above to avoid having to change other places that use this script (for example vogar/caliper uses -Djava.class.path)",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +178,23 @@
     },
     {
       "key": {
+        "uuid": "3940db68_ec6f3d2c",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb4be3b2_3c7cc24d",
         "filename": "tools/art",
         "patchSetId": 1
@@ -104,6 +206,57 @@
       "writtenOn": "2017-04-12T14:30:38Z",
       "side": 1,
       "message": "local DEX\nfor DEX ...",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20c5ae90_baf5ee4b",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "nit: The way the IFS is managed seems a bit unclean, it would be just cleaner to do a first pass to parse the dex files into an array and then another pass to do the dex2oat invocation",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a449899_5c4c1503",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "Can you turn this into a function so its not repeating the same exact logic on top of the script?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61037d6_8fdb59a0",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "What is this doing?",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +280,108 @@
         "endLine": 133,
         "endChar": 29
       },
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef76c45a_60006068",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e900b3_398b6148",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dd0b7c5_63c909cd",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3b233a1_0d8dddc9",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "That\u0027s not right, it will pass everything in as one arg then.\n\nThe right thing to do here is to build it as an array and then use\n\n   \"${DEX2OAT_FLAGS[@]}\"\n\nsee also below.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e3eba84_e4fadb12",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2a5563b_6bd41bd8",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "DEX2OAT_FLAGS\u003d()",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -173,6 +428,23 @@
     },
     {
       "key": {
+        "uuid": "3b4aba17_f8468054",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "DEX2OAT_FLAGS+\u003d(\"$1\")",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5adac41a_adb6173e",
         "filename": "tools/art",
         "patchSetId": 1
@@ -201,6 +473,63 @@
       "writtenOn": "2017-04-12T14:30:38Z",
       "side": 1,
       "message": "nit (based on feedback to changes on this file delivered to me :-) s/dalvikvm/launching ART/.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "347c1511_df70899f",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "\"$@\"",
+      "range": {
+        "startLine": 306,
+        "startChar": 12,
+        "endLine": 306,
+        "endChar": 14
+      },
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d290ec3b_94a9a7b2",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "Regarding running dex2oat unconditionally.\n\n1) It\u0027s unnecessary extra work when using interpreter or jit, making things slower.\n\n2) Is it even correct if requesting interpreter/jit? If there\u0027s already an OAT file there, won\u0027t it just use it anyway and ignore the jit request?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e430d87_bc1d6a94",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T17:09:32Z",
+      "side": 1,
+      "message": "echo \u003e\u00262",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
