@@ -658,9 +658,15 @@ std::ostream& operator<<(std::ostream& os, const Instrumentation::Instrumentatio
 
 // An element in the instrumentation side stack maintained in art::Thread.
 struct InstrumentationStackFrame {
-  InstrumentationStackFrame(mirror::Object* this_object, ArtMethod* method,
-                            uintptr_t return_pc, size_t frame_id, bool interpreter_entry)
-      : this_object_(this_object), method_(method), return_pc_(return_pc), frame_id_(frame_id),
+  InstrumentationStackFrame(mirror::Object* this_object,
+                            ArtMethod* method,
+                            uintptr_t return_pc,
+                            size_t frame_id,
+                            bool interpreter_entry)
+      : this_object_(this_object),
+        method_(method),
+        return_pc_(return_pc),
+        frame_id_(frame_id),
         interpreter_entry_(interpreter_entry) {
   }
 

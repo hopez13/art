@@ -87,8 +87,10 @@ const char* image_methods_descriptions_[] = {
   "kImtUnimplementedMethod",
   "kSaveAllCalleeSavesMethod",
   "kSaveRefsOnlyMethod",
+  "kSaveRefsOnlyMethodForMonitorOps",
   "kSaveRefsAndArgsMethod",
   "kSaveEverythingMethod",
+  "kSaveEverythingMethodForClinit",
 };
 
 const char* image_roots_descriptions_[] = {
