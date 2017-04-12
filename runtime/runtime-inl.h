@@ -46,10 +46,12 @@ inline QuickMethodFrameInfo Runtime::GetRuntimeMethodFrameInfo(ArtMethod* method
     return GetCalleeSaveMethodFrameInfo(CalleeSaveType::kSaveRefsAndArgs);
   } else if (method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveAllCalleeSaves)) {
     return GetCalleeSaveMethodFrameInfo(CalleeSaveType::kSaveAllCalleeSaves);
-  } else if (method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveRefsOnly)) {
+  } else if (method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveRefsOnly) ||
+             method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveRefsOnlyForMonitorOps)) {
     return GetCalleeSaveMethodFrameInfo(CalleeSaveType::kSaveRefsOnly);
   } else {
-    DCHECK_EQ(method, GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveEverything));
+    DCHECK(method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveEverything) ||
+           method == GetCalleeSaveMethodUnchecked(CalleeSaveType::kSaveEverythingForClinit));
     return GetCalleeSaveMethodFrameInfo(CalleeSaveType::kSaveEverything);
   }
 }
