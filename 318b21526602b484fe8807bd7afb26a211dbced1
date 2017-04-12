@@ -236,6 +236,24 @@
     },
     {
       "key": {
+        "uuid": "c40e6ef1_c9c692e3",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T16:31:39Z",
+      "side": 1,
+      "message": "You can compute it from a static function and then call that in the constructor\n\n    Printer() : section_header_width_(CalculateSectionHeaderWidth()) {\n\n    }",
+      "parentUuid": "38e5483b_f1ad7a09",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f7430f3_00df2400",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -265,6 +283,24 @@
       "side": 1,
       "message": "One or more coding conventions says it has to be there.",
       "parentUuid": "1f7430f3_00df2400",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea00a811_112f404f",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T16:31:39Z",
+      "side": 1,
+      "message": "Why? It\u0027s not in our style guide. \n\nI also don\u0027t see a need for this semantically, there\u0027s nothing here that merits not allowing copying. Maybe if you wanted to future proof this I could understand?",
+      "parentUuid": "b0e41cf0_eb3a2539",
       "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
