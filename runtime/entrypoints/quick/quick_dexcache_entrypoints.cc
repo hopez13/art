@@ -66,7 +66,7 @@ extern "C" mirror::Class* artInitializeStaticStorageFromCode(uint32_t type_idx, 
   // given by inheritance.
   ScopedQuickEntrypointChecks sqec(self);
   auto caller_and_outer = GetCalleeSaveMethodCallerAndOuterMethod(self,
-                                                                  CalleeSaveType::kSaveEverything);
+                                                                  CalleeSaveType::kSaveEverythingForClinit);
   ArtMethod* caller = caller_and_outer.caller;
   mirror::Class* result =
       ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, true, false);
@@ -81,7 +81,7 @@ extern "C" mirror::Class* artInitializeTypeFromCode(uint32_t type_idx, Thread* s
   // Called when method->dex_cache_resolved_types_[] misses.
   ScopedQuickEntrypointChecks sqec(self);
   auto caller_and_outer = GetCalleeSaveMethodCallerAndOuterMethod(self,
-                                                                  CalleeSaveType::kSaveEverything);
+                                                                  CalleeSaveType::kSaveEverythingForClinit);
   ArtMethod* caller = caller_and_outer.caller;
   mirror::Class* result =
       ResolveVerifyAndClinit(dex::TypeIndex(type_idx), caller, self, false, false);

@@ -23,6 +23,8 @@
 #define FRAME_SIZE_SAVE_REFS_ONLY 96
 #define FRAME_SIZE_SAVE_REFS_AND_ARGS 224
 #define FRAME_SIZE_SAVE_EVERYTHING 512
+#define FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT 512
+#define FRAME_SIZE_SAVE_EVERYTHING_FOR_SUSPEND_CHECK 512
 
 // The offset from art_quick_read_barrier_mark_introspection to the array switch cases,
 // i.e. art_quick_read_barrier_mark_introspection_arrays.
