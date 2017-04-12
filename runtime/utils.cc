@@ -830,6 +830,17 @@ bool GetDalvikCacheFilename(const char* location, const char* cache_location,
     return false;
   }
   std::string cache_file(&location[1]);  // skip leading slash
+
+  // If the location already contains an '@' character, that could lead to
+  // collisions in the dalvik cache when we replace slashes with '@'
+  // characters below.
+  // TODO: Adjust the naming scheme so that locations with '@' characters are
+  // supported.
+  if (cache_file.find('@') != std::string::npos) {
+    *error_msg = StringPrintf("Expected location not to contain '@': %s", location);
+    return false;
+  }
+
   if (!android::base::EndsWith(location, ".dex") &&
       !android::base::EndsWith(location, ".art") &&
       !android::base::EndsWith(location, ".oat")) {
@@ -878,6 +889,18 @@ std::string ReplaceFileExtension(const std::string& filename, const std::string&
   } else {
     return filename.substr(0, last_ext + 1) + new_extension;
   }
+}
+
+std::string RemoveFileExtension(const std::string& filename) {
+  return filename.substr(0, filename.rfind('.'));
+}
+
+std::string GetFileExtension(const std::string& filename) {
+  size_t dot = filename.rfind('.');
+  if (dot == std::string::npos) {
+    return "";
+  }
+  return filename.substr(dot + 1);
 }
 
 std::string PrettyDescriptor(Primitive::Type type) {

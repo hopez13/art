@@ -127,9 +127,16 @@ class ImageSpace : public MemMapSpace {
                                         const std::string& boot_classpath,
                                         std::vector<std::string>* image_filenames);
 
-  static std::string GetMultiImageBootClassPath(const std::vector<const char*>& dex_locations,
-                                                const std::vector<const char*>& oat_filenames,
-                                                const std::vector<const char*>& image_filenames);
+  // Return the name of a non-primary multi-image file derived from the
+  // primary image file name and the boot class path element 'dex'.
+  // For example, given primary image name '/foo/bar.art' and class path
+  // element '/foo/sludge.jar', returns '/foo/bar-sludge.art'.
+  // This function can also be used for the names of the multi-image oat
+  // files.
+  static std::string GetMultiImageName(const std::string& primary_image_name,
+                                       const std::string& dex_location);
+
+  static std::string GetMultiImageBootClassPath(const std::vector<const char*>& dex_locations);
 
   // Returns true if the dex checksums in the given oat file match the
   // checksums of the original dex files on disk. This is intended to be used

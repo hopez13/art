@@ -427,4 +427,21 @@ TEST_F(UtilsTest, BoundsCheckedCast) {
   EXPECT_EQ(BoundsCheckedCast<const uint64_t*>(buffer + 57, buffer, buffer_end), nullptr);
 }
 
+TEST(SimpleUtilsTest, ReplaceFileExtension) {
+  EXPECT_EQ("foo.abc", ReplaceFileExtension("foo.bar", "abc"));
+  EXPECT_EQ("foo.abc", ReplaceFileExtension("foo", "abc"));
+}
+
+TEST(SimpleUtilsTest, RemoveFileExtension) {
+  EXPECT_EQ("foo.bar", RemoveFileExtension("foo.bar.sludge"));
+  EXPECT_EQ("foo", RemoveFileExtension("foo.bar"));
+  EXPECT_EQ("foo", RemoveFileExtension("foo"));
+}
+
+TEST(SimpleUtilsTest, GetFileExtension) {
+  EXPECT_EQ("sludge", GetFileExtension("foo.bar.sludge"));
+  EXPECT_EQ("bar", GetFileExtension("foo.bar"));
+  EXPECT_EQ("", GetFileExtension("foo"));
+}
+
 }  // namespace art

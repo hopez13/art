@@ -106,6 +106,11 @@ TEST_F(DexoptTest, ValidateOatFile) {
   EXPECT_FALSE(ImageSpace::ValidateOatFile(*oat, &error_msg));
 }
 
+TEST(ImageSpaceTest, GetMultiImageName) {
+  EXPECT_EQ("/foo/bar-sludge.art", ImageSpace::GetMultiImageName("/foo/bar.art", "sludge.jar"));
+  EXPECT_EQ("/foo/bar-sludge.oat", ImageSpace::GetMultiImageName("/foo/bar.oat", "sludge.jar"));
+}
+
 }  // namespace space
 }  // namespace gc
 }  // namespace art

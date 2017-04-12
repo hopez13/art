@@ -226,11 +226,15 @@ bool PatchOat::Patch(const std::string& image_location,
       CHECK(is_oat_pic == PIC);
 
       // Create a symlink.
-      std::string converted_image_filename = space->GetImageLocation();
-      std::replace(converted_image_filename.begin() + 1, converted_image_filename.end(), '/', '@');
-      std::string output_image_filename = output_directory +
-          (android::base::StartsWith(converted_image_filename, "/") ? "" : "/") +
-          converted_image_filename;
+      std::string output_image_filename;
+      if (!GetDalvikCacheFilename(space->GetImageLocation().c_str(),
+                                  output_directory.c_str(),
+                                  &output_image_filename,
+                                  &error_msg)) {
+        LOG(ERROR) << error_msg;
+        return false;
+      }
+
       std::string output_vdex_filename =
           ImageHeader::GetVdexLocationFromImageLocation(output_image_filename);
       std::string output_oat_filename =
@@ -266,11 +270,16 @@ bool PatchOat::Patch(const std::string& image_location,
     gc::space::ImageSpace* space = spaces[i];
 
     t.NewTiming("Writing image");
-    std::string converted_image_filename = space->GetImageLocation();
-    std::replace(converted_image_filename.begin() + 1, converted_image_filename.end(), '/', '@');
-    std::string output_image_filename = output_directory +
-        (android::base::StartsWith(converted_image_filename, "/") ? "" : "/") +
-        converted_image_filename;
+    std::string output_image_filename;
+    std::string error_msg;
+    if (!GetDalvikCacheFilename(space->GetImageLocation().c_str(),
+                                output_directory.c_str(),
+                                &output_image_filename,
+                                &error_msg)) {
+      LOG(ERROR) << error_msg;
+      return false;
+    }
+
     std::unique_ptr<File> output_image_file(CreateOrOpen(output_image_filename.c_str()));
     if (output_image_file.get() == nullptr) {
       LOG(ERROR) << "Failed to open output image file at " << output_image_filename;

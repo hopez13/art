@@ -157,9 +157,13 @@ void CompilationHelper::Compile(CompilerDriver* driver,
   {
     // Create a generic tmp file, to be the base of the .art and .oat temporary files.
     ScratchFile location;
+    std::string primary_location = location.GetFilename() + ".art";
     for (int i = 0; i < static_cast<int>(class_path.size()); ++i) {
-      std::string cur_location =
-          android::base::StringPrintf("%s-%d.art", location.GetFilename().c_str(), i);
+      std::string cur_location = primary_location;
+      if (i > 0) {
+        cur_location = gc::space::ImageSpace::GetMultiImageName(primary_location,
+                                                                std::to_string(i));
+      }
       image_locations.push_back(ScratchFile(cur_location));
     }
   }
@@ -220,15 +224,14 @@ void CompilationHelper::Compile(CompilerDriver* driver,
 
       t.NewTiming("WriteElf");
       SafeMap<std::string, std::string> key_value_store;
+      std::vector<std::string> dex_filename_strings;
       std::vector<const char*> dex_filename_vector;
       for (size_t i = 0; i < class_path.size(); ++i) {
-        dex_filename_vector.push_back("");
+        dex_filename_strings.push_back(std::to_string(i) + ".jar");
+        dex_filename_vector.push_back(dex_filename_strings.back().c_str());
       }
       key_value_store.Put(OatHeader::kBootClassPathKey,
-                          gc::space::ImageSpace::GetMultiImageBootClassPath(
-                              dex_filename_vector,
-                              oat_filename_vector,
-                              image_filename_vector));
+                          gc::space::ImageSpace::GetMultiImageBootClassPath(dex_filename_vector));
 
       std::vector<std::unique_ptr<ElfWriter>> elf_writers;
       std::vector<std::unique_ptr<OatWriter>> oat_writers;

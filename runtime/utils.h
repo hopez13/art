@@ -184,6 +184,17 @@ bool FileExistsAndNotEmpty(const std::string& filename);
 //          ReplaceFileExtension("foo", "abc") == "foo.abc"
 std::string ReplaceFileExtension(const std::string& filename, const std::string& new_extension);
 
+// Returns the given filename with its extension removed.
+// Examples:  "foo.bar.sludge" ==> "foo.bar
+//            "foo.bar" ==> "foo"
+//            "foo" ==> "foo"
+std::string RemoveFileExtension(const std::string& filename);
+
+// Returns the extension of the given filename.
+// For example: "foo.bar" ==> "bar"
+//              "foo" ==> ""
+std::string GetFileExtension(const std::string& filename);
+
 class VoidFunctor {
  public:
   template <typename A>
