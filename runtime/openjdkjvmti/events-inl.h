@@ -130,7 +130,10 @@ inline void EventHandler::DispatchClassFileLoadHookEvent(art::Thread* thread,
   jint current_len = class_data_len;
   unsigned char* current_class_data = const_cast<unsigned char*>(class_data);
   ArtJvmTiEnv* last_env = nullptr;
-  for (ArtJvmTiEnv* env : envs) {
+  // Need to make a copy of the environments since they might be removed during the callbacks. Since
+  // this list will typically be fairly small this shouldn't have any major performance impact.
+  std::vector<ArtJvmTiEnv*> envs_copy(envs);
+  for (ArtJvmTiEnv* env : envs_copy) {
     if (ShouldDispatch<kEvent>(env, thread)) {
       jint new_len = 0;
       unsigned char* new_data = nullptr;
@@ -170,7 +173,10 @@ inline void EventHandler::DispatchClassFileLoadHookEvent(art::Thread* thread,
 
 template <ArtJvmtiEvent kEvent, typename ...Args>
 inline void EventHandler::DispatchEvent(art::Thread* thread, Args... args) const {
-  for (ArtJvmTiEnv* env : envs) {
+  // Need to make a copy of the environments since they might be removed during the callbacks. Since
+  // this list will typically be fairly small this shouldn't have any major performance impact.
+  std::vector<ArtJvmTiEnv*> envs_copy(envs);
+  for (ArtJvmTiEnv* env : envs_copy) {
     DispatchEvent<kEvent, Args...>(env, thread, args...);
   }
 }
