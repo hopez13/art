@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "cc7ac271_2d79d5c2",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "I recommend reading go/art-style-guide to catch the things like naming conventions, indentation, etc.",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b9d6ccb_7bc00211",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -18,6 +35,241 @@
         "startChar": 100,
         "endLine": 1639,
         "endChar": 115
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e697782a_93b7c1f7",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: probably better to do something like\n\n    enum class CodeItemKind {\n        kMethodNotExecuted \u003d 0,\n        kMethodExecuted \u003d 1,\n        kSize \u003d 2,\n    };\n\n    std::unordered_set\u003cdex_ir::CodeItem*\u003e code_items_map[CodeItemKind::kSize];\n\nthis makes the name and the key usage more clear",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77b0dc37_a882ef0f",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "you\u0027re doing this twice, I recommend:\n\n   // perhaps this should be its own enum in dex_ir.h,\n   // otherwise art/runtime/invoke_type.h is fine\n   InvokeType invoke_types[] \u003d { kDirect, kVirtual };\n\n   // perhaps this should be a helper in dex_ir.h\n   // otherwise a lambda or a simple X?Y:Z is fine.\n   auto get_methods \u003d [](dex_ir::ClassData* class_data, InvokeType invoke_type) {\n       return (invoke_type \u003d\u003d kVirtual ? class_data-\u003eVirtualMethods : class_data-\u003eDirectMethods());\n\n   for (InvokeType invoke_type : invoke_types) {\n        MethodItemVector\u0026 method_items \u003d get_methods(invoke_type);\n   }",
+      "range": {
+        "startLine": 1664,
+        "startChar": 29,
+        "endLine": 1664,
+        "endChar": 38
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c455ed2e_8327b88d",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cMethodItem\u003e\u0026\n\nisVirtual -\u003e is_virtual",
+      "range": {
+        "startLine": 1673,
+        "startChar": 11,
+        "endLine": 1673,
+        "endChar": 15
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4c3e3a8_b691f131",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: one operator per line and 4 spaces subindent\n\n   isVirtual\n       ? VirtualMethods()\n       : DirectMethods()",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f819be8_b5482173",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "Is this \u003d\u003d just a microoptimization?\n\nIf this happens are all the redundant code items guaranteed to be contiguous? If it only happens sometimes then this seems unnecessary.\n\nPlease leave a comment.",
+      "range": {
+        "startLine": 1677,
+        "startChar": 12,
+        "endLine": 1677,
+        "endChar": 39
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b3aa206_52d4e4e0",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: always use explicit pointer comparison",
+      "range": {
+        "startLine": 1677,
+        "startChar": 43,
+        "endLine": 1677,
+        "endChar": 53
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cc04ab3_1d615b6d",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: using implicit conversion like this is not allowed by our style guide\n  \n    code_items[is_method_executed ? CodeItemKind::kMethodExecuted : CodeItemKind::kMethodNotExecuted]",
+      "range": {
+        "startLine": 1685,
+        "startChar": 19,
+        "endLine": 1685,
+        "endChar": 37
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1e0aef_95971019",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: magic numbers, use this instead\n\n   for (std::unordered_set\u003cdex_ir::CodeItem*\u003e\u0026 code_items_set : code_items) { ...\n   }",
+      "range": {
+        "startLine": 1692,
+        "startChar": 11,
+        "endLine": 1692,
+        "endChar": 21
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e998a11_8d474df4",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: magic #s. use the same approach as above instead?\n\n   for (InvokeType invoke_type : invoke_types) {\n        MethodItemVector\u0026 method_items \u003d get_methods(invoke_type);\n\n        for (MethodItem\u0026 method : method_items) {\n        .......\n        }\n   }",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6474e1b0_a6905c14",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: don\u0027t use auto except for complicated types",
+      "range": {
+        "startLine": 1698,
+        "startChar": 13,
+        "endLine": 1698,
+        "endChar": 17
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f58a4078_7aad591e",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:12:23Z",
+      "side": 1,
+      "message": "nit: * to the left",
+      "range": {
+        "startLine": 1700,
+        "startChar": 26,
+        "endLine": 1700,
+        "endChar": 28
       },
       "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
