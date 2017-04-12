@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0cb3e6b_328df88e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T16:38:05Z",
+      "side": 1,
+      "message": "This is semantically equivalent to ReplaceFileExtension(base_oat, \"\")\n\n(One could also write a simple helper called \"RemoveFileExtension\" that just calls ReplaceFileExtension.)",
+      "revId": "e90a2ff11bf77aad47d6855dc65f3aaa50b32600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ecd0c4d9_a4e9c449",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T16:38:05Z",
+      "side": 1,
+      "message": "Where are all the -s coming from?",
+      "range": {
+        "startLine": 980,
+        "startChar": 63,
+        "endLine": 980,
+        "endChar": 66
+      },
+      "revId": "e90a2ff11bf77aad47d6855dc65f3aaa50b32600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
