@@ -1720,13 +1720,7 @@ void ImageSpace::Dump(std::ostream& os) const {
       << ",name=\"" << GetName() << "\"]";
 }
 
-std::string ImageSpace::GetMultiImageBootClassPath(
-    const std::vector<const char*>& dex_locations,
-    const std::vector<const char*>& oat_filenames,
-    const std::vector<const char*>& image_filenames) {
-  DCHECK_GT(oat_filenames.size(), 1u);
-  // If the image filename was adapted (e.g., for our tests), we need to change this here,
-  // too, but need to strip all path components (they will be re-established when loading).
+std::string ImageSpace::GetMultiImageBootClassPath(const std::vector<const char*>& dex_locations) {
   std::ostringstream bootcp_oss;
   bool first_bootcp = true;
   for (size_t i = 0; i < dex_locations.size(); ++i) {
@@ -1734,32 +1728,12 @@ std::string ImageSpace::GetMultiImageBootClassPath(
       bootcp_oss << ":";
     }
 
-    std::string dex_loc = dex_locations[i];
-    std::string image_filename = image_filenames[i];
-
-    // Use the dex_loc path, but the image_filename name (without path elements).
-    size_t dex_last_slash = dex_loc.rfind('/');
-
-    // npos is max(size_t). That makes this a bit ugly.
-    size_t image_last_slash = image_filename.rfind('/');
-    size_t image_last_at = image_filename.rfind('@');
-    size_t image_last_sep = (image_last_slash == std::string::npos)
-                                ? image_last_at
-                                : (image_last_at == std::string::npos)
-                                      ? std::string::npos
-                                      : std::max(image_last_slash, image_last_at);
-    // Note: whenever image_last_sep == npos, +1 overflow means using the full string.
-
-    if (dex_last_slash == std::string::npos) {
-      dex_loc = image_filename.substr(image_last_sep + 1);
-    } else {
-      dex_loc = dex_loc.substr(0, dex_last_slash + 1) +
-          image_filename.substr(image_last_sep + 1);
+    std::string dex = dex_locations[i];
+    if (dex.rfind('/') != std::string::npos) {
+      dex = dex.substr(dex.rfind('/') + 1);
     }
 
-    // Image filenames already end with .art, no need to replace.
-
-    bootcp_oss << dex_loc;
+    bootcp_oss << dex;
     first_bootcp = false;
   }
   return bootcp_oss.str();
@@ -1827,40 +1801,17 @@ void ImageSpace::ExtractMultiImageLocations(const std::string& input_image_file_
                                             std::vector<std::string>* image_file_names) {
   DCHECK(image_file_names != nullptr);
 
-  std::vector<std::string> images;
-  Split(boot_classpath, ':', &images);
+  std::vector<std::string> dexes;
+  Split(boot_classpath, ':', &dexes);
 
-  // Add the rest into the list. We have to adjust locations, possibly:
-  //
-  // For example, image_file_name is /a/b/c/d/e.art
-  //              images[0] is          f/c/d/e.art
-  // ----------------------------------------------
-  //              images[1] is          g/h/i/j.art  -> /a/b/h/i/j.art
-  const std::string& first_image = images[0];
-  // Length of common suffix.
-  size_t common = 0;
-  while (common < input_image_file_name.size() &&
-         common < first_image.size() &&
-         *(input_image_file_name.end() - common - 1) == *(first_image.end() - common - 1)) {
-    ++common;
+  std::string base_img = input_image_file_name;
+  if (base_img.rfind('.') != std::string::npos) {
+    base_img = base_img.substr(0, base_img.rfind('.'));
   }
-  // We want to replace the prefix of the input image with the prefix of the boot class path.
-  // This handles the case where the image file contains @ separators.
-  // Example image_file_name is oats/system@framework@boot.art
-  // images[0] is .../arm/boot.art
-  // means that the image name prefix will be oats/system@framework@
-  // so that the other images are openable.
-  const size_t old_prefix_length = first_image.size() - common;
-  const std::string new_prefix = input_image_file_name.substr(
-      0,
-      input_image_file_name.size() - common);
 
-  // Apply pattern to images[1] .. images[n].
-  for (size_t i = 1; i < images.size(); ++i) {
-    const std::string& image = images[i];
-    CHECK_GT(image.length(), old_prefix_length);
-    std::string suffix = image.substr(old_prefix_length);
-    image_file_names->push_back(new_prefix + suffix);
+  for (size_t i = 1; i < dexes.size(); ++i) {
+    const std::string& dex = dexes[i];
+    image_file_names->push_back(ReplaceFileExtension(base_img + "-" + dex, "art"));
   }
 }
 

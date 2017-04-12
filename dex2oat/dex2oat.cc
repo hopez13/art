@@ -944,67 +944,26 @@ class Dex2Oat FINAL {
 
   void ExpandOatAndImageFilenames() {
     std::string base_oat = oat_filenames_[0];
-    size_t last_oat_slash = base_oat.rfind('/');
-    if (last_oat_slash == std::string::npos) {
-      Usage("--multi-image used with unusable oat filename %s", base_oat.c_str());
+    if (base_oat.rfind('.') != std::string::npos) {
+      base_oat = base_oat.substr(0, base_oat.rfind('.'));
     }
-    // We also need to honor path components that were encoded through '@'. Otherwise the loading
-    // code won't be able to find the images.
-    if (base_oat.find('@', last_oat_slash) != std::string::npos) {
-      last_oat_slash = base_oat.rfind('@');
-    }
-    base_oat = base_oat.substr(0, last_oat_slash + 1);
 
     std::string base_img = image_filenames_[0];
-    size_t last_img_slash = base_img.rfind('/');
-    if (last_img_slash == std::string::npos) {
-      Usage("--multi-image used with unusable image filename %s", base_img.c_str());
-    }
-    // We also need to honor path components that were encoded through '@'. Otherwise the loading
-    // code won't be able to find the images.
-    if (base_img.find('@', last_img_slash) != std::string::npos) {
-      last_img_slash = base_img.rfind('@');
+    if (base_img.rfind('.') != std::string::npos) {
+      base_img = base_img.substr(0, base_img.rfind('.'));
     }
 
-    // Get the prefix, which is the primary image name (without path components). Strip the
-    // extension.
-    std::string prefix = base_img.substr(last_img_slash + 1);
-    if (prefix.rfind('.') != std::string::npos) {
-      prefix = prefix.substr(0, prefix.rfind('.'));
-    }
-    if (!prefix.empty()) {
-      prefix = prefix + "-";
-    }
-
-    base_img = base_img.substr(0, last_img_slash + 1);
-
-    // Note: we have some special case here for our testing. We have to inject the differentiating
-    //       parts for the different core images.
-    std::string infix;  // Empty infix by default.
-    {
-      // Check the first name.
-      std::string dex_file = oat_filenames_[0];
-      size_t last_dex_slash = dex_file.rfind('/');
-      if (last_dex_slash != std::string::npos) {
-        dex_file = dex_file.substr(last_dex_slash + 1);
-      }
-      size_t last_dex_dot = dex_file.rfind('.');
-      if (last_dex_dot != std::string::npos) {
-        dex_file = dex_file.substr(0, last_dex_dot);
-      }
-      if (android::base::StartsWith(dex_file, "core-")) {
-        infix = dex_file.substr(strlen("core"));
-      }
-    }
+    // The following check is for debugging, to help identify any cases where
+    // the base_oat and base_img do not match, because it is not well defined
+    // what should happen in that case.
+    CHECK_EQ(base_oat, base_img);
 
     std::string base_symbol_oat;
     if (!oat_unstripped_.empty()) {
       base_symbol_oat = oat_unstripped_[0];
-      size_t last_symbol_oat_slash = base_symbol_oat.rfind('/');
-      if (last_symbol_oat_slash == std::string::npos) {
-        Usage("--multi-image used with unusable symbol filename %s", base_symbol_oat.c_str());
+      if (base_symbol_oat.rfind('.') != std::string::npos) {
+        base_symbol_oat = base_symbol_oat.substr(0, base_symbol_oat.rfind('.'));
       }
-      base_symbol_oat = base_symbol_oat.substr(0, last_symbol_oat_slash + 1);
     }
 
     const size_t num_expanded_files = 2 + (base_symbol_oat.empty() ? 0 : 1);
@@ -1012,51 +971,26 @@ class Dex2Oat FINAL {
 
     // Now create the other names. Use a counted loop to skip the first one.
     for (size_t i = 1; i < dex_locations_.size(); ++i) {
+      std::string dex = dex_locations_[i];
+      if (dex.rfind('/') != std::string::npos) {
+        dex = dex.substr(dex.rfind('/') + 1);
+      }
+
       // TODO: Make everything properly std::string.
-      std::string image_name = CreateMultiImageName(dex_locations_[i], prefix, infix, ".art");
-      char_backing_storage_.push_back(base_img + image_name);
+      std::string image_name = ReplaceFileExtension(base_img + "-" + dex, "art");
+      char_backing_storage_.push_back(image_name);
       image_filenames_.push_back((char_backing_storage_.end() - 1)->c_str());
 
-      std::string oat_name = CreateMultiImageName(dex_locations_[i], prefix, infix, ".oat");
-      char_backing_storage_.push_back(base_oat + oat_name);
+      std::string oat_name = ReplaceFileExtension(base_oat + "-" + dex, "oat");
+      char_backing_storage_.push_back(oat_name);
       oat_filenames_.push_back((char_backing_storage_.end() - 1)->c_str());
 
       if (!base_symbol_oat.empty()) {
-        char_backing_storage_.push_back(base_symbol_oat + oat_name);
+        std::string base_symbol_oat_name = ReplaceFileExtension(base_symbol_oat + "-" + dex, ".oat");
+        char_backing_storage_.push_back(base_symbol_oat_name);
         oat_unstripped_.push_back((char_backing_storage_.end() - 1)->c_str());
       }
     }
-  }
-
-  // Modify the input string in the following way:
-  //   0) Assume input is /a/b/c.d
-  //   1) Strip the path  -> c.d
-  //   2) Inject prefix p -> pc.d
-  //   3) Inject infix i  -> pci.d
-  //   4) Replace suffix with s if it's "jar"  -> d == "jar" -> pci.s
-  static std::string CreateMultiImageName(std::string in,
-                                          const std::string& prefix,
-                                          const std::string& infix,
-                                          const char* replace_suffix) {
-    size_t last_dex_slash = in.rfind('/');
-    if (last_dex_slash != std::string::npos) {
-      in = in.substr(last_dex_slash + 1);
-    }
-    if (!prefix.empty()) {
-      in = prefix + in;
-    }
-    if (!infix.empty()) {
-      // Inject infix.
-      size_t last_dot = in.rfind('.');
-      if (last_dot != std::string::npos) {
-        in.insert(last_dot, infix);
-      }
-    }
-    if (android::base::EndsWith(in, ".jar")) {
-      in = in.substr(0, in.length() - strlen(".jar")) +
-          (replace_suffix != nullptr ? replace_suffix : "");
-    }
-    return in;
   }
 
   void InsertCompileOptions(int argc, char** argv) {
@@ -1450,9 +1384,7 @@ class Dex2Oat FINAL {
       // If we're compiling the boot image, store the boot classpath into the Key-Value store.
       // We need this for the multi-image case.
       key_value_store_->Put(OatHeader::kBootClassPathKey,
-                            gc::space::ImageSpace::GetMultiImageBootClassPath(dex_locations_,
-                                                                              oat_filenames_,
-                                                                              image_filenames_));
+                            gc::space::ImageSpace::GetMultiImageBootClassPath(dex_locations_));
     }
 
     if (!IsBootImage()) {
