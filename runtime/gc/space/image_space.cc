@@ -720,10 +720,14 @@ class ImageSpaceLoader {
                image_header->GetImageMethod(ImageHeader::kSaveAllCalleeSavesMethod));
       CHECK_EQ(runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnly),
                image_header->GetImageMethod(ImageHeader::kSaveRefsOnlyMethod));
+      CHECK_EQ(runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnlyForMonitorOps),
+               image_header->GetImageMethod(ImageHeader::kSaveRefsOnlyMethodForMonitorOps));
       CHECK_EQ(runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs),
                image_header->GetImageMethod(ImageHeader::kSaveRefsAndArgsMethod));
       CHECK_EQ(runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverything),
                image_header->GetImageMethod(ImageHeader::kSaveEverythingMethod));
+      CHECK_EQ(runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverythingForClinit),
+               image_header->GetImageMethod(ImageHeader::kSaveEverythingMethodForClinit));
     } else if (!runtime->HasResolutionMethod()) {
       runtime->SetInstructionSet(space->oat_file_non_owned_->GetOatHeader().GetInstructionSet());
       runtime->SetResolutionMethod(image_header->GetImageMethod(ImageHeader::kResolutionMethod));
@@ -737,11 +741,17 @@ class ImageSpaceLoader {
           image_header->GetImageMethod(ImageHeader::kSaveRefsOnlyMethod),
           CalleeSaveType::kSaveRefsOnly);
       runtime->SetCalleeSaveMethod(
+          image_header->GetImageMethod(ImageHeader::kSaveRefsOnlyMethodForMonitorOps),
+          CalleeSaveType::kSaveRefsOnlyForMonitorOps);
+      runtime->SetCalleeSaveMethod(
           image_header->GetImageMethod(ImageHeader::kSaveRefsAndArgsMethod),
           CalleeSaveType::kSaveRefsAndArgs);
       runtime->SetCalleeSaveMethod(
           image_header->GetImageMethod(ImageHeader::kSaveEverythingMethod),
           CalleeSaveType::kSaveEverything);
+      runtime->SetCalleeSaveMethod(
+          image_header->GetImageMethod(ImageHeader::kSaveEverythingMethodForClinit),
+          CalleeSaveType::kSaveEverythingForClinit);
     }
 
     VLOG(image) << "ImageSpace::Init exiting " << *space.get();
