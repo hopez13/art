@@ -287,7 +287,7 @@
      * when the SP has already been decremented by FRAME_SIZE_SAVE_EVERYTHING
      * and saving registers x29 and LR is handled elsewhere.
      */
-.macro SETUP_SAVE_EVERYTHING_FRAME_DECREMENTED_SP_SKIP_X29_LR
+.macro SETUP_SAVE_EVERYTHING_FRAME_DECREMENTED_SP_SKIP_X29_LR runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
     // Ugly compile-time check, but we only have the preprocessor.
 #if (FRAME_SIZE_SAVE_EVERYTHING != 512)
 #error "FRAME_SIZE_SAVE_EVERYTHING(ARM64) size not as expected."
@@ -337,7 +337,7 @@
     ldr xIP0, [xIP0]  // art::Runtime* xIP0 = art::Runtime::instance_;
 
     // ArtMethod* xIP0 = Runtime::instance_->callee_save_methods_[kSaveEverything];
-    ldr xIP0, [xIP0, RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET]
+    ldr xIP0, [xIP0, \runtime_method_offset]
 
     // Store ArtMethod* Runtime::callee_save_methods_[kSaveEverything].
     str xIP0, [sp]
@@ -350,56 +350,72 @@
      * Macro that sets up the callee save frame to conform with
      * Runtime::CreateCalleeSaveMethod(kSaveEverything)
      */
-.macro SETUP_SAVE_EVERYTHING_FRAME
+.macro SETUP_SAVE_EVERYTHING_FRAME runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
     INCREASE_FRAME 512
     SAVE_TWO_REGS x29, xLR, 496
-    SETUP_SAVE_EVERYTHING_FRAME_DECREMENTED_SP_SKIP_X29_LR
+    SETUP_SAVE_EVERYTHING_FRAME_DECREMENTED_SP_SKIP_X29_LR \runtime_method_offset
 .endm
 
-.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP offset = 0
     // Restore FP registers.
     // For better performance, load d0 and d31 separately, so that all LDPs are 16-byte aligned.
-    ldr d0,       [sp, #8]
-    ldp d1, d2,   [sp, #16]
-    ldp d3, d4,   [sp, #32]
-    ldp d5, d6,   [sp, #48]
-    ldp d7, d8,   [sp, #64]
-    ldp d9, d10,  [sp, #80]
-    ldp d11, d12, [sp, #96]
-    ldp d13, d14, [sp, #112]
-    ldp d15, d16, [sp, #128]
-    ldp d17, d18, [sp, #144]
-    ldp d19, d20, [sp, #160]
-    ldp d21, d22, [sp, #176]
-    ldp d23, d24, [sp, #192]
-    ldp d25, d26, [sp, #208]
-    ldp d27, d28, [sp, #224]
-    ldp d29, d30, [sp, #240]
-    ldr d31,      [sp, #256]
+    ldr d0,       [sp, #8+\offset]
+    ldp d1, d2,   [sp, #16+\offset]
+    ldp d3, d4,   [sp, #32+\offset]
+    ldp d5, d6,   [sp, #48+\offset]
+    ldp d7, d8,   [sp, #64+\offset]
+    ldp d9, d10,  [sp, #80+\offset]
+    ldp d11, d12, [sp, #96+\offset]
+    ldp d13, d14, [sp, #112+\offset]
+    ldp d15, d16, [sp, #128+\offset]
+    ldp d17, d18, [sp, #144+\offset]
+    ldp d19, d20, [sp, #160+\offset]
+    ldp d21, d22, [sp, #176+\offset]
+    ldp d23, d24, [sp, #192+\offset]
+    ldp d25, d26, [sp, #208+\offset]
+    ldp d27, d28, [sp, #224+\offset]
+    ldp d29, d30, [sp, #240+\offset]
+    ldr d31,      [sp, #256+\offset]
 
     // Restore core registers, except x0.
-    RESTORE_TWO_REGS  x1,  x2, 272
-    RESTORE_TWO_REGS  x3,  x4, 288
-    RESTORE_TWO_REGS  x5,  x6, 304
-    RESTORE_TWO_REGS  x7,  x8, 320
-    RESTORE_TWO_REGS  x9, x10, 336
-    RESTORE_TWO_REGS x11, x12, 352
-    RESTORE_TWO_REGS x13, x14, 368
-    RESTORE_TWO_REGS x15, x16, 384
-    RESTORE_TWO_REGS x17, x18, 400
-    RESTORE_TWO_REGS x19, x20, 416
-    RESTORE_TWO_REGS x21, x22, 432
-    RESTORE_TWO_REGS x23, x24, 448
-    RESTORE_TWO_REGS x25, x26, 464
-    RESTORE_TWO_REGS x27, x28, 480
-    RESTORE_TWO_REGS x29, xLR, 496
+    RESTORE_TWO_REGS  x1,  x2, 272+\offset
+    RESTORE_TWO_REGS  x3,  x4, 288+\offset
+    RESTORE_TWO_REGS  x5,  x6, 304+\offset
+    RESTORE_TWO_REGS  x7,  x8, 320+\offset
+    RESTORE_TWO_REGS  x9, x10, 336+\offset
+    RESTORE_TWO_REGS x11, x12, 352+\offset
+    RESTORE_TWO_REGS x13, x14, 368+\offset
+    RESTORE_TWO_REGS x15, x16, 384+\offset
+    RESTORE_TWO_REGS x17, x18, 400+\offset
+    RESTORE_TWO_REGS x19, x20, 416+\offset
+    RESTORE_TWO_REGS x21, x22, 432+\offset
+    RESTORE_TWO_REGS x23, x24, 448+\offset
+    RESTORE_TWO_REGS x25, x26, 464+\offset
+    RESTORE_TWO_REGS x27, x28, 480+\offset
+.endm
 
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP offset = 0
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP
+    RESTORE_TWO_REGS x29, xLR, 496+\offset
+.endm
+
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0 offset = 0
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP \offset
     DECREASE_FRAME 512
 .endm
 
 .macro RESTORE_SAVE_EVERYTHING_FRAME
-    RESTORE_REG       x0,      264
-    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0
+    RESTORE_REG  x0, 264
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP 0
+    DECREASE_FRAME 512
+.endm
+
+.macro RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET offset
+    RESTORE_REG  x0,  264+\offset
+    RESTORE_REG  x29, 496+\offset
+    RESTORE_REG  xLR, 504+\offset
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP \offset
+    // Keep sp unchanged.
 .endm
 
 // Macro to refresh the Marking Register (W20).
@@ -1593,10 +1609,10 @@ END \name
 .endm
 
 // Macro for string and type resolution and initialization.
-.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL name, entrypoint
+.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL name, entrypoint, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET
     .extern \entrypoint
 ENTRY \name
-    SETUP_SAVE_EVERYTHING_FRAME       // save everything for stack crawl
+    SETUP_SAVE_EVERYTHING_FRAME \runtime_method_offset       // save everything for stack crawl
     mov   x1, xSELF                   // pass Thread::Current
     bl    \entrypoint                 // (int32_t index, Thread* self)
     cbz   w0, 1f                      // If result is null, deliver the OOME.
@@ -1609,6 +1625,10 @@ ENTRY \name
 1:
     DELIVER_PENDING_EXCEPTION_FRAME_READY
 END \name
+.endm
+
+.macro ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT name, entrypoint
+    ONE_ARG_SAVE_EVERYTHING_DOWNCALL \name, \entrypoint, RUNTIME_SAVE_EVERYTHING_FOR_CLINIT_METHOD_OFFSET
 .endm
 
 .macro RETURN_IF_RESULT_IS_NON_ZERO_OR_DELIVER
@@ -1629,9 +1649,8 @@ TWO_ARG_REF_DOWNCALL art_quick_handle_fill_data, artHandleFillArrayDataFromCode,
      * initializer and deliver the exception on error. On success the static storage base is
      * returned.
      */
-ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_static_storage, artInitializeStaticStorageFromCode
-
-ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_type, artInitializeTypeFromCode
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT art_quick_initialize_static_storage, artInitializeStaticStorageFromCode
+ONE_ARG_SAVE_EVERYTHING_DOWNCALL_FOR_CLINIT art_quick_initialize_type, artInitializeTypeFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_initialize_type_and_verify_access, artInitializeTypeAndVerifyAccessFromCode
 ONE_ARG_SAVE_EVERYTHING_DOWNCALL art_quick_resolve_string, artResolveStringFromCode
 
@@ -2008,7 +2027,7 @@ GENERATE_ALLOC_ARRAY_TLAB art_quick_alloc_array_resolved64_tlab, artAllocArrayFr
      */
     .extern artTestSuspendFromCode
 ENTRY art_quick_test_suspend
-    SETUP_SAVE_EVERYTHING_FRAME               // save callee saves for stack crawl
+    SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET  // save callee saves for stack crawl
     mov    x0, xSELF
     bl     artTestSuspendFromCode             // (Thread*)
     RESTORE_SAVE_EVERYTHING_FRAME
