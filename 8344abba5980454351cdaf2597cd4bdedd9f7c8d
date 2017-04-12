@@ -636,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "db0a265a_d9044651",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-12T14:55:23Z",
+      "side": 1,
+      "message": "I see; I forgot about that and thought the comment was referring to an implicit null check. Maybe say \"we must have emitted an explicit null check before the load\"?",
+      "parentUuid": "6b901029_bbe75010",
+      "range": {
+        "startLine": 415,
+        "startChar": 75,
+        "endLine": 416,
+        "endChar": 50
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62e816ab_1334c632",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
         "patchSetId": 27
@@ -1000,6 +1024,30 @@
       "side": 1,
       "message": "Done. I do advocate for UNREACHABLE() after LOG(FATAL) in switch default statements but I guess it\u0027s a bit of overkill in void-returning functions.",
       "parentUuid": "aeca74d8_dd939c08",
+      "range": {
+        "startLine": 82,
+        "startChar": 6,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f84d2c9_f928473e",
+        "filename": "compiler/linker/relative_patcher.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-12T14:55:23Z",
+      "side": 1,
+      "message": "Yes, this policy SGTM.",
+      "parentUuid": "ed27545c_654622da",
       "range": {
         "startLine": 82,
         "startChar": 6,
@@ -1680,6 +1728,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f95bc7c7_13fe1d8a",
+      "range": {
+        "startLine": 2653,
+        "startChar": 20,
+        "endLine": 2655,
+        "endChar": 72
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb0eec0b_1a800330",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-12T14:55:23Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "172637e2_524fa8f3",
       "range": {
         "startLine": 2653,
         "startChar": 20,
