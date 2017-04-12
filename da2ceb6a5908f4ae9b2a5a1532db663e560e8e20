@@ -163,6 +163,86 @@
     },
     {
       "key": {
+        "uuid": "919c7e48_f7af62ba",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "nit: enum classes for new code please",
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33570c44_b013cd80",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "nit: verifier_stat",
+      "range": {
+        "startLine": 52,
+        "startChar": 37,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6517548_04074116",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "nit: * to left",
+      "range": {
+        "startLine": 66,
+        "startChar": 33,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "453e363d_ea1ed468",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "You don\u0027t need to do this, just write the operator\u003c\u003c declaration for it and it will auto-generate the function how to print it.",
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78fd90b0_eef3c347",
         "filename": "runtime/verifier/method_verifier_stats.h",
         "patchSetId": 9
@@ -174,6 +254,30 @@
       "writtenOn": "2017-04-06T14:41:55Z",
       "side": 1,
       "message": "remove extra space.",
+      "range": {
+        "startLine": 130,
+        "startChar": 13,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36c934cf_40b6cfee",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "default for this atomic is seq_cst\n\nthat\u0027s too strong for just a stat counter, use relaxed instead",
+      "parentUuid": "78fd90b0_eef3c347",
       "range": {
         "startLine": 130,
         "startChar": 13,
@@ -202,6 +306,53 @@
         "startChar": 29,
         "endLine": 131,
         "endChar": 30
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12473564_01957049",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "Why is it static..? If compiler_driver is the place that owns it then make it a unique_ptr there. Otherwise put it into the Runtime?",
+      "parentUuid": "44e96527_697eba45",
+      "range": {
+        "startLine": 131,
+        "startChar": 29,
+        "endLine": 131,
+        "endChar": 30
+      },
+      "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "670521cc_7029d72f",
+        "filename": "runtime/verifier/method_verifier_stats.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T22:22:14Z",
+      "side": 1,
+      "message": "nit: not lint-happy\n\ndid you run lint before uploading?",
+      "range": {
+        "startLine": 134,
+        "startChar": 1,
+        "endLine": 134,
+        "endChar": 2
       },
       "revId": "da2ceb6a5908f4ae9b2a5a1532db663e560e8e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
