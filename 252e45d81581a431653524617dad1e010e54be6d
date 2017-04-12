@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "5f123e61_8f42c4bd",
+        "filename": "compiler/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-12T13:57:52Z",
+      "side": 1,
+      "message": "Sure, I\u0027m just saying the current compiler notion of side effects is not the best place to express this. The side effects in the compiler are representing effects on the Java heap.",
+      "parentUuid": "c461398f_a0017fa6",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 86
+      },
+      "revId": "252e45d81581a431653524617dad1e010e54be6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c937fe8_402d631d",
         "filename": "compiler/intrinsics_list.h",
         "patchSetId": 5
