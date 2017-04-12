@@ -2056,8 +2056,8 @@ END_FUNCTION art_quick_instrumentation_entry
 DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0
     pushl LITERAL(0)              // Push a fake return PC as there will be none on the stack.
     CFI_ADJUST_CFA_OFFSET(4)
-    SETUP_SAVE_REFS_ONLY_FRAME ebx, ebx
-    mov  %esp, %ecx               // Remember SP
+    SETUP_SAVE_EVERYTHING_FRAME ebx, ebx
+    movl %esp, %ecx               // Remember SP
     subl LITERAL(8), %esp         // Save float return value.
     CFI_ADJUST_CFA_OFFSET(8)
     movq %xmm0, (%esp)
@@ -2071,27 +2071,27 @@ DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0
     pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current.
     CFI_ADJUST_CFA_OFFSET(4)
     call SYMBOL(artInstrumentationMethodExitFromCode)  // (Thread*, SP, gpr_result*, fpr_result*)
-    testl %eax, %eax              // Check if we returned error.
-    jz 1f
-    mov   %eax, %ecx              // Move returned link register.
-    addl LITERAL(16), %esp        // Pop arguments.
-    CFI_ADJUST_CFA_OFFSET(-16)
-    movl %edx, %ebx               // Move returned link register for deopt
-                                  // (ebx is pretending to be our LR).
-    POP eax                       // Restore gpr return value.
-    POP edx
-    movq (%esp), %xmm0            // Restore fpr return value.
-    addl LITERAL(8), %esp
-    CFI_ADJUST_CFA_OFFSET(-8)
-    RESTORE_SAVE_REFS_ONLY_FRAME
-    addl LITERAL(4), %esp         // Remove fake return pc.
-    CFI_ADJUST_CFA_OFFSET(-4)
-    jmp   *%ecx                   // Return.
-1:
-    addl LITERAL(32), %esp
+    // Return result could have been changed if it's a reference.
+    movl 16(%esp), %ecx
+    movl %ecx, (80+32)(%esp)
+    addl LITERAL(32), %esp        // Pop arguments and results.
     CFI_ADJUST_CFA_OFFSET(-32)
-    RESTORE_SAVE_REFS_ONLY_FRAME
-    DELIVER_PENDING_EXCEPTION
+
+    testl %eax, %eax              // Check if we returned error.
+    jz .Ldo_deliver_instrumentation_exception
+
+    testl %edx, %edx
+    jnz .Ldeoptimize
+    // Normal return.
+    movl %eax, FRAME_SIZE_SAVE_EVERYTHING-4(%esp)   // Set return pc.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+.Ldeoptimize:
+    mov %edx, (FRAME_SIZE_SAVE_EVERYTHING-4)(%esp)  // Set return pc.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    jmp SYMBOL(art_quick_deoptimize)
+.Ldo_deliver_instrumentation_exception:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
 END_FUNCTION art_quick_instrumentation_exit
 
     /*
@@ -2099,8 +2099,7 @@ END_FUNCTION art_quick_instrumentation_exit
      * will long jump to the upcall with a special exception of -1.
      */
 DEFINE_FUNCTION art_quick_deoptimize
-    PUSH ebx                      // Entry point for a jump. Fake that we were called.
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME ebx, ebx
+    SETUP_SAVE_EVERYTHING_FRAME ebx, ebx
     subl LITERAL(12), %esp        // Align stack.
     CFI_ADJUST_CFA_OFFSET(12)
     pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current().
