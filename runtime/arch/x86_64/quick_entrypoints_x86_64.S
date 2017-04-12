@@ -348,24 +348,24 @@ MACRO1(SETUP_SAVE_EVERYTHING_FRAME, runtime_method_offset = RUNTIME_SAVE_EVERYTH
     SETUP_SAVE_EVERYTHING_FRAME_R15_SAVED \runtime_method_offset
 END_MACRO
 
-MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_FRPS)
+MACRO1(RESTORE_SAVE_EVERYTHING_FRAME_FRPS, offset = 0)
     // Restore FPRs. Method and padding is still on the stack.
-    movq 16(%rsp), %xmm0
-    movq 24(%rsp), %xmm1
-    movq 32(%rsp), %xmm2
-    movq 40(%rsp), %xmm3
-    movq 48(%rsp), %xmm4
-    movq 56(%rsp), %xmm5
-    movq 64(%rsp), %xmm6
-    movq 72(%rsp), %xmm7
-    movq 80(%rsp), %xmm8
-    movq 88(%rsp), %xmm9
-    movq 96(%rsp), %xmm10
-    movq 104(%rsp), %xmm11
-    movq 112(%rsp), %xmm12
-    movq 120(%rsp), %xmm13
-    movq 128(%rsp), %xmm14
-    movq 136(%rsp), %xmm15
+    movq 16+\offset(%rsp), %xmm0
+    movq 24+\offset(%rsp), %xmm1
+    movq 32+\offset(%rsp), %xmm2
+    movq 40+\offset(%rsp), %xmm3
+    movq 48+\offset(%rsp), %xmm4
+    movq 56+\offset(%rsp), %xmm5
+    movq 64+\offset(%rsp), %xmm6
+    movq 72+\offset(%rsp), %xmm7
+    movq 80+\offset(%rsp), %xmm8
+    movq 88+\offset(%rsp), %xmm9
+    movq 96+\offset(%rsp), %xmm10
+    movq 104+\offset(%rsp), %xmm11
+    movq 112+\offset(%rsp), %xmm12
+    movq 120+\offset(%rsp), %xmm13
+    movq 128+\offset(%rsp), %xmm14
+    movq 136+\offset(%rsp), %xmm15
 END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_RAX)
@@ -395,6 +395,28 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME)
 
     POP rax
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_RAX
+END_MACRO
+
+MACRO1(RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET, offset)
+    RESTORE_SAVE_EVERYTHING_FRAME_FRPS 16
+
+    movq 144+\offset(%rsp), %rax
+    movq 152+\offset(%rsp), %rcx
+    movq 160+\offset(%rsp), %rdx
+    movq 168+\offset(%rsp), %rbx
+    movq 176+\offset(%rsp), %rbp
+    movq 184+\offset(%rsp), %rsi
+    movq 192+\offset(%rsp), %rdi
+    movq 200+\offset(%rsp), %r8
+    movq 208+\offset(%rsp), %r9
+    movq 216+\offset(%rsp), %r10
+    movq 224+\offset(%rsp), %r11
+    movq 232+\offset(%rsp), %r12
+    movq 240+\offset(%rsp), %r13
+    movq 248+\offset(%rsp), %r14
+    movq 256+\offset(%rsp), %r15
+
+    // Leave sp unchanged.
 END_MACRO
 
 MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_KEEP_RAX)
@@ -2019,7 +2041,7 @@ DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0
     pushq LITERAL(0)          // Push a fake return PC as there will be none on the stack.
     CFI_ADJUST_CFA_OFFSET(8)
 
-    SETUP_SAVE_REFS_ONLY_FRAME
+    SETUP_SAVE_EVERYTHING_FRAME
 
     // We need to save rax and xmm0. We could use a callee-save from SETUP_REF_ONLY, but then
     // we would need to fully restore it. As there are a good number of callee-save registers, it
@@ -2039,25 +2061,28 @@ DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0
 
     call SYMBOL(artInstrumentationMethodExitFromCode)   // (Thread*, SP, gpr_res*, fpr_res*)
 
-    movq  %rax, %rdi          // Store return PC
-    movq  %rdx, %rsi          // Store second return PC in hidden arg.
-
-    movq (%rsp), %xmm0        // Restore floating-point result.
-    addq LITERAL(8), %rsp
-    CFI_ADJUST_CFA_OFFSET(-8)
-    POP rax                   // Restore integer result.
-
-    RESTORE_SAVE_REFS_ONLY_FRAME
-
-    testq %rdi, %rdi          // Check if we have a return-pc to go to. If we don't then there was
+    testq %rax, %rax          // Check if we have a return-pc to go to. If we don't then there was
                               // an exception
-    jz 1f
+    jz .Ldo_deliver_instrumentation_exception
+    movq %rax, FRAME_SIZE_SAVE_EVERYTHING+8(%rsp)  // Set immediate return pc (can be art_quick_deoptimize).
+    // Return result could have been changed if it's a reference.
+    movq 8(%rsp), %rcx
+    movq %rcx, (144+16)(%rsp)
+    testq %rdx, %rdx
+    jnz .Ldeoptimize
 
-    addq LITERAL(8), %rsp     // Drop fake return pc.
-
-    jmp   *%rdi               // Return.
-1:
-    DELIVER_PENDING_EXCEPTION
+    // Normal return.
+    addq LITERAL(16), %rsp
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+.Ldeoptimize:
+    movq %rdx, (%rsp)         // Save instrumentation-saved return pc on stack.
+    RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET 16
+    // Jump to art_quick_deoptimize.
+    jmpq *(FRAME_SIZE_SAVE_EVERYTHING+8)(%rsp)
+.Ldo_deliver_instrumentation_exception:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
 END_FUNCTION art_quick_instrumentation_exit
 
     /*
@@ -2065,9 +2090,16 @@ END_FUNCTION art_quick_instrumentation_exit
      * will long jump to the upcall with a special exception of -1.
      */
 DEFINE_FUNCTION art_quick_deoptimize
-    pushq %rsi                         // Entry point for a jump. Fake that we were called.
-                                       // Use hidden arg.
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
+    // Preserve all registers while pushing the instrumentation-saved return pc
+    // value to stack to fake a call.
+    pushq %rsi
+    movq 8(%rsp), %rsi
+    movq %rsi, FRAME_SIZE_SAVE_EVERYTHING+16(%rsp)
+    popq %rsi
+    addq LITERAL(FRAME_SIZE_SAVE_EVERYTHING+8), %rsp
+    CFI_ADJUST_CFA_OFFSET(-(FRAME_SIZE_SAVE_EVERYTHING+8))
+
+    SETUP_SAVE_EVERYTHING_FRAME
                                        // Stack should be aligned now.
     movq %gs:THREAD_SELF_OFFSET, %rdi  // Pass Thread.
     call SYMBOL(artDeoptimize)         // (Thread*)
