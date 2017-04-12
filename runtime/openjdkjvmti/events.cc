@@ -145,9 +145,11 @@ void EventHandler::RegisterArtJvmTiEnv(ArtJvmTiEnv* env) {
 }
 
 void EventHandler::RemoveArtJvmTiEnv(ArtJvmTiEnv* env) {
+  // Since we might be currently iterating over the envs list we cannot actually erase elements.
+  // Instead we will simply replace them with 'nullptr' and skip them manually.
   auto it = std::find(envs.begin(), envs.end(), env);
   if (it != envs.end()) {
-    envs.erase(it);
+    *it = nullptr;
     for (size_t i = static_cast<size_t>(ArtJvmtiEvent::kMinEventTypeVal);
          i <= static_cast<size_t>(ArtJvmtiEvent::kMaxEventTypeVal);
          ++i) {
