@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e78cd101_c9b1cce1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Added \"ARM64:\" to the commit message.",
+      "parentUuid": "61a9ff63_9e66c443",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17d0bd00_60468972",
         "filename": "/COMMIT_MSG",
         "patchSetId": 27
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ab4ed197_9d4ed453",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "This is implicit in the \"link-time\".",
+      "parentUuid": "17d0bd00_60468972",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2f62896_d0b30cbe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 27
@@ -47,6 +83,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Maybe also mention bug 30126666?",
+      "range": {
+        "startLine": 18,
+        "startChar": 5,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43e593a5_68cb5d98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2f62896_d0b30cbe",
       "range": {
         "startLine": 18,
         "startChar": 5,
@@ -129,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "e5abe782_2a837ae2",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "The operator\u003c\u003c has not been declared at this point. I would have to move this definition after that declaration.",
+      "parentUuid": "cfcb8568_9fb6f723",
+      "range": {
+        "startLine": 315,
+        "startChar": 4,
+        "endLine": 315,
+        "endChar": 10
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af579b0f_c09aba76",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 27
@@ -140,6 +224,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 320,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 10
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "157d3017_f630c063",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "af579b0f_c09aba76",
       "range": {
         "startLine": 320,
         "startChar": 4,
@@ -175,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "5bfa3071_4d2864dc",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fdb6b0c_4ec5cc18",
+      "range": {
+        "startLine": 345,
+        "startChar": 13,
+        "endLine": 345,
+        "endChar": 27
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7da93837_22e63cb6",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 27
@@ -186,6 +318,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 359,
+        "startChar": 13,
+        "endLine": 359,
+        "endChar": 27
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37a45246_d0953b2f",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7da93837_22e63cb6",
       "range": {
         "startLine": 359,
         "startChar": 13,
@@ -221,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "224dd007_3a94ae1e",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Yes, absolutely. Notice that the ThunkData class is declared in the header but defined in this .cc file, so implicit instantiation of the destructor from somewhere else would yield either a compile-time error (most likely, considering our warnings and -Werror) or potentially a quiet ODR violation.",
+      "parentUuid": "d207c7ad_e8cafcfa",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 1
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ec02f3_aa681759",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 27
@@ -232,6 +412,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Unfinished sentence.",
+      "range": {
+        "startLine": 375,
+        "startChar": 37,
+        "endLine": 375,
+        "endChar": 44
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0137a67d_1d06a6c8",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3ec02f3_aa681759",
       "range": {
         "startLine": 375,
         "startChar": 37,
@@ -267,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "c138639d_50572328",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "I prefer private helper classes over namespace classes, it is better for encapsulation and avoiding ODR vialations. (Putting the class into anonymous namespace is another option.)\n\nHere it also makes the comment on the next line meaningful.",
+      "parentUuid": "8396da55_e84cd523",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "364e5ea3_d6eeade2",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
         "patchSetId": 27
@@ -278,6 +506,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "DCHECK_EQ?",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 8
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4d9e2cb_8dfbecee",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "364e5ea3_d6eeade2",
       "range": {
         "startLine": 341,
         "startChar": 2,
@@ -360,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "6b901029_bbe75010",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "We only allow implicit null checks for the first page:\n\n  static inline bool CanDoImplicitNullCheckOn(uintptr_t offset) {\n    return offset \u003c kPageSize;\n  }\n\nHigher offsets always generate explicit null checks.",
+      "parentUuid": "ff083bef_7feb284b",
+      "range": {
+        "startLine": 415,
+        "startChar": 75,
+        "endLine": 416,
+        "endChar": 50
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62e816ab_1334c632",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
         "patchSetId": 27
@@ -371,6 +647,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "// Reference load.",
+      "range": {
+        "startLine": 429,
+        "startChar": 56,
+        "endLine": 429,
+        "endChar": 57
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd3c5660_24c2c76a",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e816ab_1334c632",
       "range": {
         "startLine": 429,
         "startChar": 56,
@@ -500,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "aaf774a6_8921b7e0",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ba6a3d5_71c8aa48",
+      "range": {
+        "startLine": 165,
+        "startChar": 11,
+        "endLine": 165,
+        "endChar": 22
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91a14057_4a1169e7",
         "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
         "patchSetId": 27
@@ -511,6 +835,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "down_cast?",
+      "range": {
+        "startLine": 468,
+        "startChar": 20,
+        "endLine": 468,
+        "endChar": 31
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef10a5b_024db74e",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91a14057_4a1169e7",
       "range": {
         "startLine": 468,
         "startChar": 20,
@@ -546,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "70e10479_69c32cbf",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6fa88b9_5cd82cf9",
+      "range": {
+        "startLine": 476,
+        "startChar": 20,
+        "endLine": 476,
+        "endChar": 31
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cf613fb_9e75fc05",
         "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
         "patchSetId": 27
@@ -557,6 +929,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Unfinished sentence.",
+      "range": {
+        "startLine": 1220,
+        "startChar": 5,
+        "endLine": 1220,
+        "endChar": 15
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7936ec8_e95a3bf0",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done, also finished the sentence in the next comment block below.",
+      "parentUuid": "4cf613fb_9e75fc05",
       "range": {
         "startLine": 1220,
         "startChar": 5,
@@ -592,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "ed27545c_654622da",
+        "filename": "compiler/linker/relative_patcher.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done. I do advocate for UNREACHABLE() after LOG(FATAL) in switch default statements but I guess it\u0027s a bit of overkill in void-returning functions.",
+      "parentUuid": "aeca74d8_dd939c08",
+      "range": {
+        "startLine": 82,
+        "startChar": 6,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c3d8410_9179a727",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 27
@@ -603,6 +1023,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Missing `)\u0027 after `loads`?",
+      "range": {
+        "startLine": 85,
+        "startChar": 39,
+        "endLine": 85,
+        "endChar": 44
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b292eafe_f3ce970f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c3d8410_9179a727",
       "range": {
         "startLine": 85,
         "startChar": 39,
@@ -638,6 +1082,30 @@
     },
     {
       "key": {
+        "uuid": "46fdf8cd_15606633",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 2245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde678df_f5141947",
+      "range": {
+        "startLine": 2243,
+        "startChar": 8,
+        "endLine": 2245,
+        "endChar": 31
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9121c6f_5421b1fa",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 27
@@ -649,6 +1117,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2676,
+        "startChar": 8,
+        "endLine": 2678,
+        "endChar": 46
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8d758e6_100f838f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9121c6f_5421b1fa",
       "range": {
         "startLine": 2676,
         "startChar": 8,
@@ -684,6 +1176,30 @@
     },
     {
       "key": {
+        "uuid": "b84605f0_667663ac",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 2685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "uint32_t in line with the code generator. Assuming that absurdly high indexes (where the `\u003c\u003c` below overflows) shall fail bounds check, so we don\u0027t really care what code we generate.",
+      "parentUuid": "76d47c14_83b3dc3e",
+      "range": {
+        "startLine": 2685,
+        "startChar": 6,
+        "endLine": 2685,
+        "endChar": 13
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de217997_91ea8786",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 27
@@ -701,6 +1217,24 @@
     },
     {
       "key": {
+        "uuid": "eeb39cc2_a7439438",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de217997_91ea8786",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2dd2f55_fbf39664",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 27
@@ -712,6 +1246,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Should we assert that IP0 is register 16? I think that\u0027s a good reminder for documentation purpose, too.",
+      "range": {
+        "startLine": 5911,
+        "startChar": 82,
+        "endLine": 5911,
+        "endChar": 95
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2deece8e_f30c95da",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5911,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2dd2f55_fbf39664",
       "range": {
         "startLine": 5911,
         "startChar": 82,
@@ -776,6 +1334,24 @@
     },
     {
       "key": {
+        "uuid": "f83ef034_228c3286",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e33df80_dda4120e",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "697b44c2_fdd14ea8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 27
@@ -787,6 +1363,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Likewise, assert that IP0 is register 16?",
+      "range": {
+        "startLine": 6028,
+        "startChar": 78,
+        "endLine": 6028,
+        "endChar": 91
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54d37a21_b9b67ea0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "697b44c2_fdd14ea8",
       "range": {
         "startLine": 6028,
         "startChar": 78,
@@ -822,6 +1422,30 @@
     },
     {
       "key": {
+        "uuid": "e31232e9_420f6280",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6046,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d28c2cd3_38daa91b",
+      "range": {
+        "startLine": 6046,
+        "startChar": 2,
+        "endLine": 6046,
+        "endChar": 34
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc737f89_ce8a0f64",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 27
@@ -833,6 +1457,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Maybe use a less generic name?",
+      "range": {
+        "startLine": 743,
+        "startChar": 13,
+        "endLine": 743,
+        "endChar": 24
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "587afaa5_1b852ced",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "I\u0027ve renamed the members in LinkerPatch to baker_* but this one is already encapsulated in a Baker* struct.",
+      "parentUuid": "bc737f89_ce8a0f64",
       "range": {
         "startLine": 743,
         "startChar": 13,
@@ -862,6 +1510,24 @@
     },
     {
       "key": {
+        "uuid": "cdfb4499_e80f1f4d",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f32b2fc_0cae0c40",
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e483e1b_2d6a0cf4",
         "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
         "patchSetId": 27
@@ -873,6 +1539,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "I think it would be good to explicitly mention (remind the reader) that there is no read barrier marking entry point associated to IP0/W16 on ARM64 (as IP0 is used internally by the read barrier marking entry points implementation), and that we use its slot in the Quick entry point structure for the read barrier mark introspection entry point instead.",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "919e91cd_21347f50",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e483e1b_2d6a0cf4",
       "range": {
         "startLine": 129,
         "startChar": 11,
@@ -966,6 +1656,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "It\u0027d be nice to have a diagram summarizing the layout of this code in the documentation for future readers (including future us). This can be done later in a follow-up CL, possibly by other people (for instance me, as an exercise to assess I understood it correctly!).",
+      "range": {
+        "startLine": 2653,
+        "startChar": 20,
+        "endLine": 2655,
+        "endChar": 72
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172637e2_524fa8f3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f95bc7c7_13fe1d8a",
       "range": {
         "startLine": 2653,
         "startChar": 20,
@@ -1083,6 +1797,30 @@
     },
     {
       "key": {
+        "uuid": "dbabfa51_6ae9f231",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40d2b531_d3d06659",
+      "range": {
+        "startLine": 2676,
+        "startChar": 69,
+        "endLine": 2676,
+        "endChar": 74
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5883617_0d623969",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 27
@@ -1094,6 +1832,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Should this be BAKER_MARK_INTROSPECTION_FIELD_LDR_OFFSET?",
+      "range": {
+        "startLine": 2678,
+        "startChar": 22,
+        "endLine": 2678,
+        "endChar": 24
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7ed03e9_3207dc5f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5883617_0d623969",
       "range": {
         "startLine": 2678,
         "startChar": 22,
@@ -1152,6 +1914,54 @@
     },
     {
       "key": {
+        "uuid": "2ff61b71_6369c299",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4489b80d_9fa23801",
+      "range": {
+        "startLine": 2679,
+        "startChar": 22,
+        "endLine": 2679,
+        "endChar": 25
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23a82686_577bf68e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20eac58c_dd46cc0a",
+      "range": {
+        "startLine": 2679,
+        "startChar": 49,
+        "endLine": 2679,
+        "endChar": 54
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c95d4d6_065fd41f",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 27
@@ -1163,6 +1973,30 @@
       "writtenOn": "2017-04-11T18:07:32Z",
       "side": 1,
       "message": "Should we assert we do not go over that limit here? Or is the DCHECK on the value of `BAKER_MARK_INTROSPECTION_ARRAY_SWITCH_OFFSET` in runtime/arch/arm64/entrypoints_init_arm64.cc enough to catch this?",
+      "range": {
+        "startLine": 2695,
+        "startChar": 4,
+        "endLine": 2696,
+        "endChar": 26
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "926b4cb9_bb79f718",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T10:49:55Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any way to assert it here. The code you point to is intended to catch it.",
+      "parentUuid": "5c95d4d6_065fd41f",
       "range": {
         "startLine": 2695,
         "startChar": 4,
