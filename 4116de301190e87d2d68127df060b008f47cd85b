@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ee4b5f9_d0248328",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "remove empty lines between the lines here: I like to see what the method does in one paragraph, and then the JLS cases",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9604ac8_f7222760",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5680,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "unrelated white line?",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2c9e3d_815df292",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b71df79_690c0094",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "one line?",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9c16a43_44d8d4e6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "put this closer to prior comment\n\nEliminate allocations ... Also eliminates the constructor fences of these allocations if allowed, since ....",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95139ede_cc5bc94f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "space after comment? here and below",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9dbec34_f56c23d6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "same line",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bfbac3c_8063e3d1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "I don\u0027t like the placement of this comment, as it is a result of code that appears *above*\n\nalso, we come here when we don\u0027t have a cached result yet, making the comment more confusing",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d135e897_8dcb67d3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "note: this is sufficiently small, but you could introduce new utils in their own CL for easy/speed of review",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a823fa2_1af8ff75",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "function -\u003e method for consistency\n(see HGraph comments)",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6970e64_ca82e1a1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3192c4c8_6fdb21a5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2440,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "Remove -\u003e Removes",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b203a37c_333e6494",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6522,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "no white line",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a56dae7_ab8c02fb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6554,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "no explicit",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aea08b8c_111f4a61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6575,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "no white line",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9105d5db_5ebd8e33",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 1,
+      "message": "lets us avoid -\u003e avoids",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

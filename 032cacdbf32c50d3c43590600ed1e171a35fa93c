@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33f13b31_5f218507",
+        "filename": "test/530-checker-lse-ctor-fences/expected.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T18:25:23Z",
+      "side": 0,
+      "message": "this is of course very nitpicky, but why did you pick 530 again? This seems to be used very heavily already\n\n530-checker-loops1  530-checker-loops3\t530-checker-loops5  530-checker-lse2\t\t\t 530-instanceof-checkcast\n530-checker-loops2  530-checker-loops4\t530-checker-lse     530-checker-regression-reftyp-final",
+      "revId": "032cacdbf32c50d3c43590600ed1e171a35fa93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
