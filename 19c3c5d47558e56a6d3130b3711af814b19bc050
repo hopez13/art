@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "44ffceab_4f768837",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-12T13:34:22Z",
+      "side": 1,
+      "message": "Not done?",
+      "parentUuid": "3ece5c8a_93530754",
+      "range": {
+        "startLine": 388,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe3550ae_bd6db9b9",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -275,6 +299,30 @@
       "side": 1,
       "message": "I don\u0027t think I can avoid reverting the paths in EncodeDexFileDependencies. I\u0027m passing in the opened class_path_files there, not the class_path_locations. I can\u0027t just pass class_path_locations because OpenClassPathFiles may fail to open some of them, and only the opened ones should be passed to EncodeDexFileDependencies. The opened dex files have absolute addresses.",
       "parentUuid": "6082466d_f17a9bfa",
+      "range": {
+        "startLine": 1495,
+        "startChar": 5,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "19c3c5d47558e56a6d3130b3711af814b19bc050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ea9ca9_e822f43c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2017-04-12T13:34:22Z",
+      "side": 1,
+      "message": "Okay. I understand better now.",
+      "parentUuid": "a6007bce_1b616286",
       "range": {
         "startLine": 1495,
         "startChar": 5,
