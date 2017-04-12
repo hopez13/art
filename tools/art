@@ -17,8 +17,8 @@
 # Android (e.g. mksh).
 
 # Globals
-ARCHS={arm,arm64,mips,mips64,x86,x86_64}
 ART_BINARY=dalvikvm
+DEX2OAT_BINARY=dex2oat
 DELETE_ANDROID_DATA="no"
 LAUNCH_WRAPPER=
 LIBART=libart.so
@@ -46,36 +46,12 @@ function find_libdir() {
   fi
 }
 
-function replace_compiler_filter_with_interepret_only() {
-  ARGS_WITH_INTERPRET_ONLY=("$@")
-
-  found="false"
-  ((index=0))
-  while ((index <= $#)); do
-    what="${ARGS_WITH_INTERPRET_ONLY[$index]}"
-
-    case "$what" in
-      --compiler-filter=*)
-        ARGS_WITH_INTERPRET_ONLY[$index]="--compiler-filter=interpret-only"
-        found="true"
-        ;;
-    esac
-
-    ((index++))
-    shift
-  done
-  if [ "$found" != "true" ]; then
-    ARGS_WITH_INTERPRET_ONLY=(-Xcompiler-option --compiler-filter=interpret-only "${ARGS_WITH_INTERPRET_ONLY[@]}")
-  fi
-}
-
 function usage() {
   cat 1>&2 <<EOF
 Usage: art [OPTIONS] [--] [ART_OPTIONS] CLASS
 
 Supported OPTIONS include:
-  --32                     Use the 32-bit Android Runtime.
-  --64                     Use the 64-bit Android Runtime.
+  --isa ISA                the runtime/dex2oat instruction set
   --callgrind              Launch the Android Runtime in callgrind.
   -d                       Use the debug ART library (libartd.so).
   --debug                  Equivalent to -d.
@@ -87,11 +63,12 @@ Supported OPTIONS include:
                            report upon completion.
   --profile                Run with profiling, then run using profile data.
   --verbose                Run script verbosely.
+  --compiler-arg           Argument forwarded to dex2oat
 
 The ART_OPTIONS are passed directly to the Android Runtime.
 
 Example:
-  art --32 -cp my_classes.dex MainClass
+  art --isa x86 -cp my_classes.dex MainClass
 
 Common errors:
   1) Not having core.art available (see $ANDROID_BUILD_TOP/art/Android.mk).
@@ -127,6 +104,53 @@ function run_art() {
               "$@"
 }
 
+function run_dex2oat() {
+  CLASSPATH=""
+  echo "$@"
+  while [[ $# > 0 ]] ; do
+  case "$1" in
+    -cp)
+      shift
+      CLASSPATH=$1
+      ;;
+  esac
+  shift
+  done
+  echo $CLASSPATH
+  OIFS=$IFS
+  IFS=':'
+  for DEX in $CLASSPATH
+  do
+    IFS=$OIFS
+    while [ -h "$DEX" ]; do
+      # On Mac OS, readlink -f doesn't work.
+      DEX="$(readlink "$DEX")"
+    done
+    DALVIK_CACHE=$ANDROID_DATA/dalvik-cache/$ISA/
+    OAT=${DEX//\//@}
+    OAT=${OAT:1}
+    # TODO: add --output-vdex to dex2oat (it only takes and fd now).
+    VDEX=${OAT/%\.dex/\.vdex}
+    verbose_run ANDROID_DATA=$ANDROID_DATA              \
+          ANDROID_ROOT=$ANDROID_ROOT                    \
+          LD_LIBRARY_PATH=$LD_LIBRARY_PATH              \
+          PATH=$ANDROID_ROOT/bin:$PATH                  \
+          LD_USE_LOAD_BIAS=1                            \
+          $DEX2OAT_BINARY_PATH                          \
+          --runtime-arg -Xnorelocate                    \
+          --boot-image=$ANDROID_ROOT/framework/core.art \
+          --instruction-set=$ISA                        \
+          "$DEX2OAT_FLAGS"                              \
+          --dex-file="$DEX"                             \
+          --oat-file="$DALVIK_CACHE/$OAT"
+          #--output-vdex="$DALVIK_CACHE/$VDEX"
+    IFS=':'
+  done
+  IFS=$OIFS
+}
+
+DEX2OAT_FLAGS=""
+ISA=""
 while [[ "$1" = "-"* ]]; do
   case $1 in
   --)
@@ -134,11 +158,9 @@ while [[ "$1" = "-"* ]]; do
     shift
     break
     ;;
-  --32)
-    ART_BINARY=dalvikvm32
-    ;;
-  --64)
-    ART_BINARY=dalvikvm64
+  --isa)
+    shift
+    ISA=$1
     ;;
   --callgrind)
     LAUNCH_WRAPPER="valgrind --tool=callgrind"
@@ -147,9 +169,11 @@ while [[ "$1" = "-"* ]]; do
     ;& # Fallthrough
   --debug)
     LIBART="libartd.so"
+    DEX2OAT_BINARY="dex2oatd"
     ;;
   --gdb)
     LIBART="libartd.so"
+    DEX2OAT_BINARY="dex2oatd"
     LAUNCH_WRAPPER="gdb --args"
     ;;
   --help)
@@ -172,6 +196,10 @@ while [[ "$1" = "-"* ]]; do
   --verbose)
     VERBOSE="yes"
     ;;
+  --compilerArg)
+    shift
+    DEX2OAT_FLAGS="$DEX2OAT_FLAGS $1"
+    ;;
   --*)
     echo "unknown option: $1" 1>&2
     usage
@@ -184,6 +212,27 @@ while [[ "$1" = "-"* ]]; do
   shift
 done
 
+case $ISA in
+  arm)
+    ;& # Fallthrough
+  x86)
+    ;& # Fallthrough
+  mips)
+    ART_BINARY=dalvikvm32
+    ;;
+  arm64)
+    ;& # Fallthrough
+  x86_64)
+    ;& # Fallthrough
+  mip64)
+    ART_BINARY=dalvikvm64
+    ;;
+  *)
+    echo "unknown isa: $ISA" 1>&2
+    usage
+    exit 1
+esac
+
 if [ $# -eq 0 ]; then
   usage
   exit 1
@@ -192,6 +241,15 @@ fi
 PROG_DIR="$(cd "${PROG_NAME%/*}" ; pwd -P)"
 ANDROID_ROOT=$PROG_DIR/..
 ART_BINARY_PATH=$ANDROID_ROOT/bin/$ART_BINARY
+DEX2OAT_BINARY_PATH=$ANDROID_ROOT/bin/$DEX2OAT_BINARY
+
+if [ ! -x "$DEX2OAT_BINARY_PATH" ]; then
+  cat 1>&2 <<EOF
+Android Runtime not found: $DEX2OAT_BINARY_PATH
+This script should be in the same directory as the Android Runtime ($DEX2OAT_BINARY).
+EOF
+  exit 1
+fi
 
 if [ ! -x "$ART_BINARY_PATH" ]; then
   cat 1>&2 <<EOF
@@ -209,7 +267,7 @@ EXTRA_OPTIONS=""
 # and ensure we delete it at the end.
 if [ "$ANDROID_DATA" = "/data" ] || [ "$ANDROID_DATA" = "" ]; then
   ANDROID_DATA=$PWD/android-data$$
-  mkdir -p $ANDROID_DATA/dalvik-cache/$ARCHS
+  mkdir -p $ANDROID_DATA/dalvik-cache/$ISA
   DELETE_ANDROID_DATA="yes"
 fi
 
@@ -224,19 +282,15 @@ if [ "$JIT_PROFILE" = "yes" ]; then
   PROFILE_PATH="$ANDROID_DATA/primary.prof"
   touch $PROFILE_PATH
 
-  # Replace the compiler filter with interpret-only so that we
-  # can capture the profile.
-  ARGS_WITH_INTERPRET_ONLY=
-  replace_compiler_filter_with_interepret_only "$@"
-
   run_art -Xjitsaveprofilinginfo               \
           -Xps-min-methods-to-save:1           \
           -Xps-min-classes-to-save:1           \
           -Xps-min-notification-before-wake:10 \
           -Xps-profile-path:$PROFILE_PATH      \
           -Xusejit:true                        \
-          "${ARGS_WITH_INTERPRET_ONLY[@]}"     \
+          "$@"                                 \
           "&>" "$ANDROID_DATA/profile_gen.log"
+  DEX2OAT_FLAGS="$DEX2OAT_FLAGS --profile-file=$PROFILE_PATH"
   EXIT_STATUS=$?
 
   if [ $EXIT_STATUS != 0 ]; then
@@ -244,12 +298,18 @@ if [ "$JIT_PROFILE" = "yes" ]; then
     clean_android_data
     exit $EXIT_STATUS
   fi
+fi
 
-  # Wipe dalvik-cache to prepare it for the next invocation.
-  rm -rf $ANDROID_DATA/dalvik-cache/$ARCHS/*
+# Run dex2oat before dalvikvm to generate the oat files for the classpath.
+# We pass the command line argument list so that 'run_dex2oat' can find
+# the class path elements and compile each of them individually.vde
+run_dex2oat $@
 
-  # Append arguments so next invocation of run_art uses the profile.
-  EXTRA_OPTIONS="$EXTRA_OPTIONS -Xcompiler-option --profile-file=$PROFILE_PATH"
+# Do not continue if the dex2oat failed.
+EXIT_STATUS=$?
+if [ $EXIT_STATUS != 0 ]; then
+  echo "Failed dex2oat invocation"
+  exit $EXIT_STATUS
 fi
 
 # Protect additional arguments in quotes to preserve whitespaces when evaluated.

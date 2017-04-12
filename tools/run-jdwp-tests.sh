@@ -113,9 +113,9 @@ done
 if [[ $host == "yes" ]]; then
   variant=${variant_cmdline_parameter:10}
   if [[ $variant == "x32" || $variant == "X32" ]]; then
-    art_debugee="$art_debugee --32"
+    art_debugee="$art_debugee --isa x86"
   elif [[ $variant == "x64" || $variant == "X64" ]]; then
-    art_debugee="$art_debugee --64"
+    art_debugee="$art_debugee --isa x86_64"
   else
     echo "Error, do not understand variant $variant_cmdline_parameter."
     exit 1
