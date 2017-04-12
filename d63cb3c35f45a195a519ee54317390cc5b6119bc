@@ -1052,6 +1052,30 @@
     },
     {
       "key": {
+        "uuid": "bb163618_cc84bccf",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-12T20:21:14Z",
+      "side": 1,
+      "message": "Note that we could also introduce a gtest flavored test (viz. induction_var_test) to setup particular HIR and tests directly, and not always rely on checker tests.",
+      "parentUuid": "eedf8092_62c91cd2",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 45
+      },
+      "revId": "d63cb3c35f45a195a519ee54317390cc5b6119bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c76307_8546cf99",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
