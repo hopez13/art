@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8d6941a_36a97da6",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "DCHECK_GT(pos_const, 0). This is guaranteed by the checks in the location builder and it\u0027s needed to avoid weird overflow cases breaking this comparison.",
+      "range": {
+        "startLine": 2742,
+        "startChar": 0,
+        "endLine": 2743,
+        "endChar": 47
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9130e670_3005cff6",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2785,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "This long piece is repeated 3 times in this function. I\u0027d recommend a helper function.",
+      "range": {
+        "startLine": 2772,
+        "startChar": 0,
+        "endLine": 2785,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e5b16ce_91cd6767",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "This can happen only if the two inputs are the same and that should be checked in the locations builder if desired. (Making the call on main path rather than slow path.)",
+      "range": {
+        "startLine": 2808,
+        "startChar": 0,
+        "endLine": 2814,
+        "endChar": 3
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f61a2d9b_97383eef",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2840,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "The constant length paths in CheckPosition() are currently unused but it\u0027s OK to keep them, assuming you shall implement the object array intrinsic in the future. Similarly, the length_is_input_length is now always false but we could add such optimization to this intrinsic as well.",
+      "range": {
+        "startLine": 2840,
+        "startChar": 43,
+        "endLine": 2840,
+        "endChar": 76
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbeeec71_aa20ab17",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2866,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "Update after https://android-review.googlesource.com/369272 .",
+      "range": {
+        "startLine": 2861,
+        "startChar": 0,
+        "endLine": 2866,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aba41cf3_905c77d5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T17:25:26Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2874,
+        "startChar": 0,
+        "endLine": 2879,
+        "endChar": 5
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
