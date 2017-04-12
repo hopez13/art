@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d1bc7e60_cad1ab1f",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeaaa920_e1be1ea8",
+      "range": {
+        "startLine": 103,
+        "startChar": 21,
+        "endLine": 103,
+        "endChar": 33
+      },
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ee0b9df_b745ff26",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-11T16:54:57Z",
       "side": 1,
       "message": "nit: better to use temporary with an explicit type for such complicated subexpressions (or use the pair type in L103)\n\n    const DexSectionInfo\u0026 info \u003d section_info.second;",
+      "range": {
+        "startLine": 105,
+        "startChar": 56,
+        "endLine": 105,
+        "endChar": 76
+      },
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b22c8228_331286ec",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ee0b9df_b745ff26",
       "range": {
         "startLine": 105,
         "startChar": 56,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "74729c0b_816d3ee4",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "593eaf18_0cd60c84",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9cde561_35a57c0e",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2017-04-11T16:54:57Z",
       "side": 1,
       "message": "const?",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fde746a_83f412f8",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9cde561_35a57c0e",
       "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "d0aa5372_8917ddb5",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "884d6966_40b2b0ed",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102fd315_88316fcc",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -110,6 +212,24 @@
       "writtenOn": "2017-04-11T16:54:57Z",
       "side": 1,
       "message": "const?",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e5483b_f1ad7a09",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Unfortunately I have to compute this dynamically, so const isn\u0027t an option.",
+      "parentUuid": "102fd315_88316fcc",
       "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "b0e41cf0_eb3a2539",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "One or more coding conventions says it has to be there.",
+      "parentUuid": "1f7430f3_00df2400",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e15a884b_d357258d",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -144,6 +282,24 @@
       "writtenOn": "2017-04-11T16:54:57Z",
       "side": 1,
       "message": "how is this calculated?",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35bebf05_270e9678",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "OK, I removed the fixed formatting artifact.",
+      "parentUuid": "e15a884b_d357258d",
       "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "872e49f0_398e9bd3",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fb79ab4_ba507427",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bceb11ff_4e4cf505",
         "filename": "dexlayout/dexdiag.cc",
         "patchSetId": 1
@@ -178,6 +352,24 @@
       "writtenOn": "2017-04-11T16:54:57Z",
       "side": 1,
       "message": "nit: return EXIT_SUCCESS ?",
+      "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df564473_20879f8d",
+        "filename": "dexlayout/dexdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-12T00:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bceb11ff_4e4cf505",
       "revId": "318b21526602b484fe8807bd7afb26a211dbced1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
