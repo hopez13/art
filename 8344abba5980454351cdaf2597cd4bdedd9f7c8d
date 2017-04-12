@@ -660,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "0652bd94_26747c99",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-12T15:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db0a265a_d9044651",
+      "range": {
+        "startLine": 415,
+        "startChar": 75,
+        "endLine": 416,
+        "endChar": 50
+      },
+      "revId": "8344abba5980454351cdaf2597cd4bdedd9f7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62e816ab_1334c632",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
         "patchSetId": 27
