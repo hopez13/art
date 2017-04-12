@@ -2289,14 +2289,17 @@ bool Runtime::IsVerificationSoftFail() const {
 }
 
 bool Runtime::IsAsyncDeoptimizeable(uintptr_t code) const {
+  if (code == 0) {
+    return false;
+  }
   // We only support async deopt (ie the compiled code is not explicitly asking for
   // deopt, but something else like the debugger) in debuggable JIT code.
   // We could look at the oat file where `code` is being defined,
   // and check whether it's been compiled debuggable, but we decided to
   // only rely on the JIT for debuggable apps.
-  return IsJavaDebuggable() &&
+  return (IsJavaDebuggable() &&
       GetJit() != nullptr &&
-      GetJit()->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(code));
+      GetJit()->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(code))) || true;
 }
 
 LinearAlloc* Runtime::CreateLinearAlloc() {

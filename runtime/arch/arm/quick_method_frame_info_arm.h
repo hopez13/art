@@ -56,6 +56,7 @@ static constexpr uint32_t kArmCalleeSaveFpEverythingSpills =
     kArmCalleeSaveFpArgSpills | kArmCalleeSaveFpAllSpills;
 
 constexpr uint32_t ArmCalleeSaveCoreSpills(CalleeSaveType type) {
+  type = GetCanonicalCalleeSaveType(type);
   return kArmCalleeSaveAlwaysSpills | kArmCalleeSaveRefSpills |
       (type == CalleeSaveType::kSaveRefsAndArgs ? kArmCalleeSaveArgSpills : 0) |
       (type == CalleeSaveType::kSaveAllCalleeSaves ? kArmCalleeSaveAllSpills : 0) |
@@ -63,6 +64,7 @@ constexpr uint32_t ArmCalleeSaveCoreSpills(CalleeSaveType type) {
 }
 
 constexpr uint32_t ArmCalleeSaveFpSpills(CalleeSaveType type) {
+  type = GetCanonicalCalleeSaveType(type);
   return kArmCalleeSaveFpAlwaysSpills | kArmCalleeSaveFpRefSpills |
       (type == CalleeSaveType::kSaveRefsAndArgs ? kArmCalleeSaveFpArgSpills : 0) |
       (type == CalleeSaveType::kSaveAllCalleeSaves ? kArmCalleeSaveFpAllSpills : 0) |
@@ -70,6 +72,7 @@ constexpr uint32_t ArmCalleeSaveFpSpills(CalleeSaveType type) {
 }
 
 constexpr uint32_t ArmCalleeSaveFrameSize(CalleeSaveType type) {
+  type = GetCanonicalCalleeSaveType(type);
   return RoundUp((POPCOUNT(ArmCalleeSaveCoreSpills(type)) /* gprs */ +
                   POPCOUNT(ArmCalleeSaveFpSpills(type)) /* fprs */ +
                   1 /* Method* */) * static_cast<size_t>(kArmPointerSize), kStackAlignment);

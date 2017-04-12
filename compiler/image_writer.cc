@@ -1647,10 +1647,14 @@ void ImageWriter::CalculateNewObjectOffsets() {
       runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveAllCalleeSaves);
   image_methods_[ImageHeader::kSaveRefsOnlyMethod] =
       runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnly);
+  image_methods_[ImageHeader::kSaveRefsOnlyMethodForMonitorOps] =
+      runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsOnlyForMonitorOps);
   image_methods_[ImageHeader::kSaveRefsAndArgsMethod] =
       runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveRefsAndArgs);
   image_methods_[ImageHeader::kSaveEverythingMethod] =
       runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverything);
+  image_methods_[ImageHeader::kSaveEverythingMethodForClinit] =
+      runtime->GetCalleeSaveMethod(CalleeSaveType::kSaveEverythingForClinit);
   // Visit image methods first to have the main runtime methods in the first image.
   for (auto* m : image_methods_) {
     CHECK(m != nullptr);

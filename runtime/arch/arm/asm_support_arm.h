@@ -21,8 +21,10 @@
 
 #define FRAME_SIZE_SAVE_ALL_CALLEE_SAVES 112
 #define FRAME_SIZE_SAVE_REFS_ONLY 32
+#define FRAME_SIZE_SAVE_REFS_ONLY_FOR_MONITOR_OPS 32
 #define FRAME_SIZE_SAVE_REFS_AND_ARGS 112
 #define FRAME_SIZE_SAVE_EVERYTHING 192
+#define FRAME_SIZE_SAVE_EVERYTHING_FOR_CLINIT 192
 
 // The offset from the art_quick_read_barrier_mark_introspection (used for field
 // loads with 32-bit LDR) to the entrypoint for field loads with 16-bit LDR,
