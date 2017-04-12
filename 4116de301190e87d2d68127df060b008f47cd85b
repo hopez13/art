@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5dee5ff6_98562abd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12533829_8edd07f9",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f702e0cd_f1cd67c7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-12T22:39:05Z",
       "side": 1,
       "message": "Even if allocation is not removed, fences can be removed. Need some update.",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4103a1c2_35590c7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f702e0cd_f1cd67c7",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7cadd7e7_ac81dd14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c16423fb_00d3227b",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ee4b5f9_d0248328",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "remove empty lines between the lines here: I like to see what the method does in one paragraph, and then the JLS cases",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "267c2156_61fce857",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ee4b5f9_d0248328",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "32711565_f348864c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9604ac8_f7222760",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2c9e3d_815df292",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "remove",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e5dd6f_8fb64d68",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f2c9e3d_815df292",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "a0ed2ec3_b94f1787",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b71df79_690c0094",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9c16a43_44d8d4e6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "put this closer to prior comment\n\nEliminate allocations ... Also eliminates the constructor fences of these allocations if allowed, since ....",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d40e4e15_8b91ba51",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9c16a43_44d8d4e6",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "f4336c06_c5b6e198",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95139ede_cc5bc94f",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9dbec34_f56c23d6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 3
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "6bb27f90_7abc8560",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9dbec34_f56c23d6",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bfbac3c_8063e3d1",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -183,6 +363,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "I don\u0027t like the placement of this comment, as it is a result of code that appears *above*\n\nalso, we come here when we don\u0027t have a cached result yet, making the comment more confusing",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aab18bb_003db551",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bfbac3c_8063e3d1",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -241,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "ef99c5eb_92cbfa94",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a823fa2_1af8ff75",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6970e64_ca82e1a1",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -252,6 +468,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "why?",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b087dbf_11115763",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6970e64_ca82e1a1",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -275,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "aafdbbbf_824b38f1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2440,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3192c4c8_6fdb21a5",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b203a37c_333e6494",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -286,6 +538,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "no white line",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "856c2a0c_280ca962",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6522,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "I fixed this.\n\nThat being said in grammatical English it\u0027s awkward to just break the line here between 6521 and 6522 without introducing a new paragraph.\n\nI also didn\u0027t want to just put the \"Note: ...\" on L6521 because that makes it harder to see, it would be two parenthesized things back to back.",
+      "parentUuid": "b203a37c_333e6494",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -309,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "aa04ac7e_8ce09060",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6554,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a56dae7_ab8c02fb",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aea08b8c_111f4a61",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -320,6 +608,24 @@
       "writtenOn": "2017-04-12T18:25:23Z",
       "side": 1,
       "message": "no white line",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7491160e_fbd55f55",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6575,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T23:03:50Z",
+      "side": 1,
+      "message": "This is really meant to be two separate concepts, the \"note\" is irrelevant for the quick summary.\n\nI can remove this white line if you could explain why?",
+      "parentUuid": "aea08b8c_111f4a61",
       "revId": "4116de301190e87d2d68127df060b008f47cd85b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
