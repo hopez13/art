@@ -356,50 +356,66 @@
     SETUP_SAVE_EVERYTHING_FRAME_DECREMENTED_SP_SKIP_X29_LR \runtime_method_offset
 .endm
 
-.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP offset = 0
     // Restore FP registers.
     // For better performance, load d0 and d31 separately, so that all LDPs are 16-byte aligned.
-    ldr d0,       [sp, #8]
-    ldp d1, d2,   [sp, #16]
-    ldp d3, d4,   [sp, #32]
-    ldp d5, d6,   [sp, #48]
-    ldp d7, d8,   [sp, #64]
-    ldp d9, d10,  [sp, #80]
-    ldp d11, d12, [sp, #96]
-    ldp d13, d14, [sp, #112]
-    ldp d15, d16, [sp, #128]
-    ldp d17, d18, [sp, #144]
-    ldp d19, d20, [sp, #160]
-    ldp d21, d22, [sp, #176]
-    ldp d23, d24, [sp, #192]
-    ldp d25, d26, [sp, #208]
-    ldp d27, d28, [sp, #224]
-    ldp d29, d30, [sp, #240]
-    ldr d31,      [sp, #256]
+    ldr d0,       [sp, #8+\offset]
+    ldp d1, d2,   [sp, #16+\offset]
+    ldp d3, d4,   [sp, #32+\offset]
+    ldp d5, d6,   [sp, #48+\offset]
+    ldp d7, d8,   [sp, #64+\offset]
+    ldp d9, d10,  [sp, #80+\offset]
+    ldp d11, d12, [sp, #96+\offset]
+    ldp d13, d14, [sp, #112+\offset]
+    ldp d15, d16, [sp, #128+\offset]
+    ldp d17, d18, [sp, #144+\offset]
+    ldp d19, d20, [sp, #160+\offset]
+    ldp d21, d22, [sp, #176+\offset]
+    ldp d23, d24, [sp, #192+\offset]
+    ldp d25, d26, [sp, #208+\offset]
+    ldp d27, d28, [sp, #224+\offset]
+    ldp d29, d30, [sp, #240+\offset]
+    ldr d31,      [sp, #256+\offset]
 
     // Restore core registers, except x0.
-    RESTORE_TWO_REGS  x1,  x2, 272
-    RESTORE_TWO_REGS  x3,  x4, 288
-    RESTORE_TWO_REGS  x5,  x6, 304
-    RESTORE_TWO_REGS  x7,  x8, 320
-    RESTORE_TWO_REGS  x9, x10, 336
-    RESTORE_TWO_REGS x11, x12, 352
-    RESTORE_TWO_REGS x13, x14, 368
-    RESTORE_TWO_REGS x15, x16, 384
-    RESTORE_TWO_REGS x17, x18, 400
-    RESTORE_TWO_REGS x19, x20, 416
-    RESTORE_TWO_REGS x21, x22, 432
-    RESTORE_TWO_REGS x23, x24, 448
-    RESTORE_TWO_REGS x25, x26, 464
-    RESTORE_TWO_REGS x27, x28, 480
-    RESTORE_TWO_REGS x29, xLR, 496
+    RESTORE_TWO_REGS  x1,  x2, 272+\offset
+    RESTORE_TWO_REGS  x3,  x4, 288+\offset
+    RESTORE_TWO_REGS  x5,  x6, 304+\offset
+    RESTORE_TWO_REGS  x7,  x8, 320+\offset
+    RESTORE_TWO_REGS  x9, x10, 336+\offset
+    RESTORE_TWO_REGS x11, x12, 352+\offset
+    RESTORE_TWO_REGS x13, x14, 368+\offset
+    RESTORE_TWO_REGS x15, x16, 384+\offset
+    RESTORE_TWO_REGS x17, x18, 400+\offset
+    RESTORE_TWO_REGS x19, x20, 416+\offset
+    RESTORE_TWO_REGS x21, x22, 432+\offset
+    RESTORE_TWO_REGS x23, x24, 448+\offset
+    RESTORE_TWO_REGS x25, x26, 464+\offset
+    RESTORE_TWO_REGS x27, x28, 480+\offset
+.endm
 
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP
+    RESTORE_TWO_REGS x29, xLR, 496
+.endm
+
+.macro RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP
     DECREASE_FRAME 512
 .endm
 
 .macro RESTORE_SAVE_EVERYTHING_FRAME
-    RESTORE_REG  x0, 264
-    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0
+    RESTORE_REG x0, 264
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_SP
+    DECREASE_FRAME 512
+.endm
+
+.macro RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET offset
+    RESTORE_REG x0,  264+\offset
+    RESTORE_REG x29, 496+\offset
+    RESTORE_REG xLR, 504+\offset
+    RESTORE_SAVE_EVERYTHING_FRAME_KEEP_X0_X29_LR_SP \offset
+    // Keep sp unchanged.
 .endm
 
 // Macro to refresh the Marking Register (W20).
@@ -2355,32 +2371,38 @@ END art_quick_instrumentation_entry
     .extern artInstrumentationMethodExitFromCode
 ENTRY art_quick_instrumentation_exit
     mov   xLR, #0             // Clobber LR for later checks.
+    SETUP_SAVE_EVERYTHING_FRAME
 
-    SETUP_SAVE_REFS_ONLY_FRAME
-
-    str x0, [sp, #-16]!       // Save integer result.
+    str   x0, [sp, #-16]!     // Save integer result.
     .cfi_adjust_cfa_offset 16
-    str d0, [sp, #8]          // Save floating-point result.
+    str   d0, [sp, #8]        // Save floating-point result.
 
     add   x3, sp, #8          // Pass floating-point result pointer.
     mov   x2, sp              // Pass integer result pointer.
     add   x1, sp, #16         // Pass SP.
     mov   x0, xSELF           // Pass Thread.
     bl   artInstrumentationMethodExitFromCode    // (Thread*, SP, gpr_res*, fpr_res*)
+    cbz   x0, .Ldo_deliver_instrumentation_exception  // Handle error
+    str   x0, [sp, #FRAME_SIZE_SAVE_EVERYTHING + 16 - 8]
+                              // Set immediate return pc (can be art_quick_deoptimize).
+    // Return result could have been changed if it's a reference.
+    ldr   x2, [sp]
+    str   x2, [sp, #280]
+    cbnz  x1, .Ldeoptimize
 
-    mov   xIP0, x0            // Return address from instrumentation call.
-    mov   xLR, x1             // r1 is holding link register if we're to bounce to deoptimize
-
-    ldr   d0, [sp, #8]        // Restore floating-point result.
-    ldr   x0, [sp], #16       // Restore integer result, and drop stack area.
+    // Normal return.
+    add   sp, sp, 16
     .cfi_adjust_cfa_offset -16
-
-    RESTORE_SAVE_REFS_ONLY_FRAME
+    RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
-    cbz   xIP0, 1f            // Handle error
-    br    xIP0                // Tail-call out.
-1:
-    DELIVER_PENDING_EXCEPTION
+    br    lr
+.Ldo_deliver_instrumentation_exception:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+.Ldeoptimize:
+    str   x1, [sp, #0]        // Save instrumentation-saved return pc on stack.
+    RESTORE_SAVE_EVERYTHING_FRAME_FROM_STACK_OFFSET 16
+    // Jump to art_quick_deoptimize.
+    br    lr
 END art_quick_instrumentation_exit
 
     /*
@@ -2389,7 +2411,17 @@ END art_quick_instrumentation_exit
      */
     .extern artDeoptimize
 ENTRY art_quick_deoptimize
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
+    // We enter this function with additional stack space allocated.
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_EVERYTHING + 16
+    // Load the instrumentation-saved return pc value to lr to fake a call.
+    .cfi_rel_offset lr, 0
+    ldr    lr, [sp]
+    .cfi_restore lr
+    add    sp, sp, #FRAME_SIZE_SAVE_EVERYTHING + 16
+                              // Restore sp once lr is fetched.
+    .cfi_adjust_cfa_offset -(FRAME_SIZE_SAVE_EVERYTHING + 16)
+
+    SETUP_SAVE_EVERYTHING_FRAME
     mov    x0, xSELF          // Pass thread.
     bl     artDeoptimize      // (Thread*)
     brk 0
