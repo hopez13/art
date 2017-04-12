@@ -1,0 +1,209 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95323c05_db22d792",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "It may verge on too fancy, but keeping --32 or --64 would work if the ISA were detected via \"uname -m\". As-is, changes will need to be made to golem.\n\nOtherwise, can this be consistent in how we describe option arguments? See --invoke-with?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d0d670_b659faa1",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "Missing \u003carg\u003e. It\u0027d be good to be consistent with --invoke-with, e.g. --compiler-option \u003coption\u003e or somesuch.\n\nThis list was alpha-sorted.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a21ca5_1da8bab8",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "local CLASSPATH...",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91bda81_21ca684c",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "indent",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd7f3ce6_6c972b5f",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "CLASSPATH\u003d$2\nbreak # exit the loop",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 115,
+        "endChar": 8
+      },
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb4be3b2_3c7cc24d",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "local DEX\nfor DEX ...",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bf56289_e241c97b",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "local",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 29
+      },
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdb0f151_23ad577b",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "Do these need to set DEX2OAT_FLAGS now?",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 191,
+        "endChar": 17
+      },
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b477cd4c_5def2414",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "Consistency with --invoke-with? --compiler-option?\n\nThis list was alpha sorted.\n\nThe shift and assignment order is unusual and inconsistent with what\u0027s already there.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adac41a_adb6173e",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "A default for ISA would be better than \"\", otherwise this produces an awkward error message.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9011acc4_6f7d2e12",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-12T14:30:38Z",
+      "side": 1,
+      "message": "nit (based on feedback to changes on this file delivered to me :-) s/dalvikvm/launching ART/.",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
