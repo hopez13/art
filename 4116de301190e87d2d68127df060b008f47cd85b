@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "12533829_8edd07f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-04-12T22:39:05Z",
+      "side": 1,
+      "message": "all singleton objects that are not returned ...",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f702e0cd_f1cd67c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-04-12T22:39:05Z",
+      "side": 1,
+      "message": "Even if allocation is not removed, fences can be removed. Need some update.",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c16423fb_00d3227b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2017-04-12T22:39:05Z",
+      "side": 1,
+      "message": "Need to be updated also.",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ee4b5f9_d0248328",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
