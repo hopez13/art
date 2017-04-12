@@ -155,6 +155,24 @@
     },
     {
       "key": {
+        "uuid": "3b95f534_22fcb496",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-12T18:37:30Z",
+      "side": 1,
+      "message": "I think Nicolas asked for this to be done instead of adding a LocationSummary.\n\nApologies if I misunderstood the request in regards to utility vs code specific to this node.",
+      "parentUuid": "d135e897_8dcb67d3",
+      "revId": "4116de301190e87d2d68127df060b008f47cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a823fa2_1af8ff75",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
