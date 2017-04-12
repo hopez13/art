@@ -256,13 +256,35 @@ public class Test924 {
   private static void doTestEvents() throws Exception {
     enableThreadEvents(true);
 
-    Thread t = new Thread("EventTestThread");
+    final CountDownLatch cdl1 = new CountDownLatch(1);
+    final CountDownLatch cdl2 = new CountDownLatch(1);
+
+    Runnable r = new Runnable() {
+      @Override
+      public void run() {
+        try {
+          cdl1.countDown();
+          cdl2.await();
+        } catch (Exception e) {
+          throw new RuntimeException(e);
+        }
+      }
+    };
+    Thread t = new Thread(r, "EventTestThread");
 
     System.out.println("Constructed thread");
     Thread.yield();
+    Thread.sleep(100);
+    System.out.println(Arrays.toString(getThreadEventMessages()));
 
     t.start();
+    cdl1.await();
+
+    System.out.println(Arrays.toString(getThreadEventMessages()));
+
+    cdl2.countDown();
     t.join();
+    System.out.println(Arrays.toString(getThreadEventMessages()));
 
     System.out.println("Thread joined");
 
@@ -337,4 +359,5 @@ public class Test924 {
   private static native void setTLS(Thread t, long l);
   private static native long getTLS(Thread t);
   private static native void enableThreadEvents(boolean b);
+  private static native String[] getThreadEventMessages();
 }
