@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9d4544b_904e399f",
+        "filename": "test/testrunner/target_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T15:32:13Z",
+      "side": 1,
+      "message": "-1\n\nWhile this may be nice, you should not touch this until we have split this more. The bots are already failing on this, and CC adds a ****-load more checks.",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 43
+      },
+      "revId": "be7be6fa84deac223bd3423793524eacf83755d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
