@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06229f5b_da7830dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T15:54:19Z",
+      "side": 1,
+      "message": "\"The new encoding is less flexible than the old, but covers all cases we care about. Storing images in more than one\ndirectory has never been used - the complexity is not justified.\"",
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
