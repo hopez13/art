@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8ee8b6d2_6dc1449a",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "It\u0027s not just just golem, any amount of things can be using art, did you already find *all* the places in our code base that use this script?",
+      "parentUuid": "20085f77_0b5fc6a6",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d0d670_b659faa1",
         "filename": "tools/art",
         "patchSetId": 1
@@ -135,6 +153,24 @@
       "side": 1,
       "message": "It\u0027s exactly the intention to capture and rewrite things. -Xcompiler-option should disappear from the scripts invoking art.\n\nKeeping Xcompiler-option will only keep things fuzzy. is it passed to the runtime or to the compiler?",
       "parentUuid": "bff5f35b_83edf786",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fad2157_4011fd77",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "Breaking everything that already works with -Xcompiler-option. I don\u0027t understand why you want to do that?",
+      "parentUuid": "c4445433_822696a1",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -393,6 +429,24 @@
     },
     {
       "key": {
+        "uuid": "f49ebec3_ea6caff5",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "Please explain why you need these.",
+      "parentUuid": "4eabbd0f_e24471c8",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99e900b3_398b6148",
         "filename": "tools/art",
         "patchSetId": 1
@@ -462,6 +516,24 @@
     },
     {
       "key": {
+        "uuid": "f644b6f7_f5ed216a",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "The functionality is this:\n\n   foo \"bar baz\" \n\n\"bar baz\" is passed in as one argv element to the C code.\n\nSo if you have multiple flags in \"$ANYTHING\" it will be all one argv element",
+      "parentUuid": "a0e55932_180ff17e",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3eba84_e4fadb12",
         "filename": "tools/art",
         "patchSetId": 1
@@ -508,6 +580,24 @@
       "side": 1,
       "message": "why?",
       "parentUuid": "f2a5563b_6bd41bd8",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1af28211_9c0805be",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "It\u0027s explained on L143",
+      "parentUuid": "a26dd4ce_f4ff5f59",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -657,6 +747,24 @@
       "side": 1,
       "message": "1) Yes, it\u0027s necessary, it makes things faster due to verification.\n2) Yes. There is not correctness issue between using JIT and having an oat file (no matter of the level of compilation). You can combine as you please but the result will be different.",
       "parentUuid": "d290ec3b_94a9a7b2",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d095f4fc_57c17229",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T14:37:06Z",
+      "side": 1,
+      "message": "Can you explain in regards to verification? Do you mean by creating a vdex file?\n\nIn which case:\n\n1) Where is it just creating the vdex file only and not the oat file?\n2) In golem we intentionally don\u0027t want to create a vdex file for all but 1 target , we don\u0027t need things to go \"faster\", we need to test the *right* configuration.",
+      "parentUuid": "7b6b4ff0_1e8f5c8b",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
