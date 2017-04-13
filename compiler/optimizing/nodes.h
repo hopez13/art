@@ -1369,9 +1369,12 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(VecAbs, VecUnaryOperation)                                          \
   M(VecNot, VecUnaryOperation)                                          \
   M(VecAdd, VecBinaryOperation)                                         \
+  M(VecHalvingAdd, VecBinaryOperation)                                  \
   M(VecSub, VecBinaryOperation)                                         \
   M(VecMul, VecBinaryOperation)                                         \
   M(VecDiv, VecBinaryOperation)                                         \
+  M(VecMin, VecBinaryOperation)                                         \
+  M(VecMax, VecBinaryOperation)                                         \
   M(VecAnd, VecBinaryOperation)                                         \
   M(VecAndNot, VecBinaryOperation)                                      \
   M(VecOr, VecBinaryOperation)                                          \
