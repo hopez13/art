@@ -72,6 +72,8 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
           .IntoKey(M::Help)
       .Define("-showversion")
           .IntoKey(M::ShowVersion)
+      .Define("-showruntimeisa")
+          .IntoKey(M::ShowRuntimeISA)
       .Define("-Xbootclasspath:_")
           .WithType<std::string>()
           .IntoKey(M::BootClassPath)
@@ -478,6 +480,9 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
   } else if (args.Exists(M::ShowVersion)) {
     UsageMessage(stdout, "ART version %s\n", Runtime::GetVersion());
     Exit(0);
+  } else if (args.Exists(M::ShowRuntimeISA)) {
+    UsageMessage(stdout, GetInstructionSetString(kRuntimeISA));
+    Exit(0);
   } else if (args.Exists(M::BootClassPath)) {
     LOG(INFO) << "setting boot class path to " << *args.Get(M::BootClassPath);
   }
@@ -639,6 +644,7 @@ void ParsedOptions::Usage(const char* fmt, ...) {
   UsageMessage(stream, "  -Dproperty=value\n");
   UsageMessage(stream, "  -verbose:tag ('gc', 'jit', 'jni', or 'class')\n");
   UsageMessage(stream, "  -showversion\n");
+  UsageMessage(stream, "  -showruntimeisa\n");
   UsageMessage(stream, "  -help\n");
   UsageMessage(stream, "  -agentlib:jdwp=options\n");
   // TODO add back in once -agentlib actually does something.
