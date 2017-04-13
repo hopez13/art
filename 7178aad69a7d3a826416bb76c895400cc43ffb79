@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a95f16fd_06bb31ae",
+        "filename": "test/980-redefine-object/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-13T22:02:06Z",
+      "side": 1,
+      "message": "That\u0027s only needed b/c we need to kill the finalizer threads. On CTS these won\u0027t even be there I think.",
+      "parentUuid": "fd10adb3_00f4be04",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 73
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0df30c79_1bdf221e",
         "filename": "test/980-redefine-object/src/Main.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "954a8598_4b164292",
+        "filename": "test/980-redefine-object/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-13T22:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0df30c79_1bdf221e",
+      "range": {
+        "startLine": 291,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 43
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14d189c9_7fe611d1",
         "filename": "test/980-redefine-object/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-13T21:28:57Z",
       "side": 1,
       "message": "Stale?",
+      "range": {
+        "startLine": 327,
+        "startChar": 6,
+        "endLine": 327,
+        "endChar": 56
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a266fa_9770fb1b",
+        "filename": "test/980-redefine-object/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-13T22:02:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14d189c9_7fe611d1",
       "range": {
         "startLine": 327,
         "startChar": 6,
