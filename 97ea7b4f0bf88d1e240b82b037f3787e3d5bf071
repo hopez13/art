@@ -16,6 +16,52 @@
       "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d9fb06f_a1308112",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T16:00:16Z",
+      "side": 1,
+      "message": "Maybe less complicated by peeling 0?\n\n CHECK_GT(size, 0)\n image_locations.push_back(...)\n for (int i \u003d 1; ...)\n   image_locations.push_back(...)",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 5
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3d9c8d0_0e53d5a7",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T16:00:16Z",
+      "side": 1,
+      "message": "Replace with baz, to make it clear that we ignore that part? (That is part of the functional change)",
+      "range": {
+        "startLine": 133,
+        "startChar": 15,
+        "endLine": 133,
+        "endChar": 18
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
