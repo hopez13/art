@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f7e462b_dcddeeac",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-13T14:58:51Z",
+      "side": 1,
+      "message": "Can we work around that by splitting twice? Besides splitting after the last use, we would also split at current-\u003eGetStart() or later (first next use?) and add only the last piece to unhandled_.",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1006,
+        "endChar": 90
+      },
+      "revId": "88ad490909228e3dd649331df9121f5c83717c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
