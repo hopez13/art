@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "20085f77_0b5fc6a6",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2017-04-13T09:08:48Z",
+      "side": 1,
+      "message": "Understood. The script can be exacting about ISA, but it\u0027ll boil down to one of two choices for now. It\u0027s just whether those choices should be dependent on where the script runs or not.\n\nPlease consider making ISA an option rather a mandatory argument. Today, it\u0027s pretty easy to flip from invoking a \"java -cp ...\" to \"art -cp ...\".\n\n(Is the derivation from \"uname -m\" to supported ISAs difficult?).",
+      "parentUuid": "9952803d_ffa417ea",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d0d670_b659faa1",
         "filename": "tools/art",
         "patchSetId": 1
