@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02a70682_84a01960",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-13T21:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "112be03c_748cb29b",
+      "range": {
+        "startLine": 1478,
+        "startChar": 4,
+        "endLine": 1479,
+        "endChar": 60
+      },
+      "revId": "91917c12d49af36e6f48df86fd98841842c266e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5717f966_9ab0e79e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-13T21:12:29Z",
       "side": 1,
       "message": "Reformulate to take into account the change in API? It still sounds worth pointing out that there *must not* be a RB.",
+      "range": {
+        "startLine": 2152,
+        "startChar": 2,
+        "endLine": 2154,
+        "endChar": 77
+      },
+      "revId": "91917c12d49af36e6f48df86fd98841842c266e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b767a55d_66bfc9d3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-13T21:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5717f966_9ab0e79e",
       "range": {
         "startLine": 2152,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e2a834bb_3f3bb948",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-13T21:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f38ebf7e_a531d193",
+      "range": {
+        "startLine": 2340,
+        "startChar": 4,
+        "endLine": 2340,
+        "endChar": 94
+      },
+      "revId": "91917c12d49af36e6f48df86fd98841842c266e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f43b1dc0_2a94fda3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-13T21:12:29Z",
       "side": 1,
       "message": "Stale",
+      "range": {
+        "startLine": 2361,
+        "startChar": 4,
+        "endLine": 2361,
+        "endChar": 94
+      },
+      "revId": "91917c12d49af36e6f48df86fd98841842c266e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ab9c3c2_0041d487",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-13T21:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f43b1dc0_2a94fda3",
       "range": {
         "startLine": 2361,
         "startChar": 4,
