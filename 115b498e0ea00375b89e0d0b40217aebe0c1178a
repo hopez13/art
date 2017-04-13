@@ -22,6 +22,30 @@
       "revId": "115b498e0ea00375b89e0d0b40217aebe0c1178a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bffd4d80_b911ba1b",
+        "filename": "test/904-object-allocation/tracking.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T17:26:47Z",
+      "side": 1,
+      "message": "Well, then I need a (thread-local) flag for that. Seems just as complicated, and we\u0027re using this \"idiom\" for a number of tests now (which means we could probably even dedupe it).",
+      "parentUuid": "28cdd3da_fd04198f",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 86
+      },
+      "revId": "115b498e0ea00375b89e0d0b40217aebe0c1178a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
