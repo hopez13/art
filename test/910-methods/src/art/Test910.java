@@ -46,7 +46,13 @@ public class Test910 {
       return proxyClass;
     }
 
-    proxyClass = Proxy.getProxyClass(Main.class.getClassLoader(), new Class[] { Runnable.class });
+    for (int i = 1; i <= 21; i++) {
+      proxyClass = createProxyClass(i);
+      String name = proxyClass.getName();
+      if (name.equals("$Proxy20")) {
+        return proxyClass;
+      }
+    }
     return proxyClass;
   }
 
@@ -145,4 +151,34 @@ public class Test910 {
   private static native boolean isMethodNative(Method m);
   private static native boolean isMethodObsolete(Method m);
   private static native boolean isMethodSynthetic(Method m);
+
+  // We need this machinery for a consistent proxy name. Proxies have a unique number, and
+  // depending on how many proxies had been created, this will lead to non-determinism.
+  private static Class<?> createProxyClass(int i) throws Exception {
+    int count = Integer.bitCount(i);
+    Class<?>[] input = new Class<?>[count + 1];
+    input[0] = Runnable.class;
+    int inputIndex = 1;
+    int bitIndex = 0;
+    while (i != 0) {
+        if ((i & 1) != 0) {
+            input[inputIndex++] = Class.forName("art.Test910$I" + bitIndex);
+        }
+        i >>>= 1;
+        bitIndex++;
+    }
+    return Proxy.getProxyClass(Test910.class.getClassLoader(), input);
+  }
+
+  // Need this for the proxy naming.
+  public static interface I0 {
+  }
+  public static interface I1 {
+  }
+  public static interface I2 {
+  }
+  public static interface I3 {
+  }
+  public static interface I4 {
+  }
 }
