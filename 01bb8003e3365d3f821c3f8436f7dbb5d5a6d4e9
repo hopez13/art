@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bd515aa_79f46f25",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "document why you skip clinits.",
+      "range": {
+        "startLine": 601,
+        "startChar": 9,
+        "endLine": 601,
+        "endChar": 24
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8e34332_071d8230",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "this method has no docs so referencing it here for more explanations is a bit odd ... :)",
+      "range": {
+        "startLine": 605,
+        "startChar": 13,
+        "endLine": 605,
+        "endChar": 53
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9334df40_9b161621",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "If you want, add an additional check for debug build that the cache value matches the computed one but don\u0027t special case kIsDebugBuild.\n\nIt should only be used for extra checks not for different behavior.",
+      "range": {
+        "startLine": 531,
+        "startChar": 52,
+        "endLine": 531,
+        "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c82dc2b6_2f43ef54",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "Is there a tests exercising the case when \"this\" is not the first instruction?",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 63
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f82bacd_b8e0c8be",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "I think you reversed the comments here.",
+      "range": {
+        "startLine": 566,
+        "startChar": 16,
+        "endLine": 566,
+        "endChar": 24
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1eaae24_5eb2b531",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "seems a bit overkill: do you really need another helper for this?",
+      "range": {
+        "startLine": 589,
+        "startChar": 20,
+        "endLine": 589,
+        "endChar": 32
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0657b6_d48d193d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "Prepare for register allocator is the only use when we\u0027d want to do this, can you move over there?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 36,
+        "endLine": 1215,
+        "endChar": 51
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48912224_9a2d2807",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6543,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "Does \"this\"\u003dHConstructor fence?\n\nI don\u0027t really get what this comment is trying to say.",
+      "range": {
+        "startLine": 6543,
+        "startChar": 3,
+        "endLine": 6543,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f9959c_48843212",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6551,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "Explain why you want this to be variable.",
+      "range": {
+        "startLine": 6551,
+        "startChar": 39,
+        "endLine": 6551,
+        "endChar": 68
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3deecffb_e5988c4f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6561,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T21:19:51Z",
+      "side": 1,
+      "message": "alignment is weird here.",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
