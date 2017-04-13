@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebadcbfc_8efd5a6c",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-04-13T16:18:08Z",
+      "side": 1,
+      "message": "sorry if this is a stupid question - but on what thread is the register \u0026 remove env run? (I imagine it\u0027s the same thread since envs is not synchronized)",
+      "range": {
+        "startLine": 149,
+        "startChar": 3,
+        "endLine": 149,
+        "endChar": 24
+      },
+      "revId": "bb766464bced8ca7db9cdaf635ae04759151a088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46f25837_f800109f",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-04-13T16:18:08Z",
+      "side": 1,
+      "message": "can an env be registered multiple times? (the code seems to assume that\u0027s not the case. then an assert may be worth it - in RegisterArtJvmTiEnv ?)",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 25
+      },
+      "revId": "bb766464bced8ca7db9cdaf635ae04759151a088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
