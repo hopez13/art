@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "783eb634_75ebeafc",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "It\u0027s explained in L603 and also more elaborately in CompilerDriver::RequiresConstructorBarrier\n\nIf there\u0027s some extra comments I should add here, can you perhaps suggest something concrete (I will copy-paste it verbatim)?",
+      "parentUuid": "2bd515aa_79f46f25",
+      "range": {
+        "startLine": 601,
+        "startChar": 9,
+        "endLine": 601,
+        "endChar": 24
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8e34332_071d8230",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "this method has no docs so referencing it here for more explanations is a bit odd ... :)",
+      "range": {
+        "startLine": 605,
+        "startChar": 13,
+        "endLine": 605,
+        "endChar": 53
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d29a8f_6f117172",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "Yep, docs were added in this CL.",
+      "parentUuid": "e8e34332_071d8230",
       "range": {
         "startLine": 605,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "84a3ab22_f357c25f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "\u003e It should only be used for extra checks not for different behavior.\n\nCan you clarify please? It will return the same exact value it would\u0027ve returned in production. Otherwise it will crash when the DCHECK failure happens [so the \u0027diverging\u0027 value is not visible outside of this function].\n\n\u003e don\u0027t special case kIsDebugBuild.\n\nNot sure how I could do that without a performance penalty on release builds?\n\nThis function is supposed to be idempotent and the !kIsDebugBuild is simply to enforce that it never changes after the first time it calculates it.\n\nI think in practice the parameter is almost always the 2nd node so it wouldn\u0027t be that bad to re-run it every time (for debug builds).",
+      "parentUuid": "9334df40_9b161621",
+      "range": {
+        "startLine": 531,
+        "startChar": 52,
+        "endLine": 531,
+        "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c82dc2b6_2f43ef54",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "Is there a tests exercising the case when \"this\" is not the first instruction?",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 63
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "731b6591_f40cbe98",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "Honestly I don\u0027t know, but I tried using the first one blindly and it would DCHECK-fail that every time.\n\nShould I add a test for this somehow/somewhere? Please advise.",
+      "parentUuid": "c82dc2b6_2f43ef54",
       "range": {
         "startLine": 538,
         "startChar": 2,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "df188538_ec2d62e0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "Probably not but I can never remember the right incantation to do it without the helper (it takes at least 2 arguments).\n\nI wanted to use GetArtMethod()-\u003ePrettyMethod but that seems to be null sometimes, plus it requires the mutator lock.",
+      "parentUuid": "c1eaae24_5eb2b531",
+      "range": {
+        "startLine": 589,
+        "startChar": 20,
+        "endLine": 589,
+        "endChar": 32
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab0657b6_d48d193d",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -151,6 +271,30 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "Prepare for register allocator is the only use when we\u0027d want to do this, can you move over there?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 36,
+        "endLine": 1215,
+        "endChar": 51
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b5ceede_e3b956be",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "I don\u0027t know if that would be correct?\n\nRemoveEnvironmentUses(this) is static and can\u0027t be accessed from that file.\n\nAlso inputs_ is private and can\u0027t be accessed from that file.",
+      "parentUuid": "ab0657b6_d48d193d",
       "range": {
         "startLine": 1215,
         "startChar": 36,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "e3441673_af76152c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6543,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "48912224_9a2d2807",
+      "range": {
+        "startLine": 6543,
+        "startChar": 3,
+        "endLine": 6543,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30f9959c_48843212",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -197,6 +365,30 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "Explain why you want this to be variable.",
+      "range": {
+        "startLine": 6551,
+        "startChar": 39,
+        "endLine": 6551,
+        "endChar": 68
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69728e78_cf0393d8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6551,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T23:21:57Z",
+      "side": 1,
+      "message": "I don\u0027t particularly have a preference (PS1 was non-variable), but Nicolas wanted all the inputs to be cleared in prepare_for_register_allocation and I can\u0027t actually figure out how to remove the input completely unless the GetInputsRef() is resizable.\n\n(I tried with just setting all the inputs to a blank input node and that didn\u0027t work)\n\nIf there\u0027s some other way please let me know, I had to spend hours on that one request.",
+      "parentUuid": "30f9959c_48843212",
       "range": {
         "startLine": 6551,
         "startChar": 39,
