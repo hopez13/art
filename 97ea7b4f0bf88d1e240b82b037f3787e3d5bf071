@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "d178a60a_230e771d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "sp: achieved",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a7c0022_39ef3685",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "nit: missing .",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc398c90_1d88c99d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "Is this introducing any new limitations that weren\u0027t there previously?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06229f5b_da7830dc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -42,6 +111,46 @@
     },
     {
       "key": {
+        "uuid": "aa02e7ec_b3178b8b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "nit: can you add a comment to explain what this 3rd variable is for and how it looks like?",
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5110e29b_58e3e449",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "for \"a\"? Is there more than 1?\n\nAlso any difference between secondary and non-primary?",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3d9c8d0_0e53d5a7",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 2
@@ -59,6 +168,64 @@
         "endLine": 133,
         "endChar": 18
       },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8630ae3b_ee5848a0",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "What is the basepath isn\u0027t the same?",
+      "parentUuid": "f3d9c8d0_0e53d5a7",
+      "range": {
+        "startLine": 133,
+        "startChar": 15,
+        "endLine": 133,
+        "endChar": 18
+      },
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "830990f2_d7480437",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "Great, thanks for not allowing many-to-one translations!",
+      "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aed1fc3_63968356",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-13T20:04:03Z",
+      "side": 1,
+      "message": "Beautiful, thanks!",
       "revId": "97ea7b4f0bf88d1e240b82b037f3787e3d5bf071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
