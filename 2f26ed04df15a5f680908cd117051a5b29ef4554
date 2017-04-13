@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "9952803d_ffa417ea",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "I want to make the ISA explicit. I\u0027m actually not really into --32/--64. They don\u0027t offer enough clarity IMO. Having isa is pretty straightforward. I\u0027ll fix the comment.\n\nI have Golem changes in progress.\n\n(uname -m does not give you the ISA we expect here)",
+      "parentUuid": "6466b92b_ec32f085",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63d0d670_b659faa1",
         "filename": "tools/art",
         "patchSetId": 1
@@ -81,6 +99,24 @@
       "writtenOn": "2017-04-12T17:09:32Z",
       "side": 1,
       "message": "in dalvikvm this is -Xcompiler-option\n\nby changing this to --compiler-arg you would have to rewrite all the places this script is used.\n\nI recommend keeping this as -Xcompiler-option (same as dalvikvm)",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4445433_822696a1",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "It\u0027s exactly the intention to capture and rewrite things. -Xcompiler-option should disappear from the scripts invoking art.\n\nKeeping Xcompiler-option will only keep things fuzzy. is it passed to the runtime or to the compiler?",
+      "parentUuid": "bff5f35b_83edf786",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -263,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "1cf00e71_6e2a83e7",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "i\u0027ll add comments.",
+      "parentUuid": "c61037d6_8fdb59a0",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bf56289_e241c97b",
         "filename": "tools/art",
         "patchSetId": 1
@@ -297,6 +351,24 @@
       "writtenOn": "2017-04-12T17:09:32Z",
       "side": 1,
       "message": "?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eabbd0f_e24471c8",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "what does \u0027?\u0027 mean? here and below.",
+      "parentUuid": "ef76c45a_60006068",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -354,6 +426,24 @@
     },
     {
       "key": {
+        "uuid": "a0e55932_180ff17e",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "I don\u0027t understand. This works for me but I\u0027ll double check in case I missed something.",
+      "parentUuid": "b3b233a1_0d8dddc9",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e3eba84_e4fadb12",
         "filename": "tools/art",
         "patchSetId": 1
@@ -382,6 +472,24 @@
       "writtenOn": "2017-04-12T17:09:32Z",
       "side": 1,
       "message": "DEX2OAT_FLAGS\u003d()",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26dd4ce_f4ff5f59",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "why?",
+      "parentUuid": "f2a5563b_6bd41bd8",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -513,6 +621,24 @@
       "writtenOn": "2017-04-12T17:09:32Z",
       "side": 1,
       "message": "Regarding running dex2oat unconditionally.\n\n1) It\u0027s unnecessary extra work when using interpreter or jit, making things slower.\n\n2) Is it even correct if requesting interpreter/jit? If there\u0027s already an OAT file there, won\u0027t it just use it anyway and ignore the jit request?",
+      "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6b4ff0_1e8f5c8b",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-13T02:32:53Z",
+      "side": 1,
+      "message": "1) Yes, it\u0027s necessary, it makes things faster due to verification.\n2) Yes. There is not correctness issue between using JIT and having an oat file (no matter of the level of compilation). You can combine as you please but the result will be different.",
+      "parentUuid": "d290ec3b_94a9a7b2",
       "revId": "2f26ed04df15a5f680908cd117051a5b29ef4554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
