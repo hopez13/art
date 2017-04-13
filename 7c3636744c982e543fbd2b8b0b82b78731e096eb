@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "29434504_f03187d9",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-13T11:48:23Z",
+      "side": 1,
+      "message": "What I\u0027m trying to say is that there is a difference between \"x \u003e\u003d y\" and \"x - y \u003e\u003d 0\" when you take arithmetic overflows into account. The x86 version uses the \"x \u003e\u003d y\" comparison (using kLess rather than kNegative) while your version is doing the \"x - y \u003e\u003d 0\" check. So, while I think the x86 version would also benefit from that DCHECK() documenting the pre-condition, your version has one more reason to add it because it relies on it to avoid the overflow.",
+      "parentUuid": "1567e874_b2fba5a7",
+      "range": {
+        "startLine": 2742,
+        "startChar": 0,
+        "endLine": 2743,
+        "endChar": 47
+      },
+      "revId": "7c3636744c982e543fbd2b8b0b82b78731e096eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9130e670_3005cff6",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 6
