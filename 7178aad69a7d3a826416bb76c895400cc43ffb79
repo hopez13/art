@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd10adb3_00f4be04",
+        "filename": "test/980-redefine-object/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T21:28:57Z",
+      "side": 1,
+      "message": "This is gonna be a problem...",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 73
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df30c79_1bdf221e",
+        "filename": "test/980-redefine-object/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T21:28:57Z",
+      "side": 1,
+      "message": "Field names should start lower-case.",
+      "range": {
+        "startLine": 291,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 43
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14d189c9_7fe611d1",
+        "filename": "test/980-redefine-object/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-13T21:28:57Z",
+      "side": 1,
+      "message": "Stale?",
+      "range": {
+        "startLine": 327,
+        "startChar": 6,
+        "endLine": 327,
+        "endChar": 56
+      },
+      "revId": "7178aad69a7d3a826416bb76c895400cc43ffb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
