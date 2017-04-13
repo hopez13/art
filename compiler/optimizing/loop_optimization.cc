@@ -63,12 +63,120 @@ static bool IsEarlyExit(HLoopInformation* loop_info) {
   return false;
 }
 
+// Detect a sign extension from the given type. Returns the promoted operand on success.
+static bool IsSignExtension(HInstruction* instruction,
+                            Primitive::Type type,
+                            /*out*/ HInstruction** operand) {
+  // Accept any already wider constant that would be handled properly by sign
+  // extension when represented in the *width* of the given narrower data type
+  // (the fact that char normally zero extends does not matter here).
+  int64_t value = 0;
+  if (IsInt64AndGet(instruction, &value)) {
+    switch (type) {
+      case Primitive::kPrimByte:
+        if (std::numeric_limits<int8_t>::min() <= value &&
+            std::numeric_limits<int8_t>::max() >= value) {
+          *operand = instruction;
+          return true;
+        }
+        return false;
+      case Primitive::kPrimChar:
+      case Primitive::kPrimShort:
+        if (std::numeric_limits<int16_t>::min() <= value &&
+            std::numeric_limits<int16_t>::max() <= value) {
+          *operand = instruction;
+          return true;
+        }
+        return false;
+      default:
+        return false;
+    }
+  }
+  // An implicit widening conversion of a signed integer to an integral type sign-extends
+  // the two's-complement representation of the integer value to fill the wider format.
+  if (instruction->GetType() == type && (instruction->IsArrayGet() ||
+                                         instruction->IsStaticFieldGet() ||
+                                         instruction->IsInstanceFieldGet())) {
+    switch (type) {
+      case Primitive::kPrimByte:
+      case Primitive::kPrimShort:
+        *operand = instruction;
+        return true;
+      default:
+        return false;
+    }
+  }
+  // TODO: perhaps explicit conversions later too?
+  return false;
+}
+
+// Detect a zero extension from the given type. Returns the promoted operand on success.
+static bool IsZeroExtension(HInstruction* instruction,
+                            Primitive::Type type,
+                            /*out*/ HInstruction** operand) {
+  // Accept any already wider constant that would be handled properly by zero
+  // extension when represented in the *width* of the given narrower data type
+  // (the fact that byte/short normally sign extend does not matter here).
+  int64_t value = 0;
+  if (IsInt64AndGet(instruction, &value)) {
+    switch (type) {
+      case Primitive::kPrimByte:
+        if (std::numeric_limits<uint8_t>::min() <= value &&
+            std::numeric_limits<uint8_t>::max() >= value) {
+          *operand = instruction;
+          return true;
+        }
+        return false;
+      case Primitive::kPrimChar:
+      case Primitive::kPrimShort:
+        if (std::numeric_limits<uint16_t>::min() <= value &&
+            std::numeric_limits<uint16_t>::max() <= value) {
+          *operand = instruction;
+          return true;
+        }
+        return false;
+      default:
+        return false;
+    }
+  }
+  // An implicit widening conversion of a char to an integral type zero-extends
+  // the representation of the char value to fill the wider format.
+  if (instruction->GetType() == type && (instruction->IsArrayGet() ||
+                                         instruction->IsStaticFieldGet() ||
+                                         instruction->IsInstanceFieldGet())) {
+    if (type == Primitive::kPrimChar) {
+      *operand = instruction;
+      return true;
+    }
+  }
+  // A sign (or zero) extension followed by an explicit removal of just the
+  // higher sign bits is equivalent to a zero extension of the underlying operand.
+  if (instruction->IsAnd()) {
+    int64_t mask = 0;
+    if ((IsInt64AndGet(instruction->InputAt(0), &mask) &&
+         (IsSignExtension(instruction->InputAt(1), type, operand) ||
+          IsZeroExtension(instruction->InputAt(1), type, operand))) ||
+        (IsInt64AndGet(instruction->InputAt(1), &mask) &&
+         (IsSignExtension(instruction->InputAt(0), type, operand) ||
+          IsZeroExtension(instruction->InputAt(0), type, operand)))) {
+      switch ((*operand)->GetType()) {
+        case Primitive::kPrimByte:  return mask == std::numeric_limits<uint8_t>::max();
+        case Primitive::kPrimChar:
+        case Primitive::kPrimShort: return mask == std::numeric_limits<uint16_t>::max();
+        default: return false;
+      }
+    }
+  }
+  // TODO: perhaps explicit conversions later too?
+  return false;
+}
+
 // Test vector restrictions.
 static bool HasVectorRestrictions(uint64_t restrictions, uint64_t tested) {
   return (restrictions & tested) != 0;
 }
 
-// Inserts an instruction.
+// Insert an instruction.
 static HInstruction* Insert(HBasicBlock* block, HInstruction* instruction) {
   DCHECK(block != nullptr);
   DCHECK(instruction != nullptr);
@@ -713,6 +821,10 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
       return true;
     }
   } else if (instruction->IsShl() || instruction->IsShr() || instruction->IsUShr()) {
+    // Recognize vectorization idioms.
+    if (VectorizeHalvingAddIdiom(node, instruction, generate_code, type, restrictions)) {
+      return true;
+    }
     // Deal with vector restrictions.
     if ((HasVectorRestrictions(restrictions, kNoShift)) ||
         (instruction->IsShr() && HasVectorRestrictions(restrictions, kNoShr))) {
@@ -806,11 +918,11 @@ bool HLoopOptimization::TrySetVectorType(Primitive::Type type, uint64_t* restric
         switch (type) {
           case Primitive::kPrimBoolean:
           case Primitive::kPrimByte:
-            *restrictions |= kNoMul | kNoDiv | kNoShift | kNoAbs;
+            *restrictions |= kNoMul | kNoDiv | kNoShift | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
             return TrySetVectorLength(16);
           case Primitive::kPrimChar:
           case Primitive::kPrimShort:
-            *restrictions |= kNoDiv | kNoAbs;
+            *restrictions |= kNoDiv | kNoAbs | kNoSignedHAdd | kNoUnroundedHAdd;
             return TrySetVectorLength(8);
           case Primitive::kPrimInt:
             *restrictions |= kNoDiv;
@@ -1039,6 +1151,77 @@ void HLoopOptimization::GenerateVecOp(HInstruction* org,
 #undef GENERATE_VEC
 
 //
+// Vectorization idioms.
+//
+
+// Method recognizes the following idioms:
+//   rounding halving add (a + b + 1) >> 1 for unsigned/signed operands a, b
+//   regular  halving add (a + b)     >> 1 for unsigned/signed operands a, b
+bool HLoopOptimization::VectorizeHalvingAddIdiom(LoopNode* node,
+                                                 HInstruction* instruction,
+                                                 bool generate_code,
+                                                 Primitive::Type type,
+                                                 uint64_t restrictions) {
+  // Test for top level arithmetic shift right x >> 1.
+  int64_t value = 0;
+  if (instruction->IsShr() && IsInt64AndGet(instruction->InputAt(1), &value) && value == 1) {
+    HInstruction* x = instruction->InputAt(0);
+    // Test for an optional rounding part (x + 1) >> 1.
+    bool is_rounded = false;
+    if (x->IsAdd() && IsInt64AndGet(x->InputAt(1), &value) && value == 1) {
+      x = x->InputAt(0);
+      is_rounded = true;
+    }
+    // Test for a core addition (a + b) >> 1 (possibly rounded), either unsigned or signed.
+    if (x->IsAdd()) {
+      HInstruction* a = x->InputAt(0);
+      HInstruction* b = x->InputAt(1);
+      HInstruction* r = nullptr;
+      HInstruction* s = nullptr;
+      bool is_unsigned = false;
+      if (IsZeroExtension(a, type, &r) && IsZeroExtension(b, type, &s)) {
+        is_unsigned = true;
+      } else if (IsSignExtension(a, type, &r) && IsSignExtension(b, type, &s)) {
+        is_unsigned = false;
+      } else {
+        return false;
+      }
+      // Deal with vector restrictions.
+      if ((!is_unsigned && HasVectorRestrictions(restrictions, kNoSignedHAdd)) ||
+          (!is_rounded && HasVectorRestrictions(restrictions, kNoUnroundedHAdd))) {
+        return false;
+      }
+      // Accept recognized halving add for vectorizable operands. Vectorized code uses the shorthand
+      // idiomatic operation. Sequential code uses the original scalar expressions.
+      DCHECK(r != nullptr && s != nullptr);
+      if (VectorizeUse(node, r, generate_code, type, restrictions) &&
+          VectorizeUse(node, s, generate_code, type, restrictions)) {
+        if (generate_code) {
+          if (vector_mode_ == kVector) {
+            vector_map_->Put(instruction, new (global_allocator_) HVecHalvingAdd(global_allocator_,
+                                                                                 vector_map_->Get(r),
+                                                                                 vector_map_->Get(s),
+                                                                                 type,
+                                                                                 vector_length_,
+                                                                                 is_unsigned,
+                                                                                 is_rounded));
+          } else {
+            VectorizeUse(node, instruction->InputAt(0), generate_code, type, restrictions);
+            VectorizeUse(node, instruction->InputAt(1), generate_code, type, restrictions);
+            GenerateVecOp(instruction,
+                          vector_map_->Get(instruction->InputAt(0)),
+                          vector_map_->Get(instruction->InputAt(1)),
+                          type);
+          }
+        }
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+//
 // Helpers.
 //
 
@@ -1082,7 +1265,10 @@ bool HLoopOptimization::TrySetSimpleLoopHeader(HBasicBlock* block) {
     HInstruction* s = block->GetFirstInstruction();
     if (s != nullptr && s->IsSuspendCheck()) {
       HInstruction* c = s->GetNext();
-      if (c != nullptr && c->IsCondition() && c->GetUses().HasExactlyOneElement()) {
+      if (c != nullptr &&
+          c->IsCondition() &&
+          c->GetUses().HasExactlyOneElement() &&  // only used for termination
+          !c->HasEnvironmentUses()) {  // unlikely, but not impossible
         HInstruction* i = c->GetNext();
         if (i != nullptr && i->IsIf() && i->InputAt(0) == c) {
           iset_->insert(c);
