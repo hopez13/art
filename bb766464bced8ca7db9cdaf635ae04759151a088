@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5779c403_4137c3fc",
+        "filename": "runtime/openjdkjvmti/events.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1110533
+      },
+      "writtenOn": "2017-04-13T16:26:19Z",
+      "side": 1,
+      "message": "thanks! so the synchronization is implicit (at some higher level) then? how do we know that there\u0027s no race on register / remove operations?",
+      "parentUuid": "21d72ecf_b96a7a4d",
+      "range": {
+        "startLine": 149,
+        "startChar": 3,
+        "endLine": 149,
+        "endChar": 24
+      },
+      "revId": "bb766464bced8ca7db9cdaf635ae04759151a088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46f25837_f800109f",
         "filename": "runtime/openjdkjvmti/events.cc",
         "patchSetId": 3
