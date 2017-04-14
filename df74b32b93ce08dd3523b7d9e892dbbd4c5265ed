@@ -394,6 +394,30 @@
     },
     {
       "key": {
+        "uuid": "90cfa55f_955f79e4",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T18:00:26Z",
+      "side": 1,
+      "message": "Ok, then I think you just swap the values of the enums kMethodExecuted\u003d0, kMethodNotExecuted\u003d1\n\nand then it works fine. Please leave a comment above enum declaration that its order matters.",
+      "parentUuid": "491ab4d5_5688e354",
+      "range": {
+        "startLine": 1692,
+        "startChar": 11,
+        "endLine": 1692,
+        "endChar": 21
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e998a11_8d474df4",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5

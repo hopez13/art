@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad523e38_21f817a2",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1686,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T18:00:26Z",
+      "side": 1,
+      "message": "Isn\u0027t this flipped? invoke_type direct goes to Virtualmethods()\n\nSee L1715\n\n(this is also a potentially good reason to make it a helper)",
+      "revId": "a0fabd092e2f93cd11ae75cdbe8c1ebca3be12a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f747f96_86870558",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1706,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T18:00:26Z",
+      "side": 1,
+      "message": "You said you want to make \"sure that the executed method are placed before the non executed one.\"\n\nLets add this as a comment here and explain why this is required.",
+      "revId": "a0fabd092e2f93cd11ae75cdbe8c1ebca3be12a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c84bb5d7_618ee933",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T18:00:26Z",
+      "side": 1,
+      "message": "See PS5 comments.",
+      "revId": "a0fabd092e2f93cd11ae75cdbe8c1ebca3be12a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
