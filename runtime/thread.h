@@ -240,6 +240,7 @@ class Thread {
   // If delta > 0 and (this != self or suspend_barrier is not null), this function may temporarily
   // release thread_suspend_count_lock_ internally.
   ALWAYS_INLINE
+  WARN_UNUSED
   bool ModifySuspendCount(Thread* self,
                           int delta,
                           AtomicInteger* suspend_barrier,
