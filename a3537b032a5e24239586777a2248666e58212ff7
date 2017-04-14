@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37208ae5_cb52b00d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:08:24Z",
+      "side": 1,
+      "message": "Can you have example of how output looks like (verbatim)?",
+      "revId": "a3537b032a5e24239586777a2248666e58212ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29744818_09d541b6",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:08:24Z",
+      "side": 1,
+      "message": "Should we just add it to version?\n\n  ART version (2.1.0) arm64\n\nSomething like that?\nThen we can always parse it after the version#.\n\n  local isa\u003d$(dalvikvm -showversion | (read art version number isa \u0026\u0026 echo $isa))\n\nThis also avoids adding a flag.",
+      "revId": "a3537b032a5e24239586777a2248666e58212ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
