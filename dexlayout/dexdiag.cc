@@ -30,15 +30,15 @@
 #include "dex_file.h"
 #include "dex_ir.h"
 #include "dex_ir_builder.h"
+#ifdef ART_TARGET_ANDROID
 #include "pagemap/pagemap.h"
+#endif
 #include "runtime.h"
 #include "vdex_file.h"
 
 namespace art {
 
 using android::base::StringPrintf;
-
-static constexpr size_t kLineLength = 32;
 
 static bool g_verbose = false;
 
@@ -164,6 +164,7 @@ static void PrintLetterKey() {
   std::cout << ". (Mapped page not resident)" << std::endl;
 }
 
+#ifdef ART_TARGET_ANDROID
 static char PageTypeChar(uint16_t type) {
   if (kDexSectionInfoMap.find(type) == kDexSectionInfoMap.end()) {
     return '-';
@@ -194,6 +195,7 @@ static void ProcessPageMap(uint64_t* pagemap,
                            size_t end,
                            const std::vector<dex_ir::DexFileSection>& sections,
                            PageCount* page_counts) {
+  static constexpr size_t kLineLength = 32;
   for (size_t page = start; page < end; ++page) {
     char type_char = '.';
     if (PM_PAGEMAP_PRESENT(pagemap[page])) {
@@ -425,9 +427,10 @@ static bool FilterByNameContains(const std::string& mapped_file_name,
   }
   return false;
 }
+#endif
 
 static void Usage(const char* cmd) {
-  std::cerr << "Usage: " << cmd << " [options] pid" << std::endl
+  std::cout << "Usage: " << cmd << " [options] pid" << std::endl
             << "    --contains=<string>:  Display sections containing string." << std::endl
             << "    --help:               Shows this message." << std::endl
             << "    --verbose:            Makes displays verbose." << std::endl;
@@ -462,6 +465,7 @@ static int DexDiagMain(int argc, char* argv[]) {
   InitLogging(argv, Runtime::Aborter);
   MemMap::Init();
 
+#ifdef ART_TARGET_ANDROID
   pid_t pid;
   char* endptr;
   pid = (pid_t)strtol(argv[argc - 1], &endptr, 10);
@@ -495,7 +499,7 @@ static int DexDiagMain(int argc, char* argv[]) {
     return EXIT_FAILURE;
   }
 
-  // Process the mappings that are due to DEX files.
+  // Process the mappings that are due to vdex or oat files.
   Printer printer;
   for (size_t i = 0; i < num_maps; ++i) {
     std::string mapped_file_name = pm_map_name(maps[i]);
@@ -509,6 +513,7 @@ static int DexDiagMain(int argc, char* argv[]) {
       return EXIT_FAILURE;
     }
   }
+#endif
 
   return EXIT_SUCCESS;
 }
