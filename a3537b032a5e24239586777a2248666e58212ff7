@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "859dcbbf_b213c064",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-14T19:37:21Z",
+      "side": 1,
+      "message": "We can add it in a subsequent CL if you think that\u0027s useful.  I\u0027d lie to keep this focused on the ISA since it\u0027s the only thing the art script will use for now (in another CL).",
+      "parentUuid": "2bbe6637_12469774",
+      "revId": "a3537b032a5e24239586777a2248666e58212ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29744818_09d541b6",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
