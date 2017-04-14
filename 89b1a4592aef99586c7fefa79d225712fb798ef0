@@ -22,6 +22,30 @@
       "revId": "89b1a4592aef99586c7fefa79d225712fb798ef0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca638413_2a60bc5a",
+        "filename": "test/646-checker-hadd-byte/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T00:14:05Z",
+      "side": 1,
+      "message": "This ensures all instructions appear in the same loop. Arguable a bit overkill here, but it is a pattern I used for all SIMD loops, before/after.",
+      "parentUuid": "2318c895_3b799e68",
+      "range": {
+        "startLine": 32,
+        "startChar": 67,
+        "endLine": 32,
+        "endChar": 101
+      },
+      "revId": "89b1a4592aef99586c7fefa79d225712fb798ef0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
