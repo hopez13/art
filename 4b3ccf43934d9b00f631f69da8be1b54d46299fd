@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7060f593_08418832",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Yes, good point and I should have known better. I have the same utility in induction files, where it is called IsIntAndGet() for the same reason. I want this at a more general place, but nodes.h seems so overused. Any suggestion?",
+      "parentUuid": "7d0dfd4a_21116a93",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eca1bf2f_f11649ec",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "Why is this parameter necessary? It looks like it always returns \u0027instruction\u0027 when this is returning true.",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb707d5f_84da1c0e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "(1) for symmetry with the unsigned case and (2) it may no longer do this as we improve this function\n\nnote that this is the Phi function described in my book that ensures idioms can be vectorized correctly",
+      "parentUuid": "eca1bf2f_f11649ec",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "968b97df_b9258112",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Yes, as noted in the comment, char would normally sign extend. However, this function tests whether the bit pattern represented by byte, char, short would be correctly handled *if* done with sign extension. it would\n\nThe caller uses that to pick the right SIMD variant.",
+      "parentUuid": "c3245d3e_cce6391d",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ed35676_abdd3a87",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "There\u0027s a kPrimChar up there but not down here?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "481a0304_c20d0c63",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "because here it would zero extend, so sign extend is wrong\n\n(note that the case above is a constant which is already in 32-bit wideness)!",
+      "parentUuid": "3ed35676_abdd3a87",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "f1f3a703_539ccacc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "it is, since we only care here that it is 8-bit wide *and* would be handled correctly with a zero extension.\n\nA 0xffff bit pattern when handled with zero extension remains 0xffff which is what we want here\n\nI know this is very confusing, and I am happy to explain offline if that helps (or refer to the right chapter)",
+      "parentUuid": "abe3f77a_0c9d2ee1",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62d8abce_d735cf0f",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -104,6 +200,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "*operand is not set here?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c900ac54_8efad3e4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "It is! Through the IsSign/IsZero call above",
+      "parentUuid": "62d8abce_d735cf0f",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "e56ff111_fdcd015f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3596200_57599c6c",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec30ca3_e9ebfed5",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -138,6 +270,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "Do you think you could write out the math here?\n\n  A \u003d (B + C) \u003e\u003e 1\n  A \u003d (B + C + 1) \u003e\u003e 1\n\netc\n\nsimilar to how its done on L442?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "808a6603_590cadb5",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ec30ca3_e9ebfed5",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -161,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "2e266cf4_48ba0c53",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "raw input is set below\n\nI am guessing you are saying you would have liked this in the previous cl that introduced binary operations?\n\nif so, seems like a good follow up cl",
+      "parentUuid": "db27c6e8_ede5d74e",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b2e4e60_6a104855",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -172,6 +340,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "See L356?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7de8045_d9cc9ef8",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b2e4e60_6a104855",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -195,6 +381,24 @@
     },
     {
       "key": {
+        "uuid": "72a08105_d6c5010b",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a9b7b6c_b67c8235",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c272cf0d_05967d75",
         "filename": "compiler/optimizing/nodes_vector.h",
         "patchSetId": 2
@@ -206,6 +410,24 @@
       "writtenOn": "2017-04-14T17:49:22Z",
       "side": 1,
       "message": "nit: the constructor body happens repeated a lot, why cant it just go into the base class?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efb24674_8dff09f8",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-14T20:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c272cf0d_05967d75",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
