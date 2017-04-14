@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "76996410_d19f3b3b",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b9d6ccb_7bc00211",
+      "range": {
+        "startLine": 1639,
+        "startChar": 100,
+        "endLine": 1639,
+        "endChar": 115
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e697782a_93b7c1f7",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -53,6 +77,24 @@
       "writtenOn": "2017-04-12T22:12:23Z",
       "side": 1,
       "message": "nit: probably better to do something like\n\n    enum class CodeItemKind {\n        kMethodNotExecuted \u003d 0,\n        kMethodExecuted \u003d 1,\n        kSize \u003d 2,\n    };\n\n    std::unordered_set\u003cdex_ir::CodeItem*\u003e code_items_map[CodeItemKind::kSize];\n\nthis makes the name and the key usage more clear",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dfb6337_f021d570",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e697782a_93b7c1f7",
       "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "3f833509_60602c41",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c455ed2e_8327b88d",
+      "range": {
+        "startLine": 1673,
+        "startChar": 11,
+        "endLine": 1673,
+        "endChar": 15
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4c3e3a8_b691f131",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -116,6 +182,24 @@
       "writtenOn": "2017-04-12T22:12:23Z",
       "side": 1,
       "message": "nit: one operator per line and 4 spaces subindent\n\n   isVirtual\n       ? VirtualMethods()\n       : DirectMethods()",
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0441d424_0553651c",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c3e3a8_b691f131",
       "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -168,6 +252,54 @@
     },
     {
       "key": {
+        "uuid": "6094c94d_05c7a7f3",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b3aa206_52d4e4e0",
+      "range": {
+        "startLine": 1677,
+        "startChar": 43,
+        "endLine": 1677,
+        "endChar": 53
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6655344_d1df77d0",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "last_code_item here stands for the last code item in the dex file. We don\u0027t want to make changes to it, to avoid possibly disturbing the next section.",
+      "parentUuid": "2f819be8_b5482173",
+      "range": {
+        "startLine": 1677,
+        "startChar": 12,
+        "endLine": 1677,
+        "endChar": 39
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cc04ab3_1d615b6d",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -191,6 +323,30 @@
     },
     {
       "key": {
+        "uuid": "67c5fcae_084a6b75",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc04ab3_1d615b6d",
+      "range": {
+        "startLine": 1685,
+        "startChar": 19,
+        "endLine": 1685,
+        "endChar": 37
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e1e0aef_95971019",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -202,6 +358,30 @@
       "writtenOn": "2017-04-12T22:12:23Z",
       "side": 1,
       "message": "nit: magic numbers, use this instead\n\n   for (std::unordered_set\u003cdex_ir::CodeItem*\u003e\u0026 code_items_set : code_items) { ...\n   }",
+      "range": {
+        "startLine": 1692,
+        "startChar": 11,
+        "endLine": 1692,
+        "endChar": 21
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "491ab4d5_5688e354",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "By explicitly using isExecuted, I could be sure that the executed method are placed before the non executed one.\nUsing the above suggestion, if I need to rely on the order executed and non executed methods in code_items .",
+      "parentUuid": "6e1e0aef_95971019",
       "range": {
         "startLine": 1692,
         "startChar": 11,
@@ -254,6 +434,30 @@
     },
     {
       "key": {
+        "uuid": "4ec476f1_2dd625f3",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6474e1b0_a6905c14",
+      "range": {
+        "startLine": 1698,
+        "startChar": 13,
+        "endLine": 1698,
+        "endChar": 17
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f58a4078_7aad591e",
         "filename": "dexlayout/dexlayout.cc",
         "patchSetId": 5
@@ -265,6 +469,30 @@
       "writtenOn": "2017-04-12T22:12:23Z",
       "side": 1,
       "message": "nit: * to the left",
+      "range": {
+        "startLine": 1700,
+        "startChar": 26,
+        "endLine": 1700,
+        "endChar": 28
+      },
+      "revId": "df74b32b93ce08dd3523b7d9e892dbbd4c5265ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3cf1ee_d0d9fc68",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1084268
+      },
+      "writtenOn": "2017-04-14T01:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f58a4078_7aad591e",
       "range": {
         "startLine": 1700,
         "startChar": 26,
