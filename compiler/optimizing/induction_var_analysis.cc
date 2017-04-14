@@ -751,26 +751,97 @@ void HInductionVarAnalysis::VisitControl(HLoopInformation* loop) {
   HInstruction* control = loop->GetHeader()->GetLastInstruction();
   if (control->IsIf()) {
     HIf* ifs = control->AsIf();
-    HBasicBlock* if_true = ifs->IfTrueSuccessor();
-    HBasicBlock* if_false = ifs->IfFalseSuccessor();
-    HInstruction* if_expr = ifs->InputAt(0);
-    // Determine if loop has following structure in header.
-    // loop-header: ....
-    //              if (condition) goto X
-    if (if_expr->IsCondition()) {
-      HCondition* condition = if_expr->AsCondition();
-      InductionInfo* a = LookupInfo(loop, condition->InputAt(0));
-      InductionInfo* b = LookupInfo(loop, condition->InputAt(1));
-      Primitive::Type type = ImplicitConversion(condition->InputAt(0)->GetType());
-      // Determine if the loop control uses a known sequence on an if-exit (X outside) or on
-      // an if-iterate (X inside), expressed as if-iterate when passed into VisitCondition().
-      if (a == nullptr || b == nullptr) {
-        return;  // Loop control is not a sequence.
-      } else if (if_true->GetLoopInformation() != loop && if_false->GetLoopInformation() == loop) {
-        VisitCondition(loop, a, b, type, condition->GetOppositeCondition());
-      } else if (if_true->GetLoopInformation() == loop && if_false->GetLoopInformation() != loop) {
-        VisitCondition(loop, a, b, type, condition->GetCondition());
+    VisitControlIf(loop, ifs);
+  } else if (control->IsGoto()) {
+    // Check if it's a simple do-while loop (that has a Goto at the end of the header and has an
+    // loop-exit If at the end of the loop.) Note that a single-block do-while loop (with an If at
+    // the block end) is already handled by the above IsIf() case. Also note a do-while loop body
+    // will be executed the reported trip count plus one times (an upper bound) because the loop
+    // exit test is at the loop end.
+    //
+    // Look for pattern:
+    //
+    // Header:
+    //    ...
+    //    Goto B1
+    // B1:
+    //    ...
+    // ...
+    //
+    // BN:
+    //    ...
+    //    If BN+1, BN+2 (loop exit)
+    //
+    // BN+1
+    //    Goto Header
+    //
+    HBasicBlock* header = loop->GetHeader();
+    DCHECK(loop->IsPopulated());
+    HBasicBlock* block = header;
+    while (true) {
+      // Check if the block has an only precessor that's in the loop.
+      HBasicBlock* only_pred_in_loop = nullptr;
+      for (size_t pred = 0, e = block->GetPredecessors().size(); pred < e; ++pred) {
+        HBasicBlock* predecessor = block->GetPredecessors()[pred];
+        if (loop->Contains(*predecessor)) {
+          if (only_pred_in_loop == nullptr) {
+            only_pred_in_loop = predecessor;
+          } else {
+            only_pred_in_loop = nullptr;
+            break;
+          }
+        }
       }
+      if (only_pred_in_loop != nullptr && block != only_pred_in_loop) {
+        HInstruction* pred_control = only_pred_in_loop->GetLastInstruction();
+        if (pred_control->IsIf()) {
+          // Check if the If is a loop exit conditional.
+          bool is_loop_exit = false;
+          for (size_t succ = 0, e = only_pred_in_loop->GetSuccessors().size(); succ < e; ++succ) {
+            HBasicBlock* successor = only_pred_in_loop->GetSuccessors()[succ];
+            if (successor != block && !loop->Contains(*successor)) {
+              is_loop_exit = true;
+              break;
+            }
+          }
+          if (is_loop_exit) {
+            VisitControlIf(loop, pred_control->AsIf());
+          }
+        } else if (pred_control->IsGoto() &&
+                   only_pred_in_loop->GetInstructions().CountSize() == 1) {
+          // Continue traversing.
+          block = only_pred_in_loop;
+          if (block != header) {
+            continue;
+          }
+        }
+      }
+      // Found an If or an unrecognized pattern. Exit.
+      break;
+    }
+  }
+}
+
+void HInductionVarAnalysis::VisitControlIf(HLoopInformation* loop, HIf* ifs) {
+  HBasicBlock* if_true = ifs->IfTrueSuccessor();
+  HBasicBlock* if_false = ifs->IfFalseSuccessor();
+  HInstruction* if_expr = ifs->InputAt(0);
+  // Determine if loop has following structure in header.
+  // loop-header: ....
+  //              if (condition) goto X
+  if (if_expr->IsCondition()) {
+    HCondition* condition = if_expr->AsCondition();
+    InductionInfo* a = LookupInfo(loop, condition->InputAt(0));
+    InductionInfo* b = LookupInfo(loop, condition->InputAt(1));
+    Primitive::Type type = ImplicitConversion(condition->InputAt(0)->GetType());
+    // Determine if the loop control uses a known sequence on an if-exit (X outside) or on
+    // an if-iterate (X inside), expressed as if-iterate when passed into VisitCondition().
+    if (a == nullptr || b == nullptr) {
+      return;  // Loop control is not a sequence.
+    } else if (if_true->GetLoopInformation() != loop && if_false->GetLoopInformation() == loop) {
+      VisitCondition(loop, a, b, type, condition->GetOppositeCondition());
+    } else if (if_true->GetLoopInformation() == loop && if_false->GetLoopInformation() != loop) {
+      VisitCondition(loop, a, b, type, condition->GetCondition());
     }
   }
 }
@@ -897,7 +968,7 @@ void HInductionVarAnalysis::VisitTripCount(HLoopInformation* loop,
   // though it's its use) since former provides a convenient use-free placeholder.
   HInstruction* control = loop->GetHeader()->GetLastInstruction();
   InductionInfo* taken_test = CreateInvariantOp(op, lower_expr, upper_expr);
-  DCHECK(control->IsIf());
+  DCHECK(control->IsIf() || control->IsGoto());
   AssignInfo(loop, control, CreateTripCount(tcKind, trip_count, taken_test, type));
 }
 

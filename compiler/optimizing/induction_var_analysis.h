@@ -197,6 +197,7 @@ class HInductionVarAnalysis : public HOptimization {
 
   // Trip count information.
   void VisitControl(HLoopInformation* loop);
+  void VisitControlIf(HLoopInformation* loop, HIf* ifs);
   void VisitCondition(HLoopInformation* loop,
                       InductionInfo* a,
                       InductionInfo* b,
