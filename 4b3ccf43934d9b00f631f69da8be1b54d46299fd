@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c3880349_830751c8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T21:25:49Z",
+      "side": 1,
+      "message": "I\u0027m not suggesting we do ANY OF THIS. This is purely brainstorming:\n---------\n\nI\u0027ve written static helper classes for things like this in the past\n\n  ConstantHelpers::MaybeGetInt\n  IntHelpers::MaybeGetInt\n\netc (I\u0027m not sure if \"Helpers\" is the right naming convention for a compiler)\n\nFWIW if we are doing this \"properly\" as a reusable utility I would\u0027ve liked to see handling for all the constants.\n\n  template \u003ctypename T\u003e\n  T* MaybeGetConstant(HInstruction*) {\n     if (instruction-\u003eIsConstant()) {\n         ....\n     }\n  }",
+      "parentUuid": "7060f593_08418832",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eca1bf2f_f11649ec",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "(1) for symmetry with the unsigned case and (2) it may no longer do this as we improve this function\n\nnote that this is the Phi function described in my book that ensures idioms can be vectorized correctly",
       "parentUuid": "eca1bf2f_f11649ec",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbe8dd62_68418ccc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T21:25:49Z",
+      "side": 1,
+      "message": "Brainstorming only:\n----------------\n\nI think these could return std::optional\u003cHInstruction*\u003e then\n\nThat way it can both return \"success\" (the optional has a value of null or an actual pointer), and \"failure\" (the optional has no value)",
+      "parentUuid": "eb707d5f_84da1c0e",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -224,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "d3791a4d_d0f57192",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T21:25:49Z",
+      "side": 1,
+      "message": "Ok so I must have missed it because it is missing a few style guide tips (note the OUT):\n\n    IsInt(instruction-\u003eInputAt(1), /* out */ \u0026mask) { ...}\n   \n    IsSignExtension(instruction-\u003eInputAt(0), type, /* out* / operand);\n\nBy the way another reason that just returning it would be cleaner :).\n\n    if ( (operand \u003d MaybeGetSignExtension(...)) !\u003d nullptr) { ... }",
+      "parentUuid": "c900ac54_8efad3e4",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3596200_57599c6c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -253,6 +313,40 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f3596200_57599c6c",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cfcd008_de737518",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T21:25:49Z",
+      "side": 1,
+      "message": "nit: line length",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0501a914_65feeacb",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T21:25:49Z",
+      "side": 1,
+      "message": "nit: line length",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
