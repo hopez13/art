@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d0dfd4a_21116a93",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "nit: odd name for something that reads the int value\n\nperhaps \"MaybeGetIntValue\" ?\n\nI think it could also just be returning a pointer alternatively although it makes no difference to me. \n\n   int32_t* GetIntValue(HInstruction*) {...}",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eca1bf2f_f11649ec",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "Why is this parameter necessary? It looks like it always returns \u0027instruction\u0027 when this is returning true.",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3245d3e_cce6391d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "I am a bit confused here. Char is unsigned so why does it need sign extension?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ed35676_abdd3a87",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "There\u0027s a kPrimChar up there but not down here?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abe3f77a_0c9d2ee1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is sound, the max value is int8_t for a byte , why is this ok?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d8abce_d735cf0f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "*operand is not set here?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3596200_57599c6c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "Would it be possible to add a full example of the kind of code it would recognize the idiom for?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ec30ca3_e9ebfed5",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "Do you think you could write out the math here?\n\n  A \u003d (B + C) \u003e\u003e 1\n  A \u003d (B + C + 1) \u003e\u003e 1\n\netc\n\nsimilar to how its done on L442?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db27c6e8_ede5d74e",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "Why not HVecOperation* left, right in the constructor then?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b2e4e60_6a104855",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "See L356?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a9b7b6c_b67c8235",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "See L356?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c272cf0d_05967d75",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:49:22Z",
+      "side": 1,
+      "message": "nit: the constructor body happens repeated a lot, why cant it just go into the base class?",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
