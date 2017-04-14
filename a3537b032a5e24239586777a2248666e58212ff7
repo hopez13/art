@@ -51,6 +51,24 @@
       "revId": "a3537b032a5e24239586777a2248666e58212ff7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae7ff53a_9f3a59c2",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-14T17:20:07Z",
+      "side": 1,
+      "message": "I wouldn\u0027t worry about the parsing, it\u0027s a simple 1-liner as above. It is very typical for ISAs to go into a version string or user-agent string, etc.\n\nI don\u0027t think adding a new option every time we want to query some constant from the runtime is scalable, if we want to add a new flag it should be generic so it can be extended later without adding extra flags, for example:\n\n   --query-var runtime-isa         // arm64, x86, ...\n   --query-var garbage-collector   // cc, cms\n   --query-var heap-poisoning      // true, false\n   --query-var bootclasspath       // core.jar:core-2.jar:...\n\netc, or just print all vars..\n\n   $\u003e dalvikvm --query-vars\n   runtime-isa\u003darm64\n   garbage-collector\u003dcc\n   heap-poisoning\u003dtrue\n   ...\n\nNOTE: I\u0027m not saying we should go with --query-var[s]. It\u0027s too much complexity when simply adding ISA to version string is enough.",
+      "parentUuid": "9c431453_949cfa8f",
+      "revId": "a3537b032a5e24239586777a2248666e58212ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
