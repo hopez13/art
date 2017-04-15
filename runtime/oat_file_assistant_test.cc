@@ -25,7 +25,6 @@
 #include "class_linker-inl.h"
 #include "dexopt_test.h"
 #include "oat_file_assistant.h"
-#include "oat_file_manager.h"
 #include "os.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -880,77 +879,6 @@ TEST_F(OatFileAssistantTest, LongDexExtension) {
   EXPECT_FALSE(oat_file_assistant.IsInBootClassPath());
   EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OdexFileStatus());
   EXPECT_EQ(OatFileAssistant::kOatCannotOpen, oat_file_assistant.OatFileStatus());
-}
-
-// A task to generate a dex location. Used by the RaceToGenerate test.
-class RaceGenerateTask : public Task {
- public:
-  explicit RaceGenerateTask(const std::string& dex_location, const std::string& oat_location)
-    : dex_location_(dex_location), oat_location_(oat_location), loaded_oat_file_(nullptr)
-  {}
-
-  void Run(Thread* self ATTRIBUTE_UNUSED) {
-    // Load the dex files, and save a pointer to the loaded oat file, so that
-    // we can verify only one oat file was loaded for the dex location.
-    std::vector<std::unique_ptr<const DexFile>> dex_files;
-    std::vector<std::string> error_msgs;
-    const OatFile* oat_file = nullptr;
-    dex_files = Runtime::Current()->GetOatFileManager().OpenDexFilesFromOat(
-        dex_location_.c_str(),
-        oat_location_.c_str(),
-        /*class_loader*/nullptr,
-        /*dex_elements*/nullptr,
-        &oat_file,
-        &error_msgs);
-    CHECK(!dex_files.empty()) << android::base::Join(error_msgs, '\n');
-    CHECK(dex_files[0]->GetOatDexFile() != nullptr) << dex_files[0]->GetLocation();
-    loaded_oat_file_ = dex_files[0]->GetOatDexFile()->GetOatFile();
-    CHECK_EQ(loaded_oat_file_, oat_file);
-  }
-
-  const OatFile* GetLoadedOatFile() const {
-    return loaded_oat_file_;
-  }
-
- private:
-  std::string dex_location_;
-  std::string oat_location_;
-  const OatFile* loaded_oat_file_;
-};
-
-// Test the case where multiple processes race to generate an oat file.
-// This simulates multiple processes using multiple threads.
-//
-// We want unique Oat files to be loaded even when there is a race to load.
-// TODO: The test case no longer tests locking the way it was intended since we now get multiple
-// copies of the same Oat files mapped at different locations.
-TEST_F(OatFileAssistantTest, RaceToGenerate) {
-  std::string dex_location = GetScratchDir() + "/RaceToGenerate.jar";
-  std::string oat_location = GetOdexDir() + "/RaceToGenerate.oat";
-
-  // We use the lib core dex file, because it's large, and hopefully should
-  // take a while to generate.
-  Copy(GetLibCoreDexFileNames()[0], dex_location);
-
-  const int kNumThreads = 32;
-  Thread* self = Thread::Current();
-  ThreadPool thread_pool("Oat file assistant test thread pool", kNumThreads);
-  std::vector<std::unique_ptr<RaceGenerateTask>> tasks;
-  for (int i = 0; i < kNumThreads; i++) {
-    std::unique_ptr<RaceGenerateTask> task(new RaceGenerateTask(dex_location, oat_location));
-    thread_pool.AddTask(self, task.get());
-    tasks.push_back(std::move(task));
-  }
-  thread_pool.StartWorkers(self);
-  thread_pool.Wait(self, true, false);
-
-  // Verify every task got a unique oat file.
-  std::set<const OatFile*> oat_files;
-  for (auto& task : tasks) {
-    const OatFile* oat_file = task->GetLoadedOatFile();
-    EXPECT_TRUE(oat_files.find(oat_file) == oat_files.end());
-    oat_files.insert(oat_file);
-  }
 }
 
 // Case: We have a DEX file and an ODEX file, no OAT file, and dex2oat is

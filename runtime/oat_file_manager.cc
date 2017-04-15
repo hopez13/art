@@ -630,32 +630,14 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
   // oat file.
   std::string error_msg;
   if (!oat_file_assistant.Lock(/*out*/&error_msg)) {
-    // Don't worry too much if this fails. If it does fail, it's unlikely we
-    // can generate an oat file anyway.
     VLOG(class_linker) << "OatFileAssistant::Lock: " << error_msg;
   }
 
   const OatFile* source_oat_file = nullptr;
 
   if (!oat_file_assistant.IsUpToDate()) {
-    // Update the oat file on disk if we can, based on the --compiler-filter
-    // option derived from the current runtime options.
-    // This may fail, but that's okay. Best effort is all that matters here.
-    switch (oat_file_assistant.MakeUpToDate(/*profile_changed*/false, /*out*/ &error_msg)) {
-      case OatFileAssistant::kUpdateFailed:
-        LOG(WARNING) << error_msg;
-        break;
-
-      case OatFileAssistant::kUpdateNotAttempted:
-        // Avoid spamming the logs if we decided not to attempt making the oat
-        // file up to date.
-        VLOG(oat) << error_msg;
-        break;
-
-      case OatFileAssistant::kUpdateSucceeded:
-        // Nothing to do.
-        break;
-    }
+    // TODO(calin): implement b/36605597.
+    VLOG(oat) << "The oat file for location " << dex_location << " is not up to date";
   }
 
   // Get the oat file on disk.
