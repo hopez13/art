@@ -22,6 +22,30 @@
       "revId": "3ccf980505e8b62280cb08616efce28113037f28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcc0f17_4b6418df",
+        "filename": "test/ti-agent/common_helper.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-17T18:02:34Z",
+      "side": 1,
+      "message": "Need to be able to see CommonClassFileLoadHookRetransformable",
+      "parentUuid": "ac248509_adafdc4f",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 35
+      },
+      "revId": "3ccf980505e8b62280cb08616efce28113037f28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
