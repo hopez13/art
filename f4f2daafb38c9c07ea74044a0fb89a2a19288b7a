@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4e38876_ae5aea27",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-17T19:52:03Z",
+      "side": 1,
+      "message": "Add logic for UnpoisonHeapReference.",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 82
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "364e1bdb_6dcad31e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 6072,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-17T19:52:03Z",
+      "side": 1,
+      "message": "Add logic for UnpoisonHeapReference.",
+      "range": {
+        "startLine": 6072,
+        "startChar": 0,
+        "endLine": 6072,
+        "endChar": 81
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89f4b6d_73991133",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 32
+      },
+      "lineNbr": 2558,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2017-04-17T19:52:03Z",
+      "side": 1,
+      "message": "Add logic for unpoisoning",
+      "range": {
+        "startLine": 2558,
+        "startChar": 0,
+        "endLine": 2558,
+        "endChar": 42
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
