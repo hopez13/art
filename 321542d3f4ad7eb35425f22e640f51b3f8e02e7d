@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86f3b806_06341b30",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a734890a_364f0984",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e8d997_0c06a7a0",
         "filename": "tools/art",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2017-04-18T16:47:39Z",
       "side": 1,
       "message": "nit: In comment please remark what the output variables are (DEX2OAT_FLAGS and DEX2OAT_BOOTIMAGE)",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "150eab47_9ea86448",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97e8d997_0c06a7a0",
       "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "cbb10476_4d99412b",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "what\u0027s the nit?",
+      "parentUuid": "06627d41_964bc8bb",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 9
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77bbff9_3257fcc7",
         "filename": "tools/art",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "b640a908_113c596d",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "In indented the entire case statement, similar to the main argument parsing.",
+      "parentUuid": "a77bbff9_3257fcc7",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dbce374_b1102cde",
         "filename": "tools/art",
         "patchSetId": 2
@@ -93,6 +177,30 @@
       "writtenOn": "2017-04-18T16:47:39Z",
       "side": 1,
       "message": "Why is there a \u0027.\u0027 here? It is not regex, the . will be matched literally.\n\nAre you trying to match only relative paths (in which case it should be anything not starting with a /) ?",
+      "range": {
+        "startLine": 143,
+        "startChar": 10,
+        "endLine": 143,
+        "endChar": 11
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5321f45f_8a8fa0f5",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done.\n\nI\u0027m not trying to match relative paths.",
+      "parentUuid": "8dbce374_b1102cde",
       "range": {
         "startLine": 143,
         "startChar": 10,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "5818167f_a3349e32",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eef4cf1a_edb3f4b4",
+      "range": {
+        "startLine": 145,
+        "startChar": 42,
+        "endLine": 145,
+        "endChar": 43
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2079974d_196e005a",
         "filename": "tools/art",
         "patchSetId": 2
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "7b1f7ca6_e6e1a9ea",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2079974d_196e005a",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6046bda5_928dac32",
         "filename": "tools/art",
         "patchSetId": 2
@@ -156,6 +306,24 @@
       "writtenOn": "2017-04-18T15:38:20Z",
       "side": 1,
       "message": "Left over debugging.",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5184966_63b2f12e",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6046bda5_928dac32",
       "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -185,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "5a6b0748_5bd17e79",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ef98a9_76bf4dc7",
+      "range": {
+        "startLine": 154,
+        "startChar": 26,
+        "endLine": 154,
+        "endChar": 41
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6702a8e3_46897ec9",
         "filename": "tools/art",
         "patchSetId": 2
@@ -202,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "b7d3429e_de4f9828",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6702a8e3_46897ec9",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de573f49_fa83f6bc",
         "filename": "tools/art",
         "patchSetId": 2
@@ -213,6 +423,24 @@
       "writtenOn": "2017-04-18T16:47:39Z",
       "side": 1,
       "message": "this seems to have snuck in here",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20b7ba1d_a810119b",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2017-04-18T20:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de573f49_fa83f6bc",
       "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
