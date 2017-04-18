@@ -22,6 +22,75 @@
       "revId": "db487c24e4f6a9ab684f7ce19b8427e2c212cd41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a642c4a_3b05e263",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T09:07:26Z",
+      "side": 1,
+      "message": "Add a comment: Only linux (and therefore Android) due to use of SafeCopy.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "db487c24e4f6a9ab684f7ce19b8427e2c212cd41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df18238_4a1f40c5",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T09:07:26Z",
+      "side": 1,
+      "message": "nit: Indentation is off, move the computation to the new line with 4 space indent.",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 49,
+        "endChar": 79
+      },
+      "revId": "db487c24e4f6a9ab684f7ce19b8427e2c212cd41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0faff635_f697aa8c",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T09:07:26Z",
+      "side": 1,
+      "message": "Please add a comment why using SafeCopy.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 3
+      },
+      "revId": "db487c24e4f6a9ab684f7ce19b8427e2c212cd41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
