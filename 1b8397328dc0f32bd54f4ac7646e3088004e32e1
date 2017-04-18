@@ -16,6 +16,29 @@
       "revId": "1b8397328dc0f32bd54f4ac7646e3088004e32e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adab4f6_b028648a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2017-04-18T20:56:14Z",
+      "side": 1,
+      "message": "Note to self: maybe this should also check that the predecessor is at the same loop nest level (same loop info) as the header to assure the termination of this traversal?",
+      "range": {
+        "startLine": 785,
+        "startChar": 21,
+        "endLine": 785,
+        "endChar": 32
+      },
+      "revId": "1b8397328dc0f32bd54f4ac7646e3088004e32e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
