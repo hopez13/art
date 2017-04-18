@@ -73,6 +73,29 @@
     },
     {
       "key": {
+        "uuid": "95eb53a7_2863a5b6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:28:30Z",
+      "side": 1,
+      "message": "After discussion, maybe name more something like\n\n  OutputSameIfSignExtended ?",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eca1bf2f_f11649ec",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 2
@@ -190,6 +213,23 @@
       "side": 1,
       "message": "because here it would zero extend, so sign extend is wrong\n\n(note that the case above is a constant which is already in 32-bit wideness)!",
       "parentUuid": "3ed35676_abdd3a87",
+      "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4848a50_fba7b999",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:28:30Z",
+      "side": 1,
+      "message": "After discussion, maybe name more something like\n\n  OutputSameIfZeroExtended ?",
       "revId": "4b3ccf43934d9b00f631f69da8be1b54d46299fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

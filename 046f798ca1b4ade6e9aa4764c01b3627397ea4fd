@@ -65,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "d57625db_e1f04320",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:28:30Z",
+      "side": 1,
+      "message": "(no action needed)\n\n---------\n\nCurious, why don\u0027t we have a more general mechanism for describing this such as:\n\n   HArrayGet : HLoad (or HGet)\n   HStaticFieldGet : HLoad\n   HInstanceFieldGet : HLoad\n\nor some virtual function \"IsLoad\" that returns true for those 3 functions?",
+      "revId": "046f798ca1b4ade6e9aa4764c01b3627397ea4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26ced8a7_bf21ebc0",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 3
@@ -82,6 +99,23 @@
         "endLine": 156,
         "endChar": 6
       },
+      "revId": "046f798ca1b4ade6e9aa4764c01b3627397ea4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8ef9a9_39308d35",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:28:30Z",
+      "side": 1,
+      "message": "nit: minor style issues, please fix\n\n    \u0026mask -\u003e /* out */ \u0026mask\n    operand -\u003e /* out */ operand",
       "revId": "046f798ca1b4ade6e9aa4764c01b3627397ea4fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
