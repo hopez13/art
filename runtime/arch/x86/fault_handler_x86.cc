@@ -25,6 +25,7 @@
 #include "globals.h"
 #include "base/logging.h"
 #include "base/hex_dump.h"
+#include "base/safe_copy.h"
 #include "thread.h"
 #include "thread-inl.h"
 
