@@ -46,6 +46,30 @@
       "revId": "af27417defc3928636b7aa47f7e0b7d5533ac93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67134e49_c1addc1f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-18T16:36:39Z",
+      "side": 1,
+      "message": "Not sure.  AFAIR, cpplint does not warn about this.",
+      "parentUuid": "29f77336_ce93fccc",
+      "range": {
+        "startLine": 1259,
+        "startChar": 0,
+        "endLine": 1259,
+        "endChar": 104
+      },
+      "revId": "af27417defc3928636b7aa47f7e0b7d5533ac93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
