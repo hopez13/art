@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4511e6b8_c51c445f",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-18T20:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0973eaaa_ce5c8a9b",
+      "range": {
+        "startLine": 1428,
+        "startChar": 6,
+        "endLine": 1433,
+        "endChar": 7
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37eb0e4e_0502603e",
         "filename": "test/985-re-obsolete/run",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9d33706d_6d57121a",
+        "filename": "test/985-re-obsolete/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-18T20:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37eb0e4e_0502603e",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "890cd8ef_e62287d6",
         "filename": "test/985-re-obsolete/src/art/Test985.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-18T20:53:13Z",
       "side": 1,
       "message": "2017?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6813bc8_27cad61a",
+        "filename": "test/985-re-obsolete/src/art/Test985.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2017-04-18T20:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "890cd8ef_e62287d6",
       "range": {
         "startLine": 2,
         "startChar": 17,
