@@ -45,6 +45,30 @@
       "revId": "828a60c39a1fa277b50f1f218e6301e2e419c842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2d0da26_3a53804c",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2017-04-18T14:10:20Z",
+      "side": 1,
+      "message": "That was my hesitation here too. Because I wasn\u0027t sure whether we want to turn this into a DCHECK or not.\n\nI\u0027m OK with introducing a local variable so that it\u0027s easy to make the change.",
+      "parentUuid": "24dfab65_78076f7a",
+      "range": {
+        "startLine": 326,
+        "startChar": 12,
+        "endLine": 326,
+        "endChar": 72
+      },
+      "revId": "828a60c39a1fa277b50f1f218e6301e2e419c842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
