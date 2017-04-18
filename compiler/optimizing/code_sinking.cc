@@ -56,6 +56,44 @@ static bool IsInterestingInstruction(HInstruction* instruction) {
     return true;
   }
 
+  // Safe to move ConstructorFence for only protecting the new-instance but not for finals.
+  if (instruction->IsConstructorFence()) {
+    HInstruction* prev_inst = instruction->GetPrevious();
+    {
+      // Check if the immediately preceding instruction is a new-instance/new-array.
+      // Otherwise this fence is for protecting final fields.
+      bool is_fence_for_new_instance = false;
+
+      if (prev_inst != nullptr) {
+        if (prev_inst->IsNewInstance()) {
+          is_fence_for_new_instance = true;
+        } else if (prev_inst->IsNewArray()) {
+          is_fence_for_new_instance = true;
+        }
+      }
+
+      if (!is_fence_for_new_instance) {
+        // The prior instruction is not a new-instance,
+        // so this fence cannot possibly be protecting the allocation.
+        return false;
+      }
+    }
+
+    // A fence with "0" inputs is dead and should've been removed in a prior pass.
+    DCHECK_NE(0u, instruction->InputCount());
+
+    // There must be exactly 1 input and that should be the previous instruction,
+    // which is a HNewInstance/HNewArray.
+    if (instruction->InputCount() > 1) {
+      return false;
+    } else {
+      return instruction->InputAt(0) == prev_inst;
+    }
+
+    // FIXME: Should all the checks from above be repeated elsewhere in this file
+    // where IsConstructorFence is used?
+  }
+
   // All other instructions that can throw cannot be moved.
   if (instruction->CanThrow()) {
     return false;
@@ -134,11 +172,11 @@ static bool ShouldFilterUse(HInstruction* instruction,
                             HInstruction* user,
                             const ArenaBitVector& post_dominated) {
   if (instruction->IsNewInstance()) {
-    return user->IsInstanceFieldSet() &&
+    return (user->IsInstanceFieldSet() || user->IsConstructorFence()) &&
         (user->InputAt(0) == instruction) &&
         !post_dominated.IsBitSet(user->GetBlock()->GetBlockId());
   } else if (instruction->IsNewArray()) {
-    return user->IsArraySet() &&
+    return (user->IsArraySet() || user->IsConstructorFence()) &&
         (user->InputAt(0) == instruction) &&
         !post_dominated.IsBitSet(user->GetBlock()->GetBlockId());
   }
@@ -372,7 +410,8 @@ void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
   // Step (3): Try to move sinking candidates.
   for (HInstruction* instruction : move_in_order) {
     HInstruction* position = nullptr;
-    if (instruction->IsArraySet() || instruction->IsInstanceFieldSet()) {
+    if (instruction->IsArraySet() || instruction->IsInstanceFieldSet()
+            || instruction->IsConstructorFence()) {
       if (!instructions_that_can_move.IsBitSet(instruction->InputAt(0)->GetId())) {
         // A store can trivially move, but it can safely do so only if the heap
         // location it stores to can also move.

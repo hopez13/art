@@ -193,12 +193,14 @@ public class Main extends UnresolvedSuperClass {
   /// CHECK:      <<Class:l\d+>>        LoadClass                                     loop:B2
   /// CHECK-NEXT: <<Clinit:l\d+>>       ClinitCheck [<<Class>>]                       loop:B2
   /// CHECK-NEXT: <<New:l\d+>>          NewInstance [<<Clinit>>]                      loop:B2
+  /// CHECK-NEXT:                       ConstructorFence [<<New>>]                    loop:B2
   /// CHECK-NEXT:                       InvokeUnresolved [<<New>>]                    loop:B2
 
   /// CHECK-START: void Main.testLicm(int) licm (after)
   /// CHECK:      <<Class:l\d+>>        LoadClass                                     loop:none
   /// CHECK-NEXT: <<Clinit:l\d+>>       ClinitCheck [<<Class>>]                       loop:none
   /// CHECK:      <<New:l\d+>>          NewInstance [<<Clinit>>]                      loop:B2
+  /// CHECK-NEXT:                       ConstructorFence [<<New>>]                    loop:B2
   /// CHECK-NEXT:                       InvokeUnresolved [<<New>>]                    loop:B2
   static public void testLicm(int count) {
     // Test to make sure we keep the initialization check after loading an unresolved class.
