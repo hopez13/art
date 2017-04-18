@@ -398,7 +398,7 @@ class ArtMethod FINAL {
                      pointer_size);
   }
 
-  void RegisterNative(const void* native_method, bool is_fast)
+  void* RegisterNative(const void* native_method, bool is_fast)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void UnregisterNative() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -742,6 +742,16 @@ class ArtMethod FINAL {
   }
 
   DISALLOW_COPY_AND_ASSIGN(ArtMethod);  // Need to use CopyFrom to deal with 32 vs 64 bits.
+};
+
+class MethodCallback {
+ public:
+  virtual ~MethodCallback() {}
+
+  virtual void RegisterNativeMethod(ArtMethod* method,
+                                    const void* original_implementation,
+                                    /*out*/void** new_implementation)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
 }  // namespace art
