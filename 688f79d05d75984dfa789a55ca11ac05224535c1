@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32c6ac85_8c72b4de",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T03:52:37Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you\u0027re doing this here, but not after the loop. Looks to me like the final check should be good enough?",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "688f79d05d75984dfa789a55ca11ac05224535c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
