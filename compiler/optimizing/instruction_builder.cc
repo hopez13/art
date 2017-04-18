@@ -962,7 +962,7 @@ bool HInstructionBuilder::BuildInvokePolymorphic(const Instruction& instruction 
                       false /* is_unresolved */);
 }
 
-bool HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, uint32_t dex_pc) {
+HNewInstance* HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, uint32_t dex_pc) {
   ScopedObjectAccess soa(Thread::Current());
 
   HLoadClass* load_class = BuildLoadClass(type_index, dex_pc);
@@ -986,14 +986,86 @@ bool HInstructionBuilder::BuildNewInstance(dex::TypeIndex type_index, uint32_t d
   // Consider classes we haven't resolved as potentially finalizable.
   bool finalizable = (klass == nullptr) || klass->IsFinalizable();
 
-  AppendInstruction(new (arena_) HNewInstance(
+  auto* new_instance = new (arena_) HNewInstance(
       cls,
       dex_pc,
       type_index,
       *dex_compilation_unit_->GetDexFile(),
       finalizable,
-      entrypoint));
-  return true;
+      entrypoint);
+  AppendInstruction(new_instance);
+
+  return new_instance;
+}
+
+void HInstructionBuilder::BuildConstructorFenceForNew(HInstruction* new_instance) {
+  DCHECK(new_instance != nullptr &&
+             new_instance->IsNewInstance() ||
+             new_instance->IsNewArray());  // corresponding to "new" keyword in JLS.
+
+  if (new_instance->IsNewInstance()) {
+    // STRING SPECIAL HANDLING:
+    // -------------------------------
+    // Strings have a real HNewInstance node but they end up always having 0 uses.
+    // All uses of a String HNewInstance are always transformed to replace their input
+    // of the HNewInstance with an input of the invoke to StringFactory.
+    //
+    // Do not emit an HConstructorFence here since it can inhibit some String new-instance
+    // optimizations (to pass checker tests that rely on those optimizations).
+    HNewInstance* new_inst = new_instance->AsNewInstance();
+    HLoadClass* load_class = new_inst->GetLoadClass();
+
+    Thread* self = Thread::Current();
+    ScopedObjectAccess soa(self);
+    StackHandleScope<1> hs(self);
+    Handle<mirror::Class> klass = load_class->GetClass();
+    if (klass != nullptr && klass->IsStringClass()) {
+      return;
+      // Note: Do not use new_instance->IsStringAlloc which requires
+      // a valid ReferenceTypeInfo, but that doesn't get made until after reference type
+      // propagation (and instruction builder is too early).
+    }
+    // (In terms of correctness, the StringFactory provides needs to provide its own
+    // default initialization barrier, see below.)
+  }
+
+  // JLS 17.4.5 "Happens-before Order" describes:
+  //
+  //   The default initialization of any object happens-before any other actions (other than
+  //   default-writes) of a program.
+  //
+  // In our implementation the default initialization of an object to type T means
+  // setting all of its initial data (object[0..size)) to 0, and setting the
+  // object's class header (i.e. object.getClass() == T.class).
+  //
+  // In practice this fence ensures that the writes to the object header
+  // are visible to other threads if this object escapes the current thread.
+  // (and in theory the 0-initializing, but that happens automatically
+  // when new memory pages are mapped in by the OS).
+  HConstructorFence* ctor_fence =
+      new (arena_) HConstructorFence(new_instance, new_instance->GetDexPc(), arena_);
+  AppendInstruction(ctor_fence);
+
+  // TODO: we mark this fence as the default-initialize fence?
+  // then we can trivially eliminate it if the entrypoint was one
+  // that already had a barrier (and we didnt merge this fence with other ones).
+  // e.g. SetFenceHint(kEntrypoint) or similar.
+  //
+  // what we want to avoid is blowing up the code with fences
+  // for uninitialized classes because those entrypoints will have
+  // the dmb in them.
+  //
+  // alternatively, generalizing this, we simply need to check if
+  // there are any final stores between an object's entrypoint invoke
+  // and the constructor fence -- if there are not, remove the fence
+  // (and if the invoke entrypoint has a fence itself).
+  //
+  // this last part should be done right before codegen
+  // (or at least after the entrypoints are "settled").
+  // it would be unsafe to change entrypoints to a non-dmb one afterward
+  // this elimination.
+  //
+  // there should be a debug-only verification pass at end to ensure soundness.
 }
 
 static bool IsSubClass(mirror::Class* to_test, mirror::Class* super_class)
@@ -1522,15 +1594,15 @@ void HInstructionBuilder::BuildArrayAccess(const Instruction& instruction,
   graph_->SetHasBoundsChecks(true);
 }
 
-void HInstructionBuilder::BuildFilledNewArray(uint32_t dex_pc,
-                                              dex::TypeIndex type_index,
-                                              uint32_t number_of_vreg_arguments,
-                                              bool is_range,
-                                              uint32_t* args,
-                                              uint32_t register_index) {
+HNewArray* HInstructionBuilder::BuildFilledNewArray(uint32_t dex_pc,
+                                                    dex::TypeIndex type_index,
+                                                    uint32_t number_of_vreg_arguments,
+                                                    bool is_range,
+                                                    uint32_t* args,
+                                                    uint32_t register_index) {
   HInstruction* length = graph_->GetIntConstant(number_of_vreg_arguments, dex_pc);
   HLoadClass* cls = BuildLoadClass(type_index, dex_pc);
-  HInstruction* object = new (arena_) HNewArray(cls, length, dex_pc);
+  HNewArray* const object = new (arena_) HNewArray(cls, length, dex_pc);
   AppendInstruction(object);
 
   const char* descriptor = dex_file_->StringByTypeIdx(type_index);
@@ -1550,6 +1622,8 @@ void HInstructionBuilder::BuildFilledNewArray(uint32_t dex_pc,
     AppendInstruction(aset);
   }
   latest_result_ = object;
+
+  return object;
 }
 
 template <typename T>
@@ -2534,10 +2608,12 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction, 
     }
 
     case Instruction::NEW_INSTANCE: {
-      if (!BuildNewInstance(dex::TypeIndex(instruction.VRegB_21c()), dex_pc)) {
-        return false;
-      }
+      HNewInstance* new_instance =
+          BuildNewInstance(dex::TypeIndex(instruction.VRegB_21c()), dex_pc);
+      DCHECK(new_instance != nullptr);
+
       UpdateLocal(instruction.VRegA(), current_block_->GetLastInstruction());
+      BuildConstructorFenceForNew(new_instance);
       break;
     }
 
@@ -2545,8 +2621,11 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction, 
       dex::TypeIndex type_index(instruction.VRegC_22c());
       HInstruction* length = LoadLocal(instruction.VRegB_22c(), Primitive::kPrimInt);
       HLoadClass* cls = BuildLoadClass(type_index, dex_pc);
-      AppendInstruction(new (arena_) HNewArray(cls, length, dex_pc));
+
+      HNewArray* new_array = new (arena_) HNewArray(cls, length, dex_pc);
+      AppendInstruction(new_array);
       UpdateLocal(instruction.VRegA_22c(), current_block_->GetLastInstruction());
+      BuildConstructorFenceForNew(new_array);
       break;
     }
 
@@ -2555,7 +2634,13 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction, 
       dex::TypeIndex type_index(instruction.VRegB_35c());
       uint32_t args[5];
       instruction.GetVarArgs(args);
-      BuildFilledNewArray(dex_pc, type_index, number_of_vreg_arguments, false, args, 0);
+      HNewArray* new_array = BuildFilledNewArray(dex_pc,
+                                                 type_index,
+                                                 number_of_vreg_arguments,
+                                                 /* is_range */ false,
+                                                 args,
+                                                 /* register_index */ 0);
+      BuildConstructorFenceForNew(new_array);
       break;
     }
 
@@ -2563,8 +2648,13 @@ bool HInstructionBuilder::ProcessDexInstruction(const Instruction& instruction, 
       uint32_t number_of_vreg_arguments = instruction.VRegA_3rc();
       dex::TypeIndex type_index(instruction.VRegB_3rc());
       uint32_t register_index = instruction.VRegC_3rc();
-      BuildFilledNewArray(
-          dex_pc, type_index, number_of_vreg_arguments, true, nullptr, register_index);
+      HNewArray* new_array = BuildFilledNewArray(dex_pc,
+                                                 type_index,
+                                                 number_of_vreg_arguments,
+                                                 /* is_range */ true,
+                                                 /* args*/ nullptr,
+                                                 register_index);
+      BuildConstructorFenceForNew(new_array);
       break;
     }
 
