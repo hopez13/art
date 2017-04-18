@@ -20,6 +20,7 @@
 
 #include <limits>
 #include <memory>
+#include <sys/mman.h>
 
 #include "android-base/stringprintf.h"
 
@@ -29,6 +30,7 @@
 #include "safe_map.h"
 #include "utf-inl.h"
 #include "utils.h"
+#include "runtime.h"
 
 namespace art {
 
@@ -234,6 +236,15 @@ bool DexFileVerifier::Verify(const DexFile* dex_file,
   if (!verifier->Verify()) {
     *error_msg = verifier->FailureReason();
     return false;
+  }
+  if (Runtime::Current() != nullptr && !Runtime::Current()->IsAotCompiler()) {
+    void* start = const_cast<void*>(reinterpret_cast<const void*>(AlignUp(begin, kPageSize)));
+    void* end = const_cast<void*>(reinterpret_cast<const void*>(AlignDown(begin + size,
+                                                                          kPageSize)));
+    size_t length = reinterpret_cast<uint8_t*>(end) - reinterpret_cast<uint8_t*>(start);
+    if (start < end) {
+      madvise(start, length, MADV_DONTNEED);
+    }
   }
   return true;
 }
