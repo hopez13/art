@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cd5cc82_d64473d9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:30:46Z",
+      "side": 1,
+      "message": "Thoughts on renaming these 2 helpers?\n\nOutputSameIf[Sign|Zero]Extended would seem a bit more telling (as I remarked in PS2).",
+      "range": {
+        "startLine": 114,
+        "startChar": 12,
+        "endLine": 114,
+        "endChar": 27
+      },
+      "revId": "7eb91604320195eb9d36a5d4e84875a2d7621014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0597ea86_dcc894ca",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:30:46Z",
+      "side": 1,
+      "message": "nit: either implies exclusive or. is it actually exclusive though?",
+      "range": {
+        "startLine": 158,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 27
+      },
+      "revId": "7eb91604320195eb9d36a5d4e84875a2d7621014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
