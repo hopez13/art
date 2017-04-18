@@ -96,6 +96,52 @@
     },
     {
       "key": {
+        "uuid": "5d2950b0_fae1290a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "Looks to me you don\u0027t need to collect but can remove them one by one?",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2156affd_8a51b656",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "Drop, that\u0027s NewArray, which you don\u0027t put fences on.",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 7
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9334df40_9b161621",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -136,6 +182,29 @@
         "startChar": 52,
         "endLine": 531,
         "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b65b69_cbe5a5a6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "Please set it when building the graph, I currently don\u0027t see the value of infering it.",
+      "range": {
+        "startLine": 534,
+        "startChar": 2,
+        "endLine": 536,
+        "endChar": 44
       },
       "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -401,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "88b76b9d_4dbe7d09",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6551,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "The explanation lines 6580-6581 are good enough, you can move or copy them here.",
+      "parentUuid": "69728e78_cf0393d8",
+      "range": {
+        "startLine": 6551,
+        "startChar": 39,
+        "endLine": 6551,
+        "endChar": 68
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3deecffb_e5988c4f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -412,6 +505,75 @@
       "writtenOn": "2017-04-13T21:19:51Z",
       "side": 1,
       "message": "alignment is weird here.",
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bba6a53_87adb9df",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "2 more spaces",
+      "range": {
+        "startLine": 6569,
+        "startChar": 0,
+        "endLine": 6569,
+        "endChar": 6
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a62ebff_ad4bd37b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6580,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "will",
+      "range": {
+        "startLine": 6580,
+        "startChar": 17,
+        "endLine": 6580,
+        "endChar": 20
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba30b0ff_92eb7c9e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 6580,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T12:44:47Z",
+      "side": 1,
+      "message": "prepare_for_register_allocation",
+      "range": {
+        "startLine": 6580,
+        "startChar": 39,
+        "endLine": 6580,
+        "endChar": 60
+      },
       "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
