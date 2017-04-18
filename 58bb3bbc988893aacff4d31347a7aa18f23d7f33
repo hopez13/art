@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6be83a8e_fda87804",
+        "filename": "runtime/base/safe_copy.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T21:03:22Z",
+      "side": 1,
+      "message": "@include \"android-base/macros.h\"\n\n UNUSED(dst, src, len);",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "58bb3bbc988893aacff4d31347a7aa18f23d7f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
