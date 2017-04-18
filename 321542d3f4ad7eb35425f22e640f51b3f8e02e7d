@@ -25,6 +25,126 @@
     },
     {
       "key": {
+        "uuid": "97e8d997_0c06a7a0",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "nit: In comment please remark what the output variables are (DEX2OAT_FLAGS and DEX2OAT_BOOTIMAGE)",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06627d41_964bc8bb",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "nit",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 9
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77bbff9_3257fcc7",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "nit: indent by 2 the matching) statements",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dbce374_b1102cde",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "Why is there a \u0027.\u0027 here? It is not regex, the . will be matched literally.\n\nAre you trying to match only relative paths (in which case it should be anything not starting with a /) ?",
+      "range": {
+        "startLine": 143,
+        "startChar": 10,
+        "endLine": 143,
+        "endChar": 11
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eef4cf1a_edb3f4b4",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "Please explain why there is an 8 here",
+      "range": {
+        "startLine": 145,
+        "startChar": 42,
+        "endLine": 145,
+        "endChar": 43
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2079974d_196e005a",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "local oifs",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6046bda5_928dac32",
         "filename": "tools/art",
         "patchSetId": 2
@@ -36,6 +156,63 @@
       "writtenOn": "2017-04-18T15:38:20Z",
       "side": 1,
       "message": "Left over debugging.",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0ef98a9_76bf4dc7",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "add \"\"\n\n   (\"$classpath_elem\")",
+      "range": {
+        "startLine": 154,
+        "startChar": 26,
+        "endLine": 154,
+        "endChar": 41
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6702a8e3_46897ec9",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "nit: wrap with \"\" since you\u0027re fixing this line anyway\n\n    mkdir -p \"$ANDROID_DATA/dalvik-cache/$ISA\"",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de573f49_fa83f6bc",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T16:47:39Z",
+      "side": 1,
+      "message": "this seems to have snuck in here",
       "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
