@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc231704_bac8e07e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-18T16:33:51Z",
+      "side": 1,
+      "message": "This is of course an easy way to make longer do-while loops countable, but it will break a lot more downstream (viz. the whole normalized loop index and range analysis assume everything except header is in the body; that is why tight do-whiles are recognized, but the longer ones are not yet).\n\nIf this is really important, we can make it work, but it will need much more design and code changes than this.",
+      "revId": "1b8397328dc0f32bd54f4ac7646e3088004e32e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
