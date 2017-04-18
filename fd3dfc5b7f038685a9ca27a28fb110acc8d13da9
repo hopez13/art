@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0973eaaa_ce5c8a9b",
+        "filename": "runtime/openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-18T20:53:13Z",
+      "side": 1,
+      "message": "I generally prefer\n\nart::ArtMethod* expected \u003d nullptr;\nif (i \u003c old_length) {\n  expected \u003d ...\n}\n\nIt avoids the future likelihood of edits leaving expected uninitialized...",
+      "range": {
+        "startLine": 1428,
+        "startChar": 6,
+        "endLine": 1433,
+        "endChar": 7
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37eb0e4e_0502603e",
+        "filename": "test/985-re-obsolete/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-18T20:53:13Z",
+      "side": 1,
+      "message": "2017?",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "890cd8ef_e62287d6",
+        "filename": "test/985-re-obsolete/src/art/Test985.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2017-04-18T20:53:13Z",
+      "side": 1,
+      "message": "2017?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "fd3dfc5b7f038685a9ca27a28fb110acc8d13da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
