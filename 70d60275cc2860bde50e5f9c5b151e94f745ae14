@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e548f2ce_cbd65c59",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-18T10:31:00Z",
+      "side": 1,
+      "message": "Could you also change this into:\n\n  /* debug_suspension */ true\n\n?",
+      "range": {
+        "startLine": 2428,
+        "startChar": 84,
+        "endLine": 2428,
+        "endChar": 88
+      },
+      "revId": "70d60275cc2860bde50e5f9c5b151e94f745ae14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff4b1a9_7c3531c0",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3672,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2017-04-18T10:31:00Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 3672,
+        "startChar": 81,
+        "endLine": 3672,
+        "endChar": 85
+      },
+      "revId": "70d60275cc2860bde50e5f9c5b151e94f745ae14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
