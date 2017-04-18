@@ -64,6 +64,7 @@ class AllocRecordObjectMap;
 class GcPauseListener;
 class ReferenceProcessor;
 class TaskProcessor;
+class Verification;
 
 namespace accounting {
   class HeapBitmap;
@@ -820,6 +821,8 @@ class Heap {
   // reasons, we assume it stays valid when we read it (so that we don't require a lock).
   void RemoveGcPauseListener();
 
+  const Verification* GetVerification() const;
+
  private:
   class ConcurrentGCTask;
   class CollectorTransitionTask;
@@ -1431,6 +1434,8 @@ class Heap {
   Atomic<AllocationListener*> alloc_listener_;
   // An installed GC Pause listener.
   Atomic<GcPauseListener*> gc_pause_listener_;
+
+  std::unique_ptr<Verification> verification_;
 
   friend class CollectorTransitionTask;
   friend class collector::GarbageCollector;
