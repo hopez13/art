@@ -6650,6 +6650,18 @@ class HConstructorFence FINAL : public HVariableInputSizeInstruction {
   // still considered live.
   static void RemoveConstructorFences(HInstruction* instruction);
 
+  // Check is this constructor fence is protecting
+  // an HNewInstance or HNewArray that is also the immediate
+  // predecessor of `this`.
+  //
+  // If `match_inputs` is true, there must be exactly 1
+  // input and it must be for that HNewInstance.
+  //
+  // If `new_instance` is non-null, set it to the HNewInstance
+  // which we found (if any).
+  bool IsForAllocation(/* out */ HNewInstance** new_instance = nullptr,
+                       bool match_inputs = true);
+
   DECLARE_INSTRUCTION(ConstructorFence);
 
  private:

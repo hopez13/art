@@ -1234,6 +1234,38 @@ void HConstructorFence::RemoveConstructorFences(HInstruction* instruction) {
   }
 }
 
+bool HConstructorFence::IsForAllocation(HNewInstance** new_instance, bool match_inputs) {
+  HInstruction* new_instance_inst = GetPrevious();
+  // Check if the immediately preceding instruction is a new-instance/new-array.
+  // Otherwise this fence is for protecting final fields.
+  if (new_instance_inst != nullptr &&
+          !(new_instance_inst->IsNewInstance() || new_instance_inst->IsNewArray())) {
+      new_instance_inst = nullptr;
+  }
+
+  if (new_instance_inst == nullptr) {
+    // The prior instruction is not a new-instance,
+    // so this fence cannot possibly be protecting the allocation.
+    return false;
+  }
+
+  if (new_instance_inst->IsNewInstance() && new_instance != nullptr) {
+    *new_instance = new_instance_inst->AsNewInstance();
+  }
+
+  if (!match_inputs) {
+    return true;
+  }
+
+  // There must be exactly 1 input and that should be the previous instruction,
+  // which is a HNewInstance/HNewArray.
+  if (InputCount() != 1u) {
+    return false;
+  } else {
+    return InputAt(0) == new_instance_inst;
+  }
+}
+
 #define DEFINE_ACCEPT(name, super)                                             \
 void H##name::Accept(HGraphVisitor* visitor) {                                 \
   visitor->Visit##name(this);                                                  \
