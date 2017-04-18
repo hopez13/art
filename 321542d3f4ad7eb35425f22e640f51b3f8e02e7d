@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "0b28309b_297dd4bc",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:39:25Z",
+      "side": 1,
+      "message": "sorry, meant to go on below line, this was fine :).",
+      "parentUuid": "cbb10476_4d99412b",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 9
+      },
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77bbff9_3257fcc7",
         "filename": "tools/art",
         "patchSetId": 2
@@ -178,6 +202,24 @@
       "side": 1,
       "message": "\"*I indented\" ...",
       "parentUuid": "b640a908_113c596d",
+      "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0d5f646_ed90858d",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:39:25Z",
+      "side": 1,
+      "message": "Np, the main argument indentation was wrong to begin with unfortunately.\n\nhttps://google.github.io/styleguide/shell.xml?showone\u003dCase_statement#Case_statement",
+      "parentUuid": "f541ceb5_a3f7ad48",
       "revId": "321542d3f4ad7eb35425f22e640f51b3f8e02e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d4a73fc_8929cbd2",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:39:25Z",
+      "side": 1,
+      "message": "nit: this case was fine to leave as-is unindented\n\nhttps://google.github.io/styleguide/shell.xml?showone\u003dCase_statement#Case_statement\n\nit should follow the same rules as a C++ switch/case\n\n  // C++\n  switch (x) {\n    case y:\n      ...\n      break;\n  }\n\n  // Sh\n  case x in\n    y)\n      ...\n      ;;\n  esac",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 4
+      },
+      "revId": "2094dd2af4058992e6e85947e90b79bc478405c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4f56118_ee0cd92f",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:39:25Z",
+      "side": 1,
+      "message": "nit: using string substitution is more apparent\n\n    ${DEX2OAT_BOOTIMAGE##-Ximage:}",
+      "revId": "2094dd2af4058992e6e85947e90b79bc478405c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6df692e_9e72c254",
+        "filename": "tools/art",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T20:39:25Z",
+      "side": 1,
+      "message": "Ok but lets leave a comment here\n\n   # TODO: support -classpath, CLASSPATH, etc.",
+      "revId": "2094dd2af4058992e6e85947e90b79bc478405c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
