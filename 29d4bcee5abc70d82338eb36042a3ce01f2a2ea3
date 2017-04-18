@@ -46,6 +46,30 @@
       "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b99cc4ee_61529b73",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T22:39:55Z",
+      "side": 1,
+      "message": "Just remember that debug build here really means build for our tests. There not shipped on device under normal circumstances...",
+      "parentUuid": "7c22e17a_76db1342",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
