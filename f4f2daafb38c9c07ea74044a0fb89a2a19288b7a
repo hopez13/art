@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "58adfc4f_266cd36c",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T14:23:22Z",
+      "side": 1,
+      "message": "It\u0027s easier to change the entrypoint to expect a poisoned reference.",
+      "parentUuid": "c4e38876_ae5aea27",
+      "range": {
+        "startLine": 435,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 82
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "364e1bdb_6dcad31e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 32
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8054f075_144e0921",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 6072,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T14:23:22Z",
+      "side": 1,
+      "message": "Done, https://android-review.googlesource.com/374493 .",
+      "parentUuid": "364e1bdb_6dcad31e",
+      "range": {
+        "startLine": 6072,
+        "startChar": 0,
+        "endLine": 6072,
+        "endChar": 81
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89f4b6d_73991133",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 32
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-17T19:52:03Z",
       "side": 1,
       "message": "Add logic for unpoisoning",
+      "range": {
+        "startLine": 2558,
+        "startChar": 0,
+        "endLine": 2558,
+        "endChar": 42
+      },
+      "revId": "f4f2daafb38c9c07ea74044a0fb89a2a19288b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac950561_2620f194",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 32
+      },
+      "lineNbr": 2558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2017-04-18T14:23:22Z",
+      "side": 1,
+      "message": "Changed the main entrypoint to expect a poisoned reference.",
+      "parentUuid": "e89f4b6d_73991133",
       "range": {
         "startLine": 2558,
         "startChar": 0,
