@@ -25,6 +25,7 @@
 #include "globals.h"
 #include "base/logging.h"
 #include "base/hex_dump.h"
+#include "base/safe_copy.h"
 #include "thread.h"
 #include "thread-inl.h"
 
@@ -78,6 +79,22 @@ extern "C" void art_quick_test_suspend();
 // Get the size of an instruction in bytes.
 // Return 0 if the instruction is not handled.
 static uint32_t GetInstructionSize(const uint8_t* pc) {
+  // Don't segfault if pc points to garbage.
+  char buf[15];  // x86/x86-64 have a maximum instruction length of 15 bytes.
+  ssize_t bytes = SafeCopy(buf, pc, sizeof(buf));
+
+  if (bytes == 0) {
+    // Nothing was readable.
+    return 0;
+  }
+
+  if (bytes == -1) {
+    // SafeCopy not supported, assume that the entire range is readable.
+    bytes = 16;
+  } else {
+    pc = reinterpret_cast<uint8_t*>(buf);
+  }
+
 #if defined(__x86_64)
   const bool x86_64 = true;
 #else
@@ -96,6 +113,10 @@ static uint32_t GetInstructionSize(const uint8_t* pc) {
 
   // Prefixes.
   while (true) {
+    if (pc - startpc > bytes) {
+      return 0;
+    }
+
     bool prefix_present = false;
     switch (opcode) {
       // Group 3
@@ -238,6 +259,9 @@ static uint32_t GetInstructionSize(const uint8_t* pc) {
   pc += displacement_size + immediate_size;
 
   VLOG(signals) << "x86 instruction length calculated as " << (pc - startpc);
+  if (pc - startpc > bytes) {
+    return 0;
+  }
   return pc - startpc;
 }
 
