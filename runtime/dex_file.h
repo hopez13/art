@@ -1144,6 +1144,7 @@ class DexFile {
                                              bool verify,
                                              bool verify_checksum,
                                              std::string* error_msg,
+                                             bool madvise,
                                              VerifyResult* verify_result = nullptr);
 
 

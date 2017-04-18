@@ -805,6 +805,12 @@ else
     $vdex_cmdline || { echo "Dex2oat failed." >&2 ; exit 2; }
     $strip_cmdline || { echo "Strip failed." >&2 ; exit 3; }
     $sync_cmdline || { echo "Sync failed." >&2 ; exit 4; }
+    echo "$dex2oat_cmdline"
+    echo "$profman_cmdline"
+    echo "$vdex_cmdline"
+    echo "$strip_cmdline"
+    echo "$sync_cmdline"
+    emacs $DEX_LOCATION
 
     # For running, we must turn off logging when dex2oat or patchoat are missing. Otherwise we use
     # the same defaults as for prebuilt: everything when --dev, otherwise errors and above only.
@@ -825,6 +831,8 @@ else
       exit 0
     fi
 
+    echo "$cmdline"
+    echo "$@"
     if [ "$USE_GDB" = "y" ]; then
       # When running under gdb, we cannot do piping and grepping...
       $cmdline "$@"

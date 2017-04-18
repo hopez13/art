@@ -20,6 +20,7 @@
 
 #include <limits>
 #include <memory>
+#include <sys/mman.h>
 
 #include "android-base/stringprintf.h"
 
@@ -29,6 +30,7 @@
 #include "safe_map.h"
 #include "utf-inl.h"
 #include "utils.h"
+#include "runtime.h"
 
 namespace art {
 

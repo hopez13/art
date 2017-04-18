@@ -32,14 +32,14 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         // Load the dex file, this is a pre-requisite to mmap-ing it in.
-        Class<?> AnotherClass = testDexFile();
+      //Class<?> AnotherClass = testDexFile();
         // Check that the memory maps are clean.
         testDexMemoryMaps();
 
         // Prevent garbage collector from collecting our DexFile
         // (and unmapping too early) by using it after we finish
         // our verification.
-        AnotherClass.newInstance();
+        //AnotherClass.newInstance();
     }
 
     private static boolean checkSmapsEntry(String[] smapsLines, int offset) {
@@ -57,7 +57,7 @@ public class Main {
       // We have the right entry, now make sure it's valid.
       for (int i = offset; i < smapsLines.length; ++i) {
         String line = smapsLines[i];
-
+        System.out.println(line);
         if (line.startsWith("Shared_Dirty") || line.startsWith("Private_Dirty")) {
           String lineTrimmed = line.trim();
           String[] lineSplit = lineTrimmed.split(" +");
@@ -106,6 +106,7 @@ public class Main {
     private static void testDexMemoryMaps() throws Exception {
         // Ensure that the secondary dex file is mapped clean (directly from JAR file).
         String smaps = new String(Files.readAllBytes(Paths.get("/proc/self/smaps")));
+        //        System.out.println(smaps);
 
         String[] smapsLines = smaps.split("\n");
         boolean found = true;

@@ -29,6 +29,7 @@
 #include <memory>
 #include <sstream>
 #include <type_traits>
+#include <iostream>
 
 #include "android-base/stringprintf.h"
 
@@ -45,6 +46,7 @@
 #include "utf-inl.h"
 #include "utils.h"
 #include "zip_archive.h"
+#include "runtime.h"
 
 namespace art {
 
@@ -176,7 +178,8 @@ std::unique_ptr<const DexFile> DexFile::Open(const uint8_t* base,
                     oat_dex_file,
                     verify,
                     verify_checksum,
-                    error_msg);
+                    error_msg,
+                    true);
 }
 
 std::unique_ptr<const DexFile> DexFile::Open(const std::string& location,
@@ -202,7 +205,8 @@ std::unique_ptr<const DexFile> DexFile::Open(const std::string& location,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
-                                                 error_msg);
+                                                 error_msg,
+                                                 true);
   if (dex_file != nullptr) {
     dex_file->mem_map_.reset(map.release());
   }
@@ -321,7 +325,8 @@ std::unique_ptr<const DexFile> DexFile::OpenFile(int fd,
                                                  kNoOatDexFile,
                                                  verify,
                                                  verify_checksum,
-                                                 error_msg);
+                                                 error_msg,
+                                                 true);
   if (dex_file != nullptr) {
     dex_file->mem_map_.reset(map.release());
   }
@@ -349,6 +354,7 @@ std::unique_ptr<const DexFile> DexFile::OpenOneDexFileFromZip(const ZipArchive& 
   }
 
   std::unique_ptr<MemMap> map;
+  bool is_dexfile_uncompressed = false;
   if (zip_entry->IsUncompressed()) {
     if (!zip_entry->IsAlignedTo(alignof(Header))) {
       // Do not mmap unaligned ZIP entries because
@@ -357,6 +363,7 @@ std::unique_ptr<const DexFile> DexFile::OpenOneDexFileFromZip(const ZipArchive& 
                    << "please zipalign to " << alignof(Header) << " bytes. "
                    << "Falling back to extracting file.";
     } else {
+      is_dexfile_uncompressed = true;
       // Map uncompressed files within zip as file-backed to avoid a dirty copy.
       map.reset(zip_entry->MapDirectlyFromFile(location.c_str(), /*out*/error_msg));
       if (map == nullptr) {
@@ -388,6 +395,7 @@ std::unique_ptr<const DexFile> DexFile::OpenOneDexFileFromZip(const ZipArchive& 
                                                  /* verify */ true,
                                                  verify_checksum,
                                                  error_msg,
+                                                 is_dexfile_uncompressed,
                                                  &verify_result);
   if (dex_file == nullptr) {
     if (verify_result == VerifyResult::kVerifyNotAttempted) {
@@ -485,6 +493,7 @@ std::unique_ptr<DexFile> DexFile::OpenCommon(const uint8_t* base,
                                              bool verify,
                                              bool verify_checksum,
                                              std::string* error_msg,
+                                             bool madvise_val,
                                              VerifyResult* verify_result) {
   if (verify_result != nullptr) {
     *verify_result = VerifyResult::kVerifyNotAttempted;
@@ -503,16 +512,30 @@ std::unique_ptr<DexFile> DexFile::OpenCommon(const uint8_t* base,
     dex_file.reset();
     return nullptr;
   }
-  if (verify && !DexFileVerifier::Verify(dex_file.get(),
-                                         dex_file->Begin(),
-                                         dex_file->Size(),
-                                         location.c_str(),
-                                         verify_checksum,
-                                         error_msg)) {
-    if (verify_result != nullptr) {
-      *verify_result = VerifyResult::kVerifyFailed;
+  if (verify) {
+    if (!DexFileVerifier::Verify(dex_file.get(),
+                                 dex_file->Begin(),
+                                 dex_file->Size(),
+                                 location.c_str(),
+                                 verify_checksum,
+                                 error_msg)) {
+      if (verify_result != nullptr) {
+        *verify_result = VerifyResult::kVerifyFailed;
+      }
+      return nullptr;
     }
-    return nullptr;
+    if (madvise_val && Runtime::Current() != nullptr
+        && !Runtime::Current()->IsAotCompiler()) {
+      uint8_t
+          *start = const_cast<uint8_t *>(AlignUp(dex_file->Begin(), kPageSize));
+      uint8_t *end = const_cast<uint8_t *>(AlignDown(dex_file->Begin() + size,
+                                                     kPageSize));
+      size_t length = end - start;
+      if (start < end) {
+        std::cout << "here" << size;
+        madvise(start, length, MADV_DONTNEED);
+      }
+    }
   }
   if (verify_result != nullptr) {
     *verify_result = VerifyResult::kVerifySucceeded;
