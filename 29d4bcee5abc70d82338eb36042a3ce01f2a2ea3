@@ -94,6 +94,30 @@
       "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f756b375_7b0d5c5c",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-04-18T22:46:10Z",
+      "side": 1,
+      "message": "Well, our tests only run code under our control. We\u0027re not usually corrupting our process... :-P",
+      "parentUuid": "708fa0eb_055ca04d",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "29d4bcee5abc70d82338eb36042a3ce01f2a2ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
