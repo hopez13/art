@@ -22,6 +22,29 @@
       "revId": "828a60c39a1fa277b50f1f218e6301e2e419c842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24dfab65_78076f7a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2017-04-18T13:57:24Z",
+      "side": 1,
+      "message": "I prefer when the CHECK is checking a local variable instead. Reading CHECK(...) makes me think we could turn it into a DCHECK which isn\u0027t the case when written like this.",
+      "range": {
+        "startLine": 326,
+        "startChar": 12,
+        "endLine": 326,
+        "endChar": 72
+      },
+      "revId": "828a60c39a1fa277b50f1f218e6301e2e419c842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
