@@ -90,7 +90,7 @@ inline void BaseMutex::RegisterAsLocked(Thread* self) {
     bool bad_mutexes_held = false;
     for (int i = level_; i >= 0; --i) {
       BaseMutex* held_mutex = self->GetHeldMutex(static_cast<LockLevel>(i));
-      if (UNLIKELY(held_mutex != nullptr)) {
+      if (UNLIKELY(held_mutex != nullptr) && i != kAbortLock) {
         LOG(ERROR) << "Lock level violation: holding \"" << held_mutex->name_ << "\" "
                    << "(level " << LockLevel(i) << " - " << i
                    << ") while locking \"" << name_ << "\" "
