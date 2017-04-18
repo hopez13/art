@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0f17ce4_540f4eb8",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-18T20:47:32Z",
+      "side": 1,
+      "message": "Ah I missed that. I don\u0027t want OutputSame as I may improve this later for other cases. But IsZeroExtendedAndGet would be consistent with the other similar methods.",
+      "parentUuid": "5cd5cc82_d64473d9",
+      "range": {
+        "startLine": 114,
+        "startChar": 12,
+        "endLine": 114,
+        "endChar": 27
+      },
+      "revId": "7eb91604320195eb9d36a5d4e84875a2d7621014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0597ea86_dcc894ca",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-18T20:30:46Z",
       "side": 1,
       "message": "nit: either implies exclusive or. is it actually exclusive though?",
+      "range": {
+        "startLine": 158,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 27
+      },
+      "revId": "7eb91604320195eb9d36a5d4e84875a2d7621014",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "984ef2a7_b4aeca39",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2017-04-18T20:47:32Z",
+      "side": 1,
+      "message": "well, one of the patterns applies (since even mask \u0026 mask will fall into the first only). But removed either.",
+      "parentUuid": "0597ea86_dcc894ca",
       "range": {
         "startLine": 158,
         "startChar": 21,
