@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "726aa385_a2081aea",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2017-04-18T17:58:33Z",
+      "side": 1,
+      "message": "I suppose this is a moot point because Nicolas wanted the value to be set once when the graph is being built.\n\n-----\n\nIn principle, this sounds a lot like a \"DCHECK is a different behavior\" because the DCHECK contents are never evaluated on release builds either.\n\nI would hope that if the expr in DCHECK(expr) has no side effects on the context then it doesn\u0027t matter.\n\nThe code in question is functionally equivalent to\n\n    GetThisParameter() {\n      if (cached) {\n         DCHECK_EQ(GetThisParameterUncached(), cached);\n         return cached;\n      } \n      cached \u003d GetThisParameterUncached();\n      return cached;\n    }\n\n\nexcept without the extra secondary function where \n GetThisParameterUncached() would do a read-only walk of the graph so it has no side effects.",
+      "parentUuid": "cde01562_80392e15",
+      "range": {
+        "startLine": 531,
+        "startChar": 52,
+        "endLine": 531,
+        "endChar": 65
+      },
+      "revId": "01bb8003e3365d3f821c3f8436f7dbb5d5a6d4e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88b65b69_cbe5a5a6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
